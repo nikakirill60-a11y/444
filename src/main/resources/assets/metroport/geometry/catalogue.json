@@ -1,0 +1,401 @@
+{
+  "armor": {
+    "geometry": "armor",
+    "texture": "metroport:textures/legacy/armor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelArmor.java",
+    "kind": "armor"
+  },
+  "bandit": {
+    "geometry": "bandit",
+    "texture": "metroport:textures/legacy/bandit.png",
+    "scale": 1.0,
+    "sourceModel": "ModelBandit.java",
+    "kind": "armor"
+  },
+  "bazaltarmor": {
+    "geometry": "bazaltarmor",
+    "texture": "metroport:textures/legacy/bazaltarmor.png",
+    "scale": 0.5,
+    "sourceModel": "ModelBazaltArmor.java",
+    "kind": "armor"
+  },
+  "bazalthelmet": {
+    "geometry": "bazalthelmet",
+    "texture": "metroport:textures/legacy/bazalthelmet.png",
+    "scale": 0.5,
+    "sourceModel": "ModelBazaltHelmet.java",
+    "kind": "armor"
+  },
+  "custarmor": {
+    "geometry": "custarmor",
+    "texture": "metroport:textures/legacy/custarmor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelCustArmor.java",
+    "kind": "armor"
+  },
+  "ganzaarmor": {
+    "geometry": "ganzaarmor",
+    "texture": "metroport:textures/legacy/ganzaarmor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelGanza.java",
+    "kind": "armor"
+  },
+  "ganzahelm": {
+    "geometry": "ganzahelm",
+    "texture": "metroport:textures/legacy/ganzahelm.png",
+    "scale": 1.0,
+    "sourceModel": "ModelGanzaHelm.java",
+    "kind": "armor"
+  },
+  "ganzatyaj": {
+    "geometry": "ganzatyaj",
+    "texture": "metroport:textures/legacy/ganzatyaj.png",
+    "scale": 1.0,
+    "sourceModel": "ModelGanzaTyaj.java",
+    "kind": "armor"
+  },
+  "ganza_helmet": {
+    "geometry": "ganza_helmet",
+    "texture": "metroport:textures/legacy/ganza_helmet.png",
+    "scale": 1.0,
+    "sourceModel": "ModelGanza_helmet.java",
+    "kind": "armor"
+  },
+  "gasmask": {
+    "geometry": "gasmask",
+    "texture": "metroport:textures/legacy/gasmask.png",
+    "scale": 0.15,
+    "sourceModel": "ModelGasMask.java",
+    "kind": "armor"
+  },
+  "hardhelmet": {
+    "geometry": "hardhelmet",
+    "texture": "metroport:textures/legacy/hardhelmet.png",
+    "scale": 1.0,
+    "sourceModel": "ModelHeavyHelmet.java",
+    "kind": "armor"
+  },
+  "heavy_helmet": {
+    "geometry": "heavy_helmet",
+    "texture": "metroport:textures/legacy/heavy_helmet.png",
+    "scale": 0.5,
+    "sourceModel": "ModelHeavy_helmet.java",
+    "kind": "armor"
+  },
+  "helmet": {
+    "geometry": "helmet",
+    "texture": "metroport:textures/legacy/helmet.png",
+    "scale": 0.1,
+    "sourceModel": "ModelHelmet.java",
+    "kind": "armor"
+  },
+  "himza": {
+    "geometry": "himza",
+    "texture": "metroport:textures/legacy/himza.png",
+    "scale": 1.0,
+    "sourceModel": "ModelHimza.java",
+    "kind": "armor"
+  },
+  "kontrabody": {
+    "geometry": "kontrabody",
+    "texture": "metroport:textures/legacy/kontrabody.png",
+    "scale": 0.5,
+    "sourceModel": "ModelKontraBody.java",
+    "kind": "armor"
+  },
+  "legionarmor": {
+    "geometry": "legionarmor",
+    "texture": "metroport:textures/legacy/legionarmor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelLegionArmor.java",
+    "kind": "armor"
+  },
+  "legionhelmet": {
+    "geometry": "legionhelmet",
+    "texture": "metroport:textures/legacy/legionhelmet.png",
+    "scale": 0.1,
+    "sourceModel": "ModelLegionHelmet.java",
+    "kind": "armor"
+  },
+  "m12": {
+    "geometry": "m12",
+    "texture": "metroport:textures/legacy/m12.png",
+    "scale": 1.0,
+    "sourceModel": "ModelM12.java",
+    "kind": "armor"
+  },
+  "nvgdbody": {
+    "geometry": "nvgdbody",
+    "texture": "metroport:textures/legacy/nvgdbody.png",
+    "scale": 1.0,
+    "sourceModel": "ModelNVGDBody.java",
+    "kind": "armor"
+  },
+  "nvgdhelmet": {
+    "geometry": "nvgdhelmet",
+    "texture": "metroport:textures/legacy/nvgdhelmet.png",
+    "scale": 1.0,
+    "sourceModel": "ModelNVGDHelmet.java",
+    "kind": "armor"
+  },
+  "pnv": {
+    "geometry": "pnv",
+    "texture": "metroport:textures/legacy/pnv.png",
+    "scale": 1.0,
+    "sourceModel": "ModelPNV.java",
+    "kind": "armor"
+  },
+  "plasharmor": {
+    "geometry": "plasharmor",
+    "texture": "metroport:textures/legacy/plasharmor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelPlashArmor.java",
+    "kind": "armor"
+  },
+  "polis": {
+    "geometry": "polis",
+    "texture": "metroport:textures/legacy/polis.png",
+    "scale": 0.5,
+    "sourceModel": "ModelPolis.java",
+    "kind": "armor"
+  },
+  "redkaska": {
+    "geometry": "redkaska",
+    "texture": "metroport:textures/legacy/redkaska.png",
+    "scale": 1.0,
+    "sourceModel": "ModelKaska.java",
+    "kind": "armor"
+  },
+  "redarmor": {
+    "geometry": "redarmor",
+    "texture": "metroport:textures/legacy/redarmor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelRedarmor.java",
+    "kind": "armor"
+  },
+  "reicharmor": {
+    "geometry": "reicharmor",
+    "texture": "metroport:textures/legacy/reicharmor.png",
+    "scale": 0.5,
+    "sourceModel": "ModelReichArmor.java",
+    "kind": "armor"
+  },
+  "reichhelmet": {
+    "geometry": "reichhelmet",
+    "texture": "metroport:textures/legacy/reichhelmet.png",
+    "scale": 0.5,
+    "sourceModel": "ModelReichHelmet.java",
+    "kind": "armor"
+  },
+  "reichhelmet2": {
+    "geometry": "reichhelmet2",
+    "texture": "metroport:textures/legacy/reichhelmet2.png",
+    "scale": 1.0,
+    "sourceModel": "ModelReichHelmet2.java",
+    "kind": "armor"
+  },
+  "reichla": {
+    "geometry": "reichla",
+    "texture": "metroport:textures/legacy/reichla.png",
+    "scale": 1.0,
+    "sourceModel": "ModelReichArmor2.java",
+    "kind": "armor"
+  },
+  "satanarmor": {
+    "geometry": "satanarmor",
+    "texture": "metroport:textures/legacy/satanarmor.png",
+    "scale": 1.0,
+    "sourceModel": "ModelSatanArmor.java",
+    "kind": "armor"
+  },
+  "standarthelmet": {
+    "geometry": "standarthelmet",
+    "texture": "metroport:textures/legacy/standarthelmet.png",
+    "scale": 0.1,
+    "sourceModel": "ModelStandartHelmet.java",
+    "kind": "armor"
+  },
+  "tajbandit": {
+    "geometry": "tajbandit",
+    "texture": "metroport:textures/legacy/tajbandit.png",
+    "scale": 1.0,
+    "sourceModel": "ModelTajBandit.java",
+    "kind": "armor"
+  },
+  "tyaj": {
+    "geometry": "tyaj",
+    "texture": "metroport:textures/legacy/tyaj.png",
+    "scale": 1.0,
+    "sourceModel": "ModelTyaj.java",
+    "kind": "armor"
+  },
+  "vatnik": {
+    "geometry": "vatnik",
+    "texture": "metroport:textures/legacy/vatnik.png",
+    "scale": 1.0,
+    "sourceModel": "ModelVatnik.java",
+    "kind": "armor"
+  },
+  "heavy": {
+    "geometry": "heavy",
+    "texture": "metroport:textures/legacy/heavy.png",
+    "scale": 1.0,
+    "sourceModel": "Modelheavy_armor.java",
+    "kind": "armor"
+  },
+  "light_armor": {
+    "geometry": "light_armor",
+    "texture": "metroport:textures/legacy/light_armor.png",
+    "scale": 1.0,
+    "sourceModel": "Modellight_armor.java",
+    "kind": "armor"
+  },
+  "collimator": {
+    "geometry": "collimator",
+    "texture": "metroport:textures/legacy/collimator.png",
+    "scale": 0.17,
+    "sourceModel": "ModelCollimator.java",
+    "kind": "attachment"
+  },
+  "lcu": {
+    "geometry": "lcu",
+    "texture": "metroport:textures/legacy/lcu.png",
+    "scale": 0.14,
+    "sourceModel": "ModelLCU.java",
+    "kind": "attachment"
+  },
+  "pso": {
+    "geometry": "pso",
+    "texture": "metroport:textures/legacy/pso.png",
+    "scale": 0.14,
+    "sourceModel": "ModelPSO.java",
+    "kind": "attachment"
+  },
+  "silencer": {
+    "geometry": "silencer",
+    "texture": "metroport:textures/legacy/silencer.png",
+    "scale": 0.14,
+    "sourceModel": "ModelSilencer.java",
+    "kind": "attachment"
+  },
+  "stvol": {
+    "geometry": "stvol",
+    "texture": "metroport:textures/legacy/stvol.png",
+    "scale": 0.14,
+    "sourceModel": "ModelStvol.java",
+    "kind": "attachment"
+  },
+  "ak74": {
+    "geometry": "ak74",
+    "texture": "metroport:textures/legacy/ak74.png",
+    "scale": 0.1,
+    "sourceModel": "ModelAk74.java",
+    "kind": "gun"
+  },
+  "aks74u": {
+    "geometry": "aks74u",
+    "texture": "metroport:textures/legacy/aks74u.png",
+    "scale": 0.11,
+    "sourceModel": "ModelAKS74U.java",
+    "kind": "gun"
+  },
+  "duplet": {
+    "geometry": "duplet",
+    "texture": "metroport:textures/legacy/duplet.png",
+    "scale": 0.23,
+    "sourceModel": "ModelDuplet.java",
+    "kind": "gun"
+  },
+  "rpk": {
+    "geometry": "rpk",
+    "texture": "metroport:textures/legacy/rpk.png",
+    "scale": 0.11,
+    "sourceModel": "ModelRPK.java",
+    "kind": "gun"
+  },
+  "saiga": {
+    "geometry": "saiga",
+    "texture": "metroport:textures/legacy/saiga.png",
+    "scale": 0.1,
+    "sourceModel": "ModelSaiga.java",
+    "kind": "gun"
+  },
+  "tihar": {
+    "geometry": "tihar",
+    "texture": "metroport:textures/legacy/tihar.png",
+    "scale": 0.1,
+    "sourceModel": "ModelTihar.java",
+    "kind": "gun"
+  },
+  "vsv": {
+    "geometry": "vsv",
+    "texture": "metroport:textures/legacy/vsv.png",
+    "scale": 0.15,
+    "sourceModel": "ModelVSV.java",
+    "kind": "gun"
+  },
+  "vintovka": {
+    "geometry": "vintovka",
+    "texture": "metroport:textures/legacy/vintovka.png",
+    "scale": 1.5,
+    "sourceModel": "ModelVintovka.java",
+    "kind": "gun"
+  },
+  "pkm": {
+    "geometry": "pkm",
+    "texture": "metroport:textures/legacy/pkm.png",
+    "scale": 0.06,
+    "sourceModel": "ModelPKM.java",
+    "kind": "gun"
+  },
+  "podonok": {
+    "geometry": "podonok",
+    "texture": "metroport:textures/legacy/podonok.png",
+    "scale": 0.25,
+    "sourceModel": "ModelPodonok.java",
+    "kind": "gun"
+  },
+  "preved": {
+    "geometry": "preved",
+    "texture": "metroport:textures/legacy/preved.png",
+    "scale": 0.25,
+    "sourceModel": "ModelPreved.java",
+    "kind": "gun"
+  },
+  "revolver": {
+    "geometry": "revolver",
+    "texture": "metroport:textures/legacy/revolver.png",
+    "scale": 0.25,
+    "sourceModel": "Modelrevolver.java",
+    "kind": "gun"
+  },
+  "svd": {
+    "geometry": "svd",
+    "texture": "metroport:textures/legacy/svd.png",
+    "scale": 0.06,
+    "sourceModel": "ModelSVD.java",
+    "kind": "gun"
+  },
+  "vssk": {
+    "geometry": "vssk",
+    "texture": "metroport:textures/legacy/vssk.png",
+    "scale": 0.09,
+    "sourceModel": "ModelVSSK.java",
+    "kind": "gun"
+  },
+  "ybludok": {
+    "geometry": "ybludok",
+    "texture": "metroport:textures/legacy/ybludok.png",
+    "scale": 0.12,
+    "sourceModel": "Modelybludok.java",
+    "kind": "gun"
+  },
+  "yboinik": {
+    "geometry": "yboinik",
+    "texture": "metroport:textures/legacy/yboinik.png",
+    "scale": 0.4,
+    "sourceModel": "Modelyboinik.java",
+    "kind": "gun"
+  }
+}

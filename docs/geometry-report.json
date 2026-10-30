@@ -1,0 +1,15 @@
+{
+  "models": 57,
+  "boxes": 12213,
+  "externalAssetsNotSupplied": [
+    "LastDays/models/sprites/SpriteShoot",
+    "LastDays/models/sprites/SpriteShoot2",
+    "LastDays/models/sprites/SpriteShoot3",
+    "LastDays/models/sprites/SpriteShoot4",
+    "LastDays/models/sprites/SpriteShoot5",
+    "LastDays/models/sprites/SpriteShoot6",
+    "LastDays/models/sprites/SpriteShoot7",
+    "LastDays/models/sprites/SpriteShoot8"
+  ],
+  "decorativeBlocks": 58
+}

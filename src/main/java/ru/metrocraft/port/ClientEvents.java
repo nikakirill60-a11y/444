@@ -27,6 +27,20 @@ public final class ClientEvents {
     }
 
     @SubscribeEvent
+    public static void bake(net.minecraftforge.client.event.ModelBakeEvent event) {
+        for (Definition d : MetroPort.definitions) {
+            if (!d.kind.equals("gun") && !d.kind.equals("attachment")) continue;
+            Item item = MetroPort.ITEMS.get(d.id);
+            ModelResourceLocation location = new ModelResourceLocation(item.getRegistryName(), "inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon = event.getModelRegistry().getObject(location);
+            if (icon != null) {
+                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.LegacyItemRenderer.INSTANCE);
+                event.getModelRegistry().putObject(location, new ru.metrocraft.port.client.LegacyItemModel(icon));
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void key(InputEvent.KeyInputEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         if (RELOAD.isPressed() && mc.player != null && mc.currentScreen == null

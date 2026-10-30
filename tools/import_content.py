@@ -124,6 +124,16 @@ def main():
                   'metroport.tool.repair=Right click to repair the item in your offhand',
                   'metroport.attachment.info=Attachment: installation is not ported yet',
                   'metroport.armor.gas=Radiation protection is not ported yet']}
+    for locale, language in [('ru_ru', 'ru'), ('en_us', 'en')]:
+        extra = {'filter': 'Фильтр (5 минут)' if language == 'ru' else 'Filter (5 minutes)',
+                 'testpickaxe': 'Кирка Metro' if language == 'ru' else 'Metro pickaxe'}
+        for key, name in extra.items():
+            translations[locale].append('item.metroport.' + key + '.name=' + name)
+        for index in range(58):
+            translations[locale].append('tile.metroport.block' + str(index) + '.name=' + ('Блок Metro ' if language == 'ru' else 'Metro block ') + str(index))
+        translations[locale].append('tile.metroport.radiation.name=' + ('Радиация (источник)' if language == 'ru' else 'Radiation source'))
+        translations[locale].append('metroport.armor.filter=' + ('Фильтр: %s сек. ПКМ с фильтром — заменить' if language == 'ru' else 'Filter: %s sec. Right click with a filter to replace'))
+        translations[locale].append('death.attack.metroRadiation=' + ('%s погиб от радиации' if language == 'ru' else '%s died from radiation'))
     for e in entries:
         legacy_key = 'item.' + e['shortName'] + '.name'
         translations['ru_ru'].append('item.metroport.' + e['id'] + '.name=' + ru.get(legacy_key, e['name']))

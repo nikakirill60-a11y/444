@@ -33,8 +33,14 @@ public final class MetroArmor extends ItemArmor {
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        // Legacy custom-model atlases do not have the UV layout of a vanilla biped.
-        return "minecraft:textures/models/armor/iron_layer_1.png";
+        return "metroport:textures/legacy/" + definition.id + ".png";
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public net.minecraft.client.model.ModelBiped getArmorModel(net.minecraft.entity.EntityLivingBase entity,
+            ItemStack stack, EntityEquipmentSlot slot, net.minecraft.client.model.ModelBiped original) {
+        return ru.metrocraft.port.client.LegacyArmorModel.get(definition.id);
     }
 
     @Override
@@ -42,8 +48,14 @@ public final class MetroArmor extends ItemArmor {
         return false; // Repair kits, not an unintended iron-ingot repair recipe.
     }
 
+    public boolean isGasMask() { return definition.gasMask; }
+
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
+        if (!world.isRemote && definition.gasMask && stack.hasTagCompound()) {
+            int ticks = stack.getTagCompound().getInteger("MetroFilterTicks");
+            if (ticks > 0) stack.getTagCompound().setInteger("MetroFilterTicks", ticks - 1);
+        }
         if (!world.isRemote && definition.nightVision) {
             PotionEffect current = player.getActivePotionEffect(MobEffects.NIGHT_VISION);
             if (current == null || current.getDuration() < 220) {
@@ -55,6 +67,9 @@ public final class MetroArmor extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag flag) {
-        if (definition.gasMask) lines.add(I18n.format("metroport.armor.gas"));
+        if (definition.gasMask) {
+            int ticks = stack.hasTagCompound() ? stack.getTagCompound().getInteger("MetroFilterTicks") : 0;
+            lines.add(I18n.format("metroport.armor.filter", (ticks + 19) / 20));
+        }
     }
 }

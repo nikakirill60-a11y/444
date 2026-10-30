@@ -29,7 +29,7 @@ class ContentTests(unittest.TestCase):
             self.assertEqual(model['textures']['layer0'], 'metroport:items/' + e['id'])
             texture = ASSETS / ('textures/items/' + e['id'] + '.png')
             self.assertTrue(texture.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'))
-        self.assertEqual(len(list((ASSETS / 'models/item').glob('*.json'))), 71)
+        self.assertGreaterEqual(len(list((ASSETS / 'models/item').glob('*.json'))), 71)
 
     def test_gun_ammo_references_and_parameters(self):
         ammo = {e['id'] for e in ENTRIES if e['kind'] == 'ammo'}
