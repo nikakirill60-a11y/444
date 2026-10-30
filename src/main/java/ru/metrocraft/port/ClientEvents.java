@@ -43,7 +43,21 @@ public final class ClientEvents {
             net.minecraft.client.renderer.block.model.IBakedModel icon = event.getModelRegistry().getObject(location);
             if (icon != null) {
                 item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.LegacyItemRenderer.INSTANCE);
-                event.getModelRegistry().putObject(location, new ru.metrocraft.port.client.LegacyItemModel(icon));
+                event.getModelRegistry().putObject(location, new ru.metrocraft.port.client.LegacyItemModel(d.id, d.kind.equals("gun"), icon));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void gateModels(net.minecraftforge.client.event.ModelBakeEvent event) {
+        for (ru.metrocraft.port.gates.GateBlock block : ru.metrocraft.port.gates.Gates.BLOCKS.values()) {
+            Item item = Item.getItemFromBlock(block);
+            ModelResourceLocation location = new ModelResourceLocation(item.getRegistryName(), "inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon = event.getModelRegistry().getObject(location);
+            if (icon != null) {
+                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.gates.GateItemRenderer.INSTANCE);
+                event.getModelRegistry().putObject(location,
+                        new ru.metrocraft.port.client.LegacyItemModel(block.type.id, false, icon, false));
             }
         }
     }

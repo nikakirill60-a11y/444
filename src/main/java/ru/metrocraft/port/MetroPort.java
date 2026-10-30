@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.1.0", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.2.0", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -75,6 +75,7 @@ public final class MetroPort {
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
+        ru.metrocraft.port.gates.Gates.initialize();
         PROXY.preInit();
     }
 
@@ -102,6 +103,9 @@ public final class MetroPort {
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+        net.minecraft.util.ResourceLocation gateSound = new net.minecraft.util.ResourceLocation(ID, "germo");
+        SoundEvent gateEvent = new SoundEvent(gateSound).setRegistryName(gateSound);
+        SOUNDS.put("germo", gateEvent); event.getRegistry().register(gateEvent);
         for (Definition d : definitions) {
             for (String id : new String[]{d.shootSound, d.reloadSound}) {
                 if (id == null || SOUNDS.containsKey(id)) continue;

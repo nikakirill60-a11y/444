@@ -16,10 +16,10 @@
     "filters": 1,
     "pickaxes": 1,
     "backpacks": 3,
-    "entityTypes": 10
+    "entityTypes": 10,
+    "hermeticGates": 6
   },
   "notPorted": [
-    "Hermetic doors and their multiblock/animation logic",
     "Legacy projectile ballistics, recoil and reload/hand animations",
     "Mounted attachment geometry and scope overlays",
     "Original pickup and external-container inventory capacity rules",

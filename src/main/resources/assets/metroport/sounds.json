@@ -98,5 +98,10 @@
     "sounds": [
       "metroport:uboinik_reload"
     ]
+  },
+  "germo": {
+    "sounds": [
+      "metroport:germo"
+    ]
   }
 }

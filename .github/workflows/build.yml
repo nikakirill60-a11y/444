@@ -39,5 +39,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.1.0.jar
+          path: build/libs/metrocraft-port-1.12.2-1.2.0.jar
           if-no-files-found: error

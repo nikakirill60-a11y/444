@@ -1,0 +1,277 @@
+/*
+ * Decompiled with CFR 0.152.
+ *
+ * Could not load the following classes:
+ *  net.minecraft.client.model.ModelBase
+ *  net.minecraft.client.model.ModelRenderer
+ *  net.minecraft.entity.Entity
+ */
+package ru.metrocraft.port.client.gates;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+
+public class ModelGermoLeft
+extends ModelBase {
+    ModelRenderer Shape1;
+    ModelRenderer Shape2;
+    ModelRenderer Shape3;
+    ModelRenderer Shape4;
+    ModelRenderer Shape5;
+    ModelRenderer Shape6;
+    ModelRenderer Shape7;
+    ModelRenderer Shape8;
+    ModelRenderer Shape9;
+    ModelRenderer Shape10;
+    ModelRenderer Shape11;
+    ModelRenderer Shape12;
+    ModelRenderer Shape13;
+    ModelRenderer Shape14;
+    ModelRenderer Shape15;
+    ModelRenderer Shape16;
+    ModelRenderer Shape17;
+    ModelRenderer Shape18;
+    ModelRenderer Shape19;
+    ModelRenderer Shape111;
+    ModelRenderer Shape112;
+    ModelRenderer Shape113;
+    ModelRenderer Shape114;
+    ModelRenderer Shape115;
+    ModelRenderer Shape116;
+    ModelRenderer Shape117;
+    ModelRenderer Shape118;
+    ModelRenderer Shape119;
+    ModelRenderer Shape121;
+    ModelRenderer Shape122;
+
+    public ModelGermoLeft() {
+        this.textureWidth = 256;
+        this.textureHeight = 256;
+        this.Shape1 = new ModelRenderer((ModelBase)this, 0, 138);
+        this.Shape1.addBox(0.0f, 0.0f, 0.0f, 13, 4, 72);
+        this.Shape1.setRotationPoint(-5.0f, -30.0f, -36.0f);
+        this.Shape1.setTextureSize(256, 256);
+        this.Shape1.mirror = true;
+        this.setRotation(this.Shape1, 0.0f, 0.0f, 0.0f);
+        this.Shape2 = new ModelRenderer((ModelBase)this, 244, 0);
+        this.Shape2.addBox(0.0f, 0.0f, 0.0f, 4, 4, 2);
+        this.Shape2.setRotationPoint(4.0f, 20.0f, 9.0f);
+        this.Shape2.setTextureSize(256, 256);
+        this.Shape2.mirror = true;
+        this.setRotation(this.Shape2, 0.0f, 0.0f, 0.0f);
+        this.Shape3 = new ModelRenderer((ModelBase)this, 0, 36);
+        this.Shape3.addBox(0.0f, 0.0f, 0.0f, 16, 4, 80);
+        this.Shape3.setRotationPoint(-8.0f, -40.0f, -40.0f);
+        this.Shape3.setTextureSize(256, 256);
+        this.Shape3.mirror = true;
+        this.setRotation(this.Shape3, 0.0f, 0.0f, 0.0f);
+        this.Shape4 = new ModelRenderer((ModelBase)this, 35, 62);
+        this.Shape4.addBox(0.0f, 0.0f, 0.0f, 1, 2, 52);
+        this.Shape4.setRotationPoint(-9.0f, -14.0f, -34.0f);
+        this.Shape4.setTextureSize(256, 256);
+        this.Shape4.mirror = true;
+        this.setRotation(this.Shape4, 0.0f, 0.0f, 0.0f);
+        this.Shape5 = new ModelRenderer((ModelBase)this, 0, 132);
+        this.Shape5.addBox(0.0f, 0.0f, 0.0f, 13, 52, 72);
+        this.Shape5.setRotationPoint(-8.0f, -36.0f, -36.0f);
+        this.Shape5.setTextureSize(256, 256);
+        this.Shape5.mirror = true;
+        this.setRotation(this.Shape5, 0.0f, 0.0f, 0.0f);
+        this.Shape6 = new ModelRenderer((ModelBase)this, 0, 32);
+        this.Shape6.addBox(0.0f, 0.0f, 0.0f, 16, 4, 80);
+        this.Shape6.setRotationPoint(-8.0f, 16.0f, -40.0f);
+        this.Shape6.setTextureSize(256, 256);
+        this.Shape6.mirror = true;
+        this.setRotation(this.Shape6, 0.0f, 0.0f, 0.0f);
+        this.Shape7 = new ModelRenderer((ModelBase)this, 0, 174);
+        this.Shape7.addBox(0.0f, 0.0f, 0.0f, 13, 4, 72);
+        this.Shape7.setRotationPoint(-5.0f, 6.0f, -36.0f);
+        this.Shape7.setTextureSize(256, 256);
+        this.Shape7.mirror = true;
+        this.setRotation(this.Shape7, 0.0f, 0.0f, 0.0f);
+        this.Shape8 = new ModelRenderer((ModelBase)this, 0, 162);
+        this.Shape8.addBox(0.0f, 0.0f, 0.0f, 13, 4, 72);
+        this.Shape8.setRotationPoint(-5.0f, -6.0f, -36.0f);
+        this.Shape8.setTextureSize(256, 256);
+        this.Shape8.mirror = true;
+        this.setRotation(this.Shape8, 0.0f, 0.0f, 0.0f);
+        this.Shape9 = new ModelRenderer((ModelBase)this, 0, 151);
+        this.Shape9.addBox(0.0f, 0.0f, 0.0f, 13, 4, 72);
+        this.Shape9.setRotationPoint(-5.0f, -18.0f, -36.0f);
+        this.Shape9.setTextureSize(256, 256);
+        this.Shape9.mirror = true;
+        this.setRotation(this.Shape9, 0.0f, 0.0f, 0.0f);
+        this.Shape10 = new ModelRenderer((ModelBase)this, 170, 200);
+        this.Shape10.addBox(0.0f, 0.0f, 0.0f, 16, 52, 4);
+        this.Shape10.setRotationPoint(-8.0f, -36.0f, -40.0f);
+        this.Shape10.setTextureSize(256, 256);
+        this.Shape10.mirror = true;
+        this.setRotation(this.Shape10, 0.0f, 0.0f, 0.0f);
+        this.Shape11 = new ModelRenderer((ModelBase)this, 0, 28);
+        this.Shape11.addBox(0.0f, 0.0f, 0.0f, 12, 4, 80);
+        this.Shape11.setRotationPoint(-8.0f, 20.0f, -40.0f);
+        this.Shape11.setTextureSize(256, 256);
+        this.Shape11.mirror = true;
+        this.setRotation(this.Shape11, 0.0f, 0.0f, 0.0f);
+        this.Shape12 = new ModelRenderer((ModelBase)this, 244, 0);
+        this.Shape12.addBox(0.0f, 0.0f, 0.0f, 4, 4, 2);
+        this.Shape12.setRotationPoint(4.0f, 20.0f, -11.0f);
+        this.Shape12.setTextureSize(256, 256);
+        this.Shape12.mirror = true;
+        this.setRotation(this.Shape12, 0.0f, 0.0f, 0.0f);
+        this.Shape13 = new ModelRenderer((ModelBase)this, 210, 200);
+        this.Shape13.addBox(0.0f, 0.0f, 0.0f, 16, 52, 4);
+        this.Shape13.setRotationPoint(-8.0f, -36.0f, 36.0f);
+        this.Shape13.setTextureSize(256, 256);
+        this.Shape13.mirror = true;
+        this.setRotation(this.Shape13, 0.0f, 0.0f, 0.0f);
+        this.Shape14 = new ModelRenderer((ModelBase)this, 8, 0);
+        this.Shape14.addBox(0.0f, 0.0f, 0.0f, 3, 8, 4);
+        this.Shape14.setRotationPoint(-11.0f, -14.0f, 30.0f);
+        this.Shape14.setTextureSize(256, 256);
+        this.Shape14.mirror = true;
+        this.setRotation(this.Shape14, 0.0f, 0.0f, 0.0f);
+        this.Shape15 = new ModelRenderer((ModelBase)this, 20, 0);
+        this.Shape15.addBox(0.0f, 0.0f, 0.0f, 5, 8, 4);
+        this.Shape15.setRotationPoint(-13.0f, -6.0f, 30.0f);
+        this.Shape15.setTextureSize(256, 256);
+        this.Shape15.mirror = true;
+        this.setRotation(this.Shape15, 0.0f, 0.0f, 0.0f);
+        this.Shape16 = new ModelRenderer((ModelBase)this, 19, 12);
+        this.Shape16.addBox(0.0f, 0.0f, 0.0f, 4, 9, 8);
+        this.Shape16.setRotationPoint(-12.0f, -30.0f, 18.0f);
+        this.Shape16.setTextureSize(256, 256);
+        this.Shape16.mirror = true;
+        this.setRotation(this.Shape16, 0.0f, 0.0f, 0.0f);
+        this.Shape17 = new ModelRenderer((ModelBase)this, 28, 0);
+        this.Shape17.addBox(0.0f, 0.0f, 0.0f, 3, 5, 2);
+        this.Shape17.setRotationPoint(-11.0f, -4.0f, 27.0f);
+        this.Shape17.setTextureSize(256, 256);
+        this.Shape17.mirror = true;
+        this.setRotation(this.Shape17, 0.0f, 0.0f, 0.0f);
+        this.Shape18 = new ModelRenderer((ModelBase)this, 9, 0);
+        this.Shape18.addBox(0.0f, 0.0f, 0.0f, 3, 5, 2);
+        this.Shape18.setRotationPoint(-11.0f, -13.0f, 27.0f);
+        this.Shape18.setTextureSize(256, 256);
+        this.Shape18.mirror = true;
+        this.setRotation(this.Shape18, 0.0f, 0.0f, 0.0f);
+        this.Shape19 = new ModelRenderer((ModelBase)this, 23, 12);
+        this.Shape19.addBox(0.0f, 0.0f, 0.0f, 6, 7, 8);
+        this.Shape19.setRotationPoint(-14.0f, -14.0f, 18.0f);
+        this.Shape19.setTextureSize(256, 256);
+        this.Shape19.mirror = true;
+        this.setRotation(this.Shape19, 0.0f, 0.0f, 0.0f);
+        this.Shape111 = new ModelRenderer((ModelBase)this, 0, 0);
+        this.Shape111.addBox(0.0f, 0.0f, 0.0f, 3, 7, 4);
+        this.Shape111.setRotationPoint(-11.0f, -21.0f, 20.0f);
+        this.Shape111.setTextureSize(256, 256);
+        this.Shape111.mirror = true;
+        this.setRotation(this.Shape111, 0.0f, 0.0f, 0.0f);
+        this.Shape112 = new ModelRenderer((ModelBase)this, 45, 11);
+        this.Shape112.addBox(0.0f, 0.0f, 0.0f, 6, 1, 10);
+        this.Shape112.setRotationPoint(-22.0f, 2.5f, -42.0f);
+        this.Shape112.setTextureSize(256, 256);
+        this.Shape112.mirror = true;
+        this.setRotation(this.Shape112, 0.0f, 0.0f, 0.0f);
+        this.Shape113 = new ModelRenderer((ModelBase)this, 0, 15);
+        this.Shape113.addBox(0.0f, 0.0f, 0.0f, 2, 4, 2);
+        this.Shape113.setRotationPoint(-10.0f, -15.0f, -36.0f);
+        this.Shape113.setTextureSize(256, 256);
+        this.Shape113.mirror = true;
+        this.setRotation(this.Shape113, 0.0f, 0.0f, 0.0f);
+        this.Shape114 = new ModelRenderer((ModelBase)this, 33, 63);
+        this.Shape114.addBox(0.0f, 0.0f, 0.0f, 2, 3, 54);
+        this.Shape114.setRotationPoint(-10.0f, -3.0f, -34.0f);
+        this.Shape114.setTextureSize(256, 256);
+        this.Shape114.mirror = true;
+        this.setRotation(this.Shape114, 0.0f, 0.0f, 0.0f);
+        this.Shape115 = new ModelRenderer((ModelBase)this, 0, 11);
+        this.Shape115.addBox(0.0f, 0.0f, 0.0f, 3, 5, 2);
+        this.Shape115.setRotationPoint(-11.0f, -4.0f, -36.0f);
+        this.Shape115.setTextureSize(256, 256);
+        this.Shape115.mirror = true;
+        this.setRotation(this.Shape115, 0.0f, 0.0f, 0.0f);
+        this.Shape116 = new ModelRenderer((ModelBase)this, 15, 0);
+        this.Shape116.addBox(0.0f, 0.0f, 0.0f, 3, 5, 6);
+        this.Shape116.setRotationPoint(-11.0f, -4.0f, 20.0f);
+        this.Shape116.setTextureSize(256, 256);
+        this.Shape116.mirror = true;
+        this.setRotation(this.Shape116, 0.0f, 0.0f, 0.0f);
+        this.Shape117 = new ModelRenderer((ModelBase)this, 0, 12);
+        this.Shape117.addBox(0.0f, 0.0f, 0.0f, 4, 7, 6);
+        this.Shape117.setRotationPoint(-12.0f, -5.0f, 13.0f);
+        this.Shape117.setTextureSize(256, 256);
+        this.Shape117.mirror = true;
+        this.setRotation(this.Shape117, 0.0f, 0.0f, 0.0f);
+        this.Shape118 = new ModelRenderer((ModelBase)this, 178, 0);
+        this.Shape118.addBox(0.0f, 0.0f, 0.0f, 3, 7, 36);
+        this.Shape118.setRotationPoint(-22.0f, -4.95f, -16.0f);
+        this.Shape118.setTextureSize(256, 256);
+        this.Shape118.mirror = true;
+        this.setRotation(this.Shape118, 0.0f, 0.2792527f, 0.0f);
+        this.Shape119 = new ModelRenderer((ModelBase)this, 157, 0);
+        this.Shape119.addBox(0.0f, 0.0f, 0.0f, 4, 8, 24);
+        this.Shape119.setRotationPoint(-22.0f, -5.5f, -40.0f);
+        this.Shape119.setTextureSize(256, 256);
+        this.Shape119.mirror = true;
+        this.setRotation(this.Shape119, 0.0f, 0.0f, 0.0f);
+        this.Shape121 = new ModelRenderer((ModelBase)this, 45, 11);
+        this.Shape121.addBox(0.0f, 0.0f, 0.0f, 1, 8, 1);
+        this.Shape121.setRotationPoint(-17.0f, -5.5f, -42.0f);
+        this.Shape121.setTextureSize(256, 256);
+        this.Shape121.mirror = true;
+        this.setRotation(this.Shape121, 0.0f, 0.0f, 0.0f);
+        this.Shape122 = new ModelRenderer((ModelBase)this, 45, 11);
+        this.Shape122.addBox(0.0f, 0.0f, 0.0f, 6, 1, 10);
+        this.Shape122.setRotationPoint(-22.0f, -6.5f, -42.0f);
+        this.Shape122.setTextureSize(256, 256);
+        this.Shape122.mirror = true;
+        this.setRotation(this.Shape122, 0.0f, 0.0f, 0.0f);
+    }
+
+
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+
+
+    public void render() {
+        float f5 = 0.0625f;
+        this.Shape1.render(f5);
+        this.Shape2.render(f5);
+        this.Shape3.render(f5);
+        this.Shape4.render(f5);
+        this.Shape5.render(f5);
+        this.Shape6.render(f5);
+        this.Shape7.render(f5);
+        this.Shape8.render(f5);
+        this.Shape9.render(f5);
+        this.Shape10.render(f5);
+        this.Shape11.render(f5);
+        this.Shape12.render(f5);
+        this.Shape13.render(f5);
+        this.Shape14.render(f5);
+        this.Shape15.render(f5);
+        this.Shape16.render(f5);
+        this.Shape17.render(f5);
+        this.Shape18.render(f5);
+        this.Shape19.render(f5);
+        this.Shape111.render(f5);
+        this.Shape112.render(f5);
+        this.Shape113.render(f5);
+        this.Shape114.render(f5);
+        this.Shape115.render(f5);
+        this.Shape116.render(f5);
+        this.Shape117.render(f5);
+        this.Shape118.render(f5);
+        this.Shape119.render(f5);
+        this.Shape121.render(f5);
+        this.Shape122.render(f5);
+    }
+}
+

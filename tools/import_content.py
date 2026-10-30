@@ -110,6 +110,7 @@ def main():
     if len(set(ids)) != len(ids):
         raise ValueError('Duplicate registry IDs')
     write_json(ASSETS / 'content.json', entries)
+    sounds['germo'] = {'sounds': ['metroport:germo']}
     write_json(ASSETS / 'sounds.json', sounds)
     translations = {
         'ru_ru': ['itemGroup.metroport.weapons=Оружие', 'itemGroup.metroport.armor=Броня',
@@ -151,6 +152,12 @@ def main():
         legacy_key = 'item.' + e['shortName'] + '.name'
         translations['ru_ru'].append('item.metroport.' + e['id'] + '.name=' + ru.get(legacy_key, e['name']))
         translations['en_us'].append('item.metroport.' + e['id'] + '.name=' + en.get(legacy_key, e['name']))
+    gate_labels = [('germo', 'Гермоворота — подъёмные', 'Hermetic gate — lift'), ('germo_open', 'Гермоворота — открытые', 'Hermetic gate — open'), ('germo_right', 'Гермоворота — правые', 'Hermetic gate — right'), ('germo_left', 'Гермоворота — левые', 'Hermetic gate — left'), ('germo_left45', 'Гермоворота — левые 45°', 'Hermetic gate — left 45°'), ('germo_half_open', 'Гермоворота — распашные', 'Hermetic gate — hinged')]
+    for key, ru_name, en_name in gate_labels:
+        translations["ru_ru"].append("tile.metroport." + key + ".name=" + ru_name)
+        translations["en_us"].append("tile.metroport." + key + ".name=" + en_name)
+    translations["ru_ru"].append("metroport.gate.obstructed=Для ворот и движения створки нужно свободное место. См. инструкцию.")
+    translations["en_us"].append("metroport.gate.obstructed=The gate and its movement pocket need empty space. See the instructions.")
     for locale, lines in translations.items():
         put(ASSETS / ('lang/' + locale + '.lang'), '\n'.join(lines) + '\n')
     # Preserve the license shipped with the original Flan code/assets.
@@ -160,9 +167,8 @@ def main():
     write_json(ROOT / 'docs/import-report.json', {'counts': report, 'total': len(entries),
         'source': 'Flan/MetroCraft -Pack-1.7.10-4.10.0.jar',
         'rendering': 'Original GUI icons; original Turbo geometry and atlases through client renderers; geometry/OBJ integrity tested, visual alignment still needs in-game verification.',
-        'expandedContent': {'decorativeBlocks': 58, 'radiationSources': 1, 'filters': 1, 'pickaxes': 1, 'backpacks': 3, 'entityTypes': 10},
-        'notPorted': ['Hermetic doors and their multiblock/animation logic',
-                      'Legacy projectile ballistics, recoil and reload/hand animations',
+        'expandedContent': {'decorativeBlocks': 58, 'radiationSources': 1, 'filters': 1, 'pickaxes': 1, 'backpacks': 3, 'entityTypes': 10, 'hermeticGates': 6},
+        'notPorted': ['Legacy projectile ballistics, recoil and reload/hand animations',
                       'Mounted attachment geometry and scope overlays',
                       'Original pickup and external-container inventory capacity rules',
                       'NoDrop commands and CustomNPC animation integration',

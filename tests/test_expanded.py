@@ -17,7 +17,7 @@ ENTRIES=json.loads((ASSETS/'content.json').read_text())
 class ExpandedTests(unittest.TestCase):
     def test_all_57_models_have_geometry_and_original_atlas(self):
         self.assertEqual(len(CATALOGUE),57)
-        self.assertEqual(len(list((ASSETS/'models/item').glob('*.json'))),135)
+        self.assertEqual(len(list((ASSETS/'models/item').glob('*.json'))),141)
         for key,entry in CATALOGUE.items():
             self.assertTrue((ASSETS/('geometry/'+key+'.json')).is_file())
             self.assertTrue((ASSETS/entry['texture'].split(':',1)[1]).read_bytes().startswith(b'\x89PNG\r\n\x1a\n'))
@@ -111,7 +111,7 @@ class ExpandedTests(unittest.TestCase):
             return {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                     for root in (ROOT/'src',ROOT/'docs') for p in root.rglob('*') if p.is_file()}
         before=digest()
-        for tool in ('import_legacy.py','import_entities.py'):
+        for tool in ('import_legacy.py','import_entities.py','import_gates.py','create_gun_poses.py'):
             subprocess.run([sys.executable,str(ROOT/'tools'/tool)],cwd=ROOT,check=True,capture_output=True)
         self.assertEqual(before,digest())
 
