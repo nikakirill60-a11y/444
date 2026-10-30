@@ -14,4 +14,7 @@ public final class Definition {
     public float heal;
     public int uses = 1;
     public boolean repairGun, repairArmor;
+    public String[] allowedAttachments = new String[0];
+    public String attachmentSlot;
+    public float damageMultiplier = 1, spreadMultiplier = 1, reloadMultiplier = 1, zoom = 1;
 }

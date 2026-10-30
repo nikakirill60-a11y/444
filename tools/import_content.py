@@ -76,7 +76,8 @@ def main():
                 entry.update(ammo=identifier(d['Ammo']), damage=float(d['Damage']),
                              capacity=int(d['LoadIntoGun']), reloadTicks=int(d['ReloadTime']),
                              delay=int(d['ShootDelay']), pellets=int(d.get('NumBullets', '1')),
-                             spread=float(d.get('Accuracy', '0')), automatic=d.get('Mode') == 'FullAuto')
+                             spread=float(d.get('Accuracy', '0')), automatic=d.get('Mode') == 'FullAuto',
+                             allowedAttachments=[identifier(a) for a in d.get('AllowAttachments', '').split()])
                 for source_key, target in [('ShootSound', 'shootSound'), ('ReloadSound', 'reloadSound')]:
                     source = d.get(source_key)
                     if source:
@@ -87,6 +88,12 @@ def main():
                         put(ASSETS / ('sounds/' + sid + '.ogg'), pack.read(sound))
                         sounds[sid] = {'sounds': ['metroport:' + sid]}
                         entry[target] = sid
+            elif kind == 'attachment':
+                entry.update(attachmentSlot={'sights': 'scope'}.get(d.get('AttachmentType'), d.get('AttachmentType', 'generic')),
+                             damageMultiplier=float(d.get('DamageMultiplier', '1')),
+                             spreadMultiplier=float(d.get('SpreadMultiplier', '1')),
+                             reloadMultiplier=float(d.get('ReloadTimeMultiplier', '1')),
+                             zoom=float(d.get('ZoomLevel', '1')) * float(d.get('FOVZoomLevel', '1')))
             elif kind == 'armor':
                 entry.update(slot='head' if d['Type'] == 'Helmet' else 'chest',
                              defence=float(d.get('Defence', '0')),
@@ -113,7 +120,7 @@ def main():
                   'metroport.gun.loading=Перезарядка…',
                   'metroport.tool.heal=ПКМ — восстановить здоровье',
                   'metroport.tool.repair=ПКМ — починить предмет во второй руке',
-                  'metroport.attachment.info=Модуль: установка на оружие пока не перенесена',
+                  'metroport.attachment.info=Оружие во второй руке: ПКМ — установить; Shift+ПКМ — снять',
                   'metroport.armor.gas=Защита от радиации пока не перенесена'],
         'en_us': ['itemGroup.metroport.weapons=Weapons', 'itemGroup.metroport.armor=Armor',
                   'itemGroup.metroport.things=Things', 'key.metroport.reload=Reload',
@@ -122,10 +129,15 @@ def main():
                   'metroport.gun.ammo=Ammo: %s / %s', 'metroport.gun.loading=Reloading…',
                   'metroport.tool.heal=Right click to heal',
                   'metroport.tool.repair=Right click to repair the item in your offhand',
-                  'metroport.attachment.info=Attachment: installation is not ported yet',
+                  'metroport.attachment.info=Gun in offhand: right click to install; sneak + right click to remove',
                   'metroport.armor.gas=Radiation protection is not ported yet']}
     for locale, language in [('ru_ru', 'ru'), ('en_us', 'en')]:
-        extra = {'filter': 'Фильтр (5 минут)' if language == 'ru' else 'Filter (5 minutes)',
+        for key, label in {'kris': 'Паук', 'murzik': 'Мурзик', 'tuzic': 'Тузик', 'jery': 'Джери', 'trup1': 'Труп 1', 'trup2': 'Труп 2', 'trup3': 'Труп 3', 'trup4': 'Труп 4', 'komp': 'Компьютер', 'grib': 'Гриб'}.items():
+            translations[locale].append('entity.metroport.' + key + '.name=' + (label if language == 'ru' else key.title()))
+        extra = {'smallrucksack': 'Маленький рюкзак' if language == 'ru' else 'Small backpack',
+                 'mediumrucksack': 'Средний рюкзак' if language == 'ru' else 'Medium backpack',
+                 'bigrucksack': 'Большой рюкзак' if language == 'ru' else 'Big backpack',
+                 'filter': 'Фильтр (5 минут)' if language == 'ru' else 'Filter (5 minutes)',
                  'testpickaxe': 'Кирка Metro' if language == 'ru' else 'Metro pickaxe'}
         for key, name in extra.items():
             translations[locale].append('item.metroport.' + key + '.name=' + name)
@@ -133,6 +145,7 @@ def main():
             translations[locale].append('tile.metroport.block' + str(index) + '.name=' + ('Блок Metro ' if language == 'ru' else 'Metro block ') + str(index))
         translations[locale].append('tile.metroport.radiation.name=' + ('Радиация (источник)' if language == 'ru' else 'Radiation source'))
         translations[locale].append('metroport.armor.filter=' + ('Фильтр: %s сек. ПКМ с фильтром — заменить' if language == 'ru' else 'Filter: %s sec. Right click with a filter to replace'))
+        translations[locale].append('key.metroport.aim=' + ('Прицеливание (удерживать)' if language == 'ru' else 'Aim (hold)'))
         translations[locale].append('death.attack.metroRadiation=' + ('%s погиб от радиации' if language == 'ru' else '%s died from radiation'))
     for e in entries:
         legacy_key = 'item.' + e['shortName'] + '.name'

@@ -69,7 +69,7 @@ public final class GunItem extends ContentItem {
     public void startReload(ItemStack stack, EntityPlayer player) {
         if (player.world.isRemote || player.isSpectator() || reloading(stack) || ammo(stack) >= definition.capacity) return;
         if (!player.capabilities.isCreativeMode && available(player, false, 1) == 0) return;
-        tag(stack).setInteger(RELOAD, Math.max(1, definition.reloadTicks));
+        tag(stack).setInteger(RELOAD, Math.max(1, Math.round(definition.reloadTicks * AttachmentItem.multiplier(stack, "reload"))));
         sound(player.world, player, definition.reloadSound, 0.7F);
     }
 
@@ -131,7 +131,7 @@ public final class GunItem extends ContentItem {
         Vec3d start = player.getPositionEyes(1F);
         for (int i = 0; i < Math.max(1, definition.pellets); i++) {
             Vec3d look = player.getLookVec();
-            double deviation = definition.spread * 0.0025;
+            double deviation = definition.spread * AttachmentItem.multiplier(stack, "spread") * 0.0025;
             Vec3d direction = look.add(player.getRNG().nextGaussian() * deviation,
                     player.getRNG().nextGaussian() * deviation, player.getRNG().nextGaussian() * deviation).normalize();
             Vec3d end = start.add(direction.scale(RANGE));
@@ -154,7 +154,7 @@ public final class GunItem extends ContentItem {
             if (victim != null) {
                 // Use the same team/PvP permission rules as vanilla ranged weapons.
                 if (!(victim instanceof EntityPlayer) || player.canAttackPlayer((EntityPlayer) victim)) {
-                    hits.put(victim, hits.getOrDefault(victim, 0F) + definition.damage);
+                    hits.put(victim, hits.getOrDefault(victim, 0F) + definition.damage * AttachmentItem.multiplier(stack, "damage"));
                 }
             }
             Vec3d impact = start.add(direction.scale(Math.sqrt(closest)));

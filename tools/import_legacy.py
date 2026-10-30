@@ -128,6 +128,15 @@ def main():
     write_json(ASSETS / 'blockstates/radiation.json', {'variants': {'normal': {'model': 'metroport:block0'}}})
     for key in ('filter', 'testpickaxe'):
         write_json(ASSETS / ('models/item/' + key + '.json'), {'parent': 'item/generated', 'textures': {'layer0': 'metroport:items/' + key}})
+    with zipfile.ZipFile(ROOT / 'Inventory(METRO)-v1.0.jar') as archive:
+        for size in ('small', 'medium', 'big'):
+            key = size + 'rucksack'
+            put(ASSETS / ('textures/items/' + key + '.png'), archive.read('assets/metrocraft/textures/items/' + key + 'icon.png'))
+            put(ASSETS / ('textures/backpacks/' + key + '.png'), archive.read('assets/metrocraft/textures/models/items/' + size + 'Rucksack.png'))
+            put(ASSETS / ('models/legacy/backpacks/' + key + '.obj'), archive.read('assets/metrocraft/models/items/' + size + 'Rucksack.obj'))
+            write_json(ASSETS / ('models/item/' + key + '.json'), {'parent': 'item/generated', 'textures': {'layer0': 'metroport:items/' + key}})
+        for name in ('inventory', 'slots'):
+            put(ASSETS / ('textures/gui/' + name + '.png'), archive.read('assets/metrocraft/textures/gui/' + name + '.png'))
     write_json(ROOT / 'docs/geometry-report.json', {'models': len(catalogue),
         'boxes': sum(sum(o['op'] in ('box', 'shape') for p in json.loads((ASSETS / ('geometry/' + key + '.json')).read_text())['parts'] for o in p['ops']) for key in catalogue),
         'externalAssetsNotSupplied': sorted(unavailable), 'decorativeBlocks': 58})

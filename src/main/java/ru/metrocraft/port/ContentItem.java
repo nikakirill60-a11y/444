@@ -17,6 +17,8 @@ public class ContentItem extends Item {
         setMaxStackSize(Math.max(1, Math.min(64, definition.stackSize)));
     }
 
+    public Definition getDefinition() { return definition; }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag flag) {

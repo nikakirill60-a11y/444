@@ -25,6 +25,8 @@ import java.util.Map;
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
+    @Mod.Instance(ID)
+    public static MetroPort INSTANCE;
     public static final Map<String, Item> ITEMS = new LinkedHashMap<>();
     public static final Map<String, SoundEvent> SOUNDS = new LinkedHashMap<>();
     public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
@@ -53,6 +55,12 @@ public final class MetroPort {
             throw new IllegalStateException("Cannot load MetroCraft content", e);
         }
         NETWORK.registerMessage(ReloadPacket.Handler.class, ReloadPacket.class, 0, Side.SERVER);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.BackpackSyncPacket.Handler.class,
+                ru.metrocraft.port.inventory.BackpackSyncPacket.class,1,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.OpenInventoryPacket.Handler.class,
+                ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
+        NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
+        ru.metrocraft.port.entity.LegacyEntities.register();
     }
 
     @SubscribeEvent
@@ -63,6 +71,7 @@ public final class MetroPort {
                 case "gun": item = new GunItem(d); break;
                 case "armor": item = new MetroArmor(d); break;
                 case "tool": item = new ToolItem(d); break;
+                case "attachment": item = new AttachmentItem(d); break;
                 default: item = new ContentItem(d);
             }
             item.setRegistryName(ID, d.id);

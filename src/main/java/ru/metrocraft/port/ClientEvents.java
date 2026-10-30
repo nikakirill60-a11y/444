@@ -16,14 +16,20 @@ import org.lwjgl.input.Keyboard;
 /** This entire class is client-only: a dedicated server never loads Minecraft or LWJGL. */
 @Mod.EventBusSubscriber(modid = MetroPort.ID, value = Side.CLIENT)
 public final class ClientEvents {
+    private static final KeyBinding AIM = new KeyBinding("key.metroport.aim", Keyboard.KEY_LMENU, "key.categories.metroport");
     private static final KeyBinding RELOAD = new KeyBinding("key.metroport.reload", Keyboard.KEY_R, "key.categories.metroport");
 
     @SubscribeEvent
     public static void models(ModelRegistryEvent event) {
+        ru.metrocraft.port.client.LegacyEntityRenderers.register();
         for (Item item : MetroPort.ITEMS.values()) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }
         ClientRegistry.registerKeyBinding(RELOAD);
+        ClientRegistry.registerKeyBinding(AIM);
+        for (net.minecraft.client.renderer.entity.RenderPlayer playerRenderer : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
+            playerRenderer.addLayer(new ru.metrocraft.port.client.BackpackClient(playerRenderer));
+        }
     }
 
     @SubscribeEvent
@@ -37,6 +43,24 @@ public final class ClientEvents {
                 item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.LegacyItemRenderer.INSTANCE);
                 event.getModelRegistry().putObject(location, new ru.metrocraft.port.client.LegacyItemModel(icon));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void inventory(net.minecraftforge.client.event.GuiOpenEvent event) {
+        Minecraft mc=Minecraft.getMinecraft();
+        if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiInventory && mc.player!=null && !mc.player.capabilities.isCreativeMode) {
+            event.setCanceled(true);
+            MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.inventory.OpenInventoryPacket());
+        }
+    }
+
+    @SubscribeEvent
+    public static void fov(net.minecraftforge.client.event.FOVUpdateEvent event) {
+        net.minecraft.item.ItemStack held=event.getEntity().getHeldItemMainhand();
+        if(AIM.isKeyDown() && held.getItem() instanceof GunItem) {
+            float zoom=Math.max(1.2F,Math.min(8,AttachmentItem.multiplier(held,"zoom")));
+            event.setNewfov(event.getNewfov()/zoom);
         }
     }
 
