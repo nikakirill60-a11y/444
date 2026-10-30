@@ -4,12 +4,14 @@ on:
     branches: ['arena/dcab859f-444']
     paths: ['.github/workflows/inspect-legacy.yml']
 permissions:
-  contents: read
+  contents: write
 jobs:
   inspect:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: arena/dcab859f-444
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -23,22 +25,28 @@ jobs:
           done
           python3 - <<'PY'
           from pathlib import Path
-          import io, zipfile, base64
-          output = io.BytesIO()
-          with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
-              for path in Path('/tmp/legacy').rglob('*.java'):
-                  name = path.relative_to('/tmp/legacy').as_posix()
-                  if name.startswith(('api/', 'cofh/')):
-                      continue
-                  if name.startswith('com/flansmod/') and not (
-                      '/model/MetroCraft/' in name or '/tmt/' in name or
-                      name.endswith(('/ModelGun.java', '/ModelAttachment.java', '/ModelCustomArmour.java',
-                                     '/ItemTeamArmour.java', '/ArmourType.java', '/Filter.java',
-                                     '/PlayerData.java', '/FlansMod.java', '/GunType.java', '/ItemGun.java'))):
-                      continue
-                  archive.writestr(name, path.read_bytes())
-          data = base64.b64encode(output.getvalue()).decode()
-          for i, offset in enumerate(range(0, len(data), 60000)):
-              print(f'::notice title=legacy-source-{i:04d}::{data[offset:offset+60000]}')
-          print(f'Packed source archive: {len(output.getvalue())} bytes')
+          import shutil
+          root = Path('tools/legacy-reference')
+          root.mkdir(parents=True, exist_ok=True)
+          for path in Path('/tmp/legacy').rglob('*.java'):
+              name = path.relative_to('/tmp/legacy').as_posix()
+              if name.startswith(('api/', 'cofh/')):
+                  continue
+              if name.startswith('com/flansmod/') and not (
+                  '/model/MetroCraft/' in name or '/tmt/' in name or
+                  name.endswith(('/ModelGun.java', '/ModelAttachment.java', '/ModelCustomArmour.java',
+                                 '/ItemTeamArmour.java', '/ArmourType.java', '/Filter.java',
+                                 '/PlayerData.java', '/FlansMod.java', '/GunType.java', '/ItemGun.java'))):
+                  continue
+              target = root / name
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(path, target)
+          (root / 'README.md').write_text('''# Legacy migration reference\n\nRecovered with CFR 0.152 from the four supplied Minecraft 1.7.10 JARs. These sources are reference material, NOT compiled into the 1.12.2 mod. Original authorship and licenses apply; see ../../THIRD_PARTY.md. Obfuscated method names and decompiler artifacts still need migration.\n''')
           PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/legacy-reference
+          if ! git diff --cached --quiet; then
+            git commit -m 'Recover supplied 1.7.10 reference sources for full migration'
+            git push origin arena/dcab859f-444
+          fi
