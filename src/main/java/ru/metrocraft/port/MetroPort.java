@@ -37,7 +37,7 @@ public final class MetroPort {
     private static CreativeTabs tab(String name, String icon, Item fallback) {
         return new CreativeTabs(ID + "." + name) {
             @Override
-            public ItemStack getTabIconItem() {
+            public ItemStack createIcon() {
                 Item item = ITEMS.get(icon);
                 return new ItemStack(item == null ? fallback : item);
             }
