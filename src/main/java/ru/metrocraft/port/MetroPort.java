@@ -27,6 +27,8 @@ public final class MetroPort {
     public static final String ID = "metroport";
     @Mod.Instance(ID)
     public static MetroPort INSTANCE;
+    @net.minecraftforge.fml.common.SidedProxy(clientSide="ru.metrocraft.port.client.ClientProxy", serverSide="ru.metrocraft.port.CommonProxy")
+    public static CommonProxy PROXY;
     public static final Map<String, Item> ITEMS = new LinkedHashMap<>();
     public static final Map<String, SoundEvent> SOUNDS = new LinkedHashMap<>();
     public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
@@ -73,7 +75,11 @@ public final class MetroPort {
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
+        PROXY.preInit();
     }
+
+    @Mod.EventHandler
+    public void init(net.minecraftforge.fml.common.event.FMLInitializationEvent event) { PROXY.init(); }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {

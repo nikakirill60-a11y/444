@@ -21,10 +21,12 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void models(ModelRegistryEvent event) {
-        ru.metrocraft.port.client.LegacyEntityRenderers.register();
         for (Item item : MetroPort.ITEMS.values()) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }
+    }
+
+    public static void initialize() {
         ClientRegistry.registerKeyBinding(RELOAD);
         ClientRegistry.registerKeyBinding(AIM);
         for (net.minecraft.client.renderer.entity.RenderPlayer playerRenderer : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
