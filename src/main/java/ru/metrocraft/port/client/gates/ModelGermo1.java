@@ -129,4 +129,3 @@ extends ModelBase {
         Shape15.render(0.0625f);
     }
 }
-

@@ -99,4 +99,3 @@ extends ModelBase {
         this.Shape16.render(0.0625f);
     }
 }
-

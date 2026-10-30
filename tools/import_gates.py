@@ -24,7 +24,7 @@ def main():
                 end += 1
             text = text[:start] + text[end:]
         text = text.replace('package blocks.models;', 'package ru.metrocraft.port.client.gates;')
-        text = '\n'.join(line.rstrip() for line in text.splitlines()) + '\n'
+        text = '\n'.join(line.rstrip() for line in text.splitlines()).rstrip() + '\n'
         for source, target in MAPPING.items():
             text = text.replace(source, target)
         put(ROOT / 'src/main/java/ru/metrocraft/port/client/gates' / (name + '.java'), text)

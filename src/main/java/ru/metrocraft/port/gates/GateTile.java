@@ -32,7 +32,7 @@ public final class GateTile extends TileEntity implements ITickable {
     }
     private void setTarget(float next) {
         if (next == target) return;
-        target = next;
+        target = next; markDirty();
         net.minecraft.util.SoundEvent sound = ru.metrocraft.port.MetroPort.SOUNDS.get("germo");
         if (sound != null) world.playSound(null, pos, sound, SoundCategory.BLOCKS, .4F, 1);
     }
@@ -54,7 +54,7 @@ public final class GateTile extends TileEntity implements ITickable {
             }
             structureLoaded = true;
             signal |= world.isBlockPowered(pos);
-            if (signal != powered) { powered = signal; manualTarget = signal ? 1 : 0; }
+            if (signal != powered) { powered = signal; manualTarget = signal ? 1 : 0; markDirty(); }
             setTarget(powered ? 1 : manualTarget);
         }
         if (!world.isRemote && !structureLoaded) return;

@@ -58,4 +58,3 @@ extends ModelBase {
         this.Shape5.render(0.0625f);
     }
 }
-

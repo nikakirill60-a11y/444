@@ -29,6 +29,10 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 }
 
+test {
+    testLogging { events 'passed', 'skipped', 'failed'; exceptionFormat 'full' }
+}
+
 jar.finalizedBy('reobfJar')
 
 tasks.withType(JavaCompile) {

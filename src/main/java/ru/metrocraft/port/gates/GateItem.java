@@ -20,6 +20,7 @@ public final class GateItem extends ItemBlock {
         BlockPos origin = world.getBlockState(clicked).getBlock().isReplaceable(world, clicked) ? clicked : clicked.offset(face);
         EnumFacing facing = player.getHorizontalFacing().getOpposite();
         ItemStack stack = player.getHeldItem(hand);
+        if (stack.isEmpty() || player.isSpectator()) return EnumActionResult.FAIL;
         List<BlockPos> footprint = Gates.footprint(origin, facing, gate.type);
         for (BlockPos pos : footprint) {
             if (!world.isBlockLoaded(pos) || pos.getY() < 0 || pos.getY() >= world.getHeight()
