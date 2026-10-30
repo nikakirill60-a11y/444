@@ -12,3 +12,6 @@ __pycache__/
 artifacts/
 
 build-output.log
+
+.cache/
+.venv/

@@ -1,0 +1,38 @@
+name: Inspect supplied legacy bytecode
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths: ['.github/workflows/inspect-legacy.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Recover reference source for migration
+        shell: bash
+        run: |
+          curl --fail -L https://repo.maven.apache.org/maven2/org/benf/cfr/0.152/cfr-0.152.jar -o /tmp/cfr.jar
+          for archive in '(Metro) Flans-v1.1.jar' 'Inventory(METRO)-v1.0.jar' 'metrocraft.jar' 'StilianMetro.jar'; do
+            java -Xmx2G -jar /tmp/cfr.jar "$archive" --outputdir /tmp/legacy --silent true
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import io, zipfile, base64
+          output = io.BytesIO()
+          with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+              for path in Path('/tmp/legacy').rglob('*.java'):
+                  name = path.relative_to('/tmp/legacy').as_posix()
+                  if name.startswith(('api/', 'cofh/')):
+                      continue
+                  archive.writestr(name, path.read_bytes())
+          data = base64.b64encode(output.getvalue()).decode()
+          for i, offset in enumerate(range(0, len(data), 60000)):
+              print(f'::notice title=legacy-source-{i:04d}::{data[offset:offset+60000]}')
+          print(f'Packed source archive: {len(output.getvalue())} bytes')
+          PY
