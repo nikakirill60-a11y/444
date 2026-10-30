@@ -25,8 +25,12 @@ public class GateBlock extends Block {
         setLightOpacity(0); setCreativeTab(MetroPort.THINGS); setHardness(5); setResistance(20); setSoundType(SoundType.METAL);
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
     }
+    public static EnumFacing horizontal(int index) {
+        switch (index & 3) { case 1: return EnumFacing.WEST; case 2: return EnumFacing.NORTH;
+            case 3: return EnumFacing.EAST; default: return EnumFacing.SOUTH; }
+    }
     @Override protected BlockStateContainer createBlockState() { return new BlockStateContainer(this, FACING); }
-    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta)); }
+    @Override public IBlockState getStateFromMeta(int meta) { return getDefaultState().withProperty(FACING, horizontal(meta)); }
     @Override public int getMetaFromState(IBlockState state) { return state.getValue(FACING).getHorizontalIndex(); }
     @Override public boolean hasTileEntity(IBlockState state) { return true; }
     @Override public TileEntity createTileEntity(World world, IBlockState state) { return new GateTile(); }

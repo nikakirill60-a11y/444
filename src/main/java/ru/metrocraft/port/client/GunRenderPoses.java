@@ -34,16 +34,21 @@ public final class GunRenderPoses {
             case GROUND: pose = profile.ground; break;
             default: pose = profile.fixed;
         }
-        float tx = pose.translation[0], ry = pose.rotation[1];
-        if (type == TransformType.FIRST_PERSON_LEFT_HAND) { tx = -tx; ry = 180 - ry; }
+        return compose(profile.grip, pose.translation, pose.rotation, pose.scale,
+                type == TransformType.FIRST_PERSON_LEFT_HAND || type == TransformType.FIRST_PERSON_RIGHT_HAND, left);
+    }
+    /** Pure math entry point shared with JVM tests; no Minecraft/OpenGL initialization. */
+    static Matrix4f compose(float[] grip, float[] translation, float[] rotation, float scale, boolean firstPerson, boolean left) {
+        float tx = translation[0], ry = rotation[1];
+        if (firstPerson && left) { tx = -tx; ry = 180 - ry; }
         Matrix4f result = identity(), step = new Matrix4f();
-        result.setTranslation(new Vector3f(tx, pose.translation[1], pose.translation[2]));
-        step.rotZ(radians(pose.rotation[2])); result.mul(step);
+        result.setTranslation(new Vector3f(tx, translation[1], translation[2]));
+        step.rotZ(radians(rotation[2])); result.mul(step);
         step.rotY(radians(ry)); result.mul(step);
-        step.rotX(radians(pose.rotation[0])); result.mul(step);
-        step.setIdentity(); step.setScale(pose.scale); result.mul(step);
+        step.rotX(radians(rotation[0])); result.mul(step);
+        step.setIdentity(); step.setScale(scale); result.mul(step);
         step.setIdentity();
-        step.setTranslation(new Vector3f(-profile.grip[0], -profile.grip[1], -profile.grip[2]));
+        step.setTranslation(new Vector3f(-grip[0], -grip[1], -grip[2]));
         result.mul(step);
         if (left) {
             // Forge 1.12 conjugates left-hand matrices by flipX. Compensate that

@@ -164,7 +164,7 @@ public final class GateTile extends TileEntity implements ITickable {
         super.readFromNBT(tag);
         owner = tag.hasUniqueId("Owner") ? tag.getUniqueId("Owner") : null;
         try { type = GateType.valueOf(tag.getString("Type")); } catch (IllegalArgumentException e) { type = GateType.MAIN; }
-        facing = EnumFacing.getHorizontal(tag.getInteger("Facing"));
+        facing = GateBlock.horizontal(tag.getInteger("Facing"));
         previous = progress = MathHelper.clamp(tag.getFloat("Progress"), 0, 1);
         manualTarget = MathHelper.clamp(tag.getFloat("Manual"), 0, 1); target = MathHelper.clamp(tag.getFloat("Target"), 0, 1);
         powered = tag.getBoolean("Powered"); blocked = tag.getBoolean("Blocked"); ready = tag.getBoolean("Ready");
