@@ -30,6 +30,12 @@ jobs:
                   name = path.relative_to('/tmp/legacy').as_posix()
                   if name.startswith(('api/', 'cofh/')):
                       continue
+                  if name.startswith('com/flansmod/') and not (
+                      '/model/MetroCraft/' in name or '/tmt/' in name or
+                      name.endswith(('/ModelGun.java', '/ModelAttachment.java', '/ModelCustomArmour.java',
+                                     '/ItemTeamArmour.java', '/ArmourType.java', '/Filter.java',
+                                     '/PlayerData.java', '/FlansMod.java', '/GunType.java', '/ItemGun.java'))):
+                      continue
                   archive.writestr(name, path.read_bytes())
           data = base64.b64encode(output.getvalue()).decode()
           for i, offset in enumerate(range(0, len(data), 60000)):
