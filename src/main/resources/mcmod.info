@@ -1,0 +1,12 @@
+[
+  {
+    "modid": "metroport",
+    "name": "MetroCraft Port",
+    "description": "Initial standalone port of supplied MetroCraft content to Forge 1.12.2. Weapons, armor and things. Not a complete port of the original mod collection.",
+    "version": "${version}",
+    "mcversion": "1.12.2",
+    "authorList": [],
+    "credits": "Original MetroCraft content creators and Flan's Mod contributors; see THIRD_PARTY.md",
+    "dependencies": []
+  }
+]
