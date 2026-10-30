@@ -43,6 +43,18 @@ public final class MetroPort {
                 Item item = ITEMS.get(icon);
                 return new ItemStack(item == null ? fallback : item);
             }
+            @Override
+            @net.minecraftforge.fml.relauncher.SideOnly(Side.CLIENT)
+            public void displayAllRelevantItems(net.minecraft.util.NonNullList<ItemStack> contents) {
+                super.displayAllRelevantItems(contents);
+                if (!name.equals("things")) return;
+                for (ResourceLocation entity : net.minecraft.entity.EntityList.ENTITY_EGGS.keySet()) {
+                    if (!entity.getNamespace().equals(ID)) continue;
+                    ItemStack egg = new ItemStack(Items.SPAWN_EGG);
+                    net.minecraft.item.ItemMonsterPlacer.applyEntityIdToItemStack(egg, entity);
+                    contents.add(egg);
+                }
+            }
         };
     }
 

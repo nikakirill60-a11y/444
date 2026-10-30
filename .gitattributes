@@ -1,1 +1,7 @@
 *.bat whitespace=cr-at-eol
+# Preserve the formatting of recovered/vendored source and original OBJ exports.
+tools/legacy-reference/** whitespace=-trailing-space
+src/main/java/ru/metrocraft/port/client/tmt/** whitespace=-trailing-space
+src/main/java/ru/metrocraft/port/client/mobs/** whitespace=-trailing-space
+src/main/java/ru/metrocraft/port/entity/*Entity.java whitespace=-trailing-space
+*.obj whitespace=-trailing-space
