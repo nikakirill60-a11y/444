@@ -132,7 +132,7 @@ public final class GunItem extends ContentItem {
         for (int i = 0; i < Math.max(1, definition.pellets); i++) {
             Vec3d look = player.getLookVec();
             double deviation = definition.spread * 0.0025;
-            Vec3d direction = look.addVector(player.getRNG().nextGaussian() * deviation,
+            Vec3d direction = look.add(player.getRNG().nextGaussian() * deviation,
                     player.getRNG().nextGaussian() * deviation, player.getRNG().nextGaussian() * deviation).normalize();
             Vec3d end = start.add(direction.scale(RANGE));
             RayTraceResult block = player.world.rayTraceBlocks(start, end, false, true, false);
@@ -142,7 +142,7 @@ public final class GunItem extends ContentItem {
             AxisAlignedBB area = player.getEntityBoundingBox().expand(direction.x * RANGE, direction.y * RANGE,
                     direction.z * RANGE).grow(1);
             for (Entity target : player.world.getEntitiesWithinAABBExcludingEntity(player, area)) {
-                if (!target.canBeCollidedWith() || target.isSpectator() || target == player.getRidingEntity()) continue;
+                if (!target.canBeCollidedWith() || (target instanceof EntityPlayer && ((EntityPlayer) target).isSpectator()) || target == player.getRidingEntity()) continue;
                 AxisAlignedBB bounds = target.getEntityBoundingBox().grow(target.getCollisionBorderSize());
                 RayTraceResult intercept = bounds.calculateIntercept(start, end);
                 double distance = bounds.contains(start) ? 0 : intercept == null ? Double.POSITIVE_INFINITY : start.squareDistanceTo(intercept.hitVec);
