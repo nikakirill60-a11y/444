@@ -159,9 +159,14 @@ def main():
     report = {kind: sum(e['kind'] == kind for e in entries) for kind in folders.values()}
     write_json(ROOT / 'docs/import-report.json', {'counts': report, 'total': len(entries),
         'source': 'Flan/MetroCraft -Pack-1.7.10-4.10.0.jar',
-        'rendering': 'Original inventory icons; generated flat item models; vanilla armor geometry/texture.',
-        'notPorted': ['Legacy 3D models', 'Attachment installation', 'Radiation and filters',
-                      'Custom inventory and backpacks', 'Mobs and corpses', 'Decorative blocks and doors']})
+        'rendering': 'Original GUI icons; original Turbo geometry and atlases through client renderers; geometry/OBJ integrity tested, visual alignment still needs in-game verification.',
+        'expandedContent': {'decorativeBlocks': 58, 'radiationSources': 1, 'filters': 1, 'pickaxes': 1, 'backpacks': 3, 'entityTypes': 10},
+        'notPorted': ['Hermetic doors and their multiblock/animation logic',
+                      'Legacy projectile ballistics, recoil and reload/hand animations',
+                      'Mounted attachment geometry and scope overlays',
+                      'Original pickup and external-container inventory capacity rules',
+                      'NoDrop commands and CustomNPC animation integration',
+                      'Survival recipes and full balance/AI equivalence']})
     print('Imported', len(entries), 'entries:', report)
 
 

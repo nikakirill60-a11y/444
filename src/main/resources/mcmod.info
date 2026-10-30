@@ -2,7 +2,7 @@
   {
     "modid": "metroport",
     "name": "MetroCraft Port",
-    "description": "Initial standalone port of supplied MetroCraft content to Forge 1.12.2. Weapons, armor and things. Not a complete port of the original mod collection.",
+    "description": "Expanded standalone MetroCraft port for Forge 1.12.2: original 3D geometry, weapons, armor, decorative blocks, entities, backpacks and radiation. Full migration is still in progress.",
     "version": "${version}",
     "mcversion": "1.12.2",
     "authorList": [],

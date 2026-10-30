@@ -62,9 +62,10 @@ public final class Backpacks {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player=event.player;
-        if (event.phase != TickEvent.Phase.END || player.world.isRemote || player.capabilities.isCreativeMode
-                || player.isSpectator() || player.ticksExisted % 20 != 0 || player.openContainer instanceof MetroContainer) return;
-        if(player.ticksExisted==20)set(player,get(player));
+        if (event.phase != TickEvent.Phase.END || player.world.isRemote) return;
+        if (player.ticksExisted == 20) set(player, get(player));
+        if (player.capabilities.isCreativeMode || player.isSpectator() || player.ticksExisted % 20 != 0
+                || player.openContainer instanceof MetroContainer) return;
         enforceCapacity(player);
     }
     public static void enforceCapacity(EntityPlayer player) {
@@ -83,8 +84,9 @@ public final class Backpacks {
             for(int j=0;j<end && !stack.isEmpty();j++) if(player.inventory.getStackInSlot(j).isEmpty()) {
                 player.inventory.setInventorySlotContents(j,stack.copy());stack.setCount(0);
             }
-            if(!stack.isEmpty()) player.dropItem(stack.copy(),false);
-            player.inventory.setInventorySlotContents(i,ItemStack.EMPTY);
+            // Never throw away inventory from an existing world or a smaller backpack.
+            // Overflow remains visible and take-only until the player clears it.
+            player.inventory.setInventorySlotContents(i, stack.isEmpty() ? ItemStack.EMPTY : stack);
         }
         player.inventory.markDirty();
     }

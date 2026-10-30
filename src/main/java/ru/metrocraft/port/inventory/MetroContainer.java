@@ -29,8 +29,8 @@ public final class MetroContainer extends Container {
             addSlotToContainer(new Slot(player.inventory,9+row*9+col,8+col*18,84+row*18) {
                 private boolean unlocked(){return required<=Backpacks.rows(bag.getStackInSlot(0));}
                 @Override public boolean isItemValid(ItemStack stack){return unlocked();}
-                @Override public boolean canTakeStack(EntityPlayer player){return unlocked();}
-                @Override public boolean isEnabled(){return unlocked();}
+                @Override public boolean canTakeStack(EntityPlayer player){return true;}
+                @Override public boolean isEnabled(){return true;}
             });
         }
         for(int i=0;i<9;i++) addSlotToContainer(new Slot(player.inventory,i,8+i*18,142));
@@ -39,7 +39,6 @@ public final class MetroContainer extends Container {
     @Override public ItemStack transferStackInSlot(EntityPlayer player,int index){return ItemStack.EMPTY;}
     @Override public boolean canMergeSlot(ItemStack stack,Slot slot){return slot.inventory!=bag && slot.isItemValid(stack);}
     @Override public ItemStack slotClick(int index,int drag,ClickType type,EntityPlayer player) {
-        if(index>=6 && index<33 && ((index-6)/9+1)>Backpacks.rows(bag.getStackInSlot(0))) return ItemStack.EMPTY;
         return super.slotClick(index,drag,type,player);
     }
     @Override public void onContainerClosed(EntityPlayer player){super.onContainerClosed(player); Backpacks.enforceCapacity(player);}

@@ -13,7 +13,10 @@ public final class OpenInventoryPacket implements IMessage {
         public IMessage onMessage(OpenInventoryPacket packet,MessageContext context) {
             EntityPlayerMP player=context.getServerHandler().player;
             player.getServerWorld().addScheduledTask(()->{
-                if(!player.isSpectator() && !(player.openContainer instanceof MetroContainer)) {
+                long now=player.world.getTotalWorldTime();
+                if(player.isEntityAlive() && !player.isSpectator() && !(player.openContainer instanceof MetroContainer)
+                        && now-player.getEntityData().getLong("MetroLastInventoryOpen")>=3) {
+                    player.getEntityData().setLong("MetroLastInventoryOpen",now);
                     player.openGui(MetroPort.INSTANCE,0,player.world,0,0,0);
                 }
             });
