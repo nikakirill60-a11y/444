@@ -17,7 +17,7 @@ public class GateCollisionTest {
         List<AxisAlignedBB> result = new ArrayList<>(); tile.addCollision(p,new AxisAlignedBB(p),result); return result;
     }
     @Test public void liftGateFreesThePassageButRetainsTheHeader() {
-        for (EnumFacing facing : EnumFacing.HORIZONTALS) {
+        for (EnumFacing facing : new EnumFacing[]{EnumFacing.SOUTH,EnumFacing.WEST,EnumFacing.NORTH,EnumFacing.EAST}) {
             GateTile closed = tile(GateType.MAIN,0,facing), open = tile(GateType.MAIN,1,facing);
             assertFalse(cell(closed,0,1,0).isEmpty()); assertTrue(cell(open,0,1,0).isEmpty());
             assertFalse(cell(open,0,3,0).isEmpty()); assertFalse(cell(open,0,5,0).isEmpty());
@@ -26,7 +26,7 @@ public class GateCollisionTest {
     }
     @Test public void swingGateDoesNotKeepAHugeAabbAcrossTheOpenPassage() {
         for (GateType type : new GateType[]{GateType.LEFT,GateType.LEFT45,GateType.HINGED})
-            for (EnumFacing facing : EnumFacing.HORIZONTALS) {
+            for (EnumFacing facing : new EnumFacing[]{EnumFacing.SOUTH,EnumFacing.WEST,EnumFacing.NORTH,EnumFacing.EAST}) {
                 assertFalse(cell(tile(type,0,facing),0,1,0).isEmpty());
                 assertTrue(cell(tile(type,1,facing),0,1,0).isEmpty());
             }

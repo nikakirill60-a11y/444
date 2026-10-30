@@ -59,7 +59,7 @@ public class GateBlock extends Block {
     }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {
         GateTile tile = Gates.controller(world, pos);
-        if (!world.isRemote && tile != null) tile.removeParts();
+        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null) tile.removeParts();
         super.breakBlock(world, pos, state);
     }
     @Override public ItemStack getItem(World world, BlockPos pos, IBlockState state) { return new ItemStack(this); }

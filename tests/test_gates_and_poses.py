@@ -1,5 +1,4 @@
 """Asset and transform-math checks. These are NOT Minecraft gameplay tests."""
-import hashlib
 import json
 import math
 from pathlib import Path
@@ -40,16 +39,7 @@ class GateAndPoseTests(unittest.TestCase):
             self.assertLess(right[2], -.95, name)
             self.assertLess(left[2], -.95, name)
             self.assertAlmostEqual(right[0], -left[0])
-            # Forge left-hand conjugation is an involution: F (F M F) F == M.
-            # Test on non-symmetric source points, not only the muzzle vector.
-            for point in [(1, .2, -.17), (-.8, -.1, -.2)]:
-                fpoint = (-point[0], point[1], point[2])
-                raw = rotate_y(fpoint, 180-angle)
-                raw = (-raw[0], raw[1], raw[2])
-                actual = (-raw[0], raw[1], raw[2])
-                # The rightmost Forge F cancels the rightmost raw F as well.
-                expected = rotate_y(fpoint, 180-angle)
-                self.assertEqual(actual, expected)
+            # Actual Forge conjugation/anchor matrices are also covered by JVM tests.
 
     def test_third_person_respects_vanilla_arm_parent_rotation(self):
         poses = json.loads((ASSETS / 'geometry/gun_poses.json').read_text())

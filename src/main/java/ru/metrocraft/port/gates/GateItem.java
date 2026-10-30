@@ -41,7 +41,7 @@ public final class GateItem extends ItemBlock {
                 changed.put(pos, world.getBlockState(pos));
                 boolean root = pos.equals(origin);
                 if (!world.setBlockState(pos, root ? gate.getDefaultState().withProperty(GateBlock.FACING, facing)
-                        : Gates.PART.getDefaultState(), 2)) return EnumActionResult.FAIL;
+                        : Gates.PART.getDefaultState(), 3)) return EnumActionResult.FAIL;
                 if (root) {
                     GateTile tile = (GateTile) world.getTileEntity(pos);
                     tile.configure(owner, gate.type, facing, gate.type.initial);
@@ -51,10 +51,15 @@ public final class GateItem extends ItemBlock {
             }
             GateTile tile = (GateTile) world.getTileEntity(origin);
             if (tile.blockedAt(tile.progress)) return EnumActionResult.FAIL;
-            tile.ready = true; tile.markDirty(); tile.sync();
+            tile.ready = true; tile.markDirty();
+            if (!world.captureBlockSnapshots) tile.sync();
             installed = true;
         } finally {
             // Roll back OUR cells only. Never clear or replace someone else's block.
+            if (!installed) {
+                GateTile root = Gates.controller(world, origin);
+                if (root != null && owner.equals(root.owner)) root.removing = true;
+            }
             if (!installed) for (java.util.Map.Entry<BlockPos,IBlockState> entry : changed.entrySet()) {
                 net.minecraft.tileentity.TileEntity te = world.getTileEntity(entry.getKey());
                 if ((te instanceof GateTile && owner.equals(((GateTile) te).owner))
@@ -62,7 +67,6 @@ public final class GateItem extends ItemBlock {
                     world.setBlockState(entry.getKey(), entry.getValue(), 2);
             }
         }
-        world.notifyNeighborsOfStateChange(origin, gate, false);
         if (!player.capabilities.isCreativeMode) stack.shrink(1);
         return EnumActionResult.SUCCESS;
     }
