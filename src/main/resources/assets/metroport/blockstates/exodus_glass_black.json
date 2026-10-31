@@ -1,19 +1,19 @@
 {
   "variants": {
     "facing=north": {
-      "model": "metroport:block/exodus/glass_black",
+      "model": "metroport:exodus/glass_black",
       "y": 0
     },
     "facing=east": {
-      "model": "metroport:block/exodus/glass_black",
+      "model": "metroport:exodus/glass_black",
       "y": 90
     },
     "facing=south": {
-      "model": "metroport:block/exodus/glass_black",
+      "model": "metroport:exodus/glass_black",
       "y": 180
     },
     "facing=west": {
-      "model": "metroport:block/exodus/glass_black",
+      "model": "metroport:exodus/glass_black",
       "y": 270
     }
   }

@@ -14,17 +14,34 @@ def main():
         'podonok':[.13,.08,-.175], 'preved':[-.08,.10,-.195], 'revolver':[.08,.08,-.175],
         'svd':[-.12,.13,-.2625], 'vssk':[-.08,.14,-.20], 'ybludok':[0,.10,-.19],
         'yboinik':[-.08,.09,-.175]}
-    # Support wrist contacts under the fore-end, in the same native metre space.
-    foreends = {'ak74':.34, 'aks74u':.27, 'duplet':.34, 'rpk':.42, 'saiga':.36,
-                'tihar':.32, 'vsv':.32, 'vintovka':.42, 'pkm':.40, 'podonok':.25,
-                'preved':.46, 'revolver':.14, 'svd':.44, 'vssk':.40, 'ybludok':.28, 'yboinik':.30}
+    # Palm centres measured against scaled/transformed meshes, NOT camera-pivot grips.
+    # In 1.4.1 the pivot and a generic downward offset made the hands float below the gun.
+    contacts = {
+        'ak74': ([-.10,.13,-.175], [.50,.30,-.175]),
+        'aks74u': ([-.09,.13,-.175], [.38,.24,-.175]),
+        'duplet': ([-.27,.235,-.208], [.23,.32,-.208]),
+        'rpk': ([-.10,.13,-.175], [.48,.29,-.175]),
+        'saiga': ([-.11,.15,-.20], [.52,.30,-.20]),
+        'tihar': ([-.07,.16,-.1875], [.32,.24,-.1875]),
+        'vsv': ([-.14,.235,-.165], [.40,.34,-.165]),
+        'vintovka': ([-.17,.12,-.175], [.36,.25,-.175]),
+        'pkm': ([-.035,.13,-.185], [.47,.22,-.24]),
+        'podonok': ([.13,.10,-.175], [.46,.25,-.175]),
+        'preved': ([-.13,.14,-.195], [.60,.30,-.195]),
+        'revolver': ([.05,.14,-.175], [.12,.19,-.175]),
+        'svd': ([-.12,.22,-.19], [.60,.27,-.19]),
+        'vssk': ([-.045,.24,-.20], [.40,.27,-.20]),
+        'ybludok': ([0,.12,-.19], [.36,.29,-.19]),
+        'yboinik': ([-.095,.13,-.175], [.37,.245,-.175]),
+    }
     poses = {}
     for name, info in catalogue.items():
         if info['kind'] != 'gun':
             continue
         poses[name] = {
             'grip': grips[name],
-            'support': [grips[name][0] + foreends[name], grips[name][1] - .02, grips[name][2]],
+            'trigger': contacts[name][0],
+            'support': contacts[name][1],
             'firstPerson': {'translation':[-.20,.08,-.25], 'rotation':[0,100,0], 'scale':.8},
             # HeldItemLayer already turns the arm -90 X / 180 Y. +X -> +Y here
             # makes the muzzle face forward after those parent transforms.

@@ -77,7 +77,7 @@ class ExodusTests(unittest.TestCase):
             states = json.loads((ASSETS / ('blockstates/' + e['id'] + '.json')).read_text())['variants']
             self.assertEqual(set(states), {'facing=north', 'facing=east', 'facing=south', 'facing=west'})
             self.assertEqual({s['y'] for s in states.values()}, {0, 90, 180, 270})
-            self.assertTrue(all(s['model'] == 'metroport:' + e['model'] for s in states.values()))
+            self.assertTrue(all(s['model'] == 'metroport:' + e['model'].removeprefix('block/') for s in states.values()))
 
     def test_masks_use_real_armor_and_existing_filters(self):
         code = (ROOT / 'src/main/java/ru/metrocraft/port/exodus/ExodusMask.java').read_text()

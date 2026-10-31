@@ -12,6 +12,7 @@ import net.minecraft.util.EnumHandSide;
 /** First-person only. Vanilla Steve/Alex skin meshes, not a replacement skin or fake gun texture. */
 public final class GunHands {
     private static ModelPlayer classic, slim;
+    private static final java.nio.FloatBuffer MATRIX = org.lwjgl.BufferUtils.createFloatBuffer(16);
     private GunHands() {}
     public static void render(String id, TransformType context, float reload) {
         if(context != TransformType.FIRST_PERSON_LEFT_HAND && context != TransformType.FIRST_PERSON_RIGHT_HAND) return;
@@ -43,16 +44,14 @@ public final class GunHands {
         // Reset the vanilla shoulder offset: this renderer is wrist-anchored in gun space.
         reset(base); reset(sleeve);
         float[] wrist = GunHandPose.wrist(anchor, support, support ? !left : left, reload);
-        // 'left' is this arm's physical skin; the layout is relative to the weapon's primary arm.
-        float side = left ? -1 : 1;
+        javax.vecmath.Matrix4f matrix = GunHandPose.armMatrix(wrist, left, support, alex);
+        MATRIX.clear();
+        for(int column=0; column<4; column++) for(int row=0; row<4; row++)
+            MATRIX.put(matrix.getElement(row, column));
+        MATRIX.flip();
         GlStateManager.pushMatrix();
         try {
-            GlStateManager.translate(wrist[0], wrist[1], wrist[2]);
-            GlStateManager.rotate(support ? -55 : -65, 0,0,1);
-            GlStateManager.rotate(-side*(support ? 30 : 18), 1,0,0);
-            // Vanilla arm spans y=-2..10; y=10 is the hand, not the shoulder.
-            float center = (left ? 1 : -1) * (alex ? .5F : 1);
-            GlStateManager.translate(-center/16F, -10/16F, 0);
+            GlStateManager.multMatrix(MATRIX);
             base.render(1/16F);
             if(player.isWearing(left ? EnumPlayerModelParts.LEFT_SLEEVE : EnumPlayerModelParts.RIGHT_SLEEVE))
                 sleeve.render(1/16F);

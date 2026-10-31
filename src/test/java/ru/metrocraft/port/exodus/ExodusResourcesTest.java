@@ -3,6 +3,9 @@ package ru.metrocraft.port.exodus;
 import com.google.gson.Gson;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelBlock;
+import net.minecraft.client.renderer.block.model.ModelBlockDefinition;
+import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.init.Bootstrap;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -39,6 +42,26 @@ public class ExodusResourcesTest {
             }
         }
         assertEquals(1014, total);
+    }
+    @Test public void everyPlacedVariantResolvesToARealModelAfterNativeBlockPrefixing() throws Exception {
+        int count = 0;
+        for (ExodusContent.Entry entry : entries) if (entry.kind.equals("decor")) {
+            try (InputStreamReader reader = resource("blockstates/" + entry.id + ".json")) {
+                ModelBlockDefinition definition = ModelBlockDefinition.parseFromReader(reader);
+                for (String face : new String[]{"north", "east", "south", "west"}) {
+                    for (Variant variant : definition.getVariant("facing=" + face).getVariantList()) {
+                        ResourceLocation model = variant.getModelLocation();
+                        assertEquals("metroport", model.getNamespace());
+                        assertEquals(entry.model, model.getPath());
+                        try (InputStreamReader modelReader = resource("models/" + model.getPath() + ".json")) {
+                            assertEquals(entry.elements, ModelBlock.deserialize(modelReader).getElements().size());
+                        }
+                        count++;
+                    }
+                }
+            }
+        }
+        assertEquals(88, count);
     }
     @Test public void furnitureFacingMetadataRoundTripsWithoutChangingDefaultModel() {
         int count = 0;

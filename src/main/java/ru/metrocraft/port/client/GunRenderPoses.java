@@ -14,7 +14,7 @@ import java.util.Map;
 /** Native gun-space -> hand-space. No item/generated camera transforms. */
 public final class GunRenderPoses {
     private static final class Pose { float[] translation, rotation; float scale; }
-    private static final class Profile { float[] grip, support; Pose firstPerson, thirdPerson, ground, fixed; }
+    private static final class Profile { float[] grip, trigger, support; Pose firstPerson, thirdPerson, ground, fixed; }
     private static Map<String, Profile> profiles;
 
     private static Profile profile(String id) {
@@ -30,7 +30,7 @@ public final class GunRenderPoses {
     }
     public static float[] handAnchor(String id, boolean support) {
         Profile p = profile(id);
-        return (support ? p.support : p.grip).clone();
+        return (support ? p.support : p.trigger).clone();
     }
     public static Matrix4f matrix(String id, TransformType type) {
         Profile profile = profile(id);

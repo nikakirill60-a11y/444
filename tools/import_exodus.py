@@ -159,7 +159,8 @@ def main():
             write_json(ASSETS / ('models/item/' + id_ + '.json'), {'parent': 'metroport:' + model_path})
             if kind == 'decor':
                 write_json(ASSETS / ('blockstates/' + id_ + '.json'), {'variants': {
-                    'facing=' + facing: {'model': 'metroport:' + model_path, 'y': yaw}
+                    # Vanilla Variant.Deserializer prepends block/ (unlike item parent links).
+                    'facing=' + facing: {'model': 'metroport:exodus/' + key, 'y': yaw}
                     for facing, yaw in [('north', 0), ('east', 90), ('south', 180), ('west', 270)]}})
             entries.append({'id': id_, 'kind': kind, 'source': source, 'model': model_path,
                             'ru': ru, 'en': en, 'bounds': bounds(original['elements']),

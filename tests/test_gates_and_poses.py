@@ -57,13 +57,32 @@ class GateAndPoseTests(unittest.TestCase):
             self.assertEqual(len(pose['support']), 3, id_)
             self.assertTrue(all(math.isfinite(v) for v in pose['support']))
             self.assertGreater(pose['support'][0], pose['grip'][0])
-            self.assertLess(pose['support'][1], pose['grip'][1])
+            self.assertEqual(len(pose['trigger']), 3, id_)
+            self.assertGreater(pose['support'][0], pose['trigger'][0])
         renderer = (ROOT / 'src/main/java/ru/metrocraft/port/client/LegacyItemRenderer.java').read_text()
         self.assertIn('if(first) GunHands.render(id, context, reload)', renderer)
         hands = (ROOT / 'src/main/java/ru/metrocraft/port/client/GunHands.java').read_text()
         for token in ('getLocationSkin()', 'getSkinType()', 'LEFT_SLEEVE', 'RIGHT_SLEEVE',
                       'player.isInvisible()', 'player.isSpectator()', 'getHeldItemOffhand().isEmpty()'):
             self.assertIn(token, hands)
+
+    def test_palm_contacts_are_near_transformed_gun_meshes_not_camera_pivots(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('gun_contact_geometry', ROOT / 'tools/gun_contact_geometry.py')
+        mesh = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mesh)
+        poses = json.loads((ASSETS / 'geometry/gun_poses.json').read_text())
+        for id_, pose in poses.items():
+            parts = mesh.meshes(id_)
+            self.assertGreater(len(parts), 0)
+            for name in ('trigger', 'support'):
+                for side in (-1, 1):
+                    contact = pose[name].copy()
+                    contact[2] += side * .025
+                    self.assertLessEqual(mesh.contact_distance(contact, parts), .045, (id_, name, side))
+        # The screenshot regression: the old Duplet support was > 0.1 m below its mesh.
+        self.assertGreater(poses['duplet']['support'][1], .3)
+        self.assertNotEqual(poses['duplet']['trigger'], poses['duplet']['grip'])
 
     def test_gate_meshes_and_atlases_are_original_bytes(self):
         with zipfile.ZipFile(ROOT / '(Metro) Flans-v1.1.jar') as original:

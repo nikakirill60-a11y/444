@@ -1,19 +1,19 @@
 {
   "variants": {
     "facing=north": {
-      "model": "metroport:block/exodus/carpet_blue",
+      "model": "metroport:exodus/carpet_blue",
       "y": 0
     },
     "facing=east": {
-      "model": "metroport:block/exodus/carpet_blue",
+      "model": "metroport:exodus/carpet_blue",
       "y": 90
     },
     "facing=south": {
-      "model": "metroport:block/exodus/carpet_blue",
+      "model": "metroport:exodus/carpet_blue",
       "y": 180
     },
     "facing=west": {
-      "model": "metroport:block/exodus/carpet_blue",
+      "model": "metroport:exodus/carpet_blue",
       "y": 270
     }
   }
