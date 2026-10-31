@@ -16,20 +16,18 @@ public final class GateTile extends TileEntity implements ITickable {
     public GateType type = GateType.MAIN;
     public EnumFacing facing = EnumFacing.SOUTH;
     public float progress, previous;
-    private float manualTarget, target;
+    private float target;
     private boolean powered, blocked;
     public boolean ready, removing;
     private int ticks;
-    private boolean structureLoaded = true;
+    private boolean structureLoaded;
 
-    public void configure(UUID owner, GateType type, EnumFacing facing, float initial) {
+    public void configure(UUID owner, GateType type, EnumFacing facing) {
         this.owner = owner; this.type = type; this.facing = facing;
-        this.progress = this.previous = this.manualTarget = this.target = initial; markDirty();
+        // Asset names such as "open" are variants, not a second source of control.
+        progress = previous = target = 0; powered = false; structureLoaded = false; markDirty();
     }
-    public void toggle() {
-        manualTarget = manualTarget >= .5F ? 0 : 1;
-        setTarget(powered ? 1 : manualTarget); markDirty(); sync();
-    }
+    static float redstoneTarget(boolean signal) { return signal ? 1 : 0; }
     private void setTarget(float next) {
         if (next == target) return;
         target = next; markDirty();
@@ -40,11 +38,15 @@ public final class GateTile extends TileEntity implements ITickable {
         previous = progress;
         if (!ready || removing || owner == null) return;
         ++ticks;
-        if (!world.isRemote && ticks % 10 == 1) {
+        if (!world.isRemote) {
             boolean signal = false;
-            structureLoaded = false;
             for (BlockPos cell : Gates.footprint(pos, facing, type)) {
-                if (!world.isBlockLoaded(cell)) { blocked = true; sync(); return; }
+                if (!world.isBlockLoaded(cell)) {
+                    if (structureLoaded || !blocked || powered) {
+                        structureLoaded = false; blocked = true; powered = false; target = 0; sync();
+                    }
+                    return;
+                }
                 if (cell.equals(pos)) continue;
                 TileEntity part = world.getTileEntity(cell);
                 if (!(part instanceof GatePartTile) || !owner.equals(((GatePartTile) part).owner)) {
@@ -54,8 +56,10 @@ public final class GateTile extends TileEntity implements ITickable {
             }
             structureLoaded = true;
             signal |= world.isBlockPowered(pos);
-            if (signal != powered) { powered = signal; manualTarget = signal ? 1 : 0; markDirty(); }
-            setTarget(powered ? 1 : manualTarget);
+            boolean changed = signal != powered;
+            powered = signal;
+            setTarget(redstoneTarget(signal));
+            if (changed) { markDirty(); sync(); }
         }
         if (!world.isRemote && !structureLoaded) return;
         float next = progress + Math.signum(target - progress) * Math.min(.015F, Math.abs(target - progress));
@@ -157,7 +161,8 @@ public final class GateTile extends TileEntity implements ITickable {
         super.writeToNBT(tag);
         if (owner != null) tag.setUniqueId("Owner", owner);
         tag.setString("Type", type.name()); tag.setInteger("Facing", facing.getHorizontalIndex());
-        tag.setFloat("Progress", progress); tag.setFloat("Manual", manualTarget); tag.setFloat("Target", target);
+        tag.setFloat("Progress", progress);
+        tag.removeTag("Manual"); tag.removeTag("Target"); // Migrate old saves; never persist manual intent.
         tag.setBoolean("Powered", powered); tag.setBoolean("Blocked", blocked); tag.setBoolean("Ready", ready); return tag;
     }
     @Override public void readFromNBT(NBTTagCompound tag) {
@@ -166,8 +171,10 @@ public final class GateTile extends TileEntity implements ITickable {
         try { type = GateType.valueOf(tag.getString("Type")); } catch (IllegalArgumentException e) { type = GateType.MAIN; }
         facing = GateBlock.horizontal(tag.getInteger("Facing"));
         previous = progress = MathHelper.clamp(tag.getFloat("Progress"), 0, 1);
-        manualTarget = MathHelper.clamp(tag.getFloat("Manual"), 0, 1); target = MathHelper.clamp(tag.getFloat("Target"), 0, 1);
-        powered = tag.getBoolean("Powered"); blocked = tag.getBoolean("Blocked"); ready = tag.getBoolean("Ready");
+        // Ignore legacy Manual/Target. Server rechecks the entire loaded structure BEFORE moving.
+        powered = tag.getBoolean("Powered"); target = redstoneTarget(powered);
+        blocked = tag.getBoolean("Blocked"); ready = tag.getBoolean("Ready");
+        structureLoaded = false;
     }
     @Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }
     @Override public SPacketUpdateTileEntity getUpdatePacket() { return new SPacketUpdateTileEntity(pos, 0, getUpdateTag()); }

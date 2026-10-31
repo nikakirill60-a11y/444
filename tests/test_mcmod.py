@@ -28,7 +28,7 @@ class McmodTests(unittest.TestCase):
 
     def test_raw_source_checksums_and_class_headers(self):
         files = json.loads((SOURCE / 'source-files.json').read_text())['files']
-        self.assertEqual(124, len(files))  # 16 source classes + 99 armor resources + 9 ordinary icons.
+        self.assertEqual(128, len(files))  # Also includes 4 original held-tool OBJ/atlases.
         for name, record in files.items():
             data = (SOURCE / name).read_bytes()
             self.assertEqual(record['bytes'], len(data), name)

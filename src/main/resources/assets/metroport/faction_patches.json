@@ -1,0 +1,65 @@
+{
+  "provenance": "New cosmetic patch items derived from emblems embedded in the original Flan armor atlases. Cloth backing/stitching added by this port. No faction permissions or membership invented.",
+  "patches": [
+    {
+      "id": "patch_satanists",
+      "faction": "satanists",
+      "nameRu": "Нашивка сатанистов",
+      "nameEn": "Satanist patch",
+      "sourceAtlas": "textures/legacy/satanarmor.png",
+      "sourceBounds": [
+        1272,
+        610,
+        1604,
+        942
+      ],
+      "sourceSha256": "14f166fe0945b57ee9850171b928833ed610d575250f4328b1c0f48b7fc31414",
+      "patchSha256": "9a3f3196cbf3fee5b4dfff3fed66f087b294f5633241d8463c8716fc1be1f026"
+    },
+    {
+      "id": "patch_contrabandists",
+      "faction": "contrabandists",
+      "nameRu": "Нашивка контрабандистов",
+      "nameEn": "Contrabandist patch",
+      "sourceAtlas": "textures/legacy/kontrabody.png",
+      "sourceBounds": [
+        10,
+        99,
+        91,
+        201
+      ],
+      "sourceSha256": "f9f92c1a4f0a0d71faf487592d74990719301549a0bbc107054aa895c665d5a2",
+      "patchSha256": "89d91cb1f76e4d582418c5e2da901e6756023f4e2e83b4f50a3e467fcea82b08"
+    },
+    {
+      "id": "patch_legion",
+      "faction": "legion",
+      "nameRu": "Нашивка «Легион»",
+      "nameEn": "Legion patch",
+      "sourceAtlas": "textures/legacy/legionarmor.png",
+      "sourceBounds": [
+        44,
+        212,
+        103,
+        259
+      ],
+      "sourceSha256": "aa4987cb46ca47a1113e6ffeba88abec295b6b419e16a7cf83aaf4193b097159",
+      "patchSha256": "207392530941010d8e3e3e0063a4735ae6763c7d30d4f86b0132ca7351b39217"
+    },
+    {
+      "id": "patch_mgu",
+      "faction": "mgu",
+      "nameRu": "Нашивка МГУ",
+      "nameEn": "MSU patch",
+      "sourceAtlas": "textures/legacy/nvgdbody.png",
+      "sourceBounds": [
+        277,
+        330,
+        426,
+        502
+      ],
+      "sourceSha256": "4d79bc3906c64f715218449eb0f5d861d1cb5b75640cafa531a8115353119a5d",
+      "patchSha256": "461acaee92190897b5d9c1a52c2755c4b21730c412a92d5faf28c70d0a470106"
+    }
+  ]
+}

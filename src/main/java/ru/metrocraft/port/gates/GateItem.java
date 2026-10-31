@@ -45,7 +45,7 @@ public final class GateItem extends ItemBlock {
                         : Gates.PART.getDefaultState(), 3)) return EnumActionResult.FAIL;
                 if (root) {
                     GateTile tile = (GateTile) world.getTileEntity(pos);
-                    tile.configure(owner, gate.type, facing, gate.type.initial);
+                    tile.configure(owner, gate.type, facing);
                 } else {
                     ((GatePartTile) world.getTileEntity(pos)).configure(origin, owner);
                 }

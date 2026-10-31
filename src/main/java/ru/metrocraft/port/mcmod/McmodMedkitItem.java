@@ -14,6 +14,7 @@ import java.util.List;
 
 /** Source five syringes and 100-tick per-stack timer; never alters the player's maximum health. */
 public final class McmodMedkitItem extends Item {
+    public static final int USE_TICKS = 40;
     public McmodMedkitItem() { setMaxStackSize(1); setMaxDamage(5); setNoRepair(); }
     public static int remaining(ItemStack stack) {
         int uses=stack.hasTagCompound() && stack.getTagCompound().hasKey("uses",3)
@@ -42,12 +43,22 @@ public final class McmodMedkitItem extends Item {
         ItemStack stack=player.getHeldItem(hand);
         if(!canUse(stack,player.getHealth(),player.getMaxHealth(),player.isSpectator()))
             return new ActionResult<>(EnumActionResult.FAIL,stack);
-        if(!world.isRemote) {
-            player.setHealth(player.getMaxHealth());
-            spend(stack,player.capabilities.isCreativeMode);
-            player.inventory.markDirty();
-        }
+        player.setActiveHand(hand);
         return new ActionResult<>(EnumActionResult.SUCCESS,stack);
+    }
+    @Override public int getMaxItemUseDuration(ItemStack stack) { return USE_TICKS; }
+    @Override public EnumAction getItemUseAction(ItemStack stack) { return EnumAction.NONE; }
+    @Override public ItemStack onItemUseFinish(ItemStack stack,World world,EntityLivingBase user) {
+        // Native active-hand completion only. Releasing/switching/dying never consumes a charge.
+        if(!world.isRemote && user instanceof EntityPlayer) {
+            EntityPlayer player=(EntityPlayer)user;
+            if(canUse(stack,player.getHealth(),player.getMaxHealth(),player.isSpectator())) {
+                player.setHealth(player.getMaxHealth());
+                spend(stack,player.capabilities.isCreativeMode);
+                player.inventory.markDirty();
+            }
+        }
+        return stack;
     }
     @Override public boolean onLeftClickEntity(ItemStack stack,EntityPlayer player,Entity entity) { return true; }
     @Override public boolean onEntitySwing(EntityLivingBase entity,ItemStack stack) { return true; }

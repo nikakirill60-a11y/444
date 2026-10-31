@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.6.0'
+version = '1.7.0'
 group = 'ru.metrocraft'
 archivesBaseName = 'metrocraft-port-1.12.2'
 sourceCompatibility = targetCompatibility = '1.8'

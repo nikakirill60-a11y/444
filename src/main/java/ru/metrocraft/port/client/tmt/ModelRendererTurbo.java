@@ -2326,6 +2326,16 @@ public class ModelRendererTurbo extends ModelRenderer
 		GlStateManager.glEndList();
 	}
 	
+    /** Read-only arm-space surface query for cosmetic overlays; never changes the source mesh. */
+    public double outerX(double y0,double y1,double zExtent) {
+        double x=Double.NEGATIVE_INFINITY;
+        for(PositionTextureVertex vertex:vertices) {
+            Vec3d p=vertex.vector3D;
+            if(p.y>=y0 && p.y<=y1 && Math.abs(p.z)<=zExtent)x=Math.max(x,p.x);
+        }
+        return x;
+    }
+
 	private PositionTextureVertex vertices[];
 	private TexturedPolygon faces[];
 	private int textureOffsetX;

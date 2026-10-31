@@ -14,6 +14,21 @@ import static org.junit.Assert.*;
 public class McmodItemsTest {
     @BeforeClass public static void setup() { Bootstrap.register(); McmodContent.load(); }
     private ItemStack kit() { return new ItemStack(new McmodMedkitItem()); }
+    @Test public void medkitUsesNativeFortyTickHoldAndCancellationSpendsNothing() {
+        ItemStack kit=kit();assertEquals(40,kit.getItem().getMaxItemUseDuration(kit));
+        assertEquals(EnumAction.NONE,kit.getItem().getItemUseAction(kit));
+        kit.getItem().onPlayerStoppedUsing(kit,null,null,20);
+        assertEquals(5,McmodMedkitItem.remaining(kit));assertEquals(100,McmodMedkitItem.timer(kit));
+        assertFalse(kit.hasTagCompound());
+    }
+    @Test public void originalHeldToolMeshesParseWithTheActualRuntimeReader()throws Exception {
+        for(String id:new String[]{"machete","aptech"})try(InputStream in=getClass().getResourceAsStream("/assets/metroport/models/legacy/mcmod_tools/"+id+".obj")) {
+            McmodObjMesh mesh=McmodObjMesh.read(in);
+            assertTrue(mesh.groups.containsKey("body"));assertTrue(mesh.groups.get("body").size()>100);
+            assertTrue(mesh.groups.containsKey("arm_right")); // Not drawn: the current player skin replaces it.
+            if(id.equals("aptech"))for(int syringe=1;syringe<=5;syringe++)assertFalse(mesh.groups.get(Integer.toString(syringe)).isEmpty());
+        }
+    }
     @Test public void newAndDamagedKitsHaveFiveOrRemainingSyringes() {
         ItemStack kit=kit();assertEquals(5,McmodMedkitItem.remaining(kit));assertEquals(100,McmodMedkitItem.timer(kit));
         kit.setItemDamage(3);assertEquals(2,McmodMedkitItem.remaining(kit));

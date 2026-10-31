@@ -31,6 +31,7 @@ public final class ClientEvents {
         ClientRegistry.registerKeyBinding(AIM);
         for (net.minecraft.client.renderer.entity.RenderPlayer playerRenderer : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
             playerRenderer.addLayer(new ru.metrocraft.port.client.BackpackClient(playerRenderer));
+            playerRenderer.addLayer(new ru.metrocraft.port.client.FactionPatchLayer(playerRenderer));
         }
     }
 
@@ -49,6 +50,20 @@ public final class ClientEvents {
     }
 
     @SubscribeEvent
+    public static void toolModels(net.minecraftforge.client.event.ModelBakeEvent event) {
+        for (String id : new String[]{"mcmod_machete", "mcmod_aptech"}) {
+            Item item=MetroPort.ITEMS.get(id);
+            if(item==null)continue;
+            ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(location);
+            if(icon!=null) {
+                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodToolRenderer.INSTANCE);
+                event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel(id,false,icon));
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void gateModels(net.minecraftforge.client.event.ModelBakeEvent event) {
         for (ru.metrocraft.port.gates.GateBlock block : ru.metrocraft.port.gates.Gates.BLOCKS.values()) {
             Item item = Item.getItemFromBlock(block);
@@ -60,6 +75,12 @@ public final class ClientEvents {
                         new ru.metrocraft.port.client.LegacyItemModel(block.type.id, false, icon, false));
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void patchTooltip(net.minecraftforge.event.entity.player.ItemTooltipEvent event) {
+        net.minecraft.item.ItemStack patch=ru.metrocraft.port.patches.FactionPatches.get(event.getItemStack());
+        if(!patch.isEmpty())event.getToolTip().add(net.minecraft.client.resources.I18n.format("metroport.patch.equipped",patch.getDisplayName()));
     }
 
     @SubscribeEvent

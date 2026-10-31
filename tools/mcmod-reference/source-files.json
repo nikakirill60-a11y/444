@@ -496,6 +496,26 @@
     "assets/items/res_xim.png": {
       "bytes": 3315,
       "sha256": "bfc21dd6212a1efa97e1b4a6c2c6c8984441107c312e9342155744104c5c5973"
+    },
+    "assets/tools/aptech/model.obj": {
+      "driveId": "1Ys4cUbn4AymekUIQma3iYdr3nGtj-twp",
+      "bytes": 317820,
+      "sha256": "d6a9a6245d482eb062934217d08140eadd03c88c8a7485a97fa8ebd0d5776b57"
+    },
+    "assets/tools/aptech/texture.png": {
+      "driveId": "1Pqp0OAKhoqfISTQF0LbnRSxJYyHKJR83",
+      "bytes": 2365385,
+      "sha256": "6cb0707ac46d42d5fd62a254ecf683c1ee79d7a0f3bd27cf7cae8bf4730c4283"
+    },
+    "assets/tools/machete/model.obj": {
+      "driveId": "1GGe54X_fncXFJXF3rbyUPUYiX6AQlEdo",
+      "bytes": 396930,
+      "sha256": "3e2fecdaa4b38ba996988455fb654d401a3cd9a4ad350178f7936b419116c36b"
+    },
+    "assets/tools/machete/texture.png": {
+      "driveId": "1PxCtAC_AeCg7PM_vUp0wbOXjQwnzLRNn",
+      "bytes": 1348639,
+      "sha256": "6461a5d8085a16d7b43eea78632436f424452cfd1a34c13d02c981d0f490d805"
     }
   }
 }

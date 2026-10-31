@@ -50,11 +50,7 @@ public class GateBlock extends Block {
     }
     @Override public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
                                               EnumHand hand, EnumFacing side, float x, float y, float z) {
-        GateTile tile = Gates.controller(world, pos);
-        if (tile != null && player.canPlayerEdit(pos, side, player.getHeldItem(hand))) {
-            if (!world.isRemote) tile.toggle();
-            return true;
-        }
+        // Redstone is the sole control. Let vanilla place levers/buttons against the structure.
         return false;
     }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {

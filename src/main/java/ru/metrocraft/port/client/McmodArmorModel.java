@@ -28,6 +28,17 @@ public final class McmodArmorModel extends ModelBiped {
             } catch (Exception e) { throw new IllegalStateException("Cannot load MCMOD armor " + file, e); }
         });
     }
+    public static double patchSurface(McmodArmorEntry entry) {
+        List<float[]> vertices=get(entry).mesh().groups.get("leftarm");
+        double x=.21;
+        javax.vecmath.Matrix4f local=McmodArmorPose.local("leftarm");
+        if(vertices!=null)for(float[] v:vertices) {
+            javax.vecmath.Vector4f p=new javax.vecmath.Vector4f(v[0],v[1],v[2],1);
+            local.transform(p);
+            if(p.y>=-.05 && p.y<=.24 && Math.abs(p.z)<=.15)x=Math.max(x,p.x);
+        }
+        return x+.008;
+    }
     @Override public void render(Entity entity, float limbSwing, float amount, float age, float yaw, float pitch, float scale) {
         setRotationAngles(limbSwing,amount,age,yaw,pitch,scale,entity);
         GlStateManager.pushMatrix();
