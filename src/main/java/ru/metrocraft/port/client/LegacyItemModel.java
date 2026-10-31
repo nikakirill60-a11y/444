@@ -11,6 +11,9 @@ import java.util.List;
 
 /** Keep crisp original GUI icons; render the actual Turbo geometry in hands/on the ground. */
 public final class LegacyItemModel implements IBakedModel {
+    private static final ThreadLocal<ItemCameraTransforms.TransformType> CONTEXT=
+            ThreadLocal.withInitial(()->ItemCameraTransforms.TransformType.NONE);
+    public static ItemCameraTransforms.TransformType context(){return CONTEXT.get();}
     private final IBakedModel icon;
     private final String id;
     private final boolean gun;
@@ -29,7 +32,7 @@ public final class LegacyItemModel implements IBakedModel {
     @Override
     public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType type) {
         if (guiIcon && type == ItemCameraTransforms.TransformType.GUI) return icon.handlePerspective(type);
-        if (gun) return Pair.of(this, GunRenderPoses.matrix(id, type));
+        if (gun) {CONTEXT.set(type);return Pair.of(this, GunRenderPoses.matrix(id, type));}
         Pair<? extends IBakedModel, Matrix4f> transform = icon.handlePerspective(type);
         return Pair.of(this, transform.getRight());
     }

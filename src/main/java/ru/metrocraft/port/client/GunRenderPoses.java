@@ -34,7 +34,14 @@ public final class GunRenderPoses {
             case GROUND: pose = profile.ground; break;
             default: pose = profile.fixed;
         }
-        return compose(profile.grip, pose.translation, pose.rotation, pose.scale,
+        float[] translation=pose.translation.clone(),rotation=pose.rotation.clone();
+        if(type==TransformType.FIRST_PERSON_LEFT_HAND || type==TransformType.FIRST_PERSON_RIGHT_HAND){
+            float aim=GunClient.aim;
+            translation[0]+=(-.56F-translation[0])*aim;
+            translation[1]+=(.42F-translation[1])*aim;
+            rotation[1]+=(90-rotation[1])*aim;
+        }
+        return compose(profile.grip, translation, rotation, pose.scale,
                 type == TransformType.FIRST_PERSON_LEFT_HAND || type == TransformType.FIRST_PERSON_RIGHT_HAND, left);
     }
     /** Pure math entry point shared with JVM tests; no Minecraft/OpenGL initialization. */

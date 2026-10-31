@@ -61,6 +61,9 @@ public final class AttachmentItem extends ContentItem {
                 case "damage": value *= d.damageMultiplier; break;
                 case "spread": value *= d.spreadMultiplier; break;
                 case "reload": value *= d.reloadMultiplier; break;
+                case "recoil": value *= d.recoilMultiplier; break;
+                case "speed": value *= d.bulletSpeedMultiplier; break;
+                case "sound": if(d.silencer)value *= .15F; break;
                 case "zoom": value *= d.zoom; break;
             }
         }

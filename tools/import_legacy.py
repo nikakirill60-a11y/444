@@ -79,7 +79,16 @@ def geometry(path):
             method, args = m.groups()
             globals_.append({'op': method, 'values': numbers(args) if args else []})
     # Muzzle flash OBJ files referenced by the old classes are NOT in any supplied archive.
-    result = {'parts': [p for p in parts.values() if p['ops']], 'transforms': globals_}
+    rig = {key:[0,0,0] for key in ['barrelAttachPoint','scopeAttachPoint','colAttachPoint','gripAttachPoint','stockAttachPoint','barrelBreakPoint']}
+    for key in ['barrelAttachPoint','scopeAttachPoint','colAttachPoint','gripAttachPoint','stockAttachPoint','barrelBreakPoint']:
+        matches=re.findall(r'this\.'+key+r' = new Vector3f\(([^;]+)\);',text)
+        if matches: rig[key]=numbers(matches[-1])
+    for key in ['downReload','gunSlideDistance','pumpHandleDistance','breakAngle','scaleAttachment']:
+        matches=re.findall(r'this\.'+key+r' = ([^;]+);',text)
+        if matches:rig[key]=numbers(matches[-1])[0]
+    animation=re.search(r'this\.animationType = EnumAnimationType\.(\w+)',text)
+    if animation:rig['animationType']=animation.group(1)
+    result = {'parts': [p for p in parts.values() if p['ops']], 'transforms': globals_, 'rig':rig}
     expected = len(re.findall(r'\.(?:addShapeBox|func_78790_a)\(', text))
     actual = sum(o['op'] in ('box', 'shape') for p in result['parts'] for o in p['ops'])
     if expected != actual:
@@ -91,6 +100,8 @@ def main():
     outer = zipfile.ZipFile(ROOT / 'Flan-20261030T152711Z-1-001.zip')
     pack = zipfile.ZipFile(io.BytesIO(outer.read('Flan/MetroCraft -Pack-1.7.10-4.10.0.jar')))
     paths = {n.lower(): n for n in pack.namelist()}
+    for scope in ('svd','aim1'):
+        put(ASSETS/('textures/scopes/'+scope+'.png'),pack.read(paths['assets/flansmod/gui/'+scope+'.png']))
     catalogue = {}
     unavailable = set()
     for name in sorted(pack.namelist()):

@@ -78,6 +78,10 @@ def main():
                              delay=int(d['ShootDelay']), pellets=int(d.get('NumBullets', '1')),
                              spread=float(d.get('Accuracy', '0')), automatic=d.get('Mode') == 'FullAuto',
                              allowedAttachments=[identifier(a) for a in d.get('AllowAttachments', '').split()])
+                entry.update(bulletSpeed=float(d.get('BulletSpeed','40')), recoil=float(d.get('Recoil','0')),
+                             randomRecoil=float(d.get('RandomRecoilRange','2.5')), randomYaw=float(d.get('RandomRecoilYawRange','1')),
+                             decreaseRecoil=float(d.get('DecreaseRecoil','2')), decreaseYaw=float(d.get('DecreaseRecoilYaw','1.5')),
+                             scope=d.get('Scope','None'))
                 for source_key, target in [('ShootSound', 'shootSound'), ('ReloadSound', 'reloadSound')]:
                     source = d.get(source_key)
                     if source:
@@ -93,18 +97,29 @@ def main():
                              damageMultiplier=float(d.get('DamageMultiplier', '1')),
                              spreadMultiplier=float(d.get('SpreadMultiplier', '1')),
                              reloadMultiplier=float(d.get('ReloadTimeMultiplier', '1')),
-                             zoom=float(d.get('ZoomLevel', '1')) * float(d.get('FOVZoomLevel', '1')))
+                             zoom=float(d.get('ZoomLevel', '1')) * float(d.get('FOVZoomLevel', '1')),
+                             recoilMultiplier=float(d.get('RecoilMultiplier','1')),
+                             bulletSpeedMultiplier=float(d.get('BulletSpeedMultiplier','1')),
+                             silencer=d.get('Silencer','false').lower()=='true', zoomOverlay=d.get('ZoomOverlay','None'))
             elif kind == 'armor':
                 entry.update(slot='head' if d['Type'] == 'Helmet' else 'chest',
                              defence=float(d.get('Defence', '0')),
                              nightVision=d.get('NightVision', '').lower() == 'true',
-                             gasMask=d.get('GasMask', '').lower() == 'true')
+                             gasMask=d.get('GasMask', '').lower() == 'true',
+                             moveSpeedModifier=float(d.get('MoveSpeedModifier',d.get('Slowness','1'))),
+                             knockbackModifier=float(d.get('KnockbackModifier',d.get('KnockbackReduction','.2'))),
+                             jumpModifier=float(d.get('JumpModifier','1')),
+                             negateFallDamage=d.get('NegateFallDamage','false').lower()=='true')
             elif kind == 'tool':
                 entry.update(heal=float(d.get('HealAmount', '0')), uses=int(d.get('ToolLife', '1')),
                              repairGun=d.get('CanRepair', '').lower() == 'true',
                              repairArmor=d.get('CanArmorRepair', '').lower() == 'true')
                 # Legacy repair descriptions refer to an incompatible GUI; the port uses the offhand.
                 entry['description'] = ''
+            if kind == 'ammo':
+                entry.update(fallSpeed=float(d.get('FallSpeed','.25')), hitBoxSize=float(d.get('HitBoxSize','.5')),
+                             penetrates=d.get('Penetrates','false').lower()=='true',
+                             breaksGlass=d.get('BreaksGlass','false').lower()=='true')
             entries.append(entry)
     ids = [e['id'] for e in entries]
     if len(set(ids)) != len(ids):
@@ -158,6 +173,8 @@ def main():
         translations["en_us"].append("tile.metroport." + key + ".name=" + en_name)
     translations["ru_ru"].append("metroport.gate.obstructed=Для ворот и движения створки нужно свободное место. См. инструкцию.")
     translations["en_us"].append("metroport.gate.obstructed=The gate and its movement pocket need empty space. See the instructions.")
+    translations["ru_ru"].append("death.attack.metrobullet=%1$s застрелен игроком %2$s")
+    translations["en_us"].append("death.attack.metrobullet=%1$s was shot by %2$s")
     for locale, lines in translations.items():
         put(ASSETS / ('lang/' + locale + '.lang'), '\n'.join(lines) + '\n')
     # Preserve the license shipped with the original Flan code/assets.
@@ -168,11 +185,17 @@ def main():
         'source': 'Flan/MetroCraft -Pack-1.7.10-4.10.0.jar',
         'rendering': 'Original GUI icons; original Turbo geometry and atlases through client renderers; geometry/OBJ integrity tested, visual alignment still needs in-game verification.',
         'expandedContent': {'decorativeBlocks': 58, 'radiationSources': 1, 'filters': 1, 'pickaxes': 1, 'backpacks': 3, 'entityTypes': 10, 'hermeticGates': 6},
-        'notPorted': ['Legacy projectile ballistics, recoil and reload/hand animations',
-                      'Mounted attachment geometry and scope overlays',
-                      'Original pickup and external-container inventory capacity rules',
-                      'NoDrop commands and CustomNPC animation integration',
-                      'Survival recipes and full balance/AI equivalence']})
+        'notPorted': ['Original missing LastDays muzzle-flash meshes',
+                      'Independent hand/magazine geometry not supplied by the models',
+                      'Full 1.7 player bone hitboxes/lag compensation and cross-mod vehicle damage',
+                      'Unknown third-party inventory slot contracts require integration testing',
+                      'Client/dedicated-server visual and multiplayer acceptance'],
+        'mechanics': {'projectiles': 'original speed, .99 drag / .8 water drag, .02 * FallSpeed gravity',
+                      'armor': 'ISpecialArmor priority 1, Defence fraction, original movement/knockback attributes',
+                      'noDrop': 'givenodrop command, toss prevention, persistent death return queue',
+                      'attachments': 'original mounts, models, recoil/speed/sound modifiers and scope textures'},
+        'recipes': 'Medkit FFF/PPP/FFF requires external fiberglass and strong healing potions; recharge requires 3 strong healing potions; no other supplied recipes'
+        })
     print('Imported', len(entries), 'entries:', report)
 
 

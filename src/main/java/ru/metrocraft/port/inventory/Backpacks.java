@@ -56,6 +56,7 @@ public final class Backpacks {
         EntityPlayer player=(EntityPlayer)event.getEntityLiving();
         if (player.world.getGameRules().getBoolean("keepInventory")) return;
         ItemStack bag=get(player);
+        if (ru.metrocraft.port.mechanics.NoDrop.marked(bag)) return;
         if (!bag.isEmpty()) event.getDrops().add(new EntityItem(player.world,player.posX,player.posY,player.posZ,bag));
         set(player,ItemStack.EMPTY);
     }

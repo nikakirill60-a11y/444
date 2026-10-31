@@ -7,6 +7,8 @@ import ru.metrocraft.port.MetroPort;
 
 public final class LegacyEntities {
     public static void register() {
+        EntityRegistry.registerModEntity(new ResourceLocation(MetroPort.ID,"bullet"),MetroBullet.class,"bullet",10,
+                MetroPort.INSTANCE,64,1,true);
         add(KrisEntity.class,"kris",0); add(MurzikEntity.class,"murzik",1);
         add(TuzicEntity.class,"tuzic",2); add(JeryEntity.class,"jery",3);
         add(Trup1Entity.class,"trup1",4); add(Trup2Entity.class,"trup2",5);

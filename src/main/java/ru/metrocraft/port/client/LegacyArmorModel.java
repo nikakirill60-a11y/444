@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class LegacyArmorModel extends ModelBiped {
+public final class LegacyArmorModel extends LegacyNpcArmorPose {
     private static final Map<String, LegacyArmorModel> CACHE = new HashMap<>();
     private final String id;
     private LegacyArmorModel(String id) { super(0); this.id = id; }
@@ -17,6 +17,7 @@ public final class LegacyArmorModel extends ModelBiped {
     @Override
     public void render(Entity entity, float swing, float amount, float age, float yaw, float pitch, float scale) {
         setRotationAngles(swing, amount, age, yaw, pitch, scale, entity);
+        npcPose(entity,swing,amount,age,yaw,pitch,scale);
         float factor = LegacyItemRenderer.info(id).scale;
         LegacyGeometry geometry = LegacyGeometry.get(id);
         GlStateManager.pushMatrix();

@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.2.0", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.3.0", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -73,12 +73,17 @@ public final class MetroPort {
                 ru.metrocraft.port.inventory.BackpackSyncPacket.class,1,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.OpenInventoryPacket.Handler.class,
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
+        NETWORK.registerMessage(ShotFeedbackPacket.Handler.class,ShotFeedbackPacket.class,3,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
         ru.metrocraft.port.gates.Gates.initialize();
         PROXY.preInit();
     }
 
+    @Mod.EventHandler
+    public void serverStarting(net.minecraftforge.fml.common.event.FMLServerStartingEvent event) {
+        event.registerServerCommand(new ru.metrocraft.port.mechanics.GiveNoDrop());
+    }
     @Mod.EventHandler
     public void init(net.minecraftforge.fml.common.event.FMLInitializationEvent event) { PROXY.init(); }
 

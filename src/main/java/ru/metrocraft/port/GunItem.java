@@ -30,7 +30,7 @@ import java.util.Map;
 
 public final class GunItem extends ContentItem {
     private static final String AMMO = "MetroAmmo", RELOAD = "MetroReloadTicks";
-    private static final double RANGE = 100;
+
 
     public GunItem(Definition d) {
         super(d);
@@ -69,7 +69,10 @@ public final class GunItem extends ContentItem {
     public void startReload(ItemStack stack, EntityPlayer player) {
         if (player.world.isRemote || player.isSpectator() || reloading(stack) || ammo(stack) >= definition.capacity) return;
         if (!player.capabilities.isCreativeMode && available(player, false, 1) == 0) return;
-        tag(stack).setInteger(RELOAD, Math.max(1, Math.round(definition.reloadTicks * AttachmentItem.multiplier(stack, "reload"))));
+        int duration=Math.max(1,Math.round(definition.reloadTicks*AttachmentItem.multiplier(stack,"reload")));
+        tag(stack).setInteger(RELOAD,duration);
+        tag(stack).setInteger("MetroReloadDuration",duration);
+        tag(stack).setLong("MetroReloadStart",player.world.getTotalWorldTime());
         sound(player.world, player, definition.reloadSound, 0.7F);
     }
 
@@ -98,7 +101,7 @@ public final class GunItem extends ContentItem {
         if (player.isSneaking()) {
             if (!world.isRemote) startReload(stack, player);
         } else {
-            if (definition.automatic) player.setActiveHand(hand);
+            player.setActiveHand(hand);
             if (!world.isRemote) fire(stack, player);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
@@ -125,51 +128,36 @@ public final class GunItem extends ContentItem {
         }
         if (!player.capabilities.isCreativeMode) tag(stack).setInteger(AMMO, ammo(stack) - 1);
         player.getCooldownTracker().setCooldown(this, Math.max(1, definition.delay));
-        sound(player.world, player, definition.shootSound, 1F);
-        // Aggregate pellets so vanilla hurt resistance does not discard all but the first pellet.
-        Map<Entity, Float> hits = new LinkedHashMap<>();
-        Vec3d start = player.getPositionEyes(1F);
-        for (int i = 0; i < Math.max(1, definition.pellets); i++) {
-            Vec3d look = player.getLookVec();
-            double deviation = definition.spread * AttachmentItem.multiplier(stack, "spread") * 0.0025;
-            Vec3d direction = look.add(player.getRNG().nextGaussian() * deviation,
-                    player.getRNG().nextGaussian() * deviation, player.getRNG().nextGaussian() * deviation).normalize();
-            Vec3d end = start.add(direction.scale(RANGE));
-            RayTraceResult block = player.world.rayTraceBlocks(start, end, false, true, false);
-            if (block != null) end = block.hitVec;
-            Entity victim = null;
-            double closest = start.squareDistanceTo(end);
-            AxisAlignedBB area = player.getEntityBoundingBox().expand(direction.x * RANGE, direction.y * RANGE,
-                    direction.z * RANGE).grow(1);
-            for (Entity target : player.world.getEntitiesWithinAABBExcludingEntity(player, area)) {
-                if (!target.canBeCollidedWith() || (target instanceof EntityPlayer && ((EntityPlayer) target).isSpectator()) || target == player.getRidingEntity()) continue;
-                AxisAlignedBB bounds = target.getEntityBoundingBox().grow(target.getCollisionBorderSize());
-                RayTraceResult intercept = bounds.calculateIntercept(start, end);
-                double distance = bounds.contains(start) ? 0 : intercept == null ? Double.POSITIVE_INFINITY : start.squareDistanceTo(intercept.hitVec);
-                if (distance < closest) {
-                    closest = distance;
-                    victim = target;
-                }
-            }
-            if (victim != null) {
-                // Use the same team/PvP permission rules as vanilla ranged weapons.
-                if (!(victim instanceof EntityPlayer) || player.canAttackPlayer((EntityPlayer) victim)) {
-                    hits.put(victim, hits.getOrDefault(victim, 0F) + definition.damage * AttachmentItem.multiplier(stack, "damage"));
-                }
-            }
-            Vec3d impact = start.add(direction.scale(Math.sqrt(closest)));
-            ((WorldServer) player.world).spawnParticle(EnumParticleTypes.CRIT, impact.x, impact.y, impact.z, 2, 0.03, 0.03, 0.03, 0);
+        sound(player.world, player, definition.shootSound, AttachmentItem.multiplier(stack,"sound"));
+        Definition ammunition=((ContentItem)MetroPort.ITEMS.get(definition.ammo)).getDefinition();
+        java.util.UUID shot=java.util.UUID.randomUUID();
+        for(int i=0;i<Math.max(1,definition.pellets);i++){
+            Vec3d look=player.getLookVec();
+            double deviation=definition.spread*AttachmentItem.multiplier(stack,"spread")*.0025;
+            float speed=definition.bulletSpeed*AttachmentItem.multiplier(stack,"speed");
+            Vec3d velocity=look.scale(speed).add(player.getRNG().nextGaussian()*deviation*speed,
+                    player.getRNG().nextGaussian()*deviation*speed,player.getRNG().nextGaussian()*deviation*speed);
+            ru.metrocraft.port.entity.MetroBullet.ItemStackData data=new ru.metrocraft.port.entity.MetroBullet.ItemStackData();
+            data.damage=definition.damage*AttachmentItem.multiplier(stack,"damage");
+            data.gravity=ammunition.fallSpeed;data.power=ammunition.penetrates?1:.25F;
+            player.world.spawnEntity(new ru.metrocraft.port.entity.MetroBullet(player.world,player,data,velocity,shot));
         }
-        for (Map.Entry<Entity, Float> hit : hits.entrySet()) {
-            // Respect existing vanilla invulnerability frames and Forge damage event hooks.
-            hit.getKey().attackEntityFrom(DamageSource.causePlayerDamage(player).setProjectile(), hit.getValue());
-        }
+        MetroPort.NETWORK.sendTo(new ShotFeedbackPacket(definition.id,
+                (definition.recoil+player.getRNG().nextFloat()*definition.randomRecoil)*AttachmentItem.multiplier(stack,"recoil"),
+                (player.getRNG().nextFloat()-.5F)*definition.randomYaw*AttachmentItem.multiplier(stack,"recoil")),
+                (net.minecraft.entity.player.EntityPlayerMP)player);
+        tag(stack).setLong("MetroLastShot",player.world.getTotalWorldTime());
+        tag(stack).setInteger("MetroShotSequence",tag(stack).getInteger("MetroShotSequence")+1);
         stack.damageItem(1, player);
     }
 
     private static void sound(World world, EntityPlayer player, String id, float volume) {
         SoundEvent sound = MetroPort.SOUNDS.get(id);
         if (sound != null) world.playSound(null, player.posX, player.posY, player.posZ, sound, SoundCategory.PLAYERS, volume, 1F);
+    }
+
+    @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack,ItemStack newStack,boolean slotChanged){
+        return slotChanged || oldStack.getItem()!=newStack.getItem();
     }
 
     @Override

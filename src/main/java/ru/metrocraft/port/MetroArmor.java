@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
-public final class MetroArmor extends ItemArmor {
+public final class MetroArmor extends ItemArmor implements net.minecraftforge.common.ISpecialArmor {
     private final Definition definition;
 
     private static ArmorMaterial material(Definition d) {
@@ -46,6 +46,30 @@ public final class MetroArmor extends ItemArmor {
     @Override
     public boolean getIsRepairable(ItemStack stack, ItemStack ingredient) {
         return false; // Repair kits, not an unintended iron-ingot repair recipe.
+    }
+
+    @Override public net.minecraftforge.common.ISpecialArmor.ArmorProperties getProperties(
+            net.minecraft.entity.EntityLivingBase entity,ItemStack stack,net.minecraft.util.DamageSource source,double damage,int slot) {
+        return new net.minecraftforge.common.ISpecialArmor.ArmorProperties(1,definition.defence,Integer.MAX_VALUE);
+    }
+    @Override public int getArmorDisplay(EntityPlayer player,ItemStack stack,int slot){return (int)(definition.defence*20);}
+    @Override public void damageArmor(net.minecraft.entity.EntityLivingBase entity,ItemStack stack,
+                                      net.minecraft.util.DamageSource source,int damage,int slot){
+        stack.damageItem(1,entity);
+        if(stack.hasTagCompound())stack.getTagCompound().setBoolean("isRepaired",false);
+    }
+    public Definition getDefinition(){return definition;}
+    @Override public com.google.common.collect.Multimap<String,net.minecraft.entity.ai.attributes.AttributeModifier>
+            getAttributeModifiers(EntityEquipmentSlot slot,ItemStack stack){
+        com.google.common.collect.Multimap<String,net.minecraft.entity.ai.attributes.AttributeModifier> map=
+                com.google.common.collect.HashMultimap.create();
+        if(slot!=armorType)return map;
+        java.util.UUID id=java.util.UUID.nameUUIDFromBytes(("metroport.armor."+slot.getName()).getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        map.put(net.minecraft.entity.SharedMonsterAttributes.MOVEMENT_SPEED.getName(),
+                new net.minecraft.entity.ai.attributes.AttributeModifier(id,"Metro movement",definition.moveSpeedModifier-1,2));
+        map.put(net.minecraft.entity.SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(),
+                new net.minecraft.entity.ai.attributes.AttributeModifier(id,"Metro knockback",definition.knockbackModifier,0));
+        return map;
     }
 
     public boolean isGasMask() { return definition.gasMask; }

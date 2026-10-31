@@ -16,7 +16,13 @@ public final class LegacyGeometry extends ModelBase {
     public final Map<ModelRendererTurbo, float[]> original = new IdentityHashMap<>();
     public static final class Op { String op; float[] values; }
     public static final class Part { String group; int index; float[] uv; Op[] ops; }
-    public static final class Data { Part[] parts; Op[] transforms; }
+    public static final class Rig {
+        public float[] barrelAttachPoint,scopeAttachPoint,colAttachPoint,gripAttachPoint,stockAttachPoint,barrelBreakPoint;
+        public float downReload,gunSlideDistance,pumpHandleDistance,breakAngle,scaleAttachment=1;
+        public String animationType;
+    }
+    public Rig rig;
+    public static final class Data { Part[] parts; Op[] transforms; Rig rig; }
 
     public static LegacyGeometry get(String id) {
         return CACHE.computeIfAbsent(id, LegacyGeometry::new);
@@ -27,6 +33,7 @@ public final class LegacyGeometry extends ModelBase {
         try (InputStreamReader reader = new InputStreamReader(Minecraft.getMinecraft().getResourceManager()
                 .getResource(resource).getInputStream(), StandardCharsets.UTF_8)) {
             Data data = new Gson().fromJson(reader, Data.class);
+            rig=data.rig==null?new Rig():data.rig;
             for (Part part : data.parts) {
                 float[] uv = part.uv;
                 ModelRendererTurbo box = new ModelRendererTurbo(this, (int)uv[0], (int)uv[1], (int)uv[2], (int)uv[3]);

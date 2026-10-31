@@ -71,10 +71,13 @@ public final class ClientEvents {
         }
     }
 
+    public static boolean aiming(){
+        return AIM.isKeyDown() && Minecraft.getMinecraft().currentScreen==null;
+    }
     @SubscribeEvent
     public static void fov(net.minecraftforge.client.event.FOVUpdateEvent event) {
         net.minecraft.item.ItemStack held=event.getEntity().getHeldItemMainhand();
-        if(AIM.isKeyDown() && held.getItem() instanceof GunItem) {
+        if(aiming() && held.getItem() instanceof GunItem) {
             float zoom=Math.max(1.2F,Math.min(8,AttachmentItem.multiplier(held,"zoom")));
             event.setNewfov(event.getNewfov()/zoom);
         }

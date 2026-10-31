@@ -23,6 +23,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 4.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "ak74shoot",
     "reloadSound": "smgreload"
   },
@@ -50,6 +57,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 3.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "ak74shoot",
     "reloadSound": "smgreload"
   },
@@ -71,6 +85,13 @@
     "spread": 26.0,
     "automatic": false,
     "allowedAttachments": [],
+    "bulletSpeed": 20.0,
+    "recoil": 8.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "abzac_shoot",
     "reloadSound": "duplet_reload"
   },
@@ -97,6 +118,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 4.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "rpk_shoot",
     "reloadSound": "smgreload"
   },
@@ -123,6 +151,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 20.0,
+    "recoil": 8.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "saiga_shoot",
     "reloadSound": "smgreload"
   },
@@ -147,6 +182,13 @@
       "collimator",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 3.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "tihar_shoot",
     "reloadSound": "pistolreload"
   },
@@ -172,6 +214,13 @@
       "collimator",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 3.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "vsv_shoot",
     "reloadSound": "smgreload"
   },
@@ -198,6 +247,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 50.0,
+    "recoil": 8.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "ventil_shoot",
     "reloadSound": "riflereload"
   },
@@ -221,6 +277,13 @@
     "allowedAttachments": [
       "collimator"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 6.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "m249shoot",
     "reloadSound": "mgreload"
   },
@@ -247,6 +310,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 4.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "m9shoot",
     "reloadSound": "pistolreload"
   },
@@ -270,6 +340,13 @@
     "allowedAttachments": [
       "pso"
     ],
+    "bulletSpeed": 80.0,
+    "recoil": 12.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "preved_shoot",
     "reloadSound": "riflereload"
   },
@@ -296,6 +373,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 30.0,
+    "recoil": 5.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "revolvershoot",
     "reloadSound": "revolver_reload"
   },
@@ -320,6 +404,13 @@
       "silencer",
       "stvol"
     ],
+    "bulletSpeed": 50.0,
+    "recoil": 7.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "svd",
     "shootSound": "m240shoot",
     "reloadSound": "smgreload"
   },
@@ -341,6 +432,13 @@
     "spread": 1.0,
     "automatic": true,
     "allowedAttachments": [],
+    "bulletSpeed": 80.0,
+    "recoil": 6.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "aim1",
     "shootSound": "vsv_shoot",
     "reloadSound": "smgreload"
   },
@@ -367,6 +465,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 40.0,
+    "recoil": 4.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "ubludok_shoot",
     "reloadSound": "pistolreload"
   },
@@ -393,6 +498,13 @@
       "stvol",
       "lcu"
     ],
+    "bulletSpeed": 20.0,
+    "recoil": 8.0,
+    "randomRecoil": 2.5,
+    "randomYaw": 1.0,
+    "decreaseRecoil": 2.0,
+    "decreaseYaw": 1.5,
+    "scope": "None",
     "shootSound": "abzac_shoot",
     "reloadSound": "uboinik_reload"
   },
@@ -408,7 +520,11 @@
     "slot": "chest",
     "defence": 0.4,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "bandit",
@@ -422,7 +538,11 @@
     "slot": "chest",
     "defence": 0.45,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "bazaltarmor",
@@ -436,7 +556,11 @@
     "slot": "chest",
     "defence": 0.65,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.1,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "bazalthelmet",
@@ -450,7 +574,11 @@
     "slot": "head",
     "defence": 0.2,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "custarmor",
@@ -464,7 +592,11 @@
     "slot": "chest",
     "defence": 0.2,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "ganzaarmor",
@@ -478,7 +610,11 @@
     "slot": "chest",
     "defence": 0.45,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "ganzahelm",
@@ -492,7 +628,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "ganzatyaj",
@@ -506,7 +646,11 @@
     "slot": "chest",
     "defence": 0.5,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "ganza_helmet",
@@ -520,7 +664,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "gasmask",
@@ -534,7 +682,11 @@
     "slot": "head",
     "defence": 0.05,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "hardhelmet",
@@ -548,7 +700,11 @@
     "slot": "head",
     "defence": 0.15,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "heavy_helmet",
@@ -562,7 +718,11 @@
     "slot": "head",
     "defence": 0.15,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "helmet",
@@ -576,7 +736,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "himza",
@@ -590,7 +754,11 @@
     "slot": "chest",
     "defence": 0.35,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "kontrabody",
@@ -604,7 +772,11 @@
     "slot": "chest",
     "defence": 0.6,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "legionarmor",
@@ -618,7 +790,11 @@
     "slot": "chest",
     "defence": 0.5,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "legionhelmet",
@@ -632,7 +808,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "m12",
@@ -646,7 +826,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "nvgdbody",
@@ -660,7 +844,11 @@
     "slot": "chest",
     "defence": 0.5,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "nvgdhelmet",
@@ -674,7 +862,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "pnv",
@@ -688,7 +880,11 @@
     "slot": "head",
     "defence": 0.0,
     "nightVision": true,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "plasharmor",
@@ -702,7 +898,11 @@
     "slot": "chest",
     "defence": 0.4,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.0,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "polis",
@@ -716,7 +916,11 @@
     "slot": "chest",
     "defence": 0.45,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "redkaska",
@@ -730,7 +934,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "redarmor",
@@ -744,7 +952,11 @@
     "slot": "chest",
     "defence": 0.45,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.0,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "reicharmor",
@@ -758,7 +970,11 @@
     "slot": "chest",
     "defence": 0.53,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.0,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "reichhelmet",
@@ -772,7 +988,11 @@
     "slot": "head",
     "defence": 0.12,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "reichhelmet2",
@@ -786,7 +1006,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": true
+    "gasMask": true,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "reichla",
@@ -800,7 +1024,11 @@
     "slot": "chest",
     "defence": 0.45,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.0,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "satanarmor",
@@ -814,7 +1042,11 @@
     "slot": "chest",
     "defence": 0.6,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "standarthelmet",
@@ -828,7 +1060,11 @@
     "slot": "head",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "tajbandit",
@@ -842,7 +1078,11 @@
     "slot": "chest",
     "defence": 0.5,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.0,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "tyaj",
@@ -856,7 +1096,11 @@
     "slot": "chest",
     "defence": 0.5,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "vatnik",
@@ -870,7 +1114,11 @@
     "slot": "chest",
     "defence": 0.1,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "heavy",
@@ -884,7 +1132,11 @@
     "slot": "chest",
     "defence": 0.6,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 0.85,
+    "knockbackModifier": 0.5,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "light_armor",
@@ -898,7 +1150,11 @@
     "slot": "chest",
     "defence": 0.25,
     "nightVision": false,
-    "gasMask": false
+    "gasMask": false,
+    "moveSpeedModifier": 1.0,
+    "knockbackModifier": 0.2,
+    "jumpModifier": 1.0,
+    "negateFallDamage": false
   },
   {
     "id": "44",
@@ -908,7 +1164,11 @@
     "name": ".44",
     "stackSize": 64,
     "description": "",
-    "durability": 0
+    "durability": 0,
+    "fallSpeed": 0.25,
+    "hitBoxSize": 0.5,
+    "penetrates": true,
+    "breaksGlass": false
   },
   {
     "id": "12x7",
@@ -918,7 +1178,11 @@
     "name": "12x700",
     "stackSize": 64,
     "description": "",
-    "durability": 0
+    "durability": 0,
+    "fallSpeed": 0.25,
+    "hitBoxSize": 0.5,
+    "penetrates": true,
+    "breaksGlass": false
   },
   {
     "id": "12x70",
@@ -928,7 +1192,11 @@
     "name": "12",
     "stackSize": 64,
     "description": "",
-    "durability": 0
+    "durability": 0,
+    "fallSpeed": 1.5,
+    "hitBoxSize": 0.1,
+    "penetrates": true,
+    "breaksGlass": false
   },
   {
     "id": "15mm",
@@ -938,7 +1206,11 @@
     "name": "15",
     "stackSize": 64,
     "description": "",
-    "durability": 0
+    "durability": 0,
+    "fallSpeed": 0.25,
+    "hitBoxSize": 0.5,
+    "penetrates": true,
+    "breaksGlass": false
   },
   {
     "id": "5x45",
@@ -948,7 +1220,11 @@
     "name": "5.45x39",
     "stackSize": 64,
     "description": "",
-    "durability": 0
+    "durability": 0,
+    "fallSpeed": 0.25,
+    "hitBoxSize": 0.5,
+    "penetrates": true,
+    "breaksGlass": false
   },
   {
     "id": "7x62",
@@ -958,7 +1234,11 @@
     "name": "7.62x54",
     "stackSize": 64,
     "description": "",
-    "durability": 0
+    "durability": 0,
+    "fallSpeed": 0.15,
+    "hitBoxSize": 0.5,
+    "penetrates": false,
+    "breaksGlass": false
   },
   {
     "id": "collimator",
@@ -973,7 +1253,11 @@
     "damageMultiplier": 1.0,
     "spreadMultiplier": 0.95,
     "reloadMultiplier": 1.0,
-    "zoom": 1.8
+    "zoom": 1.8,
+    "recoilMultiplier": 1.0,
+    "bulletSpeedMultiplier": 1.0,
+    "silencer": false,
+    "zoomOverlay": "None"
   },
   {
     "id": "lcu",
@@ -988,7 +1272,11 @@
     "damageMultiplier": 1.0,
     "spreadMultiplier": 0.9,
     "reloadMultiplier": 1.0,
-    "zoom": 1.0
+    "zoom": 1.0,
+    "recoilMultiplier": 1.0,
+    "bulletSpeedMultiplier": 1.0,
+    "silencer": false,
+    "zoomOverlay": "None"
   },
   {
     "id": "pso",
@@ -1003,7 +1291,11 @@
     "damageMultiplier": 1.0,
     "spreadMultiplier": 0.9,
     "reloadMultiplier": 1.1,
-    "zoom": 3.5
+    "zoom": 3.5,
+    "recoilMultiplier": 1.0,
+    "bulletSpeedMultiplier": 1.0,
+    "silencer": false,
+    "zoomOverlay": "svd"
   },
   {
     "id": "silencer",
@@ -1018,7 +1310,11 @@
     "damageMultiplier": 0.9,
     "spreadMultiplier": 0.9,
     "reloadMultiplier": 1.0,
-    "zoom": 1.0
+    "zoom": 1.0,
+    "recoilMultiplier": 0.8,
+    "bulletSpeedMultiplier": 0.8,
+    "silencer": true,
+    "zoomOverlay": "None"
   },
   {
     "id": "stvol",
@@ -1033,7 +1329,11 @@
     "damageMultiplier": 1.1,
     "spreadMultiplier": 0.9,
     "reloadMultiplier": 1.0,
-    "zoom": 1.0
+    "zoom": 1.0,
+    "recoilMultiplier": 1.3,
+    "bulletSpeedMultiplier": 1.2,
+    "silencer": false,
+    "zoomOverlay": "None"
   },
   {
     "id": "32valuta",

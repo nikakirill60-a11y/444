@@ -165,3 +165,4 @@ tile.metroport.germo_left.name=Гермоворота — левые
 tile.metroport.germo_left45.name=Гермоворота — левые 45°
 tile.metroport.germo_half_open.name=Гермоворота — распашные
 metroport.gate.obstructed=Для ворот и движения створки нужно свободное место. См. инструкцию.
+death.attack.metrobullet=%1$s застрелен игроком %2$s

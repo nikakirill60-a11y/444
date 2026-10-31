@@ -20,10 +20,17 @@
     "hermeticGates": 6
   },
   "notPorted": [
-    "Legacy projectile ballistics, recoil and reload/hand animations",
-    "Mounted attachment geometry and scope overlays",
-    "Original pickup and external-container inventory capacity rules",
-    "NoDrop commands and CustomNPC animation integration",
-    "Survival recipes and full balance/AI equivalence"
-  ]
+    "Original missing LastDays muzzle-flash meshes",
+    "Independent hand/magazine geometry not supplied by the models",
+    "Full 1.7 player bone hitboxes/lag compensation and cross-mod vehicle damage",
+    "Unknown third-party inventory slot contracts require integration testing",
+    "Client/dedicated-server visual and multiplayer acceptance"
+  ],
+  "mechanics": {
+    "projectiles": "original speed, .99 drag / .8 water drag, .02 * FallSpeed gravity",
+    "armor": "ISpecialArmor priority 1, Defence fraction, original movement/knockback attributes",
+    "noDrop": "givenodrop command, toss prevention, persistent death return queue",
+    "attachments": "original mounts, models, recoil/speed/sound modifiers and scope textures"
+  },
+  "recipes": "Medkit FFF/PPP/FFF requires external fiberglass and strong healing potions; recharge requires 3 strong healing potions; no other supplied recipes"
 }
