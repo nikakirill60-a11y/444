@@ -15,3 +15,6 @@ build-output.log
 
 .cache/
 .venv/
+
+# Temporary connector downloads are moved to their verified source paths.
+google_drive/
