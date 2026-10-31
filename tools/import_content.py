@@ -129,7 +129,7 @@ def main():
     write_json(ASSETS / 'sounds.json', sounds)
     translations = {
         'ru_ru': ['itemGroup.metroport.weapons=Оружие', 'itemGroup.metroport.armor=Броня',
-                  'itemGroup.metroport.things=Вещи', 'key.metroport.reload=Перезарядить',
+                  'itemGroup.metroport.things=Вещи', 'itemGroup.metroport.decor=Декор', 'key.metroport.reload=Перезарядить',
                   'key.categories.metroport=MetroCraft',
                   'metroport.gun.help=ПКМ — огонь; R или Shift+ПКМ — перезарядка',
                   'metroport.gun.ammo=Патроны: %s / %s',
@@ -139,7 +139,7 @@ def main():
                   'metroport.attachment.info=Оружие во второй руке: ПКМ — установить; Shift+ПКМ — снять',
                   'metroport.armor.gas=Защита от радиации пока не перенесена'],
         'en_us': ['itemGroup.metroport.weapons=Weapons', 'itemGroup.metroport.armor=Armor',
-                  'itemGroup.metroport.things=Things', 'key.metroport.reload=Reload',
+                  'itemGroup.metroport.things=Things', 'itemGroup.metroport.decor=Decor', 'key.metroport.reload=Reload',
                   'key.categories.metroport=MetroCraft',
                   'metroport.gun.help=Right click: fire; R or Sneak + right click: reload',
                   'metroport.gun.ammo=Ammo: %s / %s', 'metroport.gun.loading=Reloading…',
@@ -180,6 +180,11 @@ def main():
     translations["ru_ru"].append("death.attack.metrobullet=%1$s застрелен игроком %2$s")
     translations["en_us"].append("death.attack.metrobullet=%1$s was shot by %2$s")
     for locale, lines in translations.items():
+        exodus = ASSETS / 'exodus.json'
+        if exodus.is_file():
+            for entry in json.loads(exodus.read_text(encoding='utf-8')):
+                kind = {'mask': 'item', 'decor': 'tile', 'mutant': 'entity'}[entry['kind']]
+                lines.append(kind + '.metroport.' + entry['id'] + '.name=' + entry['ru' if locale == 'ru_ru' else 'en'])
         put(ASSETS / ('lang/' + locale + '.lang'), '\n'.join(lines) + '\n')
     # Preserve the license shipped with the original Flan code/assets.
     with zipfile.ZipFile(ROOT / '(Metro) Flans-v1.1.jar') as original:

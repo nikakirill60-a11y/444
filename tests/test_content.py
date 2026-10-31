@@ -59,16 +59,16 @@ class ContentTests(unittest.TestCase):
                 self.assertGreaterEqual(e['defence'], 0)
                 self.assertLessEqual(e['defence'], 1)
 
-    def test_localization_and_three_tabs(self):
+    def test_localization_and_four_tabs(self):
         for locale in ('ru_ru', 'en_us'):
             text = (ASSETS / ('lang/' + locale + '.lang')).read_text(encoding='utf-8')
             keys = [line.split('=', 1)[0] for line in text.splitlines() if '=' in line]
             self.assertEqual(len(keys), len(set(keys)))
             for e in ENTRIES:
                 self.assertIn('item.metroport.' + e['id'] + '.name', keys)
-            self.assertEqual(sum(k.startswith('itemGroup.') for k in keys), 3)
+            self.assertEqual(sum(k.startswith('itemGroup.') for k in keys), 4)
         russian = (ASSETS / 'lang/ru_ru.lang').read_text(encoding='utf-8')
-        for name in ('Оружие', 'Броня', 'Вещи'):
+        for name in ('Оружие', 'Броня', 'Вещи', 'Декор'):
             self.assertIn('=' + name + '\n', russian)
 
     def test_import_is_reproducible(self):

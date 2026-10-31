@@ -17,7 +17,7 @@ ENTRIES=json.loads((ASSETS/'content.json').read_text())
 class ExpandedTests(unittest.TestCase):
     def test_all_57_models_have_geometry_and_original_atlas(self):
         self.assertEqual(len(CATALOGUE),57)
-        self.assertEqual(len(list((ASSETS/'models/item').glob('*.json'))),141)
+        self.assertEqual(len(list((ASSETS/'models/item').glob('*.json'))),168)
         for key,entry in CATALOGUE.items():
             self.assertTrue((ASSETS/('geometry/'+key+'.json')).is_file())
             self.assertTrue((ASSETS/entry['texture'].split(':',1)[1]).read_bytes().startswith(b'\x89PNG\r\n\x1a\n'))
@@ -61,6 +61,17 @@ class ExpandedTests(unittest.TestCase):
             item=json.loads((ASSETS/('models/item/'+key+'.json')).read_text())
             self.assertEqual(item['parent'],'metroport:block/'+key)
             self.assertTrue((ASSETS/('textures/blocks/'+key+'.png')).is_file())
+
+    def test_decor_tab_separates_blocks_from_supplies(self):
+        main = (ROOT/'src/main/java/ru/metrocraft/port/MetroPort.java').read_text()
+        expanded = (ROOT/'src/main/java/ru/metrocraft/port/ExpandedContent.java').read_text()
+        gate = (ROOT/'src/main/java/ru/metrocraft/port/gates/GateBlock.java').read_text()
+        self.assertIn('DECOR = tab("decor", "block0", Items.PAINTING)', main)
+        self.assertIn('setCreativeTab(MetroPort.DECOR).setRegistryName(MetroPort.ID, "block" + i)', expanded)
+        self.assertIn('item instanceof ItemBlock && !id.equals("radiation")', expanded)
+        self.assertIn('? MetroPort.DECOR : MetroPort.THINGS', expanded)
+        self.assertIn('setCreativeTab(MetroPort.DECOR)', gate)
+        self.assertIn('setTranslationKey("metroport.radiation").setCreativeTab(MetroPort.THINGS)', expanded)
 
     def test_attachment_whitelists_and_modifiers(self):
         attachments={e['id']:e for e in ENTRIES if e['kind']=='attachment'}

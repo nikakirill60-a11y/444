@@ -22,7 +22,7 @@ public class GateBlock extends Block {
     public GateBlock(GateType type) {
         super(Material.IRON); this.type = type;
         setRegistryName(MetroPort.ID, type.id); setTranslationKey(MetroPort.ID + "." + type.id);
-        setLightOpacity(0); setCreativeTab(MetroPort.THINGS); setHardness(5); setResistance(20); setSoundType(SoundType.METAL);
+        setLightOpacity(0); setCreativeTab(MetroPort.DECOR); setHardness(5); setResistance(20); setSoundType(SoundType.METAL);
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
     }
     public static EnumFacing horizontal(int index) {

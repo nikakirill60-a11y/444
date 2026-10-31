@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:block/exodus/wooden_button",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "metroport:block/exodus/wooden_button",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "metroport:block/exodus/wooden_button",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "metroport:block/exodus/wooden_button",
+      "y": 270
+    }
+  }
+}

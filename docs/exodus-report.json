@@ -1,0 +1,565 @@
+{
+  "source": "ExodusRPV3.zip",
+  "sha256": "77a49bb045e95d7acdf9fdbbb070c3b46b4dc3f4e7bdf2f16e57e72cee87cf64",
+  "counts": {
+    "mask": 3,
+    "mutant": 2,
+    "decor": 22
+  },
+  "entries": [
+    {
+      "id": "exodus_acacia_stairs",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/acacia_stairs.json",
+      "model": "block/exodus/acacia_stairs",
+      "ru": "Кровать [Exodus: acacia_stairs]",
+      "en": "Bed [Exodus: acacia_stairs]",
+      "bounds": [
+        0.0,
+        -1.0,
+        0.03125,
+        2.0,
+        1.18258,
+        1.0
+      ],
+      "elements": 84
+    },
+    {
+      "id": "exodus_carpet_blue",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/carpet_blue.json",
+      "model": "block/exodus/carpet_blue",
+      "ru": "Тело в противогазе [Exodus: carpet_blue]",
+      "en": "Body with gas mask [Exodus: carpet_blue]",
+      "bounds": [
+        0.0745248,
+        0.0,
+        -0.6344812,
+        1.159375,
+        1.5683511,
+        0.875
+      ],
+      "elements": 65
+    },
+    {
+      "id": "exodus_carpet_green",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/carpet_green.json",
+      "model": "block/exodus/carpet_green",
+      "ru": "Поддон с кирпичами [Exodus: carpet_green]",
+      "en": "Pallet of bricks [Exodus: carpet_green]",
+      "bounds": [
+        -0.6739424,
+        -0.1052713,
+        -0.4608289,
+        1.5332359,
+        0.5913712,
+        1.4669102
+      ],
+      "elements": 19
+    },
+    {
+      "id": "exodus_carpet_lime",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/carpet_lime.json",
+      "model": "block/exodus/carpet_lime",
+      "ru": "Напольный декор [Exodus: carpet_lime]",
+      "en": "Floor decoration [Exodus: carpet_lime]",
+      "bounds": [
+        -0.375,
+        0.0,
+        -0.40625,
+        1.5625,
+        0.03125,
+        1.25
+      ],
+      "elements": 10
+    },
+    {
+      "id": "exodus_carpet_pink",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/carpet_pink.json",
+      "model": "block/exodus/carpet_pink",
+      "ru": "Лежащее тело [Exodus: carpet_pink]",
+      "en": "Lying body [Exodus: carpet_pink]",
+      "bounds": [
+        -0.59375,
+        -0.09375,
+        -0.2574094,
+        1.7066896,
+        0.34375,
+        1.5226339
+      ],
+      "elements": 6
+    },
+    {
+      "id": "exodus_carpet_red",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/carpet_red.json",
+      "model": "block/exodus/carpet_red",
+      "ru": "Деревянный декор [Exodus: carpet_red]",
+      "en": "Wooden decoration [Exodus: carpet_red]",
+      "bounds": [
+        -0.9182089,
+        0.0,
+        -0.9555726,
+        1.8955267,
+        0.961818,
+        1.7808935
+      ],
+      "elements": 32
+    },
+    {
+      "id": "exodus_carpet_white",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/carpet_white.json",
+      "model": "block/exodus/carpet_white",
+      "ru": "Дерево [Exodus: carpet_white]",
+      "en": "Tree [Exodus: carpet_white]",
+      "bounds": [
+        -0.2008217,
+        -1.0,
+        -0.2080368,
+        1.2006254,
+        2.0,
+        1.0248081
+      ],
+      "elements": 35
+    },
+    {
+      "id": "exodus_cyan_glazed_terracotta",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/cyan_glazed_terracotta.json",
+      "model": "block/exodus/cyan_glazed_terracotta",
+      "ru": "Декор — губка и ткань [Exodus: cyan_glazed_terracotta]",
+      "en": "Sponge and fabric decoration [Exodus: cyan_glazed_terracotta]",
+      "bounds": [
+        -0.09375,
+        0.0,
+        -0.078125,
+        1.078125,
+        1.0,
+        1.0625
+      ],
+      "elements": 72
+    },
+    {
+      "id": "exodus_guard",
+      "kind": "mutant",
+      "source": "assets/minecraft/models/block/diamond_block.json",
+      "model": "block/exodus/diamond_block",
+      "ru": "Страж Exodus",
+      "en": "Exodus guard",
+      "bounds": [
+        -0.0897926,
+        -0.0192184,
+        -0.6594316,
+        1.09692,
+        1.043966,
+        1.8574688
+      ],
+      "elements": 90
+    },
+    {
+      "id": "exodus_gasmask_diamond",
+      "kind": "mask",
+      "source": "assets/minecraft/models/block/diamond_ore.json",
+      "model": "block/exodus/diamond_ore",
+      "ru": "Противогаз Exodus — алмазная руда",
+      "en": "Exodus gas mask — diamond ore",
+      "bounds": [
+        -6.25e-05,
+        -0.125,
+        -0.6701297,
+        1.0000625,
+        1.1493627,
+        0.95625
+      ],
+      "elements": 24
+    },
+    {
+      "id": "exodus_dispenser",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/dispenser.json",
+      "model": "block/exodus/dispenser",
+      "ru": "Печь [Exodus: dispenser]",
+      "en": "Furnace [Exodus: dispenser]",
+      "bounds": [
+        0.0,
+        0.0,
+        -0.2055556,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "elements": 9
+    },
+    {
+      "id": "exodus_dropper",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/dropper.json",
+      "model": "block/exodus/dropper",
+      "ru": "Деревянный декор с решёткой [Exodus: dropper]",
+      "en": "Wood and grate decoration [Exodus: dropper]",
+      "bounds": [
+        0.0,
+        0.0,
+        -0.0625,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "elements": 14
+    },
+    {
+      "id": "exodus_emerald_block",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/emerald_block.json",
+      "model": "block/exodus/emerald_block",
+      "ru": "Металлический декор [Exodus: emerald_block]",
+      "en": "Metal decoration [Exodus: emerald_block]",
+      "bounds": [
+        -0.1171875,
+        0.0,
+        -1.0,
+        1.0,
+        1.625,
+        1.0
+      ],
+      "elements": 103
+    },
+    {
+      "id": "exodus_emerald_ore",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/emerald_ore.json",
+      "model": "block/exodus/emerald_ore",
+      "ru": "Деревянный ящик [Exodus: emerald_ore]",
+      "en": "Wooden crate [Exodus: emerald_ore]",
+      "bounds": [
+        -0.4726562,
+        0.0,
+        -1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "elements": 15
+    },
+    {
+      "id": "exodus_end_portal_frame_empty",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/end_portal_frame_empty.json",
+      "model": "block/exodus/end_portal_frame_empty",
+      "ru": "Печка Exodus [Exodus: end_portal_frame_empty]",
+      "en": "Exodus stove [Exodus: end_portal_frame_empty]",
+      "bounds": [
+        0.01148,
+        0.0,
+        0.0102149,
+        0.9938625,
+        1.8711719,
+        0.9925976
+      ],
+      "elements": 101
+    },
+    {
+      "id": "exodus_flower_pot",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/flower_pot.json",
+      "model": "block/exodus/flower_pot",
+      "ru": "Мешок [Exodus: flower_pot]",
+      "en": "Sack [Exodus: flower_pot]",
+      "bounds": [
+        -0.0062719,
+        -0.0016931,
+        0.0077994,
+        0.9932606,
+        1.0000556,
+        0.9886032
+      ],
+      "elements": 58
+    },
+    {
+      "id": "exodus_glass_black",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/glass_black.json",
+      "model": "block/exodus/glass_black",
+      "ru": "Каменный декор [Exodus: glass_black]",
+      "en": "Stone decoration [Exodus: glass_black]",
+      "bounds": [
+        -0.84375,
+        -0.0137852,
+        -0.2245126,
+        1.4803143,
+        1.046875,
+        1.4306898
+      ],
+      "elements": 7
+    },
+    {
+      "id": "exodus_glass_red",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/glass_red.json",
+      "model": "block/exodus/glass_red",
+      "ru": "Деревянный декор с растительностью [Exodus: glass_red]",
+      "en": "Wood and vegetation decoration [Exodus: glass_red]",
+      "bounds": [
+        -0.0808058,
+        0.0,
+        -0.3705026,
+        1.3303524,
+        1.9375,
+        1.0
+      ],
+      "elements": 13
+    },
+    {
+      "id": "exodus_gasmask_gold",
+      "kind": "mask",
+      "source": "assets/minecraft/models/block/gold_ore.json",
+      "model": "block/exodus/gold_ore",
+      "ru": "Противогаз Exodus — золотая руда",
+      "en": "Exodus gas mask — gold ore",
+      "bounds": [
+        -6.25e-05,
+        -0.125,
+        -0.6315474,
+        1.0000625,
+        1.0842382,
+        0.95625
+      ],
+      "elements": 19
+    },
+    {
+      "id": "exodus_shrimp",
+      "kind": "mutant",
+      "source": "assets/minecraft/models/block/lapis_block.json",
+      "model": "block/exodus/lapis_block",
+      "ru": "Креветка Exodus",
+      "en": "Exodus shrimp",
+      "bounds": [
+        -0.19693,
+        -0.0390401,
+        -0.9790826,
+        1.2332206,
+        0.84376,
+        1.982545
+      ],
+      "elements": 134
+    },
+    {
+      "id": "exodus_gasmask_pumpkin",
+      "kind": "mask",
+      "source": "assets/minecraft/models/block/pumpkin.json",
+      "model": "block/exodus/pumpkin",
+      "ru": "Противогаз Exodus — тыква",
+      "en": "Exodus gas mask — pumpkin",
+      "bounds": [
+        -6.25e-05,
+        -0.125,
+        -0.6315474,
+        1.0000625,
+        1.0842382,
+        0.95625
+      ],
+      "elements": 19
+    },
+    {
+      "id": "exodus_quartz_stairs",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/quartz_stairs.json",
+      "model": "block/exodus/quartz_stairs",
+      "ru": "Стул [Exodus: quartz_stairs]",
+      "en": "Chair [Exodus: quartz_stairs]",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.5,
+        1.0
+      ],
+      "elements": 9
+    },
+    {
+      "id": "exodus_sandstone_stairs",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/sandstone_stairs.json",
+      "model": "block/exodus/sandstone_stairs",
+      "ru": "Забор [Exodus: sandstone_stairs]",
+      "en": "Fence [Exodus: sandstone_stairs]",
+      "bounds": [
+        0.0,
+        0.0,
+        -1.0,
+        1.0,
+        1.875,
+        2.0
+      ],
+      "elements": 9
+    },
+    {
+      "id": "exodus_spruce_stairs",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/spruce_stairs.json",
+      "model": "block/exodus/spruce_stairs",
+      "ru": "Каменный декор — еловые ступени [Exodus: spruce_stairs]",
+      "en": "Stone decoration — spruce stairs [Exodus: spruce_stairs]",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        1.1141222,
+        1.0269593,
+        1.0
+      ],
+      "elements": 29
+    },
+    {
+      "id": "exodus_wooden_button",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/wooden_button.json",
+      "model": "block/exodus/wooden_button",
+      "ru": "Электрощиток [Exodus: wooden_button]",
+      "en": "Fuse box [Exodus: wooden_button]",
+      "bounds": [
+        0.0,
+        0.0,
+        0.125,
+        0.8125,
+        0.1875,
+        0.90625
+      ],
+      "elements": 12
+    },
+    {
+      "id": "exodus_wooden_button_pressed",
+      "kind": "decor",
+      "source": "assets/minecraft/models/block/wooden_button_pressed.json",
+      "model": "block/exodus/wooden_button_pressed",
+      "ru": "Электрощиток — второй вариант [Exodus: wooden_button_pressed]",
+      "en": "Fuse box — second variant [Exodus: wooden_button_pressed]",
+      "bounds": [
+        0.0,
+        0.0,
+        0.125,
+        0.8125,
+        0.1875,
+        0.90625
+      ],
+      "elements": 12
+    },
+    {
+      "id": "exodus_chest_minecart",
+      "kind": "decor",
+      "source": "assets/minecraft/models/item/chest_minecart.json",
+      "model": "block/exodus/chest_minecart",
+      "ru": "Ящик Exodus [Exodus: chest_minecart]",
+      "en": "Exodus crate [Exodus: chest_minecart]",
+      "bounds": [
+        -0.3622731,
+        -0.0302419,
+        -0.0423388,
+        1.2997731,
+        0.5725806,
+        0.9213712
+      ],
+      "elements": 14
+    }
+  ],
+  "textures": {
+    "exodus/blocks/1krovat_3_": "assets/minecraft/textures/blocks/1krovat(3).png",
+    "exodus/blocks/1krovat": "assets/minecraft/textures/blocks/1krovat.png",
+    "exodus/blocks/1krovat_2_": "assets/minecraft/textures/blocks/1krovat(2).png",
+    "exodus/blocks2/gaz_mask11": "assets/minecraft/textures/blocks2/gaz_mask11.png",
+    "exodus/blocks2/gaz_mask111": "assets/minecraft/textures/blocks2/gaz_mask111.png",
+    "exodus/blocks2/steklo_gaz1": "assets/minecraft/textures/blocks2/steklo_gaz1.png",
+    "exodus/blocks2/trup1": "assets/minecraft/textures/blocks2/trup1.png",
+    "exodus/blocks2/patrony_uboinek": "assets/minecraft/textures/blocks2/patrony_uboinek.png",
+    "exodus/blocks2/1rukzak": "assets/minecraft/textures/blocks2/1rukzak.png",
+    "exodus/blocks2/1noch": "assets/minecraft/textures/blocks2/1noch.png",
+    "exodus/blocks2/1nosh2": "assets/minecraft/textures/blocks2/1nosh2.png",
+    "exodus/blocks/rail_activator": "assets/minecraft/textures/blocks/rail_activator.png",
+    "exodus/blocks2/gaz_mask1": "assets/minecraft/textures/blocks2/gaz_mask1.png",
+    "exodus/blocks2/1kirpichiq": "assets/minecraft/textures/blocks2/1kirpichiq.png",
+    "exodus/blocks2/1poddon": "assets/minecraft/textures/blocks2/1poddon.png",
+    "exodus/blocks2/1kirpichi": "assets/minecraft/textures/blocks2/1kirpichi.png",
+    "exodus/blocks/planks_oak": "assets/minecraft/textures/blocks/planks_oak.png",
+    "exodus/blocks2/planks_spruce": "assets/minecraft/textures/blocks2/planks_spruce.png",
+    "exodus/blocks2/1krovat": "assets/minecraft/textures/blocks2/1krovat.png",
+    "exodus/blocks2/1derevo1": "assets/minecraft/textures/blocks2/1derevo1.png",
+    "exodus/blocks/sponge": "assets/minecraft/textures/blocks/sponge.png",
+    "exodus/blocks2/1straj1": "assets/minecraft/textures/blocks2/1straj1.png",
+    "exodus/blocks2/1straj2": "assets/minecraft/textures/blocks2/1straj2.png",
+    "exodus/blocks/dispenser_front_horizontal": "assets/minecraft/textures/blocks/dispenser_front_horizontal.png",
+    "exodus/blocks/furnace_top": "assets/minecraft/textures/blocks/furnace_top.png",
+    "exodus/blocks/furnace_side": "assets/minecraft/textures/blocks/furnace_side.png",
+    "exodus/blocks/wool_colored_gray": "assets/minecraft/textures/blocks/wool_colored_gray.png",
+    "exodus/blocks/iron_bars": "assets/minecraft/textures/blocks/iron_bars.png",
+    "exodus/blocks/iron_block": "assets/minecraft/textures/blocks/iron_block.png",
+    "exodus/blocks/wool_colored_red": "assets/minecraft/textures/blocks/wool_colored_red.png",
+    "exodus/blocks/planks_birch": "assets/minecraft/textures/blocks/planks_birch.png",
+    "exodus/blocks2/1pechka1": "assets/minecraft/textures/blocks2/1pechka1.png",
+    "exodus/blocks2/1pechka2": "assets/minecraft/textures/blocks2/1pechka2.png",
+    "exodus/blocks2/1pechka4": "assets/minecraft/textures/blocks2/1pechka4.png",
+    "exodus/blocks2/1pechka3": "assets/minecraft/textures/blocks2/1pechka3.png",
+    "exodus/blocks2/1pechka5": "assets/minecraft/textures/blocks2/1pechka5.png",
+    "exodus/blocks/wool_colored_brown": "assets/minecraft/textures/blocks/wool_colored_brown.png",
+    "exodus/blocks/wool_colored_silver": "assets/minecraft/textures/blocks/wool_colored_silver.png",
+    "exodus/blocks/planks_jungle": "assets/minecraft/textures/blocks/planks_jungle.png",
+    "exodus/blocks/log_spruce": "assets/minecraft/textures/blocks/log_spruce.png",
+    "exodus/blocks2/1krevetka1": "assets/minecraft/textures/blocks2/1krevetka1.png",
+    "exodus/blocks2/1krevetka2": "assets/minecraft/textures/blocks2/1krevetka2.png",
+    "exodus/blocks2/chair": "assets/minecraft/textures/blocks2/chair.png",
+    "exodus/blocks/grass_side": "assets/minecraft/textures/blocks/grass_side.png",
+    "exodus/blocks2/zabor": "assets/minecraft/textures/blocks2/zabor.png",
+    "exodus/blocks2/stone_diorite_smooth": "assets/minecraft/textures/blocks2/stone_diorite_smooth.png",
+    "exodus/blocks2/yashik2": "assets/minecraft/textures/blocks2/yashik2.png",
+    "exodus/blocks2/yashik3": "assets/minecraft/textures/blocks2/yashik3.png",
+    "exodus/blocks2/yashik4": "assets/minecraft/textures/blocks2/yashik4.png"
+  },
+  "missingTextureReplacements": {
+    "blocks2/rail_activator": "minecraft:blocks/rail_activator",
+    "blocks2/poldekor1": "minecraft:blocks/planks_oak",
+    "blocks2/sponge": "minecraft:blocks/sponge",
+    "blocks2/wool_colored_purple": "minecraft:blocks/wool_colored_purple",
+    "blocks2/mags": "blocks2/gaz_mask11",
+    "blocks2/brewing_stand_base": "minecraft:blocks/brewing_stand_base",
+    "blocks2/wood122": "minecraft:blocks/planks_spruce",
+    "blocks2/wood_spruce": "minecraft:blocks/planks_spruce",
+    "blocks2/iron_block": "minecraft:blocks/iron_block",
+    "blocks2/wool_colored_gray": "minecraft:blocks/wool_colored_gray",
+    "blocks2/wool_colored_red": "minecraft:blocks/wool_colored_red",
+    "blocks2/planks_birch": "minecraft:blocks/planks_birch",
+    "blocks2/detail": "minecraft:blocks/iron_block",
+    "dop_textures/sack_dirty": "minecraft:blocks/wool_colored_brown",
+    "dop_textures/spruce_planks": "minecraft:blocks/planks_spruce",
+    "blocks2/stone_diorite": "minecraft:blocks/stone_diorite",
+    "blocks2/hardened_clay_stained_cyan": "minecraft:blocks/hardened_clay_stained_cyan",
+    "blocks2/wool_colored_silver2": "minecraft:blocks/wool_colored_silver",
+    "blocks2/wool_colored_cyan": "minecraft:blocks/wool_colored_cyan",
+    "blocks2/planks_jungle": "minecraft:blocks/planks_jungle",
+    "blocks2/melon_side": "minecraft:blocks/melon_side",
+    "blocks2/melon_top": "minecraft:blocks/melon_top",
+    "blocks2/log_spruce": "minecraft:blocks/log_spruce",
+    "blocks2/grass_side_overlay": "minecraft:blocks/grass_side_overlay",
+    "blocks2/fuse_box": "minecraft:blocks/iron_block"
+  },
+  "undefinedFaceTextureReplacements": {
+    "assets/minecraft/models/block/dispenser.json:#missing": "metroport:exodus/blocks/dispenser_front_horizontal"
+  },
+  "excludedWeaponBlockOverrides": [
+    "black_concrete",
+    "blue_concrete",
+    "green_concrete",
+    "orange_concrete"
+  ],
+  "notes": [
+    "All source elements, face UVs, element rotations and item display transforms preserved.",
+    "Vanilla blocks and items are not replaced. All imported assets use metroport namespace.",
+    "The resource pack supplies static geometry only, not creature animations, AI or stats.",
+    "Mutants use standard hostile melee AI with explicitly chosen base-game stats; no natural spawning.",
+    "Masks have no invented damage resistance; 165 durability, existing filter mechanics.",
+    "Furniture collision is a bounding box clipped to its placement cell; protruding geometry does not reserve adjacent cells."
+  ]
+}

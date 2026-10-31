@@ -16,7 +16,7 @@ public final class ExpandedContent {
     public static void blocks(RegistryEvent.Register<Block> event) {
         for (int i = 0; i < 58; i++) {
             Block block = new Block(Material.WOOD).setHardness(2).setTranslationKey("metroport.block" + i)
-                    .setCreativeTab(MetroPort.THINGS).setRegistryName(MetroPort.ID, "block" + i);
+                    .setCreativeTab(MetroPort.DECOR).setRegistryName(MetroPort.ID, "block" + i);
             BLOCKS.put("block" + i, block);
             event.getRegistry().register(block);
         }
@@ -37,7 +37,8 @@ public final class ExpandedContent {
         add(event, "testpickaxe", new MetroPickaxe());
     }
     private static void add(RegistryEvent.Register<Item> event, String id, Item item) {
-        item.setRegistryName(MetroPort.ID, id).setTranslationKey("metroport." + id).setCreativeTab(MetroPort.THINGS);
+        item.setRegistryName(MetroPort.ID, id).setTranslationKey("metroport." + id).setCreativeTab(item instanceof ItemBlock && !id.equals("radiation")
+                ? MetroPort.DECOR : MetroPort.THINGS);
         MetroPort.ITEMS.put(id, item);
         event.getRegistry().register(item);
     }

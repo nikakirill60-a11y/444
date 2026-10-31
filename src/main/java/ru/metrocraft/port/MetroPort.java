@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.3.1", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.4.0", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -37,6 +37,8 @@ public final class MetroPort {
     public static final CreativeTabs WEAPONS = tab("weapons", "ak74", Items.BOW);
     public static final CreativeTabs ARMOR = tab("armor", "armor", Items.IRON_CHESTPLATE);
     public static final CreativeTabs THINGS = tab("things", "medkit", Items.PAPER);
+
+    public static final CreativeTabs DECOR = tab("decor", "block0", Items.PAINTING);
 
     private static CreativeTabs tab(String name, String icon, Item fallback) {
         return new CreativeTabs(ID + "." + name) {
@@ -77,6 +79,8 @@ public final class MetroPort {
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
         ru.metrocraft.port.gates.Gates.initialize();
+        ru.metrocraft.port.exodus.ExodusContent.load();
+        ru.metrocraft.port.exodus.ExodusContent.registerEntities();
         PROXY.preInit();
     }
 

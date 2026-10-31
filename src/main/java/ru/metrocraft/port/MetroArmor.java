@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
-public final class MetroArmor extends ItemArmor implements net.minecraftforge.common.ISpecialArmor {
+public class MetroArmor extends ItemArmor implements net.minecraftforge.common.ISpecialArmor {
     private final Definition definition;
 
     private static ArmorMaterial material(Definition d) {
