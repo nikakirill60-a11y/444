@@ -1434,6 +1434,7 @@
     {
       "id": "mcmod_btbkz_helmet",
       "model": "btbkz",
+      "visualModel": "btbkz",
       "sourceId": "BTBKZ",
       "mode": "helmet",
       "nameRu": "Броня БТБКЗ — шлем [MCMOD]",
@@ -1447,6 +1448,7 @@
     {
       "id": "mcmod_btbkz_vest",
       "model": "btbkz",
+      "visualModel": "btbkz",
       "sourceId": "BTBKZ",
       "mode": "vest",
       "nameRu": "Броня БТБКЗ — бронежилет [MCMOD]",
@@ -1460,6 +1462,7 @@
     {
       "id": "mcmod_scout_armor_helmet",
       "model": "scout_armor",
+      "visualModel": "scout_armor",
       "sourceId": "Scout_armor",
       "mode": "helmet",
       "nameRu": "Броня разведчика — шлем [MCMOD]",
@@ -1473,6 +1476,7 @@
     {
       "id": "mcmod_scout_armor_vest",
       "model": "scout_armor",
+      "visualModel": "scout_armor",
       "sourceId": "Scout_armor",
       "mode": "vest",
       "nameRu": "Броня разведчика — бронежилет [MCMOD]",
@@ -1486,6 +1490,7 @@
     {
       "id": "mcmod_bandit_armor_helmet",
       "model": "bandit_armor",
+      "visualModel": "bandit_armor",
       "sourceId": "bandit_armor",
       "mode": "helmet",
       "nameRu": "Бандитская броня — шлем [MCMOD]",
@@ -1499,6 +1504,7 @@
     {
       "id": "mcmod_bandit_armor_vest",
       "model": "bandit_armor",
+      "visualModel": "bandit_armor",
       "sourceId": "bandit_armor",
       "mode": "vest",
       "nameRu": "Бандитская броня — бронежилет [MCMOD]",
@@ -1512,6 +1518,7 @@
     {
       "id": "mcmod_banditkurtka",
       "model": "banditkurtka",
+      "visualModel": "kurtka",
       "sourceId": "banditkurtka",
       "mode": "whole",
       "nameRu": "Бандитская куртка [MCMOD]",
@@ -1525,6 +1532,7 @@
     {
       "id": "mcmod_bkz_helmet",
       "model": "bkz",
+      "visualModel": "bkz",
       "sourceId": "bkz",
       "mode": "helmet",
       "nameRu": "Броня БКЗ — шлем [MCMOD]",
@@ -1538,6 +1546,7 @@
     {
       "id": "mcmod_bkz_vest",
       "model": "bkz",
+      "visualModel": "bkz",
       "sourceId": "bkz",
       "mode": "vest",
       "nameRu": "Броня БКЗ — бронежилет [MCMOD]",
@@ -1551,6 +1560,7 @@
     {
       "id": "mcmod_cherv_helmet",
       "model": "cherv",
+      "visualModel": "cherv",
       "sourceId": "cherv",
       "mode": "helmet",
       "nameRu": "Броня червепоклоников — шлем [MCMOD]",
@@ -1564,6 +1574,7 @@
     {
       "id": "mcmod_cherv_vest",
       "model": "cherv",
+      "visualModel": "cherv",
       "sourceId": "cherv",
       "mode": "vest",
       "nameRu": "Броня червепоклоников — бронежилет [MCMOD]",
@@ -1577,6 +1588,7 @@
     {
       "id": "mcmod_gasmask_helmet",
       "model": "gasmask",
+      "visualModel": "gasmask",
       "sourceId": "gasmask",
       "mode": "helmet",
       "nameRu": "Противогаз — шлем [MCMOD]",
@@ -1590,6 +1602,7 @@
     {
       "id": "mcmod_ghillie",
       "model": "ghillie",
+      "visualModel": "ghillie",
       "sourceId": "ghillie",
       "mode": "whole",
       "nameRu": "Камуфлированная броня [MCMOD]",
@@ -1603,6 +1616,7 @@
     {
       "id": "mcmod_gorka_helmet",
       "model": "gorka",
+      "visualModel": "gorka",
       "sourceId": "gorka",
       "mode": "helmet",
       "nameRu": "Горка — шлем [MCMOD]",
@@ -1616,6 +1630,7 @@
     {
       "id": "mcmod_gorka_vest",
       "model": "gorka",
+      "visualModel": "gorka",
       "sourceId": "gorka",
       "mode": "vest",
       "nameRu": "Горка — бронежилет [MCMOD]",
@@ -1629,6 +1644,7 @@
     {
       "id": "mcmod_hanza_helmet",
       "model": "hanza",
+      "visualModel": "hanza",
       "sourceId": "hanza",
       "mode": "helmet",
       "nameRu": "Броня Ганзы — шлем [MCMOD]",
@@ -1642,6 +1658,7 @@
     {
       "id": "mcmod_hanza_vest",
       "model": "hanza",
+      "visualModel": "hanza",
       "sourceId": "hanza",
       "mode": "vest",
       "nameRu": "Броня Ганзы — бронежилет [MCMOD]",
@@ -1655,6 +1672,7 @@
     {
       "id": "mcmod_himza_helmet",
       "model": "himza",
+      "visualModel": "himza",
       "sourceId": "himza",
       "mode": "helmet",
       "nameRu": "Химза — шлем [MCMOD]",
@@ -1668,6 +1686,7 @@
     {
       "id": "mcmod_himza_vest",
       "model": "himza",
+      "visualModel": "himza",
       "sourceId": "himza",
       "mode": "vest",
       "nameRu": "Химза — бронежилет [MCMOD]",
@@ -1681,6 +1700,7 @@
     {
       "id": "mcmod_juggernaut_helmet",
       "model": "juggernaut",
+      "visualModel": "juggernaut",
       "sourceId": "juggernaut",
       "mode": "helmet",
       "nameRu": "Джегернаут — шлем [MCMOD]",
@@ -1694,6 +1714,7 @@
     {
       "id": "mcmod_juggernaut_vest",
       "model": "juggernaut",
+      "visualModel": "juggernaut",
       "sourceId": "juggernaut",
       "mode": "vest",
       "nameRu": "Джегернаут — бронежилет [MCMOD]",
@@ -1707,6 +1728,7 @@
     {
       "id": "mcmod_kitel_vest",
       "model": "kitel",
+      "visualModel": "kitel",
       "sourceId": "kitel",
       "mode": "vest",
       "nameRu": "Китель — бронежилет [MCMOD]",
@@ -1720,6 +1742,7 @@
     {
       "id": "mcmod_kurtka",
       "model": "kurtka",
+      "visualModel": "officer_ozk",
       "sourceId": "kurtka",
       "mode": "whole",
       "nameRu": "Куртка [MCMOD]",
@@ -1733,6 +1756,7 @@
     {
       "id": "mcmod_mgu_helmet",
       "model": "mgu",
+      "visualModel": "mgu",
       "sourceId": "mgu",
       "mode": "helmet",
       "nameRu": "Броня МГУ — шлем [MCMOD]",
@@ -1746,6 +1770,7 @@
     {
       "id": "mcmod_mgu_vest",
       "model": "mgu",
+      "visualModel": "mgu",
       "sourceId": "mgu",
       "mode": "vest",
       "nameRu": "Броня МГУ — бронежилет [MCMOD]",
@@ -1759,6 +1784,7 @@
     {
       "id": "mcmod_officer_ozk",
       "model": "officer_ozk",
+      "visualModel": "banditkurtka",
       "sourceId": "officer_ozk",
       "mode": "whole",
       "nameRu": "Офицерский ОЗК [MCMOD]",
@@ -1772,6 +1798,7 @@
     {
       "id": "mcmod_olkhon_helmet",
       "model": "olkhon",
+      "visualModel": "olkhon",
       "sourceId": "olkhon",
       "mode": "helmet",
       "nameRu": "Ольхон — шлем [MCMOD]",
@@ -1785,6 +1812,7 @@
     {
       "id": "mcmod_olkhon_vest",
       "model": "olkhon",
+      "visualModel": "olkhon",
       "sourceId": "olkhon",
       "mode": "vest",
       "nameRu": "Ольхон — бронежилет [MCMOD]",
@@ -1798,6 +1826,7 @@
     {
       "id": "mcmod_ozk_helmet",
       "model": "ozk",
+      "visualModel": "ozk",
       "sourceId": "ozk",
       "mode": "helmet",
       "nameRu": "ОЗК — шлем [MCMOD]",
@@ -1811,6 +1840,7 @@
     {
       "id": "mcmod_ozk_vest",
       "model": "ozk",
+      "visualModel": "ozk",
       "sourceId": "ozk",
       "mode": "vest",
       "nameRu": "ОЗК — бронежилет [MCMOD]",
@@ -1824,6 +1854,7 @@
     {
       "id": "mcmod_plash",
       "model": "plash",
+      "visualModel": "plash",
       "sourceId": "plash",
       "mode": "whole",
       "nameRu": "Плащ [MCMOD]",
@@ -1837,6 +1868,7 @@
     {
       "id": "mcmod_police_helmet",
       "model": "police",
+      "visualModel": "police",
       "sourceId": "police",
       "mode": "helmet",
       "nameRu": "Кстюм полицейского — шлем [MCMOD]",
@@ -1850,6 +1882,7 @@
     {
       "id": "mcmod_police_vest",
       "model": "police",
+      "visualModel": "police",
       "sourceId": "police",
       "mode": "vest",
       "nameRu": "Кстюм полицейского — бронежилет [MCMOD]",
@@ -1863,6 +1896,7 @@
     {
       "id": "mcmod_povstanec_helmet",
       "model": "povstanec",
+      "visualModel": "povstanec",
       "sourceId": "povstanec",
       "mode": "helmet",
       "nameRu": "Броня Повстанца — шлем [MCMOD]",
@@ -1876,6 +1910,7 @@
     {
       "id": "mcmod_povstanec_vest",
       "model": "povstanec",
+      "visualModel": "povstanec",
       "sourceId": "povstanec",
       "mode": "vest",
       "nameRu": "Броня Повстанца — бронежилет [MCMOD]",
@@ -1889,6 +1924,7 @@
     {
       "id": "mcmod_prorok_helmet",
       "model": "prorok",
+      "visualModel": "prorok",
       "sourceId": "prorok",
       "mode": "helmet",
       "nameRu": "Комбинезон пророк — шлем [MCMOD]",
@@ -1902,6 +1938,7 @@
     {
       "id": "mcmod_prorok_vest",
       "model": "prorok",
+      "visualModel": "prorok",
       "sourceId": "prorok",
       "mode": "vest",
       "nameRu": "Комбинезон пророк — бронежилет [MCMOD]",
@@ -1915,6 +1952,7 @@
     {
       "id": "mcmod_psh1b_helmet",
       "model": "psh1b",
+      "visualModel": "psh1b",
       "sourceId": "psh1b",
       "mode": "helmet",
       "nameRu": "ПШ-1Б — шлем [MCMOD]",
@@ -1928,6 +1966,7 @@
     {
       "id": "mcmod_psh1b_vest",
       "model": "psh1b",
+      "visualModel": "psh1b",
       "sourceId": "psh1b",
       "mode": "vest",
       "nameRu": "ПШ-1Б — бронежилет [MCMOD]",
@@ -1941,6 +1980,7 @@
     {
       "id": "mcmod_reih_helmet",
       "model": "reih",
+      "visualModel": "reih",
       "sourceId": "reih",
       "mode": "helmet",
       "nameRu": "Броня 4ого рейха — шлем [MCMOD]",
@@ -1954,6 +1994,7 @@
     {
       "id": "mcmod_reih_vest",
       "model": "reih",
+      "visualModel": "reih",
       "sourceId": "reih",
       "mode": "vest",
       "nameRu": "Броня 4ого рейха — бронежилет [MCMOD]",
@@ -1967,6 +2008,7 @@
     {
       "id": "mcmod_sniper_helmet",
       "model": "sniper",
+      "visualModel": "sniper",
       "sourceId": "sniper",
       "mode": "helmet",
       "nameRu": "Снайперский костюм — шлем [MCMOD]",
@@ -1980,6 +2022,7 @@
     {
       "id": "mcmod_sniper_vest",
       "model": "sniper",
+      "visualModel": "sniper",
       "sourceId": "sniper",
       "mode": "vest",
       "nameRu": "Снайперский костюм — бронежилет [MCMOD]",
@@ -1993,6 +2036,7 @@
     {
       "id": "mcmod_sniper_camo_helmet",
       "model": "sniper_camo",
+      "visualModel": "sniper_camo",
       "sourceId": "sniper_camo",
       "mode": "helmet",
       "nameRu": "Снайперский камуфляж — шлем [MCMOD]",
@@ -2006,6 +2050,7 @@
     {
       "id": "mcmod_sniper_camo_vest",
       "model": "sniper_camo",
+      "visualModel": "sniper_camo",
       "sourceId": "sniper_camo",
       "mode": "vest",
       "nameRu": "Снайперский камуфляж — бронежилет [MCMOD]",
@@ -2019,6 +2064,7 @@
     {
       "id": "mcmod_standart_k_helmet",
       "model": "standart_k",
+      "visualModel": "standart_k",
       "sourceId": "standart_k",
       "mode": "helmet",
       "nameRu": "Стандарт К — шлем [MCMOD]",
@@ -2032,6 +2078,7 @@
     {
       "id": "mcmod_standart_k_vest",
       "model": "standart_k",
+      "visualModel": "standart_k",
       "sourceId": "standart_k",
       "mode": "vest",
       "nameRu": "Стандарт К — бронежилет [MCMOD]",
@@ -2045,6 +2092,7 @@
     {
       "id": "mcmod_sverchok_helmet",
       "model": "sverchok",
+      "visualModel": "sverchok",
       "sourceId": "sverchok",
       "mode": "helmet",
       "nameRu": "Сверчок — шлем [MCMOD]",
@@ -2058,6 +2106,7 @@
     {
       "id": "mcmod_sverchok_vest",
       "model": "sverchok",
+      "visualModel": "sverchok",
       "sourceId": "sverchok",
       "mode": "vest",
       "nameRu": "Сверчок — бронежилет [MCMOD]",
@@ -2071,6 +2120,7 @@
     {
       "id": "mcmod_sverchok_mp6_helmet",
       "model": "sverchok_mp6",
+      "visualModel": "sverchok_mp6",
       "sourceId": "sverchok_mp6",
       "mode": "helmet",
       "nameRu": "Сверчок МП-6 — шлем [MCMOD]",
@@ -2084,6 +2134,7 @@
     {
       "id": "mcmod_sverchok_mp6_vest",
       "model": "sverchok_mp6",
+      "visualModel": "sverchok_mp6",
       "sourceId": "sverchok_mp6",
       "mode": "vest",
       "nameRu": "Сверчок МП-6 — бронежилет [MCMOD]",
@@ -2097,6 +2148,7 @@
     {
       "id": "mcmod_taiga_helmet",
       "model": "taiga",
+      "visualModel": "taiga",
       "sourceId": "taiga",
       "mode": "helmet",
       "nameRu": "Костюм Тайга — шлем [MCMOD]",
@@ -2110,6 +2162,7 @@
     {
       "id": "mcmod_taiga_vest",
       "model": "taiga",
+      "visualModel": "taiga",
       "sourceId": "taiga",
       "mode": "vest",
       "nameRu": "Костюм Тайга — бронежилет [MCMOD]",
@@ -2123,6 +2176,7 @@
     {
       "id": "mcmod_vatnik_vest",
       "model": "vatnik",
+      "visualModel": "vatnik",
       "sourceId": "vatnik",
       "mode": "vest",
       "nameRu": "Ватник — бронежилет [MCMOD]",
@@ -2136,6 +2190,7 @@
     {
       "id": "mcmod_voen_tactical_helmet",
       "model": "voen_tactical",
+      "visualModel": "voen_tactical",
       "sourceId": "voen_tactical",
       "mode": "helmet",
       "nameRu": "Военная тактическая броня — шлем [MCMOD]",
@@ -2149,6 +2204,7 @@
     {
       "id": "mcmod_voen_tactical_vest",
       "model": "voen_tactical",
+      "visualModel": "voen_tactical",
       "sourceId": "voen_tactical",
       "mode": "vest",
       "nameRu": "Военная тактическая броня — бронежилет [MCMOD]",
@@ -2162,6 +2218,7 @@
     {
       "id": "mcmod_zapal_helmet",
       "model": "zapal",
+      "visualModel": "zapal",
       "sourceId": "zapal",
       "mode": "helmet",
       "nameRu": "Кстюм Запал — шлем [MCMOD]",
@@ -2175,6 +2232,7 @@
     {
       "id": "mcmod_zapal_vest",
       "model": "zapal",
+      "visualModel": "zapal",
       "sourceId": "zapal",
       "mode": "vest",
       "nameRu": "Кстюм Запал — бронежилет [MCMOD]",
@@ -2189,6 +2247,11 @@
   "unusedModelFolders": [
     "boi_armor"
   ],
+  "wornModelOverrides": {
+    "officer_ozk": "banditkurtka",
+    "banditkurtka": "kurtka",
+    "kurtka": "officer_ozk"
+  },
   "pendingArmor": [],
   "remainingContent": [
     "Guns and ammunition",
@@ -2196,6 +2259,7 @@
     "Original player/inventory/network/condition/radiation mechanics audit"
   ],
   "adaptations": [
+    "User-verified visual correction: officer OZK uses banditkurtka mesh+atlas, bandit jacket uses kurtka, jacket uses officer_ozk. Item icons, ids, slots, condition and protection are unchanged.",
     "Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.",
     "Split sets assign 20%/80% of source protection to helmet/vest, without doubling. Single-part items retain 100% of source protection. Each part retains source max condition.",
     "Condition is represented by normal armor damage and mirrored to condition NBT; original server damage formula still needs audit.",

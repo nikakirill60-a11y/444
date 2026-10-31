@@ -80,6 +80,24 @@ public class McmodArmorTest {
             assertEquals(item.entry.radiation,item.isGasMask());
         }
     }
+    @Test public void userVerifiedOutfitPermutationChangesMeshAndAtlasTogetherNotItemStats() {
+        Map<String,String> correction=new HashMap<>();
+        correction.put("officer_ozk","banditkurtka");
+        correction.put("banditkurtka","kurtka");
+        correction.put("kurtka","officer_ozk");
+        for(McmodArmorItem item:items.values()) {
+            String expected=correction.getOrDefault(item.entry.model,item.entry.model);
+            assertEquals(item.entry.id,expected,item.entry.geometryModel());
+            assertEquals("metroport:textures/mcmod/armor/"+expected+".png",
+                    item.getArmorTexture(new ItemStack(item),null,item.armorType,null));
+            assertEquals(item.entry.id,item.getDefinition().id);
+        }
+        assertEquals(1500,items.get("mcmod_officer_ozk").getMaxDamage());
+        assertEquals(500,items.get("mcmod_banditkurtka").getMaxDamage());
+        assertEquals(450,items.get("mcmod_kurtka").getMaxDamage());
+        McmodArmorEntry previous=new McmodArmorEntry(); previous.model="bkz";
+        assertEquals("bkz",previous.geometryModel());
+    }
     @Test public void allItemsHaveCorrectNativeSlotsAndOriginalConditionLimits() {
         int helmets=0,vests=0;
         for(McmodArmorItem item:items.values()) {
@@ -105,7 +123,7 @@ public class McmodArmorTest {
             McmodObjMesh mesh=McmodObjMesh.read(input);
             for(String group:mesh.groups.keySet()) {
                 int count=0;
-                for(McmodArmorItem item:items.values()) if(item.entry.model.equals(model) && item.entry.rendersGroup(group,false)) count++;
+                for(McmodArmorItem item:items.values()) if(item.entry.geometryModel().equals(model) && item.entry.rendersGroup(group,false)) count++;
                 assertEquals(model+"/"+group,1,count);
             }
         }

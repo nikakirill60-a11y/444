@@ -8,6 +8,8 @@ from import_content import ROOT, ASSETS, put, write_json
 SOURCE = ROOT / 'tools/mcmod-reference'
 WHOLE = {'officer_ozk', 'banditkurtka', 'kurtka', 'plash', 'ghillie'}
 ALLOWED_GROUPS = {'head', 'body', 'leftarm', 'rightarm', 'leftleg', 'rightleg'}
+# User's in-game identification: fix the three-way mesh/atlas association, not item statistics.
+WORN_MODEL_OVERRIDES = {'officer_ozk': 'banditkurtka', 'banditkurtka': 'kurtka', 'kurtka': 'officer_ozk'}
 TEXTURES = {'gasmask': 'texp.png', 'cherv': 'tex.png', 'reih': 'tex.png', 'mgu': 'tex.png'}
 
 
@@ -92,7 +94,7 @@ def main():
             # Splitting must not accidentally double the original set's protection.
             share = 1 if len(modes) == 1 else .2 if mode == 'helmet' else .8
             name = original['name'] + ('' if mode == 'whole' else ' — шлем' if mode == 'helmet' else ' — бронежилет')
-            entries.append({'id': id_, 'model': runtime, 'sourceId': key, 'mode': mode, 'nameRu': name + ' [MCMOD]',
+            entries.append({'id': id_, 'model': runtime, 'visualModel': WORN_MODEL_OVERRIDES.get(runtime, runtime), 'sourceId': key, 'mode': mode, 'nameRu': name + ' [MCMOD]',
                             'nameEn': key.replace('_', ' ').title() + ' — ' + mode + ' [MCMOD]',
                             'condition': original['condition'], 'sourceProtect': original['protect'],
                             'defence': original['protect'] / 100 * share,
@@ -102,11 +104,12 @@ def main():
     write_json(ASSETS / 'mcmod_armor.json', entries)
     write_json(ROOT / 'docs/mcmod-report.json', {'batch': 2, 'source': 'User-supplied MCMod.jar, unpacked on Google Drive',
         'registeredOriginalArmor': originals, 'importedModels': models, 'items': entries,
-        'unusedModelFolders': ['boi_armor'],
+        'unusedModelFolders': ['boi_armor'], 'wornModelOverrides': WORN_MODEL_OVERRIDES,
         'pendingArmor': [key for key in originals if key not in models],
         'remainingContent': ['Guns and ammunition', 'Decorative blocks and items',
                              'Original player/inventory/network/condition/radiation mechanics audit'],
-        'adaptations': ['Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.',
+        'adaptations': ['User-verified visual correction: officer OZK uses banditkurtka mesh+atlas, bandit jacket uses kurtka, jacket uses officer_ozk. Item icons, ids, slots, condition and protection are unchanged.',
+                       'Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.',
                        'Split sets assign 20%/80% of source protection to helmet/vest, without doubling. Single-part items retain 100% of source protection. Each part retains source max condition.',
                        'Condition is represented by normal armor damage and mirrored to condition NBT; original server damage formula still needs audit.',
                        'Original radiation flags enable port filters on the corresponding helmet (or whole officer OZK); split vests alone do not provide breathing protection. Original MCMOD radiation formulas still need audit.',

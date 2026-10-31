@@ -21,7 +21,7 @@ public final class McmodArmorModel extends ModelBiped {
     private McmodArmorModel(McmodArmorEntry entry) { super(0); this.entry=entry; }
     public static McmodArmorModel get(McmodArmorEntry entry) { return MODELS.computeIfAbsent(entry.id, key -> new McmodArmorModel(entry)); }
     private McmodObjMesh mesh() {
-        return MESHES.computeIfAbsent(entry.model, key -> {
+        return MESHES.computeIfAbsent(entry.geometryModel(), key -> {
             ResourceLocation file = new ResourceLocation("metroport:models/mcmod/"+key+"/model.obj");
             try (InputStream input = Minecraft.getMinecraft().getResourceManager().getResource(file).getInputStream()) {
                 return McmodObjMesh.read(input);
@@ -35,7 +35,7 @@ public final class McmodArmorModel extends ModelBiped {
         GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA,GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA,
                 GlStateManager.SourceFactor.ONE,GlStateManager.DestFactor.ZERO);
         try {
-            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("metroport:textures/mcmod/armor/"+entry.model+".png"));
+            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("metroport:textures/mcmod/armor/"+entry.geometryModel()+".png"));
             if (isSneak) GlStateManager.translate(0,.2,0);
             boolean separateHead = entity instanceof EntityLivingBase && !((EntityLivingBase)entity).getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty();
             if (entry.rendersGroup("head",separateHead)) {

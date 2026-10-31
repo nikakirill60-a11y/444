@@ -35,7 +35,7 @@ public final class McmodArmorItem extends MetroArmor {
         if (!stack.isEmpty()) syncCondition(stack);
     }
     @Override public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        return "metroport:textures/mcmod/armor/"+entry.model+".png";
+        return "metroport:textures/mcmod/armor/"+entry.geometryModel()+".png";
     }
     @Override @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase living, ItemStack stack, EntityEquipmentSlot slot, ModelBiped original) {

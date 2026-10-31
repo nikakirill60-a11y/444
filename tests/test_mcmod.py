@@ -162,6 +162,20 @@ class McmodTests(unittest.TestCase):
             if entry['radiation']:
                 self.assertIn(entry['mode'], ['whole', 'helmet'])
 
+    def test_user_verified_three_way_visual_correction_preserves_icons_and_other_models(self):
+        corrections = {'officer_ozk': 'banditkurtka', 'banditkurtka': 'kurtka', 'kurtka': 'officer_ozk'}
+        self.assertEqual(corrections, REPORT['wornModelOverrides'])
+        for entry in ENTRIES:
+            target = corrections.get(entry['model'], entry['model'])
+            self.assertEqual(target, entry['visualModel'])
+            self.assertTrue((ASSETS / ('models/mcmod/' + target + '/model.obj')).is_file())
+            self.assertTrue((ASSETS / ('textures/mcmod/armor/' + target + '.png')).is_file())
+            icon = json.loads((ASSETS / ('models/item/' + entry['id'] + '.json')).read_text())
+            self.assertEqual('metroport:mcmod/icons/' + entry['model'], icon['textures']['layer0'])
+        renderer = (ROOT / 'src/main/java/ru/metrocraft/port/client/McmodArmorModel.java').read_text()
+        self.assertIn('MESHES.computeIfAbsent(entry.geometryModel(),', renderer)
+        self.assertIn('+entry.geometryModel()+".png"', renderer)
+
     def test_importer_is_reproducible(self):
         files = [ROOT / 'docs/mcmod-report.json', ASSETS / 'mcmod_armor.json']
         files += list((ASSETS / 'models/mcmod').rglob('*.*')) + list((ASSETS / 'textures/mcmod').rglob('*.png'))
