@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/bag_line"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/bag_line"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/bag_line"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/bag_line"
+    }
+  }
+}

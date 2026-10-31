@@ -30,6 +30,7 @@ public final class ClientEvents {
     public static void initialize() {
         ClientRegistry.registerKeyBinding(RELOAD);
         ClientRegistry.registerKeyBinding(INVENTORY);
+        ClientRegistry.bindTileEntitySpecialRenderer(ru.metrocraft.port.mcmod.decor.McmodDecorTile.class,new ru.metrocraft.port.client.McmodDecorRenderer());
         ClientRegistry.registerKeyBinding(AIM);
         for (net.minecraft.client.renderer.entity.RenderPlayer playerRenderer : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
             playerRenderer.addLayer(new ru.metrocraft.port.client.BackpackClient(playerRenderer));
@@ -62,6 +63,18 @@ public final class ClientEvents {
             if(icon!=null) {
                 item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodToolRenderer.INSTANCE);
                 event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel(id,false,icon));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void mcmodDecorModels(net.minecraftforge.client.event.ModelBakeEvent event) {
+        for(ru.metrocraft.port.mcmod.decor.McmodDecorBlock block:ru.metrocraft.port.mcmod.decor.McmodDecorContent.BLOCKS.values()) {
+            Item item=Item.getItemFromBlock(block);ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(location);
+            if(icon!=null) {
+                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodDecorItemRenderer.INSTANCE);
+                event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel(block.entry.id,false,icon,false));
             }
         }
     }

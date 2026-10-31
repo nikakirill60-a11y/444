@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/chair"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/chair"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/chair"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/chair"
+    }
+  }
+}

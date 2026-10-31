@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/barrel_03_garbage"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/barrel_03_garbage"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/barrel_03_garbage"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/barrel_03_garbage"
+    }
+  }
+}

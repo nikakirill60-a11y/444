@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/table_benches"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/table_benches"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/table_benches"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/table_benches"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/divan"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/divan"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/divan"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/divan"
+    }
+  }
+}

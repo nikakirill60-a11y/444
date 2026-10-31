@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/table_selfmade"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/table_selfmade"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/table_selfmade"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/table_selfmade"
+    }
+  }
+}

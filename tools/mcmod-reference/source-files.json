@@ -546,6 +546,206 @@
       "driveId": "19r5C9I3LqmMJXgFHsoHsY2Lavs2ltXyq",
       "bytes": 3474,
       "sha256": "df5ea06503b0b7df685a534c72e158a5b47778720c7744967d3db0e84cad432c"
+    },
+    "assets/decor/barrel_01.obj": {
+      "driveId": "1sgseiMrCMoDFK6S8dtPofAmX87oX6YsM",
+      "bytes": 62622,
+      "sha256": "e8fd141fc03a5ad30e6021b2e6f5db11b87e1e34f50e0442fb54004dc7671e8d"
+    },
+    "assets/decor/barrel_01.png": {
+      "driveId": "1QyFkdQi2zWII_aSVgz9CLbvPd4Pr9zUv",
+      "bytes": 6991506,
+      "sha256": "aaf300441890a1d7b32ac164f08ebbf1990070c2fe4ffde8ebf2c375f041c7ea"
+    },
+    "assets/decor/barrel_01_close.obj": {
+      "driveId": "1LbpH9Al1sbleLl-dCGJ3sDFTT05Ty4pv",
+      "bytes": 142063,
+      "sha256": "d4f514c29079e2d7b3ab14d9d63317ac4f6b591b42baf47755935a14b5e17217"
+    },
+    "assets/decor/barrel_01_close.png": {
+      "driveId": "179CQ-8-Y5D5hXA9EukCW2Gl_jRHCtnfL",
+      "bytes": 681839,
+      "sha256": "44436c3c602345eec489fe447c2dab14a8336722573b81b0a78d2b9bf4ca7127"
+    },
+    "assets/decor/barrel_03_garbage.obj": {
+      "driveId": "1iQbfEFL25cSnnBVCJqMqC8yyPhWve67i",
+      "bytes": 126817,
+      "sha256": "b1fe7498f661bd815a9b99c639981b382f2a88c33080ab4b9bcf9c8c18403806"
+    },
+    "assets/decor/barrel_03_garbage.png": {
+      "driveId": "1AjMjatMAxDkQwCvTVrKkNyCznV4Ngvz-",
+      "bytes": 502015,
+      "sha256": "4fae4b5e197282147099498fac7bb72c2a2fe05a44d62e98f4a870cce33e2690"
+    },
+    "assets/decor/barrel_04_broken.obj": {
+      "driveId": "11Sv2QKN_PZQfIwiHcM4M8sn5Yu2yEzNd",
+      "bytes": 100268,
+      "sha256": "92c6a857eb45b1519b26f7cf53bf61f115cc8de971cce29a302858635008959a"
+    },
+    "assets/decor/barrel_04_broken.png": {
+      "driveId": "14ky5bCg5F05UHZyVLF8QsEE710PXdr5i",
+      "bytes": 502015,
+      "sha256": "4fae4b5e197282147099498fac7bb72c2a2fe05a44d62e98f4a870cce33e2690"
+    },
+    "assets/decor/bench_2.obj": {
+      "driveId": "14AyIIdxz1syXGmh6P9eeV_Re3A6W--et",
+      "bytes": 345321,
+      "sha256": "b0094137674be7699bd753229017e51c572f92b61f513cee18f93ef4d1edce10"
+    },
+    "assets/decor/bench_2.png": {
+      "driveId": "1tS88nObBaL4TNoQKjN0n212W8Gm1az8H",
+      "bytes": 724902,
+      "sha256": "f881c314c9eeb376606d9b93146e73d86853fc1b7555c47b29ef89e5fd63f6b0"
+    },
+    "assets/decor/bench_6.obj": {
+      "driveId": "1f3qYYzvjpjV4mmJYsEmZYBh-Q6yBsaH4",
+      "bytes": 305041,
+      "sha256": "d610795cee756f7aa5fc57f3214aaa4e520970e19b72fbda301252dee69eb608"
+    },
+    "assets/decor/bench_6.png": {
+      "driveId": "1EJ8P_ndGTSYZo3psaWyO1SA3s49xHL6v",
+      "bytes": 724902,
+      "sha256": "f881c314c9eeb376606d9b93146e73d86853fc1b7555c47b29ef89e5fd63f6b0"
+    },
+    "assets/decor/cafe_chair.obj": {
+      "driveId": "1MmUeqkcZdOhZOdLojVv9AGb5BYu8OWsM",
+      "bytes": 32828,
+      "sha256": "cb7d1e497d3c87d2d062a674e713f4a7d793b3da185576299068a89b0fc3f4d9"
+    },
+    "assets/decor/cafe_chair.png": {
+      "driveId": "1WYC28Tb7ry1-1tWvR_jvzEYs6lZWswPs",
+      "bytes": 502902,
+      "sha256": "ba4c76e60a08c4bcdc6a034f21fb58aa4153ee5c4c94b2619c6d6e0b1ba51876"
+    },
+    "assets/decor/chair.obj": {
+      "driveId": "1b0EnjTPlL2PqPN4NqXbIVuuOdyJW4nup",
+      "bytes": 56984,
+      "sha256": "3e3400974cd0436e7fce703414535e003be3fd4a1bbae656e7eb6fd5c2c1e4b4"
+    },
+    "assets/decor/chair.png": {
+      "driveId": "1Bxtmc2K6g49P6H2zjX8RwgSQ33KPXWM4",
+      "bytes": 700010,
+      "sha256": "e78289ba9c8b271a4ad8db09c29d55a04add095d77d992ecedbc81559c739061"
+    },
+    "assets/decor/chair_01.obj": {
+      "driveId": "17W6_a9O58QsQE8VsyDek_-3CMw1oRlhb",
+      "bytes": 138367,
+      "sha256": "675f3d41ccfdf276110faa1d788ce3dc2a124229506997edd2255c8eecb08b68"
+    },
+    "assets/decor/chair_01.png": {
+      "driveId": "1qkpMDLgZCc19ggADiazIqJEoG3hRojFx",
+      "bytes": 635542,
+      "sha256": "2373fbb50593f98f8c65ceff0e7009ed4468646db82ba07becdad4e13840b50c"
+    },
+    "assets/decor/chair_cabinet.obj": {
+      "driveId": "1VYDtjlXUsmOe3Yj05pCuEyZkkfV4dshz",
+      "bytes": 158244,
+      "sha256": "357a0dd13097c5eb04ba2c75713e6fd19cd9d657dac47fd0ef85aa656679be5e"
+    },
+    "assets/decor/chair_cabinet.png": {
+      "driveId": "1Y2_SxxcE8HsBuut-4fnDbjhD5mET2Ugt",
+      "bytes": 596180,
+      "sha256": "50a2fe41621553a76480325a0ce5fe2cad6c0bd75f8b96a80b0172e07f3ea37d"
+    },
+    "assets/decor/table.obj": {
+      "driveId": "1hQQq3MXvTjPyStvKNn6Y3_BRQCoqM2Rb",
+      "bytes": 33121,
+      "sha256": "25065bdfb99c85b22a3d04f618acb35aede148265adcfe37bb1bcf3c328e427c"
+    },
+    "assets/decor/table.png": {
+      "driveId": "1tn9pm5Xz1mHl-NllfHETBAkysHdIuVIz",
+      "bytes": 591294,
+      "sha256": "35263f2328bb974312b93cb807b7414aec60de8db211e044ff07fea315c3bd12"
+    },
+    "assets/decor/table_benches.obj": {
+      "driveId": "12ip76N16sxBWR7zHUmR0yYsPoqDBMCEy",
+      "bytes": 30846,
+      "sha256": "bdd723a4537ddb274d81003c400f457e0259425cfc13a0e0e3e599c25e32de13"
+    },
+    "assets/decor/table_benches.png": {
+      "driveId": "1kI8EiVegjM4E7iEnMz1iSumZ5zR1q9T7",
+      "bytes": 652929,
+      "sha256": "1c1091cf0c9335394c5e7371ff8f69e26c88cf38082d6864d79d938a49a8c1f7"
+    },
+    "assets/decor/table_cafe01.obj": {
+      "driveId": "1iGRlQYUBlQTBQw8S3Ydt3lkVpVorYKRk",
+      "bytes": 120906,
+      "sha256": "f853601513e711a2a3e2e66f50e343ddc5cbe8cc4ccef40cc7c0b71e248d15b8"
+    },
+    "assets/decor/table_cafe01.png": {
+      "driveId": "1grgEFq1k7E7wzJp3_I_zXpWJLQ4Gdd3J",
+      "bytes": 724902,
+      "sha256": "f881c314c9eeb376606d9b93146e73d86853fc1b7555c47b29ef89e5fd63f6b0"
+    },
+    "assets/decor/table_cafe_tkan.obj": {
+      "driveId": "1EUqNeE4lc3Z4EDT1w6dQhJy02Kh9be_3",
+      "bytes": 177589,
+      "sha256": "ff0ffc0d3e682470accbff620f746206e810cbf0b2e371a1a9477196a8ea7a4d"
+    },
+    "assets/decor/table_cafe_tkan.png": {
+      "driveId": "1FJWd7F54qFWZnmmzw8_vBp7J-ERTi6jS",
+      "bytes": 626042,
+      "sha256": "8853935ff8513bdd95bcefd078b4ccfecea8ff6e875364ef36de32cae3c6af5b"
+    },
+    "assets/decor/plastic_table_01.obj": {
+      "driveId": "1vXhvCCwMa1aXN6hPHIN0ugQwjzqbZsC_",
+      "bytes": 73134,
+      "sha256": "a82b42f54ebe9e2f1f11f541fa2e3e88e3b67702268027e2f7f16694601b420c"
+    },
+    "assets/decor/plastic_table_01.png": {
+      "driveId": "1d4WkpAyF7-uhcACko8r41E33PQ6ahlCN",
+      "bytes": 597827,
+      "sha256": "913a7fdf0e4f5dcf394e054f63622faa92a2cf03b176248c7125854495a3e168"
+    },
+    "assets/decor/table_nastil_1.obj": {
+      "driveId": "14d-NBMWZ7yc5QfJtvDczQXYXN7DUfvAN",
+      "bytes": 34250,
+      "sha256": "c889e4c2152c6f87a5081ad31e43cf02da51ef92c5a6eaddf2255ee40950b2c5"
+    },
+    "assets/decor/table_nastil_1.png": {
+      "driveId": "1Nh_-eyBB_wg6nnsZJ1s_Aj0koa9T68fy",
+      "bytes": 712531,
+      "sha256": "26e3b3c0200d48c1e058841f6e0de7ac38e828f0c8704ca159c19ae35d88b412"
+    },
+    "assets/decor/table_selfmade.obj": {
+      "driveId": "1zr6_Ue3Rcos7JjS-I1deavpbtjj3zll6",
+      "bytes": 45952,
+      "sha256": "8278730c2fc3e11503167807741ec31498c7048d7c830ecf24e4d59044868c9b"
+    },
+    "assets/decor/table_selfmade.png": {
+      "driveId": "12inU121jAliZVHTQvdxrp0Hm0dVhXw7P",
+      "bytes": 793556,
+      "sha256": "0b54811a098c0f489cc9359ef4292ad0471901dae021c70d72cd6f03f3222e86"
+    },
+    "assets/decor/divan.obj": {
+      "driveId": "16r6wrXJfQGcDxPm9eNJ25BHYDaZkkIBV",
+      "bytes": 56735,
+      "sha256": "8c59c0e0ff4077d305c357a37145fff136a97976f8c883522f442bfa3b823fb5"
+    },
+    "assets/decor/divan.png": {
+      "driveId": "1hmIq9EgMc0CeiBJ6zyzsiVqcrlvsQNJj",
+      "bytes": 747762,
+      "sha256": "91ad88d449c695ca6893dd4e79c2de268ab0c78a974d7a1140307748ff2aa8c9"
+    },
+    "assets/decor/bag_line.obj": {
+      "driveId": "1mhJ_nF0vNnha1e7vgRwTbwzP3twUjRZQ",
+      "bytes": 100430,
+      "sha256": "e5db3ee627c7d198b8c667b837bfa916c86d43da1398af2a65861f256fa24a94"
+    },
+    "assets/decor/bag_line.png": {
+      "driveId": "1qv00XbSvuE0D2Ze3ghSwTXpNbB-rpqYe",
+      "bytes": 595113,
+      "sha256": "44a01cb6b7a19b4ae26a1ce55a4eff31f82ec7b9793f7ae313f20c30c6573166"
+    },
+    "assets/decor/bag_line_short.obj": {
+      "driveId": "11Oqxv1zsY1oHVSDqxx0qQKtmd82zk69t",
+      "bytes": 66442,
+      "sha256": "7afedfe6e7961db1ce76b50e4b4305da82a32caf6db433e24b5e7ee525e0f887"
+    },
+    "assets/decor/bag_line_short.png": {
+      "driveId": "1szFbFyISnF3P5b0qMW8Cu1A6nkHFu4wy",
+      "bytes": 595126,
+      "sha256": "10d4ad610c1b7cb709fd9a98730c4c6eff20c16ccbf5189ec9bd0825650d1244"
     }
   }
 }

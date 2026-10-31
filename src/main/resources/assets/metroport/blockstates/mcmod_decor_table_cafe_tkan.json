@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/table_cafe_tkan"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/table_cafe_tkan"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/table_cafe_tkan"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/table_cafe_tkan"
+    }
+  }
+}

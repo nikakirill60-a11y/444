@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/barrel_04_broken"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/barrel_04_broken"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/barrel_04_broken"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/barrel_04_broken"
+    }
+  }
+}

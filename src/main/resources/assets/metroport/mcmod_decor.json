@@ -1,0 +1,402 @@
+[
+  {
+    "id": "mcmod_decor_barrel_01",
+    "kind": "decor",
+    "sourceId": "barrel_01",
+    "nameRu": "Бочка с костром",
+    "nameEn": "Fire barrel",
+    "scale": 1.0,
+    "bounds": [
+      -0.3536,
+      -0.0001,
+      -0.3508,
+      0.3467,
+      0.6375,
+      0.3506
+    ],
+    "sha256": {
+      "obj": "e8fd141fc03a5ad30e6021b2e6f5db11b87e1e34f50e0442fb54004dc7671e8d",
+      "png": "aaf300441890a1d7b32ac164f08ebbf1990070c2fe4ffde8ebf2c375f041c7ea"
+    }
+  },
+  {
+    "id": "mcmod_decor_barrel_01_close",
+    "kind": "decor",
+    "sourceId": "barrel_01_close",
+    "nameRu": "Бочка с костром (закрытая)",
+    "nameEn": "Closed barrel",
+    "scale": 1.0,
+    "bounds": [
+      -0.343,
+      -0.0047,
+      -0.3471,
+      0.3502,
+      1.2107,
+      0.3444
+    ],
+    "sha256": {
+      "obj": "d4f514c29079e2d7b3ab14d9d63317ac4f6b591b42baf47755935a14b5e17217",
+      "png": "44436c3c602345eec489fe447c2dab14a8336722573b81b0a78d2b9bf4ca7127"
+    }
+  },
+  {
+    "id": "mcmod_decor_barrel_03_garbage",
+    "kind": "decor",
+    "sourceId": "barrel_03_garbage",
+    "nameRu": "Бочка с мусором",
+    "nameEn": "Garbage barrel",
+    "scale": 1.0,
+    "bounds": [
+      -0.3397,
+      -0.0065,
+      -0.3231,
+      0.3278,
+      1.2291,
+      0.3172
+    ],
+    "sha256": {
+      "obj": "b1fe7498f661bd815a9b99c639981b382f2a88c33080ab4b9bcf9c8c18403806",
+      "png": "4fae4b5e197282147099498fac7bb72c2a2fe05a44d62e98f4a870cce33e2690"
+    }
+  },
+  {
+    "id": "mcmod_decor_barrel_04_broken",
+    "kind": "decor",
+    "sourceId": "barrel_04_broken",
+    "nameRu": "Мятая бочка",
+    "nameEn": "Dented barrel",
+    "scale": 1.0,
+    "bounds": [
+      -0.3435,
+      -0.0065,
+      -0.3229,
+      0.358,
+      1.2229,
+      0.3378
+    ],
+    "sha256": {
+      "obj": "92c6a857eb45b1519b26f7cf53bf61f115cc8de971cce29a302858635008959a",
+      "png": "4fae4b5e197282147099498fac7bb72c2a2fe05a44d62e98f4a870cce33e2690"
+    }
+  },
+  {
+    "id": "mcmod_decor_bench_2",
+    "kind": "decor",
+    "sourceId": "bench_2",
+    "nameRu": "Скамейка целая",
+    "nameEn": "Bench",
+    "scale": 1.0,
+    "bounds": [
+      -1.3433,
+      -0.0257,
+      -0.3682,
+      1.3375,
+      1.2462,
+      0.4217
+    ],
+    "sha256": {
+      "obj": "b0094137674be7699bd753229017e51c572f92b61f513cee18f93ef4d1edce10",
+      "png": "f881c314c9eeb376606d9b93146e73d86853fc1b7555c47b29ef89e5fd63f6b0"
+    }
+  },
+  {
+    "id": "mcmod_decor_bench_6",
+    "kind": "decor",
+    "sourceId": "bench_6",
+    "nameRu": "Скамейка сломанная",
+    "nameEn": "Broken bench",
+    "scale": 1.0,
+    "bounds": [
+      -1.2513,
+      -0.0293,
+      -0.6481,
+      1.2884,
+      1.2161,
+      0.6006
+    ],
+    "sha256": {
+      "obj": "d610795cee756f7aa5fc57f3214aaa4e520970e19b72fbda301252dee69eb608",
+      "png": "f881c314c9eeb376606d9b93146e73d86853fc1b7555c47b29ef89e5fd63f6b0"
+    }
+  },
+  {
+    "id": "mcmod_decor_cafe_chair",
+    "kind": "decor",
+    "sourceId": "cafe_chair",
+    "nameRu": "Высокий табурет",
+    "nameEn": "Bar stool",
+    "scale": 1.0,
+    "bounds": [
+      -0.2002,
+      0.0,
+      -0.2023,
+      0.2002,
+      1.038,
+      0.2022
+    ],
+    "sha256": {
+      "obj": "cb7d1e497d3c87d2d062a674e713f4a7d793b3da185576299068a89b0fc3f4d9",
+      "png": "ba4c76e60a08c4bcdc6a034f21fb58aa4153ee5c4c94b2619c6d6e0b1ba51876"
+    }
+  },
+  {
+    "id": "mcmod_decor_chair",
+    "kind": "decor",
+    "sourceId": "chair",
+    "nameRu": "Школьный стул",
+    "nameEn": "Kitchen chair",
+    "scale": 1.0,
+    "bounds": [
+      -0.2439,
+      -0.0037,
+      -0.2688,
+      0.2435,
+      0.9877,
+      0.2684
+    ],
+    "sha256": {
+      "obj": "3e3400974cd0436e7fce703414535e003be3fd4a1bbae656e7eb6fd5c2c1e4b4",
+      "png": "e78289ba9c8b271a4ad8db09c29d55a04add095d77d992ecedbc81559c739061"
+    }
+  },
+  {
+    "id": "mcmod_decor_chair_01",
+    "kind": "decor",
+    "sourceId": "chair_01",
+    "nameRu": "Стул",
+    "nameEn": "Chair",
+    "scale": 1.0,
+    "bounds": [
+      -0.3564,
+      -0.0009,
+      -0.3033,
+      0.3409,
+      1.249,
+      0.3033
+    ],
+    "sha256": {
+      "obj": "675f3d41ccfdf276110faa1d788ce3dc2a124229506997edd2255c8eecb08b68",
+      "png": "2373fbb50593f98f8c65ceff0e7009ed4468646db82ba07becdad4e13840b50c"
+    }
+  },
+  {
+    "id": "mcmod_decor_chair_cabinet",
+    "kind": "decor",
+    "sourceId": "chair_cabinet",
+    "nameRu": "Офисное кресло",
+    "nameEn": "Office chair",
+    "scale": 1.0,
+    "bounds": [
+      -0.3132,
+      -0.0004,
+      -0.3158,
+      0.3298,
+      1.0512,
+      0.3136
+    ],
+    "sha256": {
+      "obj": "357a0dd13097c5eb04ba2c75713e6fd19cd9d657dac47fd0ef85aa656679be5e",
+      "png": "50a2fe41621553a76480325a0ce5fe2cad6c0bd75f8b96a80b0172e07f3ea37d"
+    }
+  },
+  {
+    "id": "mcmod_decor_table",
+    "kind": "decor",
+    "sourceId": "table",
+    "nameRu": "Стол",
+    "nameEn": "Table",
+    "scale": 1.0,
+    "bounds": [
+      -1.042,
+      0.001,
+      -0.5845,
+      1.042,
+      0.9395,
+      0.5848
+    ],
+    "sha256": {
+      "obj": "25065bdfb99c85b22a3d04f618acb35aede148265adcfe37bb1bcf3c328e427c",
+      "png": "35263f2328bb974312b93cb807b7414aec60de8db211e044ff07fea315c3bd12"
+    }
+  },
+  {
+    "id": "mcmod_decor_table_benches",
+    "kind": "decor",
+    "sourceId": "table_benches",
+    "nameRu": "Стол из досок",
+    "nameEn": "Table and benches",
+    "scale": 1.0,
+    "bounds": [
+      -0.8949,
+      0.0,
+      -1.3449,
+      0.8782,
+      0.9998,
+      1.3466
+    ],
+    "sha256": {
+      "obj": "bdd723a4537ddb274d81003c400f457e0259425cfc13a0e0e3e599c25e32de13",
+      "png": "1c1091cf0c9335394c5e7371ff8f69e26c88cf38082d6864d79d938a49a8c1f7"
+    }
+  },
+  {
+    "id": "mcmod_decor_table_cafe01",
+    "kind": "decor",
+    "sourceId": "table_cafe01",
+    "nameRu": "Стол кафе",
+    "nameEn": "Cafe table",
+    "scale": 1.0,
+    "bounds": [
+      -0.7877,
+      -0.0,
+      -0.7768,
+      0.781,
+      0.8368,
+      0.7711
+    ],
+    "sha256": {
+      "obj": "f853601513e711a2a3e2e66f50e343ddc5cbe8cc4ccef40cc7c0b71e248d15b8",
+      "png": "f881c314c9eeb376606d9b93146e73d86853fc1b7555c47b29ef89e5fd63f6b0"
+    }
+  },
+  {
+    "id": "mcmod_decor_table_cafe_tkan",
+    "kind": "decor",
+    "sourceId": "table_cafe_tkan",
+    "nameRu": "Стол накрытый красной скатертью",
+    "nameEn": "Table with tablecloth",
+    "scale": 1.0,
+    "bounds": [
+      -0.8415,
+      -0.0221,
+      -0.8081,
+      0.9011,
+      0.8534,
+      0.87
+    ],
+    "sha256": {
+      "obj": "ff0ffc0d3e682470accbff620f746206e810cbf0b2e371a1a9477196a8ea7a4d",
+      "png": "8853935ff8513bdd95bcefd078b4ccfecea8ff6e875364ef36de32cae3c6af5b"
+    }
+  },
+  {
+    "id": "mcmod_decor_plastic_table_01",
+    "kind": "decor",
+    "sourceId": "plastic_table_01",
+    "nameRu": "Пластиковый стол",
+    "nameEn": "Plastic table",
+    "scale": 1.0,
+    "bounds": [
+      -0.7627,
+      0.0,
+      -0.7627,
+      0.7627,
+      0.856,
+      0.7627
+    ],
+    "sha256": {
+      "obj": "a82b42f54ebe9e2f1f11f541fa2e3e88e3b67702268027e2f7f16694601b420c",
+      "png": "913a7fdf0e4f5dcf394e054f63622faa92a2cf03b176248c7125854495a3e168"
+    }
+  },
+  {
+    "id": "mcmod_decor_table_nastil_1",
+    "kind": "decor",
+    "sourceId": "table_nastil_1",
+    "nameRu": "Стол из деревянного настила",
+    "nameEn": "Plank table",
+    "scale": 1.0,
+    "bounds": [
+      -0.378,
+      -0.0028,
+      -0.7066,
+      0.378,
+      0.8294,
+      0.7066
+    ],
+    "sha256": {
+      "obj": "c889e4c2152c6f87a5081ad31e43cf02da51ef92c5a6eaddf2255ee40950b2c5",
+      "png": "26e3b3c0200d48c1e058841f6e0de7ac38e828f0c8704ca159c19ae35d88b412"
+    }
+  },
+  {
+    "id": "mcmod_decor_table_selfmade",
+    "kind": "decor",
+    "sourceId": "table_selfmade",
+    "nameRu": "Самодельный стол",
+    "nameEn": "Makeshift table",
+    "scale": 1.0,
+    "bounds": [
+      -1.4839,
+      0.0,
+      -0.6037,
+      1.4839,
+      0.9469,
+      0.6037
+    ],
+    "sha256": {
+      "obj": "8278730c2fc3e11503167807741ec31498c7048d7c830ecf24e4d59044868c9b",
+      "png": "0b54811a098c0f489cc9359ef4292ad0471901dae021c70d72cd6f03f3222e86"
+    }
+  },
+  {
+    "id": "mcmod_decor_divan",
+    "kind": "decor",
+    "sourceId": "divan",
+    "nameRu": "Диван",
+    "nameEn": "Sofa",
+    "scale": 1.0,
+    "bounds": [
+      -0.4871,
+      -0.0014,
+      -1.0475,
+      0.4193,
+      0.8835,
+      1.0456
+    ],
+    "sha256": {
+      "obj": "8c59c0e0ff4077d305c357a37145fff136a97976f8c883522f442bfa3b823fb5",
+      "png": "91ad88d449c695ca6893dd4e79c2de268ab0c78a974d7a1140307748ff2aa8c9"
+    }
+  },
+  {
+    "id": "mcmod_decor_bag_line",
+    "kind": "decor",
+    "sourceId": "bag_line",
+    "nameRu": "Мешки с песком (длинный ряд)",
+    "nameEn": "Sandbags — long row",
+    "scale": 1.0,
+    "bounds": [
+      -0.4973,
+      -0.014,
+      -2.7007,
+      0.4541,
+      1.3135,
+      2.6145
+    ],
+    "sha256": {
+      "obj": "e5db3ee627c7d198b8c667b837bfa916c86d43da1398af2a65861f256fa24a94",
+      "png": "44a01cb6b7a19b4ae26a1ce55a4eff31f82ec7b9793f7ae313f20c30c6573166"
+    }
+  },
+  {
+    "id": "mcmod_decor_bag_line_short",
+    "kind": "decor",
+    "sourceId": "bag_line_short",
+    "nameRu": "Мешки с песком (короткий ряд)",
+    "nameEn": "Sandbags — short row",
+    "scale": 1.0,
+    "bounds": [
+      -0.4744,
+      -0.0138,
+      -1.6248,
+      0.4744,
+      1.3138,
+      1.6248
+    ],
+    "sha256": {
+      "obj": "7afedfe6e7961db1ce76b50e4b4305da82a32caf6db433e24b5e7ee525e0f887",
+      "png": "10d4ad610c1b7cb709fd9a98730c4c6eff20c16ccbf5189ec9bd0825650d1244"
+    }
+  }
+]

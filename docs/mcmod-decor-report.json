@@ -1,0 +1,376 @@
+{
+  "batch": 1,
+  "registeredDecor": {
+    "afishapost": {
+      "model": "afishapost",
+      "texture": "afishapost",
+      "scale": 1.0
+    },
+    "bag_line": {
+      "model": "bag_line",
+      "texture": "bag_line",
+      "scale": 1.0
+    },
+    "bag_line_short": {
+      "model": "bag_line_short",
+      "texture": "bag_line_short",
+      "scale": 1.0
+    },
+    "barrel_01": {
+      "model": "barrel_01",
+      "texture": "barrel_01",
+      "scale": 1.0
+    },
+    "barrel_01_close": {
+      "model": "barrel_01_close",
+      "texture": "barrel_01_close",
+      "scale": 1.0
+    },
+    "barrel_03_garbage": {
+      "model": "barrel_03_garbage",
+      "texture": "barrel_03_garbage",
+      "scale": 1.0
+    },
+    "barrel_04_broken": {
+      "model": "barrel_04_broken",
+      "texture": "barrel_04_broken",
+      "scale": 1.0
+    },
+    "bench_2": {
+      "model": "bench_2",
+      "texture": "bench_2",
+      "scale": 1.0
+    },
+    "bench_6": {
+      "model": "bench_6",
+      "texture": "bench_6",
+      "scale": 1.0
+    },
+    "cafe_chair": {
+      "model": "cafe_chair",
+      "texture": "cafe_chair",
+      "scale": 1.0
+    },
+    "car_b": {
+      "model": "car_b",
+      "texture": "car_b",
+      "scale": 1.0
+    },
+    "car_f": {
+      "model": "car_f",
+      "texture": "car_f",
+      "scale": 1.0
+    },
+    "car_t": {
+      "model": "car_t",
+      "texture": "car_t",
+      "scale": 1.0
+    },
+    "car_w": {
+      "model": "car_w",
+      "texture": "car_w",
+      "scale": 1.0
+    },
+    "chair": {
+      "model": "chair",
+      "texture": "chair",
+      "scale": 1.0
+    },
+    "chair_01": {
+      "model": "chair_01",
+      "texture": "chair_01",
+      "scale": 1.0
+    },
+    "chair_cabinet": {
+      "model": "chair_cabinet",
+      "texture": "chair_cabinet",
+      "scale": 1.0
+    },
+    "covers_cart_010": {
+      "model": "covers_cart_010",
+      "texture": "covers_cart_010",
+      "scale": 1.0
+    },
+    "covers_lump_010": {
+      "model": "covers_lump_010",
+      "texture": "covers_lump_010",
+      "scale": 1.0
+    },
+    "covers_lump_012": {
+      "model": "covers_lump_012",
+      "texture": "covers_lump_012",
+      "scale": 1.0
+    },
+    "covers_strongbox_010": {
+      "model": "covers_strongbox_010",
+      "texture": "covers_strongbox_010",
+      "scale": 1.0
+    },
+    "covers_woodcase_010": {
+      "model": "covers_woodcase_010",
+      "texture": "covers_woodcase_010",
+      "scale": 1.0
+    },
+    "divan": {
+      "model": "divan",
+      "texture": "divan",
+      "scale": 1.0
+    },
+    "drizina_pricep_test": {
+      "model": "drizina_pricep_test",
+      "texture": "drizina_pricep_test",
+      "scale": 1.0
+    },
+    "engine_turbo_01": {
+      "model": "engine_turbo_01",
+      "texture": "engine_turbo_01",
+      "scale": 1.0
+    },
+    "fireplace_01": {
+      "model": "fireplace_01",
+      "texture": "fireplace_01",
+      "scale": 1.0
+    },
+    "g_1": {
+      "model": "g_1",
+      "texture": "g_1",
+      "scale": 1.0
+    },
+    "germogates": {
+      "model": "germogates",
+      "texture": "germogates",
+      "scale": 1.0
+    },
+    "kachelka_2": {
+      "model": "kachelka_2",
+      "texture": "kachelka_2",
+      "scale": 1.0
+    },
+    "kitchen_tv": {
+      "model": "kitchen_tv",
+      "texture": "kitchen_tv",
+      "scale": 1.0
+    },
+    "krest": {
+      "model": "krest",
+      "texture": "krest",
+      "scale": 1.0
+    },
+    "l04_lampion04": {
+      "model": "l04_lampion04",
+      "texture": "l04_lampion04",
+      "scale": 1.0
+    },
+    "lenin": {
+      "model": "lenin",
+      "texture": "lenin",
+      "scale": 1.0
+    },
+    "metro_sign": {
+      "model": "metro_sign",
+      "texture": "metro_sign",
+      "scale": 1.0
+    },
+    "monitor_80s_00": {
+      "model": "monitor_80s_00",
+      "texture": "monitor_80s_00",
+      "scale": 1.0
+    },
+    "musor_bidon_01": {
+      "model": "musor_bidon_01",
+      "texture": "musor_bidon_01",
+      "scale": 1.0
+    },
+    "patron_box_full": {
+      "model": "patron_box_full",
+      "texture": "patron_box_full",
+      "scale": 1.0
+    },
+    "plastic_table_01": {
+      "model": "plastic_table_01",
+      "texture": "plastic_table_01",
+      "scale": 1.0
+    },
+    "sartir_kabinka": {
+      "model": "sartir_kabinka",
+      "texture": "sartir_kabinka",
+      "scale": 1.0
+    },
+    "table": {
+      "model": "table",
+      "texture": "table",
+      "scale": 1.0
+    },
+    "table_benches": {
+      "model": "table_benches",
+      "texture": "table_benches",
+      "scale": 1.0
+    },
+    "table_cafe_tkan": {
+      "model": "table_cafe_tkan",
+      "texture": "table_cafe_tkan",
+      "scale": 1.0
+    },
+    "table_cafe01": {
+      "model": "table_cafe01",
+      "texture": "table_cafe01",
+      "scale": 1.0
+    },
+    "table_nastil_1": {
+      "model": "table_nastil_1",
+      "texture": "table_nastil_1",
+      "scale": 1.0
+    },
+    "table_selfmade": {
+      "model": "table_selfmade",
+      "texture": "table_selfmade",
+      "scale": 1.0
+    },
+    "televizor_br": {
+      "model": "televizor_br",
+      "texture": "televizor_br",
+      "scale": 1.0
+    },
+    "temp_regina": {
+      "model": "temp_regina",
+      "texture": "temp_regina",
+      "scale": 1.0
+    },
+    "tree_kashtan": {
+      "model": "tree_kashtan",
+      "texture": "tree_kashtan",
+      "scale": 0.35
+    },
+    "trees_03_": {
+      "model": "trees_03_",
+      "texture": "trees_03_",
+      "scale": 1.0
+    },
+    "tunnels_props_burn01": {
+      "model": "tunnels_props_burn01",
+      "texture": "tunnels_props_burn01",
+      "scale": 1.0
+    },
+    "tunnels_props_r1_01": {
+      "model": "tunnels_props_r1_01",
+      "texture": "tunnels_props_r1_01",
+      "scale": 1.0
+    },
+    "tunnels_props_wood_tupik_01": {
+      "model": "tunnels_props_wood_tupik_01",
+      "texture": "tunnels_props_wood_tupik_01",
+      "scale": 1.0
+    },
+    "umivalnik1": {
+      "model": "umivalnik1",
+      "texture": "umivalnik1",
+      "scale": 1.0
+    },
+    "vanna": {
+      "model": "vanna",
+      "texture": "vanna",
+      "scale": 1.0
+    },
+    "veh_bus": {
+      "model": "veh_bus",
+      "texture": "veh_bus",
+      "scale": 1.0
+    },
+    "veh_trolleybus": {
+      "model": "veh_trolleybus",
+      "texture": "veh_trolleybus",
+      "scale": 1.0
+    },
+    "veh_uaz_452": {
+      "model": "veh_uaz_452",
+      "texture": "veh_uaz_452",
+      "scale": 1.0
+    },
+    "washing_mashine_01": {
+      "model": "washing_mashine_01",
+      "texture": "washing_mashine_01",
+      "scale": 1.0
+    },
+    "wc_urinal_010": {
+      "model": "wc_urinal_010",
+      "texture": "wc_urinal_010",
+      "scale": 1.0
+    }
+  },
+  "imported": [
+    "barrel_01",
+    "barrel_01_close",
+    "barrel_03_garbage",
+    "barrel_04_broken",
+    "bench_2",
+    "bench_6",
+    "cafe_chair",
+    "chair",
+    "chair_01",
+    "chair_cabinet",
+    "table",
+    "table_benches",
+    "table_cafe01",
+    "table_cafe_tkan",
+    "plastic_table_01",
+    "table_nastil_1",
+    "table_selfmade",
+    "divan",
+    "bag_line",
+    "bag_line_short"
+  ],
+  "pending": [
+    "afishapost",
+    "car_b",
+    "car_f",
+    "car_t",
+    "car_w",
+    "covers_cart_010",
+    "covers_lump_010",
+    "covers_lump_012",
+    "covers_strongbox_010",
+    "covers_woodcase_010",
+    "drizina_pricep_test",
+    "engine_turbo_01",
+    "fireplace_01",
+    "g_1",
+    "germogates",
+    "kachelka_2",
+    "kitchen_tv",
+    "krest",
+    "l04_lampion04",
+    "lenin",
+    "metro_sign",
+    "monitor_80s_00",
+    "musor_bidon_01",
+    "patron_box_full",
+    "sartir_kabinka",
+    "televizor_br",
+    "temp_regina",
+    "tree_kashtan",
+    "trees_03_",
+    "tunnels_props_burn01",
+    "tunnels_props_r1_01",
+    "tunnels_props_wood_tupik_01",
+    "umivalnik1",
+    "vanna",
+    "veh_bus",
+    "veh_trolleybus",
+    "veh_uaz_452",
+    "washing_mashine_01",
+    "wc_urinal_010"
+  ],
+  "technicalBlocksNotDecor": [
+    "collision",
+    "rad_block",
+    "air_block",
+    "reg_block"
+  ],
+  "provenance": "Original HudrantBlock registrations, original per-block scale, recovered RenderTileEntityHudrant rotations [270,180,90,0]. Runtime OBJ/PNG byte-exact; old classes are references only.",
+  "adaptations": [
+    "Four orientations; shared TESR and normalized 3D item views instead of 20 fixed renderer bindings.",
+    "Preserve original unbreakable map-decor behavior; no container, seating, fire, vehicle or door mechanics invented.",
+    "Collision is the rotated model bounding box clipped to the installation cell. Protruding furniture does not reserve/edit neighbouring cells.",
+    "Shared iron-block break particles avoid putting twenty large atlases into the item texture atlas. Actual visible geometry uses each original texture."
+  ]
+}
