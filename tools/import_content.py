@@ -185,6 +185,10 @@ def main():
             for entry in json.loads(exodus.read_text(encoding='utf-8')):
                 kind = {'mask': 'item', 'decor': 'tile', 'mutant': 'entity'}[entry['kind']]
                 lines.append(kind + '.metroport.' + entry['id'] + '.name=' + entry['ru' if locale == 'ru_ru' else 'en'])
+        mcmod = ASSETS / 'mcmod_armor.json'
+        if mcmod.is_file():
+            for entry in json.loads(mcmod.read_text(encoding='utf-8')):
+                lines.append('item.metroport.' + entry['id'] + '.name=' + entry['nameRu' if locale == 'ru_ru' else 'nameEn'])
         put(ASSETS / ('lang/' + locale + '.lang'), '\n'.join(lines) + '\n')
     # Preserve the license shipped with the original Flan code/assets.
     with zipfile.ZipFile(ROOT / '(Metro) Flans-v1.1.jar') as original:

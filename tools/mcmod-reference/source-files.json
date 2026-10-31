@@ -1,0 +1,101 @@
+{
+  "source": "User-supplied unpacked MCMod.jar; raw individual Google Drive downloads, October 31, 2026",
+  "files": {
+    "assets/armor/banditkurtka/model.obj": {
+      "bytes": 168294,
+      "sha256": "1a0d7215b3c572015a45d91cb0fdcedc74d9210578401cd1025a2f569d249405"
+    },
+    "assets/armor/banditkurtka/texture.png": {
+      "bytes": 49516,
+      "sha256": "4e773880052ece222e261626af43702cfed49b499930df2e6432c4774cecaad9"
+    },
+    "assets/armor/bkz/model.obj": {
+      "bytes": 410700,
+      "sha256": "c66e417ece2853c50823c53a2beb518bda7d76e815e5ce73b5c044cfb22ffc7d"
+    },
+    "assets/armor/bkz/texture.png": {
+      "bytes": 83516,
+      "sha256": "5294782f46d24c08b126c6eb02d3bce5b0b8ce48169ad9fffabfaf025b899451"
+    },
+    "assets/armor/ghillie/model.obj": {
+      "bytes": 289483,
+      "sha256": "70fd6a01f918028ef595b35518e46c4109ccd3399f880cab29626afa245a4747"
+    },
+    "assets/armor/ghillie/texture.png": {
+      "bytes": 81581,
+      "sha256": "3a9c73ebc12e4948628897482d9ae9b74d19bfc48120ca5d4e3d731a24f39213"
+    },
+    "assets/armor/kurtka/model.obj": {
+      "bytes": 156506,
+      "sha256": "2bc715336e6302f37ca7206b87494286e3224b2a073d5a5dc0fd29c9b2e428e0"
+    },
+    "assets/armor/kurtka/texture.png": {
+      "bytes": 48998,
+      "sha256": "7d0fe025f89168513b4a3b7dc9fa70dacae77416f4120bab2d49a81830c8c8ec"
+    },
+    "assets/armor/officer_ozk/model.obj": {
+      "bytes": 60664,
+      "sha256": "38390c72e885b26699b8594b3e8cdc401c03b7e3fba477f23b2249cd926a564f"
+    },
+    "assets/armor/officer_ozk/texture.png": {
+      "bytes": 26431,
+      "sha256": "6f3639a02d5df7c5e0001de847f178b7387f7d05eba478446081e6045729f1bd"
+    },
+    "assets/armor/plash/model.obj": {
+      "bytes": 52930,
+      "sha256": "1de5bda955d5ef2d869138c2334f5f5dff8580465dd60ecb5a187065b2990b7d"
+    },
+    "assets/armor/plash/texture.png": {
+      "bytes": 25505,
+      "sha256": "bc92c4573e21b7cf5787f74928477fe78374b0c31a4123df74f6a9ca748d0137"
+    },
+    "assets/icons/banditkurtka.png": {
+      "bytes": 27511,
+      "sha256": "7aa5af7b76d08cffc66059b1c94a6597427abdb4e1ee1de03d603fc35a426455"
+    },
+    "assets/icons/bkz.png": {
+      "bytes": 27028,
+      "sha256": "5124ad2fc67baff49197cfc78ffa0e59c756423fee3f65af0d5d5cb36c427439"
+    },
+    "assets/icons/ghillie.png": {
+      "bytes": 51988,
+      "sha256": "ddf6604190d7a850fdf42f543f73ff62df374a9e4b31efdc80419b585022c287"
+    },
+    "assets/icons/kurtka.png": {
+      "bytes": 23460,
+      "sha256": "854e34cb7ebfc13f3d617b08e565470f36c90784e9c4205c5eae9f9ee3da65ce"
+    },
+    "assets/icons/officer_ozk.png": {
+      "bytes": 31237,
+      "sha256": "d8f84fba46a51c83a09fa35d2c6e6977eb0b52bb1c5daacb4ed1e49f705fea5b"
+    },
+    "assets/icons/plash.png": {
+      "bytes": 14580,
+      "sha256": "befd50f523a92b12fd126324f9c592598791e928af70f5c0316fbed1ac98a02f"
+    },
+    "classes/metro/armor_utill/ArmorCustomModel$PartModel.class": {
+      "bytes": 1335,
+      "sha256": "cae81a72d0a52e0f945594629277d0474574eaa24d08f6e7e33467e00e7c64e8"
+    },
+    "classes/metro/armor_utill/ArmorCustomModel.class": {
+      "bytes": 2685,
+      "sha256": "6ff283083d53f304ebbd10cf86cca27ca2c07142f2650371faf0cb7240a922d4"
+    },
+    "classes/metro/armor_utill/ArmorCustomModelTest.class": {
+      "bytes": 10610,
+      "sha256": "38fd72db31864a3b1df00741b46d810a27cf8ab69588d61d39a12793ab9c46dc"
+    },
+    "classes/metro/armor_utill/ItemCustomArmorDummy.class": {
+      "bytes": 1238,
+      "sha256": "99a7995bb3b545329bd699905b3bc21433f066294d09654aabcedb1824528343"
+    },
+    "classes/metro/common/ItemCustomArmor.class": {
+      "bytes": 3464,
+      "sha256": "628e1ba59d22124b776800fc6974e1cdc8c01ea8544fb2839a9a0e5e9555da98"
+    },
+    "classes/metro/common/regstration/RegisterArmor.class": {
+      "bytes": 5253,
+      "sha256": "196b7827c91bf0bf33de24c6cef171f6515fe38d2fee1c1b3679840be27ca6e3"
+    }
+  }
+}

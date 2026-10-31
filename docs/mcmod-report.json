@@ -1,0 +1,470 @@
+{
+  "batch": 1,
+  "source": "User-supplied MCMod.jar, unpacked on Google Drive",
+  "registeredOriginalArmor": {
+    "gasmask": {
+      "sourceId": "gasmask",
+      "condition": 300,
+      "type": 1,
+      "protect": 0,
+      "name": "Противогаз"
+    },
+    "hanza": {
+      "sourceId": "hanza",
+      "condition": 1350,
+      "type": 2,
+      "protect": 55,
+      "name": "Броня Ганзы"
+    },
+    "himza": {
+      "sourceId": "himza",
+      "condition": 1200,
+      "type": 3,
+      "protect": 10,
+      "name": "Химза"
+    },
+    "officer_ozk": {
+      "sourceId": "officer_ozk",
+      "condition": 1500,
+      "type": 4,
+      "protect": 22,
+      "name": "Офицерский ОЗК"
+    },
+    "ozk": {
+      "sourceId": "ozk",
+      "condition": 1150,
+      "type": 5,
+      "protect": 10,
+      "name": "ОЗК"
+    },
+    "povstanec": {
+      "sourceId": "povstanec",
+      "condition": 3500,
+      "type": 6,
+      "protect": 50,
+      "name": "Броня Повстанца"
+    },
+    "psh1b": {
+      "sourceId": "psh1b",
+      "condition": 2500,
+      "type": 7,
+      "protect": 45,
+      "name": "ПШ-1Б"
+    },
+    "Scout_armor": {
+      "sourceId": "Scout_armor",
+      "condition": 2500,
+      "type": 8,
+      "protect": 48,
+      "name": "Броня разведчика"
+    },
+    "sverchok_mp6": {
+      "sourceId": "sverchok_mp6",
+      "condition": 4000,
+      "type": 9,
+      "protect": 55,
+      "name": "Сверчок МП-6"
+    },
+    "bandit_armor": {
+      "sourceId": "bandit_armor",
+      "condition": 900,
+      "type": 10,
+      "protect": 55,
+      "name": "Бандитская броня"
+    },
+    "banditkurtka": {
+      "sourceId": "banditkurtka",
+      "condition": 500,
+      "type": 11,
+      "protect": 35,
+      "name": "Бандитская куртка"
+    },
+    "bkz": {
+      "sourceId": "bkz",
+      "condition": 3000,
+      "type": 12,
+      "protect": 60,
+      "name": "Броня БКЗ"
+    },
+    "BTBKZ": {
+      "sourceId": "BTBKZ",
+      "condition": 3000,
+      "type": 13,
+      "protect": 68,
+      "name": "Броня БТБКЗ"
+    },
+    "ghillie": {
+      "sourceId": "ghillie",
+      "condition": 800,
+      "type": 14,
+      "protect": 27,
+      "name": "Камуфлированная броня"
+    },
+    "gorka": {
+      "sourceId": "gorka",
+      "condition": 800,
+      "type": 15,
+      "protect": 25,
+      "name": "Горка"
+    },
+    "juggernaut": {
+      "sourceId": "juggernaut",
+      "condition": 8000,
+      "type": 16,
+      "protect": 75,
+      "name": "Джегернаут"
+    },
+    "kitel": {
+      "sourceId": "kitel",
+      "condition": 600,
+      "type": 17,
+      "protect": 16,
+      "name": "Китель"
+    },
+    "kurtka": {
+      "sourceId": "kurtka",
+      "condition": 450,
+      "type": 18,
+      "protect": 19,
+      "name": "Куртка"
+    },
+    "olkhon": {
+      "sourceId": "olkhon",
+      "condition": 4000,
+      "type": 19,
+      "protect": 62,
+      "name": "Ольхон"
+    },
+    "plash": {
+      "sourceId": "plash",
+      "condition": 800,
+      "type": 20,
+      "protect": 5,
+      "name": "Плащ"
+    },
+    "police": {
+      "sourceId": "police",
+      "condition": 600,
+      "type": 21,
+      "protect": 45,
+      "name": "Кстюм полицейского"
+    },
+    "sniper": {
+      "sourceId": "sniper",
+      "condition": 1200,
+      "type": 22,
+      "protect": 53,
+      "name": "Снайперский костюм"
+    },
+    "sniper_camo": {
+      "sourceId": "sniper_camo",
+      "condition": 800,
+      "type": 23,
+      "protect": 55,
+      "name": "Снайперский камуфляж"
+    },
+    "standart_k": {
+      "sourceId": "standart_k",
+      "condition": 5500,
+      "type": 24,
+      "protect": 50,
+      "name": "Стандарт К"
+    },
+    "sverchok": {
+      "sourceId": "sverchok",
+      "condition": 4000,
+      "type": 25,
+      "protect": 53,
+      "name": "Сверчок"
+    },
+    "taiga": {
+      "sourceId": "taiga",
+      "condition": 3500,
+      "type": 26,
+      "protect": 50,
+      "name": "Костюм Тайга"
+    },
+    "vatnik": {
+      "sourceId": "vatnik",
+      "condition": 300,
+      "type": 27,
+      "protect": 12,
+      "name": "Ватник"
+    },
+    "voen_tactical": {
+      "sourceId": "voen_tactical",
+      "condition": 4500,
+      "type": 28,
+      "protect": 60,
+      "name": "Военная тактическая броня"
+    },
+    "zapal": {
+      "sourceId": "zapal",
+      "condition": 4000,
+      "type": 29,
+      "protect": 70,
+      "name": "Кстюм Запал"
+    },
+    "prorok": {
+      "sourceId": "prorok",
+      "condition": 4000,
+      "type": 30,
+      "protect": 50,
+      "name": "Комбинезон пророк"
+    },
+    "cherv": {
+      "sourceId": "cherv",
+      "condition": 4000,
+      "type": 31,
+      "protect": 50,
+      "name": "Броня червепоклоников"
+    },
+    "reih": {
+      "sourceId": "reih",
+      "condition": 4000,
+      "type": 32,
+      "protect": 50,
+      "name": "Броня 4ого рейха"
+    },
+    "mgu": {
+      "sourceId": "mgu",
+      "condition": 4000,
+      "type": 33,
+      "protect": 50,
+      "name": "Броня МГУ"
+    }
+  },
+  "importedModels": {
+    "banditkurtka": {
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1448,
+      "faces": 1086,
+      "sha256": {
+        "model.obj": "1a0d7215b3c572015a45d91cb0fdcedc74d9210578401cd1025a2f569d249405",
+        "texture.png": "4e773880052ece222e261626af43702cfed49b499930df2e6432c4774cecaad9",
+        "icon.png": "7aa5af7b76d08cffc66059b1c94a6597427abdb4e1ee1de03d603fc35a426455"
+      }
+    },
+    "bkz": {
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 3952,
+      "faces": 2964,
+      "sha256": {
+        "model.obj": "c66e417ece2853c50823c53a2beb518bda7d76e815e5ce73b5c044cfb22ffc7d",
+        "texture.png": "5294782f46d24c08b126c6eb02d3bce5b0b8ce48169ad9fffabfaf025b899451",
+        "icon.png": "5124ad2fc67baff49197cfc78ffa0e59c756423fee3f65af0d5d5cb36c427439"
+      }
+    },
+    "ghillie": {
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2496,
+      "faces": 1872,
+      "sha256": {
+        "model.obj": "70fd6a01f918028ef595b35518e46c4109ccd3399f880cab29626afa245a4747",
+        "texture.png": "3a9c73ebc12e4948628897482d9ae9b74d19bfc48120ca5d4e3d731a24f39213",
+        "icon.png": "ddf6604190d7a850fdf42f543f73ff62df374a9e4b31efdc80419b585022c287"
+      }
+    },
+    "kurtka": {
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1544,
+      "faces": 1158,
+      "sha256": {
+        "model.obj": "2bc715336e6302f37ca7206b87494286e3224b2a073d5a5dc0fd29c9b2e428e0",
+        "texture.png": "7d0fe025f89168513b4a3b7dc9fa70dacae77416f4120bab2d49a81830c8c8ec",
+        "icon.png": "854e34cb7ebfc13f3d617b08e565470f36c90784e9c4205c5eae9f9ee3da65ce"
+      }
+    },
+    "officer_ozk": {
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 608,
+      "faces": 456,
+      "sha256": {
+        "model.obj": "38390c72e885b26699b8594b3e8cdc401c03b7e3fba477f23b2249cd926a564f",
+        "texture.png": "6f3639a02d5df7c5e0001de847f178b7387f7d05eba478446081e6045729f1bd",
+        "icon.png": "d8f84fba46a51c83a09fa35d2c6e6977eb0b52bb1c5daacb4ed1e49f705fea5b"
+      }
+    },
+    "plash": {
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "rightarm"
+      ],
+      "vertices": 536,
+      "faces": 402,
+      "sha256": {
+        "model.obj": "1de5bda955d5ef2d869138c2334f5f5dff8580465dd60ecb5a187065b2990b7d",
+        "texture.png": "bc92c4573e21b7cf5787f74928477fe78374b0c31a4123df74f6a9ca748d0137",
+        "icon.png": "befd50f523a92b12fd126324f9c592598791e928af70f5c0316fbed1ac98a02f"
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "mcmod_banditkurtka",
+      "model": "banditkurtka",
+      "mode": "whole",
+      "nameRu": "Бандитская куртка [MCMOD]",
+      "nameEn": "Banditkurtka — whole [MCMOD]",
+      "condition": 500,
+      "sourceProtect": 35,
+      "defence": 0.35,
+      "radiation": false,
+      "sourceType": 11
+    },
+    {
+      "id": "mcmod_bkz_helmet",
+      "model": "bkz",
+      "mode": "helmet",
+      "nameRu": "Броня БКЗ — шлем [MCMOD]",
+      "nameEn": "Bkz — helmet [MCMOD]",
+      "condition": 3000,
+      "sourceProtect": 60,
+      "defence": 0.12,
+      "radiation": false,
+      "sourceType": 12
+    },
+    {
+      "id": "mcmod_bkz_vest",
+      "model": "bkz",
+      "mode": "vest",
+      "nameRu": "Броня БКЗ — бронежилет [MCMOD]",
+      "nameEn": "Bkz — vest [MCMOD]",
+      "condition": 3000,
+      "sourceProtect": 60,
+      "defence": 0.48,
+      "radiation": false,
+      "sourceType": 12
+    },
+    {
+      "id": "mcmod_ghillie",
+      "model": "ghillie",
+      "mode": "whole",
+      "nameRu": "Камуфлированная броня [MCMOD]",
+      "nameEn": "Ghillie — whole [MCMOD]",
+      "condition": 800,
+      "sourceProtect": 27,
+      "defence": 0.27,
+      "radiation": false,
+      "sourceType": 14
+    },
+    {
+      "id": "mcmod_kurtka",
+      "model": "kurtka",
+      "mode": "whole",
+      "nameRu": "Куртка [MCMOD]",
+      "nameEn": "Kurtka — whole [MCMOD]",
+      "condition": 450,
+      "sourceProtect": 19,
+      "defence": 0.19,
+      "radiation": false,
+      "sourceType": 18
+    },
+    {
+      "id": "mcmod_officer_ozk",
+      "model": "officer_ozk",
+      "mode": "whole",
+      "nameRu": "Офицерский ОЗК [MCMOD]",
+      "nameEn": "Officer Ozk — whole [MCMOD]",
+      "condition": 1500,
+      "sourceProtect": 22,
+      "defence": 0.22,
+      "radiation": true,
+      "sourceType": 4
+    },
+    {
+      "id": "mcmod_plash",
+      "model": "plash",
+      "mode": "whole",
+      "nameRu": "Плащ [MCMOD]",
+      "nameEn": "Plash — whole [MCMOD]",
+      "condition": 800,
+      "sourceProtect": 5,
+      "defence": 0.05,
+      "radiation": false,
+      "sourceType": 20
+    }
+  ],
+  "pendingArmor": [
+    "gasmask",
+    "hanza",
+    "himza",
+    "ozk",
+    "povstanec",
+    "psh1b",
+    "Scout_armor",
+    "sverchok_mp6",
+    "bandit_armor",
+    "BTBKZ",
+    "gorka",
+    "juggernaut",
+    "kitel",
+    "olkhon",
+    "police",
+    "sniper",
+    "sniper_camo",
+    "standart_k",
+    "sverchok",
+    "taiga",
+    "vatnik",
+    "voen_tactical",
+    "zapal",
+    "prorok",
+    "cherv",
+    "reih",
+    "mgu"
+  ],
+  "remainingContent": [
+    "Other 27 armor models",
+    "Guns and ammunition",
+    "Decorative blocks and items",
+    "Original player/inventory/network/condition/radiation mechanics audit"
+  ],
+  "adaptations": [
+    "Whole five outfits use CHEST; other sets use HEAD + CHEST (first example BKZ).",
+    "Split BKZ assigns 20%/80% of source protection; total stays 60%, not 120%. Each part retains source max condition.",
+    "Condition is represented by normal armor damage and mirrored to condition NBT; original server damage formula still needs audit.",
+    "Officer OZK uses existing port radiation + filter mechanics; not yet claimed identical to MCMOD radiation.",
+    "Original NoDrop tooltip alone does not prove retention implementation; use existing givenodrop command until original events audited.",
+    "Head of a whole outfit is hidden when a separate head-slot item is worn, avoiding duplicate helmets.",
+    "Kamuflyazh interpreted as ghillie (original name Kamuflirovannaya bronya); sniper_camo remains pending.",
+    "All six original OBJ/atlas/icon bytes are preserved; group animation uses original limb transforms."
+  ]
+}
