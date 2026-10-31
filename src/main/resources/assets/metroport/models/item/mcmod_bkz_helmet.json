@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "metroport:mcmod/icons/bkz"
+    "layer0": "metroport:mcmod/armor_icons/mcmod_bkz_helmet"
   }
 }

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mcmod_res_metall",
+    "sourceId": "res_metall",
+    "kind": "material",
+    "nameRu": "Металлолом",
+    "nameEn": "Scrap Metal",
+    "sourceName": "Металлолом",
+    "stackSize": 64,
+    "iconSha256": "54cfdee6932bdd7c1e6479a7c4f1313348b02d4b6a4815f20ba65e4bab6c10c0"
+  },
+  {
+    "id": "mcmod_res_xim",
+    "sourceId": "res_xim",
+    "kind": "material",
+    "nameRu": "Химия",
+    "nameEn": "Chemicals",
+    "sourceName": "Химия",
+    "stackSize": 64,
+    "iconSha256": "bfc21dd6212a1efa97e1b4a6c2c6c8984441107c312e9342155744104c5c5973"
+  },
+  {
+    "id": "mcmod_money",
+    "sourceId": "money",
+    "kind": "currency",
+    "nameRu": "Патроны - деньги",
+    "nameEn": "Military Round",
+    "sourceName": "Патроны - деньги",
+    "stackSize": 64,
+    "iconSha256": "52684bb61536dccebc88637e53ceb0d468eceedbdf8add7786f073d0e174b5c6"
+  },
+  {
+    "id": "mcmod_money5",
+    "sourceId": "money5",
+    "kind": "currency",
+    "nameRu": "Патроны - деньги обомйма (5 шт.)",
+    "nameEn": "Military Rounds — Clip of 5",
+    "sourceName": "Патроны - деньги обомйма (5 шт.)",
+    "stackSize": 64,
+    "iconSha256": "6908b0185f16a9198cb17854d3187c67a238a8f2afded3d1f260d3a82e7944d0"
+  },
+  {
+    "id": "mcmod_money30",
+    "sourceId": "money30",
+    "kind": "currency",
+    "nameRu": "Патроны - деньги магазин (30 шт.)",
+    "nameEn": "Military Rounds — Magazine of 30",
+    "sourceName": "Патроны - деньги магазин (30 шт.)",
+    "stackSize": 64,
+    "iconSha256": "775d4df771531e9be9198485be34da443104d758e0f5d1b0318432838f73f8f4"
+  },
+  {
+    "id": "mcmod_moneyj",
+    "sourceId": "moneyj",
+    "kind": "currency",
+    "nameRu": "Жетон метро",
+    "nameEn": "Metro Token",
+    "sourceName": "Жетон метро",
+    "stackSize": 64,
+    "iconSha256": "9eafeb9bc78a5da0c3391185ea9721c744c9b8aad47ff4f924c1f981f21754c7"
+  },
+  {
+    "id": "mcmod_filtr",
+    "sourceId": "filtr",
+    "kind": "filter",
+    "nameRu": "Фильтр для противогаза",
+    "nameEn": "Gas Mask Filter",
+    "sourceName": "Фильтр для противогаза",
+    "stackSize": 64,
+    "iconSha256": "425c138b66590df95d711ac4ccd7bb695a65977329cb426a1d1d4ebe58970fed"
+  },
+  {
+    "id": "mcmod_aptech",
+    "sourceId": "aptech",
+    "kind": "medkit",
+    "nameRu": "Аптечка",
+    "nameEn": "Medkit",
+    "sourceName": "Аптечка",
+    "stackSize": 1,
+    "iconSha256": "fa9d51fe22368025fc53dd97ddd4c09310b0e877486f450f20772e98f2498a10"
+  },
+  {
+    "id": "mcmod_machete",
+    "sourceId": "machete",
+    "kind": "machete",
+    "nameRu": "Мачете",
+    "nameEn": "Machete",
+    "sourceName": "Мачета",
+    "stackSize": 1,
+    "iconSha256": "2ffa3580c167e3dfe39d19a1f362597b46ad8478caf6b90407226cc2d5b96076"
+  }
+]

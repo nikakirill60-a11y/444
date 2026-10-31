@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Deterministically import the supplied 1.7.10 pack; never copy executable classes."""
 import io
+import sys
 import json
 from pathlib import Path
 import re
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT / 'tools') not in sys.path:
+    sys.path.insert(0, str(ROOT / 'tools'))
 RES = ROOT / 'src/main/resources'
 ASSETS = RES / 'assets/metroport'
 PACK = ROOT / 'Flan-20261030T152711Z-1-001.zip'
@@ -185,10 +188,8 @@ def main():
             for entry in json.loads(exodus.read_text(encoding='utf-8')):
                 kind = {'mask': 'item', 'decor': 'tile', 'mutant': 'entity'}[entry['kind']]
                 lines.append(kind + '.metroport.' + entry['id'] + '.name=' + entry['ru' if locale == 'ru_ru' else 'en'])
-        mcmod = ASSETS / 'mcmod_armor.json'
-        if mcmod.is_file():
-            for entry in json.loads(mcmod.read_text(encoding='utf-8')):
-                lines.append('item.metroport.' + entry['id'] + '.name=' + entry['nameRu' if locale == 'ru_ru' else 'nameEn'])
+        from mcmod_languages import lines_for
+        lines.extend(lines_for(locale))
         put(ASSETS / ('lang/' + locale + '.lang'), '\n'.join(lines) + '\n')
     # Preserve the license shipped with the original Flan code/assets.
     with zipfile.ZipFile(ROOT / '(Metro) Flans-v1.1.jar') as original:

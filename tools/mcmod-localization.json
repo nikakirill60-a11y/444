@@ -1,0 +1,32 @@
+{
+  "ru_ru": {
+    "metroport.mcmod.armor.whole": "Цельный костюм — нагрудный слот",
+    "metroport.mcmod.armor.helmet": "Шлем — слот головы",
+    "metroport.mcmod.armor.vest": "Броня — нагрудный слот",
+    "metroport.mcmod.armor.protection": "Защита: %s%%",
+    "metroport.mcmod.armor.set": "Защита полного комплекта: %s/100",
+    "metroport.mcmod.armor.condition": "Состояние: %s/%s",
+    "metroport.mcmod.armor.radiation": "Радиационная защита: нужен фильтр",
+    "metroport.mcmod.medkit.uses": "Шприцы: %s/5",
+    "metroport.mcmod.medkit.help": "ПКМ: восстановить здоровье; перерыв 5 секунд",
+    "metroport.mcmod.medkit.empty": "Аптечка пуста",
+    "metroport.mcmod.filter.help": "ПКМ с надетым противогазом: установить фильтр на 5 минут",
+    "metroport.mcmod.material.help": "Материал MCMOD",
+    "metroport.mcmod.currency.help": "Валюта Metro; автоматический обмен не добавлен"
+  },
+  "en_us": {
+    "metroport.mcmod.armor.whole": "Full suit — chest slot",
+    "metroport.mcmod.armor.helmet": "Helmet — head slot",
+    "metroport.mcmod.armor.vest": "Armor — chest slot",
+    "metroport.mcmod.armor.protection": "Protection: %s%%",
+    "metroport.mcmod.armor.set": "Full set protection: %s/100",
+    "metroport.mcmod.armor.condition": "Condition: %s/%s",
+    "metroport.mcmod.armor.radiation": "Radiation protection: filter required",
+    "metroport.mcmod.medkit.uses": "Syringes: %s/5",
+    "metroport.mcmod.medkit.help": "Right click: restore health; 5-second interval",
+    "metroport.mcmod.medkit.empty": "Empty medkit",
+    "metroport.mcmod.filter.help": "Right click while wearing a gas mask: install a 5-minute filter",
+    "metroport.mcmod.material.help": "MCMOD material",
+    "metroport.mcmod.currency.help": "Metro currency; automatic exchange is not implemented"
+  }
+}

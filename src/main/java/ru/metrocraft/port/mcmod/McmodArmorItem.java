@@ -1,6 +1,7 @@
 package ru.metrocraft.port.mcmod;
 
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -43,10 +44,13 @@ public final class McmodArmorItem extends MetroArmor {
     }
     @Override @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag flag) {
-        lines.add(entry.whole()?"Цельный костюм — один нагрудный слот":entry.helmet()?"Отдельный шлем — слот головы":"Отдельный бронежилет — нагрудный слот");
-        lines.add(String.format(Locale.ROOT, "Защита предмета: %.1f%%",entry.defence*100));
-        lines.add("Исходный комплект: "+entry.sourceProtect+"/100");
-        lines.add("Состояние: "+Math.max(0,stack.getMaxDamage()-stack.getItemDamage())+"/"+entry.condition);
-        if (entry.radiation) lines.add("Радиационная защита: используется фильтр порта");
+        lines.add(I18n.format("metroport.mcmod.armor."+entry.mode));
+        lines.add(I18n.format("metroport.mcmod.armor.protection",String.format(Locale.ROOT,"%.1f",entry.defence*100)));
+        lines.add(I18n.format("metroport.mcmod.armor.set",entry.sourceProtect));
+        lines.add(I18n.format("metroport.mcmod.armor.condition",Math.max(0,stack.getMaxDamage()-stack.getItemDamage()),entry.condition));
+        if(entry.radiation) {
+            lines.add(I18n.format("metroport.mcmod.armor.radiation"));
+            super.addInformation(stack,world,lines,flag);
+        }
     }
 }

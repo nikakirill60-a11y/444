@@ -66,6 +66,7 @@ def main():
     originals = registrations()
     entries, models = [], {}
     radiation = radiation_sources()
+    names = json.loads((ROOT / 'tools/mcmod-names.json').read_text())
     for key in sorted(originals):
         original = originals[key]
         mesh = (SOURCE / ('assets/armor/' + key + '/model.obj')).read_bytes()
@@ -93,22 +94,23 @@ def main():
             id_ = 'mcmod_' + runtime + ('' if mode == 'whole' else '_' + mode)
             # Splitting must not accidentally double the original set's protection.
             share = 1 if len(modes) == 1 else .2 if mode == 'helmet' else .8
-            name = original['name'] + ('' if mode == 'whole' else ' — шлем' if mode == 'helmet' else ' — бронежилет')
-            entries.append({'id': id_, 'model': runtime, 'visualModel': WORN_MODEL_OVERRIDES.get(runtime, runtime), 'sourceId': key, 'mode': mode, 'nameRu': name + ' [MCMOD]',
-                            'nameEn': key.replace('_', ' ').title() + ' — ' + mode + ' [MCMOD]',
+            name = names[key]['ru'][mode]
+            icon_id = 'mcmod/icons/' + runtime if mode == 'whole' else 'mcmod/armor_icons/' + id_
+            entries.append({'id': id_, 'model': runtime, 'visualModel': WORN_MODEL_OVERRIDES.get(runtime, runtime), 'sourceId': key, 'mode': mode, 'nameRu': name, 'icon': icon_id,
+                            'nameEn': names[key]['en'][mode],
                             'condition': original['condition'], 'sourceProtect': original['protect'],
                             'defence': original['protect'] / 100 * share,
                             'radiation': key in radiation and mode in ('whole', 'helmet'), 'sourceType': original['type']})
             write_json(ASSETS / ('models/item/' + id_ + '.json'), {'parent': 'item/generated',
-                       'textures': {'layer0': 'metroport:mcmod/icons/' + runtime}})
+                       'textures': {'layer0': 'metroport:' + icon_id}})
     write_json(ASSETS / 'mcmod_armor.json', entries)
-    write_json(ROOT / 'docs/mcmod-report.json', {'batch': 2, 'source': 'User-supplied MCMod.jar, unpacked on Google Drive',
+    write_json(ROOT / 'docs/mcmod-report.json', {'batch': 3, 'source': 'User-supplied MCMod.jar, unpacked on Google Drive',
         'registeredOriginalArmor': originals, 'importedModels': models, 'items': entries,
         'unusedModelFolders': ['boi_armor'], 'wornModelOverrides': WORN_MODEL_OVERRIDES,
         'pendingArmor': [key for key in originals if key not in models],
-        'remainingContent': ['Guns and ammunition', 'Decorative blocks and items',
+        'remainingContent': ['Guns and ammunition', 'Decorative blocks; ordinary items are listed separately in mcmod-items-report.json',
                              'Original player/inventory/network/condition/radiation mechanics audit'],
-        'adaptations': ['User-verified visual correction: officer OZK uses banditkurtka mesh+atlas, bandit jacket uses kurtka, jacket uses officer_ozk. Item icons, ids, slots, condition and protection are unchanged.',
+        'adaptations': ['User-verified visual correction: officer OZK uses banditkurtka mesh+atlas, bandit jacket uses kurtka, jacket uses officer_ozk. Item ids, slots, condition and protection are unchanged. Separate helmet/vest icons are now rendered from real source groups.',
                        'Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.',
                        'Split sets assign 20%/80% of source protection to helmet/vest, without doubling. Single-part items retain 100% of source protection. Each part retains source max condition.',
                        'Condition is represented by normal armor damage and mirrored to condition NBT; original server damage formula still needs audit.',
@@ -119,11 +121,8 @@ def main():
                        'BTBKZ uses its own supplied atlas instead of the original loader typo referencing BKZ texture. Hanza uses the registered hanzaz icon.',
                        'Raw OBJ bytes stay unchanged, including windows-1251 material labels in gasmask; both encodings are supported.',
                        'All 33 original OBJ/atlas/icon triples are preserved; group animation uses original limb transforms.']})
-    for locale, name in [('ru_ru', 'nameRu'), ('en_us', 'nameEn')]:
-        file = ASSETS / ('lang/' + locale + '.lang')
-        lines = [line for line in file.read_text().splitlines() if not line.startswith('item.metroport.mcmod_')]
-        lines.extend('item.metroport.' + entry['id'] + '.name=' + entry[name] for entry in entries)
-        put(file, '\n'.join(lines) + '\n')
+    from mcmod_languages import update
+    update()
     print('MCMOD armor:', len(models), 'armor meshes,', len(entries), 'items;', len(originals)-len(models), 'armor models pending')
 
 

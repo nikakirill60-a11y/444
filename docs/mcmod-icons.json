@@ -1,0 +1,642 @@
+{
+  "method": "Textured OBJ group render, not original supplied inventory icons",
+  "icons": {
+    "mcmod_btbkz_helmet": {
+      "model": "btbkz",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "e145b5100411c279b36692bb0cf4fc64a3b6a6bd8134b29042df2c3be5e98bb3",
+      "atlasSha256": "a4917309dfa15399ca6fc0816343a16fa79aeac983b52935cfcc10a1d9479510",
+      "iconSha256": "f3671b0108c5e4ca97e45d3ea584b2de2e0e38d88a40088961b55a13b238c0f2"
+    },
+    "mcmod_btbkz_vest": {
+      "model": "btbkz",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "e145b5100411c279b36692bb0cf4fc64a3b6a6bd8134b29042df2c3be5e98bb3",
+      "atlasSha256": "a4917309dfa15399ca6fc0816343a16fa79aeac983b52935cfcc10a1d9479510",
+      "iconSha256": "041d00569e596f724a35685dc8239b2fad66ffd816277b5789f63e3ef1fef067"
+    },
+    "mcmod_scout_armor_helmet": {
+      "model": "scout_armor",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "57d733690dc094d4d5ec6373fb21ea614019d86d62d2160f1189af84f5eb3c16",
+      "atlasSha256": "85a5ed764bf6b888fd621be9eb086878025670f98405997d5b3c58ec03513a37",
+      "iconSha256": "893c654feacd73e11bf0cea434d0961e5a9b5c4a1be0e9b44fae0580ef5ac8e9"
+    },
+    "mcmod_scout_armor_vest": {
+      "model": "scout_armor",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "57d733690dc094d4d5ec6373fb21ea614019d86d62d2160f1189af84f5eb3c16",
+      "atlasSha256": "85a5ed764bf6b888fd621be9eb086878025670f98405997d5b3c58ec03513a37",
+      "iconSha256": "61a21bcbb3a3f18b7a11c787dd73e31a8aef659556570fc1c7fca2976800d0fd"
+    },
+    "mcmod_bandit_armor_helmet": {
+      "model": "bandit_armor",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "e45a25020679c59d6e2111f03822c03ea5e52f5b0e7979ea6fcd8b69c9ff9bac",
+      "atlasSha256": "340bc81cce375074b7e4f4c3e5713533debf0e25101e2f40527554f84de8a499",
+      "iconSha256": "49a6a2fc755f3d64582f9f7809acd183fbc22e45975db17854a16f659f96ccde"
+    },
+    "mcmod_bandit_armor_vest": {
+      "model": "bandit_armor",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "e45a25020679c59d6e2111f03822c03ea5e52f5b0e7979ea6fcd8b69c9ff9bac",
+      "atlasSha256": "340bc81cce375074b7e4f4c3e5713533debf0e25101e2f40527554f84de8a499",
+      "iconSha256": "7e02bad30efb6ac57b584ab9d8df89e77f5b094ac53e286ba12a6a6ed43717a7"
+    },
+    "mcmod_bkz_helmet": {
+      "model": "bkz",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "c66e417ece2853c50823c53a2beb518bda7d76e815e5ce73b5c044cfb22ffc7d",
+      "atlasSha256": "5294782f46d24c08b126c6eb02d3bce5b0b8ce48169ad9fffabfaf025b899451",
+      "iconSha256": "7cf986e5def9029d06e7e3ff10d9e6531a6faddde4cbd7245da2c9e8ff0a8cbe"
+    },
+    "mcmod_bkz_vest": {
+      "model": "bkz",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "c66e417ece2853c50823c53a2beb518bda7d76e815e5ce73b5c044cfb22ffc7d",
+      "atlasSha256": "5294782f46d24c08b126c6eb02d3bce5b0b8ce48169ad9fffabfaf025b899451",
+      "iconSha256": "70bb2beea39ebe3b58a9f85160141e25e29ee13f958f7952eaa1b70567a5d7cb"
+    },
+    "mcmod_cherv_helmet": {
+      "model": "cherv",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "8588f45b93dab0d56c0688bc407e32497f896eea5d0d8eb5fcbefb2acafaf29e",
+      "atlasSha256": "0038c4edba0e9236ba7d7b9934b0df7dfd9cfa57ee094404c90278395a4dc7a2",
+      "iconSha256": "8779861ccee2917ffcdd8a79756f08288fda02fb8bca9e148f4eb73e3f2d3106"
+    },
+    "mcmod_cherv_vest": {
+      "model": "cherv",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "8588f45b93dab0d56c0688bc407e32497f896eea5d0d8eb5fcbefb2acafaf29e",
+      "atlasSha256": "0038c4edba0e9236ba7d7b9934b0df7dfd9cfa57ee094404c90278395a4dc7a2",
+      "iconSha256": "ffe4bb5ae177ffaa2ffac98130d1385ac002f00550537949a6841b97ed3afd9e"
+    },
+    "mcmod_gasmask_helmet": {
+      "model": "gasmask",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "27c9389d1bf32072c7517b88a603d2e271f60af378b35b4709cdbad982f7a007",
+      "atlasSha256": "85bb72daae32799d1a054e1661345a0987461a2e60f2d79eabee27cb9ae71321",
+      "iconSha256": "68b8dd6832a7fa62d70f620be61b6cdae1cf8036c80d2784baa5a0617cbc63cf"
+    },
+    "mcmod_gorka_helmet": {
+      "model": "gorka",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "4c10d33fd1a3e59dd0f531d935929a2b08bec94ae8138bc433fb3bcb10986260",
+      "atlasSha256": "14d3731decdfc82e289a260b46792b7f24025f1e644ee36b825ec9e9f572176a",
+      "iconSha256": "9547408846b02b0eee36b60fc27258870317018bdc65c1cd72aabd5e30a308e9"
+    },
+    "mcmod_gorka_vest": {
+      "model": "gorka",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "4c10d33fd1a3e59dd0f531d935929a2b08bec94ae8138bc433fb3bcb10986260",
+      "atlasSha256": "14d3731decdfc82e289a260b46792b7f24025f1e644ee36b825ec9e9f572176a",
+      "iconSha256": "90b54b65b343ea90e2c0d3c98c0a90c9328ed727f612676511d0c7bc3696f486"
+    },
+    "mcmod_hanza_helmet": {
+      "model": "hanza",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "a456c91c319077a5fbe40274d91bb591f4a9a314edc28a668ccb9821d51774b0",
+      "atlasSha256": "77bfd8f29bf0df1c4fbd1f621ba25e4a6f8ea3e038d2641d2e29904054ed8559",
+      "iconSha256": "c2a06d9f0d1b12c37d396a4aa83339414250361c89247ddf4889e89f8857862f"
+    },
+    "mcmod_hanza_vest": {
+      "model": "hanza",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "a456c91c319077a5fbe40274d91bb591f4a9a314edc28a668ccb9821d51774b0",
+      "atlasSha256": "77bfd8f29bf0df1c4fbd1f621ba25e4a6f8ea3e038d2641d2e29904054ed8559",
+      "iconSha256": "656475bf6ddae628587aeb10770e49c3f222101704331c83e30b8b4d3b5eb67a"
+    },
+    "mcmod_himza_helmet": {
+      "model": "himza",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "1ae6796adbf278364dc2b02f125d8c31cac574bb7c9c9a3b0019815f5b1ef5da",
+      "atlasSha256": "f2ebd6e80b4feaad719065a06f67129485e8f2ec60755128201d1a788d0316a8",
+      "iconSha256": "21b3472f280b8a1a3c16c521ce0064807b21ab39acb650c9ae9947d82bc599aa"
+    },
+    "mcmod_himza_vest": {
+      "model": "himza",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "1ae6796adbf278364dc2b02f125d8c31cac574bb7c9c9a3b0019815f5b1ef5da",
+      "atlasSha256": "f2ebd6e80b4feaad719065a06f67129485e8f2ec60755128201d1a788d0316a8",
+      "iconSha256": "ac67720cb134b6c0aa6ba8f16c3ed59083890790c969970bcafff70ffc809aba"
+    },
+    "mcmod_juggernaut_helmet": {
+      "model": "juggernaut",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "fa7597c633af9ac0231e0b14dcf173997a80102e08d28d64a95e67b347b8fa93",
+      "atlasSha256": "0bd787743f562b1d4b6de477b68976b74c9cddecfb66da155f0385df8ffc6304",
+      "iconSha256": "c982e3538dfc11bb8a8bdf449d5b256e0ee6e14f5959374c82379380e645e5fd"
+    },
+    "mcmod_juggernaut_vest": {
+      "model": "juggernaut",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "fa7597c633af9ac0231e0b14dcf173997a80102e08d28d64a95e67b347b8fa93",
+      "atlasSha256": "0bd787743f562b1d4b6de477b68976b74c9cddecfb66da155f0385df8ffc6304",
+      "iconSha256": "7b284c0022b2a21b76ffaf6e2a209c80a40a4139a50ee2567bc22f57ad905b2e"
+    },
+    "mcmod_kitel_vest": {
+      "model": "kitel",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "b597fef3fa072da2a40662addde0765538672ed598df50fa60396319a2330e3e",
+      "atlasSha256": "c9fafd5ed918158e62c6ddf0be49dcf2523033d9c5af85a4cb338ae9a6d54689",
+      "iconSha256": "71988037f981e5e7591e178052ee8fc90b5d9247b97312593b019cc7f0cba651"
+    },
+    "mcmod_mgu_helmet": {
+      "model": "mgu",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "99148a44dad52d0739e4a0c7ae48d4f6ebe714b3055b3dc5ba56fd650148104d",
+      "atlasSha256": "4da420eec7349b8ba54056395b44f131a0827083c589ec9ecd377bd0ec58272a",
+      "iconSha256": "5090dc06fe70f7372a4ceb77ba7a87a5c52fa2ee9632c3aa272006b3d7204a3c"
+    },
+    "mcmod_mgu_vest": {
+      "model": "mgu",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "99148a44dad52d0739e4a0c7ae48d4f6ebe714b3055b3dc5ba56fd650148104d",
+      "atlasSha256": "4da420eec7349b8ba54056395b44f131a0827083c589ec9ecd377bd0ec58272a",
+      "iconSha256": "35d5d9305300ce4b0fb475e5e6ab3cd6872da2b8e084066dfd18eaa943b83f83"
+    },
+    "mcmod_olkhon_helmet": {
+      "model": "olkhon",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "7b7d7686c5a4231d1f57af720274f1574622d783c100c18000d4c5cf4c35d517",
+      "atlasSha256": "a8c7b8ad657339609f475fd245b5a13de75bcc1679971b5940db316867fdcb46",
+      "iconSha256": "805a5d5b50487519bce0680fd11757821bbe83989ca47a3710fedef1bd2f5175"
+    },
+    "mcmod_olkhon_vest": {
+      "model": "olkhon",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "7b7d7686c5a4231d1f57af720274f1574622d783c100c18000d4c5cf4c35d517",
+      "atlasSha256": "a8c7b8ad657339609f475fd245b5a13de75bcc1679971b5940db316867fdcb46",
+      "iconSha256": "498d1d7b658b08dab96d0205cd41c584ab501f4ae167d678eae0c8b092415e32"
+    },
+    "mcmod_ozk_helmet": {
+      "model": "ozk",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "49964f6ca99e2cb6a6c557aa8faf98eefaf8fadb461e9a326223e5ee01519735",
+      "atlasSha256": "7bbea9c6747961e8eafe24c8389671875ddc2092b9f7c7f5200569907792b392",
+      "iconSha256": "3572686d5be79b9728f0e808f242bf0eacafa66a1960c6f5d8fb6f8255bd0a83"
+    },
+    "mcmod_ozk_vest": {
+      "model": "ozk",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "49964f6ca99e2cb6a6c557aa8faf98eefaf8fadb461e9a326223e5ee01519735",
+      "atlasSha256": "7bbea9c6747961e8eafe24c8389671875ddc2092b9f7c7f5200569907792b392",
+      "iconSha256": "da8e4fb6c1c7592e789cb94d57d3af7b554600bdd8ea5548fd0e3b31f58cf78f"
+    },
+    "mcmod_police_helmet": {
+      "model": "police",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "21653a11a7e2ed53f97d033cad4813a74e089e65de89209ebce5b77f9370e6b7",
+      "atlasSha256": "54c011c167be3be160c0ad8bbfc1048a6627de13d7c08b200bc43afcf11bae6a",
+      "iconSha256": "933f0b122fafedb57e871e820837818172f6aed626109a4e50af9b46da16777d"
+    },
+    "mcmod_police_vest": {
+      "model": "police",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "21653a11a7e2ed53f97d033cad4813a74e089e65de89209ebce5b77f9370e6b7",
+      "atlasSha256": "54c011c167be3be160c0ad8bbfc1048a6627de13d7c08b200bc43afcf11bae6a",
+      "iconSha256": "3765709c8cd019b91187fe54b71570fe633358d37a1a7e128f3e37e67de8591a"
+    },
+    "mcmod_povstanec_helmet": {
+      "model": "povstanec",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "43258b4217c0653bf25317269666530fd1d54444ff893e7ac2731d45e23d7b1c",
+      "atlasSha256": "1b5c3d41e8430eeb2bb97c58b682471e9debe62c97a7e4943326aeabb32a9df0",
+      "iconSha256": "29ab5052f569ba187f78f095dd2d694e74cde1cdce38fd0bb20412a15f4303e5"
+    },
+    "mcmod_povstanec_vest": {
+      "model": "povstanec",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "43258b4217c0653bf25317269666530fd1d54444ff893e7ac2731d45e23d7b1c",
+      "atlasSha256": "1b5c3d41e8430eeb2bb97c58b682471e9debe62c97a7e4943326aeabb32a9df0",
+      "iconSha256": "48342005e9e6aba708ce607b7fadec2d455a4e86c5087c8551f1bdb2b04bb1ec"
+    },
+    "mcmod_prorok_helmet": {
+      "model": "prorok",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "85975e9ddde462c1d4a17b5b8d9e6094a7d563add68e4c6d7f6843c82c18450c",
+      "atlasSha256": "4bda0b52fb38b2100dcaf8695915118e82fb6b54d41a8b4b89c1ca0ed503ed8c",
+      "iconSha256": "5756ebf2192d5d7167091c250f33b05f7ad08e19ebb518c6f0c64f2d0ad5cb5c"
+    },
+    "mcmod_prorok_vest": {
+      "model": "prorok",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "85975e9ddde462c1d4a17b5b8d9e6094a7d563add68e4c6d7f6843c82c18450c",
+      "atlasSha256": "4bda0b52fb38b2100dcaf8695915118e82fb6b54d41a8b4b89c1ca0ed503ed8c",
+      "iconSha256": "57c35c4ea6c92b97329d4382f90a4a0c82589581a1c0d1bbb9d9e16850fcf5f4"
+    },
+    "mcmod_psh1b_helmet": {
+      "model": "psh1b",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "6d886cb1269fbcee0ee3386fd95122c61a1a2b581fa784cd32237229c930322f",
+      "atlasSha256": "8ef7c1a7faa5edd9530fa7e2ab1aa9c27f4cc9e1d7d7266a17122534dfcf4e0d",
+      "iconSha256": "ecc89e94c2573bba036026277faffe5032eec24aed21d7c532f79acc6cd85914"
+    },
+    "mcmod_psh1b_vest": {
+      "model": "psh1b",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "6d886cb1269fbcee0ee3386fd95122c61a1a2b581fa784cd32237229c930322f",
+      "atlasSha256": "8ef7c1a7faa5edd9530fa7e2ab1aa9c27f4cc9e1d7d7266a17122534dfcf4e0d",
+      "iconSha256": "b911942249d3a76b127f43b610a1739fbe24f727ef2bd640675c30381c00fc31"
+    },
+    "mcmod_reih_helmet": {
+      "model": "reih",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "3755bd44acf3aefb6ca0661db93722033b415307f28acce2d8e5b56e8ad5330e",
+      "atlasSha256": "f5832aade3c79323f58f693cc7710a94bd9ac6b675211a6244ed0f649e9ea0c5",
+      "iconSha256": "7c4746141c0cbd0934875cf576122d8af63160075c39d4d6fb894245eddb50a7"
+    },
+    "mcmod_reih_vest": {
+      "model": "reih",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "3755bd44acf3aefb6ca0661db93722033b415307f28acce2d8e5b56e8ad5330e",
+      "atlasSha256": "f5832aade3c79323f58f693cc7710a94bd9ac6b675211a6244ed0f649e9ea0c5",
+      "iconSha256": "b4d56ba6ba7b2a9919ab284d74f581f0355ca8d39abbaff01e10d5939f46a1dd"
+    },
+    "mcmod_sniper_helmet": {
+      "model": "sniper",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "249ff5e8ef8d843c96ed54f393a029c2f380e8836fccdce111e8f7d4cb28e19d",
+      "atlasSha256": "ff8f4f9964c9095062dafd8751db25fea77dbd80a8a5842e2de1b4de21784f9d",
+      "iconSha256": "5c1fca825ccaf04c12e312e659fde93c1ad07e615d82a3dcbf4c338b40f92e4d"
+    },
+    "mcmod_sniper_vest": {
+      "model": "sniper",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "249ff5e8ef8d843c96ed54f393a029c2f380e8836fccdce111e8f7d4cb28e19d",
+      "atlasSha256": "ff8f4f9964c9095062dafd8751db25fea77dbd80a8a5842e2de1b4de21784f9d",
+      "iconSha256": "5230ce27010c633724a901b693dfd9f60de9bcb2119d80ebb16d99da58c36c54"
+    },
+    "mcmod_sniper_camo_helmet": {
+      "model": "sniper_camo",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "2dd2c0a446c26cd2d35a2e7851350d12efc3774edd27f91eb14aa029db5045c0",
+      "atlasSha256": "3f5e51eae6599a1a0b73cbe627fbbdd76b4f589fafb1439ba72c8a6a5f2c4193",
+      "iconSha256": "811f1374c4671c2cc93ab0f36ad1eca1d681089039eb092164c8b0dc04541330"
+    },
+    "mcmod_sniper_camo_vest": {
+      "model": "sniper_camo",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "2dd2c0a446c26cd2d35a2e7851350d12efc3774edd27f91eb14aa029db5045c0",
+      "atlasSha256": "3f5e51eae6599a1a0b73cbe627fbbdd76b4f589fafb1439ba72c8a6a5f2c4193",
+      "iconSha256": "5657e4e231e2703d3243fd11196d30bfc54efd66e3399d3b8249f4188ae0d923"
+    },
+    "mcmod_standart_k_helmet": {
+      "model": "standart_k",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "be3a611e6cf2c61bd9103e4d41bfb0316293d67dde42fe8dfe6fff9bd3202ad5",
+      "atlasSha256": "4273bc2efc102899a58f85d4be290753843006d0eaff3d45166a2676963b30ec",
+      "iconSha256": "cdca984c12c48d752414b1410a1bd5121c945b58130debc64f24e2d5fcda8b70"
+    },
+    "mcmod_standart_k_vest": {
+      "model": "standart_k",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "be3a611e6cf2c61bd9103e4d41bfb0316293d67dde42fe8dfe6fff9bd3202ad5",
+      "atlasSha256": "4273bc2efc102899a58f85d4be290753843006d0eaff3d45166a2676963b30ec",
+      "iconSha256": "586649435a3a94912516984f325f95e099d5320f5da57d528338ca5a07bacbab"
+    },
+    "mcmod_sverchok_helmet": {
+      "model": "sverchok",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "5f10e8e7416a205e1cdff55362c1d15b06b25d8037d4a9445a705accf5d6dd14",
+      "atlasSha256": "30792187528b5c46009bddbf5ee64acb129effa2a8baf9a2a8f54c1aef437eb3",
+      "iconSha256": "afcf9adbdf210ac12aa49e6a46666343722da0d33d2c00d454ee39e724161293"
+    },
+    "mcmod_sverchok_vest": {
+      "model": "sverchok",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "5f10e8e7416a205e1cdff55362c1d15b06b25d8037d4a9445a705accf5d6dd14",
+      "atlasSha256": "30792187528b5c46009bddbf5ee64acb129effa2a8baf9a2a8f54c1aef437eb3",
+      "iconSha256": "698e69de02206fb5d64b6ea7f204fc5bd6fa32c7835e987c93b8b3651c5783c7"
+    },
+    "mcmod_sverchok_mp6_helmet": {
+      "model": "sverchok_mp6",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "2e061e6f2f54844a127cecf7ffffc64f0f0f005774256bb03881076350e37444",
+      "atlasSha256": "037ce5d069c06485c23c1e3f11a0692ebf95e030201c2aad39e13060956c0e23",
+      "iconSha256": "efa8e94cc4b6c4d294711b0fac13c47606581c76f7e3e80611ef061ed81e4e4c"
+    },
+    "mcmod_sverchok_mp6_vest": {
+      "model": "sverchok_mp6",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "2e061e6f2f54844a127cecf7ffffc64f0f0f005774256bb03881076350e37444",
+      "atlasSha256": "037ce5d069c06485c23c1e3f11a0692ebf95e030201c2aad39e13060956c0e23",
+      "iconSha256": "698e69de02206fb5d64b6ea7f204fc5bd6fa32c7835e987c93b8b3651c5783c7"
+    },
+    "mcmod_taiga_helmet": {
+      "model": "taiga",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "8d8a74688833856890320bcea1420a01de5b75207cee1c93fc333a647af13546",
+      "atlasSha256": "3e31b715c1afcae92e8314dc44a0a2913e11a9d64cf020c337aeabaf9ebe7b68",
+      "iconSha256": "a969b1eb703bd645b7480ba520cfc188ade5c5e97aeef82ef498ec0edf62d834"
+    },
+    "mcmod_taiga_vest": {
+      "model": "taiga",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "8d8a74688833856890320bcea1420a01de5b75207cee1c93fc333a647af13546",
+      "atlasSha256": "3e31b715c1afcae92e8314dc44a0a2913e11a9d64cf020c337aeabaf9ebe7b68",
+      "iconSha256": "ed018fab7226331a612a93cf974970ff5f3c59e0cf704b4c3d636d4517a5c98d"
+    },
+    "mcmod_vatnik_vest": {
+      "model": "vatnik",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "84abe3f4720af0d9bd731ac92299ab05a49272958ab66ccd7886ef6742de64ee",
+      "atlasSha256": "2b3d6e735babc0e4eebc7c398bf81899e5809d6bee4cc5c4b3dcba5f3fdc7c3b",
+      "iconSha256": "0f268f2fccda35de3dbd1008add8d5d9499694c1cb0918acf6014c92b04b49b1"
+    },
+    "mcmod_voen_tactical_helmet": {
+      "model": "voen_tactical",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "d91facaf17eccb6a897f7e01bbb20a1476771a7eabc5a972fd5aef2391708243",
+      "atlasSha256": "cb4decf71cb68096b1fe1e430560af596c9ecfe8a81707681c0a10011a6b99cd",
+      "iconSha256": "3d1cbe25136c00976e8ccda036b0c180e22d970ae558d323cdbe50ed729f4414"
+    },
+    "mcmod_voen_tactical_vest": {
+      "model": "voen_tactical",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "d91facaf17eccb6a897f7e01bbb20a1476771a7eabc5a972fd5aef2391708243",
+      "atlasSha256": "cb4decf71cb68096b1fe1e430560af596c9ecfe8a81707681c0a10011a6b99cd",
+      "iconSha256": "5e9ba5aee00b9e8a23286262c321b3d35336c41c554bed0b7347ccfdc35ddd88"
+    },
+    "mcmod_zapal_helmet": {
+      "model": "zapal",
+      "groups": [
+        "head"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "0d48d6c2383bf7c0a1414ce15a82dee7c63a196273ffa41fe5b273e2b74c2f00",
+      "atlasSha256": "ef97d1d2424039677f6f8c3799018d94b6bdfb1d16e644916fc7afa8c9b7975e",
+      "iconSha256": "eac3241aaba5b07e60406281222dd0615115b4669794376bd4237f456f3927da"
+    },
+    "mcmod_zapal_vest": {
+      "model": "zapal",
+      "groups": [
+        "body",
+        "leftarm",
+        "rightarm"
+      ],
+      "width": 128,
+      "height": 128,
+      "objSha256": "0d48d6c2383bf7c0a1414ce15a82dee7c63a196273ffa41fe5b273e2b74c2f00",
+      "atlasSha256": "ef97d1d2424039677f6f8c3799018d94b6bdfb1d16e644916fc7afa8c9b7975e",
+      "iconSha256": "720e85cb723183b932311674269c46b5a1465b2441c7ef0264c5ca6fa9ca4e6d"
+    }
+  }
+}

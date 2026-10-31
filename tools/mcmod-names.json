@@ -1,0 +1,316 @@
+{
+  "BTBKZ": {
+    "ru": {
+      "helmet": "Шлем БТБКЗ",
+      "vest": "Броня БТБКЗ"
+    },
+    "en": {
+      "helmet": "BTBKZ Helmet",
+      "vest": "BTBKZ Armor"
+    }
+  },
+  "Scout_armor": {
+    "ru": {
+      "helmet": "Шлем разведчика",
+      "vest": "Броня разведчика"
+    },
+    "en": {
+      "helmet": "Scout Helmet",
+      "vest": "Scout Armor"
+    }
+  },
+  "bandit_armor": {
+    "ru": {
+      "helmet": "Шлем бандитов",
+      "vest": "Броня бандитов"
+    },
+    "en": {
+      "helmet": "Bandit Helmet",
+      "vest": "Bandit Armor"
+    }
+  },
+  "bkz": {
+    "ru": {
+      "helmet": "Шлем БКЗ",
+      "vest": "Броня БКЗ"
+    },
+    "en": {
+      "helmet": "BKZ Helmet",
+      "vest": "BKZ Armor"
+    }
+  },
+  "cherv": {
+    "ru": {
+      "helmet": "Шлем червепоклонников",
+      "vest": "Броня червепоклонников"
+    },
+    "en": {
+      "helmet": "Worm Cult Helmet",
+      "vest": "Worm Cult Armor"
+    }
+  },
+  "gasmask": {
+    "ru": {
+      "helmet": "Противогаз"
+    },
+    "en": {
+      "helmet": "Gas Mask"
+    }
+  },
+  "gorka": {
+    "ru": {
+      "helmet": "Шлем «Горка»",
+      "vest": "Броня «Горка»"
+    },
+    "en": {
+      "helmet": "Gorka Helmet",
+      "vest": "Gorka Armor"
+    }
+  },
+  "hanza": {
+    "ru": {
+      "helmet": "Шлем Ганзы",
+      "vest": "Броня Ганзы"
+    },
+    "en": {
+      "helmet": "Hansa Helmet",
+      "vest": "Hansa Armor"
+    }
+  },
+  "himza": {
+    "ru": {
+      "helmet": "Шлем «Химза»",
+      "vest": "Броня «Химза»"
+    },
+    "en": {
+      "helmet": "Chemical Protection Helmet",
+      "vest": "Chemical Protection Armor"
+    }
+  },
+  "juggernaut": {
+    "ru": {
+      "helmet": "Шлем «Джаггернаут»",
+      "vest": "Броня «Джаггернаут»"
+    },
+    "en": {
+      "helmet": "Juggernaut Helmet",
+      "vest": "Juggernaut Armor"
+    }
+  },
+  "kitel": {
+    "ru": {
+      "vest": "Китель"
+    },
+    "en": {
+      "vest": "Tunic"
+    }
+  },
+  "mgu": {
+    "ru": {
+      "helmet": "Шлем МГУ",
+      "vest": "Броня МГУ"
+    },
+    "en": {
+      "helmet": "MGU Helmet",
+      "vest": "MGU Armor"
+    }
+  },
+  "olkhon": {
+    "ru": {
+      "helmet": "Шлем «Ольхон»",
+      "vest": "Броня «Ольхон»"
+    },
+    "en": {
+      "helmet": "Olkhon Helmet",
+      "vest": "Olkhon Armor"
+    }
+  },
+  "ozk": {
+    "ru": {
+      "helmet": "Шлем ОЗК",
+      "vest": "Броня ОЗК"
+    },
+    "en": {
+      "helmet": "OZK Helmet",
+      "vest": "OZK Armor"
+    }
+  },
+  "police": {
+    "ru": {
+      "helmet": "Шлем полиции",
+      "vest": "Броня полиции"
+    },
+    "en": {
+      "helmet": "Police Helmet",
+      "vest": "Police Armor"
+    }
+  },
+  "povstanec": {
+    "ru": {
+      "helmet": "Шлем повстанца",
+      "vest": "Броня повстанца"
+    },
+    "en": {
+      "helmet": "Rebel Helmet",
+      "vest": "Rebel Armor"
+    }
+  },
+  "prorok": {
+    "ru": {
+      "helmet": "Шлем «Пророк»",
+      "vest": "Броня «Пророк»"
+    },
+    "en": {
+      "helmet": "Prophet Helmet",
+      "vest": "Prophet Armor"
+    }
+  },
+  "psh1b": {
+    "ru": {
+      "helmet": "Шлем ПШ-1Б",
+      "vest": "Броня ПШ-1Б"
+    },
+    "en": {
+      "helmet": "PSh-1B Helmet",
+      "vest": "PSh-1B Armor"
+    }
+  },
+  "reih": {
+    "ru": {
+      "helmet": "Шлем Четвёртого рейха",
+      "vest": "Броня Четвёртого рейха"
+    },
+    "en": {
+      "helmet": "Fourth Reich Helmet",
+      "vest": "Fourth Reich Armor"
+    }
+  },
+  "sniper": {
+    "ru": {
+      "helmet": "Шлем снайпера",
+      "vest": "Броня снайпера"
+    },
+    "en": {
+      "helmet": "Sniper Helmet",
+      "vest": "Sniper Armor"
+    }
+  },
+  "sniper_camo": {
+    "ru": {
+      "helmet": "Шлем снайперского камуфляжа",
+      "vest": "Броня снайперского камуфляжа"
+    },
+    "en": {
+      "helmet": "Sniper Camouflage Helmet",
+      "vest": "Sniper Camouflage Armor"
+    }
+  },
+  "standart_k": {
+    "ru": {
+      "helmet": "Шлем «Стандарт К»",
+      "vest": "Броня «Стандарт К»"
+    },
+    "en": {
+      "helmet": "Standard K Helmet",
+      "vest": "Standard K Armor"
+    }
+  },
+  "sverchok": {
+    "ru": {
+      "helmet": "Шлем «Сверчок»",
+      "vest": "Броня «Сверчок»"
+    },
+    "en": {
+      "helmet": "Cricket Helmet",
+      "vest": "Cricket Armor"
+    }
+  },
+  "sverchok_mp6": {
+    "ru": {
+      "helmet": "Шлем «Сверчок МП-6»",
+      "vest": "Броня «Сверчок МП-6»"
+    },
+    "en": {
+      "helmet": "Cricket MP-6 Helmet",
+      "vest": "Cricket MP-6 Armor"
+    }
+  },
+  "taiga": {
+    "ru": {
+      "helmet": "Шлем «Тайга»",
+      "vest": "Броня «Тайга»"
+    },
+    "en": {
+      "helmet": "Taiga Helmet",
+      "vest": "Taiga Armor"
+    }
+  },
+  "vatnik": {
+    "ru": {
+      "vest": "Ватник"
+    },
+    "en": {
+      "vest": "Padded Jacket"
+    }
+  },
+  "voen_tactical": {
+    "ru": {
+      "helmet": "Военно-тактический шлем",
+      "vest": "Военно-тактическая броня"
+    },
+    "en": {
+      "helmet": "Military Tactical Helmet",
+      "vest": "Military Tactical Armor"
+    }
+  },
+  "banditkurtka": {
+    "ru": {
+      "whole": "Бандитская куртка"
+    },
+    "en": {
+      "whole": "Bandit Jacket"
+    }
+  },
+  "officer_ozk": {
+    "ru": {
+      "whole": "Офицерский ОЗК"
+    },
+    "en": {
+      "whole": "Officer OZK Suit"
+    }
+  },
+  "kurtka": {
+    "ru": {
+      "whole": "Куртка"
+    },
+    "en": {
+      "whole": "Jacket"
+    }
+  },
+  "plash": {
+    "ru": {
+      "whole": "Плащ"
+    },
+    "en": {
+      "whole": "Cloak"
+    }
+  },
+  "ghillie": {
+    "ru": {
+      "whole": "Камуфляж"
+    },
+    "en": {
+      "whole": "Ghillie Suit"
+    }
+  },
+  "zapal": {
+    "ru": {
+      "helmet": "Шлем «Запал»",
+      "vest": "Броня «Запал»"
+    },
+    "en": {
+      "helmet": "Zapal Helmet",
+      "vest": "Zapal Armor"
+    }
+  }
+}

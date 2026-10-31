@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "metroport:mcmod/icons/povstanec"
+    "layer0": "metroport:mcmod/armor_icons/mcmod_povstanec_vest"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "metroport:mcmod/icons/standart_k"
+    "layer0": "metroport:mcmod/armor_icons/mcmod_standart_k_vest"
   }
 }

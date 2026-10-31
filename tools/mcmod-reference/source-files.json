@@ -420,6 +420,82 @@
     "assets/icons/zapal.png": {
       "bytes": 34605,
       "sha256": "f7a694dbad7c2128e279e7c16363231b2a59b74377a9ee28cb0ee9c2da266586"
+    },
+    "classes/metro/common/Main$1.class": {
+      "bytes": 751,
+      "sha256": "683c68c8b4db5bdb339c17adf890b619755b3742988bb9f178b9120aa7d92624"
+    },
+    "classes/metro/common/Main$2.class": {
+      "bytes": 753,
+      "sha256": "44e200165ac3eba0e895cb0b0b7820926a687728193161f80a5d6b599d2fee1f"
+    },
+    "classes/metro/common/Main$3.class": {
+      "bytes": 756,
+      "sha256": "7ba3184980d6d4f08f70a610c61c3d0cb50b70fd5ace3f8ab88dc3e2fa86d296"
+    },
+    "classes/metro/common/Main.class": {
+      "bytes": 3494,
+      "sha256": "42de74b1ffd9983f34f6e89bf093222963f2bfc60c77779625bd67a9c72afbe8"
+    },
+    "classes/metro/common/TickHundlerServer.class": {
+      "bytes": 10554,
+      "sha256": "3ef96fa35a794941bdd2393519398a6cc50bd838ec68d7d890060a418870e64c"
+    },
+    "classes/metro/common/TutEventHandler.class": {
+      "bytes": 7528,
+      "sha256": "7f36ad07c2b65f44a5055745c9dbb2c615d8dfae9f8a5dc01ef5d12b8573ba47"
+    },
+    "classes/metro/common/gun/ItemAptech.class": {
+      "bytes": 3581,
+      "sha256": "55852a582d134d3f3d7cb6d4568eb186f4e4660127c938f32e26ac4a884d283d"
+    },
+    "classes/metro/common/gun/ItemAxeB.class": {
+      "bytes": 1192,
+      "sha256": "aa208ed1fb78160ed7f41d544d089cc3c1daa5693d32ec92d48bb0a88d818dfd"
+    },
+    "classes/metro/common/gun/ammo/ItemAmmo.class": {
+      "bytes": 550,
+      "sha256": "ad792c9e74f54c7d10aba6c9a13be716f2c67f2069f59d2b2555aed04e1e526d"
+    },
+    "classes/metro/common/regstration/RegisterGuns.class": {
+      "bytes": 8633,
+      "sha256": "18abdacf5a222845958a00fa5e02d5c4d69449e26224d73642785458ab4377d8"
+    },
+    "assets/items/aptech.png": {
+      "bytes": 80633,
+      "sha256": "fa9d51fe22368025fc53dd97ddd4c09310b0e877486f450f20772e98f2498a10"
+    },
+    "assets/items/filtr.png": {
+      "bytes": 50140,
+      "sha256": "425c138b66590df95d711ac4ccd7bb695a65977329cb426a1d1d4ebe58970fed"
+    },
+    "assets/items/machete.png": {
+      "bytes": 17440,
+      "sha256": "2ffa3580c167e3dfe39d19a1f362597b46ad8478caf6b90407226cc2d5b96076"
+    },
+    "assets/items/money.png": {
+      "bytes": 16477,
+      "sha256": "52684bb61536dccebc88637e53ceb0d468eceedbdf8add7786f073d0e174b5c6"
+    },
+    "assets/items/money30.png": {
+      "bytes": 61051,
+      "sha256": "775d4df771531e9be9198485be34da443104d758e0f5d1b0318432838f73f8f4"
+    },
+    "assets/items/money5.png": {
+      "bytes": 106842,
+      "sha256": "6908b0185f16a9198cb17854d3187c67a238a8f2afded3d1f260d3a82e7944d0"
+    },
+    "assets/items/moneyj.png": {
+      "bytes": 114724,
+      "sha256": "9eafeb9bc78a5da0c3391185ea9721c744c9b8aad47ff4f924c1f981f21754c7"
+    },
+    "assets/items/res_metall.png": {
+      "bytes": 15345,
+      "sha256": "54cfdee6932bdd7c1e6479a7c4f1313348b02d4b6a4815f20ba65e4bab6c10c0"
+    },
+    "assets/items/res_xim.png": {
+      "bytes": 3315,
+      "sha256": "bfc21dd6212a1efa97e1b4a6c2c6c8984441107c312e9342155744104c5c5973"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "metroport:mcmod/icons/scout_armor"
+    "layer0": "metroport:mcmod/armor_icons/mcmod_scout_armor_vest"
   }
 }

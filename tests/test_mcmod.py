@@ -28,7 +28,7 @@ class McmodTests(unittest.TestCase):
 
     def test_raw_source_checksums_and_class_headers(self):
         files = json.loads((SOURCE / 'source-files.json').read_text())['files']
-        self.assertEqual(105, len(files))  # 6 class files + (OBJ, atlas, icon) x 33.
+        self.assertEqual(124, len(files))  # 16 source classes + 99 armor resources + 9 ordinary icons.
         for name, record in files.items():
             data = (SOURCE / name).read_bytes()
             self.assertEqual(record['bytes'], len(data), name)
@@ -171,7 +171,8 @@ class McmodTests(unittest.TestCase):
             self.assertTrue((ASSETS / ('models/mcmod/' + target + '/model.obj')).is_file())
             self.assertTrue((ASSETS / ('textures/mcmod/armor/' + target + '.png')).is_file())
             icon = json.loads((ASSETS / ('models/item/' + entry['id'] + '.json')).read_text())
-            self.assertEqual('metroport:mcmod/icons/' + entry['model'], icon['textures']['layer0'])
+            expected = 'mcmod/icons/' + entry['model'] if entry['mode']=='whole' else 'mcmod/armor_icons/' + entry['id']
+            self.assertEqual('metroport:' + expected, icon['textures']['layer0'])
         renderer = (ROOT / 'src/main/java/ru/metrocraft/port/client/McmodArmorModel.java').read_text()
         self.assertIn('MESHES.computeIfAbsent(entry.geometryModel(),', renderer)
         self.assertIn('+entry.geometryModel()+".png"', renderer)

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "metroport:mcmod/icons/vatnik"
+    "layer0": "metroport:mcmod/armor_icons/mcmod_vatnik_vest"
   }
 }
