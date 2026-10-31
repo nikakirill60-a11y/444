@@ -49,7 +49,7 @@ public final class McmodToolRenderer extends TileEntityItemStackRenderer {
             // Mirror the whole tool/action, but select the correct left/right Steve/Alex skin mesh below.
             if(left)GlStateManager.scale(-1,1,1);
             GlStateManager.translate(-.26*slash-.08*treatment,.08*treatment-.12*slash,-.04*treatment);
-            GlStateManager.rotate((float)(-18-95*slash+8*treatment),0,0,1);
+            GlStateManager.rotate((float)(-18+95*slash+8*treatment),0,0,1);
             GlStateManager.rotate((float)(-30*slash+(medical?22+12*treatment:0)),1,0,0);
             GlStateManager.rotate(medical?-12:-20,0,1,0);
             renderTool(stack,progress);
