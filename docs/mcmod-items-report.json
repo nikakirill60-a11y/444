@@ -34,8 +34,8 @@
       "id": "mcmod_money5",
       "sourceId": "money5",
       "kind": "currency",
-      "nameRu": "Патроны - деньги обомйма (5 шт.)",
-      "nameEn": "Military Rounds — Clip of 5",
+      "nameRu": "§6Патроны — деньги, обойма (5 шт.)",
+      "nameEn": "§6Military Rounds — Clip of 5",
       "sourceName": "Патроны - деньги обомйма (5 шт.)",
       "stackSize": 64,
       "iconSha256": "6908b0185f16a9198cb17854d3187c67a238a8f2afded3d1f260d3a82e7944d0"
