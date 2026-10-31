@@ -29,7 +29,10 @@ public class GateRedstoneTest {
         tag.setBoolean("Powered",true);tile.readFromNBT(tag);assertEquals(1,target(tile),0);
         assertEquals(0,GateTile.redstoneTarget(false),0);assertEquals(1,GateTile.redstoneTarget(true),0);
     }
-    @Test public void clickingHasNoControlPathAndDoesNotRequireAPlayerOrWorld() {
-        for(GateType type:GateType.values())assertFalse(new GateBlock(type).onBlockActivated(null,null,null,null,EnumHand.MAIN_HAND,EnumFacing.SOUTH,0,0,0));
+    @Test public void legacyClosingIntentCannotOverrideAPoweredGate()throws Exception {
+        NBTTagCompound tag=new NBTTagCompound();tag.setString("Type","LEFT45");tag.setFloat("Progress",.3F);
+        tag.setFloat("Manual",0);tag.setFloat("Target",0);tag.setBoolean("Powered",true);
+        GateTile tile=new GateTile();tile.readFromNBT(tag);
+        assertEquals(.3F,tile.progress,0);assertEquals(1,target(tile),0);
     }
 }
