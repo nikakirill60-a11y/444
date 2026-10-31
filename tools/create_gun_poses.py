@@ -14,12 +14,17 @@ def main():
         'podonok':[.13,.08,-.175], 'preved':[-.08,.10,-.195], 'revolver':[.08,.08,-.175],
         'svd':[-.12,.13,-.2625], 'vssk':[-.08,.14,-.20], 'ybludok':[0,.10,-.19],
         'yboinik':[-.08,.09,-.175]}
+    # Support wrist contacts under the fore-end, in the same native metre space.
+    foreends = {'ak74':.34, 'aks74u':.27, 'duplet':.34, 'rpk':.42, 'saiga':.36,
+                'tihar':.32, 'vsv':.32, 'vintovka':.42, 'pkm':.40, 'podonok':.25,
+                'preved':.46, 'revolver':.14, 'svd':.44, 'vssk':.40, 'ybludok':.28, 'yboinik':.30}
     poses = {}
     for name, info in catalogue.items():
         if info['kind'] != 'gun':
             continue
         poses[name] = {
             'grip': grips[name],
+            'support': [grips[name][0] + foreends[name], grips[name][1] - .02, grips[name][2]],
             'firstPerson': {'translation':[-.20,.08,-.25], 'rotation':[0,100,0], 'scale':.8},
             # HeldItemLayer already turns the arm -90 X / 180 Y. +X -> +Y here
             # makes the muzzle face forward after those parent transforms.

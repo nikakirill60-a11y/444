@@ -61,6 +61,7 @@ public final class LegacyItemRenderer extends TileEntityItemStackRenderer {
                 geometry.renderGroup(group,model.scale/16F);
             }
             mounted(stack,geometry,model);
+            if(first) GunHands.render(id, context, reload);
         }else geometry.renderAll(model.scale/16F);
         GlStateManager.popMatrix();
     }

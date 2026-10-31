@@ -14,10 +14,10 @@ import java.util.Map;
 /** Native gun-space -> hand-space. No item/generated camera transforms. */
 public final class GunRenderPoses {
     private static final class Pose { float[] translation, rotation; float scale; }
-    private static final class Profile { float[] grip; Pose firstPerson, thirdPerson, ground, fixed; }
+    private static final class Profile { float[] grip, support; Pose firstPerson, thirdPerson, ground, fixed; }
     private static Map<String, Profile> profiles;
 
-    public static Matrix4f matrix(String id, TransformType type) {
+    private static Profile profile(String id) {
         if (profiles == null) {
             try (InputStreamReader reader = new InputStreamReader(Minecraft.getMinecraft().getResourceManager()
                     .getResource(new ResourceLocation("metroport:geometry/gun_poses.json")).getInputStream(), StandardCharsets.UTF_8)) {
@@ -26,6 +26,14 @@ public final class GunRenderPoses {
         }
         Profile profile = profiles.get(id);
         if (profile == null) throw new IllegalStateException("Missing gun pose: " + id);
+        return profile;
+    }
+    public static float[] handAnchor(String id, boolean support) {
+        Profile p = profile(id);
+        return (support ? p.support : p.grip).clone();
+    }
+    public static Matrix4f matrix(String id, TransformType type) {
+        Profile profile = profile(id);
         boolean left = type == TransformType.FIRST_PERSON_LEFT_HAND || type == TransformType.THIRD_PERSON_LEFT_HAND;
         Pose pose;
         switch (type) {

@@ -50,6 +50,21 @@ class GateAndPoseTests(unittest.TestCase):
         arm_forward = (0, math.cos(math.radians(-90)), math.sin(math.radians(-90)))
         self.assertAlmostEqual(arm_forward[2], -1)
 
+    def test_all_guns_have_skin_hand_contacts_and_first_person_guard(self):
+        poses = json.loads((ASSETS / 'geometry/gun_poses.json').read_text())
+        self.assertEqual(len(poses), 16)
+        for id_, pose in poses.items():
+            self.assertEqual(len(pose['support']), 3, id_)
+            self.assertTrue(all(math.isfinite(v) for v in pose['support']))
+            self.assertGreater(pose['support'][0], pose['grip'][0])
+            self.assertLess(pose['support'][1], pose['grip'][1])
+        renderer = (ROOT / 'src/main/java/ru/metrocraft/port/client/LegacyItemRenderer.java').read_text()
+        self.assertIn('if(first) GunHands.render(id, context, reload)', renderer)
+        hands = (ROOT / 'src/main/java/ru/metrocraft/port/client/GunHands.java').read_text()
+        for token in ('getLocationSkin()', 'getSkinType()', 'LEFT_SLEEVE', 'RIGHT_SLEEVE',
+                      'player.isInvisible()', 'player.isSpectator()', 'getHeldItemOffhand().isEmpty()'):
+            self.assertIn(token, hands)
+
     def test_gate_meshes_and_atlases_are_original_bytes(self):
         with zipfile.ZipFile(ROOT / '(Metro) Flans-v1.1.jar') as original:
             for name in ['Germa', 'GermaRamka']:
