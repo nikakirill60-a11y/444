@@ -96,6 +96,330 @@
     "classes/metro/common/regstration/RegisterArmor.class": {
       "bytes": 5253,
       "sha256": "196b7827c91bf0bf33de24c6cef171f6515fe38d2fee1c1b3679840be27ca6e3"
+    },
+    "assets/armor/BTBKZ/model.obj": {
+      "bytes": 432653,
+      "sha256": "e145b5100411c279b36692bb0cf4fc64a3b6a6bd8134b29042df2c3be5e98bb3"
+    },
+    "assets/armor/BTBKZ/texture.png": {
+      "bytes": 94120,
+      "sha256": "a4917309dfa15399ca6fc0816343a16fa79aeac983b52935cfcc10a1d9479510"
+    },
+    "assets/armor/Scout_armor/model.obj": {
+      "bytes": 251127,
+      "sha256": "57d733690dc094d4d5ec6373fb21ea614019d86d62d2160f1189af84f5eb3c16"
+    },
+    "assets/armor/Scout_armor/texture.png": {
+      "bytes": 54618,
+      "sha256": "85a5ed764bf6b888fd621be9eb086878025670f98405997d5b3c58ec03513a37"
+    },
+    "assets/armor/bandit_armor/model.obj": {
+      "bytes": 336871,
+      "sha256": "e45a25020679c59d6e2111f03822c03ea5e52f5b0e7979ea6fcd8b69c9ff9bac"
+    },
+    "assets/armor/bandit_armor/texture.png": {
+      "bytes": 74225,
+      "sha256": "340bc81cce375074b7e4f4c3e5713533debf0e25101e2f40527554f84de8a499"
+    },
+    "assets/armor/cherv/model.obj": {
+      "bytes": 363573,
+      "sha256": "8588f45b93dab0d56c0688bc407e32497f896eea5d0d8eb5fcbefb2acafaf29e"
+    },
+    "assets/armor/cherv/tex.png": {
+      "bytes": 28770,
+      "sha256": "0038c4edba0e9236ba7d7b9934b0df7dfd9cfa57ee094404c90278395a4dc7a2"
+    },
+    "assets/armor/gasmask/model.obj": {
+      "bytes": 207317,
+      "sha256": "27c9389d1bf32072c7517b88a603d2e271f60af378b35b4709cdbad982f7a007"
+    },
+    "assets/armor/gasmask/texp.png": {
+      "bytes": 1426517,
+      "sha256": "85bb72daae32799d1a054e1661345a0987461a2e60f2d79eabee27cb9ae71321"
+    },
+    "assets/armor/gorka/model.obj": {
+      "bytes": 191001,
+      "sha256": "4c10d33fd1a3e59dd0f531d935929a2b08bec94ae8138bc433fb3bcb10986260"
+    },
+    "assets/armor/gorka/texture.png": {
+      "bytes": 57451,
+      "sha256": "14d3731decdfc82e289a260b46792b7f24025f1e644ee36b825ec9e9f572176a"
+    },
+    "assets/armor/hanza/model.obj": {
+      "bytes": 204721,
+      "sha256": "a456c91c319077a5fbe40274d91bb591f4a9a314edc28a668ccb9821d51774b0"
+    },
+    "assets/armor/hanza/texture.png": {
+      "bytes": 46830,
+      "sha256": "77bfd8f29bf0df1c4fbd1f621ba25e4a6f8ea3e038d2641d2e29904054ed8559"
+    },
+    "assets/armor/himza/model.obj": {
+      "bytes": 732458,
+      "sha256": "1ae6796adbf278364dc2b02f125d8c31cac574bb7c9c9a3b0019815f5b1ef5da"
+    },
+    "assets/armor/himza/texture.png": {
+      "bytes": 1475588,
+      "sha256": "f2ebd6e80b4feaad719065a06f67129485e8f2ec60755128201d1a788d0316a8"
+    },
+    "assets/armor/juggernaut/model.obj": {
+      "bytes": 316971,
+      "sha256": "fa7597c633af9ac0231e0b14dcf173997a80102e08d28d64a95e67b347b8fa93"
+    },
+    "assets/armor/juggernaut/texture.png": {
+      "bytes": 70757,
+      "sha256": "0bd787743f562b1d4b6de477b68976b74c9cddecfb66da155f0385df8ffc6304"
+    },
+    "assets/armor/kitel/model.obj": {
+      "bytes": 48657,
+      "sha256": "b597fef3fa072da2a40662addde0765538672ed598df50fa60396319a2330e3e"
+    },
+    "assets/armor/kitel/texture.png": {
+      "bytes": 28714,
+      "sha256": "c9fafd5ed918158e62c6ddf0be49dcf2523033d9c5af85a4cb338ae9a6d54689"
+    },
+    "assets/armor/mgu/model.obj": {
+      "bytes": 459898,
+      "sha256": "99148a44dad52d0739e4a0c7ae48d4f6ebe714b3055b3dc5ba56fd650148104d"
+    },
+    "assets/armor/mgu/tex.png": {
+      "bytes": 1532495,
+      "sha256": "4da420eec7349b8ba54056395b44f131a0827083c589ec9ecd377bd0ec58272a"
+    },
+    "assets/armor/olkhon/model.obj": {
+      "bytes": 182870,
+      "sha256": "7b7d7686c5a4231d1f57af720274f1574622d783c100c18000d4c5cf4c35d517"
+    },
+    "assets/armor/olkhon/texture.png": {
+      "bytes": 70614,
+      "sha256": "a8c7b8ad657339609f475fd245b5a13de75bcc1679971b5940db316867fdcb46"
+    },
+    "assets/armor/ozk/model.obj": {
+      "bytes": 194003,
+      "sha256": "49964f6ca99e2cb6a6c557aa8faf98eefaf8fadb461e9a326223e5ee01519735"
+    },
+    "assets/armor/ozk/texture.png": {
+      "bytes": 42330,
+      "sha256": "7bbea9c6747961e8eafe24c8389671875ddc2092b9f7c7f5200569907792b392"
+    },
+    "assets/armor/police/model.obj": {
+      "bytes": 223086,
+      "sha256": "21653a11a7e2ed53f97d033cad4813a74e089e65de89209ebce5b77f9370e6b7"
+    },
+    "assets/armor/police/texture.png": {
+      "bytes": 63996,
+      "sha256": "54c011c167be3be160c0ad8bbfc1048a6627de13d7c08b200bc43afcf11bae6a"
+    },
+    "assets/armor/povstanec/model.obj": {
+      "bytes": 356130,
+      "sha256": "43258b4217c0653bf25317269666530fd1d54444ff893e7ac2731d45e23d7b1c"
+    },
+    "assets/armor/povstanec/texture.png": {
+      "bytes": 77628,
+      "sha256": "1b5c3d41e8430eeb2bb97c58b682471e9debe62c97a7e4943326aeabb32a9df0"
+    },
+    "assets/armor/prorok/model.obj": {
+      "bytes": 260824,
+      "sha256": "85975e9ddde462c1d4a17b5b8d9e6094a7d563add68e4c6d7f6843c82c18450c"
+    },
+    "assets/armor/prorok/texture.png": {
+      "bytes": 59443,
+      "sha256": "4bda0b52fb38b2100dcaf8695915118e82fb6b54d41a8b4b89c1ca0ed503ed8c"
+    },
+    "assets/armor/psh1b/model.obj": {
+      "bytes": 120817,
+      "sha256": "6d886cb1269fbcee0ee3386fd95122c61a1a2b581fa784cd32237229c930322f"
+    },
+    "assets/armor/psh1b/texture.png": {
+      "bytes": 36067,
+      "sha256": "8ef7c1a7faa5edd9530fa7e2ab1aa9c27f4cc9e1d7d7266a17122534dfcf4e0d"
+    },
+    "assets/armor/reih/model.obj": {
+      "bytes": 475362,
+      "sha256": "3755bd44acf3aefb6ca0661db93722033b415307f28acce2d8e5b56e8ad5330e"
+    },
+    "assets/armor/reih/tex.png": {
+      "bytes": 36048,
+      "sha256": "f5832aade3c79323f58f693cc7710a94bd9ac6b675211a6244ed0f649e9ea0c5"
+    },
+    "assets/armor/sniper/model.obj": {
+      "bytes": 231675,
+      "sha256": "249ff5e8ef8d843c96ed54f393a029c2f380e8836fccdce111e8f7d4cb28e19d"
+    },
+    "assets/armor/sniper/texture.png": {
+      "bytes": 52232,
+      "sha256": "ff8f4f9964c9095062dafd8751db25fea77dbd80a8a5842e2de1b4de21784f9d"
+    },
+    "assets/armor/sniper_camo/model.obj": {
+      "bytes": 241395,
+      "sha256": "2dd2c0a446c26cd2d35a2e7851350d12efc3774edd27f91eb14aa029db5045c0"
+    },
+    "assets/armor/sniper_camo/texture.png": {
+      "bytes": 74491,
+      "sha256": "3f5e51eae6599a1a0b73cbe627fbbdd76b4f589fafb1439ba72c8a6a5f2c4193"
+    },
+    "assets/armor/standart_k/model.obj": {
+      "bytes": 169516,
+      "sha256": "be3a611e6cf2c61bd9103e4d41bfb0316293d67dde42fe8dfe6fff9bd3202ad5"
+    },
+    "assets/armor/standart_k/texture.png": {
+      "bytes": 38024,
+      "sha256": "4273bc2efc102899a58f85d4be290753843006d0eaff3d45166a2676963b30ec"
+    },
+    "assets/armor/sverchok/model.obj": {
+      "bytes": 125607,
+      "sha256": "5f10e8e7416a205e1cdff55362c1d15b06b25d8037d4a9445a705accf5d6dd14"
+    },
+    "assets/armor/sverchok/texture.png": {
+      "bytes": 88300,
+      "sha256": "30792187528b5c46009bddbf5ee64acb129effa2a8baf9a2a8f54c1aef437eb3"
+    },
+    "assets/armor/sverchok_mp6/model.obj": {
+      "bytes": 262473,
+      "sha256": "2e061e6f2f54844a127cecf7ffffc64f0f0f005774256bb03881076350e37444"
+    },
+    "assets/armor/sverchok_mp6/texture.png": {
+      "bytes": 88309,
+      "sha256": "037ce5d069c06485c23c1e3f11a0692ebf95e030201c2aad39e13060956c0e23"
+    },
+    "assets/armor/taiga/model.obj": {
+      "bytes": 277286,
+      "sha256": "8d8a74688833856890320bcea1420a01de5b75207cee1c93fc333a647af13546"
+    },
+    "assets/armor/taiga/texture.png": {
+      "bytes": 63628,
+      "sha256": "3e31b715c1afcae92e8314dc44a0a2913e11a9d64cf020c337aeabaf9ebe7b68"
+    },
+    "assets/armor/vatnik/model.obj": {
+      "bytes": 53352,
+      "sha256": "84abe3f4720af0d9bd731ac92299ab05a49272958ab66ccd7886ef6742de64ee"
+    },
+    "assets/armor/vatnik/texture.png": {
+      "bytes": 27085,
+      "sha256": "2b3d6e735babc0e4eebc7c398bf81899e5809d6bee4cc5c4b3dcba5f3fdc7c3b"
+    },
+    "assets/armor/voen_tactical/model.obj": {
+      "bytes": 220134,
+      "sha256": "d91facaf17eccb6a897f7e01bbb20a1476771a7eabc5a972fd5aef2391708243"
+    },
+    "assets/armor/voen_tactical/texture.png": {
+      "bytes": 72057,
+      "sha256": "cb4decf71cb68096b1fe1e430560af596c9ecfe8a81707681c0a10011a6b99cd"
+    },
+    "assets/armor/zapal/model.obj": {
+      "bytes": 304968,
+      "sha256": "0d48d6c2383bf7c0a1414ce15a82dee7c63a196273ffa41fe5b273e2b74c2f00"
+    },
+    "assets/armor/zapal/texture.png": {
+      "bytes": 70197,
+      "sha256": "ef97d1d2424039677f6f8c3799018d94b6bdfb1d16e644916fc7afa8c9b7975e"
+    },
+    "assets/icons/bandit_armor.png": {
+      "bytes": 22610,
+      "sha256": "38a12d70de99b19d5d8c129174ce39401a9b94ef18c4ac0c2dbc656734f40ffb"
+    },
+    "assets/icons/btbkz.png": {
+      "bytes": 26219,
+      "sha256": "9be3d7e8b882c0726a0fd7b1b57db747d2ca991607a7ee42cd1ada8f0d9bb83b"
+    },
+    "assets/icons/cherv.png": {
+      "bytes": 45051,
+      "sha256": "c97926c73c57daccb4e9697ab51f46f48d899a946ceb862579636f589ab4dd28"
+    },
+    "assets/icons/gasmask.png": {
+      "bytes": 29356,
+      "sha256": "9ea83a059427adffb1f252af1db3e5c975bcf12bd92c614b1168d90bb8298e47"
+    },
+    "assets/icons/gorka.png": {
+      "bytes": 26917,
+      "sha256": "5e3029d740ed37c1d2cd78f1a02b2740857b8c8f4da017c7a337070ac08b5b1e"
+    },
+    "assets/icons/hanzaz.png": {
+      "bytes": 41335,
+      "sha256": "f181cdf92eb42e244de9fd46f83e171c88cb5dc5918db5c23bc7e2fd9a7b5aae"
+    },
+    "assets/icons/himza.png": {
+      "bytes": 83923,
+      "sha256": "5eda1aac94ca044954717e9e8e127b5b3b320296588ca3d8d9e322abc58e8197"
+    },
+    "assets/icons/juggernaut.png": {
+      "bytes": 27950,
+      "sha256": "dcf70b4b80ef8349bf39360256927d654fcb9934e7c4d4c96bff4a4a615c4d2f"
+    },
+    "assets/icons/kitel.png": {
+      "bytes": 27115,
+      "sha256": "b544b30eaa7a9a87132baa8868b3d494e105bdbfa842a2a6dabba3d840f2b456"
+    },
+    "assets/icons/mgu.png": {
+      "bytes": 62226,
+      "sha256": "1e8c2dceae64459a1c02e98292b9120c4d349f9192a753d4a4537bb6e32ebdb6"
+    },
+    "assets/icons/olkhon.png": {
+      "bytes": 42184,
+      "sha256": "f744b3a35e22d7d095aacaabc48d8ead15e8280d4bd0ba46ed71cc5c4922d316"
+    },
+    "assets/icons/ozk.png": {
+      "bytes": 29135,
+      "sha256": "a99eb996da00c1ac435549813b669fa47c1a7500b14e1419a5816eed3732d4bc"
+    },
+    "assets/icons/police.png": {
+      "bytes": 21268,
+      "sha256": "776f3a904269bf0bfab33dc98143f9ae1f03864791aafeac08681e06c890bc7c"
+    },
+    "assets/icons/povstanec.png": {
+      "bytes": 31207,
+      "sha256": "a72f68cd8d63b9c0eecc43499a45985cc959c5845b1434e5493731c56c8dd3db"
+    },
+    "assets/icons/prorok.png": {
+      "bytes": 64326,
+      "sha256": "d1f611b7be94b5e43d9dc7da301a3351c5cd51fa4fa7cc85a8c775fbae233f39"
+    },
+    "assets/icons/psh1b.png": {
+      "bytes": 23136,
+      "sha256": "3bda319c2245a4a060a45b130026ba2ff5700d7025ed8de3e8f5877a69055f7c"
+    },
+    "assets/icons/reih.png": {
+      "bytes": 31747,
+      "sha256": "ebf256d9e13c33c53cb589cce48e3c8714a23d88d8a73066d5238fbfa0ffd8a7"
+    },
+    "assets/icons/scout_armor.png": {
+      "bytes": 26766,
+      "sha256": "10da54b70ef45cacf366b42f0c0e5cc5117ba595a788726c3306b4cc70ba5b6b"
+    },
+    "assets/icons/sniper.png": {
+      "bytes": 28480,
+      "sha256": "aff97e78ea438b3520140cd845f0daf0220fa0ac8517135f043de571796b7a5e"
+    },
+    "assets/icons/sniper_camo.png": {
+      "bytes": 32179,
+      "sha256": "5eb2460106571dbab1256935a18bd790a441efd926b3c82d606b558e9a17f2dd"
+    },
+    "assets/icons/standart_k.png": {
+      "bytes": 22935,
+      "sha256": "ce1396b630c98567e75154541c89a7b91c414fd0a1233dd1c967f91a2e8cdec9"
+    },
+    "assets/icons/sverchok.png": {
+      "bytes": 39912,
+      "sha256": "803a666a8244371e56f4150ecd219431ab8971b9702c3eeb8f0cf8f54f8a8486"
+    },
+    "assets/icons/sverchok_mp6.png": {
+      "bytes": 41025,
+      "sha256": "a25f5e06db17f7875548f4fc759ea49c0ceb299125a0ba0f1d91c383e6a769b1"
+    },
+    "assets/icons/taiga.png": {
+      "bytes": 32801,
+      "sha256": "eb0ebd23a76525463fc89da2ad817376333bd4eb2778c254f2764cd7b85b30a7"
+    },
+    "assets/icons/vatnik.png": {
+      "bytes": 23928,
+      "sha256": "4e7b167ecac1e45ebeabeb0d35151951f6499cad585f65347a3fd0a0d8154b4f"
+    },
+    "assets/icons/voen_tactical.png": {
+      "bytes": 22680,
+      "sha256": "143d6a0f93f297196f34fa64afed3ce1715715b70dde789baf5642a580a77789"
+    },
+    "assets/icons/zapal.png": {
+      "bytes": 34605,
+      "sha256": "f7a694dbad7c2128e279e7c16363231b2a59b74377a9ee28cb0ee9c2da266586"
     }
   }
 }

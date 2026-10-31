@@ -1,5 +1,5 @@
 {
-  "batch": 1,
+  "batch": 2,
   "source": "User-supplied MCMod.jar, unpacked on Google Drive",
   "registeredOriginalArmor": {
     "gasmask": {
@@ -235,7 +235,138 @@
     }
   },
   "importedModels": {
+    "BTBKZ": {
+      "runtimeId": "btbkz",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "btbkz.png",
+      "facesByGroup": {
+        "head": 1128,
+        "rightarm": 144,
+        "leftarm": 144,
+        "body": 1584,
+        "leftleg": 66,
+        "rightleg": 66
+      },
+      "trianglesByGroup": {
+        "head": 2256,
+        "rightarm": 288,
+        "leftarm": 288,
+        "body": 3168,
+        "leftleg": 132,
+        "rightleg": 132
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 4176,
+      "faces": 3132,
+      "sha256": {
+        "model.obj": "e145b5100411c279b36692bb0cf4fc64a3b6a6bd8134b29042df2c3be5e98bb3",
+        "texture.png": "a4917309dfa15399ca6fc0816343a16fa79aeac983b52935cfcc10a1d9479510",
+        "icon.png": "9be3d7e8b882c0726a0fd7b1b57db747d2ca991607a7ee42cd1ada8f0d9bb83b"
+      }
+    },
+    "Scout_armor": {
+      "runtimeId": "scout_armor",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "scout_armor.png",
+      "facesByGroup": {
+        "rightleg": 78,
+        "leftleg": 78,
+        "rightarm": 72,
+        "leftarm": 72,
+        "body": 618,
+        "head": 912
+      },
+      "trianglesByGroup": {
+        "rightleg": 156,
+        "leftleg": 156,
+        "rightarm": 144,
+        "leftarm": 144,
+        "body": 1236,
+        "head": 1824
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2440,
+      "faces": 1830,
+      "sha256": {
+        "model.obj": "57d733690dc094d4d5ec6373fb21ea614019d86d62d2160f1189af84f5eb3c16",
+        "texture.png": "85a5ed764bf6b888fd621be9eb086878025670f98405997d5b3c58ec03513a37",
+        "icon.png": "10da54b70ef45cacf366b42f0c0e5cc5117ba595a788726c3306b4cc70ba5b6b"
+      }
+    },
+    "bandit_armor": {
+      "runtimeId": "bandit_armor",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "bandit_armor.png",
+      "facesByGroup": {
+        "body": 1278,
+        "leftarm": 48,
+        "rightarm": 72,
+        "leftleg": 54,
+        "rightleg": 72,
+        "head": 948
+      },
+      "trianglesByGroup": {
+        "body": 2556,
+        "leftarm": 96,
+        "rightarm": 144,
+        "leftleg": 108,
+        "rightleg": 144,
+        "head": 1896
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 3296,
+      "faces": 2472,
+      "sha256": {
+        "model.obj": "e45a25020679c59d6e2111f03822c03ea5e52f5b0e7979ea6fcd8b69c9ff9bac",
+        "texture.png": "340bc81cce375074b7e4f4c3e5713533debf0e25101e2f40527554f84de8a499",
+        "icon.png": "38a12d70de99b19d5d8c129174ce39401a9b94ef18c4ac0c2dbc656734f40ffb"
+      }
+    },
     "banditkurtka": {
+      "runtimeId": "banditkurtka",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "banditkurtka.png",
+      "facesByGroup": {
+        "leftleg": 102,
+        "leftarm": 72,
+        "head": 354,
+        "body": 384,
+        "rightarm": 72,
+        "rightleg": 102
+      },
+      "trianglesByGroup": {
+        "leftleg": 204,
+        "leftarm": 144,
+        "head": 708,
+        "body": 768,
+        "rightarm": 144,
+        "rightleg": 204
+      },
       "groups": [
         "body",
         "head",
@@ -253,6 +384,26 @@
       }
     },
     "bkz": {
+      "runtimeId": "bkz",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "bkz.png",
+      "facesByGroup": {
+        "leftarm": 48,
+        "body": 1512,
+        "rightarm": 48,
+        "leftleg": 66,
+        "rightleg": 66,
+        "head": 1224
+      },
+      "trianglesByGroup": {
+        "leftarm": 96,
+        "body": 3024,
+        "rightarm": 96,
+        "leftleg": 132,
+        "rightleg": 132,
+        "head": 2448
+      },
       "groups": [
         "body",
         "head",
@@ -269,7 +420,86 @@
         "icon.png": "5124ad2fc67baff49197cfc78ffa0e59c756423fee3f65af0d5d5cb36c427439"
       }
     },
+    "cherv": {
+      "runtimeId": "cherv",
+      "encoding": "utf-8",
+      "sourceTexture": "tex.png",
+      "sourceIcon": "cherv.png",
+      "facesByGroup": {
+        "leftleg": 468,
+        "rightarm": 636,
+        "leftarm": 360,
+        "head": 1548,
+        "body": 828,
+        "rightleg": 348
+      },
+      "trianglesByGroup": {
+        "leftleg": 468,
+        "rightarm": 636,
+        "leftarm": 360,
+        "head": 1548,
+        "body": 828,
+        "rightleg": 348
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1743,
+      "faces": 4188,
+      "sha256": {
+        "model.obj": "8588f45b93dab0d56c0688bc407e32497f896eea5d0d8eb5fcbefb2acafaf29e",
+        "texture.png": "0038c4edba0e9236ba7d7b9934b0df7dfd9cfa57ee094404c90278395a4dc7a2",
+        "icon.png": "c97926c73c57daccb4e9697ab51f46f48d899a946ceb862579636f589ab4dd28"
+      }
+    },
+    "gasmask": {
+      "runtimeId": "gasmask",
+      "encoding": "windows-1251",
+      "sourceTexture": "texp.png",
+      "sourceIcon": "gasmask.png",
+      "facesByGroup": {
+        "head": 2284
+      },
+      "trianglesByGroup": {
+        "head": 2284
+      },
+      "groups": [
+        "head"
+      ],
+      "vertices": 1141,
+      "faces": 2284,
+      "sha256": {
+        "model.obj": "27c9389d1bf32072c7517b88a603d2e271f60af378b35b4709cdbad982f7a007",
+        "texture.png": "85bb72daae32799d1a054e1661345a0987461a2e60f2d79eabee27cb9ae71321",
+        "icon.png": "9ea83a059427adffb1f252af1db3e5c975bcf12bd92c614b1168d90bb8298e47"
+      }
+    },
     "ghillie": {
+      "runtimeId": "ghillie",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "ghillie.png",
+      "facesByGroup": {
+        "leftarm": 168,
+        "leftleg": 132,
+        "head": 762,
+        "rightleg": 132,
+        "body": 510,
+        "rightarm": 168
+      },
+      "trianglesByGroup": {
+        "leftarm": 336,
+        "leftleg": 264,
+        "head": 1524,
+        "rightleg": 264,
+        "body": 1020,
+        "rightarm": 336
+      },
       "groups": [
         "body",
         "head",
@@ -286,7 +516,209 @@
         "icon.png": "ddf6604190d7a850fdf42f543f73ff62df374a9e4b31efdc80419b585022c287"
       }
     },
+    "gorka": {
+      "runtimeId": "gorka",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "gorka.png",
+      "facesByGroup": {
+        "head": 786,
+        "leftleg": 84,
+        "leftarm": 72,
+        "body": 306,
+        "rightleg": 84,
+        "rightarm": 72
+      },
+      "trianglesByGroup": {
+        "head": 1572,
+        "leftleg": 168,
+        "leftarm": 144,
+        "body": 612,
+        "rightleg": 168,
+        "rightarm": 144
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1872,
+      "faces": 1404,
+      "sha256": {
+        "model.obj": "4c10d33fd1a3e59dd0f531d935929a2b08bec94ae8138bc433fb3bcb10986260",
+        "texture.png": "14d3731decdfc82e289a260b46792b7f24025f1e644ee36b825ec9e9f572176a",
+        "icon.png": "5e3029d740ed37c1d2cd78f1a02b2740857b8c8f4da017c7a337070ac08b5b1e"
+      }
+    },
+    "hanza": {
+      "runtimeId": "hanza",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "hanzaz.png",
+      "facesByGroup": {
+        "rightleg": 48,
+        "leftleg": 48,
+        "rightarm": 246,
+        "leftarm": 246,
+        "body": 354,
+        "head": 552
+      },
+      "trianglesByGroup": {
+        "rightleg": 96,
+        "leftleg": 96,
+        "rightarm": 492,
+        "leftarm": 492,
+        "body": 708,
+        "head": 1104
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1992,
+      "faces": 1494,
+      "sha256": {
+        "model.obj": "a456c91c319077a5fbe40274d91bb591f4a9a314edc28a668ccb9821d51774b0",
+        "texture.png": "77bfd8f29bf0df1c4fbd1f621ba25e4a6f8ea3e038d2641d2e29904054ed8559",
+        "icon.png": "f181cdf92eb42e244de9fd46f83e171c88cb5dc5918db5c23bc7e2fd9a7b5aae"
+      }
+    },
+    "himza": {
+      "runtimeId": "himza",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "himza.png",
+      "facesByGroup": {
+        "rightleg": 372,
+        "leftleg": 372,
+        "rightarm": 294,
+        "leftarm": 402,
+        "body": 1824,
+        "head": 2136
+      },
+      "trianglesByGroup": {
+        "rightleg": 744,
+        "leftleg": 744,
+        "rightarm": 588,
+        "leftarm": 804,
+        "body": 3648,
+        "head": 4272
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 7200,
+      "faces": 5400,
+      "sha256": {
+        "model.obj": "1ae6796adbf278364dc2b02f125d8c31cac574bb7c9c9a3b0019815f5b1ef5da",
+        "texture.png": "f2ebd6e80b4feaad719065a06f67129485e8f2ec60755128201d1a788d0316a8",
+        "icon.png": "5eda1aac94ca044954717e9e8e127b5b3b320296588ca3d8d9e322abc58e8197"
+      }
+    },
+    "juggernaut": {
+      "runtimeId": "juggernaut",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "juggernaut.png",
+      "facesByGroup": {
+        "rightleg": 78,
+        "leftleg": 78,
+        "rightarm": 66,
+        "body": 630,
+        "head": 1140,
+        "leftarm": 66
+      },
+      "trianglesByGroup": {
+        "rightleg": 156,
+        "leftleg": 156,
+        "rightarm": 132,
+        "body": 1260,
+        "head": 2280,
+        "leftarm": 132
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2744,
+      "faces": 2058,
+      "sha256": {
+        "model.obj": "fa7597c633af9ac0231e0b14dcf173997a80102e08d28d64a95e67b347b8fa93",
+        "texture.png": "0bd787743f562b1d4b6de477b68976b74c9cddecfb66da155f0385df8ffc6304",
+        "icon.png": "dcf70b4b80ef8349bf39360256927d654fcb9934e7c4d4c96bff4a4a615c4d2f"
+      }
+    },
+    "kitel": {
+      "runtimeId": "kitel",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "kitel.png",
+      "facesByGroup": {
+        "rightleg": 78,
+        "leftleg": 36,
+        "rightarm": 36,
+        "leftarm": 36,
+        "body": 180
+      },
+      "trianglesByGroup": {
+        "rightleg": 156,
+        "leftleg": 72,
+        "rightarm": 72,
+        "leftarm": 72,
+        "body": 360
+      },
+      "groups": [
+        "body",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 488,
+      "faces": 366,
+      "sha256": {
+        "model.obj": "b597fef3fa072da2a40662addde0765538672ed598df50fa60396319a2330e3e",
+        "texture.png": "c9fafd5ed918158e62c6ddf0be49dcf2523033d9c5af85a4cb338ae9a6d54689",
+        "icon.png": "b544b30eaa7a9a87132baa8868b3d494e105bdbfa842a2a6dabba3d840f2b456"
+      }
+    },
     "kurtka": {
+      "runtimeId": "kurtka",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "kurtka.png",
+      "facesByGroup": {
+        "rightleg": 48,
+        "leftleg": 48,
+        "rightarm": 60,
+        "leftarm": 60,
+        "body": 828,
+        "head": 114
+      },
+      "trianglesByGroup": {
+        "rightleg": 96,
+        "leftleg": 96,
+        "rightarm": 120,
+        "leftarm": 120,
+        "body": 1656,
+        "head": 228
+      },
       "groups": [
         "body",
         "head",
@@ -303,7 +735,64 @@
         "icon.png": "854e34cb7ebfc13f3d617b08e565470f36c90784e9c4205c5eae9f9ee3da65ce"
       }
     },
+    "mgu": {
+      "runtimeId": "mgu",
+      "encoding": "utf-8",
+      "sourceTexture": "tex.png",
+      "sourceIcon": "mgu.png",
+      "facesByGroup": {
+        "head": 924,
+        "rightleg": 820,
+        "rightarm": 534,
+        "body": 648,
+        "leftleg": 820,
+        "leftarm": 534
+      },
+      "trianglesByGroup": {
+        "head": 924,
+        "rightleg": 820,
+        "rightarm": 534,
+        "body": 648,
+        "leftleg": 820,
+        "leftarm": 534
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2361,
+      "faces": 4280,
+      "sha256": {
+        "model.obj": "99148a44dad52d0739e4a0c7ae48d4f6ebe714b3055b3dc5ba56fd650148104d",
+        "texture.png": "4da420eec7349b8ba54056395b44f131a0827083c589ec9ecd377bd0ec58272a",
+        "icon.png": "1e8c2dceae64459a1c02e98292b9120c4d349f9192a753d4a4537bb6e32ebdb6"
+      }
+    },
     "officer_ozk": {
+      "runtimeId": "officer_ozk",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "officer_ozk.png",
+      "facesByGroup": {
+        "rightleg": 48,
+        "leftleg": 48,
+        "rightarm": 54,
+        "leftarm": 54,
+        "body": 156,
+        "head": 96
+      },
+      "trianglesByGroup": {
+        "rightleg": 96,
+        "leftleg": 96,
+        "rightarm": 108,
+        "leftarm": 108,
+        "body": 312,
+        "head": 192
+      },
       "groups": [
         "body",
         "head",
@@ -320,7 +809,97 @@
         "icon.png": "d8f84fba46a51c83a09fa35d2c6e6977eb0b52bb1c5daacb4ed1e49f705fea5b"
       }
     },
+    "olkhon": {
+      "runtimeId": "olkhon",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "olkhon.png",
+      "facesByGroup": {
+        "body": 426,
+        "leftleg": 114,
+        "rightleg": 114,
+        "head": 456,
+        "leftarm": 42,
+        "rightarm": 42
+      },
+      "trianglesByGroup": {
+        "body": 852,
+        "leftleg": 228,
+        "rightleg": 228,
+        "head": 912,
+        "leftarm": 84,
+        "rightarm": 84
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1592,
+      "faces": 1194,
+      "sha256": {
+        "model.obj": "7b7d7686c5a4231d1f57af720274f1574622d783c100c18000d4c5cf4c35d517",
+        "texture.png": "a8c7b8ad657339609f475fd245b5a13de75bcc1679971b5940db316867fdcb46",
+        "icon.png": "f744b3a35e22d7d095aacaabc48d8ead15e8280d4bd0ba46ed71cc5c4922d316"
+      }
+    },
+    "ozk": {
+      "runtimeId": "ozk",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "ozk.png",
+      "facesByGroup": {
+        "rightarm": 72,
+        "rightleg": 102,
+        "leftarm": 72,
+        "leftleg": 102,
+        "body": 306,
+        "head": 594
+      },
+      "trianglesByGroup": {
+        "rightarm": 144,
+        "rightleg": 204,
+        "leftarm": 144,
+        "leftleg": 204,
+        "body": 612,
+        "head": 1188
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1664,
+      "faces": 1248,
+      "sha256": {
+        "model.obj": "49964f6ca99e2cb6a6c557aa8faf98eefaf8fadb461e9a326223e5ee01519735",
+        "texture.png": "7bbea9c6747961e8eafe24c8389671875ddc2092b9f7c7f5200569907792b392",
+        "icon.png": "a99eb996da00c1ac435549813b669fa47c1a7500b14e1419a5816eed3732d4bc"
+      }
+    },
     "plash": {
+      "runtimeId": "plash",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "plash.png",
+      "facesByGroup": {
+        "rightarm": 54,
+        "leftarm": 54,
+        "body": 198,
+        "head": 96
+      },
+      "trianglesByGroup": {
+        "rightarm": 108,
+        "leftarm": 108,
+        "body": 396,
+        "head": 192
+      },
       "groups": [
         "body",
         "head",
@@ -334,12 +913,606 @@
         "texture.png": "bc92c4573e21b7cf5787f74928477fe78374b0c31a4123df74f6a9ca748d0137",
         "icon.png": "befd50f523a92b12fd126324f9c592598791e928af70f5c0316fbed1ac98a02f"
       }
+    },
+    "police": {
+      "runtimeId": "police",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "police.png",
+      "facesByGroup": {
+        "rightleg": 84,
+        "leftleg": 54,
+        "rightarm": 48,
+        "leftarm": 48,
+        "body": 1272,
+        "head": 132
+      },
+      "trianglesByGroup": {
+        "rightleg": 168,
+        "leftleg": 108,
+        "rightarm": 96,
+        "leftarm": 96,
+        "body": 2544,
+        "head": 264
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2184,
+      "faces": 1638,
+      "sha256": {
+        "model.obj": "21653a11a7e2ed53f97d033cad4813a74e089e65de89209ebce5b77f9370e6b7",
+        "texture.png": "54c011c167be3be160c0ad8bbfc1048a6627de13d7c08b200bc43afcf11bae6a",
+        "icon.png": "776f3a904269bf0bfab33dc98143f9ae1f03864791aafeac08681e06c890bc7c"
+      }
+    },
+    "povstanec": {
+      "runtimeId": "povstanec",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "povstanec.png",
+      "facesByGroup": {
+        "leftarm": 48,
+        "leftleg": 132,
+        "body": 948,
+        "rightarm": 78,
+        "head": 1014,
+        "rightleg": 84
+      },
+      "trianglesByGroup": {
+        "leftarm": 96,
+        "leftleg": 264,
+        "body": 1896,
+        "rightarm": 156,
+        "head": 2028,
+        "rightleg": 168
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 3072,
+      "faces": 2304,
+      "sha256": {
+        "model.obj": "43258b4217c0653bf25317269666530fd1d54444ff893e7ac2731d45e23d7b1c",
+        "texture.png": "1b5c3d41e8430eeb2bb97c58b682471e9debe62c97a7e4943326aeabb32a9df0",
+        "icon.png": "a72f68cd8d63b9c0eecc43499a45985cc959c5845b1434e5493731c56c8dd3db"
+      }
+    },
+    "prorok": {
+      "runtimeId": "prorok",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "prorok.png",
+      "facesByGroup": {
+        "rightleg": 72,
+        "leftleg": 156,
+        "rightarm": 156,
+        "leftarm": 216,
+        "body": 1176,
+        "head": 1188
+      },
+      "trianglesByGroup": {
+        "rightleg": 72,
+        "leftleg": 156,
+        "rightarm": 156,
+        "leftarm": 216,
+        "body": 1176,
+        "head": 1188
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1212,
+      "faces": 2964,
+      "sha256": {
+        "model.obj": "85975e9ddde462c1d4a17b5b8d9e6094a7d563add68e4c6d7f6843c82c18450c",
+        "texture.png": "4bda0b52fb38b2100dcaf8695915118e82fb6b54d41a8b4b89c1ca0ed503ed8c",
+        "icon.png": "d1f611b7be94b5e43d9dc7da301a3351c5cd51fa4fa7cc85a8c775fbae233f39"
+      }
+    },
+    "psh1b": {
+      "runtimeId": "psh1b",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "psh1b.png",
+      "facesByGroup": {
+        "rightleg": 48,
+        "leftleg": 48,
+        "rightarm": 54,
+        "leftarm": 54,
+        "body": 402,
+        "head": 288
+      },
+      "trianglesByGroup": {
+        "rightleg": 96,
+        "leftleg": 96,
+        "rightarm": 108,
+        "leftarm": 108,
+        "body": 804,
+        "head": 576
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1192,
+      "faces": 894,
+      "sha256": {
+        "model.obj": "6d886cb1269fbcee0ee3386fd95122c61a1a2b581fa784cd32237229c930322f",
+        "texture.png": "8ef7c1a7faa5edd9530fa7e2ab1aa9c27f4cc9e1d7d7266a17122534dfcf4e0d",
+        "icon.png": "3bda319c2245a4a060a45b130026ba2ff5700d7025ed8de3e8f5877a69055f7c"
+      }
+    },
+    "reih": {
+      "runtimeId": "reih",
+      "encoding": "utf-8",
+      "sourceTexture": "tex.png",
+      "sourceIcon": "reih.png",
+      "facesByGroup": {
+        "body": 1104,
+        "rightarm": 420,
+        "leftarm": 444,
+        "head": 2604,
+        "rightleg": 360,
+        "leftleg": 636
+      },
+      "trianglesByGroup": {
+        "body": 1104,
+        "rightarm": 420,
+        "leftarm": 444,
+        "head": 2604,
+        "rightleg": 360,
+        "leftleg": 636
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2115,
+      "faces": 5568,
+      "sha256": {
+        "model.obj": "3755bd44acf3aefb6ca0661db93722033b415307f28acce2d8e5b56e8ad5330e",
+        "texture.png": "f5832aade3c79323f58f693cc7710a94bd9ac6b675211a6244ed0f649e9ea0c5",
+        "icon.png": "ebf256d9e13c33c53cb589cce48e3c8714a23d88d8a73066d5238fbfa0ffd8a7"
+      }
+    },
+    "sniper": {
+      "runtimeId": "sniper",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "sniper.png",
+      "facesByGroup": {
+        "rightleg": 72,
+        "leftleg": 132,
+        "rightarm": 48,
+        "leftarm": 48,
+        "body": 810,
+        "head": 576
+      },
+      "trianglesByGroup": {
+        "rightleg": 144,
+        "leftleg": 264,
+        "rightarm": 96,
+        "leftarm": 96,
+        "body": 1620,
+        "head": 1152
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2248,
+      "faces": 1686,
+      "sha256": {
+        "model.obj": "249ff5e8ef8d843c96ed54f393a029c2f380e8836fccdce111e8f7d4cb28e19d",
+        "texture.png": "ff8f4f9964c9095062dafd8751db25fea77dbd80a8a5842e2de1b4de21784f9d",
+        "icon.png": "aff97e78ea438b3520140cd845f0daf0220fa0ac8517135f043de571796b7a5e"
+      }
+    },
+    "sniper_camo": {
+      "runtimeId": "sniper_camo",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "sniper_camo.png",
+      "facesByGroup": {
+        "head": 360,
+        "leftleg": 96,
+        "leftarm": 114,
+        "rightarm": 114,
+        "rightleg": 96,
+        "body": 792
+      },
+      "trianglesByGroup": {
+        "head": 720,
+        "leftleg": 192,
+        "leftarm": 228,
+        "rightarm": 228,
+        "rightleg": 192,
+        "body": 1584
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2096,
+      "faces": 1572,
+      "sha256": {
+        "model.obj": "2dd2c0a446c26cd2d35a2e7851350d12efc3774edd27f91eb14aa029db5045c0",
+        "texture.png": "3f5e51eae6599a1a0b73cbe627fbbdd76b4f589fafb1439ba72c8a6a5f2c4193",
+        "icon.png": "5eb2460106571dbab1256935a18bd790a441efd926b3c82d606b558e9a17f2dd"
+      }
+    },
+    "standart_k": {
+      "runtimeId": "standart_k",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "standart_k.png",
+      "facesByGroup": {
+        "rightleg": 90,
+        "leftleg": 138,
+        "rightarm": 66,
+        "leftarm": 66,
+        "body": 468,
+        "head": 402
+      },
+      "trianglesByGroup": {
+        "rightleg": 180,
+        "leftleg": 276,
+        "rightarm": 132,
+        "leftarm": 132,
+        "body": 936,
+        "head": 804
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1640,
+      "faces": 1230,
+      "sha256": {
+        "model.obj": "be3a611e6cf2c61bd9103e4d41bfb0316293d67dde42fe8dfe6fff9bd3202ad5",
+        "texture.png": "4273bc2efc102899a58f85d4be290753843006d0eaff3d45166a2676963b30ec",
+        "icon.png": "ce1396b630c98567e75154541c89a7b91c414fd0a1233dd1c967f91a2e8cdec9"
+      }
+    },
+    "sverchok": {
+      "runtimeId": "sverchok",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "sverchok.png",
+      "facesByGroup": {
+        "leftarm": 78,
+        "body": 378,
+        "rightarm": 84,
+        "leftleg": 90,
+        "rightleg": 102,
+        "head": 96
+      },
+      "trianglesByGroup": {
+        "leftarm": 156,
+        "body": 756,
+        "rightarm": 168,
+        "leftleg": 180,
+        "rightleg": 204,
+        "head": 192
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 1104,
+      "faces": 828,
+      "sha256": {
+        "model.obj": "5f10e8e7416a205e1cdff55362c1d15b06b25d8037d4a9445a705accf5d6dd14",
+        "texture.png": "30792187528b5c46009bddbf5ee64acb129effa2a8baf9a2a8f54c1aef437eb3",
+        "icon.png": "803a666a8244371e56f4150ecd219431ab8971b9702c3eeb8f0cf8f54f8a8486"
+      }
+    },
+    "sverchok_mp6": {
+      "runtimeId": "sverchok_mp6",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "sverchok_mp6.png",
+      "facesByGroup": {
+        "head": 966,
+        "rightarm": 84,
+        "rightleg": 102,
+        "leftleg": 90,
+        "body": 378,
+        "leftarm": 78
+      },
+      "trianglesByGroup": {
+        "head": 1932,
+        "rightarm": 168,
+        "rightleg": 204,
+        "leftleg": 180,
+        "body": 756,
+        "leftarm": 156
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2264,
+      "faces": 1698,
+      "sha256": {
+        "model.obj": "2e061e6f2f54844a127cecf7ffffc64f0f0f005774256bb03881076350e37444",
+        "texture.png": "037ce5d069c06485c23c1e3f11a0692ebf95e030201c2aad39e13060956c0e23",
+        "icon.png": "a25f5e06db17f7875548f4fc759ea49c0ceb299125a0ba0f1d91c383e6a769b1"
+      }
+    },
+    "taiga": {
+      "runtimeId": "taiga",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "taiga.png",
+      "facesByGroup": {
+        "leftleg": 96,
+        "rightleg": 96,
+        "head": 738,
+        "leftarm": 78,
+        "rightarm": 84,
+        "body": 702
+      },
+      "trianglesByGroup": {
+        "leftleg": 192,
+        "rightleg": 192,
+        "head": 1476,
+        "leftarm": 156,
+        "rightarm": 168,
+        "body": 1404
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2392,
+      "faces": 1794,
+      "sha256": {
+        "model.obj": "8d8a74688833856890320bcea1420a01de5b75207cee1c93fc333a647af13546",
+        "texture.png": "3e31b715c1afcae92e8314dc44a0a2913e11a9d64cf020c337aeabaf9ebe7b68",
+        "icon.png": "eb0ebd23a76525463fc89da2ad817376333bd4eb2778c254f2764cd7b85b30a7"
+      }
+    },
+    "vatnik": {
+      "runtimeId": "vatnik",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "vatnik.png",
+      "facesByGroup": {
+        "rightleg": 54,
+        "leftleg": 54,
+        "rightarm": 72,
+        "leftarm": 72,
+        "body": 150
+      },
+      "trianglesByGroup": {
+        "rightleg": 108,
+        "leftleg": 108,
+        "rightarm": 144,
+        "leftarm": 144,
+        "body": 300
+      },
+      "groups": [
+        "body",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 536,
+      "faces": 402,
+      "sha256": {
+        "model.obj": "84abe3f4720af0d9bd731ac92299ab05a49272958ab66ccd7886ef6742de64ee",
+        "texture.png": "2b3d6e735babc0e4eebc7c398bf81899e5809d6bee4cc5c4b3dcba5f3fdc7c3b",
+        "icon.png": "4e7b167ecac1e45ebeabeb0d35151951f6499cad585f65347a3fd0a0d8154b4f"
+      }
+    },
+    "voen_tactical": {
+      "runtimeId": "voen_tactical",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "voen_tactical.png",
+      "facesByGroup": {
+        "rightleg": 144,
+        "leftleg": 126,
+        "rightarm": 114,
+        "leftarm": 48,
+        "body": 546,
+        "head": 612
+      },
+      "trianglesByGroup": {
+        "rightleg": 288,
+        "leftleg": 252,
+        "rightarm": 228,
+        "leftarm": 96,
+        "body": 1092,
+        "head": 1224
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2120,
+      "faces": 1590,
+      "sha256": {
+        "model.obj": "d91facaf17eccb6a897f7e01bbb20a1476771a7eabc5a972fd5aef2391708243",
+        "texture.png": "cb4decf71cb68096b1fe1e430560af596c9ecfe8a81707681c0a10011a6b99cd",
+        "icon.png": "143d6a0f93f297196f34fa64afed3ce1715715b70dde789baf5642a580a77789"
+      }
+    },
+    "zapal": {
+      "runtimeId": "zapal",
+      "encoding": "utf-8",
+      "sourceTexture": "texture.png",
+      "sourceIcon": "zapal.png",
+      "facesByGroup": {
+        "rightarm": 90,
+        "rightleg": 96,
+        "leftleg": 96,
+        "body": 906,
+        "head": 690,
+        "leftarm": 84
+      },
+      "trianglesByGroup": {
+        "rightarm": 180,
+        "rightleg": 192,
+        "leftleg": 192,
+        "body": 1812,
+        "head": 1380,
+        "leftarm": 168
+      },
+      "groups": [
+        "body",
+        "head",
+        "leftarm",
+        "leftleg",
+        "rightarm",
+        "rightleg"
+      ],
+      "vertices": 2616,
+      "faces": 1962,
+      "sha256": {
+        "model.obj": "0d48d6c2383bf7c0a1414ce15a82dee7c63a196273ffa41fe5b273e2b74c2f00",
+        "texture.png": "ef97d1d2424039677f6f8c3799018d94b6bdfb1d16e644916fc7afa8c9b7975e",
+        "icon.png": "f7a694dbad7c2128e279e7c16363231b2a59b74377a9ee28cb0ee9c2da266586"
+      }
     }
   },
   "items": [
     {
+      "id": "mcmod_btbkz_helmet",
+      "model": "btbkz",
+      "sourceId": "BTBKZ",
+      "mode": "helmet",
+      "nameRu": "Броня БТБКЗ — шлем [MCMOD]",
+      "nameEn": "Btbkz — helmet [MCMOD]",
+      "condition": 3000,
+      "sourceProtect": 68,
+      "defence": 0.136,
+      "radiation": false,
+      "sourceType": 13
+    },
+    {
+      "id": "mcmod_btbkz_vest",
+      "model": "btbkz",
+      "sourceId": "BTBKZ",
+      "mode": "vest",
+      "nameRu": "Броня БТБКЗ — бронежилет [MCMOD]",
+      "nameEn": "Btbkz — vest [MCMOD]",
+      "condition": 3000,
+      "sourceProtect": 68,
+      "defence": 0.544,
+      "radiation": false,
+      "sourceType": 13
+    },
+    {
+      "id": "mcmod_scout_armor_helmet",
+      "model": "scout_armor",
+      "sourceId": "Scout_armor",
+      "mode": "helmet",
+      "nameRu": "Броня разведчика — шлем [MCMOD]",
+      "nameEn": "Scout Armor — helmet [MCMOD]",
+      "condition": 2500,
+      "sourceProtect": 48,
+      "defence": 0.096,
+      "radiation": true,
+      "sourceType": 8
+    },
+    {
+      "id": "mcmod_scout_armor_vest",
+      "model": "scout_armor",
+      "sourceId": "Scout_armor",
+      "mode": "vest",
+      "nameRu": "Броня разведчика — бронежилет [MCMOD]",
+      "nameEn": "Scout Armor — vest [MCMOD]",
+      "condition": 2500,
+      "sourceProtect": 48,
+      "defence": 0.384,
+      "radiation": false,
+      "sourceType": 8
+    },
+    {
+      "id": "mcmod_bandit_armor_helmet",
+      "model": "bandit_armor",
+      "sourceId": "bandit_armor",
+      "mode": "helmet",
+      "nameRu": "Бандитская броня — шлем [MCMOD]",
+      "nameEn": "Bandit Armor — helmet [MCMOD]",
+      "condition": 900,
+      "sourceProtect": 55,
+      "defence": 0.11000000000000001,
+      "radiation": false,
+      "sourceType": 10
+    },
+    {
+      "id": "mcmod_bandit_armor_vest",
+      "model": "bandit_armor",
+      "sourceId": "bandit_armor",
+      "mode": "vest",
+      "nameRu": "Бандитская броня — бронежилет [MCMOD]",
+      "nameEn": "Bandit Armor — vest [MCMOD]",
+      "condition": 900,
+      "sourceProtect": 55,
+      "defence": 0.44000000000000006,
+      "radiation": false,
+      "sourceType": 10
+    },
+    {
       "id": "mcmod_banditkurtka",
       "model": "banditkurtka",
+      "sourceId": "banditkurtka",
       "mode": "whole",
       "nameRu": "Бандитская куртка [MCMOD]",
       "nameEn": "Banditkurtka — whole [MCMOD]",
@@ -352,6 +1525,7 @@
     {
       "id": "mcmod_bkz_helmet",
       "model": "bkz",
+      "sourceId": "bkz",
       "mode": "helmet",
       "nameRu": "Броня БКЗ — шлем [MCMOD]",
       "nameEn": "Bkz — helmet [MCMOD]",
@@ -364,6 +1538,7 @@
     {
       "id": "mcmod_bkz_vest",
       "model": "bkz",
+      "sourceId": "bkz",
       "mode": "vest",
       "nameRu": "Броня БКЗ — бронежилет [MCMOD]",
       "nameEn": "Bkz — vest [MCMOD]",
@@ -374,8 +1549,48 @@
       "sourceType": 12
     },
     {
+      "id": "mcmod_cherv_helmet",
+      "model": "cherv",
+      "sourceId": "cherv",
+      "mode": "helmet",
+      "nameRu": "Броня червепоклоников — шлем [MCMOD]",
+      "nameEn": "Cherv — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": false,
+      "sourceType": 31
+    },
+    {
+      "id": "mcmod_cherv_vest",
+      "model": "cherv",
+      "sourceId": "cherv",
+      "mode": "vest",
+      "nameRu": "Броня червепоклоников — бронежилет [MCMOD]",
+      "nameEn": "Cherv — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 31
+    },
+    {
+      "id": "mcmod_gasmask_helmet",
+      "model": "gasmask",
+      "sourceId": "gasmask",
+      "mode": "helmet",
+      "nameRu": "Противогаз — шлем [MCMOD]",
+      "nameEn": "Gasmask — helmet [MCMOD]",
+      "condition": 300,
+      "sourceProtect": 0,
+      "defence": 0.0,
+      "radiation": true,
+      "sourceType": 1
+    },
+    {
       "id": "mcmod_ghillie",
       "model": "ghillie",
+      "sourceId": "ghillie",
       "mode": "whole",
       "nameRu": "Камуфлированная броня [MCMOD]",
       "nameEn": "Ghillie — whole [MCMOD]",
@@ -386,8 +1601,126 @@
       "sourceType": 14
     },
     {
+      "id": "mcmod_gorka_helmet",
+      "model": "gorka",
+      "sourceId": "gorka",
+      "mode": "helmet",
+      "nameRu": "Горка — шлем [MCMOD]",
+      "nameEn": "Gorka — helmet [MCMOD]",
+      "condition": 800,
+      "sourceProtect": 25,
+      "defence": 0.05,
+      "radiation": false,
+      "sourceType": 15
+    },
+    {
+      "id": "mcmod_gorka_vest",
+      "model": "gorka",
+      "sourceId": "gorka",
+      "mode": "vest",
+      "nameRu": "Горка — бронежилет [MCMOD]",
+      "nameEn": "Gorka — vest [MCMOD]",
+      "condition": 800,
+      "sourceProtect": 25,
+      "defence": 0.2,
+      "radiation": false,
+      "sourceType": 15
+    },
+    {
+      "id": "mcmod_hanza_helmet",
+      "model": "hanza",
+      "sourceId": "hanza",
+      "mode": "helmet",
+      "nameRu": "Броня Ганзы — шлем [MCMOD]",
+      "nameEn": "Hanza — helmet [MCMOD]",
+      "condition": 1350,
+      "sourceProtect": 55,
+      "defence": 0.11000000000000001,
+      "radiation": true,
+      "sourceType": 2
+    },
+    {
+      "id": "mcmod_hanza_vest",
+      "model": "hanza",
+      "sourceId": "hanza",
+      "mode": "vest",
+      "nameRu": "Броня Ганзы — бронежилет [MCMOD]",
+      "nameEn": "Hanza — vest [MCMOD]",
+      "condition": 1350,
+      "sourceProtect": 55,
+      "defence": 0.44000000000000006,
+      "radiation": false,
+      "sourceType": 2
+    },
+    {
+      "id": "mcmod_himza_helmet",
+      "model": "himza",
+      "sourceId": "himza",
+      "mode": "helmet",
+      "nameRu": "Химза — шлем [MCMOD]",
+      "nameEn": "Himza — helmet [MCMOD]",
+      "condition": 1200,
+      "sourceProtect": 10,
+      "defence": 0.020000000000000004,
+      "radiation": true,
+      "sourceType": 3
+    },
+    {
+      "id": "mcmod_himza_vest",
+      "model": "himza",
+      "sourceId": "himza",
+      "mode": "vest",
+      "nameRu": "Химза — бронежилет [MCMOD]",
+      "nameEn": "Himza — vest [MCMOD]",
+      "condition": 1200,
+      "sourceProtect": 10,
+      "defence": 0.08000000000000002,
+      "radiation": false,
+      "sourceType": 3
+    },
+    {
+      "id": "mcmod_juggernaut_helmet",
+      "model": "juggernaut",
+      "sourceId": "juggernaut",
+      "mode": "helmet",
+      "nameRu": "Джегернаут — шлем [MCMOD]",
+      "nameEn": "Juggernaut — helmet [MCMOD]",
+      "condition": 8000,
+      "sourceProtect": 75,
+      "defence": 0.15000000000000002,
+      "radiation": false,
+      "sourceType": 16
+    },
+    {
+      "id": "mcmod_juggernaut_vest",
+      "model": "juggernaut",
+      "sourceId": "juggernaut",
+      "mode": "vest",
+      "nameRu": "Джегернаут — бронежилет [MCMOD]",
+      "nameEn": "Juggernaut — vest [MCMOD]",
+      "condition": 8000,
+      "sourceProtect": 75,
+      "defence": 0.6000000000000001,
+      "radiation": false,
+      "sourceType": 16
+    },
+    {
+      "id": "mcmod_kitel_vest",
+      "model": "kitel",
+      "sourceId": "kitel",
+      "mode": "vest",
+      "nameRu": "Китель — бронежилет [MCMOD]",
+      "nameEn": "Kitel — vest [MCMOD]",
+      "condition": 600,
+      "sourceProtect": 16,
+      "defence": 0.16,
+      "radiation": false,
+      "sourceType": 17
+    },
+    {
       "id": "mcmod_kurtka",
       "model": "kurtka",
+      "sourceId": "kurtka",
       "mode": "whole",
       "nameRu": "Куртка [MCMOD]",
       "nameEn": "Kurtka — whole [MCMOD]",
@@ -398,8 +1731,35 @@
       "sourceType": 18
     },
     {
+      "id": "mcmod_mgu_helmet",
+      "model": "mgu",
+      "sourceId": "mgu",
+      "mode": "helmet",
+      "nameRu": "Броня МГУ — шлем [MCMOD]",
+      "nameEn": "Mgu — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": false,
+      "sourceType": 33
+    },
+    {
+      "id": "mcmod_mgu_vest",
+      "model": "mgu",
+      "sourceId": "mgu",
+      "mode": "vest",
+      "nameRu": "Броня МГУ — бронежилет [MCMOD]",
+      "nameEn": "Mgu — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 33
+    },
+    {
       "id": "mcmod_officer_ozk",
       "model": "officer_ozk",
+      "sourceId": "officer_ozk",
       "mode": "whole",
       "nameRu": "Офицерский ОЗК [MCMOD]",
       "nameEn": "Officer Ozk — whole [MCMOD]",
@@ -410,8 +1770,61 @@
       "sourceType": 4
     },
     {
+      "id": "mcmod_olkhon_helmet",
+      "model": "olkhon",
+      "sourceId": "olkhon",
+      "mode": "helmet",
+      "nameRu": "Ольхон — шлем [MCMOD]",
+      "nameEn": "Olkhon — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 62,
+      "defence": 0.124,
+      "radiation": false,
+      "sourceType": 19
+    },
+    {
+      "id": "mcmod_olkhon_vest",
+      "model": "olkhon",
+      "sourceId": "olkhon",
+      "mode": "vest",
+      "nameRu": "Ольхон — бронежилет [MCMOD]",
+      "nameEn": "Olkhon — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 62,
+      "defence": 0.496,
+      "radiation": false,
+      "sourceType": 19
+    },
+    {
+      "id": "mcmod_ozk_helmet",
+      "model": "ozk",
+      "sourceId": "ozk",
+      "mode": "helmet",
+      "nameRu": "ОЗК — шлем [MCMOD]",
+      "nameEn": "Ozk — helmet [MCMOD]",
+      "condition": 1150,
+      "sourceProtect": 10,
+      "defence": 0.020000000000000004,
+      "radiation": true,
+      "sourceType": 5
+    },
+    {
+      "id": "mcmod_ozk_vest",
+      "model": "ozk",
+      "sourceId": "ozk",
+      "mode": "vest",
+      "nameRu": "ОЗК — бронежилет [MCMOD]",
+      "nameEn": "Ozk — vest [MCMOD]",
+      "condition": 1150,
+      "sourceProtect": 10,
+      "defence": 0.08000000000000002,
+      "radiation": false,
+      "sourceType": 5
+    },
+    {
       "id": "mcmod_plash",
       "model": "plash",
+      "sourceId": "plash",
       "mode": "whole",
       "nameRu": "Плащ [MCMOD]",
       "nameEn": "Plash — whole [MCMOD]",
@@ -420,51 +1833,378 @@
       "defence": 0.05,
       "radiation": false,
       "sourceType": 20
+    },
+    {
+      "id": "mcmod_police_helmet",
+      "model": "police",
+      "sourceId": "police",
+      "mode": "helmet",
+      "nameRu": "Кстюм полицейского — шлем [MCMOD]",
+      "nameEn": "Police — helmet [MCMOD]",
+      "condition": 600,
+      "sourceProtect": 45,
+      "defence": 0.09000000000000001,
+      "radiation": false,
+      "sourceType": 21
+    },
+    {
+      "id": "mcmod_police_vest",
+      "model": "police",
+      "sourceId": "police",
+      "mode": "vest",
+      "nameRu": "Кстюм полицейского — бронежилет [MCMOD]",
+      "nameEn": "Police — vest [MCMOD]",
+      "condition": 600,
+      "sourceProtect": 45,
+      "defence": 0.36000000000000004,
+      "radiation": false,
+      "sourceType": 21
+    },
+    {
+      "id": "mcmod_povstanec_helmet",
+      "model": "povstanec",
+      "sourceId": "povstanec",
+      "mode": "helmet",
+      "nameRu": "Броня Повстанца — шлем [MCMOD]",
+      "nameEn": "Povstanec — helmet [MCMOD]",
+      "condition": 3500,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": true,
+      "sourceType": 6
+    },
+    {
+      "id": "mcmod_povstanec_vest",
+      "model": "povstanec",
+      "sourceId": "povstanec",
+      "mode": "vest",
+      "nameRu": "Броня Повстанца — бронежилет [MCMOD]",
+      "nameEn": "Povstanec — vest [MCMOD]",
+      "condition": 3500,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 6
+    },
+    {
+      "id": "mcmod_prorok_helmet",
+      "model": "prorok",
+      "sourceId": "prorok",
+      "mode": "helmet",
+      "nameRu": "Комбинезон пророк — шлем [MCMOD]",
+      "nameEn": "Prorok — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": true,
+      "sourceType": 30
+    },
+    {
+      "id": "mcmod_prorok_vest",
+      "model": "prorok",
+      "sourceId": "prorok",
+      "mode": "vest",
+      "nameRu": "Комбинезон пророк — бронежилет [MCMOD]",
+      "nameEn": "Prorok — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 30
+    },
+    {
+      "id": "mcmod_psh1b_helmet",
+      "model": "psh1b",
+      "sourceId": "psh1b",
+      "mode": "helmet",
+      "nameRu": "ПШ-1Б — шлем [MCMOD]",
+      "nameEn": "Psh1B — helmet [MCMOD]",
+      "condition": 2500,
+      "sourceProtect": 45,
+      "defence": 0.09000000000000001,
+      "radiation": true,
+      "sourceType": 7
+    },
+    {
+      "id": "mcmod_psh1b_vest",
+      "model": "psh1b",
+      "sourceId": "psh1b",
+      "mode": "vest",
+      "nameRu": "ПШ-1Б — бронежилет [MCMOD]",
+      "nameEn": "Psh1B — vest [MCMOD]",
+      "condition": 2500,
+      "sourceProtect": 45,
+      "defence": 0.36000000000000004,
+      "radiation": false,
+      "sourceType": 7
+    },
+    {
+      "id": "mcmod_reih_helmet",
+      "model": "reih",
+      "sourceId": "reih",
+      "mode": "helmet",
+      "nameRu": "Броня 4ого рейха — шлем [MCMOD]",
+      "nameEn": "Reih — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": false,
+      "sourceType": 32
+    },
+    {
+      "id": "mcmod_reih_vest",
+      "model": "reih",
+      "sourceId": "reih",
+      "mode": "vest",
+      "nameRu": "Броня 4ого рейха — бронежилет [MCMOD]",
+      "nameEn": "Reih — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 32
+    },
+    {
+      "id": "mcmod_sniper_helmet",
+      "model": "sniper",
+      "sourceId": "sniper",
+      "mode": "helmet",
+      "nameRu": "Снайперский костюм — шлем [MCMOD]",
+      "nameEn": "Sniper — helmet [MCMOD]",
+      "condition": 1200,
+      "sourceProtect": 53,
+      "defence": 0.10600000000000001,
+      "radiation": false,
+      "sourceType": 22
+    },
+    {
+      "id": "mcmod_sniper_vest",
+      "model": "sniper",
+      "sourceId": "sniper",
+      "mode": "vest",
+      "nameRu": "Снайперский костюм — бронежилет [MCMOD]",
+      "nameEn": "Sniper — vest [MCMOD]",
+      "condition": 1200,
+      "sourceProtect": 53,
+      "defence": 0.42400000000000004,
+      "radiation": false,
+      "sourceType": 22
+    },
+    {
+      "id": "mcmod_sniper_camo_helmet",
+      "model": "sniper_camo",
+      "sourceId": "sniper_camo",
+      "mode": "helmet",
+      "nameRu": "Снайперский камуфляж — шлем [MCMOD]",
+      "nameEn": "Sniper Camo — helmet [MCMOD]",
+      "condition": 800,
+      "sourceProtect": 55,
+      "defence": 0.11000000000000001,
+      "radiation": false,
+      "sourceType": 23
+    },
+    {
+      "id": "mcmod_sniper_camo_vest",
+      "model": "sniper_camo",
+      "sourceId": "sniper_camo",
+      "mode": "vest",
+      "nameRu": "Снайперский камуфляж — бронежилет [MCMOD]",
+      "nameEn": "Sniper Camo — vest [MCMOD]",
+      "condition": 800,
+      "sourceProtect": 55,
+      "defence": 0.44000000000000006,
+      "radiation": false,
+      "sourceType": 23
+    },
+    {
+      "id": "mcmod_standart_k_helmet",
+      "model": "standart_k",
+      "sourceId": "standart_k",
+      "mode": "helmet",
+      "nameRu": "Стандарт К — шлем [MCMOD]",
+      "nameEn": "Standart K — helmet [MCMOD]",
+      "condition": 5500,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": false,
+      "sourceType": 24
+    },
+    {
+      "id": "mcmod_standart_k_vest",
+      "model": "standart_k",
+      "sourceId": "standart_k",
+      "mode": "vest",
+      "nameRu": "Стандарт К — бронежилет [MCMOD]",
+      "nameEn": "Standart K — vest [MCMOD]",
+      "condition": 5500,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 24
+    },
+    {
+      "id": "mcmod_sverchok_helmet",
+      "model": "sverchok",
+      "sourceId": "sverchok",
+      "mode": "helmet",
+      "nameRu": "Сверчок — шлем [MCMOD]",
+      "nameEn": "Sverchok — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 53,
+      "defence": 0.10600000000000001,
+      "radiation": false,
+      "sourceType": 25
+    },
+    {
+      "id": "mcmod_sverchok_vest",
+      "model": "sverchok",
+      "sourceId": "sverchok",
+      "mode": "vest",
+      "nameRu": "Сверчок — бронежилет [MCMOD]",
+      "nameEn": "Sverchok — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 53,
+      "defence": 0.42400000000000004,
+      "radiation": false,
+      "sourceType": 25
+    },
+    {
+      "id": "mcmod_sverchok_mp6_helmet",
+      "model": "sverchok_mp6",
+      "sourceId": "sverchok_mp6",
+      "mode": "helmet",
+      "nameRu": "Сверчок МП-6 — шлем [MCMOD]",
+      "nameEn": "Sverchok Mp6 — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 55,
+      "defence": 0.11000000000000001,
+      "radiation": true,
+      "sourceType": 9
+    },
+    {
+      "id": "mcmod_sverchok_mp6_vest",
+      "model": "sverchok_mp6",
+      "sourceId": "sverchok_mp6",
+      "mode": "vest",
+      "nameRu": "Сверчок МП-6 — бронежилет [MCMOD]",
+      "nameEn": "Sverchok Mp6 — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 55,
+      "defence": 0.44000000000000006,
+      "radiation": false,
+      "sourceType": 9
+    },
+    {
+      "id": "mcmod_taiga_helmet",
+      "model": "taiga",
+      "sourceId": "taiga",
+      "mode": "helmet",
+      "nameRu": "Костюм Тайга — шлем [MCMOD]",
+      "nameEn": "Taiga — helmet [MCMOD]",
+      "condition": 3500,
+      "sourceProtect": 50,
+      "defence": 0.1,
+      "radiation": false,
+      "sourceType": 26
+    },
+    {
+      "id": "mcmod_taiga_vest",
+      "model": "taiga",
+      "sourceId": "taiga",
+      "mode": "vest",
+      "nameRu": "Костюм Тайга — бронежилет [MCMOD]",
+      "nameEn": "Taiga — vest [MCMOD]",
+      "condition": 3500,
+      "sourceProtect": 50,
+      "defence": 0.4,
+      "radiation": false,
+      "sourceType": 26
+    },
+    {
+      "id": "mcmod_vatnik_vest",
+      "model": "vatnik",
+      "sourceId": "vatnik",
+      "mode": "vest",
+      "nameRu": "Ватник — бронежилет [MCMOD]",
+      "nameEn": "Vatnik — vest [MCMOD]",
+      "condition": 300,
+      "sourceProtect": 12,
+      "defence": 0.12,
+      "radiation": false,
+      "sourceType": 27
+    },
+    {
+      "id": "mcmod_voen_tactical_helmet",
+      "model": "voen_tactical",
+      "sourceId": "voen_tactical",
+      "mode": "helmet",
+      "nameRu": "Военная тактическая броня — шлем [MCMOD]",
+      "nameEn": "Voen Tactical — helmet [MCMOD]",
+      "condition": 4500,
+      "sourceProtect": 60,
+      "defence": 0.12,
+      "radiation": false,
+      "sourceType": 28
+    },
+    {
+      "id": "mcmod_voen_tactical_vest",
+      "model": "voen_tactical",
+      "sourceId": "voen_tactical",
+      "mode": "vest",
+      "nameRu": "Военная тактическая броня — бронежилет [MCMOD]",
+      "nameEn": "Voen Tactical — vest [MCMOD]",
+      "condition": 4500,
+      "sourceProtect": 60,
+      "defence": 0.48,
+      "radiation": false,
+      "sourceType": 28
+    },
+    {
+      "id": "mcmod_zapal_helmet",
+      "model": "zapal",
+      "sourceId": "zapal",
+      "mode": "helmet",
+      "nameRu": "Кстюм Запал — шлем [MCMOD]",
+      "nameEn": "Zapal — helmet [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 70,
+      "defence": 0.13999999999999999,
+      "radiation": true,
+      "sourceType": 29
+    },
+    {
+      "id": "mcmod_zapal_vest",
+      "model": "zapal",
+      "sourceId": "zapal",
+      "mode": "vest",
+      "nameRu": "Кстюм Запал — бронежилет [MCMOD]",
+      "nameEn": "Zapal — vest [MCMOD]",
+      "condition": 4000,
+      "sourceProtect": 70,
+      "defence": 0.5599999999999999,
+      "radiation": false,
+      "sourceType": 29
     }
   ],
-  "pendingArmor": [
-    "gasmask",
-    "hanza",
-    "himza",
-    "ozk",
-    "povstanec",
-    "psh1b",
-    "Scout_armor",
-    "sverchok_mp6",
-    "bandit_armor",
-    "BTBKZ",
-    "gorka",
-    "juggernaut",
-    "kitel",
-    "olkhon",
-    "police",
-    "sniper",
-    "sniper_camo",
-    "standart_k",
-    "sverchok",
-    "taiga",
-    "vatnik",
-    "voen_tactical",
-    "zapal",
-    "prorok",
-    "cherv",
-    "reih",
-    "mgu"
+  "unusedModelFolders": [
+    "boi_armor"
   ],
+  "pendingArmor": [],
   "remainingContent": [
-    "Other 27 armor models",
     "Guns and ammunition",
     "Decorative blocks and items",
     "Original player/inventory/network/condition/radiation mechanics audit"
   ],
   "adaptations": [
-    "Whole five outfits use CHEST; other sets use HEAD + CHEST (first example BKZ).",
-    "Split BKZ assigns 20%/80% of source protection; total stays 60%, not 120%. Each part retains source max condition.",
+    "Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.",
+    "Split sets assign 20%/80% of source protection to helmet/vest, without doubling. Single-part items retain 100% of source protection. Each part retains source max condition.",
     "Condition is represented by normal armor damage and mirrored to condition NBT; original server damage formula still needs audit.",
-    "Officer OZK uses existing port radiation + filter mechanics; not yet claimed identical to MCMOD radiation.",
+    "Original radiation flags enable port filters on the corresponding helmet (or whole officer OZK); split vests alone do not provide breathing protection. Original MCMOD radiation formulas still need audit.",
     "Original NoDrop tooltip alone does not prove retention implementation; use existing givenodrop command until original events audited.",
     "Head of a whole outfit is hidden when a separate head-slot item is worn, avoiding duplicate helmets.",
-    "Kamuflyazh interpreted as ghillie (original name Kamuflirovannaya bronya); sniper_camo remains pending.",
-    "All six original OBJ/atlas/icon bytes are preserved; group animation uses original limb transforms."
+    "The five whole outfits are unchanged; sniper_camo is a separate original set and uses HEAD + CHEST.",
+    "BTBKZ uses its own supplied atlas instead of the original loader typo referencing BKZ texture. Hanza uses the registered hanzaz icon.",
+    "Raw OBJ bytes stay unchanged, including windows-1251 material labels in gasmask; both encodings are supported.",
+    "All 33 original OBJ/atlas/icon triples are preserved; group animation uses original limb transforms."
   ]
 }

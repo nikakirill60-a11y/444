@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""First MCMOD batch, from downloaded original files + CFR reference, never invented meshes."""
+"""All registered MCMOD armor, from downloaded original files + CFR reference, never invented meshes."""
 import hashlib
 import json
 import re
@@ -7,7 +7,44 @@ from import_content import ROOT, ASSETS, put, write_json
 
 SOURCE = ROOT / 'tools/mcmod-reference'
 WHOLE = {'officer_ozk', 'banditkurtka', 'kurtka', 'plash', 'ghillie'}
-IMPORTED = WHOLE | {'bkz'}
+ALLOWED_GROUPS = {'head', 'body', 'leftarm', 'rightarm', 'leftleg', 'rightleg'}
+TEXTURES = {'gasmask': 'texp.png', 'cherv': 'tex.png', 'reih': 'tex.png', 'mgu': 'tex.png'}
+
+
+def decode_obj(data):
+    try:
+        return data.decode('utf-8-sig'), 'utf-8'
+    except UnicodeDecodeError:
+        return data.decode('cp1251'), 'windows-1251'
+
+
+def geometry(text):
+    groups, triangles, group = {}, {}, None
+    for line in text.splitlines():
+        p = line.split('#', 1)[0].split()
+        if not p:
+            continue
+        if p[0] in ('g', 'o'):
+            group = p[1]
+        elif p[0] == 'f':
+            if group not in ALLOWED_GROUPS or len(p) < 4:
+                raise ValueError('Invalid armor group/face: ' + str(group))
+            groups[group] = groups.get(group, 0) + 1
+            triangles[group] = triangles.get(group, 0) + len(p) - 3
+    if not groups:
+        raise ValueError('Armor has no geometry')
+    return groups, triangles
+
+
+def modes_for(key, groups):
+    if key in WHOLE:
+        return ['whole']
+    return (['helmet'] if 'head' in groups else []) + (['vest'] if set(groups) - {'head'} else [])
+
+
+def radiation_sources():
+    source = (SOURCE / 'java/metro/common/ItemCustomArmor.java').read_text()
+    return set(re.findall(r'item.func_77973_b\(\) == RegisterArmor\.(\w+)', source))
 
 
 def registrations():
@@ -26,58 +63,65 @@ def registrations():
 def main():
     originals = registrations()
     entries, models = [], {}
-    for key in sorted(IMPORTED):
+    radiation = radiation_sources()
+    for key in sorted(originals):
         original = originals[key]
         mesh = (SOURCE / ('assets/armor/' + key + '/model.obj')).read_bytes()
-        texture = (SOURCE / ('assets/armor/' + key + '/texture.png')).read_bytes()
-        icon = (SOURCE / ('assets/icons/' + key + '.png')).read_bytes()
+        runtime = key.lower()
+        texture_name = TEXTURES.get(key, 'texture.png')
+        icon_name = ('hanzaz' if key == 'hanza' else runtime) + '.png'
+        texture = (SOURCE / ('assets/armor/' + key + '/' + texture_name)).read_bytes()
+        icon = (SOURCE / ('assets/icons/' + icon_name)).read_bytes()
         if not texture.startswith(b'\x89PNG\r\n\x1a\n') or not icon.startswith(b'\x89PNG\r\n\x1a\n'):
             raise ValueError('Invalid original PNG: ' + key)
-        text = mesh.decode('utf-8-sig')
-        groups = sorted(set(re.findall(r'^[go]\s+(\S+)', text, re.M)))
-        if not set(groups) <= {'head', 'body', 'leftarm', 'rightarm', 'leftleg', 'rightleg'}:
-            raise ValueError('Unexpected OBJ groups: ' + key)
+        text, encoding = decode_obj(mesh)
+        faces_by_group, triangles_by_group = geometry(text)
+        groups = sorted(faces_by_group)
         for suffix, data in [('model.obj', mesh), ('texture.png', texture)]:
-            put(ASSETS / ('models/mcmod/' + key + '/' + suffix) if suffix.endswith('.obj')
-                else ASSETS / ('textures/mcmod/armor/' + key + '.png'), data)
-        put(ASSETS / ('textures/mcmod/icons/' + key + '.png'), icon)
-        models[key] = {'groups': groups, 'vertices': len(re.findall(r'^v ', text, re.M)),
+            put(ASSETS / ('models/mcmod/' + runtime + '/' + suffix) if suffix.endswith('.obj')
+                else ASSETS / ('textures/mcmod/armor/' + runtime + '.png'), data)
+        put(ASSETS / ('textures/mcmod/icons/' + runtime + '.png'), icon)
+        models[key] = {'runtimeId': runtime, 'encoding': encoding, 'sourceTexture': texture_name, 'sourceIcon': icon_name,
+                       'facesByGroup': faces_by_group, 'trianglesByGroup': triangles_by_group, 'groups': groups, 'vertices': len(re.findall(r'^v ', text, re.M)),
                        'faces': len(re.findall(r'^f ', text, re.M)),
                        'sha256': {name: hashlib.sha256(data).hexdigest() for name, data in
                                   [('model.obj', mesh), ('texture.png', texture), ('icon.png', icon)]}}
-        modes = ['whole'] if key in WHOLE else ['helmet', 'vest']
+        modes = modes_for(key, groups)
         for mode in modes:
-            id_ = 'mcmod_' + key + ('' if mode == 'whole' else '_' + mode)
+            id_ = 'mcmod_' + runtime + ('' if mode == 'whole' else '_' + mode)
             # Splitting must not accidentally double the original set's protection.
-            share = 1 if mode == 'whole' else .2 if mode == 'helmet' else .8
+            share = 1 if len(modes) == 1 else .2 if mode == 'helmet' else .8
             name = original['name'] + ('' if mode == 'whole' else ' — шлем' if mode == 'helmet' else ' — бронежилет')
-            entries.append({'id': id_, 'model': key, 'mode': mode, 'nameRu': name + ' [MCMOD]',
+            entries.append({'id': id_, 'model': runtime, 'sourceId': key, 'mode': mode, 'nameRu': name + ' [MCMOD]',
                             'nameEn': key.replace('_', ' ').title() + ' — ' + mode + ' [MCMOD]',
                             'condition': original['condition'], 'sourceProtect': original['protect'],
                             'defence': original['protect'] / 100 * share,
-                            'radiation': key == 'officer_ozk', 'sourceType': original['type']})
+                            'radiation': key in radiation and mode in ('whole', 'helmet'), 'sourceType': original['type']})
             write_json(ASSETS / ('models/item/' + id_ + '.json'), {'parent': 'item/generated',
-                       'textures': {'layer0': 'metroport:mcmod/icons/' + key}})
+                       'textures': {'layer0': 'metroport:mcmod/icons/' + runtime}})
     write_json(ASSETS / 'mcmod_armor.json', entries)
-    write_json(ROOT / 'docs/mcmod-report.json', {'batch': 1, 'source': 'User-supplied MCMod.jar, unpacked on Google Drive',
+    write_json(ROOT / 'docs/mcmod-report.json', {'batch': 2, 'source': 'User-supplied MCMod.jar, unpacked on Google Drive',
         'registeredOriginalArmor': originals, 'importedModels': models, 'items': entries,
-        'pendingArmor': [key for key in originals if key not in IMPORTED],
-        'remainingContent': ['Other 27 armor models', 'Guns and ammunition', 'Decorative blocks and items',
+        'unusedModelFolders': ['boi_armor'],
+        'pendingArmor': [key for key in originals if key not in models],
+        'remainingContent': ['Guns and ammunition', 'Decorative blocks and items',
                              'Original player/inventory/network/condition/radiation mechanics audit'],
-        'adaptations': ['Whole five outfits use CHEST; other sets use HEAD + CHEST (first example BKZ).',
-                       'Split BKZ assigns 20%/80% of source protection; total stays 60%, not 120%. Each part retains source max condition.',
+        'adaptations': ['Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.',
+                       'Split sets assign 20%/80% of source protection to helmet/vest, without doubling. Single-part items retain 100% of source protection. Each part retains source max condition.',
                        'Condition is represented by normal armor damage and mirrored to condition NBT; original server damage formula still needs audit.',
-                       'Officer OZK uses existing port radiation + filter mechanics; not yet claimed identical to MCMOD radiation.',
+                       'Original radiation flags enable port filters on the corresponding helmet (or whole officer OZK); split vests alone do not provide breathing protection. Original MCMOD radiation formulas still need audit.',
                        'Original NoDrop tooltip alone does not prove retention implementation; use existing givenodrop command until original events audited.',
                        'Head of a whole outfit is hidden when a separate head-slot item is worn, avoiding duplicate helmets.',
-                       'Kamuflyazh interpreted as ghillie (original name Kamuflirovannaya bronya); sniper_camo remains pending.',
-                       'All six original OBJ/atlas/icon bytes are preserved; group animation uses original limb transforms.']})
+                       'The five whole outfits are unchanged; sniper_camo is a separate original set and uses HEAD + CHEST.',
+                       'BTBKZ uses its own supplied atlas instead of the original loader typo referencing BKZ texture. Hanza uses the registered hanzaz icon.',
+                       'Raw OBJ bytes stay unchanged, including windows-1251 material labels in gasmask; both encodings are supported.',
+                       'All 33 original OBJ/atlas/icon triples are preserved; group animation uses original limb transforms.']})
     for locale, name in [('ru_ru', 'nameRu'), ('en_us', 'nameEn')]:
         file = ASSETS / ('lang/' + locale + '.lang')
         lines = [line for line in file.read_text().splitlines() if not line.startswith('item.metroport.mcmod_')]
         lines.extend('item.metroport.' + entry['id'] + '.name=' + entry[name] for entry in entries)
         put(file, '\n'.join(lines) + '\n')
-    print('MCMOD batch 1:', len(models), 'armor meshes,', len(entries), 'items;', len(originals)-len(models), 'armor models pending')
+    print('MCMOD armor:', len(models), 'armor meshes,', len(entries), 'items;', len(originals)-len(models), 'armor models pending')
 
 
 if __name__ == '__main__':

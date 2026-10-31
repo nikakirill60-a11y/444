@@ -1,0 +1,86 @@
+[
+  {
+    "id": "mcmod_banditkurtka",
+    "model": "banditkurtka",
+    "mode": "whole",
+    "nameRu": "Бандитская куртка [MCMOD]",
+    "nameEn": "Banditkurtka — whole [MCMOD]",
+    "condition": 500,
+    "sourceProtect": 35,
+    "defence": 0.35,
+    "radiation": false,
+    "sourceType": 11
+  },
+  {
+    "id": "mcmod_bkz_helmet",
+    "model": "bkz",
+    "mode": "helmet",
+    "nameRu": "Броня БКЗ — шлем [MCMOD]",
+    "nameEn": "Bkz — helmet [MCMOD]",
+    "condition": 3000,
+    "sourceProtect": 60,
+    "defence": 0.12,
+    "radiation": false,
+    "sourceType": 12
+  },
+  {
+    "id": "mcmod_bkz_vest",
+    "model": "bkz",
+    "mode": "vest",
+    "nameRu": "Броня БКЗ — бронежилет [MCMOD]",
+    "nameEn": "Bkz — vest [MCMOD]",
+    "condition": 3000,
+    "sourceProtect": 60,
+    "defence": 0.48,
+    "radiation": false,
+    "sourceType": 12
+  },
+  {
+    "id": "mcmod_ghillie",
+    "model": "ghillie",
+    "mode": "whole",
+    "nameRu": "Камуфлированная броня [MCMOD]",
+    "nameEn": "Ghillie — whole [MCMOD]",
+    "condition": 800,
+    "sourceProtect": 27,
+    "defence": 0.27,
+    "radiation": false,
+    "sourceType": 14
+  },
+  {
+    "id": "mcmod_kurtka",
+    "model": "kurtka",
+    "mode": "whole",
+    "nameRu": "Куртка [MCMOD]",
+    "nameEn": "Kurtka — whole [MCMOD]",
+    "condition": 450,
+    "sourceProtect": 19,
+    "defence": 0.19,
+    "radiation": false,
+    "sourceType": 18
+  },
+  {
+    "id": "mcmod_officer_ozk",
+    "model": "officer_ozk",
+    "mode": "whole",
+    "nameRu": "Офицерский ОЗК [MCMOD]",
+    "nameEn": "Officer Ozk — whole [MCMOD]",
+    "condition": 1500,
+    "sourceProtect": 22,
+    "defence": 0.22,
+    "radiation": true,
+    "sourceType": 4
+  },
+  {
+    "id": "mcmod_plash",
+    "model": "plash",
+    "mode": "whole",
+    "nameRu": "Плащ [MCMOD]",
+    "nameEn": "Plash — whole [MCMOD]",
+    "condition": 800,
+    "sourceProtect": 5,
+    "defence": 0.05,
+    "radiation": false,
+    "sourceType": 20
+  }
+]

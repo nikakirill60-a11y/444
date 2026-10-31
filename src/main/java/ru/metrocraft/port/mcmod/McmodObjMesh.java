@@ -2,6 +2,8 @@ package ru.metrocraft.port.mcmod;
 
 import java.io.*;
 import java.util.*;
+import java.nio.ByteBuffer;
+import java.nio.charset.*;
 
 /** GPU-independent OBJ reader. Both Cinema4D g and Blender o delimit articulated parts. */
 public final class McmodObjMesh {
@@ -11,6 +13,17 @@ public final class McmodObjMesh {
         for (Map.Entry<String, List<float[]>> entry : data.entrySet())
             result.put(entry.getKey(), Collections.unmodifiableList(entry.getValue()));
         groups = Collections.unmodifiableMap(result);
+    }
+    /** Preserve raw source OBJ, including CP1251 material labels in the original gas mask. */
+    public static McmodObjMesh read(InputStream input) throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8192]; int length;
+        while ((length=input.read(buffer))!=-1) bytes.write(buffer,0,length);
+        byte[] data=bytes.toByteArray(); String text;
+        try { text=StandardCharsets.UTF_8.newDecoder().decode(ByteBuffer.wrap(data)).toString(); }
+        catch (CharacterCodingException e) { text=new String(data,Charset.forName("windows-1251")); }
+        if (text.startsWith("\uFEFF")) text=text.substring(1);
+        return read(new StringReader(text));
     }
     public static McmodObjMesh read(Reader input) throws IOException {
         BufferedReader reader = new BufferedReader(input);

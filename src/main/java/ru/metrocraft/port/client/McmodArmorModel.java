@@ -10,7 +10,6 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import ru.metrocraft.port.mcmod.*;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /** Original six OBJ groups follow vanilla biped joints, using recovered MCMOD transforms. */
@@ -24,8 +23,8 @@ public final class McmodArmorModel extends ModelBiped {
     private McmodObjMesh mesh() {
         return MESHES.computeIfAbsent(entry.model, key -> {
             ResourceLocation file = new ResourceLocation("metroport:models/mcmod/"+key+"/model.obj");
-            try (Reader reader = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(file).getInputStream(), StandardCharsets.UTF_8)) {
-                return McmodObjMesh.read(reader);
+            try (InputStream input = Minecraft.getMinecraft().getResourceManager().getResource(file).getInputStream()) {
+                return McmodObjMesh.read(input);
             } catch (Exception e) { throw new IllegalStateException("Cannot load MCMOD armor " + file, e); }
         });
     }
@@ -39,13 +38,13 @@ public final class McmodArmorModel extends ModelBiped {
             Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("metroport:textures/mcmod/armor/"+entry.model+".png"));
             if (isSneak) GlStateManager.translate(0,.2,0);
             boolean separateHead = entity instanceof EntityLivingBase && !((EntityLivingBase)entity).getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty();
-            if (entry.helmet() || (entry.whole() && !separateHead)) {
+            if (entry.rendersGroup("head",separateHead)) {
                 GlStateManager.pushMatrix();
                 if (isChild) { GlStateManager.scale(.75F,.75F,.75F); GlStateManager.translate(0,16*scale,0); }
                 part(bipedHead,"head",scale);
                 GlStateManager.popMatrix();
             }
-            if (!entry.helmet()) {
+            if (entry.rendersGroup("body",separateHead)) {
                 GlStateManager.pushMatrix();
                 if (isChild) { GlStateManager.scale(.5F,.5F,.5F); GlStateManager.translate(0,24*scale,0); }
                 part(bipedBody,"body",scale);

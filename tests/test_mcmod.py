@@ -20,15 +20,15 @@ WHOLE = {'officer_ozk', 'banditkurtka', 'kurtka', 'plash', 'ghillie'}
 class McmodTests(unittest.TestCase):
     def test_inventory_of_originals_does_not_hide_remaining_content(self):
         self.assertEqual(33, len(REPORT['registeredOriginalArmor']))
-        self.assertEqual(27, len(REPORT['pendingArmor']))
+        self.assertEqual([], REPORT['pendingArmor'])
         self.assertEqual(set(REPORT['registeredOriginalArmor']), set(REPORT['pendingArmor']) | set(REPORT['importedModels']))
-        self.assertIn('sniper_camo', REPORT['pendingArmor'])
+        self.assertIn('sniper_camo', REPORT['importedModels'])
         self.assertEqual('Камуфлированная броня', REPORT['registeredOriginalArmor']['ghillie']['name'])
         self.assertTrue(REPORT['remainingContent'])
 
     def test_raw_source_checksums_and_class_headers(self):
         files = json.loads((SOURCE / 'source-files.json').read_text())['files']
-        self.assertEqual(24, len(files))  # 6 class files + (OBJ, atlas, icon) x 6.
+        self.assertEqual(105, len(files))  # 6 class files + (OBJ, atlas, icon) x 33.
         for name, record in files.items():
             data = (SOURCE / name).read_bytes()
             self.assertEqual(record['bytes'], len(data), name)
@@ -38,9 +38,10 @@ class McmodTests(unittest.TestCase):
 
     def test_bundled_obj_atlas_icons_are_byte_exact_originals(self):
         for key, report in REPORT['importedModels'].items():
-            files = [('model.obj', SOURCE / ('assets/armor/' + key + '/model.obj'), ASSETS / ('models/mcmod/' + key + '/model.obj')),
-                     ('texture.png', SOURCE / ('assets/armor/' + key + '/texture.png'), ASSETS / ('textures/mcmod/armor/' + key + '.png')),
-                     ('icon.png', SOURCE / ('assets/icons/' + key + '.png'), ASSETS / ('textures/mcmod/icons/' + key + '.png'))]
+            runtime = report['runtimeId']
+            files = [('model.obj', SOURCE / ('assets/armor/' + key + '/model.obj'), ASSETS / ('models/mcmod/' + runtime + '/model.obj')),
+                     ('texture.png', SOURCE / ('assets/armor/' + key + '/' + report['sourceTexture']), ASSETS / ('textures/mcmod/armor/' + runtime + '.png')),
+                     ('icon.png', SOURCE / ('assets/icons/' + report['sourceIcon']), ASSETS / ('textures/mcmod/icons/' + runtime + '.png'))]
             for name, original, bundled in files:
                 self.assertEqual(original.read_bytes(), bundled.read_bytes(), key + '/' + name)
                 self.assertEqual(report['sha256'][name], hashlib.sha256(bundled.read_bytes()).hexdigest())
@@ -49,7 +50,8 @@ class McmodTests(unittest.TestCase):
         for key, report in REPORT['importedModels'].items():
             count = {'v': 0, 'vt': 0, 'vn': 0}
             group, groups, faces = None, set(), 0
-            for line in (ASSETS / ('models/mcmod/' + key + '/model.obj')).read_text().splitlines():
+            runtime = report['runtimeId']
+            for line in (ASSETS / ('models/mcmod/' + runtime + '/model.obj')).read_text(encoding=report['encoding']).splitlines():
                 p = line.split('#', 1)[0].split()
                 if not p:
                     continue
@@ -71,7 +73,8 @@ class McmodTests(unittest.TestCase):
             self.assertEqual(report['groups'], sorted(groups))
             self.assertEqual(report['vertices'], count['v'])
             self.assertEqual(report['faces'], faces)
-            self.assertTrue({'head', 'body', 'leftarm', 'rightarm'} <= groups)
+            self.assertTrue(groups <= {'head','body','leftarm','rightarm','leftleg','rightleg'})
+            self.assertTrue(groups)
 
     def test_png_chunks_have_valid_crcs_and_decompress(self):
         for path in (ASSETS / 'textures/mcmod').rglob('*.png'):
@@ -90,7 +93,7 @@ class McmodTests(unittest.TestCase):
             self.assertTrue(zlib.decompress(compressed))
 
     def test_exactly_five_whole_outfits_and_bkz_split(self):
-        self.assertEqual(7, len(ENTRIES))
+        self.assertEqual(58, len(ENTRIES))
         whole = [e for e in ENTRIES if e['mode'] == 'whole']
         self.assertEqual(WHOLE, {e['model'] for e in whole})
         self.assertEqual(WHOLE, {e['id'].removeprefix('mcmod_') for e in whole})
@@ -98,7 +101,7 @@ class McmodTests(unittest.TestCase):
         self.assertEqual({'helmet', 'vest'}, {e['mode'] for e in bkz})
         self.assertAlmostEqual(.6, sum(e['defence'] for e in bkz))
         for e in ENTRIES:
-            original = REPORT['registeredOriginalArmor'][e['model']]
+            original = REPORT['registeredOriginalArmor'][e['sourceId']]
             self.assertEqual(original['condition'], e['condition'])
             self.assertEqual(original['protect'], e['sourceProtect'])
             self.assertEqual(original['type'], e['sourceType'])
@@ -116,6 +119,48 @@ class McmodTests(unittest.TestCase):
         java = (ROOT / 'src/main/java/ru/metrocraft/port/mcmod/McmodContent.java').read_text()
         self.assertIn('setCreativeTab(MetroPort.ARMOR)', java)
         self.assertIn('setRegistryName(MetroPort.ID,entry.id)', java)
+
+    def test_no_empty_items_and_each_source_group_is_assigned_once(self):
+        for key, model in REPORT['importedModels'].items():
+            entries = [e for e in ENTRIES if e['sourceId'] == key]
+            self.assertTrue(entries, key)
+            modes = {e['mode'] for e in entries}
+            if key in WHOLE:
+                self.assertEqual({'whole'}, modes)
+            else:
+                self.assertEqual('head' in model['groups'], 'helmet' in modes, key)
+                self.assertEqual(bool(set(model['groups']) - {'head'}), 'vest' in modes, key)
+            for group in model['groups']:
+                assigned = [e for e in entries if e['mode'] == 'whole' or
+                            (e['mode'] == 'helmet' if group == 'head' else e['mode'] == 'vest')]
+                self.assertEqual(1, len(assigned), (key, group))
+            expected = REPORT['registeredOriginalArmor'][key]['protect'] / 100
+            self.assertAlmostEqual(expected, sum(e['defence'] for e in entries), msg=key)
+
+    def test_original_batch_ids_slots_and_statistics_remain_compatible(self):
+        previous = json.loads((ROOT / 'tests/fixtures/mcmod-batch1.json').read_text())
+        current = {e['id']: e for e in ENTRIES}
+        self.assertEqual(7, len(previous))
+        for entry in previous:
+            for key in ['id', 'model', 'mode', 'condition', 'sourceProtect', 'sourceType', 'defence', 'radiation']:
+                self.assertEqual(entry[key], current[entry['id']][key], (entry['id'], key))
+        for entry in ENTRIES:
+            self.assertRegex(entry['id'], r'^mcmod_[a-z0-9_]+$')
+            self.assertRegex(entry['model'], r'^[a-z0-9_]+$')
+
+    def test_single_parts_special_atlases_and_original_radiation_flags(self):
+        by_source = {key: [e for e in ENTRIES if e['sourceId'] == key] for key in REPORT['registeredOriginalArmor']}
+        for key, mode in [('gasmask', 'helmet'), ('kitel', 'vest'), ('vatnik', 'vest')]:
+            self.assertEqual([mode], [e['mode'] for e in by_source[key]])
+        self.assertEqual('hanzaz.png', REPORT['importedModels']['hanza']['sourceIcon'])
+        self.assertEqual('texp.png', REPORT['importedModels']['gasmask']['sourceTexture'])
+        self.assertEqual('windows-1251', REPORT['importedModels']['gasmask']['encoding'])
+        self.assertEqual('btbkz', REPORT['importedModels']['BTBKZ']['runtimeId'])
+        self.assertNotEqual(REPORT['importedModels']['BTBKZ']['sha256']['texture.png'], REPORT['importedModels']['bkz']['sha256']['texture.png'])
+        self.assertEqual(11, sum(e['radiation'] for e in ENTRIES))
+        for entry in ENTRIES:
+            if entry['radiation']:
+                self.assertIn(entry['mode'], ['whole', 'helmet'])
 
     def test_importer_is_reproducible(self):
         files = [ROOT / 'docs/mcmod-report.json', ASSETS / 'mcmod_armor.json']

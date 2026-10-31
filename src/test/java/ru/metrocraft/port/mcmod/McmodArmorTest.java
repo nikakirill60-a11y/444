@@ -29,11 +29,11 @@ public class McmodArmorTest {
         }
     }
     @Test public void originalMeshesContainOnlyArticulatedPartsAndFiniteTriangles() throws Exception {
-        assertEquals(6,models.size()); int total=0;
+        assertEquals(33,models.size()); int total=0;
         Set<String> allowed=new HashSet<>(Arrays.asList("head","body","rightarm","leftarm","rightleg","leftleg"));
-        for(String model:models) try(Reader reader=new InputStreamReader(resource("models/mcmod/"+model+"/model.obj"),StandardCharsets.UTF_8)) {
-            McmodObjMesh mesh=McmodObjMesh.read(reader);
-            assertTrue(model,mesh.groups.containsKey("body")); assertTrue(model,mesh.groups.containsKey("head"));
+        for(String model:models) try(InputStream input=resource("models/mcmod/"+model+"/model.obj")) {
+            McmodObjMesh mesh=McmodObjMesh.read(input);
+            assertFalse(model,mesh.groups.isEmpty());
             assertTrue(allowed.containsAll(mesh.groups.keySet()));
             for(List<float[]> vertices:mesh.groups.values()) {
                 assertEquals(0,vertices.size()%3); assertFalse(vertices.isEmpty());
@@ -60,7 +60,7 @@ public class McmodArmorTest {
             }
     }
     @Test public void wholeOutfitsAreExactlyFiveSingleChestItems() {
-        assertEquals(7,items.size()); int whole=0;
+        assertEquals(58,items.size()); int whole=0;
         for(McmodArmorItem item:items.values()) if(item.entry.whole()) {
             assertEquals(EntityEquipmentSlot.CHEST,item.armorType);
             assertEquals(1,item.getItemStackLimit());
@@ -78,6 +78,66 @@ public class McmodArmorTest {
             assertEquals(1,item.getDefinition().moveSpeedModifier,0);
             assertEquals(0,item.getDefinition().knockbackModifier,0);
             assertEquals(item.entry.radiation,item.isGasMask());
+        }
+    }
+    @Test public void allItemsHaveCorrectNativeSlotsAndOriginalConditionLimits() {
+        int helmets=0,vests=0;
+        for(McmodArmorItem item:items.values()) {
+            assertEquals(item.entry.helmet()?EntityEquipmentSlot.HEAD:EntityEquipmentSlot.CHEST,item.armorType);
+            assertEquals(1,item.getItemStackLimit());
+            assertEquals(item.entry.condition,item.getMaxDamage());
+            assertNotNull(item.entry.sourceId);
+            if(item.entry.helmet()) helmets++;
+            if("vest".equals(item.entry.mode)) vests++;
+        }
+        assertEquals(26,helmets); assertEquals(27,vests);
+    }
+    @Test public void singlePartModelsNeverRegisterEmptyCounterparts() {
+        assertTrue(items.containsKey("mcmod_gasmask_helmet")); assertFalse(items.containsKey("mcmod_gasmask_vest"));
+        for(String model:new String[]{"kitel","vatnik"}) {
+            assertTrue(items.containsKey("mcmod_"+model+"_vest")); assertFalse(items.containsKey("mcmod_"+model+"_helmet"));
+        }
+        assertEquals(.16,items.get("mcmod_kitel_vest").entry.defence,.00001);
+        assertEquals(.12,items.get("mcmod_vatnik_vest").entry.defence,.00001);
+    }
+    @Test public void everyOriginalGroupIsRenderedExactlyOnceAcrossItsEquipmentItems() throws Exception {
+        for(String model:models) try(InputStream input=resource("models/mcmod/"+model+"/model.obj")) {
+            McmodObjMesh mesh=McmodObjMesh.read(input);
+            for(String group:mesh.groups.keySet()) {
+                int count=0;
+                for(McmodArmorItem item:items.values()) if(item.entry.model.equals(model) && item.entry.rendersGroup(group,false)) count++;
+                assertEquals(model+"/"+group,1,count);
+            }
+        }
+        assertFalse(items.get("mcmod_officer_ozk").entry.rendersGroup("head",true));
+        assertTrue(items.get("mcmod_officer_ozk").entry.rendersGroup("body",true));
+        assertTrue(items.get("mcmod_bkz_helmet").entry.rendersGroup("head",true));
+    }
+    @Test public void combinedNativeProtectionNeverDoublesAnOriginalSet() {
+        for(String model:models) {
+            double total=0,original=-1;
+            for(McmodArmorItem item:items.values()) if(item.entry.model.equals(model)) {
+                original=item.entry.sourceProtect/100D;
+                total+=item.getProperties(null,new ItemStack(item),DamageSource.GENERIC,10,0).AbsorbRatio;
+            }
+            assertEquals(model,original,total,.00001);
+        }
+    }
+    @Test public void sourceRadiationFlagsEnableOnlyBreathingParts() {
+        Set<String> expected=new HashSet<>(Arrays.asList("gasmask","hanza","himza","officer_ozk","ozk","povstanec","psh1b","Scout_armor","sverchok_mp6","zapal","prorok"));
+        Set<String> actual=new HashSet<>();
+        for(McmodArmorItem item:items.values()) if(item.isGasMask()) {
+            assertTrue(item.entry.whole() || item.entry.helmet());
+            assertTrue(actual.add(item.entry.sourceId));
+        }
+        assertEquals(expected,actual);
+    }
+    @Test public void streamReaderSupportsCp1251AndUtf8BomWithoutChangingSourceGeometry() throws Exception {
+        String obj="o head\nv 0 0 0\nv 1 0 0\nv 0 1 0\nusemtl Материал\nf 1 2 3\n";
+        byte[][] data={obj.getBytes(java.nio.charset.Charset.forName("windows-1251")),("\uFEFF"+obj).getBytes(StandardCharsets.UTF_8)};
+        for(byte[] bytes:data) {
+            McmodObjMesh mesh=McmodObjMesh.read(new ByteArrayInputStream(bytes));
+            assertEquals(3,mesh.groups.get("head").size());
         }
     }
     @Test public void conditionMirrorsDurabilityWithoutDestroyingUnrelatedNbt() {
