@@ -100,7 +100,7 @@ def main():
     outer = zipfile.ZipFile(ROOT / 'Flan-20261030T152711Z-1-001.zip')
     pack = zipfile.ZipFile(io.BytesIO(outer.read('Flan/MetroCraft -Pack-1.7.10-4.10.0.jar')))
     paths = {n.lower(): n for n in pack.namelist()}
-    for scope in ('svd','aim1'):
+    for scope in ('svd','aim1','pnv'):
         put(ASSETS/('textures/scopes/'+scope+'.png'),pack.read(paths['assets/flansmod/gui/'+scope+'.png']))
     catalogue = {}
     unavailable = set()

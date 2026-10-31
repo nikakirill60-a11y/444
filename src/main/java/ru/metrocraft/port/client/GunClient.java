@@ -51,7 +51,16 @@ public final class GunClient {
                 && !scope(mc.player.getHeldItemMainhand()).equalsIgnoreCase("None"))event.setCanceled(true);
     }
     @SubscribeEvent public static void overlay(RenderGameOverlayEvent.Post event){
-        Minecraft mc=Minecraft.getMinecraft();if(event.getType()!=RenderGameOverlayEvent.ElementType.ALL || mc.player==null || aim<.9F)return;
+        Minecraft mc=Minecraft.getMinecraft();if(event.getType()!=RenderGameOverlayEvent.ElementType.ALL || mc.player==null)return;
+        for(ItemStack armor:mc.player.getArmorInventoryList())if(armor.getItem() instanceof MetroArmor
+                && ((MetroArmor)armor.getItem()).getDefinition().armorOverlay.equals("pnv")){
+            int width=event.getResolution().getScaledWidth(),height=event.getResolution().getScaledHeight();
+            GlStateManager.enableBlend();GlStateManager.color(1,1,1,1);
+            mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/scopes/pnv.png"));
+            Gui.drawModalRectWithCustomSizedTexture(0,0,0,0,width,height,width,height);
+            GlStateManager.disableBlend();break;
+        }
+        if(aim<.9F)return;
         String scope=scope(mc.player.getHeldItemMainhand());if(!scope.equals("svd")&&!scope.equals("aim1"))return;
         int w=event.getResolution().getScaledWidth(),h=event.getResolution().getScaledHeight(),left=(w-h)/2;
         Gui.drawRect(0,0,Math.max(0,left),h,0xff000000);Gui.drawRect(Math.min(w,left+h),0,w,h,0xff000000);

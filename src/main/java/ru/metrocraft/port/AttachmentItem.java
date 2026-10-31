@@ -48,9 +48,10 @@ public final class AttachmentItem extends ContentItem {
     }
     public static float multiplier(ItemStack gun, String stat) {
         float value = 1;
-        if (!gun.hasTagCompound() || !(gun.getItem() instanceof GunItem)) return value;
+        boolean scope=false;
+        if (!(gun.getItem() instanceof GunItem)) return value;
         Definition weapon = ((GunItem)gun.getItem()).getDefinition();
-        NBTTagCompound attachments = gun.getTagCompound().getCompoundTag(TAG);
+        NBTTagCompound attachments = gun.hasTagCompound()?gun.getTagCompound().getCompoundTag(TAG):new NBTTagCompound();
         for (String slot : attachments.getKeySet()) {
             String id = attachments.getString(slot);
             Item item = MetroPort.ITEMS.get(id);
@@ -64,9 +65,9 @@ public final class AttachmentItem extends ContentItem {
                 case "recoil": value *= d.recoilMultiplier; break;
                 case "speed": value *= d.bulletSpeedMultiplier; break;
                 case "sound": if(d.silencer)value *= .15F; break;
-                case "zoom": value *= d.zoom; break;
+                case "zoom": value *= d.zoom; if(slot.equals("scope"))scope=true; break;
             }
         }
-        return value;
+        return stat.equals("zoom")&&!scope?value*weapon.zoom:value;
     }
 }

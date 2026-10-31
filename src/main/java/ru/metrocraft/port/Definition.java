@@ -10,7 +10,7 @@ public final class Definition {
     public float bulletSpeed=40, fallSpeed=.25F, hitBoxSize=.5F;
     public boolean penetrates, breaksGlass;
     public float recoil, randomRecoil=2.5F, randomYaw=1, decreaseRecoil=2, decreaseYaw=1.5F;
-    public String scope="None", zoomOverlay="None";
+    public String scope="None", zoomOverlay="None", armorOverlay="None";
     public float recoilMultiplier=1, bulletSpeedMultiplier=1;
     public boolean silencer;
     public float moveSpeedModifier=1, knockbackModifier=.2F, jumpModifier=1;

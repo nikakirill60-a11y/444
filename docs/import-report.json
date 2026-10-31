@@ -20,7 +20,7 @@
     "hermeticGates": 6
   },
   "notPorted": [
-    "Original missing LastDays muzzle-flash meshes",
+    "Original missing LastDays muzzle-flash meshes and Barrett_Hazard paintjob textures",
     "Independent hand/magazine geometry not supplied by the models",
     "Optional cross-mod vehicle damage requires the relevant 1.12 vehicle API",
     "Unknown third-party inventory slot contracts require integration testing",

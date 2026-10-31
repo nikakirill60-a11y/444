@@ -81,7 +81,7 @@ def main():
                 entry.update(bulletSpeed=float(d.get('BulletSpeed','40')), recoil=float(d.get('Recoil','0')),
                              randomRecoil=float(d.get('RandomRecoilRange','2.5')), randomYaw=float(d.get('RandomRecoilYawRange','1')),
                              decreaseRecoil=float(d.get('DecreaseRecoil','2')), decreaseYaw=float(d.get('DecreaseRecoilYaw','1.5')),
-                             scope=d.get('Scope','None'))
+                             scope=d.get('Scope','None'), zoom=float(d.get('ZoomLevel','1'))*float(d.get('FOVZoomLevel','1')))
                 for source_key, target in [('ShootSound', 'shootSound'), ('ReloadSound', 'reloadSound')]:
                     source = d.get(source_key)
                     if source:
@@ -109,7 +109,7 @@ def main():
                              moveSpeedModifier=float(d.get('MoveSpeedModifier',d.get('Slowness','1'))),
                              knockbackModifier=float(d.get('KnockbackModifier',d.get('KnockbackReduction','.2'))),
                              jumpModifier=float(d.get('JumpModifier','1')),
-                             negateFallDamage=d.get('NegateFallDamage','false').lower()=='true')
+                             negateFallDamage=d.get('NegateFallDamage','false').lower()=='true', armorOverlay=d.get('Overlay','None'))
             elif kind == 'tool':
                 entry.update(heal=float(d.get('HealAmount', '0')), uses=int(d.get('ToolLife', '1')),
                              repairGun=d.get('CanRepair', '').lower() == 'true',
@@ -189,7 +189,7 @@ def main():
         'source': 'Flan/MetroCraft -Pack-1.7.10-4.10.0.jar',
         'rendering': 'Original GUI icons; original Turbo geometry and atlases through client renderers; geometry/OBJ integrity tested, visual alignment still needs in-game verification.',
         'expandedContent': {'decorativeBlocks': 58, 'radiationSources': 1, 'filters': 1, 'pickaxes': 1, 'backpacks': 3, 'entityTypes': 10, 'hermeticGates': 6},
-        'notPorted': ['Original missing LastDays muzzle-flash meshes',
+        'notPorted': ['Original missing LastDays muzzle-flash meshes and Barrett_Hazard paintjob textures',
                       'Independent hand/magazine geometry not supplied by the models',
                       'Optional cross-mod vehicle damage requires the relevant 1.12 vehicle API',
                       'Unknown third-party inventory slot contracts require integration testing',

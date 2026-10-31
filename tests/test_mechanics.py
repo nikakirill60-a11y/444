@@ -29,6 +29,7 @@ class MechanicsTests(unittest.TestCase):
                     if item['kind']=='gun':
                         self.assertEqual(item['bulletSpeed'],float(source['BulletSpeed']))
                         self.assertEqual(item['recoil'],float(source['Recoil']))
+                        self.assertEqual(item['zoom'],float(source.get('ZoomLevel','1'))*float(source.get('FOVZoomLevel','1')))
                     if item['kind']=='armor':
                         self.assertEqual(item['knockbackModifier'],float(source.get('KnockbackModifier','.2')))
                         self.assertEqual(item['moveSpeedModifier'],float(source.get('MoveSpeedModifier','1')))
@@ -46,7 +47,7 @@ class MechanicsTests(unittest.TestCase):
     def test_packaged_original_scope_textures(self):
         with zipfile.ZipFile(ROOT/'Flan-20261030T152711Z-1-001.zip') as outer:
             with zipfile.ZipFile(io.BytesIO(outer.read('Flan/MetroCraft -Pack-1.7.10-4.10.0.jar'))) as pack:
-                for name in ['aim1','svd']:
+                for name in ['aim1','svd','pnv']:
                     self.assertEqual((ASSETS/('textures/scopes/'+name+'.png')).read_bytes(),pack.read('assets/flansmod/gui/'+name+'.png'))
     def test_only_medkit_has_a_recipe_with_external_fiberglass(self):
         with zipfile.ZipFile(ROOT/'Flan-20261030T152711Z-1-001.zip') as outer:

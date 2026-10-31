@@ -86,6 +86,7 @@ public final class GunItem extends ContentItem {
         }
         int ticks = tag(stack).getInteger(RELOAD) - 1;
         tag(stack).setInteger(RELOAD, ticks);
+        tag(stack).setLong("MetroReloadStart",world.getTotalWorldTime()-(tag(stack).getInteger("MetroReloadDuration")-ticks));
         if (ticks == 0) {
             int needed = definition.capacity - ammo(stack);
             int loaded = player.capabilities.isCreativeMode ? needed : available(player, true, needed);
