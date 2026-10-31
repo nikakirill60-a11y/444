@@ -36,7 +36,8 @@ jobs:
                   '/model/MetroCraft/' in name or '/tmt/' in name or
                   name.endswith(('/ModelGun.java', '/ModelAttachment.java', '/ModelCustomArmour.java',
                                  '/ItemTeamArmour.java', '/ArmourType.java', '/Filter.java',
-                                 '/PlayerData.java', '/FlansMod.java', '/GunType.java', '/ItemGun.java'))):
+                                 '/PlayerData.java', '/FlansMod.java', '/GunType.java', '/ItemGun.java',
+                                 '/EntityBullet.java', '/BulletType.java', '/RenderGun.java'))):
                   continue
               target = root / name
               target.parent.mkdir(parents=True, exist_ok=True)
