@@ -28,7 +28,7 @@ public final class FactionPatches {
     }
     public static ItemStack get(ItemStack armor) {
         if(!accepts(armor) || !armor.hasTagCompound() || !armor.getTagCompound().hasKey(KEY,10))return ItemStack.EMPTY;
-        ItemStack patch=new ItemStack(armor.getTagCompound().getCompoundTag(KEY));
+        ItemStack patch=new ItemStack(armor.getTagCompound().getCompoundTag(KEY).copy());
         if(patch.isEmpty() || !(patch.getItem() instanceof FactionPatchItem))return ItemStack.EMPTY;
         patch.setCount(1); return patch;
     }

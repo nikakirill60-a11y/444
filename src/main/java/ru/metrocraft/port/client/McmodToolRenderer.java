@@ -34,7 +34,14 @@ public final class McmodToolRenderer extends TileEntityItemStackRenderer {
     @SubscribeEvent public static void hand(RenderSpecificHandEvent event) {
         ItemStack stack=event.getItemStack();
         AbstractClientPlayer player=Minecraft.getMinecraft().player;
-        if(!animated(stack) || player==null || player.isSpectator())return;
+        if(player==null || player.isSpectator())return;
+        // Vanilla also draws the empty MAIN hand. The offhand kit's support arm replaces it;
+        // leaving that vanilla draw enabled would create a third arm when the main hand is empty.
+        if(stack.isEmpty() && event.getHand()==EnumHand.MAIN_HAND
+                && player.getHeldItemOffhand().getItem() instanceof McmodMedkitItem) {
+            event.setCanceled(true); return;
+        }
+        if(!animated(stack))return;
         event.setCanceled(true);
         boolean left=(event.getHand()==EnumHand.MAIN_HAND?player.getPrimaryHand():player.getPrimaryHand().opposite())==EnumHandSide.LEFT;
         boolean medical=stack.getItem() instanceof McmodMedkitItem;

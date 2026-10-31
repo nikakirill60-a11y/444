@@ -33,6 +33,8 @@ public class FactionPatchesTest {
         ItemStack stored=FactionPatches.get(armor);assertEquals(satan,stored.getItem());assertEquals(1,stored.getCount());
         assertEquals("Named patch",stored.getDisplayName());assertTrue(stored.getTagCompound().getBoolean("NoDrop"));
         assertEquals(7,armor.getItemDamage());assertEquals(123,armor.getTagCompound().getInteger("condition"));assertTrue(armor.getTagCompound().getBoolean("NoDrop"));
+        stored.setStackDisplayName("Changed snapshot");
+        assertEquals("Named patch",FactionPatches.get(armor).getDisplayName());
         stored.setCount(0);assertEquals(1,FactionPatches.get(armor).getCount());
     }
     @Test public void replacementAndRemovalReturnExactlyOneOldPatch() {
@@ -43,7 +45,7 @@ public class FactionPatchesTest {
     }
     @Test public void armorSaveReloadAndCopyCarryThePatchButRemainIndependent() {
         ItemStack armor=armor();FactionPatches.attach(armor,new ItemStack(satan));
-        ItemStack loaded=new ItemStack(armor.writeToNBT(new NBTTagCompound()));
+        ItemStack loaded=new ItemStack(armor.writeToNBT(new NBTTagCompound()).copy());
         assertEquals(satan,FactionPatches.get(loaded).getItem());FactionPatches.detach(loaded);
         assertEquals(satan,FactionPatches.get(armor).getItem());
         NBTTagCompound bogus=new ItemStack(Items.DIAMOND).writeToNBT(new NBTTagCompound());

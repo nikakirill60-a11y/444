@@ -38,6 +38,8 @@ class ActionsAndPatchesTests(unittest.TestCase):
         self.assertIn('value=Side.CLIENT',renderer);self.assertIn('RenderSpecificHandEvent',renderer)
         self.assertIn('player.getItemInUseCount()',renderer);self.assertIn('event.getSwingProgress()',renderer)
         self.assertIn('GunHandPose.usesSupport',renderer);self.assertIn('player.getLocationSkin()',renderer)
+        self.assertIn('stack.isEmpty() && event.getHand()==EnumHand.MAIN_HAND',renderer)
+        self.assertIn('player.getHeldItemOffhand().getItem() instanceof McmodMedkitItem',renderer)
         for side_effect in ['sendToServer','attackEntity','setHealth','damageItem','spend(']:self.assertNotIn(side_effect,renderer)
         events=(JAVA/'ClientEvents.java').read_text();self.assertIn('McmodToolRenderer.INSTANCE',events);self.assertIn('FactionPatchLayer(playerRenderer)',events)
 
