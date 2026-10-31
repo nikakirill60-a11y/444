@@ -33,7 +33,7 @@ public final class MetroBullet extends Entity {
         EntityPlayer owner=world.getPlayerEntityByUUID(shooter);
         if(owner==null || !owner.isEntityAlive() || owner.isSpectator()){setDead();return;}
         Vec3d start=getPositionVector(), velocity=new Vec3d(motionX,motionY,motionZ), end=start.add(velocity);
-        double distance=velocity.lengthVector();
+        double distance=Math.sqrt(motionX*motionX+motionY*motionY+motionZ*motionZ);
         if(!Double.isFinite(distance) || distance>512){setDead();return;}
         // Do not force-load terrain along a fast bullet's ray.
         for(int i=0;i<=(int)Math.ceil(distance);i++){
@@ -42,13 +42,12 @@ public final class MetroBullet extends Entity {
         }
         RayTraceResult wall=world.rayTraceBlocks(start,end,false,true,false);
         if(wall!=null)end=wall.hitVec;
-        final Vec3d from=start;
         Map<Entity,Double> hits=new HashMap<>();
         AxisAlignedBB area=new AxisAlignedBB(start.x,start.y,start.z,end.x,end.y,end.z).grow(1);
         for(Entity target:world.getEntitiesWithinAABBExcludingEntity(this,area)){
             if(target==owner || target==owner.getRidingEntity() || !target.canBeCollidedWith() || victims.contains(target.getUniqueID()))continue;
             if(target instanceof EntityPlayer && ((EntityPlayer)target).isSpectator())continue;
-            AxisAlignedBB box=target.getEntityBoundingBox().grow(target.getCollisionBorderSize());
+            AxisAlignedBB box=target.getEntityBoundingBox();
             RayTraceResult intercept=box.calculateIntercept(start,end);
             if(box.contains(start))hits.put(target,0D);
             else if(intercept!=null)hits.put(target,start.squareDistanceTo(intercept.hitVec));
