@@ -1,5 +1,5 @@
 """1.8 resource provenance and integration regressions; actual GUI/server smoke tests remain manual."""
-import hashlib,json,subprocess,sys,unittest
+import hashlib,json,re,subprocess,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/metroport'
@@ -55,3 +55,9 @@ class EquipmentAndDecorTests(unittest.TestCase):
         armor=(JAVA/'MetroArmor.java').read_text()
         self.assertIn('EquipmentRules.allowed(player,armorType,stack)',armor)
         self.assertIn('definition.gasMask || ru.metrocraft.port.inventory.EquipmentRules.sealedId',armor)
+
+    def test_runtime_annotation_build_and_artifact_use_the_same_release_version(self):
+        version=re.search(r"^version = '([^']+)'",(ROOT/'build.gradle').read_text(),re.M).group(1)
+        runtime=re.search(r'@Mod\(modid = MetroPort.ID, name = "MetroCraft Port", version = "([^"]+)"',(JAVA/'MetroPort.java').read_text()).group(1)
+        self.assertEqual(version,runtime)
+        self.assertIn('metrocraft-port-1.12.2-'+version+'.jar',(ROOT/'.github/workflows/build.yml').read_text())
