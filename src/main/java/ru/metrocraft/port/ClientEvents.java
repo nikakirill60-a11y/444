@@ -16,6 +16,7 @@ import org.lwjgl.input.Keyboard;
 /** This entire class is client-only: a dedicated server never loads Minecraft or LWJGL. */
 @Mod.EventBusSubscriber(modid = MetroPort.ID, value = Side.CLIENT)
 public final class ClientEvents {
+    private static final KeyBinding INVENTORY = new KeyBinding("key.metroport.inventory", Keyboard.KEY_I, "key.categories.metroport");
     private static final KeyBinding AIM = new KeyBinding("key.metroport.aim", Keyboard.KEY_LMENU, "key.categories.metroport");
     private static final KeyBinding RELOAD = new KeyBinding("key.metroport.reload", Keyboard.KEY_R, "key.categories.metroport");
 
@@ -28,10 +29,12 @@ public final class ClientEvents {
 
     public static void initialize() {
         ClientRegistry.registerKeyBinding(RELOAD);
+        ClientRegistry.registerKeyBinding(INVENTORY);
         ClientRegistry.registerKeyBinding(AIM);
         for (net.minecraft.client.renderer.entity.RenderPlayer playerRenderer : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
             playerRenderer.addLayer(new ru.metrocraft.port.client.BackpackClient(playerRenderer));
             playerRenderer.addLayer(new ru.metrocraft.port.client.FactionPatchLayer(playerRenderer));
+            playerRenderer.addLayer(new ru.metrocraft.port.client.NvgLayer(playerRenderer));
         }
     }
 
@@ -107,6 +110,8 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void key(InputEvent.KeyInputEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
+        if(INVENTORY.isPressed() && mc.player!=null && mc.currentScreen==null)
+            MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.inventory.OpenInventoryPacket());
         if (RELOAD.isPressed() && mc.player != null && mc.currentScreen == null
                 && mc.player.getHeldItemMainhand().getItem() instanceof GunItem) {
             MetroPort.NETWORK.sendToServer(new ReloadPacket());

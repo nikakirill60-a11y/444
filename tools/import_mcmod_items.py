@@ -26,8 +26,8 @@ def main():
         put(ASSETS/('textures/mcmod/items/'+key+'.png'),data)
         write_json(ASSETS/('models/item/'+id_+'.json'),{'parent':'item/handheld' if kind=='machete' else 'item/generated',
                    'textures':{'layer0':'metroport:mcmod/items/'+key}})
-        entries.append({'id':id_,'sourceId':key,'kind':kind,'nameRu':'Мачете' if key=='machete' else names[key],
-                        'nameEn':en,'sourceName':names[key],'stackSize':1 if kind in ['medkit','machete'] else 64,
+        entries.append({'id':id_,'sourceId':key,'kind':kind,'nameRu':'Мачете' if key=='machete' else '§6Патроны — деньги, обойма (5 шт.)' if key=='money5' else names[key],
+                        'nameEn':('§6'+en) if key=='money5' else en,'sourceName':names[key],'stackSize':1 if kind in ['medkit','machete'] else 64,
                         'iconSha256':hashlib.sha256(data).hexdigest()})
     write_json(ASSETS/'mcmod_items.json',entries)
     write_json(ROOT/'docs/mcmod-items-report.json',{'items':entries,'source':'RegisterGuns / ItemAptech / ItemAxeB',

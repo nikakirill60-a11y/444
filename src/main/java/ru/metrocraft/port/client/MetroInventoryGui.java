@@ -17,6 +17,9 @@ public final class MetroInventoryGui extends GuiContainer {
         GlStateManager.color(1,1,1,1);
         mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/gui/inventory.png"));
         drawTexturedModalRect(guiLeft,guiTop,0,0,xSize,ySize);
+        drawRect(guiLeft+139,guiTop+17,guiLeft+157,guiTop+35,0xFF353535);
+        drawRect(guiLeft+140,guiTop+18,guiLeft+156,guiTop+34,0xFF777777);
+        fontRenderer.drawString(net.minecraft.client.resources.I18n.format("metroport.nvg.slot"),guiLeft+135,guiTop+6,0x404040);
         GuiInventory.drawEntityOnScreen(guiLeft+88,guiTop+75,30,guiLeft+88-mouseX,guiTop+25-mouseY,player);
         int rows=Backpacks.rows(((MetroContainer)inventorySlots).bag.getStackInSlot(0));
         mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/gui/slots.png"));

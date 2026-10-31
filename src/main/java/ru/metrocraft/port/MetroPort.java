@@ -76,6 +76,7 @@ public final class MetroPort {
         NETWORK.registerMessage(ru.metrocraft.port.inventory.OpenInventoryPacket.Handler.class,
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
         NETWORK.registerMessage(ShotFeedbackPacket.Handler.class,ShotFeedbackPacket.class,3,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgSyncPacket.Handler.class,ru.metrocraft.port.inventory.NvgSyncPacket.class,4,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
         ru.metrocraft.port.gates.Gates.initialize();
@@ -98,7 +99,7 @@ public final class MetroPort {
             Item item;
             switch (d.kind) {
                 case "gun": item = new GunItem(d); break;
-                case "armor": item = new MetroArmor(d); break;
+                case "armor": item = d.nightVision ? new ru.metrocraft.port.inventory.NvgItem(d) : new MetroArmor(d); break;
                 case "tool": item = new ToolItem(d); break;
                 case "attachment": item = new AttachmentItem(d); break;
                 default: item = new ContentItem(d);

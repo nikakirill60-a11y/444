@@ -15,7 +15,9 @@
     "metroport.mcmod.currency.help": "Валюта Metro; автоматический обмен не добавлен",
     "metroport.patch.attach": "ПКМ: нашить на надетую броню или нагрудник в другой руке",
     "metroport.patch.remove": "Shift + ПКМ с нашивкой: снять нашивку с брони",
-    "metroport.patch.equipped": "Нашивка: %s"
+    "metroport.patch.equipped": "Нашивка: %s",
+    "metroport.nvg.slot": "ПНВ",
+    "key.metroport.inventory": "Экипировка Metro (ПНВ / рюкзак)"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -33,6 +35,8 @@
     "metroport.mcmod.currency.help": "Metro currency; automatic exchange is not implemented",
     "metroport.patch.attach": "Right click: attach to worn chest armor or chest armor in the other hand",
     "metroport.patch.remove": "Sneak + right click with a patch: remove the attached patch",
-    "metroport.patch.equipped": "Patch: %s"
+    "metroport.patch.equipped": "Patch: %s",
+    "metroport.nvg.slot": "NVG",
+    "key.metroport.inventory": "Metro equipment (NVG / backpack)"
   }
 }

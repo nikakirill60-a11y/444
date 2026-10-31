@@ -18,14 +18,16 @@ class ActionsAndPatchesTests(unittest.TestCase):
                 record=manifest['assets/tools/'+key+'/'+name]
                 self.assertEqual(hashlib.sha256(original).hexdigest(),record['sha256']);self.assertTrue(record['driveId'])
 
-    def test_four_patches_use_real_atlas_emblems_with_explicit_derivation(self):
+    def test_eleven_patches_have_explicit_recovered_or_port_drawn_provenance(self):
         catalog=json.loads((ASSETS/'faction_patches.json').read_text())
         self.assertIn('New cosmetic patch items',catalog['provenance'])
         expected={'satanists':'satanarmor','contrabandists':'kontrabody','legion':'legionarmor','mgu':'nvgdbody'}
-        self.assertEqual(set(expected),{e['faction'] for e in catalog['patches']})
+        self.assertEqual(set(expected)|{'bandits','reich','worm_cult','red_line','polis','stalkers','hansa'},{e['faction'] for e in catalog['patches']})
         for e in catalog['patches']:
-            self.assertEqual('textures/legacy/'+expected[e['faction']]+'.png',e['sourceAtlas'])
-            self.assertEqual(hashlib.sha256((ASSETS/e['sourceAtlas']).read_bytes()).hexdigest(),e['sourceSha256'])
+            if e['faction'] in expected:
+                self.assertEqual('textures/legacy/'+expected[e['faction']]+'.png',e['sourceAtlas'])
+                self.assertEqual(hashlib.sha256((ASSETS/e['sourceAtlas']).read_bytes()).hexdigest(),e['sourceSha256'])
+            else:self.assertIn('port-drawn',e['sourceKind'])
             image=(ASSETS/('textures/patches/'+e['faction']+'.png')).read_bytes()
             self.assertEqual(hashlib.sha256(image).hexdigest(),e['patchSha256']);self.assertEqual((128,128),struct.unpack('>II',image[16:24]))
             model=json.loads((ASSETS/('models/item/'+e['id']+'.json')).read_text())

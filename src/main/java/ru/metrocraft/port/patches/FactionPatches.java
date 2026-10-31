@@ -14,7 +14,7 @@ public final class FactionPatches {
     private static final String KEY="MetroFactionPatch";
     private FactionPatches() {}
     @SubscribeEvent public static void items(RegistryEvent.Register<Item> event) {
-        for(String faction:new String[]{"satanists","contrabandists","legion","mgu"}) {
+        for(String faction:new String[]{"satanists","contrabandists","legion","mgu","bandits","reich","worm_cult","red_line","polis","stalkers","hansa"}) {
             String id="patch_"+faction;
             Item item=new FactionPatchItem(faction).setRegistryName(MetroPort.ID,id)
                     .setTranslationKey(MetroPort.ID+"."+id).setCreativeTab(MetroPort.THINGS);

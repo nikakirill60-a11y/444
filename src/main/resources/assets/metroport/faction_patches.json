@@ -1,5 +1,5 @@
 {
-  "provenance": "New cosmetic patch items derived from emblems embedded in the original Flan armor atlases. Cloth backing/stitching added by this port. No faction permissions or membership invented.",
+  "provenance": "New cosmetic patch items: first four derived from original Flan armor atlas emblems; seven additional faction badges drawn for this port. Cloth backing/stitching added by this port. No faction permissions or membership invented.",
   "patches": [
     {
       "id": "patch_satanists",
@@ -60,6 +60,62 @@
       ],
       "sourceSha256": "4d79bc3906c64f715218449eb0f5d861d1cb5b75640cafa531a8115353119a5d",
       "patchSha256": "461acaee92190897b5d9c1a52c2755c4b21730c412a92d5faf28c70d0a470106"
+    },
+    {
+      "id": "patch_bandits",
+      "faction": "bandits",
+      "nameRu": "Нашивка бандитов",
+      "nameEn": "Bandit patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "ac3c5c4669e908fd9ed01272f0e1890a4402f36760cfef2e4d171494c9b13a07"
+    },
+    {
+      "id": "patch_reich",
+      "faction": "reich",
+      "nameRu": "Нашивка Рейха",
+      "nameEn": "Reich patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "6398b8acc2775b0322aae199b62cdabbd2dadd16f4eafe8581a17ceee5b9f0f0"
+    },
+    {
+      "id": "patch_worm_cult",
+      "faction": "worm_cult",
+      "nameRu": "Нашивка червепоклонников",
+      "nameEn": "Worm Cult patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "5d208907d3031694f47a56b218b05471f51aae6c35b3ceeb0604ff81496949e6"
+    },
+    {
+      "id": "patch_red_line",
+      "faction": "red_line",
+      "nameRu": "Нашивка Красной линии",
+      "nameEn": "Red Line patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "fc2acff2f6d4f96bef2b03de7498a3c6e1f763e51118459dc5d28292e1312cd4"
+    },
+    {
+      "id": "patch_polis",
+      "faction": "polis",
+      "nameRu": "Нашивка Полиса",
+      "nameEn": "Polis patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "3fc18f04875aa69520ad535f9f83c7e518f3f7fede152b9869f7218aca70a57a"
+    },
+    {
+      "id": "patch_stalkers",
+      "faction": "stalkers",
+      "nameRu": "Нашивка сталкеров",
+      "nameEn": "Stalker patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "40136e1333d00a97e685e14ca781a7ab2c6c5d87e195cc577cc9e60b25d83218"
+    },
+    {
+      "id": "patch_hansa",
+      "faction": "hansa",
+      "nameRu": "Нашивка Ганзы",
+      "nameEn": "Hansa patch",
+      "sourceKind": "port-drawn faction badge, not a recovered original image",
+      "patchSha256": "5f345f380c66ed7549c4b2e79ab6c1d17d075663a22f4c213a2f14ed0df98188"
     }
   ]
 }

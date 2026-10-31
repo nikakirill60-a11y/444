@@ -32,7 +32,13 @@ def main():
   item='patch_'+key
   (ASSETS/('models/item/'+item+'.json')).write_text(json.dumps({'parent':'item/generated','textures':{'layer0':'metroport:patches/'+key}},indent=2)+'\n')
   records.append({'id':item,'faction':key,'nameRu':ru,'nameEn':en,'sourceAtlas':'textures/legacy/'+source+'.png','sourceBounds':bounds,'sourceSha256':hashlib.sha256(original).hexdigest(),'patchSha256':hashlib.sha256(target.read_bytes()).hexdigest()})
- report={'provenance':'New cosmetic patch items derived from emblems embedded in the original Flan armor atlases. Cloth backing/stitching added by this port. No faction permissions or membership invented.','patches':records}
+ from draw_faction_emblems import FACTIONS,badge
+ for key,ru,en in FACTIONS:
+  target=ASSETS/('textures/patches/'+key+'.png');badge(key).save(target)
+  item='patch_'+key
+  (ASSETS/('models/item/'+item+'.json')).write_text(json.dumps({'parent':'item/generated','textures':{'layer0':'metroport:patches/'+key}},indent=2)+'\n')
+  records.append({'id':item,'faction':key,'nameRu':ru,'nameEn':en,'sourceKind':'port-drawn faction badge, not a recovered original image','patchSha256':hashlib.sha256(target.read_bytes()).hexdigest()})
+ report={'provenance':'New cosmetic patch items: first four derived from original Flan armor atlas emblems; seven additional faction badges drawn for this port. Cloth backing/stitching added by this port. No faction permissions or membership invented.','patches':records}
  (ASSETS/'faction_patches.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  from mcmod_languages import update
  update()

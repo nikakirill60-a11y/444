@@ -43,6 +43,17 @@ public class MetroArmor extends ItemArmor implements net.minecraftforge.common.I
         return ru.metrocraft.port.client.LegacyArmorModel.get(definition.id);
     }
 
+    @Override public boolean isValidArmor(ItemStack stack,EntityEquipmentSlot slot,net.minecraft.entity.Entity entity) {
+        if(slot!=armorType || definition.nightVision)return false;
+        return !(entity instanceof EntityPlayer) || ru.metrocraft.port.inventory.EquipmentRules.allowed((EntityPlayer)entity,slot,stack);
+    }
+    @Override public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World world,EntityPlayer player,net.minecraft.util.EnumHand hand) {
+        ItemStack stack=player.getHeldItem(hand);
+        if(!ru.metrocraft.port.inventory.EquipmentRules.allowed(player,armorType,stack))
+            return new net.minecraft.util.ActionResult<>(net.minecraft.util.EnumActionResult.FAIL,stack);
+        return super.onItemRightClick(world,player,hand);
+    }
+
     @Override
     public boolean getIsRepairable(ItemStack stack, ItemStack ingredient) {
         return false; // Repair kits, not an unintended iron-ingot repair recipe.
@@ -72,11 +83,11 @@ public class MetroArmor extends ItemArmor implements net.minecraftforge.common.I
         return map;
     }
 
-    public boolean isGasMask() { return definition.gasMask; }
+    public boolean isGasMask() { return definition.gasMask || ru.metrocraft.port.inventory.EquipmentRules.sealedId(definition.id); }
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
-        if (!world.isRemote && definition.gasMask && stack.hasTagCompound()) {
+        if (!world.isRemote && isGasMask() && stack.hasTagCompound()) {
             int ticks = stack.getTagCompound().getInteger("MetroFilterTicks");
             if (ticks > 0) stack.getTagCompound().setInteger("MetroFilterTicks", ticks - 1);
         }
@@ -91,7 +102,7 @@ public class MetroArmor extends ItemArmor implements net.minecraftforge.common.I
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag flag) {
-        if (definition.gasMask) {
+        if (isGasMask()) {
             int ticks = stack.hasTagCompound() ? stack.getTagCompound().getInteger("MetroFilterTicks") : 0;
             lines.add(I18n.format("metroport.armor.filter", (ticks + 19) / 20));
         }
