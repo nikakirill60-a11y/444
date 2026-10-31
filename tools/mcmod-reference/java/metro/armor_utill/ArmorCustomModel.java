@@ -2,7 +2,6 @@
  * Decompiled with CFR 0.152.
  * 
  * Could not load the following classes:
- *  metro.common.Main
  *  net.minecraft.client.model.ModelRenderer
  *  net.minecraft.entity.EntityLivingBase
  *  org.lwjgl.opengl.GL11

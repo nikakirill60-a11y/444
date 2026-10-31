@@ -5,7 +5,6 @@
  *  cpw.mods.fml.common.event.FMLPreInitializationEvent
  *  cpw.mods.fml.common.registry.GameRegistry
  *  cpw.mods.fml.common.registry.LanguageRegistry
- *  metro.common.Main
  *  net.minecraft.item.Item
  */
 package metro.common.regstration;

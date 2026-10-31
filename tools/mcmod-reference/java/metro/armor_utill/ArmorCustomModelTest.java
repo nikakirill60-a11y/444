@@ -4,7 +4,6 @@
  * Could not load the following classes:
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
- *  metro.common.Main
  *  net.minecraft.client.Minecraft
  *  net.minecraft.util.ResourceLocation
  *  net.minecraftforge.client.model.AdvancedModelLoader

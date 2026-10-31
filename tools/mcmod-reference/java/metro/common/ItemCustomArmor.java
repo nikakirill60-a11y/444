@@ -4,7 +4,6 @@
  * Could not load the following classes:
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
- *  metro.common.Main
  *  net.minecraft.entity.Entity
  *  net.minecraft.entity.EntityLivingBase
  *  net.minecraft.entity.player.EntityPlayer
