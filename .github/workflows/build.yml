@@ -30,7 +30,15 @@ jobs:
           if [ "$result" -ne 0 ]; then
             python - <<'PY'
           from pathlib import Path
-          log = Path('build-output.log').read_text(errors='replace')[-50000:]
+          import xml.etree.ElementTree as ET
+          for report in Path('build/test-results/test').glob('TEST-*.xml'):
+              suite = ET.parse(report).getroot()
+              for case in suite.findall('testcase'):
+                  for failure in list(case.findall('failure')) + list(case.findall('error')):
+                      message = (failure.text or failure.get('message', 'Test failure'))[:3000]
+                      message = message.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+                      print('::error title=' + case.get('classname', '') + '.' + case.get('name', '') + '::' + message)
+          log = Path('build-output.log').read_text(errors='replace')[-3500:]
           log = log.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
           print('::error title=Forge build failed::' + log)
           PY
