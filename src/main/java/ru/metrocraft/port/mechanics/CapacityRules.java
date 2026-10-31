@@ -16,9 +16,10 @@ public final class CapacityRules {
     @SubscribeEvent(priority=net.minecraftforge.fml.common.eventhandler.EventPriority.LOWEST) public static void pickup(EntityItemPickupEvent event){
         EntityPlayer player=event.getEntityPlayer();
         if(player.world.isRemote || !limited(player))return;
+        if(event.getItem().cannotPickup())return;
         String owner=event.getItem().getOwner();
-        if(owner!=null && !owner.equals(player.getName()))return;
-        ItemStack stack=event.getItem().getItem(); int before=stack.getCount();
+        if(owner!=null && !owner.equals(player.getName()) && event.getItem().lifespan-event.getItem().getAge()>200)return;
+        ItemStack stack=event.getItem().getItem(), pickedStack=stack.copy(); int before=stack.getCount();
         // Insert only in unlocked slots. Keep any remainder on the original ground entity.
         for(int i=0;i<end(player)&&!stack.isEmpty();i++){
             ItemStack target=player.inventory.getStackInSlot(i);
@@ -33,8 +34,18 @@ public final class CapacityRules {
         }
         event.setCanceled(true);
         int picked=before-stack.getCount();
-        if(picked>0){player.onItemPickup(event.getItem(),picked);player.inventory.markDirty();}
+        if(picked>0){
+            pickedStack.setCount(picked);
+            net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerItemPickupEvent(player,event.getItem(),pickedStack);
+            player.onItemPickup(event.getItem(),picked);player.inventory.markDirty();
+        }
         if(stack.isEmpty())event.getItem().setDead();else event.getItem().setItem(stack);
+    }
+    @SubscribeEvent public static void close(PlayerContainerEvent.Close event){
+        if(event.getEntityPlayer() instanceof net.minecraft.entity.player.EntityPlayerMP){
+            net.minecraft.entity.player.EntityPlayerMP player=(net.minecraft.entity.player.EntityPlayerMP)event.getEntityPlayer();
+            player.sendContainerToPlayer(player.inventoryContainer);
+        }
     }
     @SubscribeEvent public static void open(PlayerContainerEvent.Open event){
         EntityPlayer player=event.getEntityPlayer();
