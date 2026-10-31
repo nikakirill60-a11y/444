@@ -17,8 +17,8 @@ import ru.metrocraft.port.MetroPort;
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class MedkitRecipes {
     @SubscribeEvent public static void register(RegistryEvent.Register<IRecipe> event){
-        event.getRegistry().register(new Recipe(false).setRegistryName(MetroPort.ID,"medkit"));
-        event.getRegistry().register(new Recipe(true).setRegistryName(MetroPort.ID,"medkit_recharge"));
+        event.getRegistry().register(new Recipe(false,MetroPort.ITEMS.get("medkit")).setRegistryName(MetroPort.ID,"medkit"));
+        event.getRegistry().register(new Recipe(true,MetroPort.ITEMS.get("medkit")).setRegistryName(MetroPort.ID,"medkit_recharge"));
     }
     private static boolean potion(ItemStack stack){
         return stack.getItem()==Items.POTIONITEM && PotionUtils.getPotionFromItem(stack)==PotionTypes.STRONG_HEALING;
@@ -28,8 +28,9 @@ public final class MedkitRecipes {
         for(ItemStack candidate:OreDictionary.getOres("fiberglass"))if(OreDictionary.itemMatches(candidate,stack,false))return true;
         return stack.getItem().getRegistryName()!=null && stack.getItem().getRegistryName().getPath().equals("fiberglass");
     }
-    private static final class Recipe extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
-        private final boolean recharge;Recipe(boolean recharge){this.recharge=recharge;}
+    static final class Recipe extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
+        private final boolean recharge;private final Item kit;
+        Recipe(boolean recharge,Item kit){this.recharge=recharge;this.kit=kit;}
         @Override public boolean matches(InventoryCrafting inventory,World world){
             if(!recharge){
                 if(inventory.getWidth()!=3||inventory.getHeight()!=3)return false;
@@ -41,7 +42,7 @@ public final class MedkitRecipes {
             for(int i=0;i<inventory.getSizeInventory();i++){
                 ItemStack stack=inventory.getStackInSlot(i);if(stack.isEmpty())continue;
                 if(potion(stack))potions++;
-                else if(stack.getItem()==MetroPort.ITEMS.get("medkit")&&stack.isItemDamaged())kits++;
+                else if(stack.getItem()==kit&&stack.isItemDamaged())kits++;
                 else return false;
             }
             return potions==3&&kits==1;
@@ -50,12 +51,12 @@ public final class MedkitRecipes {
             ItemStack result=getRecipeOutput().copy();
             if(recharge)for(int i=0;i<inventory.getSizeInventory();i++){
                 ItemStack kit=inventory.getStackInSlot(i);
-                if(kit.getItem()==MetroPort.ITEMS.get("medkit")){result=kit.copy();result.setCount(1);result.setItemDamage(0);break;}
+                if(kit.getItem()==this.kit){result=kit.copy();result.setCount(1);result.setItemDamage(0);break;}
             }
             return result;
         }
         @Override public boolean canFit(int width,int height){return recharge?width*height>=4:width>=3&&height>=3;}
-        @Override public ItemStack getRecipeOutput(){Item item=MetroPort.ITEMS.get("medkit");return item==null?ItemStack.EMPTY:new ItemStack(item);}
+        @Override public ItemStack getRecipeOutput(){return kit==null?ItemStack.EMPTY:new ItemStack(kit);}
         @Override public boolean isDynamic(){return true;}
         @Override public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inventory){
             NonNullList<ItemStack> remaining=NonNullList.withSize(inventory.getSizeInventory(),ItemStack.EMPTY);
