@@ -19,6 +19,7 @@ class ExodusTests(unittest.TestCase):
         self.assertEqual({k: sum(e['kind'] == k for e in ENTRIES) for k in ('mask', 'mutant', 'decor')},
                          {'mask': 3, 'mutant': 2, 'decor': 22})
         self.assertEqual(len({e['id'] for e in ENTRIES}), 27)
+        self.assertEqual(sum(e['elements'] for e in ENTRIES), 1014)
         masks = {Path(e['source']).stem for e in ENTRIES if e['kind'] == 'mask'}
         mutants = {Path(e['source']).stem for e in ENTRIES if e['kind'] == 'mutant'}
         self.assertEqual(masks, {'gold_ore', 'diamond_ore', 'pumpkin'})
