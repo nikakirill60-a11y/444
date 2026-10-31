@@ -5,7 +5,6 @@
  *  cpw.mods.fml.common.event.FMLPreInitializationEvent
  *  cpw.mods.fml.common.registry.GameRegistry
  *  cpw.mods.fml.common.registry.LanguageRegistry
- *  metro.common.ClientProxy
  *  metro.common.blocks.AirBlock
  *  metro.common.blocks.CollisionBlock
  *  metro.common.blocks.tileentity.TileEntityAir
