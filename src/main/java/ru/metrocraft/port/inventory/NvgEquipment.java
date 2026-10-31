@@ -76,6 +76,9 @@ public final class NvgEquipment {
     public static boolean ownEffect(PotionEffect effect) {
         return effect!=null && effect.getAmplifier()==0 && effect.getDuration()<=220 && !effect.doesShowParticles() && !effect.getIsAmbient();
     }
+    public static boolean refreshVision(boolean owned,PotionEffect current) {
+        return current==null || (owned && ownEffect(current) && current.getDuration()<220);
+    }
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player=event.player;
         if(event.phase!=TickEvent.Phase.END || player.world.isRemote)return;
@@ -83,8 +86,11 @@ public final class NvgEquipment {
         if(!player.isEntityAlive())return;
         PotionEffect current=player.getActivePotionEffect(MobEffects.NIGHT_VISION);
         boolean owned=player.getEntityData().getBoolean(VISION);
+        if(owned && current!=null && !ownEffect(current)) {
+            owned=false;player.getEntityData().removeTag(VISION);
+        }
         if(!get(player).isEmpty() && !player.isSpectator()) {
-            if(current==null || current.getDuration()<220) {
+            if(refreshVision(owned,current)) {
                 player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION,220,0,false,false));
                 player.getEntityData().setBoolean(VISION,true);
             }

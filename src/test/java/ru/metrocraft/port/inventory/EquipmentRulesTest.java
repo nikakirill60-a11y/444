@@ -46,4 +46,14 @@ public class EquipmentRulesTest {
         assertFalse(NvgEquipment.ownEffect(new PotionEffect(MobEffects.NIGHT_VISION,220,0,false,true)));
         assertFalse(NvgEquipment.ownEffect(null));
     }
+    @Test public void shortExternalVisionIsNeverClaimedJustBecauseItNeedsRefreshing() {
+        net.minecraft.potion.PotionEffect shortExternal=new net.minecraft.potion.PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION,80,0,false,false);
+        assertFalse(NvgEquipment.refreshVision(false,shortExternal));
+        assertTrue(NvgEquipment.refreshVision(true,shortExternal));
+        assertTrue(NvgEquipment.refreshVision(false,null));
+        assertFalse(NvgEquipment.refreshVision(true,new net.minecraft.potion.PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION,80,1,false,false)));
+        assertFalse(NvgEquipment.refreshVision(true,new net.minecraft.potion.PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION,80,0,false,true)));
+        assertFalse(NvgEquipment.refreshVision(true,new net.minecraft.potion.PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION,220,0,false,false)));
+    }
+
 }
