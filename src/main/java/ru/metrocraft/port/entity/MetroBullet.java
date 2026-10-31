@@ -13,11 +13,13 @@ import java.util.*;
 public final class MetroBullet extends Entity {
     private UUID shooter, shot;
     private float damage, gravity=.25F, power=1;
-    private int age;
+    private int age,lagIndex;
     private final Set<UUID> victims=new HashSet<>();
     public MetroBullet(World world){super(world);setSize(.1F,.1F);}
     public MetroBullet(World world,EntityPlayer player,ItemStackData data,Vec3d velocity,UUID shot){
         this(world);this.shooter=player.getUniqueID();this.shot=shot;
+        lagIndex=ru.metrocraft.port.ballistics.PlayerHistory.indexForPing(
+                player instanceof net.minecraft.entity.player.EntityPlayerMP?((net.minecraft.entity.player.EntityPlayerMP)player).ping:0);
         this.damage=data.damage;this.gravity=data.gravity;this.power=data.power;
         Vec3d origin=player.getPositionEyes(1);setPosition(origin.x,origin.y,origin.z);
         motionX=velocity.x;motionY=velocity.y;motionZ=velocity.z;
@@ -43,10 +45,19 @@ public final class MetroBullet extends Entity {
         RayTraceResult wall=world.rayTraceBlocks(start,end,false,true,false);
         if(wall!=null)end=wall.hitVec;
         Map<Entity,Double> hits=new HashMap<>();
+        Map<Entity,Float> multipliers=new HashMap<>();
         AxisAlignedBB area=new AxisAlignedBB(start.x,start.y,start.z,end.x,end.y,end.z).grow(1);
-        for(Entity target:world.getEntitiesWithinAABBExcludingEntity(this,area)){
+        Set<Entity> candidates=new LinkedHashSet<>(world.getEntitiesWithinAABBExcludingEntity(this,area));
+        candidates.addAll(world.playerEntities);
+        for(Entity target:candidates){
             if(target==owner || target==owner.getRidingEntity() || !target.canBeCollidedWith() || victims.contains(target.getUniqueID()))continue;
             if(target instanceof EntityPlayer && ((EntityPlayer)target).isSpectator())continue;
+            if(target instanceof EntityPlayer){
+                ru.metrocraft.port.ballistics.LagSnapshot.Hit hit=ru.metrocraft.port.ballistics.PlayerHistory.trace(
+                        (EntityPlayer)target,lagIndex,start,end);
+                if(hit!=null){hits.put(target,start.squareDistanceTo(end)*hit.fraction*hit.fraction);multipliers.put(target,hit.damageMultiplier());}
+                continue;
+            }
             AxisAlignedBB box=target.getEntityBoundingBox();
             RayTraceResult intercept=box.calculateIntercept(start,end);
             if(box.contains(start))hits.put(target,0D);
@@ -56,7 +67,7 @@ public final class MetroBullet extends Entity {
         for(Entity target:ordered){
             if(target instanceof EntityPlayer && !owner.canAttackPlayer((EntityPlayer)target)){setDead();return;}
             victims.add(target.getUniqueID());
-            ru.metrocraft.port.mechanics.ProjectileDamage.queue(world,shot,target,owner,this,damage);
+            ru.metrocraft.port.mechanics.ProjectileDamage.queue(world,shot,target,owner,this,damage*multipliers.getOrDefault(target,1F));
             power-=1;
             if(power<=0){setDead();return;}
         }
