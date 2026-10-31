@@ -19,7 +19,6 @@
  *  metro.client.gui.GuiHandler
  *  metro.common.CommonProxy
  *  metro.common.network.Network
- *  metro.common.regstration.RegisterBlocks
  *  net.minecraft.creativetab.CreativeTabs
  *  net.minecraft.init.Items
  *  net.minecraft.item.Item
@@ -69,7 +68,7 @@ public class Main {
     @Mod.EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
         Network.load((FMLPreInitializationEvent)event);
-        RegisterBlocks.load((FMLPreInitializationEvent)event);
+        RegisterBlocks.load(event);
         RegisterGuns.load(event);
         RegisterArmor.load(event);
         proxy.preInit();
