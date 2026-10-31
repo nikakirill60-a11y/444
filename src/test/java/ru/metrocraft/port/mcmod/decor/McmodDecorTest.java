@@ -38,6 +38,9 @@ public class McmodDecorTest {
         assertArrayEquals(new int[]{270,180,90,0},new int[]{DecorPose.angle(0),DecorPose.angle(1),DecorPose.angle(2),DecorPose.angle(3)});
         for(McmodDecorContent.Entry e:McmodDecorContent.entries) {
             McmodDecorBlock block=new McmodDecorBlock(e);
+            assertEquals(net.minecraft.block.material.Material.ROCK,block.getMaterial(block.getDefaultState()));
+            assertEquals(net.minecraft.block.SoundType.METAL,block.getSoundType(block.getDefaultState(),null,BlockPos.ORIGIN,null));
+            assertEquals(-1,block.getBlockHardness(block.getDefaultState(),null,BlockPos.ORIGIN),0);
             for(int meta=0;meta<4;meta++) {
                 assertEquals(meta,block.getMetaFromState(block.getStateFromMeta(meta)));
                 assertEquals((meta+1)&3,block.getMetaFromState(block.withRotation(block.getStateFromMeta(meta),Rotation.CLOCKWISE_90)));

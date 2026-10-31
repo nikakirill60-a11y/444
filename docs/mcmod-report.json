@@ -2313,7 +2313,7 @@
   "pendingArmor": [],
   "remainingContent": [
     "Guns and ammunition",
-    "Decorative blocks; ordinary items are listed separately in mcmod-items-report.json",
+    "Remaining decorative blocks: see mcmod-decor-report.json; ordinary items: mcmod-items-report.json",
     "Original player/inventory/network/condition/radiation mechanics audit"
   ],
   "adaptations": [

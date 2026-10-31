@@ -14,9 +14,9 @@ public final class McmodDecorBlock extends Block {
     public static final PropertyDirection FACING=BlockHorizontal.FACING;
     public final McmodDecorContent.Entry entry;
     public McmodDecorBlock(McmodDecorContent.Entry entry) {
-        super(Material.IRON);this.entry=entry;
+        super(Material.ROCK);this.entry=entry;
         setDefaultState(blockState.getBaseState().withProperty(FACING,EnumFacing.SOUTH));
-        setBlockUnbreakable();setResistance(6000000);setLightOpacity(0);
+        setBlockUnbreakable();setResistance(6000000);setLightOpacity(0);setSoundType(SoundType.METAL);
     }
     @Override protected BlockStateContainer createBlockState() {return new BlockStateContainer(this,FACING);}
     @Override public IBlockState getStateFromMeta(int meta) {return getDefaultState().withProperty(FACING,ru.metrocraft.port.gates.GateBlock.horizontal(meta));}
