@@ -59,6 +59,16 @@ public final class EquipmentRules {
             if(index==39 || index==38)container.inventorySlots.set(i,new Guard(slot,player,index==39?EntityEquipmentSlot.HEAD:EntityEquipmentSlot.CHEST));
         }
     }
+    @SubscribeEvent(priority=net.minecraftforge.fml.common.eventhandler.EventPriority.HIGHEST)
+    public static void rightClick(net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickItem event) {
+        ItemStack held=event.getItemStack();
+        if(NvgEquipment.accepts(held))return; // Its right click equips the NEW slot, not HEAD.
+        EntityEquipmentSlot slot=net.minecraft.entity.EntityLiving.getSlotForItemStack(held);
+        if((slot==EntityEquipmentSlot.HEAD || slot==EntityEquipmentSlot.CHEST)
+                && !allowed(event.getEntityPlayer(),slot,held)) {
+            event.setCanceled(true);event.setCancellationResult(net.minecraft.util.EnumActionResult.FAIL);
+        }
+    }
     @SubscribeEvent public static void opened(PlayerContainerEvent.Open event) { guard(event.getEntityPlayer(),event.getContainer()); }
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
         if(event.phase!=TickEvent.Phase.END)return;

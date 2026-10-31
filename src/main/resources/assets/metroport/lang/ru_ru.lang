@@ -312,3 +312,5 @@ metroport.patch.remove=Shift + ПКМ с нашивкой: снять нашив
 metroport.patch.equipped=Нашивка: %s
 metroport.nvg.slot=ПНВ
 key.metroport.inventory=Экипировка Metro (ПНВ / рюкзак)
+metroport.armor.builtin_head=Встроенный противогаз: снимите шлем; слот головы блокируется
+metroport.nvg.help=Отдельный слот ПНВ: ПКМ — надеть; I — окно экипировки

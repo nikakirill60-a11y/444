@@ -33,7 +33,7 @@ public final class McmodDecorRenderer extends TileEntitySpecialRenderer<McmodDec
         McmodDecorContent.Entry entry=((McmodDecorBlock)tile.getBlockType()).entry;
         GlStateManager.pushMatrix();GlStateManager.disableCull();GlStateManager.enableRescaleNormal();
         try {
-            GlStateManager.translate(x+.5,y,z+.5);GlStateManager.rotate(DecorPose.angle(tile.getBlockMetadata()),0,1,0);
+            GlStateManager.translate(x+.5,y,z+.5);GlStateManager.rotate(DecorPose.angle(tile.rotation()),0,1,0);
             GlStateManager.scale(entry.scale,entry.scale,entry.scale);GlStateManager.color(1,1,1,alpha);mesh(entry);
         } finally {GlStateManager.color(1,1,1,1);GlStateManager.enableCull();GlStateManager.disableRescaleNormal();GlStateManager.popMatrix();}
     }

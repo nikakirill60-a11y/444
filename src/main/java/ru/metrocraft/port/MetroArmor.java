@@ -102,6 +102,8 @@ public class MetroArmor extends ItemArmor implements net.minecraftforge.common.I
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag flag) {
+        if(ru.metrocraft.port.inventory.EquipmentRules.sealed(stack))lines.add(I18n.format("metroport.armor.builtin_head"));
+        if(definition.nightVision)lines.add(I18n.format("metroport.nvg.help"));
         if (isGasMask()) {
             int ticks = stack.hasTagCompound() ? stack.getTagCompound().getInteger("MetroFilterTicks") : 0;
             lines.add(I18n.format("metroport.armor.filter", (ticks + 19) / 20));

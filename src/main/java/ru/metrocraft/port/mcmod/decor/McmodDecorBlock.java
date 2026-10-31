@@ -27,6 +27,7 @@ public final class McmodDecorBlock extends Block {
     @Override public boolean hasTileEntity(IBlockState state) {return true;}
     @Override public TileEntity createTileEntity(World world,IBlockState state) {return new McmodDecorTile();}
     @Override public EnumBlockRenderType getRenderType(IBlockState state) {return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;}
+    @Override public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face) {return net.minecraft.block.state.BlockFaceShape.UNDEFINED;}
     @Override public boolean isOpaqueCube(IBlockState state) {return false;}
     @Override public boolean isFullCube(IBlockState state) {return false;}
     @Override public AxisAlignedBB getBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) {return DecorPose.bounds(entry,getMetaFromState(state));}

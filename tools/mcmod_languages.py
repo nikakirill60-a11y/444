@@ -19,5 +19,5 @@ def lines_for(locale):
 def update():
     for locale in ['ru_ru','en_us']:
         path=ASSETS/('lang/'+locale+'.lang')
-        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','tile.metroport.mcmod_decor_'))]
+        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','tile.metroport.mcmod_decor_','metroport.armor.builtin_head'))]
         path.write_text('\n'.join(lines+lines_for(locale))+'\n')

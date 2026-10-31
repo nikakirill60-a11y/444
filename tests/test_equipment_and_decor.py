@@ -50,7 +50,7 @@ class EquipmentAndDecorTests(unittest.TestCase):
 
     def test_suit_guards_cover_direct_use_containers_and_server_bypasses(self):
         rules=(JAVA/'inventory/EquipmentRules.java').read_text()
-        for marker in ['sealedId','"himza"','"satanarmor"','"mcmod_officer_ozk"','PlayerContainerEvent.Open','TickEvent.PlayerTickEvent','NoDrop.retain','hasBindingCurse','original.onTake','original.isItemValid']:
+        for marker in ['sealedId','"himza"','"satanarmor"','"mcmod_officer_ozk"','PlayerContainerEvent.Open','PlayerInteractEvent.RightClickItem','TickEvent.PlayerTickEvent','NoDrop.retain','hasBindingCurse','original.onTake','original.isItemValid']:
             self.assertIn(marker,rules)
         armor=(JAVA/'MetroArmor.java').read_text()
         self.assertIn('EquipmentRules.allowed(player,armorType,stack)',armor)

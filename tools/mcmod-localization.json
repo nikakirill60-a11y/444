@@ -17,7 +17,9 @@
     "metroport.patch.remove": "Shift + ПКМ с нашивкой: снять нашивку с брони",
     "metroport.patch.equipped": "Нашивка: %s",
     "metroport.nvg.slot": "ПНВ",
-    "key.metroport.inventory": "Экипировка Metro (ПНВ / рюкзак)"
+    "key.metroport.inventory": "Экипировка Metro (ПНВ / рюкзак)",
+    "metroport.armor.builtin_head": "Встроенный противогаз: снимите шлем; слот головы блокируется",
+    "metroport.nvg.help": "Отдельный слот ПНВ: ПКМ — надеть; I — окно экипировки"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -37,6 +39,8 @@
     "metroport.patch.remove": "Sneak + right click with a patch: remove the attached patch",
     "metroport.patch.equipped": "Patch: %s",
     "metroport.nvg.slot": "NVG",
-    "key.metroport.inventory": "Metro equipment (NVG / backpack)"
+    "key.metroport.inventory": "Metro equipment (NVG / backpack)",
+    "metroport.armor.builtin_head": "Built-in gas mask: remove helmet; head slot is locked",
+    "metroport.nvg.help": "Dedicated NVG slot: right click to equip; I opens equipment"
   }
 }
