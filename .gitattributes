@@ -5,3 +5,5 @@ src/main/java/ru/metrocraft/port/client/tmt/** whitespace=-trailing-space
 src/main/java/ru/metrocraft/port/client/mobs/** whitespace=-trailing-space
 src/main/java/ru/metrocraft/port/entity/*Entity.java whitespace=-trailing-space
 *.obj whitespace=-trailing-space
+# Keep original CRLF animation metadata byte-identical to the supplied RP.
+src/main/resources/assets/metroport/textures/exodus/**/*.png.mcmeta whitespace=cr-at-eol
