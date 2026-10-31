@@ -173,6 +173,10 @@ def main():
         translations["en_us"].append("tile.metroport." + key + ".name=" + en_name)
     translations["ru_ru"].append("metroport.gate.obstructed=Для ворот и движения створки нужно свободное место. См. инструкцию.")
     translations["en_us"].append("metroport.gate.obstructed=The gate and its movement pocket need empty space. See the instructions.")
+    translations["ru_ru"].append("death.attack.metrobullet.headshot=%1$s убит выстрелом в голову игроком %2$s")
+    translations["en_us"].append("death.attack.metrobullet.headshot=%1$s was shot in the head by %2$s")
+    translations["ru_ru"].append("metroport.nodrop.name=Невыпадающий предмет")
+    translations["en_us"].append("metroport.nodrop.name=Retained on death")
     translations["ru_ru"].append("death.attack.metrobullet=%1$s застрелен игроком %2$s")
     translations["en_us"].append("death.attack.metrobullet=%1$s was shot by %2$s")
     for locale, lines in translations.items():
@@ -187,10 +191,10 @@ def main():
         'expandedContent': {'decorativeBlocks': 58, 'radiationSources': 1, 'filters': 1, 'pickaxes': 1, 'backpacks': 3, 'entityTypes': 10, 'hermeticGates': 6},
         'notPorted': ['Original missing LastDays muzzle-flash meshes',
                       'Independent hand/magazine geometry not supplied by the models',
-                      'Full 1.7 player bone hitboxes/lag compensation and cross-mod vehicle damage',
+                      'Optional cross-mod vehicle damage requires the relevant 1.12 vehicle API',
                       'Unknown third-party inventory slot contracts require integration testing',
                       'Client/dedicated-server visual and multiplayer acceptance'],
-        'mechanics': {'projectiles': 'original speed, .99 drag / .8 water drag, .02 * FallSpeed gravity',
+        'mechanics': {'projectiles': 'original speed, .99 drag / .8 water drag, .02 * FallSpeed gravity, four oriented player bones, head x2 / arms x.6, twenty ping-compensated snapshots',
                       'armor': 'ISpecialArmor priority 1, Defence fraction, original movement/knockback attributes',
                       'noDrop': 'givenodrop command, toss prevention, persistent death return queue',
                       'attachments': 'original mounts, models, recoil/speed/sound modifiers and scope textures'},

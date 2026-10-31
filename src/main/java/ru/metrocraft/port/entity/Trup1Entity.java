@@ -11,7 +11,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
 
 public class Trup1Entity
-extends EntityMob {
+extends LegacyHostileMob {
     public Trup1Entity(World par1World) {
         super(par1World);
     }

@@ -165,4 +165,6 @@ tile.metroport.germo_left.name=Hermetic gate — left
 tile.metroport.germo_left45.name=Hermetic gate — left 45°
 tile.metroport.germo_half_open.name=Hermetic gate — hinged
 metroport.gate.obstructed=The gate and its movement pocket need empty space. See the instructions.
+death.attack.metrobullet.headshot=%1$s was shot in the head by %2$s
+metroport.nodrop.name=Retained on death
 death.attack.metrobullet=%1$s was shot by %2$s

@@ -20,5 +20,6 @@ entity_map={'func_70105_a':'setSize','func_110147_ax':'applyEntityAttributes','f
             'field_111267_a':'MAX_HEALTH','field_111265_b':'FOLLOW_RANGE','field_111266_c':'KNOCKBACK_RESISTANCE','field_111263_d':'MOVEMENT_SPEED','field_111264_e':'ATTACK_DAMAGE'}
 for name in ['Kris','Murzik','Tuzic','Jery','Trup1','Trup2','Trup3','Trup4','Komp','Grib']:
     text=(Path('tools/legacy-reference/ru/metro/mod')/(name+'Entity.java')).read_text().replace('package ru.metro.mod;', 'package ru.metrocraft.port.entity;')
+    text=text.replace('extends EntityMob', 'extends LegacyHostileMob')
     for a,b in entity_map.items():text=text.replace(a,b)
     (entity_dest/(name+'Entity.java')).write_text(text)

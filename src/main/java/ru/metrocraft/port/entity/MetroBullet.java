@@ -67,7 +67,7 @@ public final class MetroBullet extends Entity {
         for(Entity target:ordered){
             if(target instanceof EntityPlayer && !owner.canAttackPlayer((EntityPlayer)target)){setDead();return;}
             victims.add(target.getUniqueID());
-            ru.metrocraft.port.mechanics.ProjectileDamage.queue(world,shot,target,owner,this,damage*multipliers.getOrDefault(target,1F));
+            ru.metrocraft.port.mechanics.ProjectileDamage.queue(world,shot,target,owner,this,damage*multipliers.getOrDefault(target,1F),multipliers.getOrDefault(target,1F)==2F);
             power-=1;
             if(power<=0){setDead();return;}
         }

@@ -13,7 +13,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
 
 public class KrisEntity
-extends EntityMob {
+extends LegacyHostileMob {
     public KrisEntity(World par1World) {
         super(par1World);
         this.setSize(2.2f, 1.0f);

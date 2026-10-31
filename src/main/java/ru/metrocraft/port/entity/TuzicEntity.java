@@ -13,7 +13,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
 
 public class TuzicEntity
-extends EntityMob {
+extends LegacyHostileMob {
     public TuzicEntity(World par1World) {
         super(par1World);
         this.setSize(2.0f, 1.0f);

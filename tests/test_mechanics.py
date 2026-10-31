@@ -10,6 +10,17 @@ ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/metroport'
 
 class MechanicsTests(unittest.TestCase):
+    def test_legacy_mob_base_ai_is_not_lost_in_112(self):
+        entities=ROOT/'src/main/java/ru/metrocraft/port/entity'
+        names=['Kris','Jery','Murzik','Tuzic','Trup1','Trup2','Trup3','Trup4','Komp','Grib']
+        for name in names:
+            original=(ROOT/'tools/legacy-reference/ru/metro/mod'/(name+'Entity.java')).read_text()
+            self.assertIn('extends EntityMob',original)
+            self.assertIn('extends LegacyHostileMob',(entities/(name+'Entity.java')).read_text())
+        base=(entities/'LegacyHostileMob.java').read_text()
+        for task in ['EntityAIAttackMelee','EntityAINearestAttackableTarget','EntityAIHurtByTarget','EntityAIWanderAvoidWater']:
+            self.assertIn(task,base)
+
     def test_parameters_match_original_definitions(self):
         with zipfile.ZipFile(ROOT/'Flan-20261030T152711Z-1-001.zip') as outer:
             with zipfile.ZipFile(io.BytesIO(outer.read('Flan/MetroCraft -Pack-1.7.10-4.10.0.jar'))) as pack:

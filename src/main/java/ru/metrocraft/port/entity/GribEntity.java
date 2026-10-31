@@ -11,7 +11,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
 
 public class GribEntity
-extends EntityMob {
+extends LegacyHostileMob {
     public GribEntity(World par1World) {
         super(par1World);
     }

@@ -61,6 +61,6 @@ public final class GunClient {
         GlStateManager.disableBlend();
     }
     @SubscribeEvent public static void tooltip(net.minecraftforge.event.entity.player.ItemTooltipEvent event){
-        if(ru.metrocraft.port.mechanics.NoDrop.marked(event.getItemStack()))event.getToolTip().add("§aNoDrop");
+        if(ru.metrocraft.port.mechanics.NoDrop.marked(event.getItemStack()))event.getToolTip().add("§a"+net.minecraft.client.resources.I18n.format("metroport.nodrop.name"));
     }
 }

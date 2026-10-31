@@ -13,7 +13,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.World;
 
 public class MurzikEntity
-extends EntityMob {
+extends LegacyHostileMob {
     public MurzikEntity(World par1World) {
         super(par1World);
         this.setSize(2.0f, 1.0f);
