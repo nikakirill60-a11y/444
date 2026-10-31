@@ -23,7 +23,6 @@
  *  metro.client.render.guns.rpk_Render
  *  metro.client.render.guns.vsv_Render
  *  metro.common.gun.ItemGun
- *  metro.common.gun.ammo.ItemAmmo
  *  net.minecraft.item.Item
  *  net.minecraft.item.Item$ToolMaterial
  *  net.minecraftforge.client.IItemRenderer
