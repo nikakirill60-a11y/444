@@ -397,7 +397,6 @@
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelZelezoProvoda
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelZelezoTrub
  *  mods.provoda.until.AirSetup
- *  mods.provoda.until.BlockLightTile
  *  mods.provoda.until.CommandDefence
  *  mods.provoda.until.CustomEPP
  *  mods.provoda.until.EventHandler
