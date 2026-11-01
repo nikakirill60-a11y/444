@@ -17,12 +17,13 @@ public final class FactionTeleportBlock extends Block {
         public final String team;public final int dimension;public final BlockPos pos;
         public Target(String team,int dimension,BlockPos pos){this.team=team;this.dimension=dimension;this.pos=pos.toImmutable();}
     }
+    private static volatile String randomTeam="";
     private static volatile List<Target> configured=Collections.emptyList();
     private static final class Cooldown {World world;long until;Cooldown(World w,long time){world=w;until=time;}}
     private final Map<EntityPlayer,Cooldown> cooldowns=new WeakHashMap<>();
     public FactionTeleportBlock(){super(Material.ROCK);setBlockUnbreakable();setResistance(6000000);}
     public static void load(File file){
-        Configuration c=new Configuration(file);c.load();List<Target> points=new ArrayList<>();
+        Configuration c=new Configuration(file);c.load();randomTeam=c.getString("randomTeam","access","","Optional server team for the native unaffiliated random-destination branch; blank disables it.").trim();List<Target> points=new ArrayList<>();
         String[] teams={"polis","red_line","reich","arbat","hansa","confederation1905","vdnh","prest"};
         for(int i=0;i<SOURCE_FACTIONS.length;i++){
             String key="destination."+SOURCE_FACTIONS[i];boolean enabled=c.getBoolean("enabled",key,false,"Set a safe existing map destination, then explicitly enable it.");
@@ -38,6 +39,11 @@ public final class FactionTeleportBlock extends Block {
         for(Target t:targets)if(t.dimension==dimension&&t.team.equals(team)){if(chosen!=null)return null;chosen=t;}
         return chosen; // Duplicate team destinations fail closed, rather than silently choosing an arbitrary base.
     }
+    public static Target select(List<Target> targets,String team,int dimension,String randomTeam,Random random){
+        if(team==null||randomTeam.isEmpty()||!team.equals(randomTeam))return select(targets,team,dimension);
+        List<Target> eligible=new ArrayList<>();for(Target t:targets)if(t.dimension==dimension)eligible.add(t);
+        return eligible.isEmpty()?null:eligible.get(random.nextInt(eligible.size())); // All eight source bases can be reached, not nextInt(7).
+    }
     public static boolean safeLanding(World world,BlockPos p){
         int height=world.getHeight();if(height<=0)height=256;
         if(p.getY()<1||p.getY()+1>=height||!world.getWorldBorder().contains(p)||!world.isBlockLoaded(p)||!world.isBlockLoaded(p.up())||!world.isBlockLoaded(p.down()))return false;
@@ -47,13 +53,13 @@ public final class FactionTeleportBlock extends Block {
     public boolean teleport(World world,EntityPlayerMP player,List<Target> targets){
         if(world.isRemote||player.world!=world||!player.isEntityAlive()||player.isSpectator()||player.isRiding()||player.isBeingRidden())return false;
         Cooldown last=cooldowns.get(player);long now=world.getTotalWorldTime();if(last!=null&&last.world==world&&now<last.until)return false;
-        Target t=select(targets,player.getTeam()==null?null:player.getTeam().getName(),player.dimension);if(t==null)return false;
+        Target t=select(targets,player.getTeam()==null?null:player.getTeam().getName(),player.dimension,randomTeam,world.rand);if(t==null)return false;
         int height=world.getHeight();if(height<=0)height=256;
         if(t.pos.getY()<1||t.pos.getY()+1>=height||!world.getWorldBorder().contains(t.pos))return false;
         if(!world.isBlockLoaded(t.pos)){
             if(!(world instanceof WorldServer))return false;net.minecraft.world.gen.ChunkProviderServer provider=((WorldServer)world).getChunkProvider();
             // A configured point may load an EXISTING map chunk. Never generate an uncharted destination.
-            if(!provider.isChunkGeneratedAt(t.pos.getX()>>4,t.pos.getZ()>>4))return false;provider.provideChunk(t.pos.getX()>>4,t.pos.getZ()>>4);
+            if(!provider.isChunkGeneratedAt(t.pos.getX()>>4,t.pos.getZ()>>4))return false;if(provider.loadChunk(t.pos.getX()>>4,t.pos.getZ()>>4)==null)return false;
         }
         if(!safeLanding(world,t.pos))return false;
         cooldowns.put(player,new Cooldown(world,now+100));player.motionX=player.motionY=player.motionZ=0;player.fallDistance=0;
