@@ -586,5 +586,124 @@
     "sourceBytes": 13380,
     "sourceSha256": "21b7632b0f70c3dc006fdcb78c4c078277cb42feb21d20f1262647a699425a89",
     "gzip": false
+  },
+  "textures/mcmod/mods_gui/stv0.png": {
+    "driveId": "1t5fiE8gRXsBEy1K_SO3_Ju6K0DeOnsjL",
+    "sourceName": "stv0.png",
+    "sourceBytes": 10495,
+    "sourceSha256": "a91eb03e4c015f19d9127cda66ee0e763ae785599f7ad41f29036d6a4d54d00c",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/bar3.png": {
+    "driveId": "1zwPZlEg32_5HRZCRIHTNvV9wR5kL3fEh",
+    "sourceName": "bar3.png",
+    "sourceBytes": 39289,
+    "sourceSha256": "5e80843f58800d8fa2ec7773a0b1e57a21d430f2481aa6986a412f74bed55dfa",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/mag.png": {
+    "driveId": "1ebYMv7x6Z1giAhBoV7ZSevpUq8ORAPHi",
+    "sourceName": "mag.png",
+    "sourceBytes": 8661,
+    "sourceSha256": "58cf9628cc499060aee0061a312e6d445c7e773e90c17d9a14cff4bed407424a",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/stv.png": {
+    "driveId": "1ZG57zN4wnzDzGdGRVsmoptwLQi9p8IdB",
+    "sourceName": "stv.png",
+    "sourceBytes": 8438,
+    "sourceSha256": "2e8255a47ca02d65ac897fdd1057a1b5543b2dead089ebdbc40fa930d3597608",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/pric2_gl.png": {
+    "driveId": "1tEDfEL5_fC8Z9U7VN-qVn2Z9Vv0OzbWY",
+    "sourceName": "pric2_gl.png",
+    "sourceBytes": 8773,
+    "sourceSha256": "404707dd9a4be6a8dde91e3a41aab42cb730933332f4b4997b23322679ba7759",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/ok.png": {
+    "driveId": "1-sCF4ZIVow120tCmI3-8de2yJZkErTFb",
+    "sourceName": "ok.png",
+    "sourceBytes": 8991,
+    "sourceSha256": "f244f4a19e37a2a3a78625cb9056503b405afe5376ffcf89ff0f4c0c02f15337",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/pric.png": {
+    "driveId": "1ILW9JweT2NkCUvWHY6knIYULudeXMIAe",
+    "sourceName": "pric.png",
+    "sourceBytes": 10396,
+    "sourceSha256": "80d0b0972639d85f248a623750d55c68bc629ecff8dc86ea0f7ebac117e5c4c6",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/pric0.png": {
+    "driveId": "1LJaKYPI22kpkCyJ3PdPNK7Y6bqZStSBd",
+    "sourceName": "pric0.png",
+    "sourceBytes": 8225,
+    "sourceSha256": "157abaf1fa56a84a744622879497f0a41d3bad1ea82bb0ec70ad610e02e048cc",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/pric3.png": {
+    "driveId": "1sXVgHUnWfk51eDoy2XU_nOFj86aIPNDM",
+    "sourceName": "pric3.png",
+    "sourceBytes": 10809,
+    "sourceSha256": "b727cbce11c596ab4831d9391b77d71fe520bd034f4619bb0d8b50e75ab1e0b1",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/pric2.png": {
+    "driveId": "1mwNyoKe0cUFCYcVvKYJdLnVvMsA5tmsI",
+    "sourceName": "pric2.png",
+    "sourceBytes": 12651,
+    "sourceSha256": "cd8e3d1dc87663f2c93fdc5a4d047a7c0d3d368cadf42070df3df364dd26bb0f",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/laser.png": {
+    "driveId": "1eBRGkDiFzVAhjAaBIHv07gdU31voqptF",
+    "sourceName": "laser.png",
+    "sourceBytes": 7928,
+    "sourceSha256": "9276e96af886ce9767513932a8c1b776dd720c9103bcedd84b7bfabf17ba3474",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/part.png": {
+    "driveId": "1NEh_JDdreaRJlHrIydbc6CGxWkheBOVg",
+    "sourceName": "part.png",
+    "sourceBytes": 4303,
+    "sourceSha256": "bc6ab3254c17fd6f6d322eeec80f5162646571c3ae19faaf929dde7aeba73330",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/mag_gl.png": {
+    "driveId": "1-ngCkLCpH1kUgeexUnmHOK8pGFeAmTLK",
+    "sourceName": "mag_gl.png",
+    "sourceBytes": 6935,
+    "sourceSha256": "c26495c2bf4b95e957ebb4542fbee905b55b00068e25280b8a01bf80f41c92f3",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/pric_gl.png": {
+    "driveId": "182_DvdgGv6qTWaq9CsaP_hE5n6Mv7mx_",
+    "sourceName": "pric_gl.png",
+    "sourceBytes": 4632,
+    "sourceSha256": "84315f06efb849613bf764b7a4cec34948b442325a64424d87af241faddab524",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/bar2.png": {
+    "driveId": "1_NJWvynDrwElKB2WXSuWTRj60Oz6Lwhf",
+    "sourceName": "bar2.png",
+    "sourceBytes": 103802,
+    "sourceSha256": "cf447992d1e1a12aa35d59513f29bb2b200df09f8b6ccf6b391cb8e7c39d34df",
+    "gzip": false
+  },
+  "textures/mcmod/mods_gui/bar.png": {
+    "driveId": "1gFgHqHt1KPyt-fUwCEGUTSUDH27dzRig",
+    "sourceName": "bar.png",
+    "sourceBytes": 120244,
+    "sourceSha256": "5a065e803b77906577c46394c5ccab0cf929eb40f181f4432f5881254bae703d",
+    "gzip": false
+  },
+  "sounds/mcmod_tikhar_pump_1.ogg": {
+    "driveId": "1HRoCJB8VZluS-_RSVU9rTCwtdNHV_FSo",
+    "sourceName": "tikhar_pump_1.ogg",
+    "sourceBytes": 26025,
+    "sourceSha256": "43ca6f15ee3f116927563202bb58c5eeb8f6428d1024a189b6a835d6d4a05cee",
+    "gzip": false
   }
 }

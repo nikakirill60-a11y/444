@@ -114,6 +114,11 @@
       "metroport:mcmod_tihar_shoot"
     ]
   },
+  "mcmod_tikhar_pump_1": {
+    "sounds": [
+      "metroport:mcmod_tikhar_pump_1"
+    ]
+  },
   "mcmod_ubl_oblom_0": {
     "sounds": [
       "metroport:mcmod_ubl_oblom_0"

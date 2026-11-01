@@ -40,6 +40,8 @@ public final class McmodAkItem extends GunItem {
         if(!definition.mcmodAir || player.world.isRemote || reloading(stack) || player.isHandActive() || pressure(stack)>=30)return;
         long now=player.world.getTotalWorldTime();
         if(tag(stack).hasKey("MetroLastPump") && now-tag(stack).getLong("MetroLastPump")<8)return;
+        net.minecraft.util.SoundEvent sound=MetroPort.SOUNDS.get("mcmod_tikhar_pump_1");
+        if(sound!=null)player.world.playSound(null,player.posX,player.posY,player.posZ,sound,net.minecraft.util.SoundCategory.PLAYERS,.5F,1);
         tag(stack).setInteger("davl",pressure(stack)+1);tag(stack).setLong("MetroLastPump",now);player.inventory.markDirty();
     }
     @Override @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)

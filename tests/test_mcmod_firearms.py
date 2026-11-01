@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];A=ROOT/'src/main/resources/assets/metroport'
 class FirearmTests(unittest.TestCase):
     def test_every_recovered_asset_matches_original_bytes_after_decompression(self):
-        manifest=json.loads((ROOT/'tools/mcmod-firearm-sources.json').read_text());self.assertEqual(84,len(manifest))
+        manifest=json.loads((ROOT/'tools/mcmod-firearm-sources.json').read_text());self.assertEqual(101,len(manifest))
         for rel,source in manifest.items():
             b=(A/rel).read_bytes();b=gzip.decompress(b) if source['gzip'] else b
             self.assertEqual(source['sourceBytes'],len(b),rel);self.assertEqual(source['sourceSha256'],hashlib.sha256(b).hexdigest(),rel)

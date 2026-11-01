@@ -14,11 +14,12 @@ public final class GunModsGui extends GuiContainer {
         super.initGui();buttonList.clear();
         for(int page=1;page<=4;page++){
             int y=guiTop+42+(page-1)*24;
-            if(page==2){addButton(new GuiButton(21,guiLeft+110,y,65,20,I18n.format("metroport.mcmod.mods.optic")));addButton(new GuiButton(22,guiLeft+177,y,65,20,I18n.format("metroport.mcmod.mods.collimator")));}
-            else addButton(new GuiButton(page*10+1,guiLeft+110,y,132,20,I18n.format("metroport.mcmod.mods.install")));
-            addButton(new GuiButton(page*10,guiLeft+244,y,48,20,I18n.format("metroport.mcmod.mods.remove")));
+            if(page==2){addButton(new ModuleButton("pric2",21,guiLeft+110,y,65,20,I18n.format("metroport.mcmod.mods.optic")));addButton(new ModuleButton("pric",22,guiLeft+177,y,65,20,I18n.format("metroport.mcmod.mods.collimator")));}
+            else addButton(new ModuleButton(page==1?"stv":page==3?"mag":"laser",page*10+1,guiLeft+110,y,132,20,I18n.format("metroport.mcmod.mods.install")));
+            addButton(new ModuleButton("pric0",page*10,guiLeft+244,y,48,20,I18n.format("metroport.mcmod.mods.remove")));
         }
-        addButton(new GuiButton(51,guiLeft+110,guiTop+140,182,20,I18n.format("metroport.mcmod.mods.repair")));
+        if(MetroPort.SOUNDS.containsKey("mcmod_open"))player.playSound(MetroPort.SOUNDS.get("mcmod_open"),.6F,1);
+        addButton(new ModuleButton("ok",51,guiLeft+110,guiTop+140,182,20,I18n.format("metroport.mcmod.mods.repair")));
     }
     @Override public void updateScreen(){
         super.updateScreen();ItemStack stack=player.getHeldItemMainhand();
@@ -36,6 +37,10 @@ public final class GunModsGui extends GuiContainer {
     }
     @Override protected void drawGuiContainerBackgroundLayer(float partial,int x,int y){
         drawRect(guiLeft,guiTop,guiLeft+xSize,guiTop+ySize,0xf01b2020);
+        net.minecraft.client.renderer.GlStateManager.color(1,1,1,.7F);net.minecraft.client.renderer.GlStateManager.enableBlend();
+        mc.getTextureManager().bindTexture(new net.minecraft.util.ResourceLocation("metroport:textures/mcmod/mods_gui/bar2.png"));
+        Gui.drawScaledCustomSizeModalRect(guiLeft,guiTop,0,0,1,1,xSize,ySize,1,1);
+        net.minecraft.client.renderer.GlStateManager.color(1,1,1,1);net.minecraft.client.renderer.GlStateManager.disableBlend();
         drawRect(guiLeft,guiTop,guiLeft+xSize,guiTop+2,0xffb6a56b);
     }
     @Override protected void drawGuiContainerForegroundLayer(int x,int y){
@@ -52,4 +57,19 @@ public final class GunModsGui extends GuiContainer {
             drawHoveringText(I18n.format(value==0?"metroport.mcmod.mods.refund":"metroport.mcmod.mods.price",value==0?8:price[0],value==0?4:price[1]),x,y);
         }
     }
+    private static final class ModuleButton extends GuiButton {
+        private final String icon,label;
+        ModuleButton(String icon,int id,int x,int y,int width,int height,String label){super(id,x,y,width,height,"");this.icon=icon;this.label=label;}
+        @Override public void drawButton(net.minecraft.client.Minecraft mc,int x,int y,float partial){
+            super.drawButton(mc,x,y,partial);if(!visible)return;
+            net.minecraft.client.renderer.GlStateManager.color(1,1,1,enabled?1:.35F);net.minecraft.client.renderer.GlStateManager.enableBlend();
+            mc.getTextureManager().bindTexture(new net.minecraft.util.ResourceLocation("metroport:textures/mcmod/mods_gui/"+icon+".png"));
+            Gui.drawScaledCustomSizeModalRect(this.x+2,this.y+2,0,0,1,1,16,16,1,1);
+            net.minecraft.client.renderer.GlStateManager.color(1,1,1,1);net.minecraft.client.renderer.GlStateManager.disableBlend();
+            net.minecraft.client.renderer.GlStateManager.pushMatrix();
+            try{net.minecraft.client.renderer.GlStateManager.translate(this.x+21,this.y+7,0);net.minecraft.client.renderer.GlStateManager.scale(.75F,.75F,1);mc.fontRenderer.drawStringWithShadow(label,0,0,enabled?0xffffff:0x888888);}
+            finally{net.minecraft.client.renderer.GlStateManager.popMatrix();}
+        }
+    }
+
 }

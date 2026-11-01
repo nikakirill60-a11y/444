@@ -31,7 +31,7 @@ public final class McmodWeapons {
         java.util.Set<String> ids=new java.util.LinkedHashSet<>();
         ids.add("mcmod_medkit_use_heavy");
         for(Definition d:definitions())if(d.kind.equals("gun")){ids.add(d.shootSound);ids.add(d.reloadSound);}
-        java.util.Collections.addAll(ids,"mcmod_craft","mcmod_open","mcmod_loot_metal");
+        java.util.Collections.addAll(ids,"mcmod_craft","mcmod_open","mcmod_loot_metal","mcmod_tikhar_pump_1");
         for(String id:ids){
             ResourceLocation key=new ResourceLocation(MetroPort.ID,id);SoundEvent sound=new SoundEvent(key).setRegistryName(key);
             event.getRegistry().register(sound);MetroPort.SOUNDS.put(id,sound);

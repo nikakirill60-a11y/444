@@ -31,7 +31,7 @@ public final class MetroPort {
     public static CommonProxy PROXY;
     public static final Map<String, Item> ITEMS = new LinkedHashMap<>();
     public static final Map<String, SoundEvent> SOUNDS = new LinkedHashMap<>();
-    public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
+    public static SimpleNetworkWrapper NETWORK;
     public static Definition[] definitions;
 
     public static final CreativeTabs WEAPONS = tab("weapons", "ak74", Items.BOW);
@@ -70,6 +70,7 @@ public final class MetroPort {
         } catch (Exception e) {
             throw new IllegalStateException("Cannot load MetroCraft content", e);
         }
+        NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
         NETWORK.registerMessage(ru.metrocraft.port.mcmod.GunActionPacket.Handler.class,ru.metrocraft.port.mcmod.GunActionPacket.class,8,Side.SERVER);
         NETWORK.registerMessage(ReloadPacket.Handler.class, ReloadPacket.class, 0, Side.SERVER);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.BackpackSyncPacket.Handler.class,

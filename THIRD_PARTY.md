@@ -24,3 +24,7 @@
 - MCMOD 1.5.1: получены остальные 27 комплектов; теперь сохранены 33 исходных OBJ/атласа/иконки (99 ресурсов) и шесть справочных классов, SHA-256 в том же manifest. Оригинальные Windows-1251 метки материалов противогаза и особые имена атласов сохранены; ограничения прав/неустановленной лицензии остаются прежними.
 
 - MCMOD 1.6.0: добавлены девять исходных иконок обычных предметов и справочные классы их регистрации/обработчиков. 53 отдельные иконки шлемов/нагрудников — новые растровые производные оригинальных OBJ и атласов, созданные `tools/create_mcmod_icons.py`; не выдаются за отдельные иконки, присутствовавшие в исходном JAR. Авторство и ограничения исходных ресурсов сохраняются.
+
+## MCMOD unified firearm resources (1.11)
+
+The remaining fourteen registered gun models, original textures/icons/sounds, shared attachment atlases and sixteen GuiMods images were recovered from the user-supplied unpacked MCMod resources. Runtime OBJ gzip is deterministic and lossless. Source file IDs, uncompressed sizes and SHA-256 are in `tools/mcmod-firearm-sources.json`. Reference bytecode/decompilation is for migration auditing only and is not included as executable legacy mod classes in the distributable. Native 1.12 renderer/GUI/transactions and animation curves are port implementations, not pixel-identical legacy code.

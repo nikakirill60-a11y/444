@@ -274,6 +274,9 @@
     "NoDrop": "TutEventHandler.doPlayerDropsEvent is empty; unconditional death cancellation belongs to the excluded original health system. ItemGun tooltip alone is not a working retention mechanic. Existing explicit NoDrop tags continue through the port retention queue.",
     "upgrades": "Four implemented pages: modStvol, modScope (1 optical / 2 collimator), modMag, modRessiver. Scope3 and modPriklad are mesh/NBT placeholders, not installable in recovered GUI/handler.",
     "costs": "Displayed prices, not the original inclusive-loop +1 overcharge. Removal returns 8 metal/4 chemicals only for an installed module.",
-    "flight": "20 blocks/tick, Gaussian .0075 × accuracy, .001 downward acceleration. Port swept collision and unloaded-terrain safeguards retained."
+    "flight": "20 blocks/tick, Gaussian .0075 × accuracy, .001 downward acceleration. Vanilla Throwable drag .99 / water .8; port swept collision, lag history and unloaded-terrain safeguards retained. Original block-impact exceptions and launch-origin offset are not reproduced; solid ray occlusion is retained to avoid skipping walls behind transparent blocks.",
+    "gui": "Original icons and panel atlases in a compact native 1.12 layout; not a pixel-identical 1.7.10 GuiScreen. Server-bound container prevents forged prices, arbitrary inventory edits, repeated refunds and changed-hand operations.",
+    "pressure": "Original cap 30 and damage thresholds 8/15/20; V holds server-limited pumping every 8 ticks, original pump sound and new skin-hand pump animation. Counter/gauge mirrors original thresholds; timing and controls are adapted.",
+    "animation": "Original articulated groups, native magazine/bolt/revolver-shell/meter visibility and new reload/recoil/pump skin-hand animations. Original per-frame renderer curves, smoke and muzzle transforms are not claimed pixel-identical."
   }
 }
