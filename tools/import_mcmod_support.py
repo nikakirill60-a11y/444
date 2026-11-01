@@ -49,6 +49,20 @@ def main():
    if selected:out.append(line)
   elif selected and line.startswith('f '):out.append(line)
  p=A/'models/mcmod/watch.obj';p.write_text('\n'.join(out)+'\n')
+ write(ROOT/'docs/mcmod-support-report.json',{
+  'version':'1.10.0','source':'User-provided MCMOD files; original ArmorArm/technical blocks decompiled with CFR 0.152',
+  'newAmmunition':[e['id'] for e in entries if e['kind']=='ammo'],
+  'allSevenAmmoTypesImported':True,'otherMCMODGunsDeferred':True,
+  'technicalBlocks':{e['id']:e['kind'] for e in entries if e['kind'] in ['collision','radiation','air','respawn']},
+  'watch':{'item':'mcmod_watch','slot':'Appended after NVG, preserving existing container indices','sourceGroups':['clock','num1','num2','num3','num4'],'sourceTexture':'clock-cR.png and ten original digit PNGs','time':'Minecraft world time; 0 ticks = 06:00, not original computer LocalTime','radiation':'Server-authoritative ambient danger, independent of mask protection; model RAD 0 / RAD ! plus HUD','lifecycle':'Persistent NBT; login/clone/respawn/dimension/tracking sync; ordinary death drop, keepInventory/NoDrop retention; binding curse respected'},
+  'radiation':{'existingMechanic':'Retained: 3 HP/20 ticks; suitable mask or suit with MetroFilterTicks > 0 protects; filter refill 6000 ticks, drains while worn','legacySource':'Existing radiation ID and grow(10) entity-intersection volume retained; scheduled ticks migrate old chunks','newZones':'Centre x+.5,y+5,z+.5, strict radius 5 on each axis; safe air always overrides; overlapping sources do not stack damage','loadedSourcesOnly':True},
+  'medkit':'Byte-exact medkit_use_heavy.ogg, once on successful 40-tick server finish; volume adapted from 10 to 1',
+  'inventory':'Vanilla comparison mode/buttons/messages removed; old preference ignored. Survival E and I use Metro; creative E item catalogue remains.',
+  'hands':'Frozen approved revolver contacts/camera/matrices; 15 adjusted underhand Flan profiles and independent MCMOD AK foregrip; Steve/Alex skin hands retained',
+  'adaptations':['Original collision texture visible in creative only; renderer rebuilt on creative/survival change. Radiation/air editor icons drawn for port.','Respawn plate uses original pass.png and native forced spawn point in current dimension at block precision, not original floating-point coordinates.','No invented crafting/exchange recipes or compatibility with unrelated Flan ammunition.','Watch uses extracted original clock/digit faces and exact atlas bytes, not original fixed arm/perch skin.'],
+  'excludedByUser':['Global 1000 HP','Exact original armor protection/wear formulas','Former missing-resource task 7: LastDays flashes, Barrett_Hazard and 25 Exodus textures'],
+  'notVerified':'No Minecraft/OpenGL client or dedicated-server gameplay acceptance; follow TESTING.md'
+ })
  from mcmod_languages import update
  update()
 if __name__=='__main__':
