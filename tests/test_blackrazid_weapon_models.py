@@ -3,6 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tools'))
 from import_blackrazid_weapon_models import catalog
 from audit_blackrazid_weapon_meshes import report
+from blackrazid_weapon_profiles import GUN_MODELS,models,poses
 S=ROOT/'tools/blackrazid-reference';A=ROOT/'src/main/resources/assets/metroport'
 class NativeWeaponModelTests(unittest.TestCase):
     def test_all_originals_are_verified_and_class_paths_match_actual_packages(self):
@@ -14,9 +15,9 @@ class NativeWeaponModelTests(unittest.TestCase):
     def test_all22_original_gun_renderers_are_recovered_but_not_misreported_as_runtime_meshes(self):
         rows=list((S/'java/mods/provoda/guns/renderers').glob('Render_*.java'));self.assertEqual(22,len(rows))
         self.assertTrue(all('GLModel' in p.read_text() for p in rows))
-        audit=report();self.assertEqual(audit,json.loads((ROOT/'docs/blackrazid-weapon-mesh-gaps.json').read_text()));self.assertEqual(['Gatling'],[w['sourceId'] for w in audit['weapons'] if w['completeObjAssets']]);self.assertEqual(len(audit['missingUniqueObj']),len(set(audit['missingUniqueObj'])))
-    def test_all22_bundled_meshes_decompress_to_exact_original_bytes(self):
-        meshes=json.loads((A/'blackrazid_weapon_meshes.json').read_text());self.assertEqual(22,len(meshes))
+        audit=report();self.assertEqual(audit,json.loads((ROOT/'docs/blackrazid-weapon-mesh-gaps.json').read_text()));self.assertEqual(set(GUN_MODELS),{w['sourceId'] for w in audit['weapons'] if w['completeObjAssets']});self.assertEqual(len(audit['missingUniqueObj']),len(set(audit['missingUniqueObj'])))
+    def test_all41_bundled_meshes_decompress_to_exact_original_bytes(self):
+        meshes=json.loads((A/'blackrazid_weapon_meshes.json').read_text());self.assertEqual(41,len(meshes))
         self.assertEqual(15,sum(k.startswith('gatling/') for k in meshes))
         for key,row in meshes.items():
             data=(S/('assets/weapons/'+key)).read_bytes();self.assertEqual(data,gzip.decompress((A/('models/blackrazid/weapons/'+key+'.gz')).read_bytes()));self.assertEqual(row['sha256'],hashlib.sha256(data).hexdigest())
@@ -32,8 +33,8 @@ class NativeWeaponModelTests(unittest.TestCase):
             self.assertEqual(1,len(matches));self.assertEqual(matches[0].read_bytes(),target.read_bytes())
         self.assertNotEqual((S/'assets/weapons/textures/wpn_obves.2048.png').read_bytes(),(S/'assets/weapons/gatling/wpn_obves.2048.png').read_bytes())
     def test_import_is_reproducible_without_rewriting_existing_approved_poses(self):
-        paths=[A/'blackrazid_weapon_meshes.json',A/'blackrazid_weapon_module_models.json',A/'geometry/blackrazid_weapon_poses.json',A/'geometry/gun_poses.json'];before=[p.read_bytes() for p in paths]
-        subprocess.run([sys.executable,'tools/import_blackrazid_weapon_models.py'],cwd=ROOT,check=True,capture_output=True);self.assertEqual(before,[p.read_bytes() for p in paths]);self.assertEqual({'blackrazid_gatling'},set(json.loads(paths[2].read_text())))
+        paths=[A/'blackrazid_weapon_meshes.json',A/'blackrazid_weapon_module_models.json',A/'geometry/blackrazid_weapon_poses.json',A/'geometry/gun_poses.json',A/'blackrazid_weapon_models.json'];before=[p.read_bytes() for p in paths]
+        subprocess.run([sys.executable,'tools/import_blackrazid_weapon_models.py'],cwd=ROOT,check=True,capture_output=True);self.assertEqual(before,[p.read_bytes() for p in paths]);self.assertEqual({'blackrazid_'+n.lower() for n in GUN_MODELS},set(json.loads(paths[2].read_text())));self.assertEqual(models(),json.loads(paths[4].read_text()))
     def test_renderer_caches_native_meshes_restores_gl_state_and_does_not_copy_watch_or_excluded_handlers(self):
         code=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/weapons/NativeWeaponRenderer.java').read_text();self.assertIn('LISTS.clear()',code);self.assertIn('GLAllocation.deleteDisplayLists',code);self.assertIn('GlStateManager.tryBlendFuncSeparate(srcRGB,dstRGB,srcA,dstA)',code);self.assertIn('GlStateManager.bindTexture(texture)',code)
         for forbidden in ['ExtendetPlayer','AirSetup','new Clock','GL11.glPopMatrix','setTagCompound','setInteger','setLong','MinecraftForge.EVENT_BUS']:self.assertNotIn(forbidden,code)

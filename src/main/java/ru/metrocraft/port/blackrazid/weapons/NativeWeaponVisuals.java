@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.EntityPlayer;
 
 /** Read-only source-owned visual rules. No renderer, Minecraft singleton, or mutations of gun/module NBT. */
 public final class NativeWeaponVisuals {
@@ -14,6 +15,10 @@ public final class NativeWeaponVisuals {
     public static final class Mesh { public Map<String,String> materials; public float[] bounds; public String sha256; }
     public static final class Module { public String id,sourceId,mesh,source; public float[] center; public float scale; }
     private static final Map<String,Mesh> MESHES=read("blackrazid_weapon_meshes.json",new TypeToken<Map<String,Mesh>>(){}.getType());
+    public static final class Gun { public String id,sourceId,body; public float[] nativeTranslation; public float nativeScale; }
+    private static final Map<String,Gun> GUNS=read("blackrazid_weapon_models.json",new TypeToken<Map<String,Gun>>(){}.getType());
+    public static Set<String> guns(){return Collections.unmodifiableSet(GUNS.keySet());}
+    public static Gun gun(String sourceId){return GUNS.get(sourceId);}
     private static final Module[] MODULES=read("blackrazid_weapon_module_models.json",Module[].class);
     private static <T>T read(String file,java.lang.reflect.Type type){
         try(Reader r=new InputStreamReader(Objects.requireNonNull(NativeWeaponVisuals.class.getResourceAsStream("/assets/metroport/"+file)),StandardCharsets.UTF_8)){return new Gson().fromJson(r,type);}
@@ -23,11 +28,12 @@ public final class NativeWeaponVisuals {
     public static Mesh mesh(String id){Mesh m=MESHES.get(id);if(m==null)throw new IllegalArgumentException("Unknown native mesh "+id);return m;}
     public static List<Module> modules(){return Collections.unmodifiableList(Arrays.asList(MODULES));}
     public static Module module(String id){for(Module m:MODULES)if(m.id.equals(id))return m;return null;}
-    public static boolean supported(ItemStack stack){return !stack.isEmpty() && (stack.getItem() instanceof BlackrazidGunItem && ((BlackrazidGunItem)stack.getItem()).entry.sourceId.equals("Gatling")
+    public static boolean supported(ItemStack stack){return !stack.isEmpty() && (stack.getItem() instanceof BlackrazidGunItem && GUNS.containsKey(((BlackrazidGunItem)stack.getItem()).entry.sourceId)
         || stack.getItem() instanceof BlackrazidModules.ModuleItem && module(((BlackrazidModules.ModuleItem)stack.getItem()).entry.id)!=null);}
     public static final class Part {
-        public final String mesh;public final float[] translation;public final float angle,x,y,z;
-        private Part(String name,float tx,float ty,float tz,float angle,float x,float y,float z){mesh="gatling/"+name+".obj";translation=new float[]{tx,ty,tz};this.angle=angle;this.x=x;this.y=y;this.z=z;}
+        public final String mesh,role;public final float[] translation;public final float angle,x,y,z;
+        private Part(String name,float tx,float ty,float tz,float angle,float x,float y,float z){this(name,"body",tx,ty,tz,angle,x,y,z);}
+        private Part(String name,String role,float tx,float ty,float tz,float angle,float x,float y,float z){mesh=name.contains("/")?name:"gatling/"+name+".obj";this.role=role;translation=new float[]{tx,ty,tz};this.angle=angle;this.x=x;this.y=y;this.z=z;}
     }
     private static void part(List<Part> list,String name){list.add(new Part(name,0,0,0,0,0,0,1));}
     /** All native source equipment branches, each part once. No duplicate three-barrel bundle with GatlingBarrel. */
@@ -41,6 +47,55 @@ public final class NativeWeaponVisuals {
         if(stock)part(parts,"butt");
         if(drive!=2){parts.add(new Part("prujmeh",0,0,0,30*pump,0,0,1));parts.add(new Part("pruj",0,-.093F,-.441F,-40*pump,1,0,0));}
         return Collections.unmodifiableList(parts);
+    }
+    /** Visual-only equipment snapshot. Values come from validated items/slots, never legacy display booleans. */
+    public static final class Equipment { public boolean magazine,big,laser,automatic,silenced,optic;public int rounds,pressure,action; }
+    public static Equipment equipment(ItemStack stack,EntityPlayer viewer){
+        Equipment e=new Equipment();
+        if(stack.isEmpty() || !(stack.getItem() instanceof BlackrazidGunItem))return e;
+        BlackrazidGunItem gun=(BlackrazidGunItem)stack.getItem();
+        ItemStack magazine=gun.visualMagazine(stack,viewer);e.magazine=!magazine.isEmpty();
+        e.big=e.magazine && magazine.getItem() instanceof MagazineItem && ((MagazineItem)magazine.getItem()).entry.sourceId.equals("AbzacAmmoBig");
+        e.rounds=gun.ammo(stack);e.pressure=gun.pressure(stack);e.action=gun.visualAction(stack);
+        e.laser=BlackrazidModules.has(stack,1,"Laser");e.automatic=BlackrazidModules.has(stack,0,"AutoFire");
+        e.silenced=BlackrazidModules.has(stack,2,"AbzacGlushak");e.optic=BlackrazidModules.has(stack,0,"Optica");return e;
+    }
+    private static void add(List<Part> out,String mesh,String role,float tx,float ty,float tz,float angle,float x,float y,float z){out.add(new Part(mesh,role,tx,ty,tz,angle,x,y,z));}
+    /** Static assembly branches/pivots from the four native renderers; motion is applied separately in tick space. */
+    public static List<Part> special(String source,Equipment e,boolean first){
+        List<Part> out=new ArrayList<>();
+        switch(source){
+            case "Abzac":
+                add(out,"abzac/abzac.obj","body",0,0,0,0,0,0,1);
+                add(out,"abzac/zatvor.obj","bolt",0,first?.074F:0,first?.093F:0,0,1,0,0);
+                if(e.magazine)add(out,e.big?"abzac/magbig.obj":"abzac/mag.obj","magazine",0,0,0,0,0,0,1);
+                if(e.silenced)add(out,"abzac/compens.obj","body",0,0,0,0,0,0,1);
+                if(e.automatic)add(out,"abzac/autofire.obj","body",0,0,0,0,0,0,1);
+                if(e.laser)add(out,"rpk/laser.obj","body",first?.01F:0,first?.04F:0,first?.03F:0,0,0,0,1);
+                if(first && e.magazine && e.action==0){
+                    float[][] shells={{0,.065F,180},{.04F,.065F,-30},{.075F,.045F,-64},{.092F,.01F,-110},{.082F,-.035F,-100}};
+                    for(int i=0;i<Math.min(5,Math.max(0,e.rounds));i++)add(out,"abzac/bullet.obj","shell",shells[i][0],shells[i][1],0,shells[i][2],0,0,1);
+                }
+                break;
+            case "Vyhlop":
+                add(out,"vyhlop/vyhlop1.obj","body",0,0,0,0,0,0,1);add(out,"vyhlop/zatvor.obj","bolt",0,0,0,0,1,0,0);
+                if(e.magazine)add(out,"vyhlop/mag.obj","magazine",0,0,0,0,0,0,1);
+                if(e.optic){add(out,"railgun/optica.obj","body",.0025F,-.078F,.1F,0,0,0,1);add(out,"railgun/test.obj","body",.0025F,-.078F,.34F,0,0,0,1);}
+                else add(out,"vyhlop/pricel.obj","body",0,0,0,0,0,0,1);
+                if(e.laser)add(out,"rpk/laser.obj","body",.01F,-.005F,-.25F,0,0,0,1);
+                break;
+            case "Velopal":add(out,"vyhlop/velo.obj","body",0,0,0,0,0,0,1);break;
+            case "Ognemet":
+                add(out,"ognemet/ognemet1.obj","body",0,0,0,0,0,0,1);
+                add(out,"ognemet/zatvor.obj","bolt",0,0,0,first?-50:0,1,0,0);
+                if(first){
+                    add(out,"ognemet/strelka.obj","body",.037F,.1F,-.002F,100-Math.max(0,Math.min(180,e.pressure))*1.4F,0,0,1);
+                    if(e.magazine)add(out,"ognemet/mag.obj","magazine",0,0,0,0,0,0,1);
+                }
+                break;
+            default:throw new IllegalArgumentException("No native special assembly "+source);
+        }
+        return Collections.unmodifiableList(out);
     }
     /** Bounded world-tick animation. Render frequency/GUI previews cannot advance or share a rotor's state. */
     public static float spin(double now,long shot){

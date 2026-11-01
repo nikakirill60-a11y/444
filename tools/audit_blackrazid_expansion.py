@@ -4,6 +4,7 @@ import hashlib,json,re
 from import_content import ROOT,write_json
 from import_blackrazid_weapons import BASIC_GUNS
 from import_blackrazid_mutants import MOBS
+from blackrazid_weapon_profiles import GUN_MODELS
 NATIVE_MUTANTS={m["sourceId"] for m in MOBS}
 S=ROOT/'tools/blackrazid-reference'
 J=S/'java/mods/provoda'
@@ -14,7 +15,7 @@ def report():
     for name in GUNS:
         path='guns/'+name+'.java';text=(J/path).read_text()
         args=re.search(r'\b'+name+r' = new '+name+r'\((\d+), (\d+), (\d+)\)',registration)
-        weapons.append(dict(sourceId=name,source=path,runtimeStatus='native multipart mesh/equipment with tick-based visual adaptation; full native animation/gameplay acceptance pending' if name=='Gatling' else 'basic-firearm with native attachment effects; native-mesh/animations pending' if name in BASIC_GUNS else 'pending',constructorAmmoArgument=int(args[2]),baseDamage=int(args[3]),
+        weapons.append(dict(sourceId=name,source=path,runtimeStatus='native multipart mesh/equipment with tick-based visual adaptation; full native animation/gameplay acceptance pending' if name in GUN_MODELS else 'basic-firearm with native attachment effects; native-mesh/animations pending' if name in BASIC_GUNS else 'pending',constructorAmmoArgument=int(args[2]),baseDamage=int(args[3]),
             dependencies=sorted(set(re.findall(r'ModBase\.(\w+)',text))),
             shootDelays=sorted(set(map(int,re.findall(r'ep\.upST\((\d+)\)',text)))),
             stateKeys=sorted(set(re.findall(r'\.q\(\)\.[a-z]\("(\w+)"',text))),
@@ -29,13 +30,13 @@ def report():
         re.findall(r'\b(\w+Ammo\w*) = new \w+\(\d+, ModBase\.(\w+)\.cp, (\d+),',registration)]
     return dict(status='INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE',
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
-        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','28 native attachment items with server-owned five-slot fitting/removal and actual source-based gun effects; zoom/laser are documented client adaptations','22 basic native firearm profiles, not a complete gun/module/model port','native Gatling multipart mesh with three/five barrels, crank/gyro/motor, stock, belt and pressure dial; tick-based recoil/reload/pump adaptation; seven original standalone module item meshes','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches','all 19 native tunnel sections with 159 original cubes, 18 native OBJ / materials / per-direction transforms, owned ring helpers and mesh-derived render bounds','4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams'],
-        pending=['native meshes for the other 21 weapons and standalone ammunition items; mounted attachment meshes outside Gatling and complete native animation paths; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance','Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance',
+        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','28 native attachment items with server-owned five-slot fitting/removal and actual source-based gun effects; zoom/laser are documented client adaptations','22 basic native firearm profiles, not a complete gun/module/model port','native Gatling multipart mesh with three/five barrels, crank/gyro/motor, stock, belt and pressure dial; tick-based recoil/reload/pump adaptation; seven original standalone module item meshes','native Abzac/Vyhlop/Velopal/Ognemet meshes with original magazines, equipment and first-person pivots; detached read-only incoming-magazine preview','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches','all 19 native tunnel sections with 159 original cubes, 18 native OBJ / materials / per-direction transforms, owned ring helpers and mesh-derived render bounds','4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams'],
+        pending=['native meshes for the other 17 weapons and standalone ammunition items; remaining mounted attachment meshes and complete native animation paths; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance','Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance',
                  'full mutant gameplay/visual acceptance','remaining building/decor blocks and full environment gameplay/visual acceptance; unregistered ItemSpawnTunnel furniture helpers are audited separately'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',
                   'OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.',
-                  'Gatling has native multipart geometry and source equipment branches; the other 21 guns still use inventory icons, not native multipart meshes. Native old-frame animation paths and visual acceptance are not complete.',
+                  'Gatling, Abzac, Vyhlop, Velopal and Ognemet have native multipart geometry/source equipment branches; the other 17 guns still use inventory icons, not native multipart meshes. Native old-frame animation paths and visual acceptance are not complete.',
                   'AKK exists in the static initializer, but is outside the 22-gun selection; registration availability needs a separate audit.',
                   'ExtendetPlayer/PacketHandler were recovered to READ selected rules only. They are not copied to runtime.',
                   'Original Lamp handler has an empty lighting body; client illumination in the port is an explicit adaptation.',

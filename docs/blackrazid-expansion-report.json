@@ -15,13 +15,14 @@
     "28 native attachment items with server-owned five-slot fitting/removal and actual source-based gun effects; zoom/laser are documented client adaptations",
     "22 basic native firearm profiles, not a complete gun/module/model port",
     "native Gatling multipart mesh with three/five barrels, crank/gyro/motor, stock, belt and pressure dial; tick-based recoil/reload/pump adaptation; seven original standalone module item meshes",
+    "native Abzac/Vyhlop/Velopal/Ognemet meshes with original magazines, equipment and first-person pivots; detached read-only incoming-magazine preview",
     "12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners",
     "12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches",
     "all 19 native tunnel sections with 159 original cubes, 18 native OBJ / materials / per-direction transforms, owned ring helpers and mesh-derived render bounds",
     "4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams"
   ],
   "pending": [
-    "native meshes for the other 21 weapons and standalone ammunition items; mounted attachment meshes outside Gatling and complete native animation paths; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance",
+    "native meshes for the other 17 weapons and standalone ammunition items; remaining mounted attachment meshes and complete native animation paths; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance",
     "full mutant gameplay/visual acceptance",
     "remaining building/decor blocks and full environment gameplay/visual acceptance; unregistered ItemSpawnTunnel furniture helpers are audited separately"
@@ -475,7 +476,7 @@
     {
       "sourceId": "Abzac",
       "source": "guns/Abzac.java",
-      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
+      "runtimeStatus": "native multipart mesh/equipment with tick-based visual adaptation; full native animation/gameplay acceptance pending",
       "constructorAmmoArgument": 40,
       "baseDamage": 4,
       "dependencies": [
@@ -587,7 +588,7 @@
     {
       "sourceId": "Vyhlop",
       "source": "guns/Vyhlop.java",
-      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
+      "runtimeStatus": "native multipart mesh/equipment with tick-based visual adaptation; full native animation/gameplay acceptance pending",
       "constructorAmmoArgument": 5,
       "baseDamage": 12,
       "dependencies": [
@@ -612,7 +613,7 @@
     {
       "sourceId": "Velopal",
       "source": "guns/Velopal.java",
-      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
+      "runtimeStatus": "native multipart mesh/equipment with tick-based visual adaptation; full native animation/gameplay acceptance pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 4,
       "dependencies": [
@@ -636,7 +637,7 @@
     {
       "sourceId": "Ognemet",
       "source": "guns/Ognemet.java",
-      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
+      "runtimeStatus": "native multipart mesh/equipment with tick-based visual adaptation; full native animation/gameplay acceptance pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 4,
       "dependencies": [
@@ -973,7 +974,7 @@
   "warnings": [
     "Constructor ammo arguments are NOT necessarily the actual magazine capacity.",
     "OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.",
-    "Gatling has native multipart geometry and source equipment branches; the other 21 guns still use inventory icons, not native multipart meshes. Native old-frame animation paths and visual acceptance are not complete.",
+    "Gatling, Abzac, Vyhlop, Velopal and Ognemet have native multipart geometry/source equipment branches; the other 17 guns still use inventory icons, not native multipart meshes. Native old-frame animation paths and visual acceptance are not complete.",
     "AKK exists in the static initializer, but is outside the 22-gun selection; registration availability needs a separate audit.",
     "ExtendetPlayer/PacketHandler were recovered to READ selected rules only. They are not copied to runtime.",
     "Original Lamp handler has an empty lighting body; client illumination in the port is an explicit adaptation.",

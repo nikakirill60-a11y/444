@@ -546,6 +546,288 @@
       "driveId": "1cahBhF8hz31J_P0pPF-11m6rzBQKzs6y",
       "bytes": 141132,
       "sha256": "a91902b6e754dfb0fcad0bf57110d118300045cf483785c4d993f8e38341a032"
+    },
+    {
+      "path": "assets/weapons/abzac/abzac.mtl",
+      "driveId": "1JZ-bxM1nA0Ej8KRRZJjb3HwPaNx4cOGK",
+      "bytes": 706,
+      "sha256": "c4f2f49d1546a34dfc3ad8d8f0bdab81c92dc5c2ae069acf5b6ecf732f68d4e7"
+    },
+    {
+      "path": "assets/weapons/abzac/abzac.obj",
+      "driveId": "1qMbD2ManfSe8rhZgAkmiv8Zitu8nk7gX",
+      "bytes": 425381,
+      "sha256": "00dac0599270e89a46c2e5518f6bf9cfed913fb39a7d13c55733f3e9ae13b9a4"
+    },
+    {
+      "path": "assets/weapons/abzac/autofire.mtl",
+      "driveId": "1BbiG4UGTVfOvtf0f27GR9S22yzdou_NM",
+      "bytes": 690,
+      "sha256": "b41fd5813e5a8489183bbe3fd05e429c675084c9c4708c11db07bf3a00f6f13d"
+    },
+    {
+      "path": "assets/weapons/abzac/autofire.obj",
+      "driveId": "1kDrjY1yoIcUbcCYIcEQQKSgkQoC0KJPx",
+      "bytes": 60413,
+      "sha256": "adaf9fe7cb5bf79ada543ce5a46c8ea379ceabc3501e8182b6caf9d6bd7f6fed"
+    },
+    {
+      "path": "assets/weapons/abzac/bullet.mtl",
+      "driveId": "14MMkKaPUixB7nCHy0noyy_gU6MlkAeAS",
+      "bytes": 701,
+      "sha256": "a6c8b199f08dc315215adf34bbf1f9088acb2d316422d46c6d059230f73ee044"
+    },
+    {
+      "path": "assets/weapons/abzac/bullet.obj",
+      "driveId": "1Qern9rIXpOSgQoUkKq27kNy7WgNDn73c",
+      "bytes": 24652,
+      "sha256": "66e79fef75351bfbd7c58b319547fa700c9bbae037577e3254e04ec1a11d31a7"
+    },
+    {
+      "path": "assets/weapons/abzac/compens.mtl",
+      "driveId": "1bgDif__k7PBrA25t5uT5xIkz8kUZ7onN",
+      "bytes": 690,
+      "sha256": "d9d22b656dafded72b7cfbcf696c44cee4ff3801cedd5784805eed07994bc8d6"
+    },
+    {
+      "path": "assets/weapons/abzac/compens.obj",
+      "driveId": "1gzv4p85uFVOrb1lTww17MfvTRFsmqHYW",
+      "bytes": 20179,
+      "sha256": "da4f23f1b42ed11abfdd0e4c3e84782e98024838497a7e3f9e46919d6030b77d"
+    },
+    {
+      "path": "assets/weapons/abzac/mag.mtl",
+      "driveId": "1eHZzmX2ldgueJeFYppaBwZ6xkEiN1ol9",
+      "bytes": 390,
+      "sha256": "5fb9f94eafd6aac1a18b853b5489edcea551275d6c9822a333500403f3684b49"
+    },
+    {
+      "path": "assets/weapons/abzac/mag.obj",
+      "driveId": "17-q86cI2H_fZVTUyu3s70G033Vre6ypi",
+      "bytes": 18383,
+      "sha256": "cb248e51606396fa9da8853cc26544df37796e69c3076875c009b4bcdbd75d2e"
+    },
+    {
+      "path": "assets/weapons/abzac/magbig.mtl",
+      "driveId": "1Q3yaTzs8jM8Z8q7Ou8-Km2y8VH-APaIv",
+      "bytes": 390,
+      "sha256": "16682298a3987a2e5c77585066e4a2294be9589d0b198fd0e8dc6d42de0b660b"
+    },
+    {
+      "path": "assets/weapons/abzac/magbig.obj",
+      "driveId": "1NPWY6lGNbGRnUqFcfqaSLpoiiwtxc2iD",
+      "bytes": 18043,
+      "sha256": "a783056738c290f9c39be82c218a3acc714375fa1caecb67f7c4f56a3c812ee6"
+    },
+    {
+      "path": "assets/weapons/abzac/wpn34_ammo_12x70.512c.png",
+      "driveId": "1RRCDBwXco26soof052fw-Vmo5YSf-o4u",
+      "bytes": 34973,
+      "sha256": "bd114852cab7b21f3539a40d04666f2f9549b22aa3fbd033561cb360d73b8ecc"
+    },
+    {
+      "path": "assets/weapons/abzac/wpn_dshk.2048.png",
+      "driveId": "1xqV-3Nn6MFJ4etD9W80fMhK3tMAQ2i_8",
+      "bytes": 649576,
+      "sha256": "beecce1a78e77147acbd6e122ee39e2fd4e7b27cbdb72bc8dad2c17a3eb2cceb"
+    },
+    {
+      "path": "assets/weapons/abzac/wpn_shotgun.1024c.png",
+      "driveId": "16rf9NUa4YamT0revVo1TBFeuY33ZGbsp",
+      "bytes": 437754,
+      "sha256": "0c150c50bd4119e412233961ddc821f85d58bb4ab27f028041172ce65fb8581f"
+    },
+    {
+      "path": "assets/weapons/abzac/zatvor.mtl",
+      "driveId": "1cpfkyVQzYZVB_l8AkRRJZb41EO4PndIR",
+      "bytes": 397,
+      "sha256": "79425699f15685750fdbe1fd5ede9235a03fb60ee3203356001b4d8480df9183"
+    },
+    {
+      "path": "assets/weapons/abzac/zatvor.obj",
+      "driveId": "1oWm6C1bLoKVQbB8_I1CQqruITbAgJ4zH",
+      "bytes": 40882,
+      "sha256": "8f3fe54849130f32505f887c5f9111f522dc0859699186b1d6a96d9f3e041b69"
+    },
+    {
+      "path": "assets/weapons/vyhlop/bullet.mtl",
+      "driveId": "1BkziHh8FpzqugTZo11NdRtQPG-mvRn05",
+      "bytes": 390,
+      "sha256": "49872ea6b51eb2bab110847da795e42a4068ca056842dabf14ba93d2337f982e"
+    },
+    {
+      "path": "assets/weapons/vyhlop/bullet.obj",
+      "driveId": "1vfLlCTnGBVQNzxpfy5BZRzQA8vEa-qs9",
+      "bytes": 9291,
+      "sha256": "c43dbb39c3ac3d1dc6904c430cce77c08da1bd6c8ef5d32feb1b2c353866bf94"
+    },
+    {
+      "path": "assets/weapons/vyhlop/gilza.mtl",
+      "driveId": "1HLfWYjewrUXadQ7DJE7uEl4y6uWWD9jA",
+      "bytes": 399,
+      "sha256": "79f2a937cd3a20afacaeb6a0b6b8f287b0e6ea34a08d4cb41f06f64e8b7482b8"
+    },
+    {
+      "path": "assets/weapons/vyhlop/gilza.obj",
+      "driveId": "1ZnXVsVybhE1kl2sz36hG0j3eM9t0Nn-m",
+      "bytes": 4267,
+      "sha256": "ba205a7a8af2ffb5287e5d60e00ed5289165273f6545007e676b97ddfcd75ffb"
+    },
+    {
+      "path": "assets/weapons/vyhlop/mag.mtl",
+      "driveId": "1evshlvRuJgUOW-gfZ-gS8cWoOAdJIjkn",
+      "bytes": 338,
+      "sha256": "12eaa88ce97b0382ebcd6c183b0174f8c59b78c18124d543244c9927dfa8ecf6"
+    },
+    {
+      "path": "assets/weapons/vyhlop/mag.obj",
+      "driveId": "1d6dEYzu5cWKj3YhM8MIUK6wY9spoxtA-",
+      "bytes": 12067,
+      "sha256": "2aa8ba7b86ae9a32f06675e2a3073ae445b863e258e07c5856c73365850a94da"
+    },
+    {
+      "path": "assets/weapons/vyhlop/pricel.mtl",
+      "driveId": "1oPjs0a7JWF9VaeyuKJXEGrM4TGs_6f5q",
+      "bytes": 409,
+      "sha256": "0da8d8c113747c8787d64d40c2bcc9a2989fb4faccb0166f3fa214a85357ac38"
+    },
+    {
+      "path": "assets/weapons/vyhlop/pricel.obj",
+      "driveId": "1Hcg0i4KEEsADKAMb5BzVXj085LCuejWj",
+      "bytes": 42686,
+      "sha256": "f80d40ad3776da05199e4b7927336f62e6c78b4dcc0f5d51e9f3b1a9f1cb73c5"
+    },
+    {
+      "path": "assets/weapons/vyhlop/velo.mtl",
+      "driveId": "1aciGGuBaD1XoyljZNbd_XYhJhp-jO04N",
+      "bytes": 577,
+      "sha256": "7f696f64d7f672f110ed5255897dd8e05d4c85a1bd960adf65694b334f5b57f4"
+    },
+    {
+      "path": "assets/weapons/vyhlop/velo.obj",
+      "driveId": "1CU1Lgf7Ug8CltgKoC0OjJmD16mCPpPFY",
+      "bytes": 960918,
+      "sha256": "72c20156c06e9cd2e323c7f63bd59a8c2182331609d270cb2a375ad3f45e2bf4"
+    },
+    {
+      "path": "assets/weapons/vyhlop/velo.png",
+      "driveId": "1HmTf1KgHjA2haS1j6YCKgT-ZRnH8Oyrt",
+      "bytes": 7938,
+      "sha256": "e95bf30d18d6f3448280cb1686a2bb73ecd12efda5e4849d93c35d3e209dc8e9"
+    },
+    {
+      "path": "assets/weapons/vyhlop/vyhlop1.mtl",
+      "driveId": "1lBXniz7xvUsAah6A_ZFaEjsrjNXuDiqk",
+      "bytes": 1020,
+      "sha256": "fd20c017e367b7074f81abdee4e1a89390231e414f5ecc5a406b07effa8c69a6"
+    },
+    {
+      "path": "assets/weapons/vyhlop/vyhlop1.obj",
+      "driveId": "12gf9lqq0zfN-iSSlKRXQsA3AEZWQq80G",
+      "bytes": 401700,
+      "sha256": "31fb2db515b9f1469a048e96937f4aaa052e04dcd5d947810f28185d811a4e67"
+    },
+    {
+      "path": "assets/weapons/vyhlop/wpn34_kollimator.2050.png",
+      "driveId": "1Y4z-k9fmIDYIs1qqSh_k3SRJQSwpsiYC",
+      "bytes": 150014,
+      "sha256": "eb0893d158c9e74f446784ac39f37af51aa8e7a896d8c7e2cb05386c1ad13288"
+    },
+    {
+      "path": "assets/weapons/vyhlop/wpn34_vihlop.2048.png",
+      "driveId": "1HnTTP9OgIMxFz3BieazIYEKbjNXqsb1p",
+      "bytes": 617158,
+      "sha256": "0d8e0d7b9a8be9be1a4f97c38bbb7add0bdaf1970f339c82746cd06fa0270998"
+    },
+    {
+      "path": "assets/weapons/vyhlop/wpn_patron_762.512.png",
+      "driveId": "1p84J7xEFYrb9EjVVKCwt2QOx7aLgfTXf",
+      "bytes": 37685,
+      "sha256": "56eb9ed67ea8f0ad751923ecfaeea99904f2d8fc876eb59f561429ce9b499b44"
+    },
+    {
+      "path": "assets/weapons/vyhlop/wpn_rifle2012.2048.png",
+      "driveId": "1AAv7t-I1DiILC6dA1GW5fRkyn8m3CL62",
+      "bytes": 628864,
+      "sha256": "823997316cc1dc8b420af01fac6c6a0ad01408a2018d69652c16057162ccd621"
+    },
+    {
+      "path": "assets/weapons/vyhlop/zatvor.mtl",
+      "driveId": "12ah-N9ZcG4a4C-r_g8VQDnf8d7fu6FAI",
+      "bytes": 400,
+      "sha256": "336f716d11c513a5e67634e6e31f37220a68c10f6be6a29e7c9689cfb2728604"
+    },
+    {
+      "path": "assets/weapons/vyhlop/zatvor.obj",
+      "driveId": "1LZr7KPcqjVa7zbvvmp8yi6-g8Hv6wl-Q",
+      "bytes": 5733,
+      "sha256": "b1b9ab431cfca94e40dcec6e6b2d685407369c36df2144db55eaadfbba63dbcf"
+    },
+    {
+      "path": "assets/weapons/ognemet/mag.mtl",
+      "driveId": "1jgJSc1o7nZbQaqzpakneXn1dKMaxKJnR",
+      "bytes": 416,
+      "sha256": "5f99c39c43771424bfbad5079dd7bc49388703afa741db33fa5d99cb7648d057"
+    },
+    {
+      "path": "assets/weapons/ognemet/mag.obj",
+      "driveId": "1QT6-Mj17aOjowWi-9UmSG92MxcefXVtf",
+      "bytes": 51755,
+      "sha256": "9377a2bee8d2d8f3d87c41b69b26e50bbd5b2bf0aa54620d7a5a2f89a6ba41a6"
+    },
+    {
+      "path": "assets/weapons/ognemet/ognemet1.mtl",
+      "driveId": "1rCHtQwXmZOhaI60h1_CnIO7l34S_8wV9",
+      "bytes": 416,
+      "sha256": "89446a96c7090733116c32d733cd26347cb0e15603fd6eb52ed999eb1e3cc544"
+    },
+    {
+      "path": "assets/weapons/ognemet/ognemet1.obj",
+      "driveId": "1429nshCZZUSmqGwkgQvqONr5a0VJ0KM9",
+      "bytes": 846168,
+      "sha256": "63757d160036be1cf5c5fb6c68d16a31d11d344d70246b99a6ce0d79c272791c"
+    },
+    {
+      "path": "assets/weapons/ognemet/strelka.mtl",
+      "driveId": "1SyjfCPmIkDyzoxVdx1TNPj45V6LEm8u2",
+      "bytes": 408,
+      "sha256": "2c70998c0731c3fb8a243c9494bfac2616200d58bdb1046c2725fb8546996dcb"
+    },
+    {
+      "path": "assets/weapons/ognemet/strelka.obj",
+      "driveId": "15YLvuzGsqVyDTwC-9KeNqaICL6hLUAVL",
+      "bytes": 4925,
+      "sha256": "8c4870858e8d38c0f29c92dd574d9485d4e8dde78408d1148f47a27f8c8f6651"
+    },
+    {
+      "path": "assets/weapons/ognemet/wpn34_ognemet_01.2048.png",
+      "driveId": "1j4kG4mk5peH9zg9NbIdJqgHJWnI-R3ba",
+      "bytes": 685271,
+      "sha256": "f8a4f682e0d366bd53ca858aaec68542b966fcacdc7622d303c9e169857f94b5"
+    },
+    {
+      "path": "assets/weapons/ognemet/zatvor.mtl",
+      "driveId": "1WRD0OJ6AVsuzXh4Q-KA4EjfV0SGSI54u",
+      "bytes": 408,
+      "sha256": "0d1c6b34372bd631c27123ae1b81398de58e8f192fdf4950bd150210850c3598"
+    },
+    {
+      "path": "assets/weapons/ognemet/zatvor.obj",
+      "driveId": "1_jX2JuM_w-NTeDy7xeQxFZNLBi5-ST48",
+      "bytes": 25821,
+      "sha256": "a95886d94dc5df647211ac6dbdfd8a1eeed2382c35cc1c1ce4cc7a00f3f779c5"
+    },
+    {
+      "path": "assets/weapons/railgun/test.mtl",
+      "driveId": "1N9n_dAywM86VZY5IhKyHU75iIlVFWoFj",
+      "bytes": 431,
+      "sha256": "0124fd15e02cb04edbf14b98024839ed325f20622fca15c5bd15d94c87e84990"
+    },
+    {
+      "path": "assets/weapons/railgun/test.obj",
+      "driveId": "1tQgh1JCzjDLAMpgat3AmIKzofN_PLnK4",
+      "bytes": 1128,
+      "sha256": "acad4a64173ef776f13cc2371d544cb9eafd776b4316643c6497f265ec1bbb2a"
     }
   ]
 }

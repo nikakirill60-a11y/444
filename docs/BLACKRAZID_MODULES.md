@@ -92,3 +92,11 @@ Barrel, Butt, Kolimator, Laser, Optica, OpticaSmall, UbludokButt. Их GUI-ик�
 Подробности и адаптации: [BLACKRAZID_WEAPON_MODELS.md](BLACKRAZID_WEAPON_MODELS.md).
 [Проверенный ZIP dev.11](https://github.com/nikakirill60-a11y/444/actions/runs/41342347194/artifacts/13098385774):
 **160 Python / 354 JUnit**, Java 8 / Forge / reobfuscation. Игровая визуальная приёмка пока не выполнена.
+
+
+## Обновление dev.12
+
+Родная установленная геометрия добавлена для Abzac (AutoFire/AbzacGlushak/Laser) и Vyhlop
+(полный Optica/Laser); подключены собственные Velopal и Ognemet без вымышленных дополнительных деталей.
+Всего пять оружейных сборок и прежние семь отдельных 3D-модулей. Остальные 17 оружейных сборок
+не готовы. [Подробности и ограничения](BLACKRAZID_WEAPON_MODELS.md).

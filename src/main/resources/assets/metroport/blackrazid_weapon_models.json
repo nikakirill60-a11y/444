@@ -1,0 +1,57 @@
+{
+  "Gatling": {
+    "id": "blackrazid_gatling",
+    "sourceId": "Gatling",
+    "body": "gatling/gatling.obj",
+    "nativeTranslation": [
+      0.12,
+      0.164,
+      -0.126
+    ],
+    "nativeScale": 0.7
+  },
+  "Abzac": {
+    "id": "blackrazid_abzac",
+    "sourceId": "Abzac",
+    "body": "abzac/abzac.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.17
+    ],
+    "nativeScale": 0.8
+  },
+  "Vyhlop": {
+    "id": "blackrazid_vyhlop",
+    "sourceId": "Vyhlop",
+    "body": "vyhlop/vyhlop1.obj",
+    "nativeTranslation": [
+      0.075,
+      0.175,
+      -0.17
+    ],
+    "nativeScale": 0.8
+  },
+  "Velopal": {
+    "id": "blackrazid_velopal",
+    "sourceId": "Velopal",
+    "body": "vyhlop/velo.obj",
+    "nativeTranslation": [
+      0.1,
+      0.175,
+      -0.17
+    ],
+    "nativeScale": 0.8
+  },
+  "Ognemet": {
+    "id": "blackrazid_ognemet",
+    "sourceId": "Ognemet",
+    "body": "ognemet/ognemet1.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.17
+    ],
+    "nativeScale": 0.7
+  }
+}

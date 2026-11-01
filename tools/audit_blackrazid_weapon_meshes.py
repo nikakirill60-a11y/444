@@ -3,6 +3,7 @@
 import re
 from import_content import ROOT,write_json
 from audit_blackrazid_expansion import GUNS
+from blackrazid_weapon_profiles import GUN_MODELS
 S=ROOT/'tools/blackrazid-reference';J=S/'java/mods/provoda/guns/renderers';A=S/'assets/weapons'
 def report():
     weapons=[]
@@ -13,7 +14,7 @@ def report():
         assert models,name
         weapons.append(dict(sourceId=name,renderer='guns/renderers/'+source.name,models=models,
             completeObjAssets=all(row['runtimeMesh'] for row in models),
-            runtime='multipart Gatling/equipment implemented; complete original animations and visual acceptance pending' if name=='Gatling' else 'native gun mechanics implemented; multipart renderer pending'))
+            runtime='native multipart geometry/equipment implemented with tick-based adaptation; complete original animations and visual acceptance pending' if name in GUN_MODELS else 'native gun mechanics implemented; multipart renderer pending'))
     missing=sorted({m['path'] for w in weapons for m in w['models'] if not m['sourceRecovered']})
     return dict(status='SOURCE INVENTORY, NOT A CLAIM OF COMPLETE RUNTIME',weapons=weapons,missingUniqueObj=missing,
         warning='Covers declared GLModel fields only. MTLs and referenced PNGs must also be recovered per folder; old Java model/sprite/skin animation branches require separate migration. General handlers and embedded legacy watch/air overlays are not imported.')

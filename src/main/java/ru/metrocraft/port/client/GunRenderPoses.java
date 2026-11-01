@@ -25,7 +25,7 @@ public final class GunRenderPoses {
                 profiles = new Gson().fromJson(reader, new TypeToken<Map<String, Profile>>() {}.getType());
             } catch (Exception e) { throw new IllegalStateException("Cannot load gun poses", e); }
         }
-        if(id.equals("blackrazid_gatling") && !profiles.containsKey(id)){
+        if(id.startsWith("blackrazid_") && !profiles.containsKey(id)){
             try(InputStreamReader reader=new InputStreamReader(Minecraft.getMinecraft().getResourceManager()
                     .getResource(new ResourceLocation("metroport:geometry/blackrazid_weapon_poses.json")).getInputStream(),StandardCharsets.UTF_8)){
                 Map<String,Profile> nativeProfiles=new Gson().fromJson(reader,new TypeToken<Map<String,Profile>>(){}.getType());

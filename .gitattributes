@@ -7,3 +7,6 @@ src/main/java/ru/metrocraft/port/entity/*Entity.java whitespace=-trailing-space
 *.obj whitespace=-trailing-space
 # Keep original CRLF animation metadata byte-identical to the supplied RP.
 src/main/resources/assets/metroport/textures/exodus/**/*.png.mcmeta whitespace=cr-at-eol
+
+# Native OBJ/MTL exports are provenance-checked byte-for-byte, including CRLF.
+tools/blackrazid-reference/assets/weapons/** -text whitespace=-trailing-space

@@ -32,6 +32,13 @@ public final class BlackrazidGunItem extends GunItem {
         return !magazine.isEmpty() && magazine.getCount()==1 && magazine.getItem() instanceof MagazineItem
                 && Arrays.asList(entry.magazines).contains(((MagazineItem)magazine.getItem()).entry.id);
     }
+    /** Detached visual preview only: never reserve/consume ammunition, and never inspect another player's inventory. */
+    public ItemStack visualMagazine(ItemStack gun,EntityPlayer viewer){
+        if(!validGun(gun))return ItemStack.EMPTY;
+        ItemStack loaded=magazine(gun);if(!loaded.isEmpty())return loaded.copy();
+        if(viewer==null || viewer.getHeldItemMainhand()!=gun || visualAction(gun)!=1)return ItemStack.EMPTY;
+        int candidate=slot(viewer);return candidate<0?ItemStack.EMPTY:viewer.inventory.getStackInSlot(candidate).copy();
+    }
     private boolean validGun(ItemStack gun){return !gun.isEmpty() && gun.getItem()==this && gun.getCount()==1;}
     public ItemStack magazine(ItemStack gun){
         if(!validGun(gun) || !gun.hasTagCompound())return ItemStack.EMPTY;

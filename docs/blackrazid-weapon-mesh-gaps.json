@@ -547,7 +547,7 @@
         }
       ],
       "completeObjAssets": true,
-      "runtime": "multipart Gatling/equipment implemented; complete original animations and visual acceptance pending"
+      "runtime": "native multipart geometry/equipment implemented with tick-based adaptation; complete original animations and visual acceptance pending"
     },
     {
       "sourceId": "Helsing",
@@ -844,8 +844,8 @@
         {
           "field": "test",
           "path": "railgun/test.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         }
       ],
       "completeObjAssets": false,
@@ -900,8 +900,8 @@
         {
           "field": "test",
           "path": "railgun/test.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "laser",
@@ -1178,26 +1178,26 @@
         {
           "field": "bullet",
           "path": "abzac/bullet.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "rpk",
           "path": "abzac/abzac.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "mag",
           "path": "abzac/mag.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "zatvor",
           "path": "abzac/zatvor.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "laser",
@@ -1208,24 +1208,24 @@
         {
           "field": "magbig",
           "path": "abzac/magbig.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "glushitel",
           "path": "abzac/compens.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "autofire",
           "path": "abzac/autofire.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         }
       ],
-      "completeObjAssets": false,
-      "runtime": "native gun mechanics implemented; multipart renderer pending"
+      "completeObjAssets": true,
+      "runtime": "native multipart geometry/equipment implemented with tick-based adaptation; complete original animations and visual acceptance pending"
     },
     {
       "sourceId": "Uboinik",
@@ -1362,8 +1362,8 @@
         {
           "field": "test",
           "path": "railgun/test.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "gilza",
@@ -1456,20 +1456,20 @@
         {
           "field": "mag",
           "path": "vyhlop/mag.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "rpk",
           "path": "vyhlop/vyhlop1.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "zatvor",
           "path": "vyhlop/zatvor.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "laser",
@@ -1486,24 +1486,24 @@
         {
           "field": "test",
           "path": "railgun/test.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "pricel",
           "path": "vyhlop/pricel.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "gilza",
           "path": "vyhlop/gilza.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         }
       ],
-      "completeObjAssets": false,
-      "runtime": "native gun mechanics implemented; multipart renderer pending"
+      "completeObjAssets": true,
+      "runtime": "native multipart geometry/equipment implemented with tick-based adaptation; complete original animations and visual acceptance pending"
     },
     {
       "sourceId": "Velopal",
@@ -1512,12 +1512,12 @@
         {
           "field": "rpk",
           "path": "vyhlop/velo.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         }
       ],
-      "completeObjAssets": false,
-      "runtime": "native gun mechanics implemented; multipart renderer pending"
+      "completeObjAssets": true,
+      "runtime": "native multipart geometry/equipment implemented with tick-based adaptation; complete original animations and visual acceptance pending"
     },
     {
       "sourceId": "Ognemet",
@@ -1526,30 +1526,30 @@
         {
           "field": "mag",
           "path": "ognemet/mag.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "rpk",
           "path": "ognemet/ognemet1.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "zatvor",
           "path": "ognemet/zatvor.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         },
         {
           "field": "strelka",
           "path": "ognemet/strelka.obj",
-          "sourceRecovered": false,
-          "runtimeMesh": false
+          "sourceRecovered": true,
+          "runtimeMesh": true
         }
       ],
-      "completeObjAssets": false,
-      "runtime": "native gun mechanics implemented; multipart renderer pending"
+      "completeObjAssets": true,
+      "runtime": "native multipart geometry/equipment implemented with tick-based adaptation; complete original animations and visual acceptance pending"
     }
   ],
   "missingUniqueObj": [
@@ -1557,13 +1557,6 @@
     "2012/bullet.obj",
     "2012/gilza.obj",
     "2012/mag.obj",
-    "abzac/abzac.obj",
-    "abzac/autofire.obj",
-    "abzac/bullet.obj",
-    "abzac/compens.obj",
-    "abzac/mag.obj",
-    "abzac/magbig.obj",
-    "abzac/zatvor.obj",
     "ak/ak.obj",
     "ak/bullet.obj",
     "ak/gilza.obj",
@@ -1592,10 +1585,6 @@
     "helsing/dav.obj",
     "helsing/helsing.obj",
     "helsing/mag.obj",
-    "ognemet/mag.obj",
-    "ognemet/ognemet1.obj",
-    "ognemet/strelka.obj",
-    "ognemet/zatvor.obj",
     "podonok/barrel.obj",
     "podonok/bullet.obj",
     "podonok/butt.obj",
@@ -1621,7 +1610,6 @@
     "railgun/railgun_akk.obj",
     "railgun/railgun_kon.obj",
     "railgun/strelka.obj",
-    "railgun/test.obj",
     "railgun/zoomer.obj",
     "revolver/baraban.obj",
     "revolver/bullet.obj",
@@ -1673,13 +1661,7 @@
     "vsv/krep.obj",
     "vsv/mag.obj",
     "vsv/vsv.obj",
-    "vsv/zatvor.obj",
-    "vyhlop/gilza.obj",
-    "vyhlop/mag.obj",
-    "vyhlop/pricel.obj",
-    "vyhlop/velo.obj",
-    "vyhlop/vyhlop1.obj",
-    "vyhlop/zatvor.obj"
+    "vsv/zatvor.obj"
   ],
   "warning": "Covers declared GLModel fields only. MTLs and referenced PNGs must also be recovered per folder; old Java model/sprite/skin animation branches require separate migration. General handlers and embedded legacy watch/air overlays are not imported."
 }

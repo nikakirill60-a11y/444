@@ -57,7 +57,10 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
             if(stack.getItem() instanceof BlackrazidModules.ModuleItem){
                 NativeWeaponVisuals.Module module=NativeWeaponVisuals.module(((BlackrazidModules.ModuleItem)stack.getItem()).entry.id);
                 GlStateManager.rotate(90,0,1,0);GlStateManager.scale(module.scale,module.scale,module.scale);GlStateManager.translate(-module.center[0],-module.center[1],-module.center[2]);draw(module.mesh);
-            }else gatling(stack,(BlackrazidGunItem)stack.getItem(),partial);
+            }else{
+                BlackrazidGunItem gun=(BlackrazidGunItem)stack.getItem();
+                if(gun.entry.sourceId.equals("Gatling"))gatling(stack,gun,partial);else special(stack,gun,partial);
+            }
         }finally{
             GlStateManager.color(color.get(0),color.get(1),color.get(2),color.get(3));GlStateManager.bindTexture(texture);GlStateManager.shadeModel(shade);
             GlStateManager.tryBlendFuncSeparate(srcRGB,dstRGB,srcA,dstA);if(blend)GlStateManager.enableBlend();else GlStateManager.disableBlend();
@@ -66,6 +69,34 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
     }
     // OpenGL 1.4 state names, kept numeric for compatibility with the existing 1.12 GL context.
     private static final int GL14_SRC_RGB=0x80C9,GL14_DST_RGB=0x80C8,GL14_SRC_ALPHA=0x80CB,GL14_DST_ALPHA=0x80CA;
+    private static void special(ItemStack stack,BlackrazidGunItem gun,float partial){
+        Minecraft mc=Minecraft.getMinecraft();TransformType type=LegacyItemModel.context();
+        boolean first=type==TransformType.FIRST_PERSON_LEFT_HAND || type==TransformType.FIRST_PERSON_RIGHT_HAND;
+        NativeWeaponVisuals.Gun profile=NativeWeaponVisuals.gun(gun.entry.sourceId);
+        NativeWeaponVisuals.Equipment equipment=NativeWeaponVisuals.equipment(stack,mc.player);
+        int action=gun.visualAction(stack),duration=action==4?gun.entry.pumpTicks:action==2?gun.entry.unloadingTicks:action==3?gun.entry.looseLoadingTicks:gun.entry.loadingTicks;
+        float excursion=NativeWeaponVisuals.excursion(NativeWeaponVisuals.actionProgress(gun.visualTicks(stack),duration,partial));
+        float reload=action>=1 && action<=3?excursion:0,pump=action==4?excursion:0;
+        double now=mc.world==null?0:mc.world.getTotalWorldTime()+partial;
+        boolean hasShot=stack.hasTagCompound() && stack.getTagCompound().hasKey(NativeWeaponVisuals.SHOT_TIME,99);
+        double since=hasShot?now-stack.getTagCompound().getLong(NativeWeaponVisuals.SHOT_TIME):-1;
+        float kick=since>=0 && since<4?(float)(1-since/4):0;
+        GlStateManager.translate(-.025F*kick,-.06F*reload,0);
+        GlStateManager.pushMatrix();
+        try{
+            GlStateManager.translate(profile.nativeTranslation[0],profile.nativeTranslation[1],profile.nativeTranslation[2]);
+            GlStateManager.rotate(90,0,1,0);GlStateManager.scale(profile.nativeScale,profile.nativeScale,profile.nativeScale);
+            for(NativeWeaponVisuals.Part part:NativeWeaponVisuals.special(gun.entry.sourceId,equipment,first)){
+                GlStateManager.pushMatrix();try{
+                    GlStateManager.translate(part.translation[0],part.translation[1],part.translation[2]);GlStateManager.rotate(part.angle,part.x,part.y,part.z);
+                    if(part.role.equals("magazine")){GlStateManager.translate(0,-.35F*reload,0);GlStateManager.rotate(-15*reload,0,0,1);}
+                    if(part.role.equals("bolt")){GlStateManager.translate(0,0,-.025F*kick);GlStateManager.rotate(-20*Math.max(reload,pump),1,0,0);}
+                    draw(part.mesh);
+                }finally{GlStateManager.popMatrix();}
+            }
+        }finally{GlStateManager.popMatrix();}
+        if(first)GunHands.render(profile.id,type,Math.max(reload,pump));
+    }
     private static void gatling(ItemStack stack,BlackrazidGunItem gun,float partial){
         Minecraft mc=Minecraft.getMinecraft();double now=mc.world==null?0:mc.world.getTotalWorldTime()+partial;
         boolean hasShot=stack.hasTagCompound() && stack.getTagCompound().hasKey(NativeWeaponVisuals.SHOT_TIME,99);

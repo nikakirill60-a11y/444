@@ -3,6 +3,7 @@
 import gzip, hashlib, json, re
 from pathlib import Path
 from import_content import ROOT, ASSETS, put, write_json
+from blackrazid_weapon_profiles import models,poses
 S=ROOT/'tools/blackrazid-reference'; A=S/'assets/weapons'; J=S/'java/mods/provoda'
 
 def material_map(path):
@@ -42,15 +43,15 @@ def main():
         used={x.strip() for x in re.findall(r'^usemtl (.+)',path.read_text(),re.M)};assert used<=maps.keys(),(key,used-maps.keys())
         put(ASSETS/('models/blackrazid/weapons/'+key+'.gz'),gzip.compress(path.read_bytes(),mtime=0))
         meshes[key]=dict(materials=maps,bounds=bounds(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
-    assert len(meshes)==22
+    assert len(meshes)==41
+    for name,model in models().items():
+        text=(J/('guns/renderers/Render_'+name+'.java')).read_text()
+        declared=re.findall(r'new GLModel\("/mods/provoda/guns/models/([^"\n]+)"\)',text)
+        assert model['body'] in declared and set(declared)<=meshes.keys(),name
     write_json(ASSETS/'blackrazid_weapon_meshes.json',meshes)
     write_json(ASSETS/'blackrazid_weapon_module_models.json',catalog())
-    # Independent, appended profile: never replace the approved revolver or any previous gun pose.
-    poses={'blackrazid_gatling':dict(grip=[-.04,.1,-.175],trigger=[-.075,.115,-.175],support=[.12,.20,-.32],
-        firstPerson=dict(translation=[-.18,-.045,-.40],rotation=[0,100,0],scale=.8),
-        thirdPerson=dict(translation=[0,.05,.1],rotation=[0,0,90],scale=.65),
-        ground=dict(translation=[0,.12,0],rotation=[0,0,0],scale=.3),
-        fixed=dict(translation=[0,0,0],rotation=[0,0,0],scale=.28))}
-    write_json(ASSETS/'geometry/blackrazid_weapon_poses.json',poses)
-    print('Imported 22 native meshes: 15 Gatling parts, 7 registered standalone module models. Other guns/complete native animation paths remain pending.')
+    write_json(ASSETS/'blackrazid_weapon_models.json',models())
+    # Independent appended profiles: never replace the approved revolver or earlier weapon poses.
+    write_json(ASSETS/'geometry/blackrazid_weapon_poses.json',poses())
+    print('Imported 41 native meshes: five complete declared gun OBJ sets and seven registered standalone module models; old frame animations/visual acceptance remain pending.')
 if __name__=='__main__':main()
