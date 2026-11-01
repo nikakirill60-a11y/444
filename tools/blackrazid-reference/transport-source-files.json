@@ -1,0 +1,60 @@
+{
+  "folderId": "1u3snbncRSvARWyceeoHUilIw2MTdOALv",
+  "scope": "Native wide-rail and transport originals; recovery is not runtime acceptance.",
+  "files": [
+    {
+      "path": "classes/mods/provoda/tileentitys/tunnels/TileEntityGag.class",
+      "driveId": "11FUqBWyaM_1_IoUnDM_pjQKP4BNer0Sy",
+      "bytes": 1357,
+      "sha256": "8d4594a08a65454940b9917b419b221c47e67267fe608bd838feb19420515494"
+    },
+    {
+      "path": "classes/mods/provoda/tileentitys/tunnels/TileEntityWideRail.class",
+      "driveId": "1w_ntVU8maEN84QvLQDluip2dp18NagJh",
+      "bytes": 1757,
+      "sha256": "123e166290270046da0533f508007c644a14f98363da72cd080e830209738146"
+    },
+    {
+      "path": "classes/mods/provoda/entity/RotativePoint.class",
+      "driveId": "1kfxjBWsLJR3YyTCbt7fsl9_2PBhhfprJ",
+      "bytes": 2829,
+      "sha256": "219b90dac22c9c63afdcf66b0699cd15f255491a9e1a819ff101a7ee106b964b"
+    },
+    {
+      "path": "classes/mods/provoda/until/LinkResolver.class",
+      "driveId": "1tFqgRgQO4pbVrTtyRmSWOmoDwltu4zOq",
+      "bytes": 1542,
+      "sha256": "8c5fb3a6904db5597396f1d0e2cc9303d28cca86f97e89a0d84179cd3504b1bd"
+    },
+    {
+      "path": "classes/mods/provoda/until/DrezinaKeyHandler.class",
+      "driveId": "1a3epLf06WmyNczWGIRDbX55jIZRfGYtW",
+      "bytes": 2519,
+      "sha256": "e51ae8333fe2e413d9b0371999946fc5477d2a7802d3584f759d389658a29829"
+    },
+    {
+      "path": "classes/mods/provoda/render/RenderRegina.class",
+      "driveId": "1_Uayz6JJZhjVzHkZbPkoWUTWmWzXJSb3",
+      "bytes": 2119,
+      "sha256": "85b2426c7185dbdd9c06229bc702fb622ce7ce24240b1986d972951a30f648e1"
+    },
+    {
+      "path": "classes/mods/provoda/render/RenderDrezina.class",
+      "driveId": "1i6zVxVmxCGVFwSfiTC6YIUPhN2jaB4r8",
+      "bytes": 2163,
+      "sha256": "9e689a528143f4f11f8414d2b5114ec41c8901338d714ed60f53dc8bda5366db"
+    },
+    {
+      "path": "classes/mods/provoda/render/TileEntityWideRailRenderer.class",
+      "driveId": "1jHzOrLgW1H94ZkBdSU0RVgxii2ZGMIKU",
+      "bytes": 3405,
+      "sha256": "a9efd685f8bd37f7e1bbddcc56955b80de0e8385ecb8bc4bc967e338da3a6004"
+    },
+    {
+      "path": "classes/mods/provoda/blocks/BlockRailGag.class",
+      "driveId": "1bEluuXGZvuLjpnQvDbAIEyTs-PNsL8mC",
+      "bytes": 1680,
+      "sha256": "8292dc1c3cb95878623089bbb5915a17e870dcf847c7db4120c924b45b832795"
+    }
+  ]
+}
