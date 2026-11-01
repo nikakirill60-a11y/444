@@ -28,7 +28,7 @@ class McmodTests(unittest.TestCase):
 
     def test_raw_source_checksums_and_class_headers(self):
         files = json.loads((SOURCE / 'source-files.json').read_text())['files']
-        self.assertEqual(178, len(files))  # Includes held tools and original decoration registration/render references.
+        self.assertEqual(180, len(files))  # Includes held tools and original decoration registration/render references.
         for name, record in files.items():
             data = (SOURCE / name).read_bytes()
             self.assertEqual(record['bytes'], len(data), name)

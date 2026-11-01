@@ -766,6 +766,16 @@
       "driveId": "1yHtsOQducgmvmv1RIxpRvraRS5Vb0m0s",
       "bytes": 11511,
       "sha256": "d2971f4ac0cf61b979386c9e6244afc06e21efc84ccb474c42f45dc4de64e682"
+    },
+    "classes/metro/client/events/EventsClient.class": {
+      "driveId": "1PnpvsuStEsatO5ETdoRtJHiM8l627ETN",
+      "bytes": 10141,
+      "sha256": "71dc473ab294cba98d307fb50446ef57f0abce9df00fbf1b438887bb00a1e3ac"
+    },
+    "classes/metro/client/events/LeftClickingEvent.class": {
+      "driveId": "1PnNoMB2BAA5jnOS92VICsTfxewCRu87v",
+      "bytes": 6791,
+      "sha256": "36357150a5bb827e250acea58ae7d017b58fc162bb7a53bf7cefb033b9069bd7"
     }
   }
 }
