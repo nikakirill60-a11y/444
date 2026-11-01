@@ -204,6 +204,192 @@
       "driveId": "1fH661o0OvY44WR9GqgBOLWi0T8ePOcaq",
       "bytes": 635,
       "sha256": "acff681a8247bae8e56d6348d89a66fe0dbb733f8bad52d825c1b346b59284ce"
+    },
+    {
+      "path": "classes/mods/provoda/gui/guns/revolver/BarrelSlot.class",
+      "driveId": "1QT48XyhLGGwC76xTxwfd7GkayFaYyZ2T",
+      "bytes": 818,
+      "sha256": "93bf2a2697591b2a3658bcc63ee7c12d1d11d32293f8dd6ce8408fc64eabd26c"
+    },
+    {
+      "path": "classes/mods/provoda/gui/guns/revolver/ButtSlot.class",
+      "driveId": "1DtoyXonD1AEJGOBRGdDvKuPTZhY4jYo3",
+      "bytes": 999,
+      "sha256": "4e8e4f3e0942e3147faa73babe20df32a234c1ab1bbdbb8e25fc8abd442675a2"
+    },
+    {
+      "path": "classes/mods/provoda/gui/guns/railgun/OpticaSlot.class",
+      "driveId": "1TzRS2_2kKslQZjp9bpfYTpyxhSPfZLEH",
+      "bytes": 863,
+      "sha256": "da61869cf5110f9012d8e77558e4d1ba83e69ff59ce8a9bb43bdb01f10c178f4"
+    },
+    {
+      "path": "assets/icons/abzac_compens.png",
+      "driveId": "1qHxDeecCDW8SO_MOi-4RnlKs4v_4YHrC",
+      "bytes": 9109,
+      "sha256": "1be7ec68592b26928a68180a64c34467f6d85eca80e51ecc0e25ab1ae3a2a757"
+    },
+    {
+      "path": "assets/icons/abzac_glushak.png",
+      "driveId": "1CxdUjETEoYto6wREZ5hV0BZH7vzXgbCf",
+      "bytes": 6893,
+      "sha256": "87dba19a8c78f2132e8a23a96537b0cfaaed8931dc17f978eceaf0f4dc5bf916"
+    },
+    {
+      "path": "assets/icons/ashot_butt.png",
+      "driveId": "1nhXL7VG3EjEdQSr-Ok5xw1Xgcnbh3BWI",
+      "bytes": 9402,
+      "sha256": "a3d62a479a7ae2574b9dbb79fcafd1386313cccc1139d2165203d481a5150ce2"
+    },
+    {
+      "path": "assets/icons/barrel.png",
+      "driveId": "1g8sdrd6Um9D50YzsvR3Pe2r1kH3ymE3a",
+      "bytes": 4824,
+      "sha256": "a0a471bab473106c83ba2ed73ea63d60252ea4e2048f86906b9d5c3bf05962b8"
+    },
+    {
+      "path": "assets/icons/butt.png",
+      "driveId": "1ovE-JgOaY8gNZUNRiiSiY8uOxKBl-JU2",
+      "bytes": 7947,
+      "sha256": "22c26c364c2844c92555ee78c78f9c5a244f59e7641060cb75812fd193aa458c"
+    },
+    {
+      "path": "assets/icons/duplet_barrel.png",
+      "driveId": "11Daxqg9He3c8LU7MXcBlpGO9a0iY1N7V",
+      "bytes": 9731,
+      "sha256": "cdae678a80b08fe09353ebb9ae67822e1cd6dc54a4dd483dd5f519b943e1a637"
+    },
+    {
+      "path": "assets/icons/duplet_butt.png",
+      "driveId": "1QAgRR3n0hrAxaqAvTyZtK9UmzFESS_Kc",
+      "bytes": 11641,
+      "sha256": "8782355be2d6db0d2cfacf213bc8438ca9e711043dd1356f641cc3af297b5e50"
+    },
+    {
+      "path": "assets/icons/duplet_glushak.png",
+      "driveId": "1xDHE3Up5jFlkkM7K6ycplhhTLxNeOpoM",
+      "bytes": 12644,
+      "sha256": "38f9b564a2a97e46d04b0d60d72c3309cb05df0a9b1425eb571d4794e63f438d"
+    },
+    {
+      "path": "assets/icons/duplet_priklad.png",
+      "driveId": "1-sWT2L_iz_q9xoJLtuY0hp_xFMpPfIVG",
+      "bytes": 9249,
+      "sha256": "22f4e8de44b688af32340c3d205c090fe0b0def37dd6d2d7278eda5f5a75423a"
+    },
+    {
+      "path": "assets/icons/gatling_barrel.png",
+      "driveId": "1bim15EDbiYqvJ7_o5RQ3eAAQX2a9RuHt",
+      "bytes": 13481,
+      "sha256": "65810c16890e7a9fc86a41e7394ce1338a1d5ca0f66e0bd294b2d3cbeb2ff832"
+    },
+    {
+      "path": "assets/icons/gatling_butt.png",
+      "driveId": "1lQu5s3mvI0HAfbLphqKqCvvKbapAwtrF",
+      "bytes": 9465,
+      "sha256": "a4da03730a37387df17a16dc87232ea1c07f01041013a5a3908992e0252c302b"
+    },
+    {
+      "path": "assets/icons/gatling_giro.png",
+      "driveId": "17WW4opAS0kDbjhjrJvWLt9EUJ0_KpLjk",
+      "bytes": 13509,
+      "sha256": "20fa47aa32666f59b30cf450df8d002401d63c39faa4b32dd102bea5f22f645b"
+    },
+    {
+      "path": "assets/icons/gatling_motor.png",
+      "driveId": "1DQtfKpav9EytcsdtEQJUXQkjPtUhZw6_",
+      "bytes": 12882,
+      "sha256": "ca4940c58b27024e02cfe8d596f9a6286f01319b6ded2e51d455b3d964bdf526"
+    },
+    {
+      "path": "assets/icons/glushak.png",
+      "driveId": "1-K8xFXOMO682Dr7RdNAIbdxFLze_ktrY",
+      "bytes": 8794,
+      "sha256": "d106341e52874b3785e2b2a7f0f17991e2d525870748d52274509b1a742c02e3"
+    },
+    {
+      "path": "assets/icons/kolimator.png",
+      "driveId": "1Kx0KitwNGZE1Byre-A_fRt7Yp_U9CNsQ",
+      "bytes": 12507,
+      "sha256": "bd5ee8ef0f3793a14926bd80dbcbf67ca26fe9170035d9a00bbad445b462d9d0"
+    },
+    {
+      "path": "assets/icons/laser.png",
+      "driveId": "1FoVrHE50ikw5dpBS4wG2-jkQWOS-8jMh",
+      "bytes": 7638,
+      "sha256": "3ca330f3e8e812e90cd8d6b2192d6b41447d30e4a07a164087a1a3bd772f6393"
+    },
+    {
+      "path": "assets/icons/optica.png",
+      "driveId": "1GT2q2376OhAbj8Uwnr6iWNslXckqoSNF",
+      "bytes": 5339,
+      "sha256": "f0c5768dca7a90faebe15a93e92ca11bcd3df445ff13826099a9150e4fc851f1"
+    },
+    {
+      "path": "assets/icons/opticasmall.png",
+      "driveId": "1LptOMKJHOO6YoDoMmEiZ2yzMkwKw10WQ",
+      "bytes": 15196,
+      "sha256": "6aa43e007f073bd7b44166f85e7c5af4bde1193f19e290265fffb887d3db4932"
+    },
+    {
+      "path": "assets/icons/podonok_butt.png",
+      "driveId": "141F6l9zQVWcKHJFGRQ2OyJ_dNvO0MQHW",
+      "bytes": 2685,
+      "sha256": "56e8535d032a5cd85f087e9c22840f1a93db202b1dc5ff32e972b40411e53cfc"
+    },
+    {
+      "path": "assets/icons/podonok_gas.png",
+      "driveId": "1Ub3erQcdXy1iQ7F-3yn9x4u8uBtqy9u9",
+      "bytes": 10403,
+      "sha256": "826df33c0457a6aceb340aefa935700dba55a6902ff8d00cc3c3b778222238aa"
+    },
+    {
+      "path": "assets/icons/quadbarrel.png",
+      "driveId": "1kyYNhP8lXB18_Cnl9W5HdfS5xlNVFEO_",
+      "bytes": 8594,
+      "sha256": "aa9d1acf099084834303bb9ffae3570df056e4561b7d36dd943405a3246d4d07"
+    },
+    {
+      "path": "assets/icons/railgun_akk.png",
+      "driveId": "1iRDxItIzVixS04GxRHDXrSKkdHqbAYuU",
+      "bytes": 6272,
+      "sha256": "2c2d792721e2b1b8dbe068f306d9efebaa964ab4b9e1fc14da3bdd26f4c6ddfd"
+    },
+    {
+      "path": "assets/icons/railgun_kon.png",
+      "driveId": "1d3lsyroVhB08C0jb_Vq6y0PwfDhK-06A",
+      "bytes": 7278,
+      "sha256": "2df70c32565c1d527f166593502c0b206c808ded6ed660486225aff251fcf91b"
+    },
+    {
+      "path": "assets/icons/tihar_optica.png",
+      "driveId": "1twFwZnzHbLbyWKurKTyLP8EpVlOkh6JS",
+      "bytes": 10133,
+      "sha256": "d4f3add076f7aecdd1a7268e4ef3fa736614a45a5fad4281ae8cc1a4115d6af1"
+    },
+    {
+      "path": "assets/icons/ubludok_butt.png",
+      "driveId": "1niO6adjbIYEeN72cwEuf0VSmq5z3TeLO",
+      "bytes": 8660,
+      "sha256": "8b100bb3f2d74ec8dd1d4d6876457b2b8ce5910307428d6c38bc3f824212f669"
+    },
+    {
+      "path": "assets/icons/uboinik_barrel.png",
+      "driveId": "15y7Z44xvO-XU1OM2f9wgdFd0Wtt-4Xs3",
+      "bytes": 4687,
+      "sha256": "d3566164080dcd75a88f332c615c56c90efbcdebb4d8b58a81590d57e9b92972"
+    },
+    {
+      "path": "assets/icons/ventil_glushak.png",
+      "driveId": "19tZXleUAojijMrSlXleTnMUsJSqcDJBT",
+      "bytes": 9200,
+      "sha256": "101f2fbd773b5ccf4e84275d174be1af96c0c61363727c4f72bf67bf986c2019"
+    },
+    {
+      "path": "assets/icons/vsv_glushak.png",
+      "driveId": "1DIoqMTu4UtqPq6HQdi0U1iK-HiwNYEfW",
+      "bytes": 8353,
+      "sha256": "476f4bd431486295c2e53c06c66b133ccc66f537923bed93db07ba7c01f8d457"
     }
   ]
 }
