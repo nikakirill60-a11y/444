@@ -523,3 +523,14 @@ Runtime **cf4dc79**, [Actions 41343539843](https://github.com/nikakirill60-a11y/
 всего 12 активных собственных стволов с 3D. Остальные 10 не объявлены готовыми; восстановление
 отдельного исходного файла и компиляция reference-графа не считаются подключённой игровой моделью.
 [Точные ограничения первого лица/анимации и отсутствие `rpk/gilza.obj`](BLACKRAZID_WEAPON_MODELS.md).
+
+
+### Проверенная сборка dev.14
+
+Runtime **10ce27b**, [Actions 41345388540](https://github.com/nikakirill60-a11y/444/actions/runs/41345388540):
+**SUCCESS: 167 Python + 374 JUnit, 0 failures/errors/skipped**, Java 8 / Forge 2860 / reobfuscation.
+[Скачать dev.14](https://github.com/nikakirill60-a11y/444/actions/runs/41345388540/artifacts/13098818050),
+ZIP **181 195 039 байт**, внутри `metrocraft-port-1.12.2-1.13.0-dev.14.jar`.
+Включает исправление присланного вылета LWJGL 2 из dev.13. Старый JAR удалить, не ставить две версии.
+Подтверждено сохранение байтов прежних поз и всех пяти native-профилей dev.12.
+Полный клиентский OpenGL/игровой прогон и визуальная приёмка новых посадок не заявляются.
