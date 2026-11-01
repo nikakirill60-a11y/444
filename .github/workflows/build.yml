@@ -17,7 +17,17 @@ jobs:
       - name: Install asset-generation dependency
         run: python -m pip install -r tools/requirements.txt
       - name: Validate imported content
-        run: python -m unittest discover -s tests -v
+        run: |
+          python - <<'PYTEST'
+          import sys, unittest
+          suite = unittest.defaultTestLoader.discover('tests')
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          for case, trace in result.failures + result.errors:
+              message = trace[-4500:].replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+              print('::error title=' + case.id() + '::' + message)
+          print('::notice title=Python results::' + str(result.testsRun) + ' tests; ' + str(len(result.failures)) + ' failures; ' + str(len(result.errors)) + ' errors')
+          sys.exit(0 if result.wasSuccessful() else 1)
+          PYTEST
       - uses: actions/setup-java@v5
         with:
           distribution: temurin

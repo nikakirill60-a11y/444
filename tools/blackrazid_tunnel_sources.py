@@ -56,4 +56,5 @@ def bounds(mesh,operations):
         if line.startswith('v '):
             p=list(map(float,line.split()[1:4]))+[1];points.append([sum(m[i][j]*p[j] for j in range(4)) for i in range(3)])
     assert points
-    return [min(p[i] for p in points)-.001 for i in range(3)]+[max(p[i] for p in points)+.001 for i in range(3)]
+    # Quantize below the conservative 1mm margin: Python 3.12 changed sum(float) rounding.
+    return [round(min(p[i] for p in points)-.001,6) for i in range(3)]+[round(max(p[i] for p in points)+.001,6) for i in range(3)]
