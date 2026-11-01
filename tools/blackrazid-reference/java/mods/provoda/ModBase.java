@@ -372,14 +372,12 @@
  *  mods.provoda.tileentitys.TileEntityTumba1
  *  mods.provoda.tileentitys.TileEntityTumba2
  *  mods.provoda.tileentitys.TileEntityTumba3
- *  mods.provoda.tileentitys.TileEntityTunnel
  *  mods.provoda.tileentitys.TileEntityTv1
  *  mods.provoda.tileentitys.TileEntityUmi
  *  mods.provoda.tileentitys.TileEntityVanna
  *  mods.provoda.tileentitys.TileEntityWash
  *  mods.provoda.tileentitys.death.TileEntityDeath1
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnel90
- *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBeton1
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBetonDerevo
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBetonDerevo1
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBetonDouble1

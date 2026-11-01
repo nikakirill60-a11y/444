@@ -175,14 +175,12 @@
  *  mods.provoda.renderers.RendererTumba1
  *  mods.provoda.renderers.RendererTumba2
  *  mods.provoda.renderers.RendererTumba3
- *  mods.provoda.renderers.RendererTunnel
  *  mods.provoda.renderers.RendererTv1
  *  mods.provoda.renderers.RendererUmi
  *  mods.provoda.renderers.RendererVanna
  *  mods.provoda.renderers.RendererWash
  *  mods.provoda.renderers.death.RenderDeath1
  *  mods.provoda.renderers.tunnels.RenderTunnel90
- *  mods.provoda.renderers.tunnels.RenderTunnelBeton1
  *  mods.provoda.renderers.tunnels.RenderTunnelBetonDerevo
  *  mods.provoda.renderers.tunnels.RenderTunnelBetonDerevo1
  *  mods.provoda.renderers.tunnels.RenderTunnelBetonDouble1
@@ -258,14 +256,12 @@
  *  mods.provoda.tileentitys.TileEntityTumba1
  *  mods.provoda.tileentitys.TileEntityTumba2
  *  mods.provoda.tileentitys.TileEntityTumba3
- *  mods.provoda.tileentitys.TileEntityTunnel
  *  mods.provoda.tileentitys.TileEntityTv1
  *  mods.provoda.tileentitys.TileEntityUmi
  *  mods.provoda.tileentitys.TileEntityVanna
  *  mods.provoda.tileentitys.TileEntityWash
  *  mods.provoda.tileentitys.death.TileEntityDeath1
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnel90
- *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBeton1
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBetonDerevo
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBetonDerevo1
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelBetonDouble1
