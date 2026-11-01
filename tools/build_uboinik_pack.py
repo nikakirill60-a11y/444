@@ -11,7 +11,7 @@ SOURCE_REF='d335c8ed152bd16ac7f699f33e1c6f1073800dd9'
 TARGET_SHA='f91a5419cbc9e3cbd18f831e37c17aa2833d577142d324fed1ca14846ce95183'
 SCALE=.04  # source OBJ units -> metres; source gun is ~25 units long
 GUN='metro_uboinik';ROUND='metro_12g_buckshot'
-ATTACHMENTS={'metro_uboinik_suppressor':('barrel_uboinik.obj','texture.png','barrel','Глушитель Убойника'),
+ATTACHMENTS={'metro_uboinik_suppressor':('barrel_uboinik.obj','textures.png','barrel','Глушитель Убойника'),
              'metro_uboinik_collimator':('colimator.obj','texturec.png','sight','Коллиматор Убойника'),
              'metro_uboinik_laser':('laser_uboinik.obj','texturen.png','laser','ЛЦУ Убойника')}
 
@@ -245,7 +245,7 @@ def build(output,archive,ref=SOURCE_REF):
     manifest['conversion']={'unitScale':SCALE,'bodyTexture':'Uboinik tex.png','roundTexture':'shell (2).png','atlasSize':[2048,1024],
       'attachmentTextures':{id:v[1] for id,v in ATTACHMENTS.items()},'triangles':{name:len(t) for name,t in groups.items()},
       'animations':'Adapted root-motion timeline; no original animation data was provided.','balance':'Adapted values, not recovered original gun stats.'}
-    manifest['packRevision']=2
+    manifest['packRevision']=3
     manifest['poseSource']={'path':POSE_FILE.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),'conversion':'BASIC camera/weapon/arm transforms converted to Enhanced; reload arm poses interpolated from supplied configuration.'}
     jsonwrite(output/'SOURCE_MANIFEST.json',manifest)
     (output/'README_RU.txt').write_text(README,encoding='utf-8')
@@ -258,7 +258,7 @@ def build(output,archive,ref=SOURCE_REF):
     print('Built',archive,'bytes:',archive.stat().st_size,'SHA256:',hashlib.sha256(archive.read_bytes()).hexdigest())
     return g.doc
 
-README='''METRO: УБОЙНИК v2 — контент-пак для ModularWarfare-Shining 2024.2.4.6f-fix1
+README='''METRO: УБОЙНИК v3 — контент-пак для ModularWarfare-Shining 2024.2.4.6f-fix1
 
 УСТАНОВКА
 1. Нужны Minecraft 1.12.2, Forge и предоставленная пользователем версия MWF.
@@ -298,7 +298,12 @@ README='''METRO: УБОЙНИК v2 — контент-пак для ModularWarfa
 MTL не содержат map_Kd; соответствия PNG выбраны по содержимому атласов и записаны
 в SOURCE_MANIFEST.json. Посадку обвеса и правильность выбора текстур проверить в игре.
 
-ИСПРАВЛЕНО В v2
+ИСПРАВЛЕНО В v3
+Enhanced сбрасывает внешнюю матрицу камеры: восстановлены базовые смещение,
+поворот и масштаб, которые BASIC получает от ClientRenderHooks.
+Для глушителя применяется textures.png, для ЛЦУ — texturen.png, как указал пользователь.
+
+СОХРАНЕНО ИЗ v2
 Скины находятся в assets/modularwarfare/skins/, как требует реальный JAR,
 а не textures/skins/. Исправлены пути оружия, патронов и всех трёх обвесов.
 Поза и руки пересчитаны из пользовательского конфига, включая модельный масштаб 1.5,
@@ -316,5 +321,5 @@ MTL не содержат map_Kd; соответствия PNG выбраны п
 '''
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'contentpacks/metro_uboinik');p.add_argument('--zip',type=Path,default=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v2.zip');p.add_argument('--source-ref',default=SOURCE_REF)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'contentpacks/metro_uboinik');p.add_argument('--zip',type=Path,default=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v3.zip');p.add_argument('--source-ref',default=SOURCE_REF)
     a=p.parse_args();build(a.output,a.zip,a.source_ref)

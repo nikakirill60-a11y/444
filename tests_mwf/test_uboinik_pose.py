@@ -37,7 +37,7 @@ class PoseConversionTests(unittest.TestCase):
         p=self.pose;h=vec(p['aim']['rotateHipPosition']);ar=vec(p['aim']['rotateAimPosition']);hp=vec(p['aim']['translateHipPosition'])+[0,.04,-.15];ap=vec(p['aim']['translateAimPosition'])
         angles=[h[0]-(ar[0]+h[0])*ads,46+h[1]-(1+ar[1]+h[1])*ads,1+h[2]-(1+ar[2]+h[2])*ads]
         pos=np.array([-1.3,.834,-1.05])+hp-(np.array([0,-.064,.35])+ap+hp)*ads
-        return xyz_rotation(angles)@T(pos)
+        return T([.56,-.52,-.71999997])@R('y',45)@S(.4)@xyz_rotation(angles)@T(pos)
     def enhanced_camera(self,ads):
         c=self.config;gl=c['global'];a=c['aim'];angles=vec(gl['globalRotate'])*3.14/math.pi
         return (R('y',90)@S(.0001)@R('y',90)@T(vec(gl['globalTranslate']))@S(vec(gl['globalScale']))@R('y',-90)
@@ -50,6 +50,27 @@ class PoseConversionTests(unittest.TestCase):
     def test_fp_ads_endpoint_matches_supplied_basic_gun_transform(self):
         actual=self.enhanced_camera(1)@node_matrix(self.nodes['gunModel'])@S(.04)
         np.testing.assert_allclose(actual,self.basic_camera(1)@self.legacy_gun(),atol=2e-12)
+    def projected_body_fraction(self,camera,fov=70,aspect=16/9):
+        g=self.g;p=g['meshes'][self.nodes['gunModel']['mesh']]['primitives'][0]
+        a=g['accessors'][p['attributes']['POSITION']];v=g['bufferViews'][a['bufferView']];raw=base64.b64decode(g['buffers'][0]['uri'].split(',',1)[1])
+        points=np.frombuffer(raw,dtype='<f4',offset=v['byteOffset'],count=a['count']*3).reshape(-1,3)
+        eye=(camera@node_matrix(self.nodes['gunModel'])@np.c_[points,np.ones(len(points))].T).T
+        z=-eye[:,2];f=1/math.tan(math.radians(fov)/2)
+        return np.mean((z>.01)&(abs(eye[:,0]*f/aspect)<z)&(abs(eye[:,1]*f)<z))
+    def test_body_is_in_frustum_without_inheriting_outer_modelview(self):
+        # Enhanced starts from identity. Never append ClientRenderHooks outside
+        # enhanced_camera: doing so would conceal the actual v2 off-screen bug.
+        for ads in [0,.5,1]:
+            for fov in [50,70,90]:
+                for aspect in [4/3,16/9]:self.assertGreater(self.projected_body_fraction(self.enhanced_camera(ads),fov,aspect),.1)
+    def test_old_v2_camera_fails_actual_frustum_regression(self):
+        from copy import deepcopy
+        correct=self.config;self.config=deepcopy(correct)
+        self.config['global']['globalTranslate']={k:0 for k in 'xyz'}
+        self.config['global']['globalScale']={k:10000 for k in 'xyz'}
+        self.config['global']['globalRotate']['y']=-44*math.pi/3.14
+        try:self.assertLess(self.projected_body_fraction(self.enhanced_camera(0)),.01)
+        finally:self.config=correct
     def test_third_person_matches_supplied_scale_and_offsets(self):
         c=self.config['thirdPerson']['renderElements']['player'];r=vec(c['rot'])
         actual=T(vec(c['pos']))@S(.1)@S(vec(c['size']))@R('y',-r[1])@R('x',-r[0])@R('z',-r[2])@node_matrix(self.nodes['gunModel'])@S(.04)
@@ -75,7 +96,7 @@ class PoseConversionTests(unittest.TestCase):
         for name in ['flashModel']+['bulletModel_'+str(i) for i in range(6)]:np.testing.assert_allclose(node_matrix(self.nodes[name]),expected,atol=0)
         self.assertEqual([0,0,0],self.nodes['root']['translation'])
     def test_original_pose_file_hash_is_recorded(self):
-        m=json.loads((P/'SOURCE_MANIFEST.json').read_bytes());self.assertEqual(2,m['packRevision']);self.assertEqual(hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),m['poseSource']['sha256'])
+        m=json.loads((P/'SOURCE_MANIFEST.json').read_bytes());self.assertEqual(3,m['packRevision']);self.assertEqual(hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),m['poseSource']['sha256'])
     def test_supplied_recoil_and_sprint_settings_are_preserved(self):
         self.assertEqual(self.pose['sprint'],self.config['sprint'])
         for key in ['modelRecoilBackwards','modelRecoilUpwards','modelRecoilShake']:self.assertEqual(self.pose['extra'][key],self.config['extra'][key])

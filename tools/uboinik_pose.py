@@ -1,7 +1,9 @@
 """Convert the supplied BASIC render.ubo.json to Enhanced coordinates.
 
-The shared ClientRenderHooks camera transform is unchanged. Enhanced prepends
-Ry(90), whereas BASIC computes Ry(46)Rz(1) and its hip/ADS translations.
+BASIC retains ClientRenderHooks' idle T(.56,-.52,-.71999997) Ry(45) S(.4).
+Enhanced explicitly loads identity, discarding that outer camera transform.
+Restore it through globalTranslate/Scale/Rotate, before porting BASIC's
+Ry(46)Rz(1) and hip/ADS translations.
 BASIC additionally uses S(modelScale)T(Blender offset + translateAll)S(1/16).
 Keep that weapon transform on each gun/round node so attachment bindings inherit it.
 Arm transforms reproduce RenderArms' shoulder pivot and standard Minecraft boxes;
@@ -55,8 +57,12 @@ def arm_transform(pose,side,reload=0):
 def render_pose(pose):
     hip,ht=legacy_camera(pose);ads,at=legacy_camera(pose,True)
     # Actual JAR globalRotate uses 3.14, but aim rotations use Math.PI.
-    angles=euler_yxz(rotation([0,-90,0])@hip)*math.pi/3.14
-    global_config={'globalTranslate':xyz([0,0,0]),'globalScale':xyz([10000]*3),'globalRotate':xyz(angles)}
+    angles=euler_yxz(rotation([0,-90,0])@rotation([0,45,0])@hip)*math.pi/3.14
+    # Prefix at this point is Ry(180) S(1/10000), BEFORE globalScale.
+    # Thus camera translation must be expressed in that frame, not in metres.
+    camera_translate=np.array([.56,-.52,-.71999997])
+    global_translate=rotation([0,-180,0])@camera_translate*10000
+    global_config={'globalTranslate':xyz(global_translate),'globalScale':xyz([4000]*3),'globalRotate':xyz(angles)}
     aim={'rotateHipPosition':xyz([0,0,0]),'translateHipPosition':xyz(ht),
          'rotateAimPosition':xyz(euler_xyz(hip.T@ads)),'translateAimPosition':xyz(at-ht)}
     third={k:{'pos':xyz([0,0,0]),'rot':xyz([0,0,0]),'size':xyz([3]*3)} for k in ['player','player_offhand','itemloot','itemframe']}

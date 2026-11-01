@@ -104,7 +104,7 @@
       1024
     ],
     "attachmentTextures": {
-      "metro_uboinik_suppressor": "texture.png",
+      "metro_uboinik_suppressor": "textures.png",
       "metro_uboinik_collimator": "texturec.png",
       "metro_uboinik_laser": "texturen.png"
     },
@@ -121,7 +121,7 @@
     "animations": "Adapted root-motion timeline; no original animation data was provided.",
     "balance": "Adapted values, not recovered original gun stats."
   },
-  "packRevision": 2,
+  "packRevision": 3,
   "poseSource": {
     "path": "tools/uboinik-reference/render.ubo.json",
     "sha256": "f8ce8fdd31df86b3d80a2936677adc8f95b7bcbcab71e4ee7527ad6ffcf033a8",

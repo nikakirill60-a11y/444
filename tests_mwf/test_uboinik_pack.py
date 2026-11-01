@@ -13,7 +13,7 @@ class UboinikPackTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.source=originals();cls.groups=obj_read(cls.source['uboinik.obj']);cls.gltf=js(A/'gltf/guns/metro_uboinik.gltf')
-        cls.archive=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v2.zip'
+        cls.archive=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v3.zip'
     def test_full_pack_structure_and_loader_dependencies(self):
         with contextlib.redirect_stdout(io.StringIO()):result=verify(P)
         self.assertEqual({'files':40,'rounds':6,'triangles':6901,'items':5},result)
@@ -29,6 +29,10 @@ class UboinikPackTests(unittest.TestCase):
             self.assertEqual(remaining,len(visible))
     def test_gun_has_no_detachable_magazine_and_one_shell_per_shot(self):
         g=js(P/'guns/metro_uboinik.json');self.assertNotIn('acceptedAmmo',g);self.assertEqual([ROUND],g['acceptedBullets']);self.assertEqual(6,g['internalAmmoStorage']);self.assertEqual(8,g['numBullets'])
+    def test_attachment_textures_match_user_correction_byte_for_byte(self):
+        for id,name in [('metro_uboinik_suppressor','textures.png'),('metro_uboinik_laser','texturen.png')]:
+            self.assertEqual(self.source[name],(A/'skins/attachments'/f'{id}.png').read_bytes())
+            self.assertEqual(name,js(P/'SOURCE_MANIFEST.json')['conversion']['attachmentTextures'][id])
     def test_all_user_sounds_are_exact_original_bytes(self):
         for name,source in [('fire','Выстрел.ogg'),('load','Перезарядка.ogg'),('bolt','Затвор.ogg')]:self.assertEqual(self.source[source],(A/f'sounds/metro_uboinik_{name}.ogg').read_bytes())
     def test_added_arms_have_outward_normals_and_winding(self):
