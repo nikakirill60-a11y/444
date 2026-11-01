@@ -30,7 +30,7 @@ public final class MetroInventoryGui extends GuiContainer {
             fontRenderer.drawString("×",guiLeft+48,guiTop+11,0xFF5555);
         }
         GuiInventory.drawEntityOnScreen(guiLeft+88,guiTop+75,30,guiLeft+88-mouseX,guiTop+25-mouseY,player);
-        int rows=Backpacks.rows(((MetroContainer)inventorySlots).bag.getStackInSlot(0));
+        int rows=ru.metrocraft.port.inventory.InventoryModes.rows(player);
         mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/gui/slots.png"));
         GlStateManager.color(1,1,1,1);
         drawTexturedModalRect(guiLeft+7,guiTop+83,0,0,162,rows*18);

@@ -1,0 +1,22 @@
+{
+  "importedGuns": [
+    "ak74"
+  ],
+  "importedAmmunition": [
+    "ammo5x45"
+  ],
+  "sourceConstructor": "false, 13.0, 1, 1.0f, \"ak_boom\", \"ak74_reload\", 1.0f, 1.5f, 30, 1, 1.0f, -1.0f, \"ak74\", 60, 25.0, 30.0f, 1600",
+  "sourceFireInterval": "Server counter resets to 0 on firing; checks >=1 before increment: one shot per 2 ticks.",
+  "preserved": [
+    "Original base OBJ groups body/mag/zatv, UV, normals, high/low textures, inventory icon, flash and both original sounds.",
+    "Magazine 30, reload 60 ticks, raw damage 13, base accuracy 1, condition 1600.",
+    "Separate registry IDs; original Flan AK-74 and its ammunition unchanged."
+  ],
+  "adaptations": [
+    "Uses existing server-authoritative port projectiles, recoil and controls (RMB fire, Alt aim, R or sneak+RMB reload); no exact MCMOD 1000-HP damage system claimed.",
+    "Projectile speed 4 blocks/tick and gravity .01 are port settings, not recovered MCMOD parameters.",
+    "Condition zero jams but retains the gun; repair restores functionality.",
+    "Original native OBJ is mapped into the tested existing AK hand space; player skin hands, magazine and bolt animation use port timing.",
+    "Only base AK-74. Original upgrade GUI, optics, silencers, clocks, laser, grenade launcher and other MCMOD weapons are not included."
+  ]
+}

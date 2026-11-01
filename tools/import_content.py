@@ -128,6 +128,11 @@ def main():
     if len(set(ids)) != len(ids):
         raise ValueError('Duplicate registry IDs')
     write_json(ASSETS / 'content.json', entries)
+    if (ASSETS/'mcmod_guns.json').exists():
+        for gun in json.loads((ASSETS/'mcmod_guns.json').read_text()):
+            for field in ['shootSound','reloadSound']:
+                sid=gun.get(field)
+                if sid:sounds[sid]={'sounds':['metroport:mcmod/'+sid.removeprefix('mcmod_')]}
     sounds['germo'] = {'sounds': ['metroport:germo']}
     write_json(ASSETS / 'sounds.json', sounds)
     translations = {

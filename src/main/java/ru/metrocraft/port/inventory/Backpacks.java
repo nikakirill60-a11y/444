@@ -71,7 +71,7 @@ public final class Backpacks {
     }
     public static void enforceCapacity(EntityPlayer player) {
         if (player.world.isRemote || player.capabilities.isCreativeMode || player.isSpectator()) return;
-        int end=9+rows(get(player))*9;
+        int end=9+InventoryModes.rows(player)*9;
         for(int i=end;i<36;i++) {
             ItemStack stack=player.inventory.getStackInSlot(i);
             if(stack.isEmpty()) continue;

@@ -1166,6 +1166,51 @@
       "driveId": "1JUHCfPZdnxv4wOH_FwRaPazg3ZBKGm9t",
       "bytes": 851523,
       "sha256": "272bd3348137d23c31ef06c83dbb03e414020fe72980536567048e8953b00daf"
+    },
+    "assets/guns/ak74/model.obj": {
+      "driveId": "16ycT013Eehf4vGhaOTbj1tIFhFpKOaT5",
+      "bytes": 2181508,
+      "sha256": "96ceeadd3aa9209703c159a44a3266641ad6923faacd3c538732aef31b2cd5f0"
+    },
+    "assets/guns/ak74/texture.png": {
+      "driveId": "1hSwAoZ6CiMJMV_RA_QH7xNZhjW-LZ-em",
+      "bytes": 1817114,
+      "sha256": "864d19de1260f1f74f99e10cd37c1366f4d79e504971c6b14a80f42495fcc593"
+    },
+    "assets/guns/ak74/texture_low.png": {
+      "driveId": "1wDg2gxabHeleR--9eus-Qcu-66yJypJK",
+      "bytes": 129209,
+      "sha256": "0aef04535c306c8c17c3d0fadf1eb8d18288c5f26224bf3f241e1be8ed8e2a92"
+    },
+    "assets/guns/ak74/flash.png": {
+      "driveId": "1LBhuelWDzuIgWP-OebP8HpuxTRygXetp",
+      "bytes": 130588,
+      "sha256": "0bcb4933637ac9fe6172f480420fee72857ff56e3edcb7948fb7faafa0241bd5"
+    },
+    "assets/guns/ak74/model.mtl": {
+      "driveId": "1GaoVOlIx1ZcXyImo1CGMWitFKbC-2PWB",
+      "bytes": 4248,
+      "sha256": "dfd47e1a1b969dc9c4131ba627ac03585e4e4f6e0610146b96d1ac34f658ec77"
+    },
+    "assets/guns/ak74/ak74.png": {
+      "driveId": "1O_7Qeg22yFtrRL5CE1Lfl6IWkVaryr_D",
+      "bytes": 20036,
+      "sha256": "952417fbc637b76f523320ae29b8edc5b7fa6f04eacff7467e9d0e312d1c88be"
+    },
+    "assets/guns/ak74/x545.png": {
+      "driveId": "1gATEdyTBzrjyY_dSgJj7jS-yH8QYjaiX",
+      "bytes": 19772,
+      "sha256": "fc497cb60a98e838d0d346bc64b77b237480ef54846ad600c18082bcba52fab2"
+    },
+    "assets/guns/ak74/ak_boom.ogg": {
+      "driveId": "1aj251CSvSxi81JlF94FkY5CHgYwjxf-s",
+      "bytes": 11696,
+      "sha256": "0d8f46afb48fde56f77911ba5ef35e7a514014c3edc04ff86e09c4fd9a37bc1f"
+    },
+    "assets/guns/ak74/ak74_reload.ogg": {
+      "driveId": "1b7P_RQshrr3sNQQbjoD_SQvPGm79RJKR",
+      "bytes": 12859,
+      "sha256": "fd0fa503a87242dad3607bfc189eee13f10420b7df343d0b4f0b9dda170c12f7"
     }
   }
 }

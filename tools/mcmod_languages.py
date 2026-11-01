@@ -6,7 +6,7 @@ ASSETS=ROOT/'src/main/resources/assets/metroport'
 
 def lines_for(locale):
     lines=[]
-    for catalog in ['mcmod_armor.json','mcmod_items.json','faction_patches.json','mcmod_decor.json']:
+    for catalog in ['mcmod_armor.json','mcmod_items.json','faction_patches.json','mcmod_decor.json','mcmod_guns.json']:
         path=ASSETS/catalog
         if path.exists():
             data=json.loads(path.read_text())
@@ -19,5 +19,5 @@ def lines_for(locale):
 def update():
     for locale in ['ru_ru','en_us']:
         path=ASSETS/('lang/'+locale+'.lang')
-        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','tile.metroport.mcmod_decor_','metroport.armor.builtin_head'))]
+        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','tile.metroport.mcmod_decor_','metroport.armor.builtin_head','metroport.inventory.'))]
         path.write_text('\n'.join(lines+lines_for(locale))+'\n')

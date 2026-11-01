@@ -54,6 +54,17 @@ public final class ClientEvents {
     }
 
     @SubscribeEvent
+    public static void mcmodAkModel(net.minecraftforge.client.event.ModelBakeEvent event) {
+        Item item=MetroPort.ITEMS.get("mcmod_ak74");if(item==null)return;
+        ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");
+        net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(location);
+        if(icon!=null){
+            item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodAkRenderer.INSTANCE);
+            event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel("ak74",true,icon));
+        }
+    }
+
+    @SubscribeEvent
     public static void toolModels(net.minecraftforge.client.event.ModelBakeEvent event) {
         for (String id : new String[]{"mcmod_machete", "mcmod_aptech"}) {
             Item item=MetroPort.ITEMS.get(id);
@@ -102,7 +113,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void inventory(net.minecraftforge.client.event.GuiOpenEvent event) {
         Minecraft mc=Minecraft.getMinecraft();
-        if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiInventory && mc.player!=null && !mc.player.capabilities.isCreativeMode) {
+        if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiInventory && mc.player!=null && !mc.player.capabilities.isCreativeMode && !ru.metrocraft.port.inventory.InventoryModes.vanilla(mc.player)) {
             event.setCanceled(true);
             MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.inventory.OpenInventoryPacket());
         }

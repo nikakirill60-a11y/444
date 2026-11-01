@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "metroport:mcmod/guns/ak74_icon"
+  }
+}

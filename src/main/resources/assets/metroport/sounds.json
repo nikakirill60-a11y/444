@@ -99,6 +99,16 @@
       "metroport:uboinik_reload"
     ]
   },
+  "mcmod_ak_boom": {
+    "sounds": [
+      "metroport:mcmod/ak_boom"
+    ]
+  },
+  "mcmod_ak74_reload": {
+    "sounds": [
+      "metroport:mcmod/ak74_reload"
+    ]
+  },
   "germo": {
     "sounds": [
       "metroport:germo"

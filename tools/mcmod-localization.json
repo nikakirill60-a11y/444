@@ -19,7 +19,10 @@
     "metroport.nvg.slot": "ПНВ",
     "key.metroport.inventory": "Экипировка Metro (ПНВ / рюкзак)",
     "metroport.armor.builtin_head": "Встроенный противогаз: снимите шлем; слот головы блокируется",
-    "metroport.nvg.help": "Отдельный слот ПНВ: ПКМ — надеть; I — окно экипировки"
+    "metroport.nvg.help": "Отдельный слот ПНВ: ПКМ — надеть; I — окно экипировки",
+    "metroport.inventory.mode": "Режим: %s",
+    "metroport.inventory.equipment": "Экипировка",
+    "metroport.inventory.clear_cursor": "Перед переключением уберите предмет с курсора и очистите сетку крафта."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -41,6 +44,9 @@
     "metroport.nvg.slot": "NVG",
     "key.metroport.inventory": "Metro equipment (NVG / backpack)",
     "metroport.armor.builtin_head": "Built-in gas mask: remove helmet; head slot is locked",
-    "metroport.nvg.help": "Dedicated NVG slot: right click to equip; I opens equipment"
+    "metroport.nvg.help": "Dedicated NVG slot: right click to equip; I opens equipment",
+    "metroport.inventory.mode": "Mode: %s",
+    "metroport.inventory.equipment": "Equipment",
+    "metroport.inventory.clear_cursor": "Clear your cursor and crafting grid before switching."
   }
 }

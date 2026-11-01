@@ -1,0 +1,31 @@
+[
+  {
+    "id": "mcmod_ak74",
+    "nameRu": "АК-74 [MCMOD]",
+    "nameEn": "AK-74 [MCMOD]",
+    "kind": "gun",
+    "capacity": 30,
+    "reloadTicks": 60,
+    "delay": 2,
+    "damage": 13,
+    "durability": 1600,
+    "ammo": "mcmod_ammo5x45",
+    "automatic": true,
+    "bulletSpeed": 4,
+    "spread": 1,
+    "recoil": 1,
+    "randomRecoil": 0,
+    "randomYaw": 2,
+    "shootSound": "mcmod_ak_boom",
+    "reloadSound": "mcmod_ak74_reload",
+    "stackSize": 1
+  },
+  {
+    "id": "mcmod_ammo5x45",
+    "nameRu": "Патроны 5×45 [MCMOD]",
+    "nameEn": "5x45 ammunition [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "fallSpeed": 0.01
+  }
+]

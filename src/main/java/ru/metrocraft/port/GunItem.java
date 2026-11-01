@@ -28,7 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class GunItem extends ContentItem {
+public class GunItem extends ContentItem {
     private static final String AMMO = "MetroAmmo", RELOAD = "MetroReloadTicks";
 
 
@@ -121,8 +121,10 @@ public final class GunItem extends ContentItem {
         }
     }
 
+    protected boolean canFire(ItemStack stack){return true;}
+
     private void fire(ItemStack stack, EntityPlayer player) {
-        if (player.isSpectator() || reloading(stack) || player.getCooldownTracker().hasCooldown(this)) return;
+        if (player.isSpectator() || reloading(stack) || !canFire(stack) || player.getCooldownTracker().hasCooldown(this)) return;
         if (!player.capabilities.isCreativeMode && ammo(stack) == 0) {
             startReload(stack, player);
             return;

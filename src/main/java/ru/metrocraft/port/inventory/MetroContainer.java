@@ -28,7 +28,7 @@ public final class MetroContainer extends Container {
         for(int row=0;row<3;row++) for(int col=0;col<9;col++) {
             final int required=row+1;
             addSlotToContainer(new Slot(player.inventory,9+row*9+col,8+col*18,84+row*18) {
-                private boolean unlocked(){return required<=Backpacks.rows(bag.getStackInSlot(0));}
+                private boolean unlocked(){return required<=InventoryModes.rows(player);}
                 @Override public boolean isItemValid(ItemStack stack){return unlocked();}
                 @Override public boolean canTakeStack(EntityPlayer player){return true;}
                 @Override public boolean isEnabled(){return true;}

@@ -77,6 +77,8 @@ public final class MetroPort {
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
         NETWORK.registerMessage(ShotFeedbackPacket.Handler.class,ShotFeedbackPacket.class,3,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgSyncPacket.Handler.class,ru.metrocraft.port.inventory.NvgSyncPacket.class,4,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.InventoryModePacket.Handler.class,ru.metrocraft.port.inventory.InventoryModePacket.class,5,Side.SERVER);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.InventoryModeSyncPacket.Handler.class,ru.metrocraft.port.inventory.InventoryModeSyncPacket.class,6,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
         ru.metrocraft.port.gates.Gates.initialize();
