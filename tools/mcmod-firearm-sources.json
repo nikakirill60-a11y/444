@@ -705,5 +705,19 @@
     "sourceBytes": 26025,
     "sourceSha256": "43ca6f15ee3f116927563202bb58c5eeb8f6428d1024a189b6a835d6d4a05cee",
     "gzip": false
+  },
+  "textures/mcmod/guns/ubo_ammo.png": {
+    "driveId": "1UMP9qWtbRmE53_ZPF3zsx9zJ6tmOLqzX",
+    "sourceName": "ammo.png",
+    "sourceBytes": 377881,
+    "sourceSha256": "80beea391b1efbcd2b7667529f90ba80e41688fa85caab47300a272d9d62c391",
+    "gzip": false
+  },
+  "textures/mcmod/guns/duplet_mods.png": {
+    "driveId": "1ikdE5wrDbeeq3zWGigLF-gqNoDD2YiWP",
+    "sourceName": "obvestexture.png",
+    "sourceBytes": 562891,
+    "sourceSha256": "124c5b0a64679ba8a8e499db43edce1ec759669fd1e73abb1f3bf3297634e4ba",
+    "gzip": false
   }
 }

@@ -65,7 +65,7 @@ public final class McmodAkRenderer extends TileEntityItemStackRenderer {
         try{
             GlStateManager.translate(.5-.035*kick,.5,.5);GlStateManager.color(1,1,1,1);
             if(name.equals("railgun")){
-                texture("railgun");group(parts,"body2","zatv","ammo");texture("railgun_body2");group(parts,"body1");
+                texture("railgun");group(parts,"body2");texture("railgun_body2");group(parts,"body1");
                 texture("railgun_volt");group(parts,"volt");texture("mods_p");group(parts,"pric");texture("railgun_gen");group(parts,"gen");
             }else{
                 texture(name+(first?"":"_low"));group(parts,"body","handa");
@@ -74,7 +74,10 @@ public final class McmodAkRenderer extends TileEntityItemStackRenderer {
                     if(name.equals("rpk"))texture("ak74"+(first?"":"_low"));
                     group(parts,McmodAkItem.module(stack,"modMag")==1&&parts.containsKey("mag2")?"mag2":"mag");
                     texture(name+(first?"":"_low"));
+                    if(name.equals("ubo"))texture("ubo_ammo");
+                    else if(name.equals("ubludok")||name.equals("ventil"))texture("ak74");
                     if(!item.reloading(stack))for(int n=1;n<=item.ammo(stack);n++)group(parts,"ammo"+n);
+                    texture(name+(first?"":"_low"));
                     if(item.ammo(stack)>0)group(parts,"revolver_bullet");
                 }finally{GlStateManager.popMatrix();}
                 GlStateManager.pushMatrix();try{GlStateManager.translate(-.045*kick,0,0);group(parts,"zatv");}finally{GlStateManager.popMatrix();}
@@ -83,7 +86,7 @@ public final class McmodAkRenderer extends TileEntityItemStackRenderer {
             if(scope==1){texture("mods");group(parts,"scope_a","scope_b","scope_g2");texture("mods_p");group(parts,"scope_g1");}
             if(scope==2){texture("mods_c");group(parts,"col");}
             if(scope==3){texture("mods_n");group(parts,"scope2");}
-            texture("mods_s");if(McmodAkItem.module(stack,"modStvol")==1)group(parts,"slicer");
+            texture(name.equals("duplet")?"duplet_mods":"mods_s");if(McmodAkItem.module(stack,"modStvol")==1)group(parts,"slicer");
             if(McmodAkItem.module(stack,"modRessiver")==1)group(parts,"laser","laser1");
             if(item.getDefinition().mcmodAir){texture(name);group(parts,"strelka"+McmodAkItem.gauge(McmodAkItem.pressure(stack)));}
             if(first){
