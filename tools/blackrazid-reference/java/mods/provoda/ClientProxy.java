@@ -15,7 +15,6 @@
  *  cpw.mods.fml.common.registry.TickRegistry
  *  cpw.mods.fml.relauncher.Side
  *  mods.provoda.CommonProxy
- *  mods.provoda.entity.EntitySpawnerKikimora
  *  mods.provoda.entity.EntityTestDeathFull
  *  mods.provoda.entity.render.RenderBullet
  *  mods.provoda.entity.render.RenderDeath

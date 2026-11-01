@@ -103,17 +103,6 @@
  *  mods.provoda.blocks.GrassTall
  *  mods.provoda.blocks.Sapling_Tall
  *  mods.provoda.entity.EntityMountableBlock
- *  mods.provoda.entity.EntitySpawnerAquaf
- *  mods.provoda.entity.EntitySpawnerAquam
- *  mods.provoda.entity.EntitySpawnerBear
- *  mods.provoda.entity.EntitySpawnerBiblio
- *  mods.provoda.entity.EntitySpawnerDark
- *  mods.provoda.entity.EntitySpawnerDemon
- *  mods.provoda.entity.EntitySpawnerKikimora
- *  mods.provoda.entity.EntitySpawnerMobus
- *  mods.provoda.entity.EntitySpawnerNosach
- *  mods.provoda.entity.EntitySpawnerSpider
- *  mods.provoda.entity.EntitySpawnerStrazh
  *  mods.provoda.entity.EntityTestDeathFull
  *  mods.provoda.guns.AKK
  *  mods.provoda.guns.ammo.AKKAmmo
