@@ -26,6 +26,7 @@ repositories { mavenCentral() }
 
 dependencies {
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 }
 
