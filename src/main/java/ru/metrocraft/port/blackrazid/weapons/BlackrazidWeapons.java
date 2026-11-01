@@ -15,11 +15,11 @@ import java.util.*;
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class BlackrazidWeapons {
     public static final class Entry {
-        public String id,sourceId,kind,icon,nameRu,nameEn,roundItem,shootSound,reloadSound,unloadSound,runtimeStatus;
+        public String id,sourceId,kind,icon,nameRu,nameEn,roundItem,shootSound,reloadSound,unloadSound,runtimeStatus,looseRound,looseReloadSound,cycleSound,pumpSound,emptySound;
         public String[] magazines;
-        public int capacity,defaultRounds,sourceCapacityArgument,loadingTicks,unloadingTicks,delay,accuracy;
+        public int capacity,defaultRounds,sourceCapacityArgument,loadingTicks,unloadingTicks,delay,accuracy,pellets,looseCapacity,looseLoadingTicks,looseMinimum,airCapacity,airStep,pumpTicks,airCost;
         public float damage,speed,recoil;
-        public boolean refillable;
+        public boolean refillable,topUp,keepChamber,rotor,flame;
     }
     private static final Map<String,Item> ITEMS=new LinkedHashMap<>();
     private static Entry[] entries;
@@ -58,8 +58,8 @@ public final class BlackrazidWeapons {
     @SubscribeEvent public static void logout(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent event){cancelActions(event.player);}
     @SubscribeEvent public static void dimension(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent event){cancelActions(event.player);}
     @SubscribeEvent public static void registerSounds(RegistryEvent.Register<SoundEvent> event){
-        load();Set<String> ids=new LinkedHashSet<>();ids.add("blackrazid_empty");ids.add("blackrazid_vsv_shootclose");
-        for(Entry e:entries)if("gun".equals(e.kind)){ids.add(e.shootSound);ids.add(e.reloadSound);ids.add(e.unloadSound);}
+        load();Set<String> ids=new LinkedHashSet<>();ids.add("blackrazid_empty");ids.add("blackrazid_vsv_shootclose");ids.add("blackrazid_gatling_rot");
+        for(Entry e:entries)if("gun".equals(e.kind)){for(String id:new String[]{e.shootSound,e.reloadSound,e.unloadSound,e.looseReloadSound,e.cycleSound,e.pumpSound,e.emptySound})if(id!=null && !id.equals("blackrazid_railgun_air"))ids.add(id);}
         for(String id:ids){ResourceLocation key=new ResourceLocation(MetroPort.ID,id);SoundEvent sound=new SoundEvent(key).setRegistryName(key);
             if(MetroPort.SOUNDS.put(id,sound)!=null)throw new IllegalStateException("Duplicate sound "+id);event.getRegistry().register(sound);}
     }

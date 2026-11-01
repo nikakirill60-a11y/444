@@ -12,11 +12,11 @@ import net.minecraftforge.fml.relauncher.*;
 import ru.metrocraft.port.*;
 import java.util.*;
 
-/** Native basic automatics. The nested magazine is the ONLY authoritative ammunition store.
- * No loose-round/MetroAmmo path, shared item timers, MCMOD upgrades or arbitrary attachment multipliers.
- * Modules and native meshes are explicitly still pending, not silently replaced by MCMOD counterparts. */
+/** Own basic firearms, not aliases for MCMOD. Resource stores are serialized stacks, never a shared Item timer.
+ * Native models/modules remain pending. No legacy general player/faction/air implementation is imported. */
 public final class BlackrazidGunItem extends GunItem {
-    private static final String MAG="BlackrazidMagazine",TICKS="BlackrazidActionTicks",ACTION="BlackrazidAction",COOLDOWN="BlackrazidShotTicks",OWNER="BlackrazidActionOwner";
+    private static final String MAG="BlackrazidMagazine",LOOSE="BlackrazidLooseRounds",AIR="BlackrazidPressure",
+            TICKS="BlackrazidActionTicks",ACTION="BlackrazidAction",COOLDOWN="BlackrazidShotTicks",OWNER="BlackrazidActionOwner",SOUND="BlackrazidFlameSoundTicks";
     public final BlackrazidWeapons.Entry entry;
     public BlackrazidGunItem(BlackrazidWeapons.Entry entry){super(definition(entry));this.entry=entry;setMaxDamage(0);}
     private static Definition definition(BlackrazidWeapons.Entry e){
@@ -32,66 +32,120 @@ public final class BlackrazidGunItem extends GunItem {
         return !magazine.isEmpty() && magazine.getCount()==1 && magazine.getItem() instanceof MagazineItem
                 && Arrays.asList(entry.magazines).contains(((MagazineItem)magazine.getItem()).entry.id);
     }
+    private boolean validGun(ItemStack gun){return !gun.isEmpty() && gun.getItem()==this && gun.getCount()==1;}
     public ItemStack magazine(ItemStack gun){
-        if(gun.isEmpty() || gun.getItem()!=this || gun.getCount()!=1 || !gun.hasTagCompound())return ItemStack.EMPTY;
+        if(!validGun(gun) || !gun.hasTagCompound())return ItemStack.EMPTY;
         ItemStack mag=new ItemStack(gun.getTagCompound().getCompoundTag(MAG));return accepts(mag)?mag:ItemStack.EMPTY;
     }
-    private void store(ItemStack gun,ItemStack magazine){
-        if(magazine.isEmpty())tag(gun).removeTag(MAG);else tag(gun).setTag(MAG,magazine.writeToNBT(new NBTTagCompound()));
+    public ItemStack loose(ItemStack gun){
+        if(!validGun(gun) || !gun.hasTagCompound() || entry.looseRound==null)return ItemStack.EMPTY;
+        ItemStack stack=new ItemStack(gun.getTagCompound().getCompoundTag(LOOSE));
+        return stack.getItem()==BlackrazidWeapons.item(entry.looseRound) && stack.getCount()<=entry.looseCapacity?stack:ItemStack.EMPTY;
     }
-    @Override public int ammo(ItemStack gun){ItemStack mag=magazine(gun);return mag.isEmpty()?0:((MagazineItem)mag.getItem()).rounds(mag);}
-    @Override public int capacity(ItemStack gun){ItemStack mag=magazine(gun);return mag.isEmpty()?0:((MagazineItem)mag.getItem()).entry.capacity;}
+    private void store(ItemStack gun,String key,ItemStack stack){if(stack.isEmpty())tag(gun).removeTag(key);else tag(gun).setTag(key,stack.writeToNBT(new NBTTagCompound()));}
+    private static int rounds(ItemStack magazine){return magazine.isEmpty()?0:((MagazineItem)magazine.getItem()).rounds(magazine);}
+    @Override public int ammo(ItemStack gun){return rounds(magazine(gun))+loose(gun).getCount();}
+    @Override public int capacity(ItemStack gun){ItemStack mag=magazine(gun);return mag.isEmpty()?entry.looseCapacity:((MagazineItem)mag.getItem()).entry.capacity+(entry.keepChamber?1:0);}
+    public int pressure(ItemStack gun){return validGun(gun) && gun.hasTagCompound()?Math.max(0,Math.min(entry.airCapacity,gun.getTagCompound().getInteger(AIR))):0;}
+    private void pressure(ItemStack gun,int amount){tag(gun).setInteger(AIR,Math.max(0,Math.min(entry.airCapacity,amount)));}
+    public int shotDelay(ItemStack gun){int air=pressure(gun);return entry.rotor?(air>266?3:air>133?4:5):entry.delay;}
     @Override public boolean reloading(ItemStack gun){return gun.hasTagCompound() && gun.getTagCompound().getInteger(TICKS)>0;}
     private int slot(EntityPlayer p){
-        // Native order: filled magazines before empty, preferred type (e.g. RPK drum) before smaller type.
-        for(boolean filled:new boolean[]{true,false})for(String id:entry.magazines)for(int i=0;i<MagazineItem.inventoryEnd(p);i++){
+        int end=MagazineItem.inventoryEnd(p);
+        for(boolean filled:new boolean[]{true,false})for(String id:entry.magazines)for(int i=0;i<end;i++){
             ItemStack candidate=p.inventory.getStackInSlot(i);
-            if(accepts(candidate) && candidate.getItem()==BlackrazidWeapons.item(id)
-                    && ((((MagazineItem)candidate.getItem()).rounds(candidate)>0)==filled))return i;
+            if(accepts(candidate) && candidate.getItem()==BlackrazidWeapons.item(id) && ((rounds(candidate)>0)==filled))return i;
         }
         return -1;
     }
-    /** Re-evaluates inventory at completion. Nothing is reserved/consumed when the timer starts. */
-    public boolean insertMagazine(ItemStack gun,EntityPlayer p){
-        if(!live(gun,p) || !magazine(gun).isEmpty())return false;
-        int slot=slot(p);if(slot<0)return false;ItemStack source=p.inventory.getStackInSlot(slot);
-        store(gun,source.copy());p.inventory.setInventorySlotContents(slot,ItemStack.EMPTY);p.inventory.markDirty();return true;
+    private int looseSlot(ItemStack gun,EntityPlayer p){
+        if(entry.looseRound==null || entry.keepChamber || !magazine(gun).isEmpty() || (!entry.topUp && ammo(gun)>0) || ammo(gun)>=entry.looseCapacity)return -1;
+        ItemStack held=loose(gun);Item item=BlackrazidWeapons.item(entry.looseRound);int end=MagazineItem.inventoryEnd(p);
+        for(int i=0;i<=end;i++){
+            int slot=i==end?40:i;ItemStack candidate=p.inventory.getStackInSlot(slot);
+            if(candidate.isEmpty() || candidate.getItem()!=item || candidate.getCount()<Math.max(1,entry.looseMinimum))continue;
+            if(!held.isEmpty() && !ItemStack.areItemStackTagsEqual(held,candidate))continue;
+            return slot;
+        }
+        return -1;
     }
-    /** No toss callbacks: a full inventory keeps the exact magazine inside the gun. */
+    private void feedChamber(ItemStack gun,ItemStack mag){
+        if(entry.keepChamber && loose(gun).isEmpty() && rounds(mag)>0){
+            ((MagazineItem)mag.getItem()).rounds(mag,rounds(mag)-1);
+            store(gun,LOOSE,new ItemStack(BlackrazidWeapons.item(entry.looseRound)));
+        }
+    }
+    public boolean insertMagazine(ItemStack gun,EntityPlayer p){
+        if(!live(gun,p) || !magazine(gun).isEmpty() || (!entry.keepChamber && !loose(gun).isEmpty()))return false;
+        int slot=slot(p);if(slot<0)return false;ItemStack source=p.inventory.getStackInSlot(slot).copy();
+        feedChamber(gun,source);store(gun,MAG,source);p.inventory.setInventorySlotContents(slot,ItemStack.EMPTY);p.inventory.markDirty();return true;
+    }
+    public boolean loadLoose(ItemStack gun,EntityPlayer p){
+        if(!live(gun,p))return false;int slot=looseSlot(gun,p);if(slot<0)return false;
+        ItemStack source=p.inventory.getStackInSlot(slot),current=loose(gun);
+        int amount=Math.min(source.getCount(),entry.looseCapacity-current.getCount());
+        if(amount<Math.max(1,entry.looseMinimum))return false;
+        ItemStack loaded=source.copy();loaded.setCount(current.getCount()+amount);
+        source.shrink(amount);store(gun,LOOSE,loaded);p.inventory.markDirty();return true;
+    }
+    /** No Toss callbacks. A full inventory keeps the magazine installed, including NoDrop/custom tags. */
     public boolean ejectMagazine(ItemStack gun,EntityPlayer p){
         if(!live(gun,p))return false;ItemStack mag=magazine(gun);if(mag.isEmpty())return false;
-        for(int i=0;i<MagazineItem.inventoryEnd(p);i++)if(p.inventory.getStackInSlot(i).isEmpty()){
-            store(gun,ItemStack.EMPTY);p.inventory.setInventorySlotContents(i,mag);p.inventory.markDirty();return true;
+        int end=MagazineItem.inventoryEnd(p);
+        for(int i=0;i<end;i++)if(p.inventory.getStackInSlot(i).isEmpty()){
+            store(gun,MAG,ItemStack.EMPTY);p.inventory.setInventorySlotContents(i,mag);p.inventory.markDirty();return true;
         }
-        // ItemTossEvent listeners may already retain a canceled drop (e.g. NoDrop).
-        // Restoring after such a callback duplicates ammunition; never publish it at all.
         return false;
     }
+    private void begin(ItemStack gun,EntityPlayer p,int action,int duration,String sound){
+        tag(gun).setInteger(TICKS,Math.max(1,duration));tag(gun).setInteger(ACTION,action);tag(gun).setUniqueId(OWNER,p.getUniqueID());sound(p.world,p,sound,1);
+    }
     @Override public void startReload(ItemStack gun,EntityPlayer p){
-        if(!live(gun,p) || reloading(gun))return;
-        boolean unload=!magazine(gun).isEmpty();if(!unload && slot(p)<0)return;
-        int duration=unload?entry.unloadingTicks:entry.loadingTicks;
-        tag(gun).setInteger(TICKS,duration);tag(gun).setInteger(ACTION,unload?2:1);tag(gun).setUniqueId(OWNER,p.getUniqueID());
-        sound(p.world,p,unload?entry.unloadSound:entry.reloadSound,1);
+        if(!live(gun,p) || reloading(gun) || p.isSprinting())return;
+        if(!magazine(gun).isEmpty())begin(gun,p,2,entry.unloadingTicks,entry.unloadSound);
+        else if((loose(gun).isEmpty() || entry.keepChamber) && slot(p)>=0)begin(gun,p,1,entry.loadingTicks,entry.reloadSound);
+        else if(looseSlot(gun,p)>=0)begin(gun,p,3,entry.looseLoadingTicks,entry.looseReloadSound==null?entry.reloadSound:entry.looseReloadSound);
+    }
+    public boolean startPump(ItemStack gun,EntityPlayer p){
+        if(!live(gun,p) || entry.airCapacity<=0 || pressure(gun)>=entry.airCapacity || reloading(gun) || p.isSprinting())return false;
+        begin(gun,p,4,entry.pumpTicks,entry.pumpSound);return true;
     }
     void cancel(ItemStack gun){if(!gun.hasTagCompound())return;tag(gun).removeTag(TICKS);tag(gun).removeTag(ACTION);tag(gun).removeTag(OWNER+"Most");tag(gun).removeTag(OWNER+"Least");}
     @Override public void onUpdate(ItemStack gun,World world,Entity entity,int slot,boolean selected){
         if(world.isRemote || !(entity instanceof EntityPlayer))return;EntityPlayer p=(EntityPlayer)entity;
-        if(gun.hasTagCompound()){int cd=gun.getTagCompound().getInteger(COOLDOWN);if(cd>0)tag(gun).setInteger(COOLDOWN,Math.min(7,cd-1));}
+        if(gun.hasTagCompound()){
+            int cd=gun.getTagCompound().getInteger(COOLDOWN);
+            if(cd>0){cd=Math.min(Math.max(7,entry.delay),cd-1);tag(gun).setInteger(COOLDOWN,cd);
+                if(cd==20 && entry.cycleSound!=null && ammo(gun)>0 && live(gun,p))sound(world,p,entry.cycleSound,1);}
+            int snd=gun.getTagCompound().getInteger(SOUND);if(snd>0)tag(gun).setInteger(SOUND,Math.min(23,snd-1));
+        }
         if(!reloading(gun))return;
         if(!live(gun,p) || !selected || !tag(gun).hasUniqueId(OWNER) || !p.getUniqueID().equals(tag(gun).getUniqueId(OWNER))){cancel(gun);return;}
-        int ticks=Math.min(Math.max(entry.loadingTicks,entry.unloadingTicks),tag(gun).getInteger(TICKS))-1;
-        tag(gun).setInteger(TICKS,ticks);
-        if(ticks<=0){int action=tag(gun).getInteger(ACTION);cancel(gun);if(action==1)insertMagazine(gun,p);else if(action==2)ejectMagazine(gun,p);}
+        int max=Math.max(Math.max(entry.loadingTicks,entry.unloadingTicks),Math.max(entry.looseLoadingTicks,entry.pumpTicks));
+        int ticks=Math.min(max,tag(gun).getInteger(TICKS))-1;tag(gun).setInteger(TICKS,ticks);
+        if(ticks<=0){int action=tag(gun).getInteger(ACTION);cancel(gun);
+            if(action==1)insertMagazine(gun,p);else if(action==2)ejectMagazine(gun,p);else if(action==3)loadLoose(gun,p);
+            else if(action==4 && entry.airCapacity>0)pressure(gun,pressure(gun)+entry.airStep);}
     }
     public boolean fireNative(ItemStack gun,EntityPlayer p){
         if(!live(gun,p) || reloading(gun) || p.isSprinting() || (gun.hasTagCompound() && tag(gun).getInteger(COOLDOWN)>0))return false;
-        ItemStack mag=magazine(gun);
-        if(mag.isEmpty() || ammo(gun)==0){tag(gun).setInteger(COOLDOWN,7);sound(p.world,p,"blackrazid_empty",1);return false;}
-        BlackrazidBullet bullet=new BlackrazidBullet(p.world,p,entry.damage,entry.speed,entry.accuracy);
-        if(!p.world.spawnEntity(bullet))return false;
-        MagazineItem item=(MagazineItem)mag.getItem();item.rounds(mag,item.rounds(mag)-1);store(gun,mag);
-        tag(gun).setInteger(COOLDOWN,entry.delay);p.inventory.markDirty();sound(p.world,p,entry.shootSound,1);
+        if(ammo(gun)==0 || (entry.airCapacity>0 && pressure(gun)<entry.airCost)){
+            tag(gun).setInteger(COOLDOWN,7);sound(p.world,p,entry.emptySound==null?"blackrazid_empty":entry.emptySound,1);return false;
+        }
+        // One shell, one shot UUID: pellets aggregate through the existing safe damage queue.
+        UUID shot=UUID.randomUUID();boolean fired=false;int delay=shotDelay(gun);
+        for(int i=0;i<Math.max(1,Math.min(16,entry.pellets));i++){
+            BlackrazidBullet bullet=new BlackrazidBullet(p.world,p,entry.damage,entry.speed,entry.accuracy,shot,entry.flame);
+            if(p.world.spawnEntity(bullet))fired=true;
+        }
+        if(!fired)return false;
+        ItemStack mag=magazine(gun),loose=loose(gun);
+        if(!loose.isEmpty()){loose.shrink(1);store(gun,LOOSE,loose);feedChamber(gun,mag);}
+        else ((MagazineItem)mag.getItem()).rounds(mag,rounds(mag)-1);
+        store(gun,MAG,mag);if(entry.airCapacity>0)pressure(gun,pressure(gun)-entry.airCost);
+        tag(gun).setInteger(COOLDOWN,delay);p.inventory.markDirty();
+        if(!entry.flame || tag(gun).getInteger(SOUND)==0){sound(p.world,p,entry.shootSound,1);if(entry.flame)tag(gun).setInteger(SOUND,23);}
+        if(entry.rotor)sound(p.world,p,"blackrazid_gatling_rot",1);
         if(p instanceof EntityPlayerMP)MetroPort.NETWORK.sendTo(new ShotFeedbackPacket(entry.id,entry.recoil*2,0),(EntityPlayerMP)p);
         return true;
     }
@@ -105,7 +159,8 @@ public final class BlackrazidGunItem extends GunItem {
     @Override public boolean onBlockStartBreak(ItemStack stack,net.minecraft.util.math.BlockPos pos,EntityPlayer player){return true;}
     @Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack stack,World world,List<String> lines,ITooltipFlag flag){
         lines.add(I18n.format("metroport.blackrazid.gun.basic"));
-        lines.add(magazine(stack).isEmpty()?I18n.format("metroport.blackrazid.gun.empty"):I18n.format("metroport.blackrazid.rounds",ammo(stack),capacity(stack)));
-        lines.add(I18n.format("metroport.blackrazid.gun.reload"));
+        lines.add(capacity(stack)==0?I18n.format("metroport.blackrazid.gun.empty"):I18n.format("metroport.blackrazid.rounds",ammo(stack),capacity(stack)));
+        lines.add(I18n.format(entry.magazines.length==0?"metroport.blackrazid.gun.loose":"metroport.blackrazid.gun.reload"));
+        if(entry.airCapacity>0)lines.add(I18n.format("metroport.blackrazid.gun.pressure",pressure(stack),entry.airCapacity));
     }
 }

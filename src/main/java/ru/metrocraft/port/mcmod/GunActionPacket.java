@@ -16,7 +16,12 @@ public final class GunActionPacket implements IMessage {
             EntityPlayerMP player=context.getServerHandler().player;
             player.getServerWorld().addScheduledTask(()->{
                 ItemStack gun=player.getHeldItemMainhand();
-                if(!player.isEntityAlive()||player.isSpectator()||!(gun.getItem() instanceof McmodAkItem))return;
+                if(!player.isEntityAlive()||player.isSpectator())return;
+                if(gun.getItem() instanceof ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem){
+                    if(msg.action==2)((ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem)gun.getItem()).startPump(gun,player);
+                    return;
+                }
+                if(!(gun.getItem() instanceof McmodAkItem))return;
                 long now=player.world.getTotalWorldTime();McmodAkItem item=(McmodAkItem)gun.getItem();
                 if(msg.action==0){
                     if(player.openContainer!=player.inventoryContainer||!InventoryCapacity.emptyForOpen(player)||item.reloading(gun))return;

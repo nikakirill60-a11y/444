@@ -32,6 +32,10 @@ public final class GunClient {
         ItemStack stack=mc.player.getHeldItemMainhand();
         Definition d=stack.getItem() instanceof GunItem?((GunItem)stack.getItem()).getDefinition():null;
         if(d!=null&&d.mcmodAir&&ClientEvents.pumping()&&mc.player.ticksExisted%8==0)MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.mcmod.GunActionPacket(2,0,0,0));
+        if(stack.getItem() instanceof ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem
+                && ((ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem)stack.getItem()).entry.airCapacity>0
+                && ClientEvents.pumping() && mc.player.ticksExisted%8==0)
+            MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.mcmod.GunActionPacket(2,0,0,0));
         aim=Math.max(0,Math.min(1,aim+(d!=null&&ClientEvents.aiming()?.2F:-.2F)));
         float dp=Math.min(recoverPitch,d==null?.5F:Math.max(.05F,d.decreaseRecoil*.1F));
         float dy=Math.copySign(Math.min(Math.abs(recoverYaw),d==null?.1F:Math.max(.05F,d.decreaseYaw*.1F)),recoverYaw);

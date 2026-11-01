@@ -5,16 +5,23 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
+import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraft.util.EnumParticleTypes;
 import ru.metrocraft.port.mechanics.ProjectileDamage;
 import java.util.*;
 
 /** Native zero-gravity, constant dry-air velocity and 200-tick lifetime. No shared general faction data. */
-public final class BlackrazidBullet extends Entity {
+public final class BlackrazidBullet extends Entity implements net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData {
     private UUID owner;
     private float damage;
+    private UUID shot;
+    private boolean flame;
     public BlackrazidBullet(World world){super(world);setSize(.01F,.01F);}
     public BlackrazidBullet(World world,EntityPlayer player,float damage,float speed,int accuracy){
-        this(world);owner=player.getUniqueID();this.damage=damage;
+        this(world,player,damage,speed,accuracy,UUID.randomUUID(),false);
+    }
+    public BlackrazidBullet(World world,EntityPlayer player,float damage,float speed,int accuracy,UUID shot,boolean flame){
+        this(world);owner=player.getUniqueID();this.damage=damage;this.shot=shot;this.flame=flame;if(flame)setSize(.5F,.5F);
         setPosition(player.posX,player.posY+player.getEyeHeight()-(player.isSneaking()?.09:0),player.posZ);
         Vec3d v=direction(player.getLookVec(),speed,accuracy,world.rand);motionX=v.x;motionY=v.y;motionZ=v.z;
     }
@@ -26,9 +33,13 @@ public final class BlackrazidBullet extends Entity {
         return v.scale(Math.cos(angle)).add(axis.crossProduct(v).scale(Math.sin(angle))).add(axis.scale(axis.dotProduct(v)*(1-Math.cos(angle))));
     }
     @Override protected void entityInit(){}
+    @Override public void writeSpawnData(io.netty.buffer.ByteBuf buffer){buffer.writeBoolean(flame);}
+    @Override public void readSpawnData(io.netty.buffer.ByteBuf buffer){flame=buffer.readBoolean();if(flame)setSize(.5F,.5F);}
+    public boolean isFlame(){return flame;}
+    public UUID shotId(){return shot;}
     @Override public void onUpdate(){
         super.onUpdate();
-        if(!finite(motionX) || !finite(motionY) || !finite(motionZ) || ticksExisted>200){setDead();return;}
+        if(!finite(motionX) || !finite(motionY) || !finite(motionZ) || ticksExisted>(flame?9:200) || (flame && isInWater())){setDead();return;}
         Vec3d start=getPositionVector(),end=start.add(motionX,motionY,motionZ);
         if(!loadedPath(world,start,end)){setDead();return;}
         if(!world.isRemote){
@@ -42,11 +53,23 @@ public final class BlackrazidBullet extends Entity {
                 RayTraceResult intercept=target.getEntityBoundingBox().grow(.3).calculateIntercept(start,end);
                 if(intercept!=null){double distance=start.squareDistanceTo(intercept.hitVec);if(distance<nearest){nearest=distance;hit=target;}}
             }
-            if(hit!=null){ProjectileDamage.queue(world,getUniqueID(),hit,player,this,damage,false);setDead();return;}
+            if(hit!=null){
+                if(flame)burn(player,hit);else ProjectileDamage.queue(world,shot==null?getUniqueID():shot,hit,player,this,damage,false);
+                setDead();return;
+            }
             if(block!=null){setDead();return;}
         }
         setPosition(end.x,end.y,end.z);
-        if(isInWater()){motionX*=.8/.99;motionY*=.8/.99;motionZ*=.8/.99;}
+        if(flame){
+            motionX*=.99;motionY=motionY*.99-.01;motionZ*=.99;
+            if(world.isRemote)for(int i=0;i<2;i++)world.spawnParticle(EnumParticleTypes.FLAME,posX,posY,posZ,0D,0D,0D);
+        }else if(isInWater()){motionX*=.8/.99;motionY*=.8/.99;motionZ*=.8/.99;}
+    }
+    public boolean burn(EntityPlayer player,Entity target){
+        if(!flame || world.isRemote || player==target || !player.isEntityAlive() || player.isSpectator() || target.isImmuneToFire())return false;
+        if(target instanceof EntityPlayer && (((EntityPlayer)target).isSpectator() || ((EntityPlayer)target).capabilities.isCreativeMode || !player.canAttackPlayer((EntityPlayer)target)))return false;
+        if(!target.attackEntityFrom(new EntityDamageSourceIndirect("metroflame",this,player).setFireDamage().setProjectile(),4))return false;
+        target.setFire(3);return true;
     }
     /** Check every possibly traversed chunk before any ray trace/getBlockState can load it. */
     public static boolean loadedPath(World world,Vec3d start,Vec3d end){
@@ -59,6 +82,6 @@ public final class BlackrazidBullet extends Entity {
         return true;
     }
     private static boolean finite(double v){return Double.isFinite(v) && Math.abs(v)<=32;}
-    @Override protected void writeEntityToNBT(NBTTagCompound tag){if(owner!=null)tag.setUniqueId("Owner",owner);tag.setFloat("Damage",damage);tag.setInteger("Age",ticksExisted);}
-    @Override protected void readEntityFromNBT(NBTTagCompound tag){owner=tag.hasUniqueId("Owner")?tag.getUniqueId("Owner"):null;float d=tag.getFloat("Damage");damage=Float.isFinite(d)?Math.max(0,Math.min(100,d)):0;ticksExisted=Math.max(0,Math.min(201,tag.getInteger("Age")));}
+    @Override protected void writeEntityToNBT(NBTTagCompound tag){if(owner!=null)tag.setUniqueId("Owner",owner);tag.setFloat("Damage",damage);tag.setInteger("Age",ticksExisted);tag.setBoolean("Flame",flame);if(shot!=null)tag.setUniqueId("Shot",shot);}
+    @Override protected void readEntityFromNBT(NBTTagCompound tag){flame=tag.getBoolean("Flame");if(flame)setSize(.5F,.5F);shot=tag.hasUniqueId("Shot")?tag.getUniqueId("Shot"):getUniqueID();owner=tag.hasUniqueId("Owner")?tag.getUniqueId("Owner"):null;float d=tag.getFloat("Damage");damage=Float.isFinite(d)?Math.max(0,Math.min(100,d)):0;ticksExisted=Math.max(0,Math.min(201,tag.getInteger("Age")));}
 }
