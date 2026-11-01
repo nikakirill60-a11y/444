@@ -28,5 +28,7 @@ jobs:
           git add tools/blackrazid-reference/java
           if ! git diff --cached --quiet; then
             git commit -m 'Recover original BlackRazid source reference (not runtime code)'
+            # New runtime commits may arrive while CFR is working; preserve them before publishing reference-only changes.
+            git pull --rebase origin arena/dcab859f-444
             git push origin arena/dcab859f-444
           fi

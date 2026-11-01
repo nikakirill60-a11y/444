@@ -29,9 +29,9 @@ def report():
         re.findall(r'\b(\w+Ammo\w*) = new \w+\(\d+, ModBase\.(\w+)\.cp, (\d+),',registration)]
     return dict(status='INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE',
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
-        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches'],
+        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches','2 native tunnel sections with 159 original cubes / concrete OBJ and owned ring helpers','4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams'],
         pending=['native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance','Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance',
-                 'full mutant gameplay/visual acceptance','tunnels, building/decor blocks, environment lights and faction teleport adaptation'],
+                 'full mutant gameplay/visual acceptance','remaining 17 tunnel variants, tunnel generators, building/decor blocks and full environment gameplay/visual acceptance'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',
                   'OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.',
@@ -41,6 +41,8 @@ def report():
                   'Original Lamp handler has an empty lighting body; client illumination in the port is an explicit adaptation.',
                   'Original custom grenade explosion does not run block destruction. Do not substitute world.createExplosion.',
                   'Original rail renderer has no draw calls for shapes 2 and 5–11; segment composites and redstone-controlled switch state are explicit adaptations.',
+                  'Faction teleport uses configured server scoreboard teams, not the excluded general faction data or cosmetic armor patches; destinations are disabled until configured.',
+                  'Native temporary light tile has an always-true ID mismatch condition; port uses a bounded five-tick lifetime and owner-tile checks.',
                   'Recovered source files do not establish a working or visually accepted port.'])
 def main():
     data=report();write_json(ROOT/'docs/blackrazid-expansion-report.json',data)

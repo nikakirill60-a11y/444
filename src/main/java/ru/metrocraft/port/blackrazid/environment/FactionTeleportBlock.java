@@ -56,13 +56,14 @@ public final class FactionTeleportBlock extends Block {
         Target t=select(targets,player.getTeam()==null?null:player.getTeam().getName(),player.dimension,randomTeam,world.rand);if(t==null)return false;
         int height=world.getHeight();if(height<=0)height=256;
         if(t.pos.getY()<1||t.pos.getY()+1>=height||!world.getWorldBorder().contains(t.pos))return false;
+        cooldowns.put(player,new Cooldown(world,now+100)); // Also throttle repeated reads of an unavailable/corrupt map chunk.
         if(!world.isBlockLoaded(t.pos)){
             if(!(world instanceof WorldServer))return false;net.minecraft.world.gen.ChunkProviderServer provider=((WorldServer)world).getChunkProvider();
             // A configured point may load an EXISTING map chunk. Never generate an uncharted destination.
             if(!provider.isChunkGeneratedAt(t.pos.getX()>>4,t.pos.getZ()>>4))return false;if(provider.loadChunk(t.pos.getX()>>4,t.pos.getZ()>>4)==null)return false;
         }
         if(!safeLanding(world,t.pos))return false;
-        cooldowns.put(player,new Cooldown(world,now+100));player.motionX=player.motionY=player.motionZ=0;player.fallDistance=0;
+        player.motionX=player.motionY=player.motionZ=0;player.fallDistance=0;
         player.setPositionAndUpdate(t.pos.getX()+.5,t.pos.getY(),t.pos.getZ()+.5);return true;
     }
     @Override public boolean onBlockActivated(World w,BlockPos p,IBlockState state,EntityPlayer player,EnumHand hand,EnumFacing side,float x,float y,float z){
