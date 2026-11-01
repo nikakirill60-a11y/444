@@ -89,7 +89,6 @@
  *  mods.provoda.blocks.BlockGag
  *  mods.provoda.blocks.DoubleGrassButtom
  *  mods.provoda.blocks.DoubleGrassTop
- *  mods.provoda.blocks.Empty
  *  mods.provoda.blocks.Empty25
  *  mods.provoda.blocks.Empty50
  *  mods.provoda.blocks.EmptyPhone
