@@ -83,4 +83,6 @@ public class RailsTest {
     @Test public void breakingRemoteProxyCannotBypassProtectedPrimary()throws Exception{MapWorld m=new MapWorld(false);BlockPos p=new BlockPos(0,60,0),proxy=p.add(1,0,0);assertTrue(m.place(p,0,0,m.kit(0)));when(m.world.isBlockModifiable(m.player,p)).thenReturn(false);assertFalse(BlackrazidRails.PROXY.removedByPlayer(m.world.getBlockState(proxy),m.world,proxy,m.player,true));assertEquals(3,m.tiles.size());}
     @Test public void centerFallbackIgnoresVerticalHeadingAndStillHasUnitTangent(){RailRules.Frame f=RailRules.frame(3,0,true,BlockPos.ORIGIN,new Vec3d(-15,0,0),new Vec3d(0,1,0));assertNotNull(f);assertEquals(1,f.tangent.length(),.00001);}
 
+    @Test public void cleanupSkipsUnloadedCellsWithoutReadingTheirBlockState()throws Exception{MapWorld m=new MapWorld(false);BlockPos p=new BlockPos(0,60,0),unloaded=p.add(1,0,0);assertTrue(m.place(p,0,0,m.kit(0)));clearInvocations(m.world);when(m.world.isBlockLoaded(unloaded)).thenReturn(false);RailPlacement.remove(m.world,p);verify(m.world,never()).getBlockState(unloaded);assertEquals(1,m.tiles.size());}
+
 }

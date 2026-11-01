@@ -34,11 +34,15 @@ public final class RailPlacement {
                 if(!w.setBlockState(p,state,2))return false;
                 written.add(p);RailTile tile=at(w,p);if(tile==null)return false;tile.configure(main,shape,direction,origin,identity);
             }
+            for(BlockPos p:before.keySet()){
+                RailTile tile=at(w,p);if(tile==null||!identity.equals(tile.identity())||!origin.equals(tile.owner())||tile.shape()!=shape||tile.direction()!=(direction&3)||tile.primary()!=p.equals(origin))return false;
+                if(w.getBlockState(p).getBlock()!=(p.equals(origin)?BlackrazidRails.RAIL:BlackrazidRails.PROXY))return false;
+            }
             success=true;
         }finally{
             try{if(!success)for(BlockPos p:written){
-                IBlockState current=w.getBlockState(p);
-                if(current.getBlock()==BlackrazidRails.RAIL||current.getBlock()==BlackrazidRails.PROXY)w.setBlockState(p,before.get(p),2);
+                if(!w.isBlockLoaded(p))continue;IBlockState current=w.getBlockState(p);TileEntity raw=w.getTileEntity(p);
+                if((current.getBlock()==BlackrazidRails.RAIL||current.getBlock()==BlackrazidRails.PROXY)&&(raw==null||(raw instanceof RailTile&&identity.equals(((RailTile)raw).identity()))))w.setBlockState(p,before.get(p),2);
             }}finally{MUTATING.set(previous);}
         }
         RailTile main=at(w,origin);if(main!=null)main.updatePower();
@@ -52,7 +56,7 @@ public final class RailPlacement {
         boolean previous=MUTATING.get();MUTATING.set(true);
         try{
             for(BlockPos offset:RailRules.footprint(main.shape(),main.direction())){
-                BlockPos p=main.getPos().add(offset);RailTile tile=at(w,p);
+                BlockPos p=main.getPos().add(offset);RailTile tile=at(w,p);if(tile==null)continue;
                 net.minecraft.block.Block block=w.getBlockState(p).getBlock();
                 if((tile==main&&block==BlackrazidRails.RAIL)||(main.owns(tile)&&block==BlackrazidRails.PROXY))w.setBlockToAir(p);
             }
