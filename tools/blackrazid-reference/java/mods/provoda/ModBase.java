@@ -246,7 +246,6 @@
  *  mods.provoda.model_blocks.BlockStol
  *  mods.provoda.model_blocks.BlockStolik
  *  mods.provoda.model_blocks.BlockStul
- *  mods.provoda.model_blocks.BlockTunnel
  *  mods.provoda.objblocks.BlockBarStol
  *  mods.provoda.objblocks.BlockBed
  *  mods.provoda.objblocks.BlockBox1
@@ -298,7 +297,6 @@
  *  mods.provoda.objblocks.BlockVanna
  *  mods.provoda.objblocks.BlockWash
  *  mods.provoda.objblocks.tunnels.BlockTunnel90
- *  mods.provoda.objblocks.tunnels.BlockTunnelBeton1
  *  mods.provoda.objblocks.tunnels.BlockTunnelBetonDerevo
  *  mods.provoda.objblocks.tunnels.BlockTunnelBetonDerevo1
  *  mods.provoda.objblocks.tunnels.BlockTunnelBetonDouble1

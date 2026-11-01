@@ -10,8 +10,6 @@
  *  cpw.mods.fml.relauncher.SideOnly
  *  kx
  *  ly
- *  mods.provoda.ModBase
- *  mods.provoda.tileentitys.TileEntityTunnel
  *  ng
  *  wm
  */
