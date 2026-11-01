@@ -1,22 +1,77 @@
 {
-  "ak74shoot": {
-    "sounds": [
-      "metroport:ak74shoot"
-    ]
-  },
-  "smgreload": {
-    "sounds": [
-      "metroport:smgreload"
-    ]
-  },
   "abzac_shoot": {
     "sounds": [
       "metroport:abzac_shoot"
     ]
   },
+  "ak74shoot": {
+    "sounds": [
+      "metroport:ak74shoot"
+    ]
+  },
   "duplet_reload": {
     "sounds": [
       "metroport:duplet_reload"
+    ]
+  },
+  "germo": {
+    "sounds": [
+      "metroport:germo"
+    ]
+  },
+  "m240shoot": {
+    "sounds": [
+      "metroport:m240shoot"
+    ]
+  },
+  "m249shoot": {
+    "sounds": [
+      "metroport:m249shoot"
+    ]
+  },
+  "m9shoot": {
+    "sounds": [
+      "metroport:m9shoot"
+    ]
+  },
+  "mcmod_ak74_reload": {
+    "sounds": [
+      "metroport:mcmod_ak74_reload"
+    ]
+  },
+  "mcmod_ak_boom": {
+    "sounds": [
+      "metroport:mcmod_ak_boom"
+    ]
+  },
+  "mgreload": {
+    "sounds": [
+      "metroport:mgreload"
+    ]
+  },
+  "pistolreload": {
+    "sounds": [
+      "metroport:pistolreload"
+    ]
+  },
+  "preved_shoot": {
+    "sounds": [
+      "metroport:preved_shoot"
+    ]
+  },
+  "revolver_reload": {
+    "sounds": [
+      "metroport:revolver_reload"
+    ]
+  },
+  "revolvershoot": {
+    "sounds": [
+      "metroport:revolvershoot"
+    ]
+  },
+  "riflereload": {
+    "sounds": [
+      "metroport:riflereload"
     ]
   },
   "rpk_shoot": {
@@ -29,64 +84,14 @@
       "metroport:saiga_shoot"
     ]
   },
+  "smgreload": {
+    "sounds": [
+      "metroport:smgreload"
+    ]
+  },
   "tihar_shoot": {
     "sounds": [
       "metroport:tihar_shoot"
-    ]
-  },
-  "pistolreload": {
-    "sounds": [
-      "metroport:pistolreload"
-    ]
-  },
-  "vsv_shoot": {
-    "sounds": [
-      "metroport:vsv_shoot"
-    ]
-  },
-  "ventil_shoot": {
-    "sounds": [
-      "metroport:ventil_shoot"
-    ]
-  },
-  "riflereload": {
-    "sounds": [
-      "metroport:riflereload"
-    ]
-  },
-  "m249shoot": {
-    "sounds": [
-      "metroport:m249shoot"
-    ]
-  },
-  "mgreload": {
-    "sounds": [
-      "metroport:mgreload"
-    ]
-  },
-  "m9shoot": {
-    "sounds": [
-      "metroport:m9shoot"
-    ]
-  },
-  "preved_shoot": {
-    "sounds": [
-      "metroport:preved_shoot"
-    ]
-  },
-  "revolvershoot": {
-    "sounds": [
-      "metroport:revolvershoot"
-    ]
-  },
-  "revolver_reload": {
-    "sounds": [
-      "metroport:revolver_reload"
-    ]
-  },
-  "m240shoot": {
-    "sounds": [
-      "metroport:m240shoot"
     ]
   },
   "ubludok_shoot": {
@@ -99,19 +104,14 @@
       "metroport:uboinik_reload"
     ]
   },
-  "mcmod_ak_boom": {
+  "ventil_shoot": {
     "sounds": [
-      "metroport:mcmod/ak_boom"
+      "metroport:ventil_shoot"
     ]
   },
-  "mcmod_ak74_reload": {
+  "vsv_shoot": {
     "sounds": [
-      "metroport:mcmod/ak74_reload"
-    ]
-  },
-  "germo": {
-    "sounds": [
-      "metroport:germo"
+      "metroport:vsv_shoot"
     ]
   }
 }

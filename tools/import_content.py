@@ -132,9 +132,9 @@ def main():
         for gun in json.loads((ASSETS/'mcmod_guns.json').read_text()):
             for field in ['shootSound','reloadSound']:
                 sid=gun.get(field)
-                if sid:sounds[sid]={'sounds':['metroport:mcmod/'+sid.removeprefix('mcmod_')]}
+                if sid:sounds[sid]={'sounds':['metroport:'+sid]}
     sounds['germo'] = {'sounds': ['metroport:germo']}
-    write_json(ASSETS / 'sounds.json', sounds)
+    write_json(ASSETS / 'sounds.json', dict(sorted(sounds.items())))
     translations = {
         'ru_ru': ['itemGroup.metroport.weapons=Оружие', 'itemGroup.metroport.armor=Броня',
                   'itemGroup.metroport.things=Вещи', 'itemGroup.metroport.decor=Декор', 'key.metroport.reload=Перезарядить',

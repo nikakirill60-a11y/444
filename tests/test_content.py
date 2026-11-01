@@ -44,7 +44,8 @@ class ContentTests(unittest.TestCase):
 
     def test_sounds_exist(self):
         sounds = json.loads((ASSETS / 'sounds.json').read_text())
-        used = {e[f] for e in ENTRIES for f in ('shootSound', 'reloadSound') if f in e}
+        extra=json.loads((ASSETS/'mcmod_guns.json').read_text()) if (ASSETS/'mcmod_guns.json').exists() else []
+        used = {e[f] for e in ENTRIES+extra for f in ('shootSound', 'reloadSound') if f in e}
         self.assertEqual(set(sounds), used | {'germo'})
         for key, sound in sounds.items():
             self.assertRegex(key, r'^[a-z0-9_]+$')
