@@ -16,29 +16,44 @@ import ru.metrocraft.port.MetroPort;
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class Backpacks {
     private static final String KEY = "MetroEquippedBackpack";
+    private static final ru.metrocraft.port.util.WeakIdentityMap<EntityPlayer,EquipmentInventory> INVENTORIES=new ru.metrocraft.port.util.WeakIdentityMap<>();
+    public static boolean accepts(ItemStack stack){return !stack.isEmpty() && stack.getItem() instanceof BackpackItem;}
     public static ItemStack get(EntityPlayer player) {
-        return new ItemStack(player.getEntityData().getCompoundTag(KEY));
+        EquipmentInventory live=INVENTORIES.get(player);
+        ItemStack stack=live==null?new ItemStack(player.getEntityData().getCompoundTag(KEY).copy()):live.getStackInSlot(0).copy();
+        if(!accepts(stack))return ItemStack.EMPTY;stack.setCount(1);return stack;
     }
-    public static void set(EntityPlayer player, ItemStack stack) {
-        player.getEntityData().setTag(KEY, stack.writeToNBT(new NBTTagCompound()));
-        if (!player.world.isRemote && player instanceof EntityPlayerMP) {
-            BackpackSyncPacket packet = new BackpackSyncPacket(player.getEntityId(), stack);
-            MetroPort.NETWORK.sendToAllTracking(packet, player);
-            MetroPort.NETWORK.sendTo(packet, (EntityPlayerMP)player);
+    private static void save(EntityPlayer player,ItemStack stack){
+        player.getEntityData().setTag(KEY,stack.writeToNBT(new NBTTagCompound()));
+    }
+    public static void receive(EntityPlayer player,ItemStack stack) {
+        // The native window protocol owns the local slot during an open transaction.
+        // Late equipment/reading packets may update render state, but must not put an
+        // old item back into an open inventory after the user has picked it up.
+        if(player.world.isRemote && (player.openContainer instanceof MetroContainer || player.openContainer instanceof ru.metrocraft.port.blackrazid.BackpackContainer))return;
+        save(player,stack);
+        EquipmentInventory inventory=INVENTORIES.get(player);if(inventory!=null)inventory.load(stack);
+    }
+    private static void changed(EntityPlayer player,ItemStack stack){
+        save(player,stack);
+        if(!player.world.isRemote && player instanceof EntityPlayerMP){
+            BackpackSyncPacket packet=new BackpackSyncPacket(player.getEntityId(),stack);
+            MetroPort.NETWORK.sendTo(packet,(EntityPlayerMP)player);MetroPort.NETWORK.sendToAllTracking(packet,player);
         }
     }
-    public static int rows(ItemStack stack) {
-        return stack.getItem() instanceof BackpackItem ? ((BackpackItem)stack.getItem()).rows : 0;
+    public static void set(EntityPlayer player,ItemStack stack) {
+        if(!stack.isEmpty() && (!accepts(stack) || stack.getCount()!=1))throw new IllegalArgumentException("Equipment slot requires exactly one valid item");
+        EquipmentInventory inventory=INVENTORIES.get(player);if(inventory!=null)inventory.load(stack);
+        changed(player,stack);
     }
     public static InventoryBasic inventory(EntityPlayer player) {
-        InventoryBasic inventory = new InventoryBasic("metroport.backpack",false,1) {
-            @Override public int getInventoryStackLimit() { return 1; }
-            @Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return stack.getItem() instanceof BackpackItem; }
-            @Override public void markDirty() { super.markDirty(); Backpacks.set(player,getStackInSlot(0)); }
-        };
-        inventory.setInventorySlotContents(0,get(player));
-        return inventory;
+        return INVENTORIES.computeIfAbsent(player,key->{
+            java.lang.ref.WeakReference<EntityPlayer> owner=new java.lang.ref.WeakReference<>(key);
+            return new EquipmentInventory("metroport.backpack",get(key),Backpacks::accepts,stack->{EntityPlayer p=owner.get();if(p!=null)changed(p,stack);});
+        });
     }
+
+    public static int rows(ItemStack stack){return stack.getItem() instanceof BackpackItem?((BackpackItem)stack.getItem()).rows:0;}
     @SubscribeEvent
     public static void track(PlayerEvent.StartTracking event) {
         if (event.getTarget() instanceof EntityPlayer && event.getEntityPlayer() instanceof EntityPlayerMP) {
@@ -64,7 +79,7 @@ public final class Backpacks {
     public static void tick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player=event.player;
         if (event.phase != TickEvent.Phase.END || player.world.isRemote) return;
-        if (player.ticksExisted == 20) set(player, get(player));
+        if (player.ticksExisted == 20 && !(player.openContainer instanceof ru.metrocraft.port.blackrazid.BackpackContainer)) set(player, get(player));
         if (player.capabilities.isCreativeMode || player.isSpectator() || player.ticksExisted % 20 != 0
                 || player.openContainer instanceof MetroContainer) return;
         enforceCapacity(player);

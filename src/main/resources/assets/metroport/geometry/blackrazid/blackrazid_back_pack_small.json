@@ -1,0 +1,467 @@
+{
+  "textureSize": [
+    64,
+    64
+  ],
+  "inflation": 1,
+  "parts": [
+    {
+      "name": "Shape1",
+      "uv": [
+        20,
+        58
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        1.0,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            3.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape2",
+      "uv": [
+        1,
+        53
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        1.1,
+        3.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            3.0,
+            1.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape3",
+      "uv": [
+        1,
+        42
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        5.0,
+        2.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            4.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape4",
+      "uv": [
+        1,
+        49
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        3.2,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            1.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape5",
+      "uv": [
+        1,
+        49
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        4.9,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            1.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape6",
+      "uv": [
+        1,
+        49
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        8.1,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            1.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape7",
+      "uv": [
+        13,
+        57
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.1,
+        5.0,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            4.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": false,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape8",
+      "uv": [
+        13,
+        57
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        1.1,
+        5.0,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            4.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape9",
+      "uv": [
+        1,
+        58
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.1,
+        1.1,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            3.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": false,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape10",
+      "uv": [
+        1,
+        58
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        1.1,
+        1.1,
+        1.9
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            3.0,
+            2.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape11",
+      "uv": [
+        8,
+        61
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        -2.0,
+        4.1,
+        1.2
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": false,
+      "parents": [
+        "body"
+      ]
+    },
+    {
+      "name": "Shape12",
+      "uv": [
+        8,
+        61
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "point": [
+        1.0,
+        4.1,
+        1.2
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "boxes": [
+        {
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mirror": false
+        }
+      ],
+      "mirror": true,
+      "parents": [
+        "body"
+      ]
+    }
+  ],
+  "armed": {},
+  "rest": {}
+}

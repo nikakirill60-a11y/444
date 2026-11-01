@@ -19,7 +19,7 @@ public final class BackpackClient implements LayerRenderer<AbstractClientPlayer>
         Minecraft.getMinecraft().addScheduledTask(()->{
             if(Minecraft.getMinecraft().world==null)return;
             Entity entity=Minecraft.getMinecraft().world.getEntityByID(entityId);
-            if(entity instanceof EntityPlayer)Backpacks.set((EntityPlayer)entity,stack);
+            if(entity instanceof EntityPlayer)Backpacks.receive((EntityPlayer)entity,stack);
         });
     }
     @Override
@@ -27,6 +27,14 @@ public final class BackpackClient implements LayerRenderer<AbstractClientPlayer>
         ItemStack stack=Backpacks.get(player);
         if(stack.isEmpty() || player.isInvisible())return;
         String id=stack.getItem().getRegistryName().getPath();
+        if(stack.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidBackpackItem){
+            ru.metrocraft.port.blackrazid.BlackrazidContent.Entry e=((ru.metrocraft.port.blackrazid.BlackrazidBackpackItem)stack.getItem()).entry;
+            GlStateManager.pushMatrix();
+            try{renderer.getMainModel().bipedBody.postRender(.0625F);
+                Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("metroport:textures/blackrazid/armor/"+e.texture+".png"));
+                BlackrazidModel.get(e.model,e.mode).renderBackpack();
+            }finally{GlStateManager.popMatrix();}return;
+        }
         if(Backpacks.rows(stack)==0)return;
         GlStateManager.pushMatrix();
         renderer.getMainModel().bipedBody.postRender(0.0625F);

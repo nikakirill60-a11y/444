@@ -7,7 +7,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 import ru.metrocraft.port.MetroPort;
 
-public final class BackpackItem extends Item {
+public class BackpackItem extends Item {
     public final int rows;
     public BackpackItem(int rows) { this.rows=rows; setMaxStackSize(1); }
     @Override

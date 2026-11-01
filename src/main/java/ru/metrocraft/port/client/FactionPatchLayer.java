@@ -21,6 +21,10 @@ public final class FactionPatchLayer implements LayerRenderer<AbstractClientPlay
         return SURFACES.computeIfAbsent(id,key->{
             if(armor.getItem() instanceof ru.metrocraft.port.mcmod.McmodArmorItem)
                 return McmodArmorModel.patchSurface(((ru.metrocraft.port.mcmod.McmodArmorItem)armor.getItem()).entry);
+            if(armor.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidArmorItem){
+                ru.metrocraft.port.blackrazid.BlackrazidContent.Entry e=((ru.metrocraft.port.blackrazid.BlackrazidArmorItem)armor.getItem()).entry;
+                return BlackrazidModel.get(e.model,e.mode).patchSurface();
+            }
             double x=.257; // Vanilla chest armor is inflated by one pixel, even for Alex skins.
             if(armor.getItem() instanceof ru.metrocraft.port.MetroArmor) {
                 String model=armor.getItem().getRegistryName().getPath();

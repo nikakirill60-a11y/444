@@ -11,6 +11,12 @@ import ru.metrocraft.port.inventory.MetroContainer;
 public final class MetroInventoryGui extends GuiContainer {
     private final EntityPlayer player;
     public MetroInventoryGui(EntityPlayer player) { super(new MetroContainer(player)); this.player=player; xSize=176; ySize=166; }
+    private net.minecraft.client.gui.GuiButton bagButton;
+    @Override public void initGui(){super.initGui();bagButton=new net.minecraft.client.gui.GuiButton(711,guiLeft+5,guiTop+40,36,18,net.minecraft.client.resources.I18n.format("metroport.blackrazid.open"));buttonList.add(bagButton);}
+    @Override public void updateScreen(){super.updateScreen();if(bagButton!=null)bagButton.visible=Backpacks.get(player).getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidBackpackItem;}
+    @Override protected void actionPerformed(net.minecraft.client.gui.GuiButton button) throws java.io.IOException {
+        if(button==bagButton)ru.metrocraft.port.MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.blackrazid.OpenBackpackPacket());else super.actionPerformed(button);
+    }
     @Override public void drawScreen(int x,int y,float tick){
         drawDefaultBackground();super.drawScreen(x,y,tick);renderHoveredToolTip(x,y);
         if(ru.metrocraft.port.inventory.EquipmentRules.sealed(player.getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST))

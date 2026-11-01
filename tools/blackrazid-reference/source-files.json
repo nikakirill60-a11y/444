@@ -1,0 +1,473 @@
+{
+  "folderId": "1u3snbncRSvARWyceeoHUilIw2MTdOALv",
+  "files": [
+    {
+      "path": "assets/armor/cclean.png",
+      "driveId": "16NLBEOVvzgzeIx7ygNjiW-cs-_M8Y8Q_",
+      "bytes": 290590,
+      "sha256": "0310eaa885b662845440d9f5bd2ae684c3a292f12f0fa525f99b45392d690622"
+    },
+    {
+      "path": "assets/armor/clean.png",
+      "driveId": "1uh-NSi-CzEunBuiAyzYpB8fus9XIMh9W",
+      "bytes": 586578,
+      "sha256": "b34dc79732f3ccac5d468f7a34cd5a35393f8c78637840d622df717c6f8453e2"
+    },
+    {
+      "path": "assets/armor/easy.png",
+      "driveId": "1vLFiT2fT42cT-OqduIcypZjETyOzOVxe",
+      "bytes": 212525,
+      "sha256": "7f764c42ad0a664bc21e13eee6d9d32331219af67877f4b21ff2fcda4d267448"
+    },
+    {
+      "path": "assets/armor/hat1.png",
+      "driveId": "1JdcDd5x2TZs-eG8yrDa_ca8FBNc8Jcg4",
+      "bytes": 209926,
+      "sha256": "a568a1ca368857c2489f10d446d393ccace4d6a71511a5ee738fe9728085b6db"
+    },
+    {
+      "path": "assets/armor/hat2.png",
+      "driveId": "1vAhlaYz99EMTX4c4tAyuZYDiW673zrbD",
+      "bytes": 277118,
+      "sha256": "7ee32cb418c45ecc4fb4f832cfa0c9d6db8832381dadaa14f1138b868764fc2b"
+    },
+    {
+      "path": "assets/armor/hat3.png",
+      "driveId": "13YvqZp4qEhnX6-XQ5MzAI2az8PDmNjMO",
+      "bytes": 489945,
+      "sha256": "2dbe3027efc7054aca76d8ab6da5b9a06e1068e3fa6a79c16720f34787f6bdc1"
+    },
+    {
+      "path": "assets/armor/heavy.png",
+      "driveId": "1UzRTuqpzKupnHaW2aYzovN4e0gEL02Id",
+      "bytes": 327288,
+      "sha256": "49d70e8bb019df341cdd9ec2370b190a10dccc9f7ce3a9b5f3ed99aecb75f812"
+    },
+    {
+      "path": "assets/armor/heavy1.png",
+      "driveId": "1FkvkTvf_FxDOqdCV0pW9nfELLWuDPBW7",
+      "bytes": 199567,
+      "sha256": "fdba5b8dd3160f10c07f47919f370a2665368ae46375cef44f3c1a3f6e7fe1e0"
+    },
+    {
+      "path": "assets/armor/himza.png",
+      "driveId": "1d-mpTJdTEuo0YFQivNNhbhMc9Nc0rZVl",
+      "bytes": 466834,
+      "sha256": "96591bcd1d6a739686a1045c557d9945e600ece6f537b52a99fccc620dd19d77"
+    },
+    {
+      "path": "assets/armor/kozh.png",
+      "driveId": "1LFgmVSRAL1HMlIrdlhpw7YHkKjDnxU5C",
+      "bytes": 191408,
+      "sha256": "6b3ee68769f3a4bbea25a2a45494e5e17038fd42141e6bb0565cec6666391436"
+    },
+    {
+      "path": "assets/armor/large_back.png",
+      "driveId": "1WVS47y75oe6xFbtOpKOHK9eUbT9p-EhU",
+      "bytes": 413722,
+      "sha256": "7fbaf4f9c0e78f54a69d107f46fc65b4f3e012c712047a0a552644a9b2b44daa"
+    },
+    {
+      "path": "assets/armor/medium_back.png",
+      "driveId": "1mIR3ws-BdqEKGti7zerzgbNJRpRhQaEH",
+      "bytes": 372456,
+      "sha256": "c0cc1460fffdf4602102df657e84a98f144829908dee7f3e114bc5423ef47532"
+    },
+    {
+      "path": "assets/armor/nazi.png",
+      "driveId": "1ELySHFsJjoUQNjs96vdrB38s42hY4Rom",
+      "bytes": 382161,
+      "sha256": "25b891bdef28e6a035e373da6454d3e3f323422b4e92cf41ca295bcf4aedde39"
+    },
+    {
+      "path": "assets/armor/normal.png",
+      "driveId": "1puj8qbN0AkW_vC-wbdCRpv5iIhHy6MOV",
+      "bytes": 458006,
+      "sha256": "4828f5c9a003d2e20326e06cdbd6c4e279aac41f5a77bb96d3baddc3f5d92958"
+    },
+    {
+      "path": "assets/armor/protivogas.png",
+      "driveId": "1k7Y8HTOSQ-9ugEWo4qRzpQyrX8HPjs1h",
+      "bytes": 241709,
+      "sha256": "0f79af991d275e722e4fd1186f52a51d0ea1f81908ab90509042e04c8cf795f0"
+    },
+    {
+      "path": "assets/armor/red.png",
+      "driveId": "1_Tbk3ErIH1o7Lmf0_dg51WBZ0zMgfxre",
+      "bytes": 600561,
+      "sha256": "73e39c15e1df8712a2fdd30dde6dea7ab844c23cc5494c2ecac65c57f157ff63"
+    },
+    {
+      "path": "assets/armor/small_back.png",
+      "driveId": "17dTdqvoVZvSsGVIvUEkm0H7T4LJRPlP-",
+      "bytes": 179652,
+      "sha256": "f79157ffb4b9de734bd263f89a6bf6c0b59fd21b38d68e034f7e87f67841a631"
+    },
+    {
+      "path": "assets/armor/sparta.png",
+      "driveId": "17jp7oOKRCAHqutksY3ZV3nbE__RCidtN",
+      "bytes": 270025,
+      "sha256": "dfd7e9b0cb2de2537a86db23a9537ddfcc298f973f1998f89ca3fdc26082af82"
+    },
+    {
+      "path": "assets/icons/back_large.png",
+      "driveId": "1KG4GIX-ngtO1arARrTeg_lXRzMCrJ59f",
+      "bytes": 22436,
+      "sha256": "3caadd86d1f8c9008ce9d2197172ff56ad0bf850d637c3d3bb972f6e486a4c07"
+    },
+    {
+      "path": "assets/icons/back_medium.png",
+      "driveId": "1e1JQFFR_InweHrnFUc-Dzxvrj5-RHn8-",
+      "bytes": 18902,
+      "sha256": "df148a138eb522277e83f9129f342ef21c6aa145a7ccf26395e960ddc8fa159c"
+    },
+    {
+      "path": "assets/icons/back_small.png",
+      "driveId": "1hq2h7sXNJIVIekQUXyJisdfJB3EBqia6",
+      "bytes": 2868,
+      "sha256": "ceba65ed8e31c1e4744b382e9cb2a4db007937fc5bcac30f7838aa31317500d7"
+    },
+    {
+      "path": "assets/icons/cclean.png",
+      "driveId": "19sYaqXjn9qvNeW8eqhv8uLbPlMf7dU_p",
+      "bytes": 23360,
+      "sha256": "784649480aa6ac9dd5541821b49cc3e4d4514c20616111ac3b673e7252bcb1bc"
+    },
+    {
+      "path": "assets/icons/clean.png",
+      "driveId": "1pqK6Z6WWm_6fSssgZ-dANGfH8fcvcoiD",
+      "bytes": 30009,
+      "sha256": "ac4f79c79552588ce1114dae0bf48e7fcad06ff325e5eefcbeedde07b2b608bf"
+    },
+    {
+      "path": "assets/icons/hat1.png",
+      "driveId": "1Xlybe9LXiFTu9fnnQlRk1O-3UppzB-wN",
+      "bytes": 22774,
+      "sha256": "e4ab288f3607242295666b36dd38683498e86a0510d6aedf1a3f11cafd02f017"
+    },
+    {
+      "path": "assets/icons/hat2.png",
+      "driveId": "1RQB5GodUGIHJWhepbOeg1BXFSMHYFNn9",
+      "bytes": 19060,
+      "sha256": "a7bb4f2ba5bf9209ae47261a6fa689460126ab720692e76a142c540057b0bd91"
+    },
+    {
+      "path": "assets/icons/hat3.png",
+      "driveId": "1BqNHCXXbLhnI5esEkEUFNTNwuEoo9rgH",
+      "bytes": 18369,
+      "sha256": "8e66346cbe7620afd1adf1b6c85b95cdcd208b8616537786ae09fa28c92ca05d"
+    },
+    {
+      "path": "assets/icons/heavy.png",
+      "driveId": "1kkRtlySOBQxUBeCgWERTqVFl5nLC6f-f",
+      "bytes": 37253,
+      "sha256": "d05d45205bff07f6f7a219e914fd765a8ba659f23a5d57b75090e417d6235e62"
+    },
+    {
+      "path": "assets/icons/heavy1.png",
+      "driveId": "1uunCI9oq4u6O0PxQNUmepRq6nQS08lCv",
+      "bytes": 18479,
+      "sha256": "f5cdfa945e1c92f7f308f4a9ab525f894d224c6b8d86dfef4b6a6bf9e6caf47c"
+    },
+    {
+      "path": "assets/icons/himza.png",
+      "driveId": "1btSU2c7m8aMawRK_2pcMum2pioRrzuPj",
+      "bytes": 27405,
+      "sha256": "7795a41667de613e5640e414088b8f8081d125a9774b61781660f3396dad198f"
+    },
+    {
+      "path": "assets/icons/kozh.png",
+      "driveId": "1BNXtJznLGGLQHO266MCtjddkv-yrKrlL",
+      "bytes": 30857,
+      "sha256": "409d1b19e37f54ca50dc9d0735db2a938c65635e13d2b75ff7ea059043017157"
+    },
+    {
+      "path": "assets/icons/low.png",
+      "driveId": "1wVgDKtU8ihgRCscPeCclIUTPAzVtpKKF",
+      "bytes": 32036,
+      "sha256": "9fc7de3eee59f2409dc7a1a3aff9d3f639caaee2dad1b806d9d704aecc63e89f"
+    },
+    {
+      "path": "assets/icons/nazi.png",
+      "driveId": "1Cr914FJd64SiwBbmzkYkYqe5IG-_7jd8",
+      "bytes": 24030,
+      "sha256": "74faa4f52e92e05e53a3d752a9e2a9d602656f4a1ec9f70d3889857f049497c0"
+    },
+    {
+      "path": "assets/icons/normal.png",
+      "driveId": "1v_GNca64tyOgH5XzxiCSbTowd9ltdXaM",
+      "bytes": 25257,
+      "sha256": "1866307b256b7d18c1a73cdbbd8377bd4fae7a7108002a1c880de02c8ecf0888"
+    },
+    {
+      "path": "assets/icons/red.png",
+      "driveId": "1lsAlroAo_cnnhZl-XjUrtnNK1lm1ic2G",
+      "bytes": 19681,
+      "sha256": "4523da077cd8efe769dfe65c7f83a1b5c2771722a6cd7443c9a4d7b0b0b092d2"
+    },
+    {
+      "path": "assets/icons/sparta.png",
+      "driveId": "1EtY704Ox564nkB_GiRSn_D1pO771c4Td",
+      "bytes": 31755,
+      "sha256": "a90b91477808dd1c69136efcbe1810bde3be0dd711c5ecdb048ed8dbcbdea2a2"
+    },
+    {
+      "path": "classes/mods/provoda/ClientProxy.class",
+      "driveId": "1TnK7-ONoBqkjR1C6IN61dOLqwy_rB34W",
+      "bytes": 27855,
+      "sha256": "8033b908b8da71171dad683c6f7fd06ac793e4dedb23dfb011287d33baa8e4c2"
+    },
+    {
+      "path": "classes/mods/provoda/ModBase.class",
+      "driveId": "1BJLMzP1I9RwFIVpakT6H9gZShHbGcBrS",
+      "bytes": 77479,
+      "sha256": "d42a5d6a9b82696c6234fc4819dac434106ed7cbbaddfc3707faecfcd3d462ee"
+    },
+    {
+      "path": "classes/mods/provoda/gui/backpack/ContainerBackPack.class",
+      "driveId": "1_-jB7kTXd_QskoE3NgY_lfoSTJh_UKkE",
+      "bytes": 2360,
+      "sha256": "670139a66cd237080c80add8d4bc5338ac9a274147cf8eec9b73565cd1def043"
+    },
+    {
+      "path": "classes/mods/provoda/gui/backpack/InventoryBackPack.class",
+      "driveId": "1p_m8QSNL5i_hZRaT8KERaO_YXyW_X8BM",
+      "bytes": 3150,
+      "sha256": "cd4e695bc0e79e81dca7b323232f1e7216d3d9e63d92922d2d47ce9a225a7cb8"
+    },
+    {
+      "path": "classes/mods/provoda/items/BackPackLarge.class",
+      "driveId": "1PjWSdCqFDV-IbSP7MxMOc_aw4vIsVlgv",
+      "bytes": 2826,
+      "sha256": "26bccff61a3c43e98844e1fcb6610dd80099a3c5f9ad1aed8b1f6b8b3103b95d"
+    },
+    {
+      "path": "classes/mods/provoda/items/BackPackMedium.class",
+      "driveId": "1YWvyyTZ2Umc2nhCPXcnsSGV_N6RihxcG",
+      "bytes": 2833,
+      "sha256": "1e5f0f2ded5d0c3c327ff5fa2596db371003d2dc853a6a9fdd548b7240f251cf"
+    },
+    {
+      "path": "classes/mods/provoda/items/BackPackSmall.class",
+      "driveId": "1YHLzQOaDFaDEoyfOuqwrkeAgSlV2Ps6A",
+      "bytes": 2826,
+      "sha256": "12d961ce1c391d6060e041266fc4a47bf78e9146b87975ff17870f10327d97d2"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/backpacklarge/ModelBackPackLarge.class",
+      "driveId": "1b-7kNbwVqdF7VRvS08dx1inRhC8L7h1X",
+      "bytes": 4185,
+      "sha256": "aec45243bd16fe3d93ea86cd639e47f38813db7eaa36d4164df7a9e171185d2f"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/backpackmedium/ModelBackPackMedium.class",
+      "driveId": "1oVrzBgaTchYbGet0Ax6HrbQJj_DzKK5y",
+      "bytes": 3939,
+      "sha256": "7e1a9bb262db0fb0eeb5d0ee29888e981e97888c8ee9d5172cc22dc99364de5e"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/backpacksmall/ModelSmallBackPack.class",
+      "driveId": "1dl-KOzKFU-lVgO-MeRwvxnts4Eg29OiV",
+      "bytes": 2964,
+      "sha256": "d2a26bf19f17a710be5b0080159b2c6ccbd42b87978a7d84cd9685c08801ba70"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/cclean/CClean.class",
+      "driveId": "1tfhoriLrWcnvAy6QximWIDWhdcz-EA_S",
+      "bytes": 2480,
+      "sha256": "0ea616f7005a1852857bdb102ff9c2560b97bb0ab9261df7267a0d7c9c15a5ed"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/cclean/models/CCleanModel.class",
+      "driveId": "1Fa1p2uV0FfbC4kjtGV4ieDYCqp93q2ri",
+      "bytes": 18903,
+      "sha256": "39cefccf497c6e69ee4fdd0c880f71d121130b74129c3dac4cf81523ced28948"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/clean/Clean.class",
+      "driveId": "1Ikv6qOIXfeEd0QPk2ZB04E9haOf1AeUF",
+      "bytes": 3368,
+      "sha256": "27010b49f91c045ef8cf95dbb8eb6e73334f9538a75cb542a0c7686faf95512e"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/clean/models/Clean.class",
+      "driveId": "19pobAvF7sBs8A_3wvwPbDVbDyu23zMrz",
+      "bytes": 18124,
+      "sha256": "971a65bb6d75c757d6ed313ae82926e9a5a5601458933520318b3ef7dbb00eb3"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/easy/Easy.class",
+      "driveId": "1l2Dbv_BJwptJwR1BP86dzhpcymPv7WWP",
+      "bytes": 2498,
+      "sha256": "f6979b2dac70ab4e6c15ba74ad577efa369bf48ffcf20f58594b9a2fb61f9354"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/easy/ModelEasy.class",
+      "driveId": "14P357Vd0CCbT4VMCnwSIMe2NlosNRm0R",
+      "bytes": 20765,
+      "sha256": "2042c34f6698dd1667b0c348e5fc0094f2845b7efe73b6dcbf70f2a9a5a4a578"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/gasmask/GasMask.class",
+      "driveId": "1wlSRCMGl55PC-UzG8dNSLKx4K9ErAcEC",
+      "bytes": 3854,
+      "sha256": "f19eaf7cc02fc8e464eb3eaf4683cef0c649d2c3ba0e22d2a8fb584f2d4d5d64"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/gasmask/models/Protivogas.class",
+      "driveId": "1_nGE_Y_eQhzCd_4tJrnDCrH3tMrypJtk",
+      "bytes": 5603,
+      "sha256": "6fb00f5ed4ea09d4e80b2eb48f87ed1f72b67b77f01c5271c264d6a4f205ab82"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/hats/Heavy1Hat.class",
+      "driveId": "1fdXzx7FSaQ4tAiSxHomCnrJFJuZANzXQ",
+      "bytes": 2940,
+      "sha256": "972d20600787ffb0c1a7feea162f34fd0829f4266f4d0fe8ba7284f4f5223a77"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/hats/HeavyHat.class",
+      "driveId": "1N3GvKF3vb1utPPl_gBImq0Zf6xztoOn9",
+      "bytes": 4042,
+      "sha256": "de13308269dc0a4abd26aaf4f1e8389cd1ce99c13d0947d2b59942b013bf1d74"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/hats/ModelHeavy1Hat.class",
+      "driveId": "1iIR3_ThfgimzPGIk-gnT7HYXGjXC81lY",
+      "bytes": 3833,
+      "sha256": "ffb84532f952266c4b1257662e7f49df61a401812a578945268dd9a8862e2be1"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/hats/ModelHeavyHat.class",
+      "driveId": "1WEU-7WUnPcpCml_ceVV8UgwXsj4JDxHO",
+      "bytes": 3947,
+      "sha256": "70f7209f6aaba1cea85e6eed791fabd9daa820befec4ea040a97738a1c27e38b"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/hats/ModelNaziHat.class",
+      "driveId": "1mufQeG9cTmhzKG43_M992wmflI0TELvi",
+      "bytes": 4721,
+      "sha256": "2857034baa258ec4412bca291ea0eb10ba23fe325af195712add42fa308b5b6b"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/hats/NaziHat.class",
+      "driveId": "1m-0eXpH60NF2jtBsB71fKsuKNl4_0-r5",
+      "bytes": 4037,
+      "sha256": "7d359c597217150be1d8984ab2a55b7d0f619fd03fefb80545b7b15611868bd8"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/heavy/HeavyArmor.class",
+      "driveId": "1ntcRpC6ZrUQRarkiRADaZerasoVBIKvp",
+      "bytes": 2992,
+      "sha256": "965d68dd8a761d2569a9f956d79c35722943ca6f3264e4d1622ee9aec04379ca"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/heavy/models/HeavyChest.class",
+      "driveId": "1Y596S2tf3DZnYRjIKxYcwTPvu3qzZ0rR",
+      "bytes": 17691,
+      "sha256": "2d958e5e2f3656523d5b12721faa59a9a4a1fbbba7c1fa0683c77c297085df28"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/heavy1/Heavy1.class",
+      "driveId": "1KB2pnGMUHlUnqBJZ4N2kdZnFAB1EfXYl",
+      "bytes": 2516,
+      "sha256": "6e2ea09ea6dc6ac4ebe781a683175767e59327ed98765b60df937657d1df240f"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/heavy1/ModelHeavy1.class",
+      "driveId": "1jfcAMRwREs0j_XwPTcFzFyflLN_AkSjb",
+      "bytes": 19549,
+      "sha256": "b3592422de0029c84053c2bb61effbd5bcef4349882aa02ac0d43ebf39288086"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/him/HimArmor.class",
+      "driveId": "1eDJ_URtwkY8g6jhgi2HnQz_Ywje4ykXH",
+      "bytes": 3785,
+      "sha256": "69f53fd16b897895a96f63a09d06599247b4e2955bfeb17c2d74be2552caff3f"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/him/models/HimBoots.class",
+      "driveId": "1-ZCUvTUb5ia2q769uIbmtDroYjMSME5j",
+      "bytes": 2694,
+      "sha256": "020936d34188774fd4102d2d9fbde77dee3da50f28b31d07796149e85423826d"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/him/models/HimCheest.class",
+      "driveId": "12d42s21sKeci4SAKb8f22ElpmOQmu8qi",
+      "bytes": 11022,
+      "sha256": "2362f5bc8f013461046aa10084105f08e17dbb8e5edb7835b7d93b3f74cb9531"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/him/models/HimHelmet.class",
+      "driveId": "1-sdStJLmS-cL2T0iwj6YLDK9weT3J52K",
+      "bytes": 3883,
+      "sha256": "f6167125f5663ab2bd42b2e544078c44f80cfff2ae4b38fada1ddd3e04248158"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/him/models/HimLeg.class",
+      "driveId": "1vn66x836vwyh-9kDWcdArTBG-WrTL4uO",
+      "bytes": 2635,
+      "sha256": "aec556174e8f5c2f20bcf36768b1425431917d4c0dd7792c3a2d02f7a99ab9e5"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/kozh/Kozh.class",
+      "driveId": "1dQtfA5zqW--IvD6H_MC_iSsI1WmdibEU",
+      "bytes": 2499,
+      "sha256": "13d89579d6a15bbd6b3bd4360bb6287f21e1f663d45d70c6a094925ca1cf05b3"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/kozh/ModelKozh.class",
+      "driveId": "1Wyr23YO7Vvqh4k06fXCwNvnSE9DIiZhi",
+      "bytes": 10862,
+      "sha256": "572417f7bb6ab54f930456e393980f89cbaa47fd1768fb0c95c0f6ed4bbc867b"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/nazi/ArmorNazi.class",
+      "driveId": "17o0aZKM-LjZ5sWHTCzgtU3JUZ8sfIA50",
+      "bytes": 2509,
+      "sha256": "143f164712efa8bc43addfaa349fbd54501f18ba603d2b9e2cf6967cecd3a18b"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/nazi/ModelNazi.class",
+      "driveId": "1qgr1zF9dheDQfnmcwF5ZpG1pRNoR5o4o",
+      "bytes": 15995,
+      "sha256": "ada3f730bcdb75f69e29f19d64876feadc5172ece950c3f77f8db2f99511453a"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/normal/Normal.class",
+      "driveId": "1VW4niqSI5Y3pvqjGWU-sav_y36WIFuDN",
+      "bytes": 2480,
+      "sha256": "85865b0804e02d2186634020b0b2af9012b903a2ab0da13349cb5481dc218e58"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/normal/models/ModelNormal.class",
+      "driveId": "15yEnJULM25ssfPo6dtiW78kshqXHSn7G",
+      "bytes": 9750,
+      "sha256": "b6a4d0c3cb6e091ff6339ce5ce466d357fcd8ee8deb96287d34bf63bd750b2f7"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/red/ArmorRed.class",
+      "driveId": "1oBl1j6-flhBeuyI6EY3lNNWEMOAFZwvX",
+      "bytes": 2500,
+      "sha256": "d776866c570218d14ba5fec645c4793257ec0891fe1f45acb7e39ea16f4d4071"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/red/ModelRed.class",
+      "driveId": "1yS4FLVKGgNz8nq6Jb9DiBToyECGlAQkh",
+      "bytes": 13241,
+      "sha256": "112bee88f9098b4db2e5e617dbe36a275b2bd0cb6966c19c0ae5388211713032"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/sparta/ModelSparta.class",
+      "driveId": "1rT2YBPHf0Bx_bRzdKdqPo1QlMnEaY6j3",
+      "bytes": 29402,
+      "sha256": "89b60caba7be8c2a43a4d89408df7aa11d5c0fe971f89701cb4e1926bfd548fa"
+    },
+    {
+      "path": "classes/mods/provoda/items/armor/sparta/Sparta.class",
+      "driveId": "1uctL-IFzeZCuUv7AaYyWx0dr4nkHnJcA",
+      "bytes": 2517,
+      "sha256": "8b83aa759c93686f29626f52bd633f4550f548ea03b2c30133426f22acfff9b1"
+    }
+  ]
+}
