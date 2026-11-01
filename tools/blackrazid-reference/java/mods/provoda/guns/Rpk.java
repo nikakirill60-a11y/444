@@ -8,8 +8,6 @@
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
- *  mods.provoda.gui.modifi.ModifiGui
- *  mods.provoda.gui.modifi.ModifiInventory
  *  mp
  *  net.minecraft.client.Minecraft
  *  ng
