@@ -3,7 +3,6 @@
  * 
  * Could not load the following classes:
  *  mods.provoda.GLLoader.GLModel
- *  mods.provoda.ModBase
  *  mods.provoda.items.att.renderers.RenderLaser$NamelessClass1967134830
  *  mods.provoda.until.Hand
  *  mp

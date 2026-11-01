@@ -3,7 +3,6 @@
  * 
  * Could not load the following classes:
  *  mods.provoda.GLLoader.GLModel
- *  mods.provoda.ModBase
  *  mods.provoda.items.att.renderers.RenderUbludokButt$NamelessClass489630910
  *  mods.provoda.until.Hand
  *  mp

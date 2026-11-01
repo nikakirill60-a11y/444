@@ -53,40 +53,13 @@
  *  mods.provoda.guns.grenades.renderers.RenderGrenadeBig
  *  mods.provoda.guns.grenades.renderers.RendererGrenade
  *  mods.provoda.guns.grenades.renderers.RendererGrenadeBig
- *  mods.provoda.guns.renderers.Render_AK2012
  *  mods.provoda.guns.renderers.Render_AKK
- *  mods.provoda.guns.renderers.Render_AKSU
- *  mods.provoda.guns.renderers.Render_Abzac
- *  mods.provoda.guns.renderers.Render_Ashot
- *  mods.provoda.guns.renderers.Render_Duplet
- *  mods.provoda.guns.renderers.Render_Helsing
  *  mods.provoda.guns.renderers.Render_Machete
- *  mods.provoda.guns.renderers.Render_Ognemet
- *  mods.provoda.guns.renderers.Render_Podonok
- *  mods.provoda.guns.renderers.Render_Preved
- *  mods.provoda.guns.renderers.Render_Railgun
- *  mods.provoda.guns.renderers.Render_Revolver
- *  mods.provoda.guns.renderers.Render_Rpk
- *  mods.provoda.guns.renderers.Render_Saiga
- *  mods.provoda.guns.renderers.Render_Tihar
- *  mods.provoda.guns.renderers.Render_Ubludok
- *  mods.provoda.guns.renderers.Render_Uboinik
- *  mods.provoda.guns.renderers.Render_Velopal
- *  mods.provoda.guns.renderers.Render_Ventil
- *  mods.provoda.guns.renderers.Render_Vsv
- *  mods.provoda.guns.renderers.Render_Vyhlop
  *  mods.provoda.items.armor.gasmask.renderers.RenderFilter
  *  mods.provoda.items.armor.gasmask.renderers.RenderGasMask
  *  mods.provoda.items.armor.hats.RenderHeavy1Hat
  *  mods.provoda.items.armor.hats.RenderHeavyHat
  *  mods.provoda.items.armor.hats.RenderNaziHat
- *  mods.provoda.items.att.renderers.RenderBarrel
- *  mods.provoda.items.att.renderers.RenderButt
- *  mods.provoda.items.att.renderers.RenderKolimator
- *  mods.provoda.items.att.renderers.RenderLaser
- *  mods.provoda.items.att.renderers.RenderOptica
- *  mods.provoda.items.att.renderers.RenderOpticaSmall
- *  mods.provoda.items.att.renderers.RenderUbludokButt
  *  mods.provoda.items.renderers.RenderFlyashka
  *  mods.provoda.items.renderers.RenderLamp
  *  mods.provoda.items.renderers.RenderMed
