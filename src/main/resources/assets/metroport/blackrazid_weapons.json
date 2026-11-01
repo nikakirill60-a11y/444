@@ -661,6 +661,7 @@
     "looseReloadSound": "blackrazid_preved_reload",
     "cycleSound": "blackrazid_preved_rel",
     "recoil": 1,
+    "cycleAfterShot": true,
     "shootSound": "blackrazid_preved_shoot",
     "reloadSound": "blackrazid_preved_reloadammo",
     "unloadSound": "blackrazid_preved_unload",

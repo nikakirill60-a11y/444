@@ -19,7 +19,7 @@ public final class BlackrazidWeapons {
         public String[] magazines;
         public int capacity,defaultRounds,sourceCapacityArgument,loadingTicks,unloadingTicks,delay,accuracy,pellets,looseCapacity,looseLoadingTicks,looseMinimum,airCapacity,airStep,pumpTicks,airCost;
         public float damage,speed,recoil;
-        public boolean refillable,topUp,keepChamber,rotor,flame;
+        public boolean refillable,topUp,keepChamber,rotor,flame,cycleAfterShot;
     }
     private static final Map<String,Item> ITEMS=new LinkedHashMap<>();
     private static Entry[] entries;

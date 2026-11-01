@@ -58,5 +58,10 @@ Additional selected BlackRazid ammunition/firearm development references are lis
 `tools/blackrazid-reference/weapons-source-files.json`: 29 original ammo classes, 35 native item PNGs,
 and 14 original OGGs, with Drive IDs, byte lengths and SHA-256. CFR recovery is audit-only;
 no original executable class is placed in runtime resources. The native six-gun baseline uses original
-inventory icons, **not** a completed native 3D mesh/module port. The other sixteen guns, all native
-weapon meshes/modules and the remaining requested expansion sections are still pending.
+inventory icons, **not** a completed native 3D mesh/module port. At that stage the other sixteen guns were still pending; the following baseline adds their mechanics, not native weapon meshes/modules or the remaining requested expansion sections.
+
+The next native baseline covers all 22 selected firearms but still does not claim complete models/modules/animations.
+`weapons-special-source-files.json` records 59 additional originals (15 icons, 42 OGGs, two flame-helper classes).
+`EntityPassiveFire` and `EntityPropulsionFX` are visual-only references; client FLAME particles are an explicit temporary adaptation.
+`vyhlop_shoot.ogg` is absent from the supplied sound folder; the original BlackRazid ventil shot is a documented fallback,
+not claimed to be a recovered Vyhlop recording. Native models, hands, modules, FX, transport, mutants and environment remain pending.

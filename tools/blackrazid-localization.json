@@ -16,7 +16,8 @@
     "metroport.blackrazid.gun.empty": "Магазин не установлен",
     "metroport.blackrazid.gun.basic": "Разработка: модули и исходная 3D-модель ещё не перенесены",
     "metroport.blackrazid.gun.loose": "R / Shift+ПКМ — зарядить подходящие патроны",
-    "metroport.blackrazid.gun.pressure": "Давление / взвод: %s / %s; удерживать V для накачки"
+    "metroport.blackrazid.gun.pressure": "Давление / взвод: %s / %s; удерживать V для накачки",
+    "death.attack.metroflame": "%1$s сгорел от огнемёта %2$s"
   },
   "en_us": {
     "key.metroport.blackrazid_lamp": "BlackRazid flashlight",
@@ -35,6 +36,7 @@
     "metroport.blackrazid.gun.empty": "No magazine inserted",
     "metroport.blackrazid.gun.basic": "Development: modules and native 3D model not yet ported",
     "metroport.blackrazid.gun.loose": "R / sneak+right click to load matching loose rounds",
-    "metroport.blackrazid.gun.pressure": "Pressure / winding: %s / %s; hold V to pump"
+    "metroport.blackrazid.gun.pressure": "Pressure / winding: %s / %s; hold V to pump",
+    "death.attack.metroflame": "%1$s was burned by %2$s's flamethrower"
   }
 }

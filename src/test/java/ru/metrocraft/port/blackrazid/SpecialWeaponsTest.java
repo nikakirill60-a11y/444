@@ -95,12 +95,37 @@ public class SpecialWeaponsTest {
     @Test public void flameOnlyBurnsAfterAcceptedDamageAndNeverOnClientOrImmuneTarget()throws Exception{
         EntityPlayer p=player(false);BlackrazidBullet b=new BlackrazidBullet(p.world,p,4,1,0,java.util.UUID.randomUUID(),true);EntityLivingBase target=mock(EntityLivingBase.class);
         assertFalse(b.burn(p,target));verify(target,never()).setFire(anyInt());when(target.attackEntityFrom(any(DamageSource.class),eq(4F))).thenReturn(true);assertTrue(b.burn(p,target));verify(target).setFire(3);
-        EntityLivingBase immune=mock(EntityLivingBase.class);when(immune.isImmuneToFire()).thenReturn(true);assertFalse(b.burn(p,immune));verify(immune,never()).attackEntityFrom(any(DamageSource.class),anyFloat());
+        EntityLivingBase immune=mock(EntityLivingBase.class);java.lang.reflect.Field fireProof=Entity.class.getDeclaredField("isImmuneToFire");fireProof.setAccessible(true);fireProof.setBoolean(immune,true);assertFalse(b.burn(p,immune));verify(immune,never()).attackEntityFrom(any(DamageSource.class),anyFloat());
         EntityPlayer client=player(true);BlackrazidBullet c=new BlackrazidBullet(client.world,client,4,1,0,java.util.UUID.randomUUID(),true);assertFalse(c.burn(client,target));
     }
     @Test public void flameRespectsPvPAndCreativeBeforeDamageOrIgnition()throws Exception{
         EntityPlayer p=player(false),victim=player(false);BlackrazidBullet b=new BlackrazidBullet(p.world,p,4,1,0,java.util.UUID.randomUUID(),true);assertFalse(b.burn(p,victim));verify(victim,never()).setFire(anyInt());
         when(p.canAttackPlayer(victim)).thenReturn(true);victim.capabilities.isCreativeMode=true;assertFalse(b.burn(p,victim));verify(victim,never()).attackEntityFrom(any(DamageSource.class),anyFloat());
+    }
+    @Test public void sprintCancelsPumpWithoutAwardingPressure()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=new ItemStack(item("tihar"));hold(p,s);
+        assertTrue(gun("tihar").startPump(s,p));ticks(gun("tihar"),s,p,24);when(p.isSprinting()).thenReturn(true);
+        ticks(gun("tihar"),s,p,1);assertEquals(0,gun("tihar").pressure(s));assertFalse(gun("tihar").reloading(s));
+        when(p.isSprinting()).thenReturn(false);ticks(gun("tihar"),s,p,50);assertEquals(0,gun("tihar").pressure(s));
+    }
+    @Test public void gatlingWindingDoesNotPassivelyDrainWhileIdle()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=new ItemStack(item("gatling"));hold(p,s);pressure(s,400);
+        ticks(gun("gatling"),s,p,500);assertEquals(400,gun("gatling").pressure(s));
+    }
+    @Test public void prevedCyclesImmediatelyOnlyWithRemainingInstalledAmmo()throws Exception{
+        String id="blackrazid_preved_rel";
+        net.minecraft.util.SoundEvent sound=new net.minecraft.util.SoundEvent(new net.minecraft.util.ResourceLocation("metroport",id));
+        net.minecraft.util.SoundEvent previous=ru.metrocraft.port.MetroPort.SOUNDS.put(id,sound);
+        try{
+            for(int rounds:new int[]{5,1}){
+                EntityPlayer p=player(false);ItemStack s=equipped(p,"preved","preved_ammo",rounds);
+                when(p.world.spawnEntity(any(Entity.class))).thenReturn(true);assertTrue(gun("preved").fireNative(s,p));
+                int expected=rounds>1?1:0;
+                verify(p.world,times(expected)).playSound(isNull(),anyDouble(),anyDouble(),anyDouble(),eq(sound),eq(net.minecraft.util.SoundCategory.PLAYERS),eq(1F),eq(1F));
+                ticks(gun("preved"),s,p,35);
+                verify(p.world,times(expected)).playSound(isNull(),anyDouble(),anyDouble(),anyDouble(),eq(sound),eq(net.minecraft.util.SoundCategory.PLAYERS),eq(1F),eq(1F));
+            }
+        }finally{if(previous==null)ru.metrocraft.port.MetroPort.SOUNDS.remove(id);else ru.metrocraft.port.MetroPort.SOUNDS.put(id,previous);}
     }
     @Test public void flameModeAndShotIdentitySurviveNativeNBTAndSpawnData()throws Exception{
         EntityPlayer p=player(false);java.util.UUID shot=java.util.UUID.randomUUID();BlackrazidBullet b=new BlackrazidBullet(p.world,p,4,1,0,shot,true),copy=new BlackrazidBullet(p.world);

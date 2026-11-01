@@ -1,18 +1,278 @@
 {
-  "Ashot":{"pellets":8,"accuracy":80,"speed":4,"delay":3,"looseRound":"Bullet12x70","looseCapacity":1,"looseLoadingTicks":25,"sounds":["ashot_shoot","ashot_reload","empty"],"recoil":1},
-  "Duplet":{"pellets":8,"accuracy":80,"speed":5,"delay":3,"looseRound":"Bullet12x70","looseCapacity":2,"looseLoadingTicks":30,"topUp":true,"sounds":["ashot_shoot","ashot_reload","empty"],"recoil":2},
-  "Gatling":{"pellets":1,"accuracy":25,"speed":4,"delay":5,"loadingTicks":40,"unloadingTicks":30,"airCapacity":400,"airStep":100,"pumpTicks":15,"airCost":1,"rotor":true,"pumpSound":"gatling_air","sounds":["gatling_shoot","gatling_reload","gatling_unload"],"recoil":0.8},
-  "Helsing":{"pellets":1,"accuracy":10,"speed":4,"delay":6,"loadingTicks":25,"unloadingTicks":30,"airCapacity":16,"airStep":2,"pumpTicks":15,"airCost":1,"pumpSound":"helsing_air","sounds":["helsing_shoot","helsing_reload","helsing_unload"],"recoil":0.5},
-  "Tihar":{"pellets":1,"accuracy":10,"speed":10,"delay":3,"loadingTicks":25,"unloadingTicks":30,"airCapacity":32,"airStep":4,"pumpTicks":25,"airCost":1,"pumpSound":"helsing_air","sounds":["tihar_shoot","tihar_reload","tihar_unload"],"recoil":0.4},
-  "Podonok":{"pellets":1,"accuracy":15,"speed":4,"delay":5,"loadingTicks":35,"unloadingTicks":22,"sounds":["podonok_shoot","podonok_reload","podonok_unload"],"recoil":0.8},
-  "Preved":{"pellets":1,"accuracy":5,"speed":4,"delay":35,"loadingTicks":35,"unloadingTicks":20,"looseRound":"Bullet12_7x108","looseCapacity":1,"looseLoadingTicks":40,"looseReloadSound":"preved_reload","cycleSound":"preved_rel","sounds":["preved_shoot","preved_reloadammo","preved_unload"],"recoil":1},
-  "Railgun":{"pellets":1,"accuracy":5,"speed":4,"delay":20,"loadingTicks":30,"unloadingTicks":30,"airCapacity":40,"airStep":5,"pumpTicks":20,"airCost":1,"pumpSound":"railgun_air","sounds":["railgun_shoot","railgun_reload","railgun_unload"],"recoil":0.6},
-  "Revolver":{"pellets":1,"accuracy":15,"speed":4,"delay":7,"looseRound":"BulletMagnum","looseCapacity":6,"looseLoadingTicks":30,"sounds":["revolver_shoot","revolver_reload","empty"],"recoil":0.6},
-  "Saiga":{"pellets":10,"accuracy":80,"speed":5,"delay":6,"loadingTicks":30,"unloadingTicks":20,"sounds":["saiga_shoot","saiga_reload","saiga_unload"],"recoil":1},
-  "Abzac":{"pellets":10,"accuracy":80,"speed":4,"delay":7,"loadingTicks":40,"unloadingTicks":40,"sounds":["abzac_shoot","abzac_reload","abzac_unload"],"recoil":3.2},
-  "Uboinik":{"pellets":10,"accuracy":80,"speed":5,"delay":7,"looseRound":"Bullet12x70","looseCapacity":6,"looseMinimum":6,"looseLoadingTicks":110,"sounds":["abzac_shoot","uboinik_reload","empty"],"recoil":1},
-  "Ventil":{"pellets":1,"accuracy":5,"speed":10,"delay":35,"loadingTicks":40,"unloadingTicks":20,"keepChamber":true,"looseRound":"Bullet7_62x54","looseCapacity":1,"cycleSound":"ventil_preload","sounds":["ventil_shoot","ventil_reload","ventil_unload"],"recoil":1},
-  "Vyhlop":{"pellets":1,"accuracy":5,"speed":10,"delay":10,"loadingTicks":40,"unloadingTicks":20,"sounds":["ventil_shoot","vyhlop_reload","vyhlop_unload"],"soundAdaptation":"vyhlop_shoot absent; native ventil_shoot fallback","recoil":0.8},
-  "Velopal":{"pellets":10,"accuracy":30,"speed":5,"delay":35,"loadingTicks":40,"unloadingTicks":20,"keepChamber":true,"looseRound":"Bullet12_7x55","looseCapacity":1,"cycleSound":"ventil_preload","sounds":["ventil_shoot","vyhlop_reload","vyhlop_unload"],"magazineOverride":["VyhlopAmmo"],"soundAdaptation":"vyhlop_shoot absent; native ventil_shoot fallback","recoil":1},
-  "Ognemet":{"pellets":1,"accuracy":0,"speed":1,"delay":3,"loadingTicks":40,"unloadingTicks":20,"airCapacity":180,"airStep":45,"pumpTicks":20,"airCost":2,"pumpSound":"helsing_air","flame":true,"sounds":["ognemet_shoot","ognemet_reload","ognemet_unload"],"recoil":0}
+  "Ashot": {
+    "pellets": 8,
+    "accuracy": 80,
+    "speed": 4,
+    "delay": 3,
+    "looseRound": "Bullet12x70",
+    "looseCapacity": 1,
+    "looseLoadingTicks": 25,
+    "sounds": [
+      "ashot_shoot",
+      "ashot_reload",
+      "empty"
+    ],
+    "recoil": 1
+  },
+  "Duplet": {
+    "pellets": 8,
+    "accuracy": 80,
+    "speed": 5,
+    "delay": 3,
+    "looseRound": "Bullet12x70",
+    "looseCapacity": 2,
+    "looseLoadingTicks": 30,
+    "topUp": true,
+    "sounds": [
+      "ashot_shoot",
+      "ashot_reload",
+      "empty"
+    ],
+    "recoil": 2
+  },
+  "Gatling": {
+    "pellets": 1,
+    "accuracy": 25,
+    "speed": 4,
+    "delay": 5,
+    "loadingTicks": 40,
+    "unloadingTicks": 30,
+    "airCapacity": 400,
+    "airStep": 100,
+    "pumpTicks": 15,
+    "airCost": 1,
+    "rotor": true,
+    "pumpSound": "gatling_air",
+    "sounds": [
+      "gatling_shoot",
+      "gatling_reload",
+      "gatling_unload"
+    ],
+    "recoil": 0.8
+  },
+  "Helsing": {
+    "pellets": 1,
+    "accuracy": 10,
+    "speed": 4,
+    "delay": 6,
+    "loadingTicks": 25,
+    "unloadingTicks": 30,
+    "airCapacity": 16,
+    "airStep": 2,
+    "pumpTicks": 15,
+    "airCost": 1,
+    "pumpSound": "helsing_air",
+    "sounds": [
+      "helsing_shoot",
+      "helsing_reload",
+      "helsing_unload"
+    ],
+    "recoil": 0.5
+  },
+  "Tihar": {
+    "pellets": 1,
+    "accuracy": 10,
+    "speed": 10,
+    "delay": 3,
+    "loadingTicks": 25,
+    "unloadingTicks": 30,
+    "airCapacity": 32,
+    "airStep": 4,
+    "pumpTicks": 25,
+    "airCost": 1,
+    "pumpSound": "helsing_air",
+    "sounds": [
+      "tihar_shoot",
+      "tihar_reload",
+      "tihar_unload"
+    ],
+    "recoil": 0.4
+  },
+  "Podonok": {
+    "pellets": 1,
+    "accuracy": 15,
+    "speed": 4,
+    "delay": 5,
+    "loadingTicks": 35,
+    "unloadingTicks": 22,
+    "sounds": [
+      "podonok_shoot",
+      "podonok_reload",
+      "podonok_unload"
+    ],
+    "recoil": 0.8
+  },
+  "Preved": {
+    "pellets": 1,
+    "accuracy": 5,
+    "speed": 4,
+    "delay": 35,
+    "loadingTicks": 35,
+    "unloadingTicks": 20,
+    "looseRound": "Bullet12_7x108",
+    "looseCapacity": 1,
+    "looseLoadingTicks": 40,
+    "looseReloadSound": "preved_reload",
+    "cycleSound": "preved_rel",
+    "sounds": [
+      "preved_shoot",
+      "preved_reloadammo",
+      "preved_unload"
+    ],
+    "recoil": 1,
+    "cycleAfterShot": true
+  },
+  "Railgun": {
+    "pellets": 1,
+    "accuracy": 5,
+    "speed": 4,
+    "delay": 20,
+    "loadingTicks": 30,
+    "unloadingTicks": 30,
+    "airCapacity": 40,
+    "airStep": 5,
+    "pumpTicks": 20,
+    "airCost": 1,
+    "pumpSound": "railgun_air",
+    "sounds": [
+      "railgun_shoot",
+      "railgun_reload",
+      "railgun_unload"
+    ],
+    "recoil": 0.6
+  },
+  "Revolver": {
+    "pellets": 1,
+    "accuracy": 15,
+    "speed": 4,
+    "delay": 7,
+    "looseRound": "BulletMagnum",
+    "looseCapacity": 6,
+    "looseLoadingTicks": 30,
+    "sounds": [
+      "revolver_shoot",
+      "revolver_reload",
+      "empty"
+    ],
+    "recoil": 0.6
+  },
+  "Saiga": {
+    "pellets": 10,
+    "accuracy": 80,
+    "speed": 5,
+    "delay": 6,
+    "loadingTicks": 30,
+    "unloadingTicks": 20,
+    "sounds": [
+      "saiga_shoot",
+      "saiga_reload",
+      "saiga_unload"
+    ],
+    "recoil": 1
+  },
+  "Abzac": {
+    "pellets": 10,
+    "accuracy": 80,
+    "speed": 4,
+    "delay": 7,
+    "loadingTicks": 40,
+    "unloadingTicks": 40,
+    "sounds": [
+      "abzac_shoot",
+      "abzac_reload",
+      "abzac_unload"
+    ],
+    "recoil": 3.2
+  },
+  "Uboinik": {
+    "pellets": 10,
+    "accuracy": 80,
+    "speed": 5,
+    "delay": 7,
+    "looseRound": "Bullet12x70",
+    "looseCapacity": 6,
+    "looseMinimum": 6,
+    "looseLoadingTicks": 110,
+    "sounds": [
+      "abzac_shoot",
+      "uboinik_reload",
+      "empty"
+    ],
+    "recoil": 1
+  },
+  "Ventil": {
+    "pellets": 1,
+    "accuracy": 5,
+    "speed": 10,
+    "delay": 35,
+    "loadingTicks": 40,
+    "unloadingTicks": 20,
+    "keepChamber": true,
+    "looseRound": "Bullet7_62x54",
+    "looseCapacity": 1,
+    "cycleSound": "ventil_preload",
+    "sounds": [
+      "ventil_shoot",
+      "ventil_reload",
+      "ventil_unload"
+    ],
+    "recoil": 1
+  },
+  "Vyhlop": {
+    "pellets": 1,
+    "accuracy": 5,
+    "speed": 10,
+    "delay": 10,
+    "loadingTicks": 40,
+    "unloadingTicks": 20,
+    "sounds": [
+      "ventil_shoot",
+      "vyhlop_reload",
+      "vyhlop_unload"
+    ],
+    "soundAdaptation": "vyhlop_shoot absent; native ventil_shoot fallback",
+    "recoil": 0.8
+  },
+  "Velopal": {
+    "pellets": 10,
+    "accuracy": 30,
+    "speed": 5,
+    "delay": 35,
+    "loadingTicks": 40,
+    "unloadingTicks": 20,
+    "keepChamber": true,
+    "looseRound": "Bullet12_7x55",
+    "looseCapacity": 1,
+    "cycleSound": "ventil_preload",
+    "sounds": [
+      "ventil_shoot",
+      "vyhlop_reload",
+      "vyhlop_unload"
+    ],
+    "magazineOverride": [
+      "VyhlopAmmo"
+    ],
+    "soundAdaptation": "vyhlop_shoot absent; native ventil_shoot fallback",
+    "recoil": 1
+  },
+  "Ognemet": {
+    "pellets": 1,
+    "accuracy": 0,
+    "speed": 1,
+    "delay": 3,
+    "loadingTicks": 40,
+    "unloadingTicks": 20,
+    "airCapacity": 180,
+    "airStep": 45,
+    "pumpTicks": 20,
+    "airCost": 2,
+    "pumpSound": "helsing_air",
+    "flame": true,
+    "sounds": [
+      "ognemet_shoot",
+      "ognemet_reload",
+      "ognemet_unload"
+    ],
+    "recoil": 0
+  }
 }

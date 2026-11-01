@@ -502,3 +502,4 @@ metroport.blackrazid.gun.empty=Магазин не установлен
 metroport.blackrazid.gun.basic=Разработка: модули и исходная 3D-модель ещё не перенесены
 metroport.blackrazid.gun.loose=R / Shift+ПКМ — зарядить подходящие патроны
 metroport.blackrazid.gun.pressure=Давление / взвод: %s / %s; удерживать V для накачки
+death.attack.metroflame=%1$s сгорел от огнемёта %2$s

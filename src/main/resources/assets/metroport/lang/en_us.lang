@@ -502,3 +502,4 @@ metroport.blackrazid.gun.empty=No magazine inserted
 metroport.blackrazid.gun.basic=Development: modules and native 3D model not yet ported
 metroport.blackrazid.gun.loose=R / sneak+right click to load matching loose rounds
 metroport.blackrazid.gun.pressure=Pressure / winding: %s / %s; hold V to pump
+death.attack.metroflame=%1$s was burned by %2$s's flamethrower

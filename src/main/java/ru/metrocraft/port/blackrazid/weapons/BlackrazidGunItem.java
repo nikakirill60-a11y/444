@@ -116,11 +116,11 @@ public final class BlackrazidGunItem extends GunItem {
         if(gun.hasTagCompound()){
             int cd=gun.getTagCompound().getInteger(COOLDOWN);
             if(cd>0){cd=Math.min(Math.max(7,entry.delay),cd-1);tag(gun).setInteger(COOLDOWN,cd);
-                if(cd==20 && entry.cycleSound!=null && ammo(gun)>0 && live(gun,p))sound(world,p,entry.cycleSound,1);}
+                if(cd==20 && !entry.cycleAfterShot && entry.cycleSound!=null && ammo(gun)>0 && live(gun,p))sound(world,p,entry.cycleSound,1);}
             int snd=gun.getTagCompound().getInteger(SOUND);if(snd>0)tag(gun).setInteger(SOUND,Math.min(23,snd-1));
         }
         if(!reloading(gun))return;
-        if(!live(gun,p) || !selected || !tag(gun).hasUniqueId(OWNER) || !p.getUniqueID().equals(tag(gun).getUniqueId(OWNER))){cancel(gun);return;}
+        if(!live(gun,p) || !selected || (tag(gun).getInteger(ACTION)==4 && p.isSprinting()) || !tag(gun).hasUniqueId(OWNER) || !p.getUniqueID().equals(tag(gun).getUniqueId(OWNER))){cancel(gun);return;}
         int max=Math.max(Math.max(entry.loadingTicks,entry.unloadingTicks),Math.max(entry.looseLoadingTicks,entry.pumpTicks));
         int ticks=Math.min(max,tag(gun).getInteger(TICKS))-1;tag(gun).setInteger(TICKS,ticks);
         if(ticks<=0){int action=tag(gun).getInteger(ACTION);cancel(gun);
@@ -145,6 +145,7 @@ public final class BlackrazidGunItem extends GunItem {
         store(gun,MAG,mag);if(entry.airCapacity>0)pressure(gun,pressure(gun)-entry.airCost);
         tag(gun).setInteger(COOLDOWN,delay);p.inventory.markDirty();
         if(!entry.flame || tag(gun).getInteger(SOUND)==0){sound(p.world,p,entry.shootSound,1);if(entry.flame)tag(gun).setInteger(SOUND,23);}
+        if(entry.cycleAfterShot && ammo(gun)>0 && !mag.isEmpty())sound(p.world,p,entry.cycleSound,1);
         if(entry.rotor)sound(p.world,p,"blackrazid_gatling_rot",1);
         if(p instanceof EntityPlayerMP)MetroPort.NETWORK.sendTo(new ShotFeedbackPacket(entry.id,entry.recoil*2,0),(EntityPlayerMP)p);
         return true;
