@@ -746,6 +746,26 @@
       "driveId": "1szFbFyISnF3P5b0qMW8Cu1A6nkHFu4wy",
       "bytes": 595126,
       "sha256": "10d4ad610c1b7cb709fd9a98730c4c6eff20c16ccbf5189ec9bd0825650d1244"
+    },
+    "classes/metro/client/gui/GuiMods.class": {
+      "driveId": "19OjnFQ4y-aAMonFcJOuTC8lQi_ynRLVw",
+      "bytes": 10687,
+      "sha256": "fd67a9e301de4b54726ffedf8a91b716f4bafa46d03121bbb47471d0ac472d6d"
+    },
+    "classes/metro/client/gui/GuiHandler.class": {
+      "driveId": "1IjYk5VN3Xqn8XZGQFv1nYBAaLLuf8IcR",
+      "bytes": 1251,
+      "sha256": "d9e2a0cb5012d9db3bea8f29fb5d8cab256460054d476fa6934855c63f4fba8e"
+    },
+    "classes/metro/common/gun/ItemGun.class": {
+      "driveId": "1B05reKaSM2KKu-KvLtLBSD0FUU6g7LSl",
+      "bytes": 7167,
+      "sha256": "941ffe67886f292951c330e511ea5bd7fc278e9c68bb6792018a9d0c4f494b6d"
+    },
+    "classes/metro/client/render/guns/ak74_Render.class": {
+      "driveId": "1yHtsOQducgmvmv1RIxpRvraRS5Vb0m0s",
+      "bytes": 11511,
+      "sha256": "d2971f4ac0cf61b979386c9e6244afc06e21efc84ccb474c42f45dc4de64e682"
     }
   }
 }
