@@ -23,7 +23,7 @@
     "native weapon/ammunition/attachment meshes and animations for all 22; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance",
     "full mutant gameplay/visual acceptance",
-    "six recovered tunnel generators, remaining building/decor blocks and full environment gameplay/visual acceptance"
+    "remaining building/decor blocks and full environment gameplay/visual acceptance; unregistered ItemSpawnTunnel furniture helpers are audited separately"
   ],
   "weapons": [
     {
@@ -980,6 +980,7 @@
     "Original rail renderer has no draw calls for shapes 2 and 5–11; segment composites and redstone-controlled switch state are explicit adaptations.",
     "Faction teleport uses configured server scoreboard teams, not the excluded general faction data or cosmetic armor patches; destinations are disabled until configured.",
     "Native temporary light tile has an always-true ID mismatch condition; port uses a bounded five-tick lifetime and owner-tile checks.",
+    "All six ItemSpawnTunnel classes are unregistered legacy helpers that place furniture/gate IDs 3002 and 3004-3008, not tunnel sections; see blackrazid-generator-audit.json.",
     "Recovered source files do not establish a working or visually accepted port."
   ]
 }

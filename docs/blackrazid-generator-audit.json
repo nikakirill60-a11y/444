@@ -1,0 +1,73 @@
+{
+  "status": "SOURCE NAME IS MISLEADING: SIX UNREGISTERED SINGLE-BLOCK FURNITURE HELPERS, NOT TUNNEL GENERATORS",
+  "helpers": [
+    {
+      "sourceId": "ItemSpawnTunnel",
+      "source": "items/ItemSpawnTunnel.java",
+      "sha256": "daa46c9ab9decade9c035476b38f97aec09a63f80eff3ddfb1eb30b8e0356a5f",
+      "registered": false,
+      "targetLegacyId": 3006,
+      "targetField": "ModelChair2",
+      "targetClass": "BlockChair2",
+      "nativeRayDistance": 5000.0,
+      "generatesTunnel": false
+    },
+    {
+      "sourceId": "ItemSpawnTunnel1",
+      "source": "items/ItemSpawnTunnel1.java",
+      "sha256": "c8530f58ca8902bbafffba3e48d6c9872dc37ccfac50be44daf57c32820709ab",
+      "registered": false,
+      "targetLegacyId": 3002,
+      "targetField": "ModelGermo1",
+      "targetClass": "BlockGermo1",
+      "nativeRayDistance": 5000.0,
+      "generatesTunnel": false
+    },
+    {
+      "sourceId": "ItemSpawnTunnel3",
+      "source": "items/ItemSpawnTunnel3.java",
+      "sha256": "f333c576c5362066427ba93172eaae2094fcb5d7d02abb7b8c002abe9979bf70",
+      "registered": false,
+      "targetLegacyId": 3004,
+      "targetField": "ModelShkaf1",
+      "targetClass": "BlockShkaf1",
+      "nativeRayDistance": 5000.0,
+      "generatesTunnel": false
+    },
+    {
+      "sourceId": "ItemSpawnTunnel4",
+      "source": "items/ItemSpawnTunnel4.java",
+      "sha256": "16c2a2590c738216c2b30af388acc4c630c2de63c077c33c98888e93c5fe862a",
+      "registered": false,
+      "targetLegacyId": 3005,
+      "targetField": "ModelShkaf2",
+      "targetClass": "BlockShkaf2",
+      "nativeRayDistance": 5000.0,
+      "generatesTunnel": false
+    },
+    {
+      "sourceId": "ItemSpawnTunnel5",
+      "source": "items/ItemSpawnTunnel5.java",
+      "sha256": "dab73cb7da38ca73c934d1f19f7df01eb4b748bea60ced450a1248ca8aac1abc",
+      "registered": false,
+      "targetLegacyId": 3007,
+      "targetField": "ModelLavka1",
+      "targetClass": "BlockLavka1",
+      "nativeRayDistance": 5000.0,
+      "generatesTunnel": false
+    },
+    {
+      "sourceId": "ItemSpawnTunnel6",
+      "source": "items/ItemSpawnTunnel6.java",
+      "sha256": "95b4b8c12957b5f26b0fcb88c4b5154f69536df9563b8a2c633f903353eb403d",
+      "registered": false,
+      "targetLegacyId": 3008,
+      "targetField": "ModelPolka1",
+      "targetClass": "BlockPolka1",
+      "nativeRayDistance": 5000.0,
+      "generatesTunnel": false
+    }
+  ],
+  "runtime": "Not silently activated or relabeled as working tunnel generators. Native registered tunnel sections are implemented separately.",
+  "safety": "Original helpers ray trace 5000 blocks and blindly overwrite target+UP without orientation, permissions, server-only checks or costs; not safe to copy verbatim."
+}

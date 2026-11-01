@@ -31,7 +31,7 @@ def report():
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
         implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','28 native attachment items with server-owned five-slot fitting/removal and actual source-based gun effects; zoom/laser are documented client adaptations','22 basic native firearm profiles, not a complete gun/module/model port','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches','all 19 native tunnel sections with 159 original cubes, 18 native OBJ / materials / per-direction transforms, owned ring helpers and mesh-derived render bounds','4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams'],
         pending=['native weapon/ammunition/attachment meshes and animations for all 22; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance','Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance',
-                 'full mutant gameplay/visual acceptance','six recovered tunnel generators, remaining building/decor blocks and full environment gameplay/visual acceptance'],
+                 'full mutant gameplay/visual acceptance','remaining building/decor blocks and full environment gameplay/visual acceptance; unregistered ItemSpawnTunnel furniture helpers are audited separately'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',
                   'OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.',
@@ -43,6 +43,7 @@ def report():
                   'Original rail renderer has no draw calls for shapes 2 and 5–11; segment composites and redstone-controlled switch state are explicit adaptations.',
                   'Faction teleport uses configured server scoreboard teams, not the excluded general faction data or cosmetic armor patches; destinations are disabled until configured.',
                   'Native temporary light tile has an always-true ID mismatch condition; port uses a bounded five-tick lifetime and owner-tile checks.',
+                  'All six ItemSpawnTunnel classes are unregistered legacy helpers that place furniture/gate IDs 3002 and 3004-3008, not tunnel sections; see blackrazid-generator-audit.json.',
                   'Recovered source files do not establish a working or visually accepted port.'])
 def main():
     data=report();write_json(ROOT/'docs/blackrazid-expansion-report.json',data)
