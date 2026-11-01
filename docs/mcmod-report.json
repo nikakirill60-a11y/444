@@ -2312,8 +2312,7 @@
   },
   "pendingArmor": [],
   "remainingContent": [
-    "Guns and ammunition",
-    "Remaining decorative blocks: see mcmod-decor-report.json; ordinary items: mcmod-items-report.json",
+    "Other guns, ammunition and weapon upgrades (base AK-74 imported; see mcmod-ak-report.json)",
     "Original player/inventory/network/condition/radiation mechanics audit"
   ],
   "adaptations": [

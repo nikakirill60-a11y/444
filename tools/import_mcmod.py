@@ -108,7 +108,7 @@ def main():
         'registeredOriginalArmor': originals, 'importedModels': models, 'items': entries,
         'unusedModelFolders': ['boi_armor'], 'wornModelOverrides': WORN_MODEL_OVERRIDES,
         'pendingArmor': [key for key in originals if key not in models],
-        'remainingContent': ['Guns and ammunition', 'Remaining decorative blocks: see mcmod-decor-report.json; ordinary items: mcmod-items-report.json',
+        'remainingContent': ['Other guns, ammunition and weapon upgrades (base AK-74 imported; see mcmod-ak-report.json)',
                              'Original player/inventory/network/condition/radiation mechanics audit'],
         'adaptations': ['User-verified visual correction: officer OZK uses banditkurtka mesh+atlas, bandit jacket uses kurtka, jacket uses officer_ozk. Item ids, slots, condition and protection are unchanged. Separate helmet/vest icons are now rendered from real source groups.',
                        'Five whole outfits stay CHEST; 25 other sets use HEAD + CHEST. Gasmask has only HEAD; kitel/vatnik only CHEST, based on non-empty source groups.',

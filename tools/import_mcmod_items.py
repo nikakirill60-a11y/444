@@ -37,7 +37,7 @@ def main():
                      'Medkit now requires a 40-tick native hold, heals/spends only on successful server finish, and retains five syringes, 100-tick per-stack timer and spent kit. Full heal uses player max health, not the old global 1000-health system; creative does not spend syringes. No effect at full health.',
                      'Machete is a native diamond axe with the source no-durability-loss-on-entity-hit override. 1.12 attack speed/damage are the native diamond-axe adaptation.',
                      'GUI uses original flat icons; held/ground/frame views use byte-exact original OBJ/atlases. New native-swing slash and syringe treatment animations replace the old render code. Current Steve/Alex skin hands replace the fixed source arms. Original medkit sound remains pending.'],
-       'pending':['MCMOD firearms and ammunition','Decorative blocks','Remaining original server mechanics']})
+       'pending':['Other MCMOD firearms, ammunition and weapon upgrades (AK-74 imported)','Remaining original server mechanics']})
     from mcmod_languages import update
     update()
     print('Imported',len(entries),'ordinary MCMOD items')
