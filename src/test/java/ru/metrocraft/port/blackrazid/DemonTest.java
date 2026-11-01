@@ -23,7 +23,7 @@ public class DemonTest {
         when(w.getBlockState(any(BlockPos.class))).thenReturn(Blocks.AIR.getDefaultState());
         return w;
     }
-    private static DemonEntity demon(World w){DemonEntity d=new DemonEntity(w);d.setPosition(10,80,20);return d;}
+    private static DemonEntity demon(World w){DemonEntity d=new DemonEntity(w);d.setLocationAndAngles(10,80,20,0,0);return d;}
     private static EntityLivingBase victim(){EntityLivingBase e=mock(EntityLivingBase.class);when(e.isEntityAlive()).thenReturn(true);return e;}
     @Test public void nativeHealthDamageBodyAndHeadDimensions()throws Exception{
         DemonEntity d=demon(world(false));assertEquals(800,d.getHealth(),0);assertEquals(800,d.getMaxHealth(),0);
