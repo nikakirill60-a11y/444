@@ -43,7 +43,7 @@ public final class BlackrazidModules {
     public static ItemStack get(ItemStack gun,int slot){
         if(slot<0 || slot>=5 || !gun.hasTagCompound())return ItemStack.EMPTY;
         ItemStack stack=new ItemStack(gun.getTagCompound().getCompoundTag(KEY).getCompoundTag(Integer.toString(slot)));
-        return accepts(gun,slot,stack)?stack:ItemStack.EMPTY;
+        return accepts(gun,slot,stack)?stack.copy():ItemStack.EMPTY;
     }
     public static boolean has(ItemStack gun,int slot,String sourceId){
         ItemStack module=get(gun,slot);return !module.isEmpty() && sourceId.equals(((ModuleItem)module.getItem()).entry.sourceId);

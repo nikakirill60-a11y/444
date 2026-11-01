@@ -154,4 +154,17 @@ public class NativeModulesTest {
         p.inventory.setInventorySlotContents(1,new ItemStack(item("bullet_magnum"),6));gun("revolver").startReload(s,p);assertFalse(new NativeModuleContainer(p).canInteractWith(p));ticks(gun("revolver"),s,p,30);
         when(p.world.spawnEntity(any(Entity.class))).thenReturn(true);assertTrue(gun("revolver").fireNative(s,p));assertFalse(new NativeModuleContainer(p).canInteractWith(p));
     }
+    @Test public void creativeStillConsumesAndReturnsExactlyOneActualPart()throws Exception{
+        EntityPlayer p=player(false);p.capabilities.isCreativeMode=true;ItemStack s=held(p,"ak");install(p,s,2,"Glushak");
+        assertTrue(p.inventory.getStackInSlot(8).isEmpty());open(p);assertTrue(BlackrazidModules.change(p,s,2,0));
+        assertEquals(1,p.inventory.getStackInSlot(1).getCount());assertFalse(BlackrazidModules.change(p,s,2,0));
+    }
+    @Test public void actualPrevedBulletGetsBarrelSpeedAndDamageAndUsesOneRound()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=held(p,"preved");install(p,s,2,"Barrel");p.inventory.setInventorySlotContents(1,magazine("preved_ammo",5));assertTrue(gun("preved").insertMagazine(s,p));
+        when(p.world.spawnEntity(any(Entity.class))).thenReturn(true);assertTrue(gun("preved").fireNative(s,p));
+        ArgumentCaptor<Entity> capture=ArgumentCaptor.forClass(Entity.class);verify(p.world).spawnEntity(capture.capture());Entity bullet=capture.getValue();
+        assertEquals(10,Math.sqrt(bullet.motionX*bullet.motionX+bullet.motionY*bullet.motionY+bullet.motionZ*bullet.motionZ),1e-5);
+        java.lang.reflect.Field damage=BlackrazidBullet.class.getDeclaredField("damage");damage.setAccessible(true);assertEquals(gun("preved").entry.damage+1,damage.getFloat(bullet),0);assertEquals(4,gun("preved").ammo(s));
+    }
+
 }

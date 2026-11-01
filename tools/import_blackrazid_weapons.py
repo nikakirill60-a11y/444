@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Native ammunition and all 22 basic firearm profiles. Models/modules still pending."""
+"""Native ammunition and all 22 basic firearm profiles. Module runtime is separate; native meshes/animations still pending."""
 import json,re
 from import_content import ROOT,ASSETS,put,write_json
 S=ROOT/'tools/blackrazid-reference'
