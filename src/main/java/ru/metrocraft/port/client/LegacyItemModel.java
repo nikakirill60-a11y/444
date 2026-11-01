@@ -31,6 +31,9 @@ public final class LegacyItemModel implements IBakedModel {
     @Override public ItemOverrideList getOverrides() { return ItemOverrideList.NONE; }
     @Override
     public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType type) {
+        CONTEXT.set(type);
+        if (ToolActionPose.animated(id) && (type==ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND || type==ItemCameraTransforms.TransformType.THIRD_PERSON_RIGHT_HAND))
+            return Pair.of(this,ToolActionPose.thirdPerson(id,type==ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND));
         if (guiIcon && type == ItemCameraTransforms.TransformType.GUI) return icon.handlePerspective(type);
         if (gun) {CONTEXT.set(type);return Pair.of(this, GunRenderPoses.matrix(id, type));}
         Pair<? extends IBakedModel, Matrix4f> transform = icon.handlePerspective(type);

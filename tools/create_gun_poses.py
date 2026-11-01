@@ -42,7 +42,7 @@ def main():
             'grip': grips[name],
             'trigger': contacts[name][0],
             'support': contacts[name][1],
-            'firstPerson': {'translation':[-.20,.08,-.25], 'rotation':[0,100,0], 'scale':.8},
+            'firstPerson': {'translation':[-.20,.08,-.25] if name=='revolver' else [-.16,.015,-.34], 'rotation':[0,100,0], 'scale':.8 if name=='revolver' else .75},
             # HeldItemLayer already turns the arm -90 X / 180 Y. +X -> +Y here
             # makes the muzzle face forward after those parent transforms.
             'thirdPerson': {'translation':[0,.05,.10], 'rotation':[0,0,90], 'scale':.65},

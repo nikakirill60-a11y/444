@@ -19,7 +19,7 @@ import ru.metrocraft.port.mechanics.NoDrop;
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class NvgEquipment {
     private static final String KEY="MetroEquippedNvg",VISION="MetroNvgVisionOwned";
-    private static final java.util.Map<EntityPlayer,EquipmentInventory> INVENTORIES=new java.util.WeakHashMap<>();
+    private static final ru.metrocraft.port.util.WeakIdentityMap<EntityPlayer,EquipmentInventory> INVENTORIES=new ru.metrocraft.port.util.WeakIdentityMap<>();
     private NvgEquipment() {}
     public static boolean accepts(ItemStack stack) {
         return !stack.isEmpty() && stack.getItem() instanceof MetroArmor && ((MetroArmor)stack.getItem()).getDefinition().nightVision;
@@ -53,13 +53,10 @@ public final class NvgEquipment {
         changed(player,stack);
     }
     public static InventoryBasic inventory(EntityPlayer player) {
-        EquipmentInventory inventory=INVENTORIES.get(player);
-        if(inventory==null){
-            java.lang.ref.WeakReference<EntityPlayer> owner=new java.lang.ref.WeakReference<>(player);
-            inventory=new EquipmentInventory("metroport.nvg",get(player),NvgEquipment::accepts,stack->{EntityPlayer p=owner.get();if(p!=null)changed(p,stack);});
-            INVENTORIES.put(player,inventory);
-        }
-        return inventory;
+        return INVENTORIES.computeIfAbsent(player,key->{
+            java.lang.ref.WeakReference<EntityPlayer> owner=new java.lang.ref.WeakReference<>(key);
+            return new EquipmentInventory("metroport.nvg",get(key),NvgEquipment::accepts,stack->{EntityPlayer p=owner.get();if(p!=null)changed(p,stack);});
+        });
     }
 
     @SubscribeEvent public static void login(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent event) {set(event.player,get(event.player));}

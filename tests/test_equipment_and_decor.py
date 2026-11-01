@@ -40,7 +40,7 @@ class EquipmentAndDecorTests(unittest.TestCase):
 
     def test_nvg_has_persistence_tracking_migration_and_live_slot_backing(self):
         nvg=(JAVA/'inventory/NvgEquipment.java').read_text()
-        for marker in ['WeakHashMap','getCompoundTag(KEY).copy()','inventory.load(stack)','PlayerChangedDimensionEvent','PlayerRespawnEvent','PlayerLoggedInEvent','PlayerEvent.StartTracking','LivingDropsEvent','NoDrop.marked','keepInventory']:
+        for marker in ['WeakIdentityMap','getCompoundTag(KEY).copy()','inventory.load(stack)','PlayerChangedDimensionEvent','PlayerRespawnEvent','PlayerLoggedInEvent','PlayerEvent.StartTracking','LivingDropsEvent','NoDrop.marked','keepInventory']:
             self.assertIn(marker,nvg)
         container=(JAVA/'inventory/MetroContainer.java').read_text()
         self.assertIn('new Slot(nvg,0,140,18)',container);self.assertIn('NvgEquipment.accepts(stack)',container)

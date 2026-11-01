@@ -32,4 +32,18 @@ public class ToolActionPoseTest {
             assertEquals(contact[0],palm.x,1e-6);assertEquals(contact[1],palm.y,1e-6);assertEquals(contact[2],palm.z,1e-6);
         }
     }
+    private static javax.vecmath.Matrix4f effective(String id,boolean left){
+        javax.vecmath.Matrix4f m=ToolActionPose.thirdPerson(id,left);
+        if(left){javax.vecmath.Matrix4f f=new javax.vecmath.Matrix4f();f.setIdentity();f.m00=-1;m.mul(f,m);m.mul(f);}return m;
+    }
+    @Test public void thirdPersonMeshHandlesAreAtThePalmForBothHandsNotTheIconHandle(){
+        for(boolean left:new boolean[]{false,true})for(String id:new String[]{"mcmod_machete","mcmod_aptech"}){
+            Vector4f grip=id.equals("mcmod_aptech")?new Vector4f(0,-.13F,.025F,1):new Vector4f(0,0,0,1);
+            effective(id,left).transform(grip);assertEquals(0,grip.x,1e-6F);assertEquals(.05F,grip.y,1e-6F);assertEquals(.1F,grip.z,1e-6F);
+        }
+    }
+    @Test public void thirdPersonKitIsMoreThanTwiceTheOldGeneratedIconScale(){
+        Vector4f edge=new Vector4f(1,0,0,0);effective("mcmod_aptech",false).transform(edge);assertEquals(1.25F,edge.length(),1e-6F);assertTrue(edge.length()>.55F*2);
+    }
+
 }

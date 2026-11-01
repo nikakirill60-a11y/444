@@ -105,4 +105,14 @@ public class GunHandPoseTest {
         }
     }
 
+    @Test public void rifleElbowsFanOutToOppositeSidesInsteadOfCrossingTheStock(){
+        for(boolean slim:new boolean[]{false,true})for(boolean support:new boolean[]{false,true})for(boolean left:new boolean[]{false,true}){
+            float[] palm={.3F,.2F,-.175F};float center=(left?1:-1)*(slim?.5F:1);
+            Vector4f elbow=new Vector4f(center/16F,-2/16F,0,1);
+            GunHandPose.armMatrix("ak74",palm,left,support,slim).transform(elbow);
+            assertTrue(elbow.x<palm[0]-.2F);assertTrue(elbow.y<palm[1]-.2F);
+            assertTrue(left?elbow.z<palm[2]-.25F:elbow.z>palm[2]+.25F);
+        }
+    }
+
 }

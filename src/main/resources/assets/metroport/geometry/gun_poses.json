@@ -17,16 +17,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -86,16 +86,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -155,16 +155,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -224,16 +224,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -293,16 +293,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -362,16 +362,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -431,16 +431,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -500,16 +500,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -569,16 +569,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -638,16 +638,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -707,16 +707,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -845,16 +845,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -914,16 +914,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -983,16 +983,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [
@@ -1052,16 +1052,16 @@
     ],
     "firstPerson": {
       "translation": [
-        -0.2,
-        0.08,
-        -0.25
+        -0.16,
+        0.015,
+        -0.34
       ],
       "rotation": [
         0,
         100,
         0
       ],
-      "scale": 0.8
+      "scale": 0.75
     },
     "thirdPerson": {
       "translation": [

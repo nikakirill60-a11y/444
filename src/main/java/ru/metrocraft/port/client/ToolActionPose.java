@@ -15,6 +15,13 @@ public final class ToolActionPose {
         float p=unit(progress);
         return smooth(p/.25F)*(1-smooth((p-.72F)/.28F));
     }
+    /** Mesh grip, not the diagonal handle of the flat inventory icon. Forge mirrors left matrices. */
+    public static Matrix4f thirdPerson(String id,boolean left){
+        boolean medical="mcmod_aptech".equals(id);
+        return GunRenderPoses.compose(medical?new float[]{0,-.13F,.025F}:new float[]{0,0,0},
+                new float[]{0,.05F,.10F},medical?new float[]{0,0,0}:new float[]{0,90,0},
+                medical?1.25F:.72F,false,left);
+    }
     /** Palm contacts in tool/camera metres; exactly the matrix submitted to OpenGL. */
     public static Matrix4f armMatrix(float[] contact,boolean skinLeft,boolean slim,boolean support) {
         Matrix4f result=new Matrix4f(), step=new Matrix4f();
