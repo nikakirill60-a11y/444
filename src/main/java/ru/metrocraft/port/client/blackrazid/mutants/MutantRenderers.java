@@ -18,8 +18,8 @@ public final class MutantRenderers {
         RenderingRegistry.registerEntityRenderingHandler(type,manager->new RenderLiving<T>(manager,model,0){
             @Override protected ResourceLocation getEntityTexture(T e){return atlas;}
             @Override public void doRender(T e,double x,double y,double z,float yaw,float partial){
-                GL11.glPushAttrib(GL11.GL_LIGHTING_BIT|GL11.GL_ENABLE_BIT|GL11.GL_POLYGON_BIT|GL11.GL_CURRENT_BIT);
-                try{super.doRender(e,x,y,z,yaw,partial);}finally{GL11.glPopAttrib();}
+                int shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);
+                try{super.doRender(e,x,y,z,yaw,partial);}finally{GL11.glShadeModel(shade);}
             }
         });
     }
@@ -29,11 +29,11 @@ public final class MutantRenderers {
             @Override protected ResourceLocation getEntityTexture(T e){return atlas;}
             @Override public void doRender(T e,double x,double y,double z,float yaw,float partial){
                 bindEntityTexture(e);net.minecraft.client.renderer.GlStateManager.pushMatrix();
-                GL11.glPushAttrib(GL11.GL_LIGHTING_BIT|GL11.GL_ENABLE_BIT|GL11.GL_POLYGON_BIT|GL11.GL_CURRENT_BIT);
+                int shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);
                 try{net.minecraft.client.renderer.GlStateManager.translate(x,y,z);net.minecraft.client.renderer.GlStateManager.rotate(180-yaw,0,1,0);
                     net.minecraft.client.renderer.GlStateManager.scale(-1,-1,1);net.minecraft.client.renderer.GlStateManager.translate(0,-1.5,0);
                     model.render(e,0,0,e.ticksExisted+partial,0,0,.0625F);
-                }finally{GL11.glPopAttrib();net.minecraft.client.renderer.GlStateManager.popMatrix();}
+                }finally{GL11.glShadeModel(shade);net.minecraft.client.renderer.GlStateManager.popMatrix();}
             }
         });
     }
