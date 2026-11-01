@@ -446,6 +446,8 @@
     "assets/metroport/models/blackrazid/rails/**",
     "assets/metroport/models/blackrazid/tunnels/**",
     "assets/metroport/models/blackrazid/weapons/**",
+    "assets/metroport/models/block/blackrazid_faction_teleport.json",
+    "assets/metroport/models/block/blackrazid_rail_hidden.json",
     "assets/metroport/models/block/exodus/acacia_stairs.json",
     "assets/metroport/models/block/exodus/carpet_blue.json",
     "assets/metroport/models/block/exodus/carpet_green.json",

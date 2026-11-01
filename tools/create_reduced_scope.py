@@ -18,6 +18,7 @@ def report():
  removed.update(e['id'] for e in read('mcmod_support.json') if e['kind']=='ammo')
  removed.update(e['id'] for e in read('exodus.json') if e['kind']=='decor' or e['id'] in ['exodus_gasmask_gold','exodus_gasmask_diamond'])
  exclude=set(geometry)
+ exclude.update("assets/metroport/models/block/"+name+".json" for name in ["blackrazid_faction_teleport","blackrazid_rail_hidden"])
  for id in removed:
   exclude.update('assets/metroport/'+p+id+'.json' for p in ['models/item/','blockstates/'])
  for e in read('exodus.json'):
