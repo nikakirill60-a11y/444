@@ -205,34 +205,6 @@
  *  mods.provoda.items.WeaponParts
  *  mods.provoda.items.Zheton
  *  mods.provoda.items.armor.gasmask.Filter
- *  mods.provoda.items.att.AbzacGlushak
- *  mods.provoda.items.att.AshotButt
- *  mods.provoda.items.att.AutoFire
- *  mods.provoda.items.att.Barrel
- *  mods.provoda.items.att.Butt
- *  mods.provoda.items.att.DupletBarrel
- *  mods.provoda.items.att.DupletButt
- *  mods.provoda.items.att.DupletGlushak
- *  mods.provoda.items.att.DupletPriklad
- *  mods.provoda.items.att.GatlingBarrel
- *  mods.provoda.items.att.GatlingButt
- *  mods.provoda.items.att.GatlingGiro
- *  mods.provoda.items.att.GatlingMotor
- *  mods.provoda.items.att.Glushak
- *  mods.provoda.items.att.Kolimator
- *  mods.provoda.items.att.Laser
- *  mods.provoda.items.att.Optica
- *  mods.provoda.items.att.OpticaSmall
- *  mods.provoda.items.att.PodonokButt
- *  mods.provoda.items.att.PodonokGas
- *  mods.provoda.items.att.QuadBarrel
- *  mods.provoda.items.att.RailgunAkk
- *  mods.provoda.items.att.RailgunKon
- *  mods.provoda.items.att.TiharOptica
- *  mods.provoda.items.att.UbludokButt
- *  mods.provoda.items.att.UboinikBarrel
- *  mods.provoda.items.att.VentilGlushak
- *  mods.provoda.items.att.VsvGlushak
  *  mods.provoda.model_blocks.BlockDivan
  *  mods.provoda.model_blocks.BlockGermo
  *  mods.provoda.model_blocks.BlockGermo1

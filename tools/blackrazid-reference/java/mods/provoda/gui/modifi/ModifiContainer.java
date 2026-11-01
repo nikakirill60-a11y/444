@@ -4,9 +4,6 @@
  * Could not load the following classes:
  *  lt
  *  mods.provoda.gui.backpack.SlotCustom
- *  mods.provoda.gui.guns.railgun.OpticaSlot
- *  mods.provoda.gui.guns.revolver.BarrelSlot
- *  mods.provoda.gui.guns.revolver.ButtSlot
  *  so
  *  sq
  *  tj
@@ -33,12 +30,12 @@ extends tj {
         if (var1.bK.h() != null) {
             if (var1.bK.h().b() == ModBase.Rpk) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                 }
             } else if (var1.bK.h().b() == ModBase.Saiga) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 35, 1));
                 }
@@ -50,111 +47,111 @@ extends tj {
                 }
             } else if (var1.bK.h().b() == ModBase.Uboinik) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
-                    this.a((ul)new BarrelSlot(this.inventory, j + 2, 53, 1));
+                    this.a(new BarrelSlot(this.inventory, j + 2, 53, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Ventil) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 53, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Vsv) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 53, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Vyhlop) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                 }
             } else if (var1.bK.h().b() == ModBase.Ashot) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 35, 1));
-                    this.a((ul)new ButtSlot(this.inventory, j + 3, 140, 72));
+                    this.a(new ButtSlot(this.inventory, j + 3, 140, 72));
                 }
             } else if (var1.bK.h().b() == ModBase.Ubludok) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 53, 1));
-                    this.a((ul)new ButtSlot(this.inventory, j + 3, 140, 72));
+                    this.a(new ButtSlot(this.inventory, j + 3, 140, 72));
                 }
             } else if (var1.bK.h().b() == ModBase.AK2012) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 35, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.AK) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 35, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.AKSU) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                 }
             } else if (var1.bK.h().b() == ModBase.Duplet) {
                 for (int j = 0; j < 1; ++j) {
                     this.a(new LaserSlot(this.inventory, j, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 1, 35, 1));
-                    this.a((ul)new ButtSlot(this.inventory, j + 2, 137, 1));
-                    this.a((ul)new ButtSlot(this.inventory, j + 3, 156, 1));
+                    this.a(new ButtSlot(this.inventory, j + 2, 137, 1));
+                    this.a(new ButtSlot(this.inventory, j + 3, 156, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Gatling) {
                 for (int j = 0; j < 1; ++j) {
                     this.a(new GlushakSlot(this.inventory, j, 8, 49));
-                    this.a((ul)new ButtSlot(this.inventory, j + 1, 130, 64));
+                    this.a(new ButtSlot(this.inventory, j + 1, 130, 64));
                     this.a(new ModifiSlot(this.inventory, j + 2, 152, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Helsing) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                 }
             } else if (var1.bK.h().b() == ModBase.Tihar) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                 }
             } else if (var1.bK.h().b() == ModBase.Podonok) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 35, 1));
-                    this.a((ul)new ButtSlot(this.inventory, j + 3, 140, 75));
+                    this.a(new ButtSlot(this.inventory, j + 3, 140, 75));
                     this.a(new ModifiSlot(this.inventory, j + 4, 90, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Preved) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 35, 1));
                 }
             } else if (var1.bK.h().b() == ModBase.Railgun) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new ModifiSlot(this.inventory, j + 2, 104, 49));
                 }
             } else if (var1.bK.h().b() == ModBase.Revolver) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 140, 1));
+                    this.a(new OpticaSlot(this.inventory, j, 140, 1));
                     this.a(new LaserSlot(this.inventory, j + 1, 8, 49));
                     this.a(new GlushakSlot(this.inventory, j + 2, 78, 1));
-                    this.a((ul)new ButtSlot(this.inventory, j + 3, 140, 72));
+                    this.a(new ButtSlot(this.inventory, j + 3, 140, 72));
                 }
             } else if (var1.bK.h().b() == ModBase.AKK) {
                 for (int j = 0; j < 1; ++j) {
-                    this.a((ul)new OpticaSlot(this.inventory, j, 99, 10));
+                    this.a(new OpticaSlot(this.inventory, j, 99, 10));
                     this.a(new LaserSlot(this.inventory, j + 1, 59, 40));
                     this.a(new GlushakSlot(this.inventory, j + 2, 7, 25));
                 }

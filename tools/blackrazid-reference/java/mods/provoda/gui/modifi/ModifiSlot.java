@@ -3,12 +3,6 @@
  * 
  * Could not load the following classes:
  *  lt
- *  mods.provoda.items.att.AutoFire
- *  mods.provoda.items.att.GatlingGiro
- *  mods.provoda.items.att.GatlingMotor
- *  mods.provoda.items.att.PodonokGas
- *  mods.provoda.items.att.RailgunAkk
- *  mods.provoda.items.att.RailgunKon
  *  ul
  *  wk
  *  wm

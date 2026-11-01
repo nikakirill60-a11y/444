@@ -3,7 +3,6 @@
  * 
  * Could not load the following classes:
  *  lt
- *  mods.provoda.items.att.Laser
  *  ul
  *  wk
  *  wm

@@ -3,16 +3,6 @@
  * 
  * Could not load the following classes:
  *  lt
- *  mods.provoda.items.att.AbzacGlushak
- *  mods.provoda.items.att.Barrel
- *  mods.provoda.items.att.DupletBarrel
- *  mods.provoda.items.att.DupletGlushak
- *  mods.provoda.items.att.GatlingBarrel
- *  mods.provoda.items.att.Glushak
- *  mods.provoda.items.att.QuadBarrel
- *  mods.provoda.items.att.UboinikBarrel
- *  mods.provoda.items.att.VentilGlushak
- *  mods.provoda.items.att.VsvGlushak
  *  ul
  *  wk
  *  wm
