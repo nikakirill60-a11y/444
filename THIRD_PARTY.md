@@ -40,3 +40,16 @@ is newly rasterized from its original geometry/atlas, not an additional recovere
 Native 1.12 equipment, storage GUI, validation and networking are port implementations.
 No license granting public/commercial redistribution was supplied; original authorship
 and rights remain unchanged. User provision is not a license grant. See docs/BLACKRAZID.md.
+
+
+### BlackRazid selected expansion — development, not a complete port
+
+74 additional user-supplied originals are recorded with Drive IDs, lengths and SHA-256 in
+`tools/blackrazid-reference/expansion-source-files.json`: behavior bytecode plus four icons and two OGG files.
+Recovered Java under `tools/blackrazid-reference/java` is reference material, not compiled/packaged runtime code.
+ExtendetPlayer and PacketHandler are **audit only**; their general player data, air, faction/event/command implementation is excluded.
+Five new development items reuse the original flashlight/flask/power/grenade icons and flask/charging sounds.
+Thirst, charging, projectiles and networking are safe 1.12.2 adaptations, described explicitly in `docs/BLACKRAZID_EXPANSION.md`.
+Client lighting is a new adaptation because the recovered lamp event body is empty.
+22 firearms, transport, 12 mutants/spawners and environment are not claimed as completed by merely recovering their sources.
+Original rights/permissions remain as described above; user-provided files are not a grant of redistribution rights.
