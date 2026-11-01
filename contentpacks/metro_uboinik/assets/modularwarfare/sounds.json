@@ -1,0 +1,23 @@
+{
+  "metro_uboinik_load": {
+    "sounds": [
+      {
+        "name": "modularwarfare:metro_uboinik_load"
+      }
+    ]
+  },
+  "metro_uboinik_bolt": {
+    "sounds": [
+      {
+        "name": "modularwarfare:metro_uboinik_bolt"
+      }
+    ]
+  },
+  "metro_uboinik_fire": {
+    "sounds": [
+      {
+        "name": "modularwarfare:metro_uboinik_fire"
+      }
+    ]
+  }
+}

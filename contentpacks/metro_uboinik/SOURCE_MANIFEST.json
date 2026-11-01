@@ -1,0 +1,130 @@
+{
+  "sourceCommit": "d335c8ed152bd16ac7f699f33e1c6f1073800dd9",
+  "sourceFolder": "Убойник",
+  "targetJar": "modularwarfare-shining-2024.2.4.6f-fix1.jar",
+  "targetSha256": "f91a5419cbc9e3cbd18f831e37c17aa2833d577142d324fed1ca14846ce95183",
+  "sourceFiles": [
+    {
+      "path": "Убойник/Uboinik tex.png",
+      "bytes": 1022480,
+      "sha256": "3aa5ec583892f84d26bdf4fdae0b85112df137241ac4b000bfa1102238cd3867"
+    },
+    {
+      "path": "Убойник/barrel_uboinik.mtl",
+      "bytes": 256,
+      "sha256": "7cc521c2c7c53dd8836654ada9842539252131e91d38fe77358da81a22aa1e3f"
+    },
+    {
+      "path": "Убойник/barrel_uboinik.obj",
+      "bytes": 27995,
+      "sha256": "9094bb8207a3e4e4f828784cf8ce17aae7083ef7d0b29d5bf65f256e76660ac5"
+    },
+    {
+      "path": "Убойник/colimator.mtl",
+      "bytes": 251,
+      "sha256": "a7328a2ad0c06edbe3bd841883a17e1f08cdbe6073a1655cc0c6c8438c4808e5"
+    },
+    {
+      "path": "Убойник/colimator.obj",
+      "bytes": 41317,
+      "sha256": "715244548a438c208e77df561cbb125f22669b0a5c0590f7813ee90924cdf21b"
+    },
+    {
+      "path": "Убойник/laser_uboinik.mtl",
+      "bytes": 251,
+      "sha256": "73e2470a9894f578403a6787f6c8b6d398111fcd12fa83a88c809f565beb1cab"
+    },
+    {
+      "path": "Убойник/laser_uboinik.obj",
+      "bytes": 345958,
+      "sha256": "78430a5ff6ba30690930f7f606eedbb504636da7a3dc6e2123c44608e27b4c55"
+    },
+    {
+      "path": "Убойник/shell (2).png",
+      "bytes": 276678,
+      "sha256": "8167d532150e1e1c8affcc1d2c071e1819e5e818e959b4820a2a41ff615bbc1a"
+    },
+    {
+      "path": "Убойник/texture.png",
+      "bytes": 2005610,
+      "sha256": "f525bf935d68cafd219ce8a43f7926887e148ed0378ef6ba2ef81002a9450b76"
+    },
+    {
+      "path": "Убойник/texture_p.png",
+      "bytes": 1176199,
+      "sha256": "f30ca3146ab018d03c6b8bf714755b04862508cbe830d9051b593fe6481eb904"
+    },
+    {
+      "path": "Убойник/texturec.png",
+      "bytes": 1450831,
+      "sha256": "1802f19e3b51d244218ffd36d9e5a5503b034023d6bb638b35ba14198463c3b2"
+    },
+    {
+      "path": "Убойник/texturen.png",
+      "bytes": 130914,
+      "sha256": "6065d1b8e6b6a003eff3f2cbced71d5797d04b80c80e250da83b6fb135d47f29"
+    },
+    {
+      "path": "Убойник/textures.png",
+      "bytes": 435724,
+      "sha256": "097a06f0b7ecba6f8f74b20492236378d532a51e5f6d00c3a663b56471b7c415"
+    },
+    {
+      "path": "Убойник/uboinik.mtl",
+      "bytes": 438,
+      "sha256": "21e790650902d2197dac3d554aec7f0a922e79f96d216a8535ec57a80e7079cd"
+    },
+    {
+      "path": "Убойник/uboinik.obj",
+      "bytes": 552396,
+      "sha256": "8de5423c1a8f7875d360ebef1f8c84481f512ef023c31c6df5f2f4e8aba0a3b4"
+    },
+    {
+      "path": "Убойник/Выстрел.ogg",
+      "bytes": 25881,
+      "sha256": "b52826bca5b8fd072ec96a9b6660d2f26bdae9649e4a1117ed96bd1b3f696bf6"
+    },
+    {
+      "path": "Убойник/Затвор.ogg",
+      "bytes": 9741,
+      "sha256": "0fd7149f81b8193f4e4f12b076b69e6db8c517b681d35783f8791cb88d212eb9"
+    },
+    {
+      "path": "Убойник/Перезарядка.ogg",
+      "bytes": 6981,
+      "sha256": "ea06b61434cd450280a7561ab6fc0316fc53e12848cd6c1496fa8204594ff639"
+    }
+  ],
+  "conversion": {
+    "unitScale": 0.04,
+    "bodyTexture": "Uboinik tex.png",
+    "roundTexture": "shell (2).png",
+    "atlasSize": [
+      2048,
+      1024
+    ],
+    "attachmentTextures": {
+      "metro_uboinik_suppressor": "texture.png",
+      "metro_uboinik_collimator": "texturec.png",
+      "metro_uboinik_laser": "texturen.png"
+    },
+    "triangles": {
+      "flashModel": 2,
+      "gunModel": 5795,
+      "bulletModel_5": 176,
+      "bulletModel_0": 176,
+      "bulletModel_1": 176,
+      "bulletModel_2": 176,
+      "bulletModel_3": 176,
+      "bulletModel_4": 176
+    },
+    "animations": "Adapted root-motion timeline; no original animation data was provided.",
+    "balance": "Adapted values, not recovered original gun stats."
+  },
+  "packRevision": 2,
+  "poseSource": {
+    "path": "tools/uboinik-reference/render.ubo.json",
+    "sha256": "f8ce8fdd31df86b3d80a2936677adc8f95b7bcbcab71e4ee7527ad6ffcf033a8",
+    "conversion": "BASIC camera/weapon/arm transforms converted to Enhanced; reload arm poses interpolated from supplied configuration."
+  }
+}

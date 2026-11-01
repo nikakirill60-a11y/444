@@ -1,0 +1,19 @@
+{
+  "internalName": "metro_12g_buckshot",
+  "displayName": "Дробовой патрон 12 калибра",
+  "maxStackSize": 64,
+  "modelSkins": [
+    {
+      "internalName": "metro_12g_buckshot",
+      "skinAsset": "metro_12g_buckshot"
+    }
+  ],
+  "bulletDamageFactor": 1,
+  "bulletAccuracyFactor": 1,
+  "isSlug": false,
+  "renderBulletModel": false,
+  "isDynamicBullet": false,
+  "isExplosion": false,
+  "damageWorld": false,
+  "shellModelFileName": "metro_12g_shell.obj"
+}

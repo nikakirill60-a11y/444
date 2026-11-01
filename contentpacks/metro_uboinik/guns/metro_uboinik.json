@@ -1,0 +1,142 @@
+{
+  "internalName": "metro_uboinik",
+  "displayName": "Убойник",
+  "maxStackSize": 1,
+  "weaponType": "shotgun",
+  "animationType": "enhanced",
+  "modelSkins": [
+    {
+      "internalName": "metro_uboinik",
+      "skinAsset": "metro_uboinik",
+      "displayName": "Оригинал"
+    }
+  ],
+  "gunDamage": 3,
+  "numBullets": 8,
+  "bulletSpread": 2.5,
+  "roundsPerMin": 120,
+  "fireModes": [
+    "semi"
+  ],
+  "weaponMaxRange": 80,
+  "weaponEffectiveRange": 25,
+  "gunDamageHeadshotBonus": 0,
+  "gunHoldLength": 1.0,
+  "acceptedBullets": [
+    "metro_12g_buckshot"
+  ],
+  "internalAmmoStorage": 6,
+  "defaultBullet": "metro_12g_buckshot",
+  "reloadTime": 100,
+  "recoilPitch": 4,
+  "recoilYaw": 1,
+  "randomRecoilPitch": 0.5,
+  "randomRecoilYaw": 0.5,
+  "restrictingFireAnimation": true,
+  "firingReload": false,
+  "allowReloadFiring": false,
+  "allowReloadingSprint": false,
+  "acceptedAttachments": {
+    "barrel": [
+      "metro_uboinik_suppressor"
+    ],
+    "sight": [
+      "metro_uboinik_collimator"
+    ],
+    "laser": [
+      "metro_uboinik_laser"
+    ]
+  },
+  "weaponSoundMap": {
+    "weaponReload": [
+      {
+        "soundEvent": "weaponReload",
+        "soundName": "metro_uboinik_load",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponReloadEmpty": [
+      {
+        "soundEvent": "weaponReloadEmpty",
+        "soundName": "metro_uboinik_load",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponReloadSecond": [
+      {
+        "soundEvent": "weaponReloadSecond",
+        "soundName": "metro_uboinik_load",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponPostReload": [
+      {
+        "soundEvent": "weaponPostReload",
+        "soundName": "metro_uboinik_bolt",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponPostReloadEmpty": [
+      {
+        "soundEvent": "weaponPostReloadEmpty",
+        "soundName": "metro_uboinik_bolt",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponFire": [
+      {
+        "soundEvent": "weaponFire",
+        "soundName": "metro_uboinik_fire",
+        "soundRange": 64,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponFireSuppressed": [
+      {
+        "soundEvent": "weaponFireSuppressed",
+        "soundName": "metro_uboinik_fire",
+        "soundRange": 64,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponLoad": [
+      {
+        "soundEvent": "weaponLoad",
+        "soundName": "metro_uboinik_load",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponUnload": [
+      {
+        "soundEvent": "weaponUnload",
+        "soundName": "metro_uboinik_load",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponPostLoad": [
+      {
+        "soundEvent": "weaponPostLoad",
+        "soundName": "metro_uboinik_bolt",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ],
+    "weaponPostUnload": [
+      {
+        "soundEvent": "weaponPostUnload",
+        "soundName": "metro_uboinik_bolt",
+        "soundRange": 12,
+        "soundRandomPitch": 0
+      }
+    ]
+  },
+  "allowDefaultSounds": true,
+  "dropBulletCasing": false
+}

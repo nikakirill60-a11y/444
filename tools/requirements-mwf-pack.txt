@@ -1,0 +1,4 @@
+Pillow>=10,<14
+numpy>=1.26,<3
+# Optional: actual closed-JAR glTF reader check, also requires a Java runtime.
+JPype1>=1.5,<2

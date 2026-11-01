@@ -1,0 +1,20 @@
+{
+  "internalName": "metro_uboinik_suppressor",
+  "displayName": "Глушитель Убойника",
+  "attachmentType": "barrel",
+  "maxStackSize": 1,
+  "sameTextureAsGun": false,
+  "modelSkins": [
+    {
+      "internalName": "metro_uboinik_suppressor",
+      "skinAsset": "metro_uboinik_suppressor"
+    }
+  ],
+  "barrel": {
+    "isSuppressor": true,
+    "hideFlash": true,
+    "recoilPitchFactor": 0.9,
+    "recoilYawFactor": 1,
+    "accuracyFactor": 1
+  }
+}

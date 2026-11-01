@@ -1,0 +1,202 @@
+{
+  "modelFileName": "",
+  "arms": {
+    "leftHandAmmo": true,
+    "actionArm": "Left",
+    "leftArm": {
+      "armScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "armPos": {
+        "x": 0.0,
+        "y": -1.0,
+        "z": 0.22
+      },
+      "armRot": {
+        "x": 65.0,
+        "y": 32.0,
+        "z": -46.0
+      },
+      "armReloadPos": {
+        "x": -0.35,
+        "y": -1.0,
+        "z": 0.1
+      },
+      "armReloadRot": {
+        "x": 35.0,
+        "y": 0.0,
+        "z": -25.0
+      }
+    },
+    "rightArm": {
+      "armScale": {
+        "x": 0.7,
+        "y": 1.0,
+        "z": 0.7
+      },
+      "armPos": {
+        "x": 0.21,
+        "y": -0.66,
+        "z": -0.077
+      },
+      "armRot": {
+        "x": 90.0,
+        "y": 0.0,
+        "z": -93.0
+      },
+      "armReloadPos": {
+        "x": 0.21,
+        "y": -0.71,
+        "z": 0.0
+      },
+      "armReloadRot": {
+        "x": 90.0,
+        "y": 0.0,
+        "z": -90.0
+      },
+      "armChargePos": {
+        "x": 0.47,
+        "y": -0.39,
+        "z": 0.14
+      },
+      "armChargeRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -90.0
+      }
+    }
+  },
+  "sprint": {
+    "sprintRotate": {
+      "x": -20.0,
+      "y": 30.0,
+      "z": -0.0
+    },
+    "sprintTranslate": {
+      "x": 0.5,
+      "y": -0.15,
+      "z": -0.55
+    }
+  },
+  "thirdPerson": {
+    "thirdPersonOffset": {
+      "x": -0.01,
+      "y": -0.07,
+      "z": 0.07
+    },
+    "backPersonOffset": {
+      "x": 0.0,
+      "y": 0.1,
+      "z": 0.0
+    },
+    "thirdPersonScale": 0.75
+  },
+  "aim": {
+    "rotateHipPosition": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "translateHipPosition": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "rotateAimPosition": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "translateAimPosition": {
+      "x": 0.15,
+      "y": -0.025,
+      "z": 0.0
+    }
+  },
+  "bolt": {
+    "boltRotation": 0.0,
+    "boltRotationPoint": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "pumpHandleDistance": 0.1
+  },
+  "attachments": {
+    "attachmentPointMap": {},
+    "attachmentModeRotate": {
+      "x": 10.0,
+      "y": 30.0,
+      "z": 0.0
+    },
+    "scopeIsOnSlide": false
+  },
+  "maps": {
+    "ammoMap": {
+      "offset": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "bulletMap": {
+      "offset": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  },
+  "itemFrame": {
+    "translate": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "extra": {
+    "translateAll": {
+      "x": 0.7,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "modelScale": 1.5,
+    "reloadAnimation": "shotgun",
+    "needExtraChargeModel": false,
+    "chargeHandleDistance": 0.0,
+    "gunOffsetScoping": 0.0,
+    "crouchZoom": -0.035,
+    "adsSpeed": 0.1,
+    "gunSlideDistance": 0.05,
+    "chargeModifier": {
+      "x": 0.1,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "modelRecoilBackwards": 0.15,
+    "modelRecoilUpwards": 1.0,
+    "modelRecoilShake": 0.05
+  }
+}

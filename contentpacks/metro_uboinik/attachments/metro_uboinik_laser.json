@@ -1,0 +1,13 @@
+{
+  "internalName": "metro_uboinik_laser",
+  "displayName": "ЛЦУ Убойника",
+  "attachmentType": "laser",
+  "maxStackSize": 1,
+  "sameTextureAsGun": false,
+  "modelSkins": [
+    {
+      "internalName": "metro_uboinik_laser",
+      "skinAsset": "metro_uboinik_laser"
+    }
+  ]
+}

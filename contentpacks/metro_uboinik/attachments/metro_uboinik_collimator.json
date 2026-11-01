@@ -1,0 +1,16 @@
+{
+  "internalName": "metro_uboinik_collimator",
+  "displayName": "Коллиматор Убойника",
+  "attachmentType": "sight",
+  "maxStackSize": 1,
+  "sameTextureAsGun": false,
+  "modelSkins": [
+    {
+      "internalName": "metro_uboinik_collimator",
+      "skinAsset": "metro_uboinik_collimator"
+    }
+  ],
+  "sight": {
+    "modeType": "simple"
+  }
+}

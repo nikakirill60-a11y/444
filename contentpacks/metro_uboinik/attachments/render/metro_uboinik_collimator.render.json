@@ -1,0 +1,19 @@
+{
+  "modelFileName": "metro_uboinik_collimator.obj",
+  "extra": {
+    "modelScale": 1
+  },
+  "sight": {
+    "fovZoom": 1.15
+  },
+  "laser": {
+    "laserColor": [
+      1,
+      0,
+      0
+    ],
+    "laserAlpha": 1,
+    "maxDistance": 64,
+    "dotSize": 1.5
+  }
+}
