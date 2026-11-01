@@ -2,6 +2,7 @@ import gzip,hashlib,json,math,re,subprocess,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tools'))
 from import_blackrazid_weapon_models import catalog
+from audit_blackrazid_weapon_meshes import report
 S=ROOT/'tools/blackrazid-reference';A=ROOT/'src/main/resources/assets/metroport'
 class NativeWeaponModelTests(unittest.TestCase):
     def test_all_originals_are_verified_and_class_paths_match_actual_packages(self):
@@ -13,6 +14,7 @@ class NativeWeaponModelTests(unittest.TestCase):
     def test_all22_original_gun_renderers_are_recovered_but_not_misreported_as_runtime_meshes(self):
         rows=list((S/'java/mods/provoda/guns/renderers').glob('Render_*.java'));self.assertEqual(22,len(rows))
         self.assertTrue(all('GLModel' in p.read_text() for p in rows))
+        audit=report();self.assertEqual(audit,json.loads((ROOT/'docs/blackrazid-weapon-mesh-gaps.json').read_text()));self.assertEqual(['Gatling'],[w['sourceId'] for w in audit['weapons'] if w['completeObjAssets']]);self.assertEqual(len(audit['missingUniqueObj']),len(set(audit['missingUniqueObj'])))
     def test_all22_bundled_meshes_decompress_to_exact_original_bytes(self):
         meshes=json.loads((A/'blackrazid_weapon_meshes.json').read_text());self.assertEqual(22,len(meshes))
         self.assertEqual(15,sum(k.startswith('gatling/') for k in meshes))

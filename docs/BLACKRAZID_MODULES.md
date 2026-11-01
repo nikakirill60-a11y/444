@@ -80,3 +80,15 @@ QuadBarrel нельзя снять при трёх/четырёх оставши
 Проверенный runtime **465b754**: [SUCCESS 41339488218](https://github.com/nikakirill60-a11y/444/actions/runs/41339488218),
 **143 Python / 339 JUnit, 0 failures/errors/skipped**, Java 8 / Forge 2860 / build/reobfJar.
 [ZIP dev.9](https://github.com/nikakirill60-a11y/444/actions/runs/41339488218/artifacts/13096752446).
+
+
+## Обновление dev.11: исходные 3D-модели
+
+В руках/на земле показываются семь модулей, которым исходный ClientProxy назначает 3D-рендерер:
+Barrel, Butt, Kolimator, Laser, Optica, OpticaSmall, UbludokButt. Их GUI-иконки не заменены.
+Это **отдельные предметы**, а не готовая установка этих семи мешей внутри всех 22 стволов.
+У Gatling подключены родные 3/5 стволов, приклад, два основания и гироскоп; остальные 21 оружейная сборка ещё не готовы.
+Серверные гнёзда/расход/возврат исходных деталей dev.9 сохранены.
+Подробности и адаптации: [BLACKRAZID_WEAPON_MODELS.md](BLACKRAZID_WEAPON_MODELS.md).
+[Проверенный ZIP dev.11](https://github.com/nikakirill60-a11y/444/actions/runs/41342347194/artifacts/13098385774):
+**160 Python / 354 JUnit**, Java 8 / Forge / reobfuscation. Игровая визуальная приёмка пока не выполнена.

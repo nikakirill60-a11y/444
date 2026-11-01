@@ -84,3 +84,15 @@ Dev.10 uses all 19 registered tunnel profiles. Recovered class files are never b
 the six misleadingly named furniture helpers are not activated as tunnel generators.
 See `docs/BLACKRAZID_TUNNELS.md` and `docs/blackrazid-generator-audit.json` for exact behavior/provenance.
 Original rights and redistribution caveats above remain unchanged.
+
+
+Native BlackRazid weapon/attachment renderer references and assets are recorded in
+`tools/blackrazid-reference/weapons-model-source-files.json`: 91 user-supplied originals with Drive IDs,
+byte sizes and SHA-256 (22 gun renderer classes, seven standalone attachment renderer classes,
+22 OBJ/MTL pairs and 18 PNGs). Runtime OBJ GZIP files decompress byte-for-byte to their respective source files.
+No original executable class is compiled into or bundled with the mod.
+Dev.11 implements the native multipart Gatling and its equipment branches, plus the seven registered
+standalone 3D attachment items. Other weapons' mesh/animation ports remain pending; the complete recovered
+renderer OBJ dependency inventory is in `docs/blackrazid-weapon-mesh-gaps.json`.
+Camera fitting and bounded tick-driven animations are explicit adaptations, not claims of exact migration
+of the legacy frame-dependent animation code. Original authorship and redistribution caveats remain unchanged.

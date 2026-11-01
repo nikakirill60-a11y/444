@@ -1,0 +1,1685 @@
+{
+  "status": "SOURCE INVENTORY, NOT A CLAIM OF COMPLETE RUNTIME",
+  "weapons": [
+    {
+      "sourceId": "Ubludok",
+      "renderer": "guns/renderers/Render_Ubludok.java",
+      "models": [
+        {
+          "field": "model",
+          "path": "ubludok/ubludok.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "Mag",
+          "path": "ubludok/Mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "bullet",
+          "path": "ubludok/Bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "glushak",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt1",
+          "path": "ubludok/butt1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt2",
+          "path": "ubludok/butt2.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "gilza",
+          "path": "ubludok/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "AK2012",
+      "renderer": "guns/renderers/Render_AK2012.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "2012/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "2012/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model",
+          "path": "2012/2012.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "2012/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "glushak",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "AK",
+      "renderer": "guns/renderers/Render_AK.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "ak/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "ak/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model",
+          "path": "ak/ak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "ak/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "magbig",
+          "path": "rpk/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "zatvor",
+          "path": "ak/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "krep",
+          "path": "rpk/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "AKSU",
+      "renderer": "guns/renderers/Render_AKSU.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "ak/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "ak/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model",
+          "path": "aksu/aksu.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "ak/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "magbig",
+          "path": "rpk/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "zatvor",
+          "path": "ak/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "krep",
+          "path": "rpk/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Ashot",
+      "renderer": "guns/renderers/Render_Ashot.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "ashot/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model",
+          "path": "ashot/ashot.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model1",
+          "path": "ashot/ashot1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt",
+          "path": "ashot/butt.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt1",
+          "path": "ashot/butt1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "privot",
+          "path": "ashot/privot.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "barrel",
+          "path": "uboinik/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "ashot/kolimator.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "zatvor",
+          "path": "ashot/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Duplet",
+      "renderer": "guns/renderers/Render_Duplet.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "ashot/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model",
+          "path": "duplet/duplet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "model1",
+          "path": "duplet/duplet1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt1",
+          "path": "duplet/duplet_butt1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt2",
+          "path": "duplet/duplet_butt2.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "priklad",
+          "path": "duplet/duplet_priklad.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "quadbarrel",
+          "path": "duplet/quadbarrel.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "klema",
+          "path": "duplet/klema.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "duplet/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "barrel",
+          "path": "duplet/duplet_barrel.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Gatling",
+      "renderer": "guns/renderers/Render_Gatling.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "gatling/bullet.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "gilza",
+          "path": "gatling/gilza.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "gatling",
+          "path": "gatling/gatling.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "mag",
+          "path": "gatling/mag.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "stvol",
+          "path": "gatling/stvol.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "stvol5",
+          "path": "gatling/stvol5.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "zvezda",
+          "path": "gatling/zvezda.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "base3",
+          "path": "gatling/base3.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "base5",
+          "path": "gatling/base5.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "air",
+          "path": "gatling/air.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "giro",
+          "path": "gatling/giro.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "giro_wheel",
+          "path": "gatling/giro_wheel.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "pruj",
+          "path": "gatling/pruj.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "prujmeh",
+          "path": "gatling/prujmeh.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "butt",
+          "path": "gatling/butt.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        }
+      ],
+      "completeObjAssets": true,
+      "runtime": "multipart Gatling/equipment implemented; complete original animations and visual acceptance pending"
+    },
+    {
+      "sourceId": "Helsing",
+      "renderer": "guns/renderers/Render_Helsing.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "helsing/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "helsing",
+          "path": "helsing/helsing.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "air",
+          "path": "helsing/air.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "helsing/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "dav",
+          "path": "helsing/dav.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Tihar",
+      "renderer": "guns/renderers/Render_Tihar.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "tihar/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "helsing",
+          "path": "tihar/tihar.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "air",
+          "path": "tihar/air.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "air2",
+          "path": "tihar/air2.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "tihar/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "strelka",
+          "path": "tihar/strelka.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "tihar/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "tihar/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Podonok",
+      "renderer": "guns/renderers/Render_Podonok.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "podonok/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "podonok",
+          "path": "podonok/podonok.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "podonok/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "podonok/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt",
+          "path": "podonok/butt.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt1",
+          "path": "podonok/butt1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "butt2",
+          "path": "podonok/butt2.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gas",
+          "path": "podonok/gazootvod.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "podonok/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag1",
+          "path": "podonok/mag1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "barrel",
+          "path": "podonok/barrel.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "gilza",
+          "path": "podonok/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "ashot/kolimator.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Preved",
+      "renderer": "guns/renderers/Render_Preved.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "preved/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "preved/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "preved",
+          "path": "preved/preved.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "preved/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "preved/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "railgun/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "mag",
+          "path": "preved/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "test",
+          "path": "railgun/test.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Railgun",
+      "renderer": "guns/renderers/Render_Railgun.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "tihar/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "helsing",
+          "path": "railgun/railgun.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "el",
+          "path": "railgun/el.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "railgun/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "strelka",
+          "path": "railgun/strelka.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "railgun/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "zoomer",
+          "path": "railgun/zoomer.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "test",
+          "path": "railgun/test.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "akk",
+          "path": "railgun/railgun_akk.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kon",
+          "path": "railgun/railgun_kon.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "krep",
+          "path": "railgun/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "kolimator",
+          "path": "ashot/kolimator.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Revolver",
+      "renderer": "guns/renderers/Render_Revolver.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "revolver/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "helsing",
+          "path": "revolver/revolver.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "revolver/baraban.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "revolver/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "meh",
+          "path": "revolver/meh.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "barrel",
+          "path": "revolver/barrel.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "revolver_butt",
+          "path": "revolver/revolver_butt.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "kolimator",
+          "path": "ashot/kolimator.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Rpk",
+      "renderer": "guns/renderers/Render_Rpk.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "ak/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "rpk/rpk.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "rpk/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "rpk/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "magbig",
+          "path": "rpk/mag2.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "krep",
+          "path": "rpk/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "rpk/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Saiga",
+      "renderer": "guns/renderers/Render_Saiga.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "saiga/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "saiga/saiga.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "saiga/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "saiga/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "magbig",
+          "path": "saiga/magbig.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "krep",
+          "path": "rpk/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushitel",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Abzac",
+      "renderer": "guns/renderers/Render_Abzac.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "abzac/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "abzac/abzac.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "abzac/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "abzac/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "magbig",
+          "path": "abzac/magbig.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushitel",
+          "path": "abzac/compens.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "autofire",
+          "path": "abzac/autofire.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Uboinik",
+      "renderer": "guns/renderers/Render_Uboinik.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "uboinik/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "uboinik/uboinik.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "uboinik/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "krep",
+          "path": "rpk/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushitel",
+          "path": "saiga/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushak",
+          "path": "uboinik/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zvezda",
+          "path": "uboinik/zvezda.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Ventil",
+      "renderer": "guns/renderers/Render_Ventil.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "ventil/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "ventil/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "magbig",
+          "path": "ventil/magbig.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "ventil/ventil.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "ventil/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "glushak",
+          "path": "ventil/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "optica",
+          "path": "railgun/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "test",
+          "path": "railgun/test.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "ventil/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Vsv",
+      "renderer": "guns/renderers/Render_Vsv.java",
+      "models": [
+        {
+          "field": "bullet",
+          "path": "vsv/bullet.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "vsv/vsv.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "mag",
+          "path": "vsv/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "vsv/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "optica",
+          "path": "revolver/optica.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "kolimator",
+          "path": "rpk/kolimator.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "opticasmall",
+          "path": "rpk/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "krep",
+          "path": "vsv/krep.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "glushitel",
+          "path": "vsv/glushak.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "vsv/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Vyhlop",
+      "renderer": "guns/renderers/Render_Vyhlop.java",
+      "models": [
+        {
+          "field": "mag",
+          "path": "vyhlop/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "vyhlop/vyhlop1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "vyhlop/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "laser",
+          "path": "rpk/laser.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "optica",
+          "path": "railgun/optica.obj",
+          "sourceRecovered": true,
+          "runtimeMesh": true
+        },
+        {
+          "field": "test",
+          "path": "railgun/test.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "pricel",
+          "path": "vyhlop/pricel.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "gilza",
+          "path": "vyhlop/gilza.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Velopal",
+      "renderer": "guns/renderers/Render_Velopal.java",
+      "models": [
+        {
+          "field": "rpk",
+          "path": "vyhlop/velo.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    },
+    {
+      "sourceId": "Ognemet",
+      "renderer": "guns/renderers/Render_Ognemet.java",
+      "models": [
+        {
+          "field": "mag",
+          "path": "ognemet/mag.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "rpk",
+          "path": "ognemet/ognemet1.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "zatvor",
+          "path": "ognemet/zatvor.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        },
+        {
+          "field": "strelka",
+          "path": "ognemet/strelka.obj",
+          "sourceRecovered": false,
+          "runtimeMesh": false
+        }
+      ],
+      "completeObjAssets": false,
+      "runtime": "native gun mechanics implemented; multipart renderer pending"
+    }
+  ],
+  "missingUniqueObj": [
+    "2012/2012.obj",
+    "2012/bullet.obj",
+    "2012/gilza.obj",
+    "2012/mag.obj",
+    "abzac/abzac.obj",
+    "abzac/autofire.obj",
+    "abzac/bullet.obj",
+    "abzac/compens.obj",
+    "abzac/mag.obj",
+    "abzac/magbig.obj",
+    "abzac/zatvor.obj",
+    "ak/ak.obj",
+    "ak/bullet.obj",
+    "ak/gilza.obj",
+    "ak/mag.obj",
+    "ak/zatvor.obj",
+    "aksu/aksu.obj",
+    "ashot/ashot.obj",
+    "ashot/ashot1.obj",
+    "ashot/bullet.obj",
+    "ashot/butt.obj",
+    "ashot/butt1.obj",
+    "ashot/kolimator.obj",
+    "ashot/privot.obj",
+    "ashot/zatvor.obj",
+    "duplet/duplet.obj",
+    "duplet/duplet1.obj",
+    "duplet/duplet_barrel.obj",
+    "duplet/duplet_butt1.obj",
+    "duplet/duplet_butt2.obj",
+    "duplet/duplet_priklad.obj",
+    "duplet/glushak.obj",
+    "duplet/klema.obj",
+    "duplet/quadbarrel.obj",
+    "helsing/air.obj",
+    "helsing/bullet.obj",
+    "helsing/dav.obj",
+    "helsing/helsing.obj",
+    "helsing/mag.obj",
+    "ognemet/mag.obj",
+    "ognemet/ognemet1.obj",
+    "ognemet/strelka.obj",
+    "ognemet/zatvor.obj",
+    "podonok/barrel.obj",
+    "podonok/bullet.obj",
+    "podonok/butt.obj",
+    "podonok/butt1.obj",
+    "podonok/butt2.obj",
+    "podonok/gazootvod.obj",
+    "podonok/gilza.obj",
+    "podonok/glushak.obj",
+    "podonok/mag.obj",
+    "podonok/mag1.obj",
+    "podonok/podonok.obj",
+    "podonok/zatvor.obj",
+    "preved/bullet.obj",
+    "preved/gilza.obj",
+    "preved/glushak.obj",
+    "preved/mag.obj",
+    "preved/preved.obj",
+    "preved/zatvor.obj",
+    "railgun/el.obj",
+    "railgun/krep.obj",
+    "railgun/mag.obj",
+    "railgun/railgun.obj",
+    "railgun/railgun_akk.obj",
+    "railgun/railgun_kon.obj",
+    "railgun/strelka.obj",
+    "railgun/test.obj",
+    "railgun/zoomer.obj",
+    "revolver/baraban.obj",
+    "revolver/bullet.obj",
+    "revolver/meh.obj",
+    "revolver/optica.obj",
+    "revolver/revolver.obj",
+    "revolver/revolver_butt.obj",
+    "revolver/zatvor.obj",
+    "rpk/gilza.obj",
+    "rpk/krep.obj",
+    "rpk/mag.obj",
+    "rpk/mag2.obj",
+    "rpk/rpk.obj",
+    "rpk/zatvor.obj",
+    "saiga/bullet.obj",
+    "saiga/glushak.obj",
+    "saiga/mag.obj",
+    "saiga/magbig.obj",
+    "saiga/saiga.obj",
+    "saiga/zatvor.obj",
+    "tihar/air.obj",
+    "tihar/air2.obj",
+    "tihar/bullet.obj",
+    "tihar/mag.obj",
+    "tihar/optica.obj",
+    "tihar/strelka.obj",
+    "tihar/tihar.obj",
+    "tihar/zatvor.obj",
+    "ubludok/Bullet.obj",
+    "ubludok/Mag.obj",
+    "ubludok/butt1.obj",
+    "ubludok/gilza.obj",
+    "ubludok/ubludok.obj",
+    "uboinik/bullet.obj",
+    "uboinik/glushak.obj",
+    "uboinik/uboinik.obj",
+    "uboinik/zatvor.obj",
+    "uboinik/zvezda.obj",
+    "ventil/bullet.obj",
+    "ventil/gilza.obj",
+    "ventil/glushak.obj",
+    "ventil/mag.obj",
+    "ventil/magbig.obj",
+    "ventil/ventil.obj",
+    "ventil/zatvor.obj",
+    "vsv/bullet.obj",
+    "vsv/gilza.obj",
+    "vsv/glushak.obj",
+    "vsv/krep.obj",
+    "vsv/mag.obj",
+    "vsv/vsv.obj",
+    "vsv/zatvor.obj",
+    "vyhlop/gilza.obj",
+    "vyhlop/mag.obj",
+    "vyhlop/pricel.obj",
+    "vyhlop/velo.obj",
+    "vyhlop/vyhlop1.obj",
+    "vyhlop/zatvor.obj"
+  ],
+  "warning": "Covers declared GLModel fields only. MTLs and referenced PNGs must also be recovered per folder; old Java model/sprite/skin animation branches require separate migration. General handlers and embedded legacy watch/air overlays are not imported."
+}
