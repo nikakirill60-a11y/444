@@ -41,13 +41,13 @@ public final class RailRules {
             return new Frame(origin.add(straight.scale(delta.dotProduct(straight))),straight);
         }
         if(id==3||id==4||((id==5||id==6)&&branch)){
-            double sign=id==3||id==5?-1:1;Vec3d center=rotate(sign*15.5,-.5,direction).addVector(primary.getX()+.5,y,primary.getZ()+.5);
+            double sign=id==3||id==5?-1:1;Vec3d center=rotate(sign*15.5,-.5,direction).add(primary.getX()+.5,y,primary.getZ()+.5);
             return circle(position,center,15.5,heading);
         }
         if(id==7||id==8||id==9||id==10||id==11){
             double dx=position.x-primary.getX(),dz=position.z-primary.getZ();int half=dx*dx+dz*dz<62?0:1;
             double sign=id==7||id==9||(id==11&&branch)?-1:1;
-            Vec3d center=rotate(sign*12.95,-.15,direction+half*2).add(rotate(sign*5*half,15*half,direction)).addVector(primary.getX()+.5,y,primary.getZ()+.5);
+            Vec3d center=rotate(sign*12.95,-.15,direction+half*2).add(rotate(sign*5*half,15*half,direction)).add(primary.getX()+.5,y,primary.getZ()+.5);
             return circle(position,center,12.9,heading);
         }
         // Crossing and dead end keep the incoming axis; the latter is stopped by its source collision.
@@ -56,7 +56,7 @@ public final class RailRules {
     }
     private static Frame circle(Vec3d p,Vec3d center,double radius,Vec3d heading){
         double dx=center.x-p.x,dz=center.z-p.z,length=Math.hypot(dx,dz);
-        if(length<1e-8)return new Frame(new Vec3d(p.x,center.y,p.z),heading.lengthSquared()>1e-12?new Vec3d(heading.x,0,heading.z).normalize():new Vec3d(0,0,1));
+        if(length<1e-8){Vec3d axis=new Vec3d(heading.x,0,heading.z);return new Frame(new Vec3d(p.x,center.y,p.z),axis.lengthSquared()>1e-12?axis.normalize():new Vec3d(0,0,1));}
         return new Frame(new Vec3d(center.x-dx/length*radius,center.y,center.z-dz/length*radius),new Vec3d(-dz/length,0,dx/length));
     }
     private static boolean finite(Vec3d v){return v!=null&&Double.isFinite(v.x)&&Double.isFinite(v.y)&&Double.isFinite(v.z);}

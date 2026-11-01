@@ -33,6 +33,16 @@ public final class WideRailBlock extends Block {
     @Override public BlockFaceShape getBlockFaceShape(IBlockAccess world,IBlockState state,BlockPos pos,EnumFacing face){return BlockFaceShape.UNDEFINED;}
     @Override public int quantityDropped(Random random){return 0;}
     @Override public ItemStack getPickBlock(IBlockState state,RayTraceResult target,World world,BlockPos pos,net.minecraft.entity.player.EntityPlayer player){RailTile t=RailPlacement.primary(world,pos);return new ItemStack(BlackrazidRails.KIT,1,t==null?0:t.shape());}
+    @Override public boolean removedByPlayer(IBlockState state,World w,BlockPos p,net.minecraft.entity.player.EntityPlayer player,boolean harvest){
+        if(!w.isRemote){
+            RailTile tile=RailPlacement.at(w,p);if(tile!=null&&!tile.primary()&&!w.isBlockLoaded(tile.owner()))return false;
+            RailTile main=RailPlacement.primary(w,p);
+            if(main!=null)for(BlockPos offset:RailRules.footprint(main.shape(),main.direction())){
+                BlockPos cell=main.getPos().add(offset);if(!w.isBlockLoaded(cell)||!w.isBlockModifiable(player,cell))return false;
+            }
+        }
+        return super.removedByPlayer(state,w,p,player,harvest);
+    }
     @Override public void breakBlock(World world,BlockPos pos,IBlockState state){RailPlacement.remove(world,pos);super.breakBlock(world,pos,state);world.removeTileEntity(pos);}
     @Override public void neighborChanged(IBlockState state,World world,BlockPos pos,Block block,BlockPos from){RailPlacement.neighbor(world,pos);}
     @Override public void updateTick(World w,BlockPos p,IBlockState state,Random random){
