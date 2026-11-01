@@ -87,10 +87,6 @@
  *  mods.provoda.blocks.Block8
  *  mods.provoda.blocks.Block9
  *  mods.provoda.blocks.BlockGag
- *  mods.provoda.blocks.BlockLight
- *  mods.provoda.blocks.BlockLight1
- *  mods.provoda.blocks.BlockLight2
- *  mods.provoda.blocks.BlockLight3
  *  mods.provoda.blocks.BlockRailGag
  *  mods.provoda.blocks.DoubleGrassButtom
  *  mods.provoda.blocks.DoubleGrassTop
@@ -105,7 +101,6 @@
  *  mods.provoda.blocks.Flour_Tall
  *  mods.provoda.blocks.Grass
  *  mods.provoda.blocks.GrassTall
- *  mods.provoda.blocks.Radiation
  *  mods.provoda.blocks.Sapling_Tall
  *  mods.provoda.entity.EntityMountableBlock
  *  mods.provoda.entity.EntityPassiveFire
