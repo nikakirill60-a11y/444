@@ -17,10 +17,10 @@ import java.util.*;
 
 public class NativeWeaponsTest {
     @BeforeClass public static void boot(){
-        Bootstrap.register();int id=40000;
+        Bootstrap.register();
         for(Map.Entry<String,Item> e:BlackrazidWeapons.items().entrySet()){
             ResourceLocation name=e.getValue().getRegistryName();
-            if(!Item.REGISTRY.containsKey(name))Item.REGISTRY.register(id++,name,e.getValue());
+            if(!Item.REGISTRY.containsKey(name))net.minecraftforge.fml.common.registry.ForgeRegistries.ITEMS.register(e.getValue());
         }
     }
     static Item item(String id){return BlackrazidWeapons.item("blackrazid_"+id);}
@@ -139,5 +139,16 @@ public class NativeWeaponsTest {
     }
     @Test public void legacyLooseRoundOrMCMODNBTDoesNotGrantNativeAmmo(){
         ItemStack s=new ItemStack(item("ak"));s.setTagCompound(new NBTTagCompound());s.getTagCompound().setInteger("MetroAmmo",10000);s.getTagCompound().setInteger("Bullet_Left",10000);s.getTagCompound().setInteger("modBarrel",3);assertEquals(0,gun("ak").ammo(s));assertEquals(0,gun("ak").capacity(s));
+    }
+    @Test public void pendingReloadCannotFollowAGunToAnotherPlayer()throws Exception{
+        EntityPlayer a=player(false),b=player(false);ItemStack s=new ItemStack(item("ak"));hold(a,s);a.inventory.setInventorySlotContents(1,magazine("ak_ammo",10));gun("ak").startReload(s,a);
+        hold(b,s);b.inventory.setInventorySlotContents(1,magazine("ak_ammo",20));ticks(gun("ak"),s,b,40);assertEquals(0,gun("ak").ammo(s));assertFalse(gun("ak").reloading(s));assertEquals(20,mag("ak_ammo").rounds(b.inventory.getStackInSlot(1)));
+    }
+    @Test public void intermediateUnloadedChunkStopsBulletBeforeRayTrace()throws Exception{
+        World world=player(false).world;when(world.isBlockLoaded(any(BlockPos.class))).thenReturn(true);
+        Vec3d from=new Vec3d(15,64,15),to=new Vec3d(21,64,21);assertTrue(BlackrazidBullet.loadedPath(world,from,to));
+        when(world.isBlockLoaded(new BlockPos(16,64,0))).thenReturn(false);assertFalse(BlackrazidBullet.loadedPath(world,from,to));
+        assertFalse(BlackrazidBullet.loadedPath(world,from,new Vec3d(Double.NaN,64,21)));assertFalse(BlackrazidBullet.loadedPath(world,from,new Vec3d(1000,64,21)));
+        verify(world,never()).rayTraceBlocks(any(Vec3d.class),any(Vec3d.class),anyBoolean(),anyBoolean(),anyBoolean());
     }
 }

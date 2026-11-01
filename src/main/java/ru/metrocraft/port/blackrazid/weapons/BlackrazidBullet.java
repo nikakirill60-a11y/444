@@ -30,7 +30,7 @@ public final class BlackrazidBullet extends Entity {
         super.onUpdate();
         if(!finite(motionX) || !finite(motionY) || !finite(motionZ) || ticksExisted>200){setDead();return;}
         Vec3d start=getPositionVector(),end=start.add(motionX,motionY,motionZ);
-        if(!world.isBlockLoaded(new BlockPos(end))){setDead();return;}
+        if(!loadedPath(world,start,end)){setDead();return;}
         if(!world.isRemote){
             EntityPlayer player=owner==null?null:world.getPlayerEntityByUUID(owner);
             if(player==null || !player.isEntityAlive() || player.isSpectator()){setDead();return;}
@@ -47,6 +47,16 @@ public final class BlackrazidBullet extends Entity {
         }
         setPosition(end.x,end.y,end.z);
         if(isInWater()){motionX*=.8/.99;motionY*=.8/.99;motionZ*=.8/.99;}
+    }
+    /** Check every possibly traversed chunk before any ray trace/getBlockState can load it. */
+    public static boolean loadedPath(World world,Vec3d start,Vec3d end){
+        if(!Double.isFinite(start.x) || !Double.isFinite(start.y) || !Double.isFinite(start.z)
+                || !Double.isFinite(end.x) || !Double.isFinite(end.y) || !Double.isFinite(end.z)
+                || start.squareDistanceTo(end)>32*32*3)return false;
+        int x0=MathHelper.floor(Math.min(start.x,end.x))>>4,x1=MathHelper.floor(Math.max(start.x,end.x))>>4;
+        int z0=MathHelper.floor(Math.min(start.z,end.z))>>4,z1=MathHelper.floor(Math.max(start.z,end.z))>>4;
+        for(int x=x0;x<=x1;x++)for(int z=z0;z<=z1;z++)if(!world.isBlockLoaded(new BlockPos(x<<4,64,z<<4)))return false;
+        return true;
     }
     private static boolean finite(double v){return Double.isFinite(v) && Math.abs(v)<=32;}
     @Override protected void writeEntityToNBT(NBTTagCompound tag){if(owner!=null)tag.setUniqueId("Owner",owner);tag.setFloat("Damage",damage);tag.setInteger("Age",ticksExisted);}
