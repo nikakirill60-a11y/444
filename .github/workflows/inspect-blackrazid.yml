@@ -1,0 +1,32 @@
+name: Inspect supplied BlackRazid armor and backpacks bytecode
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths: ['.github/workflows/inspect-blackrazid.yml', 'tools/blackrazid-reference/classes/**']
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: arena/dcab859f-444
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Recover reference sources, not executable mod code
+        shell: bash
+        run: |
+          curl --fail --retry 3 -L https://repo.maven.apache.org/maven2/org/benf/cfr/0.152/cfr-0.152.jar -o /tmp/cfr.jar
+          find tools/blackrazid-reference/classes -name '*.class' ! -name '*$*' -print0 | while IFS= read -r -d '' source; do
+            java -jar /tmp/cfr.jar "$source" --extraclasspath tools/blackrazid-reference/classes --outputdir tools/blackrazid-reference/java --silent true
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools/blackrazid-reference/java
+          if ! git diff --cached --quiet; then
+            git commit -m 'Recover original BlackRazid armor and backpacks registration and rendering reference'
+            git push origin arena/dcab859f-444
+          fi
