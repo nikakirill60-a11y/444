@@ -75,3 +75,8 @@ QuadBarrel нельзя снять при трёх/четырёх оставши
 клиента/spectator/смерти, неверных размеров стеков/индексов, фактической задержки стрельбы,
 четырёхствольной зарядки/двойного расхода, отказа spawn, взвода Gatling и завершённой зарядки Railgun.
 Тесты используют управляемые миры/игроков, **не настоящий запущенный Forge-клиент/сервер**.
+
+
+Проверенный runtime **465b754**: [SUCCESS 41339488218](https://github.com/nikakirill60-a11y/444/actions/runs/41339488218),
+**143 Python / 339 JUnit, 0 failures/errors/skipped**, Java 8 / Forge 2860 / build/reobfJar.
+[ZIP dev.9](https://github.com/nikakirill60-a11y/444/actions/runs/41339488218/artifacts/13096752446).
