@@ -154,5 +154,30 @@
     "followRange": 32,
     "watchRange": 8,
     "waterBreathing": false
+  },
+  {
+    "id": "blackrazid_demon",
+    "sourceId": "Demon",
+    "model": "ModelDemon",
+    "folder": "demon",
+    "texture": "act34_demon_part01.512c.png",
+    "nameRu": "Демон",
+    "nameEn": "Demon",
+    "health": 800,
+    "damage": 12,
+    "speed": null,
+    "flight": true,
+    "headContactDamage": 10,
+    "headSize": [
+      6,
+      6
+    ],
+    "size": [
+      8,
+      8
+    ],
+    "extraTextures": {
+      "act34_demon_part02": "act34_demon_part02.512.png"
+    }
   }
 ]

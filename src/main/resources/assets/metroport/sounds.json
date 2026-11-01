@@ -109,6 +109,21 @@
       "metroport:blackrazid_dark_alive"
     ]
   },
+  "blackrazid_demon_alive": {
+    "sounds": [
+      "metroport:blackrazid_demon_alive"
+    ]
+  },
+  "blackrazid_demon_death": {
+    "sounds": [
+      "metroport:blackrazid_demon_death"
+    ]
+  },
+  "blackrazid_demon_hit": {
+    "sounds": [
+      "metroport:blackrazid_demon_hit"
+    ]
+  },
   "blackrazid_empty": {
     "sounds": [
       "metroport:blackrazid_empty"

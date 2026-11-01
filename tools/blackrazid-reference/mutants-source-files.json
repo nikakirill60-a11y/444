@@ -811,6 +811,96 @@
       "driveId": "1NfbVDmweK6Nx87ebyEIW0yQnWQzeWkt8",
       "bytes": 27922,
       "sha256": "9e886166e5d185024782cb89c70df80b26094eb7e836b05bdf5734e7c0f2e133"
+    },
+    {
+      "path": "assets/mutants/demon/act34_demon_part02.512.png",
+      "driveId": "1MdkG9j2yf_1nNXkp_BRovD7ZaRVFxqYN",
+      "bytes": 100038,
+      "sha256": "3e01057cb05c0259c429061219c69eff00d0fa086cd3ebbab47a79099ed48e53"
+    },
+    {
+      "path": "assets/mutants/demon/act34_demon_part01.512c.png",
+      "driveId": "1MreaXyAjkEWGeQqyf4rgb-9fHWCuMr1o",
+      "bytes": 126573,
+      "sha256": "9ad7710d569c2c1d5d6e2494d1e2e71f82e3001ac0af7f884312983799ab7314"
+    },
+    {
+      "path": "assets/mutants/demon/legs.obj",
+      "driveId": "1cnFAdrAIBsC9SM7Rv3gCF-wjaKA4NyaB",
+      "bytes": 68778,
+      "sha256": "f30d25a465b7afc1dd35fa75367c8e2a9055199874a5ef79eb8194de63ef2ed7"
+    },
+    {
+      "path": "assets/mutants/demon/leftkrilo.obj",
+      "driveId": "17J52CsPGo3t8RbV0Shq6dLs3ly8YqPmD",
+      "bytes": 21279,
+      "sha256": "6aab265b6f6711f4d42c56fc3a3f60ee9f6e3d0efd68f908abad842a98cbc733"
+    },
+    {
+      "path": "assets/mutants/demon/rightkrilo1.obj",
+      "driveId": "1-Er0j4CvHYJfHSuZTklnHewaWjqGPcDr",
+      "bytes": 102916,
+      "sha256": "702df6fcba451cf0b18d74edd6e517cf640bde8784a9da6fb5734d92589a1aee"
+    },
+    {
+      "path": "assets/mutants/demon/leftkrilo1.obj",
+      "driveId": "1FYQSBO1DMbj60R-LA2x8CcUWpJgcESwP",
+      "bytes": 92056,
+      "sha256": "d4473854dfe34ba5340cc579a3fba71137b4c147989dbf47649f29f1dd51cc9e"
+    },
+    {
+      "path": "assets/mutants/demon/demon.obj",
+      "driveId": "1XfJT8FAQQ0mcmgetxsWrlv2uMTDCxame",
+      "bytes": 99223,
+      "sha256": "0a352cf00d5eefe4dfe9d8fadfe57b85668f3288dc0176c0d47708252e67a5bd"
+    },
+    {
+      "path": "assets/mutants/demon/rightkrilo.obj",
+      "driveId": "1S6GrOkp4wmGTVptsWA3sbHEjA6qGYeX5",
+      "bytes": 21415,
+      "sha256": "4c75f43662668858f4255bb24964349908f3b55b738a76838bf58b25885d4ec2"
+    },
+    {
+      "path": "assets/mutants/demon/rightarm.obj",
+      "driveId": "1u84WCGJCcHhC4arU3jsI4CrCBafLCaKW",
+      "bytes": 49163,
+      "sha256": "4c222201e2812ac546d587a7803e92a9da91f789b4cffa5a4e91560241f9fafa"
+    },
+    {
+      "path": "assets/mutants/demon/leftarm.obj",
+      "driveId": "11YtDcKhXrK_qFQ8k02cOaSLh6ZFK-_t0",
+      "bytes": 49148,
+      "sha256": "9d531f9756521a4320c404a490f0d8bec4718e820fc24047ad675de660739aed"
+    },
+    {
+      "path": "assets/sounds/demon_death.ogg",
+      "driveId": "1VcV8PlwYUs5_b76e936c4ztzTGvyq_Dt",
+      "bytes": 31216,
+      "sha256": "5871badcf10110054d277267e034018d4778b4ca1b1afda5f7e09b41eae76f71"
+    },
+    {
+      "path": "assets/sounds/demon_hit.ogg",
+      "driveId": "1CJ9FSLRW-0QWJQp_DlccKkLKG3BuZ5Lv",
+      "bytes": 14830,
+      "sha256": "0b6120bbea59ba4504369cff84802174d101c2d7a1fdb2b78763202a210b84b8"
+    },
+    {
+      "path": "assets/sounds/demon_alive.ogg",
+      "driveId": "1vRyMtaSip4Ezz1GzqoDbPEp7aRER-Zdb",
+      "bytes": 13008,
+      "sha256": "214e87fd023a87ca890fe4dd656e6d4f995a22143fd1a3510af6709ba669096e"
+    },
+    {
+      "path": "assets/mutants/demon/demon.mtl",
+      "driveId": "1_EmFD1oLXeD6_B8PIpPTsdURNasTFMBN",
+      "bytes": 418,
+      "sha256": "870a406b333006d5dd7f5b3cf2c37c5f7ed3bbbd8671711e366989d3610ea3b9"
+    },
+    {
+      "path": "assets/mutants/demon/leftkrilo1.mtl",
+      "driveId": "1AspKIw55zXptjFBDMoBe9aP2k6vqNgun",
+      "bytes": 748,
+      "sha256": "6b67ef474f3e7a92bf23d38d4e4197ab0b95fbe698c87ffccc3b4975f64d8aad"
     }
   ]
 }

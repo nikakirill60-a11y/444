@@ -8,14 +8,14 @@ A=ROOT/'src/main/resources/assets/metroport'
 class BlackrazidMutantsTest(unittest.TestCase):
     def test_provenance_matches_every_recovered_original(self):
         rows=json.loads((S/'mutants-source-files.json').read_text())['files']
-        self.assertEqual(135,len(rows));self.assertEqual(len(rows),len({e['path'] for e in rows}))
+        self.assertEqual(150,len(rows));self.assertEqual(len(rows),len({e['path'] for e in rows}))
         for e in rows:
             data=(S/e['path']).read_bytes();self.assertEqual(e['bytes'],len(data));self.assertEqual(e['sha256'],hashlib.sha256(data).hexdigest());self.assertTrue(e['driveId'])
-    def test_only_eleven_ground_profiles_are_claimed(self):
-        rows=json.loads((A/'blackrazid_mutants.json').read_text());self.assertEqual({'Rat','Spider','Biblio','Kikimora','Strazh','Nosach','Dark','Bear','Mobus','Aqua_female','Aqua_male'},{e['sourceId'] for e in rows})
+    def test_all_twelve_native_profiles_are_separate(self):
+        rows=json.loads((A/'blackrazid_mutants.json').read_text());self.assertEqual({'Rat','Spider','Biblio','Kikimora','Strazh','Nosach','Dark','Bear','Mobus','Aqua_female','Aqua_male','Demon'},{e['sourceId'] for e in rows})
         self.assertEqual([15,80,200],[e['health'] for e in rows[:3]])
         code=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/mutants/BlackrazidMutants.java').read_text()
-        self.assertEqual(21,len(re.findall(r'add\([^;]+\.class,',code)));self.assertNotIn('registerGlobalEntityID',code)
+        self.assertEqual(23,len(re.findall(r'add\([^;]+\.class,',code)));self.assertNotIn('registerGlobalEntityID',code)
     def test_original_models_and_meshes_not_stock_substitutes(self):
         for entry in json.loads((A/'blackrazid_mutants.json').read_text()):
             model=entry['model'];source=(S/'original-models'/(model+'.java')).read_text()
@@ -43,7 +43,7 @@ class BlackrazidMutantsTest(unittest.TestCase):
         self.assertIn('isAreaLoaded(',spawner);self.assertIn('NEARBY_CAP=16',spawner);self.assertIn('doMobSpawning',spawner)
 
     def test_mutant_importer_is_reproducible(self):
-        paths=[A/'blackrazid_mutants.json',A/'sounds.json',A/'lang/ru_ru.lang',A/'lang/en_us.lang']
+        paths=[A/'blackrazid_mutants.json',A/'blackrazid_spawners.json',A/'blackrazid_mutant_meshes.json',A/'blackrazid_mutant_missing_sounds.json',A/'sounds.json',A/'lang/ru_ru.lang',A/'lang/en_us.lang']
         paths+=list((ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/mutants').glob('Model*.java'))
         before=[p.read_bytes() for p in paths]
         subprocess.run([sys.executable,'tools/import_blackrazid_mutants.py'],cwd=ROOT,check=True,capture_output=True)
@@ -55,7 +55,7 @@ class BlackrazidMutantsTest(unittest.TestCase):
             source=(S/('java/mods/provoda/mobs/mobs/'+mob['sourceId']+'.java')).read_text()
             self.assertEqual(mob['health'],int(re.search(r'int aW\(\)\s*{\s*return (\d+)',source)[1]))
             self.assertEqual(mob['damage'],int(re.search(r'int c\(mp var1\)\s*{\s*return (\d+)',source)[1]))
-        spawners=json.loads((A/'blackrazid_spawners.json').read_text());self.assertEqual(10,len(spawners))
+        spawners=json.loads((A/'blackrazid_spawners.json').read_text());self.assertEqual(11,len(spawners))
         for spawner in spawners:
             source=(S/('java/mods/provoda/entity/EntitySpawner'+spawner['sourceId']+'.java')).read_text()
             self.assertEqual(spawner['period'],int(re.search(r'this.timer = (\d+)',source)[1]))
@@ -67,7 +67,7 @@ class BlackrazidMutantsTest(unittest.TestCase):
         missing=json.loads((A/'blackrazid_mutant_missing_sounds.json').read_text())
         self.assertEqual(['dark_hit','dark_death','bear_hit'],missing)
         sounds=json.loads((A/'sounds.json').read_text())
-        for family in ['kikimora','strazh','nosach','dark','bear','aquaf','aquam']:
+        for family in ['kikimora','strazh','nosach','dark','bear','aquaf','aquam','demon']:
             for kind in ['alive','hit','death']:
                 name=family+'_'+kind;key='blackrazid_'+name
                 if name in missing:self.assertNotIn(key,sounds);continue
@@ -80,7 +80,7 @@ class BlackrazidMutantsTest(unittest.TestCase):
         code=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/mutants/ModelKikimora.java').read_text()
         self.assertNotIn('void setRotationAngles(',code);self.assertIn('private void renderParts(',code)
         self.assertEqual(1,code.count('this.renderParts('));self.assertNotIn('worldObj',code);self.assertNotIn('renderEngine',code)
-        meshes=json.loads((A/'blackrazid_mutant_meshes.json').read_text());self.assertEqual(60,len(meshes));self.assertEqual(60,len(set(meshes)))
+        meshes=json.loads((A/'blackrazid_mutant_meshes.json').read_text());self.assertEqual(68,len(meshes));self.assertEqual(68,len(set(meshes)))
         for mesh in meshes:self.assertTrue((A/('models/blackrazid/mutants/'+mesh)).exists())
 
     def test_native_cull_changes_use_minecraft_cache_and_restore_on_failure(self):
@@ -91,3 +91,17 @@ class BlackrazidMutantsTest(unittest.TestCase):
         renderer=(root/'MutantRenderers.java').read_text()
         self.assertEqual(2,renderer.count('boolean cull=GL11.glIsEnabled(GL11.GL_CULL_FACE)'))
         self.assertEqual(2,renderer.count('finally{GL11.glShadeModel(shade);restoreCull(cull);'))
+
+    def test_demon_has_both_source_atlases_and_preserves_material_groups(self):
+        self.assertEqual((S/'assets/mutants/demon/act34_demon_part02.512.png').read_bytes(),(A/'textures/blackrazid/mutants/demon_part02.png').read_bytes())
+        mtl=(S/'assets/mutants/demon/leftkrilo1.mtl').read_text()
+        self.assertIn('map_Kd act34_demon_part01.512c.png',mtl);self.assertIn('map_Kd act34_demon_part02.512.png',mtl)
+        for part in ['leftkrilo1','rightkrilo1']:
+            obj=(S/('assets/mutants/demon/'+part+'.obj')).read_text()
+            self.assertIn('g act34_demon_part01',obj);self.assertIn('g act34_demon_part02',obj)
+        code=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/mutants/MutantObjPart.java').read_text()
+        self.assertIn('group.getKey().equals("act34_demon_part02")?membrane:primary',code)
+        self.assertIn('finally{GlStateManager.bindTexture(texture);}',code)
+        registry=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/mutants/BlackrazidMutants.java').read_text()
+        ids=re.findall(r'add\([^;]+\.class,"([^"]+)",(\d+),',registry)
+        self.assertEqual(23,len(ids));self.assertEqual(set(range(80,103)),{int(i) for name,i in ids})

@@ -16,6 +16,8 @@ public final class BlackrazidMutants {
         add(BiblioEntity.class,"blackrazid_biblio",82,0x555044,0xada288);
         add(MutantSpawner.SpiderNest.class,"blackrazid_spawner_spider",83,0x202020,0xba814d);
         add(MutantSpawner.LibrarianNest.class,"blackrazid_spawner_biblio",84,0x202020,0xada288);
+        add(DemonEntity.class,"blackrazid_demon",101,0x6b4033,0x302326);
+        add(MutantSpawner.DemonNest.class,"blackrazid_spawner_demon",102,0x202020,0x6b4033);
         add(KikimoraEntity.class,"blackrazid_kikimora",85,0x4c4033,0x8a7357);
         add(StrazhEntity.class,"blackrazid_strazh",86,0x4c4033,0x8a7357);
         add(NosachEntity.class,"blackrazid_nosach",87,0x4c4033,0x8a7357);
@@ -37,7 +39,7 @@ public final class BlackrazidMutants {
         EntityRegistry.registerModEntity(new ResourceLocation(MetroPort.ID,name),type,name,id,MetroPort.INSTANCE,64,3,true,base,spots);
     }
     @SubscribeEvent public static void sounds(RegistryEvent.Register<SoundEvent> e){
-        for(String name:new String[]{"rat","spider","biblio","kikimora","strazh","nosach","dark","bear","aquaf","aquam"})for(String type:new String[]{"alive","hit","death"}){
+        for(String name:new String[]{"rat","spider","biblio","kikimora","strazh","nosach","dark","bear","aquaf","aquam","demon"})for(String type:new String[]{"alive","hit","death"}){
             // Deliberately silent where the supplied archive contains no recording.
             if((name.equals("bear") && type.equals("hit")) || (name.equals("dark") && !type.equals("alive")))continue;
             String id="blackrazid_"+name+"_"+type;ResourceLocation key=new ResourceLocation(MetroPort.ID,id);

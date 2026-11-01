@@ -29,9 +29,9 @@ def report():
         re.findall(r'\b(\w+Ammo\w*) = new \w+\(\d+, ModBase\.(\w+)\.cp, (\d+),',registration)]
     return dict(status='INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE',
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
-        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','11 native ground mutants, native OBJ animation and available sounds; 10 bounded persistent map spawners'],
+        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners'],
         pending=['native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance','Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models',
-                 'Demon flight/multipart combat and its spawner; full mutant gameplay/visual acceptance','tunnels, building/decor blocks, environment lights and faction teleport adaptation'],
+                 'full mutant gameplay/visual acceptance','tunnels, building/decor blocks, environment lights and faction teleport adaptation'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',
                   'OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.',

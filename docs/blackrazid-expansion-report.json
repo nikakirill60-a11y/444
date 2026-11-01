@@ -13,12 +13,12 @@
     "ordinary/big grenade mechanics",
     "9 native round items and 20 magazines/canisters",
     "22 basic native firearm profiles, not a complete gun/module/model port",
-    "11 native ground mutants, native OBJ animation and available sounds; 10 bounded persistent map spawners"
+    "12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners"
   ],
   "pending": [
     "native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models",
-    "Demon flight/multipart combat and its spawner; full mutant gameplay/visual acceptance",
+    "full mutant gameplay/visual acceptance",
     "tunnels, building/decor blocks, environment lights and faction teleport adaptation"
   ],
   "weapons": [
@@ -876,7 +876,7 @@
     {
       "sourceId": "Demon",
       "source": "mobs/mobs/Demon.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 800,
       "damage": 12,
       "sounds": [

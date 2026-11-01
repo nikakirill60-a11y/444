@@ -78,5 +78,13 @@
     "batch": 1,
     "nameRu": "Спавнер водяного (самец)",
     "nameEn": "Male water mutant spawner"
+  },
+  {
+    "id": "blackrazid_spawner_demon",
+    "sourceId": "Demon",
+    "period": 30000,
+    "batch": 1,
+    "nameRu": "Спавнер демона",
+    "nameEn": "Demon spawner"
   }
 ]

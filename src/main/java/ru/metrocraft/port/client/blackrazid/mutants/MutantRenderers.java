@@ -11,6 +11,8 @@ public final class MutantRenderers {
     private MutantRenderers(){}
     public static void register(){
         add(RatEntity.class,new ModelRat(),"rat");add(SpiderEntity.class,new ModelSpider(),"spider");add(BiblioEntity.class,new ModelBiblio(),"bibliotecar");
+        add(DemonEntity.class,new ModelDemon(),"demon");
+        marker(MutantSpawner.DemonNest.class);
         add(KikimoraEntity.class,new ModelKikimora(),"kikimora");
         add(StrazhEntity.class,new ModelStrazh(),"strazh");
         add(NosachEntity.class,new ModelNosach(),"nosach");

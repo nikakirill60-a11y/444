@@ -6,6 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.*;
 
 /** Stationary map node. No old general properties, command dispatch, terrain edits or global entity IDs. */
@@ -34,7 +35,8 @@ public abstract class MutantSpawner extends Entity {
         for(int i=0;i<Math.min(batch(),available);i++){
             BlackrazidMutant mob=create();
             mob.setLocationAndAngles(posX+((i-(batch()-1)/2.0)*1.4),posY+1,posZ,rotationYaw,0);
-            if(!world.getWorldBorder().contains(new BlockPos(mob)) || !world.getCollisionBoxes(mob,mob.getEntityBoundingBox()).isEmpty()
+            AxisAlignedBB box=mob.getEntityBoundingBox();BlockPos min=new BlockPos(box.minX,box.minY,box.minZ),max=new BlockPos(box.maxX,box.maxY,box.maxZ);
+            if(!world.isAreaLoaded(min,max)||!world.getWorldBorder().contains(min)||!world.getWorldBorder().contains(max) || !world.getCollisionBoxes(mob,mob.getEntityBoundingBox()).isEmpty()
                 || !world.checkNoEntityCollision(mob.getEntityBoundingBox(),mob))continue;
             if(world.spawnEntity(mob))accepted++;
         }
@@ -52,6 +54,12 @@ public abstract class MutantSpawner extends Entity {
     }
     @Override public void writeEntityToNBT(NBTTagCompound tag){tag.setInteger("BlackrazidSpawnDelay",remaining());}
     @Override public void readEntityFromNBT(NBTTagCompound tag){remaining=tag.hasKey("BlackrazidSpawnDelay",99)?Math.max(0,Math.min(period(),tag.getInteger("BlackrazidSpawnDelay"))):period();}
+    public static final class DemonNest extends MutantSpawner {
+        public DemonNest(World w){super(w);}
+        @Override public int period(){return 30000;}
+        @Override public int batch(){return 1;}
+        @Override protected BlackrazidMutant create(){return new DemonEntity(world);}
+    }
     public static final class SpiderNest extends MutantSpawner {
         public SpiderNest(World w){super(w);}
         @Override public int period(){return 4000;}

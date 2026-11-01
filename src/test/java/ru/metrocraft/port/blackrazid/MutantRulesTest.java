@@ -32,12 +32,12 @@ public class MutantRulesTest {
         when(w.checkNoEntityCollision(any(AxisAlignedBB.class),any(Entity.class))).thenReturn(true);
         when(w.spawnEntity(any(Entity.class))).thenReturn(true);return w;
     }
-    @Test public void allSixtyOriginalObjPartsParseWithoutGpuOrMissingGeometry()throws Exception{
+    @Test public void allSixtyEightOriginalObjPartsParseWithoutGpuOrMissingGeometry()throws Exception{
         String[] paths;
         try(java.io.Reader index=new java.io.InputStreamReader(getClass().getResourceAsStream("/assets/metroport/blackrazid_mutant_meshes.json"),java.nio.charset.StandardCharsets.UTF_8)){
             paths=new com.google.gson.Gson().fromJson(index,String[].class);
         }
-        assertEquals(60,paths.length);
+        assertEquals(68,paths.length);
         for(String path:paths)try(java.io.InputStream in=getClass().getResourceAsStream("/assets/metroport/models/blackrazid/mutants/"+path)){
             assertNotNull(path,in);ru.metrocraft.port.mcmod.McmodObjMesh mesh=ru.metrocraft.port.mcmod.McmodObjMesh.read(in);int vertices=0;
             for(java.util.List<float[]> group:mesh.groups.values())for(float[] vertex:group){vertices++;assertEquals(8,vertex.length);for(float value:vertex)assertTrue(path,Float.isFinite(value));}
