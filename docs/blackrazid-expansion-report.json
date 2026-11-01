@@ -16,14 +16,14 @@
     "22 basic native firearm profiles, not a complete gun/module/model port",
     "12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners",
     "12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches",
-    "2 native tunnel sections with 159 original cubes / concrete OBJ and owned ring helpers",
+    "all 19 native tunnel sections with 159 original cubes, 18 native OBJ / materials / per-direction transforms, owned ring helpers and mesh-derived render bounds",
     "4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams"
   ],
   "pending": [
     "native weapon/ammunition/attachment meshes and animations for all 22; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance",
     "full mutant gameplay/visual acceptance",
-    "remaining 17 tunnel variants, tunnel generators, building/decor blocks and full environment gameplay/visual acceptance"
+    "six recovered tunnel generators, remaining building/decor blocks and full environment gameplay/visual acceptance"
   ],
   "weapons": [
     {

@@ -34,7 +34,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void models(ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(ru.metrocraft.port.blackrazid.environment.BlackrazidEnvironment.KIT,1,new ModelResourceLocation("metroport:blackrazid_tunnels","inventory"));
+        for(int meta=1;meta<ru.metrocraft.port.blackrazid.environment.TunnelRules.count();meta++)ModelLoader.setCustomModelResourceLocation(ru.metrocraft.port.blackrazid.environment.BlackrazidEnvironment.KIT,meta,new ModelResourceLocation("metroport:blackrazid_tunnels","inventory"));
         for(int meta=1;meta<12;meta++)ModelLoader.setCustomModelResourceLocation(ru.metrocraft.port.blackrazid.transport.BlackrazidRails.KIT,meta,new ModelResourceLocation("metroport:blackrazid_wide_rails","inventory"));
         for (Item item : MetroPort.ITEMS.values()) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

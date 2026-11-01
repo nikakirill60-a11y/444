@@ -1,0 +1,166 @@
+{
+  "tunnel_beton_1.obj": {
+    "Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__5": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__2": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png"
+  },
+  "tunnel_beton90.obj": {
+    "Material__154": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__159": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__155": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__156": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__153": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__158": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png"
+  },
+  "tunnel_beton_derevo.obj": {
+    "Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__5": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__2": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__26": "metroport:textures/blackrazid/tunnels/grnd_l10.512c.png",
+    "Material__28": "metroport:textures/blackrazid/tunnels/wood_brevna_01.512c.png",
+    "Material__29": "metroport:textures/blackrazid/tunnels/metal_rja_trubi2.512c.png"
+  },
+  "tunnel_beton_derevo1.obj": {
+    "Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__5": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__2": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__61": "metroport:textures/blackrazid/tunnels/wood_boards.512c.png"
+  },
+  "tunnel_beton_double.obj": {
+    "Material__179": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__178": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__182": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__180": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__181": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__177": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png"
+  },
+  "tunnel_beton_exit.obj": {
+    "_tunnel_beton_exitMaterial__41": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "_tunnel_beton_exitMaterial__38": "metroport:textures/blackrazid/tunnels/concrete_opalubka_uniq.512c.png",
+    "_tunnel_beton_exitMaterial__42": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "_tunnel_beton_exitMaterial__40": "metroport:textures/blackrazid/tunnels/stucco_potolok.512c.png",
+    "_tunnel_beton_exitMaterial__37": "metroport:textures/blackrazid/tunnels/concrete_beton_floor.512c.png",
+    "_tunnel_beton_exit_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__25": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "_tunnel_beton_exit_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "_tunnel_beton_exit_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "_tunnel_beton_exit_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__2": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "_tunnel_beton_exit_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__5": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "_tunnel_beton_exit_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__6": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png"
+  },
+  "tunnel_beton_provoda.obj": {
+    "Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__5": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__2": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png"
+  },
+  "tunnel_beton_trub.obj": {
+    "Material__47": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__46": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__45": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__44": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__52": "metroport:textures/blackrazid/tunnels/metal_truba3.512c.png",
+    "Material__49": "metroport:textures/blackrazid/tunnels/metal_truba8.512c.png",
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__5": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png"
+  },
+  "tunnel_beton_x.obj": {
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/tunnels/concrete_tile_07.2048.png",
+    "Material__5": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__2": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png"
+  },
+  "tunnel_new.obj": {
+    "Material__4": "metroport:textures/blackrazid/tunnels/wpn_sekach.2048.png"
+  },
+  "tunnel_metal_1.obj": {
+    "Material__47": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__46": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__48": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__45": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__44": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__43": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png"
+  },
+  "tunnel_metal90.obj": {
+    "Material__29": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__25": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png",
+    "Material__28": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__27": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__26": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__30": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png"
+  },
+  "tunnel_zelezo_derevo.obj": {
+    "Material__47": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__46": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__48": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__45": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__44": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__43": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png",
+    "Material__55": "metroport:textures/blackrazid/tunnels/grnd_l10.512c.png",
+    "Material__59": "metroport:textures/blackrazid/tunnels/wood_brevna_01.512c.png",
+    "Material__60": "metroport:textures/blackrazid/tunnels/metal_rja_trubi2.512c.png"
+  },
+  "tunnel_zelezo_derevo1.obj": {
+    "Material__47": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__46": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__48": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__45": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__44": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__43": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png",
+    "Material__63": "metroport:textures/blackrazid/tunnels/wood_boards.512c.png"
+  },
+  "tunnel_zelezo_double.obj": {
+    "Material__30": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__27": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__26": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__25": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png",
+    "Material__28": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png"
+  },
+  "tunnel_zelezo_exit.obj": {
+    "_tunnel_zelezo_exit_tunnel_metal_1_tunnel_metal_1Material__39": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "_tunnel_zelezo_exit_tunnel_metal_1_tunnel_metal_1Material__35": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "_tunnel_zelezo_exit_tunnel_metal_1_tunnel_metal_1Material__37": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "_tunnel_zelezo_exit_tunnel_metal_1_tunnel_metal_1Material__38": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "_tunnel_zelezo_exit_tunnel_metal_1_tunnel_metal_1_tunnel_beton_1Material__32": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "_tunnel_zelezo_exitMaterial__25": "metroport:textures/blackrazid/tunnels/stucco_potolok_old.512c.png",
+    "_tunnel_zelezo_exitMaterial__27": "metroport:textures/blackrazid/tunnels/metal_door_m.512c.png",
+    "Material__47": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__46": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__48": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__45": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__44": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__43": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png",
+    "_tunnel_zelezo_exitMaterial__26": "metroport:textures/blackrazid/tunnels/wall34_tunnel_sekcii_big.512c.png",
+    "_tunnel_zelezo_exit_tunnel_metal_1_tunnel_metal_1Material__36": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png"
+  },
+  "tunnel_zelezo_provoda.obj": {
+    "Material__4": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__3": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__7": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__2": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__43": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png"
+  },
+  "tunnel_zelezo_trub.obj": {
+    "Material__47": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__46": "metroport:textures/blackrazid/tunnels/floor_concrete_blocks.1024c.png",
+    "Material__48": "metroport:textures/blackrazid/tunnels/metal_corr_dsc.1024c.png",
+    "Material__45": "metroport:textures/blackrazid/tunnels/floor_tunnel_pod.1024c.png",
+    "Material__44": "metroport:textures/blackrazid/tunnels/metal_trub_tonnel.2048.png",
+    "Material__43": "metroport:textures/blackrazid/tunnels/concrete34_opalubka_tunnel_ao.2048.png",
+    "Material__52": "metroport:textures/blackrazid/tunnels/metal_truba3.512c.png",
+    "Material__49": "metroport:textures/blackrazid/tunnels/metal_truba8.512c.png"
+  }
+}

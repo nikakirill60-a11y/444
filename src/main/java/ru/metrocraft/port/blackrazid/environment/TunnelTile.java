@@ -41,7 +41,7 @@ public final class TunnelTile extends TileEntity {
     @Override public boolean shouldRefresh(net.minecraft.world.World world,BlockPos pos,IBlockState old,IBlockState next){return old.getBlock()!=next.getBlock();}
     @Override public AxisAlignedBB getRenderBoundingBox(){
         if(!primary)return new AxisAlignedBB(pos);
-        AxisAlignedBB result=new AxisAlignedBB(pos);for(BlockPos offset:TunnelRules.footprint(shape,direction))result=result.union(new AxisAlignedBB(pos.add(offset)));return result.union(new AxisAlignedBB(pos.add(-9,-9,-9),pos.add(10,10,10)));
+        AxisAlignedBB result=new AxisAlignedBB(pos);for(BlockPos offset:TunnelRules.footprint(shape,direction))result=result.union(new AxisAlignedBB(pos.add(offset)));return result.union(TunnelRules.renderBounds(shape,direction).offset(pos));
     }
     @Override public double getMaxRenderDistanceSquared(){return 4096;}
     @Override public void onLoad(){if(world!=null&&!world.isRemote){world.scheduleUpdate(pos,getBlockType(),1);}}

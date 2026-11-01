@@ -35,7 +35,42 @@ def profiles():
             expr=expr.strip();assert expr.startswith(axis);result.append(int(expr[len(axis):].replace(' ','' ) or '0'))
         cells.append(result)
     assert len(cells)==17 and len({tuple(c) for c in cells})==17
-    return [dict(id=0,nameRu='Секция круглого тоннеля',nameEn='Round tunnel section',offsets=cells),dict(id=1,nameRu='Бетонный тоннель — прямая секция',nameEn='Concrete tunnel — straight section',offsets=[])]
+    entries=[dict(id=0,nameRu='Секция круглого тоннеля',nameEn='Round tunnel section',offsets=cells,sourceBlock='BlockTunnel',angles=[90,180,270,0])]
+    from blackrazid_tunnel_sources import transforms,bounds
+    names={
+        '90':('Бетонный тоннель — поворот','Concrete tunnel — curve'),
+        'Beton1':('Бетонный тоннель — прямая секция','Concrete tunnel — straight section'),
+        'BetonDerevo':('Бетонный тоннель — деревянная обшивка','Concrete tunnel — wood lining'),
+        'BetonDerevo1':('Бетонный тоннель — деревянная обшивка 2','Concrete tunnel — wood lining 2'),
+        'BetonDouble1':('Бетонный тоннель — двойная секция','Concrete tunnel — double section'),
+        'BetonExit':('Бетонный тоннель — выход','Concrete tunnel — exit'),
+        'BetonProvoda':('Бетонный тоннель — провода','Concrete tunnel — wiring'),
+        'BetonTrub':('Бетонный тоннель — трубы','Concrete tunnel — pipes'),
+        'BetonX':('Бетонный тоннель — перекрёсток','Concrete tunnel — crossing'),
+        'New':('Новая секция тоннеля','New tunnel section'),
+        'Zelezo1':('Металлический тоннель — прямая секция','Metal tunnel — straight section'),
+        'Zelezo90':('Металлический тоннель — поворот','Metal tunnel — curve'),
+        'ZelezoDerevo':('Металлический тоннель — деревянная обшивка','Metal tunnel — wood lining'),
+        'ZelezoDerevo1':('Металлический тоннель — деревянная обшивка 2','Metal tunnel — wood lining 2'),
+        'ZelezoDouble':('Металлический тоннель — двойная секция','Metal tunnel — double section'),
+        'ZelezoExit':('Металлический тоннель — выход','Metal tunnel — exit'),
+        'ZelezoProvoda':('Металлический тоннель — провода','Metal tunnel — wiring'),
+        'ZelezoTrub':('Металлический тоннель — трубы','Metal tunnel — pipes')}
+    order=['Beton1']+sorted(n for n in names if n!='Beton1')
+    for suffix in order:
+        block='BlockTunnel'+suffix;renderer='RenderTunnel'+suffix
+        native=(J/('objblocks/tunnels/'+block+'.java')).read_text()
+        # Every recovered OBJ tunnel has a single native block, no remote shell helpers or custom bounds.
+        assert 'ModBase.Empty' not in native and not re.search(r'this.a\([^;]*?f[,)]',native)
+        source=(J/('renderers/tunnels/'+renderer+'.java')).read_text()
+        mesh=re.search(r'new GLModel\("/mods/provoda/obj/tunnels/([^"/]+)"',source)[1]
+        ops=[transforms(source,d) for d in range(4)]
+        entries.append(dict(id=len(entries),nameRu=names[suffix][0],nameEn=names[suffix][1],sourceBlock=block,sourceRenderer=renderer,offsets=[],mesh=mesh,
+            doubleSided='GL11.glDisable((int)2884)' in source,transforms=ops,angles=[int(next(o['values'][0] for o in t if o['type']=='rotate')) for t in ops],
+            bounds=[bounds(S/('assets/tunnels/'+mesh),t) for t in ops]))
+    assert len(entries)==19
+    return entries
+
 def main():
     write_json(ASSETS/'blackrazid_tunnels.json',profiles());write_json(ASSETS/'geometry/blackrazid/tunnel.json',geometry())
     put(ASSETS/'textures/blackrazid/tunnels/tunnel.png',(S/'assets/tunnels/tunnel.png').read_bytes());put(ASSETS/'textures/items/blackrazid_tunnels.png',(S/'assets/tunnels/block/tunnel.png').read_bytes())
@@ -53,5 +88,14 @@ def main():
     write_json(ASSETS/'models/block/blackrazid_faction_teleport.json',dict(parent='block/cube_all',textures=dict(all='metroport:blackrazid/tunnels/tpblock')))
     write_json(ASSETS/'models/item/blackrazid_faction_teleport.json',dict(parent='metroport:block/blackrazid_faction_teleport'))
     write_json(ASSETS/'blockstates/blackrazid_faction_teleport.json',dict(variants={'normal':dict(model='metroport:blackrazid_faction_teleport')}))
-    update();print('Imported 159 native tunnel cubes, concrete OBJ / 5 material atlases and 17 ring-helper offsets.')
+    mesh_maps={}
+    for entry in profiles()[1:]:
+        mesh=entry['mesh'];put(ASSETS/('models/blackrazid/tunnels/'+mesh),(S/('assets/tunnels/'+mesh)).read_bytes());maps={}
+        text=(S/('assets/tunnels/'+mesh[:-4]+'.mtl')).read_text()
+        for name,body in re.findall(r'newmtl (\S+)(.*?)(?=newmtl |\Z)',text,re.S):
+            png=re.search(r'map_Kd (\S+)',body)[1];maps[name]='metroport:textures/blackrazid/tunnels/'+png
+            put(ASSETS/('textures/blackrazid/tunnels/'+png),(S/('assets/tunnels/'+png)).read_bytes())
+        mesh_maps[mesh]=maps
+    write_json(ASSETS/'blackrazid_tunnel_mesh_materials.json',mesh_maps)
+    update();print('Imported all 19 native tunnel profiles: 159 native tunnel cubes, concrete OBJ / 5 material atlases and 17 ring-helper offsets.')
 if __name__=='__main__':main()

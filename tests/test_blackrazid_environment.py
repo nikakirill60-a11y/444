@@ -16,7 +16,7 @@ class BlackrazidEnvironmentTest(unittest.TestCase):
             target=A/value.split(':')[1];self.assertEqual(target.read_bytes(),(S/('assets/tunnels/'+target.name)).read_bytes())
         self.assertEqual((A/'textures/blackrazid/tunnels/tunnel.png').read_bytes(),(S/'assets/tunnels/tunnel.png').read_bytes());self.assertNotEqual((S/'assets/tunnels/tunnel.png').read_bytes(),(S/'assets/tunnels/block/tunnel.png').read_bytes())
     def test_environment_import_and_localization_are_reproducible(self):
-        paths=[A/'blackrazid_tunnels.json',A/'geometry/blackrazid/tunnel.json',A/'blackrazid_tunnel_materials.json',A/'lang/ru_ru.lang',A/'lang/en_us.lang'];before=[p.read_bytes() for p in paths];subprocess.run([sys.executable,'tools/import_blackrazid_environment.py'],cwd=ROOT,check=True,capture_output=True);self.assertEqual(before,[p.read_bytes() for p in paths])
+        paths=[A/'blackrazid_tunnels.json',A/'geometry/blackrazid/tunnel.json',A/'blackrazid_tunnel_materials.json',A/'blackrazid_tunnel_mesh_materials.json',A/'lang/ru_ru.lang',A/'lang/en_us.lang'];before=[p.read_bytes() for p in paths];subprocess.run([sys.executable,'tools/import_blackrazid_environment.py'],cwd=ROOT,check=True,capture_output=True);self.assertEqual(before,[p.read_bytes() for p in paths])
     def test_no_excluded_faction_or_general_handler_dependency(self):
         code='\n'.join(p.read_text() for p in (ROOT/'src/main/java/ru/metrocraft/port/blackrazid/environment').glob('*.java'))
         for forbidden in ['ExtendetPlayer','CommandDefence','executeCommand','net.minecraft.client','AirSetup','createExplosion']:self.assertNotIn(forbidden,code)

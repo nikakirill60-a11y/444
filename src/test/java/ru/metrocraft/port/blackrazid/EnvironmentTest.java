@@ -12,9 +12,9 @@ public class EnvironmentTest {
     @Rule public org.junit.rules.TemporaryFolder temporary=new org.junit.rules.TemporaryFolder();
     @BeforeClass public static void boot(){NativeWeaponsTest.boot();BlackrazidEnvironment.initialize();}
     private static ItemStack kit(int shape){return new ItemStack(BlackrazidEnvironment.KIT,64,shape);}
-    @Test public void nativeRingHasSeventeenHelpersAndHollowCenter(){assertEquals(net.minecraft.block.material.Material.GROUND,BlackrazidEnvironment.TUNNEL.getDefaultState().getMaterial());assertEquals(net.minecraft.block.material.Material.ROCK,BlackrazidEnvironment.PROXY.getDefaultState().getMaterial());for(int d=0;d<4;d++){List<BlockPos> f=TunnelRules.footprint(0,d);assertEquals(18,f.size());assertEquals(18,new HashSet<>(f).size());for(int y=-5;y<=-1;y++)assertFalse(f.contains(new BlockPos(0,y,0)));}assertEquals(1,TunnelRules.footprint(1,0).size());assertTrue(TunnelRules.footprint(-1,0).isEmpty());assertTrue(TunnelRules.footprint(2,0).isEmpty());}
+    @Test public void nativeRingHasSeventeenHelpersAndHollowCenter(){assertEquals(net.minecraft.block.material.Material.GROUND,BlackrazidEnvironment.TUNNEL.getDefaultState().getMaterial());assertEquals(net.minecraft.block.material.Material.ROCK,BlackrazidEnvironment.PROXY.getDefaultState().getMaterial());for(int d=0;d<4;d++){List<BlockPos> f=TunnelRules.footprint(0,d);assertEquals(18,f.size());assertEquals(18,new HashSet<>(f).size());for(int y=-5;y<=-1;y++)assertFalse(f.contains(new BlockPos(0,y,0)));}assertEquals(1,TunnelRules.footprint(1,0).size());assertTrue(TunnelRules.footprint(-1,0).isEmpty());assertTrue(TunnelRules.footprint(19,0).isEmpty());}
     @Test public void nativePlacementYawAndBothRendererAngleTablesAreRetained(){assertEquals(3,TunnelRules.placementDirection(0));assertEquals(0,TunnelRules.placementDirection(90));assertEquals(1,TunnelRules.placementDirection(180));assertEquals(2,TunnelRules.placementDirection(270));for(int d=0;d<4;d++){assertEquals(new int[]{90,180,270,0}[d],TunnelRules.renderAngle(0,d));assertEquals(new int[]{270,180,450,360}[d],TunnelRules.renderAngle(1,d));}}
-    @Test public void bothProfilesPlaceAndConsumeExactlyOneOfSixtyFourInEveryDirection()throws Exception{for(int shape=0;shape<2;shape++)for(int dir=0;dir<4;dir++){RailsTest.MapWorld m=new RailsTest.MapWorld(false);BlockPos p=new BlockPos(20,80,20);ItemStack k=kit(shape);assertTrue(TunnelPlacement.place(m.world,p,shape,dir,m.player,k));assertEquals(63,k.getCount());assertEquals(TunnelRules.footprint(shape,dir).size(),m.tiles.size());for(BlockPos offset:TunnelRules.footprint(shape,dir))assertSame(TunnelPlacement.at(m.world,p),TunnelPlacement.primary(m.world,p.add(offset)));}}
+    @Test public void allNineteenProfilesPlaceAndConsumeExactlyOneOfSixtyFourInEveryDirection()throws Exception{for(int shape=0;shape<TunnelRules.count();shape++)for(int dir=0;dir<4;dir++){RailsTest.MapWorld m=new RailsTest.MapWorld(false);BlockPos p=new BlockPos(20,80,20);ItemStack k=kit(shape);assertTrue(TunnelPlacement.place(m.world,p,shape,dir,m.player,k));assertEquals(63,k.getCount());assertEquals(TunnelRules.footprint(shape,dir).size(),m.tiles.size());for(BlockPos offset:TunnelRules.footprint(shape,dir))assertSame(TunnelPlacement.at(m.world,p),TunnelPlacement.primary(m.world,p.add(offset)));}}
     @Test public void farWallObstructionRejectsBeforeOverwritingAnyMapBlock()throws Exception{RailsTest.MapWorld m=new RailsTest.MapWorld(false);BlockPos p=new BlockPos(20,80,20),wall=p.add(0,-4,4);m.states.put(wall,Blocks.STONE.getDefaultState());ItemStack k=kit(0);assertFalse(TunnelPlacement.place(m.world,p,0,0,m.player,k));assertEquals(64,k.getCount());assertEquals(0,m.writes);assertSame(Blocks.STONE,m.world.getBlockState(wall).getBlock());}
     @Test public void protectedWallAndUnloadedWallNeverGetOverwritten()throws Exception{for(boolean protection:new boolean[]{true,false}){RailsTest.MapWorld m=new RailsTest.MapWorld(false);BlockPos p=new BlockPos(20,80,20),wall=p.add(0,-4,4);if(protection)when(m.world.isBlockModifiable(m.player,wall)).thenReturn(false);else when(m.world.isBlockLoaded(wall)).thenReturn(false);assertFalse(TunnelPlacement.place(m.world,p,0,0,m.player,kit(0)));assertEquals(0,m.writes);}}
     @Test public void ringCommitFailureRollsBackAndDoesNotConsume()throws Exception{RailsTest.MapWorld m=new RailsTest.MapWorld(false);m.failAt=8;BlockPos p=new BlockPos(20,80,20);ItemStack k=kit(0);assertFalse(TunnelPlacement.place(m.world,p,0,0,m.player,k));assertEquals(64,k.getCount());assertTrue(m.tiles.isEmpty());for(BlockPos offset:TunnelRules.footprint(0,0))assertSame(Blocks.AIR,m.world.getBlockState(p.add(offset)).getBlock());}
@@ -49,6 +49,55 @@ public class EnvironmentTest {
                 b.onBlockActivated(m.world,BlockPos.ORIGIN,b.getDefaultState(),p,net.minecraft.util.EnumHand.MAIN_HAND,net.minecraft.util.EnumFacing.UP,0,0,0);verify(p).setPositionAndUpdate(10.5,60,10.5);
             }finally{FactionTeleportBlock.load(temporary.newFile("disabled.cfg"));}
         }finally{home.set(null,previous);}
+    }
+
+    @Test public void everyNewKindHasFourTransformsAndBoundedRenderData(){
+        assertEquals(19,TunnelRules.count());assertFalse(TunnelRules.valid(-1));assertFalse(TunnelRules.valid(19));
+        for(int shape=1;shape<19;shape++)for(int dir=0;dir<4;dir++){
+            TunnelRules.Shape profile=TunnelRules.profile(shape);assertNotNull(profile.mesh);assertTrue(profile.transforms[dir].length>=3);
+            AxisAlignedBB b=TunnelRules.renderBounds(shape,dir);assertTrue(b.minX<b.maxX);assertTrue(b.minY<b.maxY);assertTrue(b.minZ<b.maxZ);
+            assertEquals(1,TunnelRules.footprint(shape,dir).size());
+        }
+    }
+    @Test public void originalCurveDoubleAndCrossAnglesAreNotForcedToStraightProfile(){
+        for(int d=0;d<4;d++){assertEquals(new int[]{90,360,270,180}[d],TunnelRules.renderAngle(2,d));assertEquals(new int[]{180,90,360,270}[d],TunnelRules.renderAngle(15,d));assertEquals(360,TunnelRules.renderAngle(9,d));}
+    }
+    @Test public void newHighMetadataAndOwnerIdentitySurviveNbtAndPickBlock()throws Exception{
+        for(int shape=2;shape<19;shape++){
+            RailsTest.MapWorld m=new RailsTest.MapWorld(false);BlockPos p=new BlockPos(20,80,20);ItemStack k=kit(shape);assertTrue(TunnelPlacement.place(m.world,p,shape,3,m.player,k));TunnelTile t=TunnelPlacement.at(m.world,p),loaded=new TunnelTile();loaded.readFromNBT(t.writeToNBT(new NBTTagCompound()));
+            assertEquals(shape,loaded.shape());assertEquals(3,loaded.direction());assertEquals(t.identity(),loaded.identity());assertEquals(p,loaded.owner());
+            assertEquals(shape,BlackrazidEnvironment.TUNNEL.getPickBlock(m.world.getBlockState(p),null,m.world,p,m.player).getMetadata());
+            assertEquals("item.metroport.blackrazid_tunnels_"+shape,BlackrazidEnvironment.KIT.getTranslationKey(new ItemStack(BlackrazidEnvironment.KIT,1,shape)));
+        }
+    }
+    @Test public void allNewProfilesRefuseOccupiedProtectedAndUnloadedAnchorsBeforeMutation()throws Exception{
+        for(int shape=2;shape<19;shape++)for(int mode=0;mode<3;mode++){
+            RailsTest.MapWorld m=new RailsTest.MapWorld(false);BlockPos p=new BlockPos(20,80,20);ItemStack k=kit(shape);
+            if(mode==0)m.states.put(p,Blocks.STONE.getDefaultState());if(mode==1)when(m.world.isBlockModifiable(m.player,p)).thenReturn(false);if(mode==2)when(m.world.isBlockLoaded(p)).thenReturn(false);
+            assertFalse(TunnelPlacement.place(m.world,p,shape,0,m.player,k));assertEquals(64,k.getCount());assertEquals(0,m.writes);
+        }
+    }
+    @Test public void newProfilesAreServerOwnedAndFailedPlacementNeverConsumesKit()throws Exception{
+        for(int shape=2;shape<19;shape++){
+            RailsTest.MapWorld client=new RailsTest.MapWorld(true);ItemStack k=kit(shape);assertFalse(TunnelPlacement.place(client.world,new BlockPos(20,80,20),shape,0,client.player,k));assertEquals(0,client.writes);assertEquals(64,k.getCount());
+            RailsTest.MapWorld server=new RailsTest.MapWorld(false);server.failAt=1;assertFalse(TunnelPlacement.place(server.world,new BlockPos(20,80,20),shape,0,server.player,k));assertEquals(64,k.getCount());assertTrue(server.tiles.isEmpty());
+        }
+    }
+    @Test public void transformedCurveBoundsExtendBeyondOldNineBlockCube(){
+        for(int shape:new int[]{2,5,12,15})for(int dir=0;dir<4;dir++){
+            TunnelTile t=new TunnelTile(true);BlockPos p=new BlockPos(100,80,100);t.setPos(p);t.configure(true,shape,dir,p,UUID.randomUUID());AxisAlignedBB actual=t.getRenderBoundingBox(),nativeBounds=TunnelRules.renderBounds(shape,dir).offset(p);
+            assertTrue(actual.minX<=nativeBounds.minX);assertTrue(actual.maxX>=nativeBounds.maxX);assertTrue(actual.minY<=nativeBounds.minY);assertTrue(actual.maxY>=nativeBounds.maxY);assertTrue(actual.minZ<=nativeBounds.minZ);assertTrue(actual.maxZ>=nativeBounds.maxZ);
+            assertTrue(nativeBounds.minX<91 || nativeBounds.maxX>110 || nativeBounds.minZ<91 || nativeBounds.maxZ>110);
+        }
+    }
+    @Test public void allNativeTunnelMeshesParseWithCompleteMaterialMappingWithoutOpenGL()throws Exception{
+        com.google.gson.JsonObject maps;try(java.io.Reader r=new java.io.InputStreamReader(getClass().getResourceAsStream("/assets/metroport/blackrazid_tunnel_mesh_materials.json"),java.nio.charset.StandardCharsets.UTF_8)){maps=new com.google.gson.JsonParser().parse(r).getAsJsonObject();}
+        for(int shape=1;shape<19;shape++){
+            String name=TunnelRules.profile(shape).mesh;try(java.io.InputStream in=getClass().getResourceAsStream("/assets/metroport/models/blackrazid/tunnels/"+name)){
+                ru.metrocraft.port.mcmod.McmodObjMesh mesh=ru.metrocraft.port.mcmod.McmodObjMesh.readMaterials(in);assertFalse(mesh.groups.isEmpty());com.google.gson.JsonObject materials=maps.getAsJsonObject(name);
+                for(Map.Entry<String,List<float[]>> group:mesh.groups.entrySet()){assertTrue(materials.has(group.getKey()));assertFalse(group.getValue().isEmpty());assertEquals(0,group.getValue().size()%3);for(float[] vertex:group.getValue())for(float coordinate:vertex)assertTrue(Float.isFinite(coordinate));}
+            }
+        }
     }
 
 }
