@@ -51,7 +51,7 @@ public final class GrenadeEntity extends EntityThrowable {
             if(delta.lengthSquared()>1e-8){double impulse=(1-distance/GrenadeRules.RADIUS)*exposure;Vec3d push=delta.normalize().scale(impulse);target.motionX+=push.x;target.motionY+=push.y;target.motionZ+=push.z;target.velocityChanged=true;}
         }
         world.playSound(null,posX,posY,posZ,net.minecraft.init.SoundEvents.ENTITY_GENERIC_EXPLODE,SoundCategory.BLOCKS,4,.7F);
-        if(world instanceof WorldServer)((WorldServer)world).spawnParticle(EnumParticleTypes.EXPLOSION_HUGE,posX,posY,posZ,1,0,0,0,0);
+        if(world instanceof WorldServer)((WorldServer)world).spawnParticle(EnumParticleTypes.EXPLOSION_HUGE,posX,posY,posZ,1,0D,0D,0D,0D);
         // Do NOT call newExplosion/doExplosionB: the original override only played effects.
     }
     @Override public void writeEntityToNBT(NBTTagCompound tag){super.writeEntityToNBT(tag);tag.setBoolean("BlackrazidBig",isBig());tag.setInteger("BlackrazidAge",age);}

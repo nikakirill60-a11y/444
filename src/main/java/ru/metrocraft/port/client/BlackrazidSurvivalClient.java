@@ -58,7 +58,7 @@ public final class BlackrazidSurvivalClient {
         clearLight();Vec3d eyes=mc.player.getPositionEyes(1),look=mc.player.getLookVec();BlockPos anchor=new BlockPos(eyes);
         for(int x=-8;x<=8;x++)for(int y=-8;y<=8;y++)for(int z=-8;z<=8;z++){
             BlockPos p=anchor.add(x,y,z);if(p.getY()<0 || p.getY()>=256 || !world.isBlockLoaded(p))continue;
-            Vec3d center=new Vec3d(p).add(.5,.5,.5),delta=center.subtract(eyes);double d=delta.lengthVector();
+            Vec3d center=new Vec3d(p).add(.5,.5,.5),delta=center.subtract(eyes);double d=delta.length();
             int brightness=LampRules.brightness(d,d<1e-6?1:delta.dotProduct(look)/d);if(brightness==0)continue;
             if(world.getBlockState(p).getLightOpacity(world,p)>0)continue;
             RayTraceResult obstruction=world.rayTraceBlocks(eyes,center,false,true,false);if(obstruction!=null)continue;
