@@ -9,6 +9,7 @@ import net.minecraft.world.*;
 /** Internal native temporary light cells, never offered as player inventory items. */
 public final class TransientLightBlock extends Block {
     public TransientLightBlock(float light){super(Material.AIR);setLightLevel(light);setLightOpacity(0);setBlockUnbreakable();}
+    @Override public net.minecraft.block.state.BlockFaceShape getBlockFaceShape(IBlockAccess w,IBlockState s,BlockPos p,net.minecraft.util.EnumFacing f){return net.minecraft.block.state.BlockFaceShape.UNDEFINED;}
     @Override public boolean isAir(IBlockState state,IBlockAccess w,BlockPos p){return true;}
     @Override public boolean isReplaceable(IBlockAccess w,BlockPos p){return true;}
     @Override public boolean isOpaqueCube(IBlockState s){return false;}

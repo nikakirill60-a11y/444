@@ -16,11 +16,14 @@ public final class TunnelPlacement {
     public static TunnelTile at(World w,BlockPos p){if(!w.isBlockLoaded(p))return null;TileEntity t=w.getTileEntity(p);return t instanceof TunnelTile?(TunnelTile)t:null;}
     public static TunnelTile primary(World w,BlockPos p){TunnelTile t=at(w,p);if(t==null)return null;if(t.primary())return w.getBlockState(p).getBlock()==BlackrazidEnvironment.TUNNEL?t:null;if(w.getBlockState(p).getBlock()!=BlackrazidEnvironment.PROXY)return null;TunnelTile parent=at(w,t.owner());return parent!=null&&w.getBlockState(parent.getPos()).getBlock()==BlackrazidEnvironment.TUNNEL&&parent.owns(t)?parent:null;}
     public static boolean place(World w,BlockPos origin,int shape,int direction,EntityPlayer player,ItemStack stack){
+        return place(w,origin,shape,direction,player,stack,EnumFacing.UP);
+    }
+    public static boolean place(World w,BlockPos origin,int shape,int direction,EntityPlayer player,ItemStack stack,EnumFacing clickedFace){
         if(w.isRemote||!TunnelRules.valid(shape)||stack.isEmpty()||player.isSpectator())return false;
         Map<BlockPos,IBlockState> before=new LinkedHashMap<>();int height=w.getHeight();if(height<=0)height=256;
         for(BlockPos offset:TunnelRules.footprint(shape,direction)){
             BlockPos p=origin.add(offset);
-            if(p.getY()<0||p.getY()>=height||!w.isBlockLoaded(p)||!w.getWorldBorder().contains(p)||!w.isBlockModifiable(player,p)||!player.canPlayerEdit(p,EnumFacing.UP,stack))return false;
+            if(p.getY()<0||p.getY()>=height||!w.isBlockLoaded(p)||!w.getWorldBorder().contains(p)||!w.isBlockModifiable(player,p)||!player.canPlayerEdit(p,clickedFace,stack))return false;
             IBlockState old=w.getBlockState(p);
             if(w.getTileEntity(p)!=null||!old.getBlock().isReplaceable(w,p))return false;
             before.put(p,old);

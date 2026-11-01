@@ -15,6 +15,6 @@ public final class TunnelKitItem extends Item {
         if(w.isRemote)return EnumActionResult.SUCCESS;
         if(!w.isBlockLoaded(clicked))return EnumActionResult.FAIL;
         int dir=TunnelRules.placementDirection(player.rotationYaw);
-        return TunnelPlacement.place(w,w.getBlockState(clicked).getBlock().isReplaceable(w,clicked)?clicked:clicked.offset(side),stack.getMetadata(),dir,player,stack)?EnumActionResult.SUCCESS:EnumActionResult.FAIL;
+        return TunnelPlacement.place(w,w.getBlockState(clicked).getBlock().isReplaceable(w,clicked)?clicked:clicked.offset(side),stack.getMetadata(),dir,player,stack,side)?EnumActionResult.SUCCESS:EnumActionResult.FAIL;
     }
 }
