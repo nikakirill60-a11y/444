@@ -105,7 +105,7 @@ class PoseConversionTests(unittest.TestCase):
         for name in ['flashModel']+['bulletModel_'+str(i) for i in range(6)]:np.testing.assert_allclose(node_matrix(self.nodes[name]),expected,atol=0)
         self.assertEqual([0,0,0],self.nodes['root']['translation'])
     def test_original_pose_file_hash_is_recorded(self):
-        m=json.loads((P/'SOURCE_MANIFEST.json').read_bytes());self.assertEqual(4,m['packRevision']);self.assertEqual(hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),m['poseSource']['sha256'])
+        m=json.loads((P/'SOURCE_MANIFEST.json').read_bytes());self.assertEqual(5,m['packRevision']);self.assertEqual(hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),m['poseSource']['sha256'])
     def test_supplied_recoil_and_sprint_settings_are_preserved(self):
         self.assertEqual(self.pose['sprint'],self.config['sprint'])
         for key in ['modelRecoilBackwards','modelRecoilUpwards','modelRecoilShake']:self.assertEqual(self.pose['extra'][key],self.config['extra'][key])

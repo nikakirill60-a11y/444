@@ -121,7 +121,18 @@
     "animations": "Adapted root-motion timeline; no original animation data was provided.",
     "balance": "Adapted values, not recovered original gun stats."
   },
-  "packRevision": 4,
+  "packRevision": 5,
+  "reloadTiming": {
+    "targetFullSeconds": 8,
+    "serverReloadTicks": 160,
+    "phaseSpeed": 0.90625,
+    "fullReloadPhases": {
+      "pre": 1,
+      "first": 6,
+      "second": 5,
+      "post": 1
+    }
+  },
   "poseAdjustment": {
     "hipLowering": 0.25,
     "adsEndpointUnchanged": true,

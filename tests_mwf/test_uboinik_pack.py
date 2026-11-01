@@ -13,7 +13,7 @@ class UboinikPackTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.source=originals();cls.groups=obj_read(cls.source['uboinik.obj']);cls.gltf=js(A/'gltf/guns/metro_uboinik.gltf')
-        cls.archive=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v4.zip'
+        cls.archive=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v5.zip'
     def test_full_pack_structure_and_loader_dependencies(self):
         with contextlib.redirect_stdout(io.StringIO()):result=verify(P)
         self.assertEqual({'files':40,'rounds':6,'triangles':6901,'items':5},result)
@@ -33,6 +33,15 @@ class UboinikPackTests(unittest.TestCase):
         for id,name in [('metro_uboinik_suppressor','textures.png'),('metro_uboinik_laser','texturen.png')]:
             self.assertEqual(self.source[name],(A/'skins/attachments'/f'{id}.png').read_bytes())
             self.assertEqual(name,js(P/'SOURCE_MANIFEST.json')['conversion']['attachmentTextures'][id])
+    def test_full_six_round_reload_is_eight_seconds(self):
+        g=js(P/'guns/metro_uboinik.json');r=js(P/'guns/render/metro_uboinik.render.json')
+        def duration(name):
+            a=r['animations'][name];return (a['endTime']-a['startTime'])/r['FPS']/a['speed']
+        self.assertEqual(160,g['reloadTime'])
+        for empty in ['', 'Empty']:
+            total=duration('preReload'+empty)+6*duration('reloadFirst'+empty)+5*duration('reloadSecond'+empty)+duration('postReload'+empty)
+            self.assertAlmostEqual(8,total)
+        for name in ['default','draw','fire','aim','sprint','inspect','preUnload','unload','postUnload']:self.assertEqual(1,r['animations'][name]['speed'])
     def test_all_user_sounds_are_exact_original_bytes(self):
         for name,source in [('fire','Выстрел.ogg'),('load','Перезарядка.ogg'),('bolt','Затвор.ogg')]:self.assertEqual(self.source[source],(A/f'sounds/metro_uboinik_{name}.ogg').read_bytes())
     def test_added_arms_have_outward_normals_and_winding(self):

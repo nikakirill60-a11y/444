@@ -102,6 +102,10 @@ def animations(g,pose):
                 trs=arm_transform(pose,'left' if node_name.startswith('left') else 'right',reload)
                 for key in keys:keys[key].append(trs[key])
         frame+=duration+2
+    # Internal-ammo reload has N FIRST and N-1 SECOND phases (not just N LOADs).
+    # 10 + 6*14 + 5*14 + 10 = 174 frames. At 24 FPS and speed .90625: 8 s.
+    for action in ['preLoad','load','postLoad']:
+        ranges[action]['speed']=174/(24*8)
     aliases={'defaultEmpty':'default','drawEmpty':'draw','takedownEmpty':'takedown','inspectEmpty':'inspect','fireLast':'fire','fireADS':'fire','fireLastADS':'fire','preFireADS':'preFire','postFireADS':'postFire','postFireEmpty':'postFire','postFireADSEmpty':'postFire',
       'preReload':'preLoad','preReloadEmpty':'preLoad','reloadFirst':'load','reloadFirstEmpty':'load','reloadSecond':'load','reloadSecondEmpty':'load','reloadFirstQuickly':'load','reloadSecondQuickly':'load','postReload':'postLoad','postReloadEmpty':'postLoad'}
     for alias,target in aliases.items():ranges[alias]=ranges[target].copy()
@@ -205,7 +209,7 @@ def build(output,archive,ref=SOURCE_REF):
       'modelSkins':[{'internalName':GUN,'skinAsset':GUN,'displayName':'Оригинал'}],
       'gunDamage':3,'numBullets':8,'bulletSpread':2.5,'roundsPerMin':120,'fireModes':['semi'],
       'weaponMaxRange':80,'weaponEffectiveRange':25,'gunDamageHeadshotBonus':0,'gunHoldLength':1.0,
-      'acceptedBullets':[ROUND],'internalAmmoStorage':6,'defaultBullet':ROUND,'reloadTime':100,
+      'acceptedBullets':[ROUND],'internalAmmoStorage':6,'defaultBullet':ROUND,'reloadTime':160,
       'recoilPitch':4,'recoilYaw':1,'randomRecoilPitch':.5,'randomRecoilYaw':.5,
       'restrictingFireAnimation':True,'firingReload':False,'allowReloadFiring':False,'allowReloadingSprint':False,
       'acceptedAttachments':{'barrel':['metro_uboinik_suppressor'],'sight':['metro_uboinik_collimator'],'laser':['metro_uboinik_laser']},
@@ -245,7 +249,8 @@ def build(output,archive,ref=SOURCE_REF):
     manifest['conversion']={'unitScale':SCALE,'bodyTexture':'Uboinik tex.png','roundTexture':'shell (2).png','atlasSize':[2048,1024],
       'attachmentTextures':{id:v[1] for id,v in ATTACHMENTS.items()},'triangles':{name:len(t) for name,t in groups.items()},
       'animations':'Adapted root-motion timeline; no original animation data was provided.','balance':'Adapted values, not recovered original gun stats.'}
-    manifest['packRevision']=4
+    manifest['packRevision']=5
+    manifest['reloadTiming']={'targetFullSeconds':8,'serverReloadTicks':160,'phaseSpeed':174/(24*8),'fullReloadPhases':{'pre':1,'first':6,'second':5,'post':1}}
     manifest['poseAdjustment']={'hipLowering':.25,'adsEndpointUnchanged':True,'reason':'User screenshot feedback: first-person hip hold too high.'}
     manifest['poseSource']={'path':POSE_FILE.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),'conversion':'BASIC camera/weapon/arm transforms converted to Enhanced; reload arm poses interpolated from supplied configuration.'}
     jsonwrite(output/'SOURCE_MANIFEST.json',manifest)
@@ -259,7 +264,7 @@ def build(output,archive,ref=SOURCE_REF):
     print('Built',archive,'bytes:',archive.stat().st_size,'SHA256:',hashlib.sha256(archive.read_bytes()).hexdigest())
     return g.doc
 
-README='''METRO: УБОЙНИК v4 — контент-пак для ModularWarfare-Shining 2024.2.4.6f-fix1
+README='''METRO: УБОЙНИК v5 — контент-пак для ModularWarfare-Shining 2024.2.4.6f-fix1
 
 УСТАНОВКА
 1. Нужны Minecraft 1.12.2, Forge и предоставленная пользователем версия MWF.
@@ -299,7 +304,12 @@ README='''METRO: УБОЙНИК v4 — контент-пак для ModularWarfa
 MTL не содержат map_Kd; соответствия PNG выбраны по содержимому атласов и записаны
 в SOURCE_MANIFEST.json. Посадку обвеса и правильность выбора текстур проверить в игре.
 
-ИСПРАВЛЕНО В v4
+ИСПРАВЛЕНО В v5
+Полная зарядка шести патронов настроена примерно на 8 секунд: изменены
+серверный reloadTime и скорость фаз Enhanced, а не только числовой таймер.
+Обычное держание, ADS, third-person, геометрия и текстуры сохранены из v4.
+
+СОХРАНЕНО ИЗ v4
 По игровому скриншоту опущено обычное держание оружия вместе с руками.
 Смещение HIP по Y уменьшено на 0.25; конечная поза ADS, масштаб, угол,
 third-person, модель и текстуры сохранены.
@@ -327,5 +337,5 @@ Enhanced сбрасывает внешнюю матрицу камеры: вос
 '''
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'contentpacks/metro_uboinik');p.add_argument('--zip',type=Path,default=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v4.zip');p.add_argument('--source-ref',default=SOURCE_REF)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'contentpacks/metro_uboinik');p.add_argument('--zip',type=Path,default=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v5.zip');p.add_argument('--source-ref',default=SOURCE_REF)
     a=p.parse_args();build(a.output,a.zip,a.source_ref)

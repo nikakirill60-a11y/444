@@ -27,7 +27,7 @@
   ],
   "internalAmmoStorage": 6,
   "defaultBullet": "metro_12g_buckshot",
-  "reloadTime": 100,
+  "reloadTime": 160,
   "recoilPitch": 4,
   "recoilYaw": 1,
   "randomRecoilPitch": 0.5,

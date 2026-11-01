@@ -36,17 +36,17 @@
     "preLoad": {
       "startTime": 75,
       "endTime": 85,
-      "speed": 1
+      "speed": 0.90625
     },
     "load": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "postLoad": {
       "startTime": 103,
       "endTime": 113,
-      "speed": 1
+      "speed": 0.90625
     },
     "preUnload": {
       "startTime": 115,
@@ -141,52 +141,52 @@
     "preReload": {
       "startTime": 75,
       "endTime": 85,
-      "speed": 1
+      "speed": 0.90625
     },
     "preReloadEmpty": {
       "startTime": 75,
       "endTime": 85,
-      "speed": 1
+      "speed": 0.90625
     },
     "reloadFirst": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "reloadFirstEmpty": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "reloadSecond": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "reloadSecondEmpty": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "reloadFirstQuickly": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "reloadSecondQuickly": {
       "startTime": 87,
       "endTime": 101,
-      "speed": 1
+      "speed": 0.90625
     },
     "postReload": {
       "startTime": 103,
       "endTime": 113,
-      "speed": 1
+      "speed": 0.90625
     },
     "postReloadEmpty": {
       "startTime": 103,
       "endTime": 113,
-      "speed": 1
+      "speed": 0.90625
     }
   },
   "global": {
