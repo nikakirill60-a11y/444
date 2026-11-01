@@ -9,6 +9,16 @@
       "metroport:ak74shoot"
     ]
   },
+  "blackrazid_flyashka": {
+    "sounds": [
+      "metroport:blackrazid_flyashka"
+    ]
+  },
+  "blackrazid_railgun_air": {
+    "sounds": [
+      "metroport:blackrazid_railgun_air"
+    ]
+  },
   "duplet_reload": {
     "sounds": [
       "metroport:duplet_reload"

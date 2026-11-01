@@ -130,6 +130,8 @@ def main():
     write_json(ASSETS / 'content.json', entries)
     for path in sorted((ASSETS/'sounds').glob('mcmod_*.ogg')):
         sounds[path.stem]={'sounds':['metroport:'+path.stem]}
+    for path in sorted((ASSETS/'sounds').glob('blackrazid_*.ogg')):
+        sounds[path.stem]={'sounds':['metroport:'+path.stem]}
     if (ASSETS/'mcmod_support.json').exists():sounds['mcmod_medkit_use_heavy']={'sounds':['metroport:mcmod_medkit_use_heavy']}
     sounds['germo'] = {'sounds': ['metroport:germo']}
     write_json(ASSETS / 'sounds.json', dict(sorted(sounds.items())))

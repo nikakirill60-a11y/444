@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.12.0", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.1", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -80,6 +80,8 @@ public final class MetroPort {
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
         NETWORK.registerMessage(ShotFeedbackPacket.Handler.class,ShotFeedbackPacket.class,3,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgSyncPacket.Handler.class,ru.metrocraft.port.inventory.NvgSyncPacket.class,4,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.blackrazid.survival.SurvivalPacket.Handler.class,ru.metrocraft.port.blackrazid.survival.SurvivalPacket.class,10,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.blackrazid.survival.LampPacket.Handler.class,ru.metrocraft.port.blackrazid.survival.LampPacket.class,11,Side.SERVER);
         // IDs 5/6 belonged to the removed inventory comparator; never reuse them.
         NETWORK.registerMessage(ru.metrocraft.port.inventory.WatchSyncPacket.Handler.class,ru.metrocraft.port.inventory.WatchSyncPacket.class,7,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
@@ -89,6 +91,7 @@ public final class MetroPort {
         ru.metrocraft.port.exodus.ExodusContent.registerEntities();
         ru.metrocraft.port.mcmod.McmodContent.load();
         ru.metrocraft.port.blackrazid.BlackrazidContent.load();
+        ru.metrocraft.port.blackrazid.BlackrazidExpansion.initialize();
         PROXY.preInit();
     }
 

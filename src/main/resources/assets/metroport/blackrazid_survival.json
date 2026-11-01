@@ -1,0 +1,42 @@
+[
+  {
+    "id": "blackrazid_flyashka",
+    "sourceId": "Flyashka",
+    "kind": "flask",
+    "icon": "flyashka",
+    "nameRu": "Фляга",
+    "nameEn": "Flask"
+  },
+  {
+    "id": "blackrazid_lamp",
+    "sourceId": "Lamp",
+    "kind": "lamp",
+    "icon": "flashlight",
+    "nameRu": "Фонарь",
+    "nameEn": "Flashlight"
+  },
+  {
+    "id": "blackrazid_power",
+    "sourceId": "Power",
+    "kind": "power",
+    "icon": "power",
+    "nameRu": "Зарядное устройство",
+    "nameEn": "Charger"
+  },
+  {
+    "id": "blackrazid_grenade",
+    "sourceId": "Grenade",
+    "kind": "grenade",
+    "icon": "grenade_low",
+    "nameRu": "Граната",
+    "nameEn": "Grenade"
+  },
+  {
+    "id": "blackrazid_grenade_big",
+    "sourceId": "GrenadeBig",
+    "kind": "grenade",
+    "icon": "grenade_low",
+    "nameRu": "Большая граната",
+    "nameEn": "Large grenade"
+  }
+]

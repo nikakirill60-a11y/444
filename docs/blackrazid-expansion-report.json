@@ -1,0 +1,952 @@
+{
+  "status": "INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE",
+  "excluded": [
+    "AirSetup",
+    "general EventHandler",
+    "PlayerTracker",
+    "general ExtendetPlayer implementation",
+    "CommandDefence"
+  ],
+  "implementedInDevelopment": [
+    "thirst/flask",
+    "lamp/charger (documented light adaptation)",
+    "ordinary/big grenade mechanics"
+  ],
+  "pending": [
+    "22 selected BlackRazid firearms and their native models, magazines and modules",
+    "Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models",
+    "12 mutants and 11 spawners with native multipart models and behaviors",
+    "tunnels, building/decor blocks, environment lights and faction teleport adaptation"
+  ],
+  "weapons": [
+    {
+      "sourceId": "Ubludok",
+      "source": "guns/Ubludok.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 30,
+      "baseDamage": 5,
+      "dependencies": [
+        "Glushak",
+        "MetroTabGuns",
+        "UbludokAmmo",
+        "UbludokButt"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "9c9742303b6ca460aa60374769cf6bd91e8dc5c848986cce1053f66ed9766474"
+    },
+    {
+      "sourceId": "AK2012",
+      "source": "guns/AK2012.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 30,
+      "baseDamage": 5,
+      "dependencies": [
+        "AK2012Ammo",
+        "Glushak",
+        "MetroTabGuns"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "92bf4140b3aa28fe59e8a13d9f2165c1400710427e5c19e9eec1cd26166fbb03"
+    },
+    {
+      "sourceId": "AK",
+      "source": "guns/AK.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 30,
+      "baseDamage": 5,
+      "dependencies": [
+        "AKAmmo",
+        "Glushak",
+        "MetroTabGuns",
+        "RpkAmmo"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "cc69e66af19f41c9d7f2ec080083fd96098f5cbaa237d05f37d2367d45caaeba"
+    },
+    {
+      "sourceId": "AKSU",
+      "source": "guns/AKSU.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 30,
+      "baseDamage": 5,
+      "dependencies": [
+        "AKAmmo",
+        "Glushak",
+        "MetroTabGuns",
+        "RpkAmmo"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "8661cea0706c531b15603c1b62a406fb53e6f1674b68f0572066d92911687f67"
+    },
+    {
+      "sourceId": "Ashot",
+      "source": "guns/Ashot.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 1,
+      "baseDamage": 2,
+      "dependencies": [
+        "Bullet12x70",
+        "Glushak",
+        "MetroTabGuns",
+        "UboinikBarrel"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "4d96f4cd2d38a82e7fe47b8db2ef783ec75e4747d281e692f2986c95c901047a"
+    },
+    {
+      "sourceId": "Duplet",
+      "source": "guns/Duplet.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 2,
+      "baseDamage": 3,
+      "dependencies": [
+        "Bullet12x70",
+        "DupletBarrel",
+        "DupletButt",
+        "DupletGlushak",
+        "DupletPriklad",
+        "MetroTabGuns",
+        "QuadBarrel"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Bullet_Left",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "bd164840bed53c9ede5ad32db86945611000efcfadd5ede4abf1a9954aac08e0"
+    },
+    {
+      "sourceId": "Gatling",
+      "source": "guns/Gatling.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 150,
+      "baseDamage": 6,
+      "dependencies": [
+        "GatlingAmmo",
+        "GatlingBarrel",
+        "GatlingButt",
+        "GatlingGiro",
+        "GatlingMotor",
+        "MetroTabGuns"
+      ],
+      "shootDelays": [
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "stateKeys": [
+        "AT",
+        "Air",
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "Charge",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Rot",
+        "ST",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "fab1b25445d3780b33a5c75b0a2180dee5af368cacf5451f077a5fd407065869"
+    },
+    {
+      "sourceId": "Helsing",
+      "source": "guns/Helsing.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 6,
+      "baseDamage": 6,
+      "dependencies": [
+        "HelsingAmmo",
+        "MetroTabGuns"
+      ],
+      "shootDelays": [
+        6,
+        7
+      ],
+      "stateKeys": [
+        "AT",
+        "Air",
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "Charge",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "ST",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "25b7a13c01a6444a88d118750f56eae5c52777910c0d1f51a6eb21cbdadbba3d"
+    },
+    {
+      "sourceId": "Tihar",
+      "source": "guns/Tihar.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 15,
+      "baseDamage": 6,
+      "dependencies": [
+        "MetroTabGuns",
+        "TiharAmmo"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "AT",
+        "Air",
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "Charge",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "ST",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "f1a31ec9ca6edb96e235b6d96847a416f9c05bf78968bfff7b9b766601c84169"
+    },
+    {
+      "sourceId": "Podonok",
+      "source": "guns/Podonok.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 20,
+      "baseDamage": 4,
+      "dependencies": [
+        "Barrel",
+        "Glushak",
+        "MetroTabGuns",
+        "PodonokAmmo",
+        "PodonokAmmoBig",
+        "PodonokButt",
+        "PodonokGas"
+      ],
+      "shootDelays": [
+        3,
+        5,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "8afba6e1d292660e5755ecc4d2fed7279f323f77b7f2b9ebcd560ea65d7a1fb5"
+    },
+    {
+      "sourceId": "Preved",
+      "source": "guns/Preved.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 1,
+      "baseDamage": 15,
+      "dependencies": [
+        "Barrel",
+        "Bullet12_7x108",
+        "MetroTabGuns",
+        "PrevedAmmo",
+        "VentilGlushak"
+      ],
+      "shootDelays": [
+        7,
+        35
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "HasAmmo",
+        "HasBullet",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "a9d68409c709c72e178c4323cdec63a90f3181287a3a6b763935cc4b16feaa73"
+    },
+    {
+      "sourceId": "Railgun",
+      "source": "guns/Railgun.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 15,
+      "baseDamage": 5,
+      "dependencies": [
+        "MetroTabGuns",
+        "RailgunAkk",
+        "RailgunKon",
+        "TiharAmmo"
+      ],
+      "shootDelays": [
+        7,
+        8,
+        20
+      ],
+      "stateKeys": [
+        "AT",
+        "Air",
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "Charge",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "ST",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "0be11cb780892d6118e491b1c43f3be453a332ffbbbf7fd6e73162876bc6c107"
+    },
+    {
+      "sourceId": "Revolver",
+      "source": "guns/Revolver.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 6,
+      "baseDamage": 4,
+      "dependencies": [
+        "Barrel",
+        "BulletMagnum",
+        "Butt",
+        "Glushak",
+        "MetroTabGuns"
+      ],
+      "shootDelays": [
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Number",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "416ea816c689258387ed73f4ca79a3559acf71494cb5b9cb8dc00747eec2644a"
+    },
+    {
+      "sourceId": "Rpk",
+      "source": "guns/Rpk.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 100,
+      "baseDamage": 5,
+      "dependencies": [
+        "MetroTabGuns",
+        "RpkAmmo",
+        "RpkAmmoBig"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "289032eaec5a469284cdac7b1ac46e14aded96477d8bd49e7aebc0ebd165bc15"
+    },
+    {
+      "sourceId": "Saiga",
+      "source": "guns/Saiga.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 20,
+      "baseDamage": 3,
+      "dependencies": [
+        "Glushak",
+        "MetroTabGuns",
+        "SaigaAmmo",
+        "SaigaAmmoBig"
+      ],
+      "shootDelays": [
+        6,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "056da8203846c727d22c231fc51b4c6a7e21b6e4800ce5a2e6d1be1528700b7a"
+    },
+    {
+      "sourceId": "Abzac",
+      "source": "guns/Abzac.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 40,
+      "baseDamage": 4,
+      "dependencies": [
+        "AbzacAmmo",
+        "AbzacAmmoBig",
+        "AbzacGlushak",
+        "AutoFire",
+        "MetroTabGuns"
+      ],
+      "shootDelays": [
+        4,
+        7
+      ],
+      "stateKeys": [
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "c46b05ebfed5e4935f11329d65386e3bf139c2e5d4589941c337a60823526cd1"
+    },
+    {
+      "sourceId": "Uboinik",
+      "source": "guns/Uboinik.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 6,
+      "baseDamage": 3,
+      "dependencies": [
+        "Bullet12x70",
+        "BulletMagnum",
+        "Glushak",
+        "MetroTabGuns",
+        "UboinikBarrel"
+      ],
+      "shootDelays": [
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "2b60c75d2c319658f5e672f7ce538f07c2cfaeda99b9c8db4149b0d906fafe18"
+    },
+    {
+      "sourceId": "Ventil",
+      "source": "guns/Ventil.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 10,
+      "baseDamage": 10,
+      "dependencies": [
+        "MetroTabGuns",
+        "VentilAmmo",
+        "VentilAmmoBig",
+        "VentilGlushak"
+      ],
+      "shootDelays": [
+        7,
+        35
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "76e79966b97a8534bcfb0b754ba237d7a2cfa3e463ad8369436a6bf569ff0968"
+    },
+    {
+      "sourceId": "Vsv",
+      "source": "guns/Vsv.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 20,
+      "baseDamage": 5,
+      "dependencies": [
+        "MetroTabGuns",
+        "VsvAmmo",
+        "VsvGlushak"
+      ],
+      "shootDelays": [
+        2,
+        7
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Shoot",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "ea608de2d8b3b0bcde09bdb9de9b34f280a1b917970cd99320996410cc53b69f"
+    },
+    {
+      "sourceId": "Vyhlop",
+      "source": "guns/Vyhlop.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 5,
+      "baseDamage": 12,
+      "dependencies": [
+        "MetroTabGuns",
+        "VyhlopAmmo"
+      ],
+      "shootDelays": [
+        7,
+        10
+      ],
+      "stateKeys": [
+        "Air_Reload",
+        "Ammo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "862209589b691e19cf5ff1c88dda7d34655fb3ec385a0ed36740c5575c16697e"
+    },
+    {
+      "sourceId": "Velopal",
+      "source": "guns/Velopal.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 6,
+      "baseDamage": 4,
+      "dependencies": [
+        "MetroTabGuns",
+        "VentilAmmo",
+        "VentilAmmoBig",
+        "VyhlopAmmo"
+      ],
+      "shootDelays": [],
+      "stateKeys": [
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "385530cf9cb742f0972c1ce7169f1b07be99d25001c0d770bf830cb6c9cca261"
+    },
+    {
+      "sourceId": "Ognemet",
+      "source": "guns/Ognemet.java",
+      "runtimeStatus": "pending",
+      "constructorAmmoArgument": 6,
+      "baseDamage": 4,
+      "dependencies": [
+        "MetroTabGuns",
+        "OgnemetAmmo"
+      ],
+      "shootDelays": [
+        3,
+        7
+      ],
+      "stateKeys": [
+        "AT",
+        "Air",
+        "Air_Reload",
+        "Ammo",
+        "BigAmmo",
+        "Bullet_Left",
+        "Charge",
+        "HasAmmo",
+        "LoadingTimer",
+        "Modifi",
+        "Sound",
+        "UnloadingTimer"
+      ],
+      "sourceHash": "7c87daf18942eb399611da666f91438c7d24e2a569fd751d7002c840993ef3bb"
+    }
+  ],
+  "magazines": [
+    {
+      "sourceId": "PodonokAmmo",
+      "roundItem": "BulletMagnum",
+      "capacity": 8,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "TiharAmmo",
+      "roundItem": "Bullet15mm",
+      "capacity": 15,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "HelsingAmmo",
+      "roundItem": "BulletBolt",
+      "capacity": 8,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "GatlingAmmo",
+      "roundItem": "Bullet12x7",
+      "capacity": 150,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "UbludokAmmo",
+      "roundItem": "Bullet5x45",
+      "capacity": 30,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "AK2012Ammo",
+      "roundItem": "Bullet5x45",
+      "capacity": 40,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "AKAmmo",
+      "roundItem": "Bullet5x45",
+      "capacity": 30,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "RpkAmmo",
+      "roundItem": "Bullet5x45",
+      "capacity": 40,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "RpkAmmoBig",
+      "roundItem": "Bullet5x45",
+      "capacity": 100,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "SaigaAmmo",
+      "roundItem": "Bullet12x70",
+      "capacity": 10,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "SaigaAmmoBig",
+      "roundItem": "Bullet12x70",
+      "capacity": 20,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "AbzacAmmo",
+      "roundItem": "Bullet12x70",
+      "capacity": 20,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "AbzacAmmoBig",
+      "roundItem": "Bullet12x70",
+      "capacity": 40,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "VentilAmmo",
+      "roundItem": "Bullet7_62x54",
+      "capacity": 5,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "VentilAmmoBig",
+      "roundItem": "Bullet7_62x54",
+      "capacity": 10,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "VsvAmmo",
+      "roundItem": "Bullet5x45",
+      "capacity": 20,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "VyhlopAmmo",
+      "roundItem": "Bullet12_7x55",
+      "capacity": 5,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "OgnemetAmmo",
+      "roundItem": "Bullet12_7x55",
+      "capacity": 5,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "PodonokAmmoBig",
+      "roundItem": "BulletMagnum",
+      "capacity": 20,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "PrevedAmmo",
+      "roundItem": "Bullet12_7x108",
+      "capacity": 5,
+      "runtimeStatus": "pending"
+    },
+    {
+      "sourceId": "AKKAmmo",
+      "roundItem": "Bullet5x45",
+      "capacity": 30,
+      "runtimeStatus": "pending"
+    }
+  ],
+  "mutants": [
+    {
+      "sourceId": "Aqua_female",
+      "source": "mobs/mobs/Aqua_female.java",
+      "runtimeStatus": "pending",
+      "health": 90,
+      "damage": 6,
+      "sounds": [
+        "aquaf_alive",
+        "aquaf_death",
+        "aquaf_hit",
+        "aquaf_hit1"
+      ]
+    },
+    {
+      "sourceId": "Aqua_male",
+      "source": "mobs/mobs/Aqua_male.java",
+      "runtimeStatus": "pending",
+      "health": 250,
+      "damage": 10,
+      "sounds": [
+        "aquam_alive",
+        "aquam_death",
+        "aquam_hit",
+        "aquam_hit1"
+      ]
+    },
+    {
+      "sourceId": "Bear",
+      "source": "mobs/mobs/Bear.java",
+      "runtimeStatus": "pending",
+      "health": 140,
+      "damage": 8,
+      "sounds": [
+        "bear_alive",
+        "bear_death",
+        "bear_hit",
+        "bear_hit1"
+      ]
+    },
+    {
+      "sourceId": "Biblio",
+      "source": "mobs/mobs/Biblio.java",
+      "runtimeStatus": "pending",
+      "health": 200,
+      "damage": 10,
+      "sounds": [
+        "biblio_alive",
+        "biblio_death",
+        "biblio_hit",
+        "biblio_hit1"
+      ]
+    },
+    {
+      "sourceId": "Dark",
+      "source": "mobs/mobs/Dark.java",
+      "runtimeStatus": "pending",
+      "health": 200,
+      "damage": 12,
+      "sounds": [
+        "dark_alive",
+        "dark_death",
+        "dark_hit"
+      ]
+    },
+    {
+      "sourceId": "Demon",
+      "source": "mobs/mobs/Demon.java",
+      "runtimeStatus": "pending",
+      "health": 800,
+      "damage": 12,
+      "sounds": [
+        "demon_alive",
+        "demon_death",
+        "demon_hit",
+        "demon_hit1"
+      ]
+    },
+    {
+      "sourceId": "Kikimora",
+      "source": "mobs/mobs/Kikimora.java",
+      "runtimeStatus": "pending",
+      "health": 40,
+      "damage": 4,
+      "sounds": [
+        "kikimora_alive",
+        "kikimora_death",
+        "kikimora_hit",
+        "kikimora_hit1"
+      ]
+    },
+    {
+      "sourceId": "Mobus",
+      "source": "mobs/mobs/Mobus.java",
+      "runtimeStatus": "pending",
+      "health": 140,
+      "damage": 8,
+      "sounds": [
+        "bear_alive",
+        "bear_death",
+        "bear_hit",
+        "bear_hit1"
+      ]
+    },
+    {
+      "sourceId": "Nosach",
+      "source": "mobs/mobs/Nosach.java",
+      "runtimeStatus": "pending",
+      "health": 120,
+      "damage": 6,
+      "sounds": [
+        "nosach_alive",
+        "nosach_death",
+        "nosach_hit",
+        "nosach_hit1"
+      ]
+    },
+    {
+      "sourceId": "Rat",
+      "source": "mobs/mobs/Rat.java",
+      "runtimeStatus": "pending",
+      "health": 15,
+      "damage": 4,
+      "sounds": [
+        "rat_alive",
+        "rat_death",
+        "rat_hit",
+        "rat_hit1"
+      ]
+    },
+    {
+      "sourceId": "Spider",
+      "source": "mobs/mobs/Spider.java",
+      "runtimeStatus": "pending",
+      "health": 80,
+      "damage": 6,
+      "sounds": [
+        "spider_alive",
+        "spider_death",
+        "spider_hit",
+        "spider_hit1"
+      ]
+    },
+    {
+      "sourceId": "Strazh",
+      "source": "mobs/mobs/Strazh.java",
+      "runtimeStatus": "pending",
+      "health": 100,
+      "damage": 8,
+      "sounds": [
+        "strazh_alive",
+        "strazh_death",
+        "strazh_hit",
+        "strazh_hit1"
+      ]
+    }
+  ],
+  "warnings": [
+    "Constructor ammo arguments are NOT necessarily the actual magazine capacity.",
+    "AKK exists in the static initializer, but is outside the 22-gun selection; registration availability needs a separate audit.",
+    "ExtendetPlayer/PacketHandler were recovered to READ selected rules only. They are not copied to runtime.",
+    "Original Lamp handler has an empty lighting body; client illumination in the port is an explicit adaptation.",
+    "Original custom grenade explosion does not run block destruction. Do not substitute world.createExplosion.",
+    "Recovered source files do not establish a working or visually accepted port."
+  ]
+}

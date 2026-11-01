@@ -4,5 +4,6 @@ package ru.metrocraft.port;
 public class CommonProxy {
     public void preInit() { }
     public void shotFeedback(String gun,float pitch,float yaw) {}
+    public void survival(int dimension,int entity,float water,float energy,boolean lamp){}
     public void init() { }
 }
