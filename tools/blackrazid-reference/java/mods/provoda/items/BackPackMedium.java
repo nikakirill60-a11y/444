@@ -7,7 +7,6 @@
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
- *  mods.provoda.until.PacketHandler
  *  mp
  *  ng
  *  sq
@@ -32,7 +31,7 @@ extends uo {
 
     public wm a(wm par1ItemStack, aab par2World, sq par3EntityPlayer) {
         if (par2World.I) {
-            PacketHandler.sendOpenGuiPacket3((int)10);
+            PacketHandler.sendOpenGuiPacket3(10);
         }
         return par1ItemStack;
     }

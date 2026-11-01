@@ -92,7 +92,6 @@
  *  mods.provoda.blocks.BlockLight2
  *  mods.provoda.blocks.BlockLight3
  *  mods.provoda.blocks.BlockRailGag
- *  mods.provoda.blocks.BlockWideRail
  *  mods.provoda.blocks.DoubleGrassButtom
  *  mods.provoda.blocks.DoubleGrassTop
  *  mods.provoda.blocks.Empty
@@ -108,11 +107,6 @@
  *  mods.provoda.blocks.GrassTall
  *  mods.provoda.blocks.Radiation
  *  mods.provoda.blocks.Sapling_Tall
- *  mods.provoda.blocks.TpBlock
- *  mods.provoda.entity.EntityDrezina
- *  mods.provoda.entity.EntityFlameBall
- *  mods.provoda.entity.EntityGrenade1
- *  mods.provoda.entity.EntityGrenadeBig
  *  mods.provoda.entity.EntityMountableBlock
  *  mods.provoda.entity.EntityPassiveFire
  *  mods.provoda.entity.EntityPropulsionFX
@@ -128,31 +122,7 @@
  *  mods.provoda.entity.EntitySpawnerSpider
  *  mods.provoda.entity.EntitySpawnerStrazh
  *  mods.provoda.entity.EntityTestDeathFull
- *  mods.provoda.entity.Entityregina
- *  mods.provoda.guns.AK
- *  mods.provoda.guns.AK2012
  *  mods.provoda.guns.AKK
- *  mods.provoda.guns.AKSU
- *  mods.provoda.guns.Abzac
- *  mods.provoda.guns.Ashot
- *  mods.provoda.guns.Duplet
- *  mods.provoda.guns.Gatling
- *  mods.provoda.guns.Helsing
- *  mods.provoda.guns.Machete
- *  mods.provoda.guns.Ognemet
- *  mods.provoda.guns.Podonok
- *  mods.provoda.guns.Preved
- *  mods.provoda.guns.Railgun
- *  mods.provoda.guns.Revolver
- *  mods.provoda.guns.Rpk
- *  mods.provoda.guns.Saiga
- *  mods.provoda.guns.Tihar
- *  mods.provoda.guns.Ubludok
- *  mods.provoda.guns.Uboinik
- *  mods.provoda.guns.Velopal
- *  mods.provoda.guns.Ventil
- *  mods.provoda.guns.Vsv
- *  mods.provoda.guns.Vyhlop
  *  mods.provoda.guns.ammo.AK2012Ammo
  *  mods.provoda.guns.ammo.AKAmmo
  *  mods.provoda.guns.ammo.AKKAmmo
@@ -183,8 +153,6 @@
  *  mods.provoda.guns.ammo.VentilAmmoBig
  *  mods.provoda.guns.ammo.VsvAmmo
  *  mods.provoda.guns.ammo.VyhlopAmmo
- *  mods.provoda.guns.grenades.Grenade
- *  mods.provoda.guns.grenades.GrenadeBig
  *  mods.provoda.handlers.BlockHandlerBarStol
  *  mods.provoda.handlers.BlockHandlerBed
  *  mods.provoda.handlers.BlockHandlerBox1
@@ -268,7 +236,6 @@
  *  mods.provoda.handlers.tunnels.BlockHandlerTunnelZelezoProvoda
  *  mods.provoda.handlers.tunnels.BlockHandlerTunnelZelezoTrub
  *  mods.provoda.items.Cev
- *  mods.provoda.items.Flyashka
  *  mods.provoda.items.GazMeh
  *  mods.provoda.items.GoldMag
  *  mods.provoda.items.Item1
@@ -281,13 +248,7 @@
  *  mods.provoda.items.Item7
  *  mods.provoda.items.Item8
  *  mods.provoda.items.Item9
- *  mods.provoda.items.ItemDrezina
- *  mods.provoda.items.ItemRegina
- *  mods.provoda.items.ItemWideRails
- *  mods.provoda.items.Lamp
- *  mods.provoda.items.Med
  *  mods.provoda.items.Patron
- *  mods.provoda.items.Power
  *  mods.provoda.items.Priklad
  *  mods.provoda.items.Stvol
  *  mods.provoda.items.WeaponParts
@@ -503,12 +464,9 @@
  *  mods.provoda.until.CustomEPP
  *  mods.provoda.until.EventHandler
  *  mods.provoda.until.GuiHandler
- *  mods.provoda.until.Lamp
- *  mods.provoda.until.PacketHandler
  *  mods.provoda.until.PlayerTracker
  *  mods.provoda.until.ServerTickHandler
  *  mods.provoda.until.Sounds
- *  mods.provoda.until.Thirst
  *  mv
  *  mw
  *  net.minecraftforge.common.Configuration

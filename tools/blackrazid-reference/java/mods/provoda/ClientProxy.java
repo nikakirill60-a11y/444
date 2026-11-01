@@ -15,15 +15,10 @@
  *  cpw.mods.fml.common.registry.TickRegistry
  *  cpw.mods.fml.relauncher.Side
  *  mods.provoda.CommonProxy
- *  mods.provoda.entity.EntityDrezina
- *  mods.provoda.entity.EntityFlameBall
- *  mods.provoda.entity.EntityGrenade1
- *  mods.provoda.entity.EntityGrenadeBig
  *  mods.provoda.entity.EntityPassiveFire
  *  mods.provoda.entity.EntityPropulsionFX
  *  mods.provoda.entity.EntitySpawnerKikimora
  *  mods.provoda.entity.EntityTestDeathFull
- *  mods.provoda.entity.Entityregina
  *  mods.provoda.entity.render.RenderBullet
  *  mods.provoda.entity.render.RenderDeath
  *  mods.provoda.entity.render.RenderDrezina
@@ -306,7 +301,6 @@
  *  mods.provoda.until.ClientTickHandler
  *  mods.provoda.until.ClockKeyBind
  *  mods.provoda.until.DrezinaKeyHandler
- *  mods.provoda.until.LampKeyBind
  *  mods.provoda.until.ModifiKeyBind
  *  mods.provoda.until.ReloadKeyBind
  *  net.minecraftforge.client.IItemRenderer
