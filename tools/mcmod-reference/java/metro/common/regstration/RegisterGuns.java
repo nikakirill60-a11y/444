@@ -18,11 +18,9 @@
  *  metro.client.render.guns.Ubo_Render
  *  metro.client.render.guns.Ventil_Render
  *  metro.client.render.guns.ak2012_Render
- *  metro.client.render.guns.ak74_Render
  *  metro.client.render.guns.ak74u_Render
  *  metro.client.render.guns.rpk_Render
  *  metro.client.render.guns.vsv_Render
- *  metro.common.gun.ItemGun
  *  net.minecraft.item.Item
  *  net.minecraft.item.Item$ToolMaterial
  *  net.minecraftforge.client.IItemRenderer

@@ -16,7 +16,6 @@
  *  cpw.mods.fml.relauncher.SideOnly
  *  metro.client.events.ArmRotation
  *  metro.client.events.EventsClient
- *  metro.client.gui.GuiHandler
  *  metro.common.CommonProxy
  *  metro.common.network.Network
  *  net.minecraft.creativetab.CreativeTabs
