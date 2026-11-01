@@ -1,0 +1,590 @@
+{
+  "models/mcmod/guns/vsv.obj.gz": {
+    "driveId": "1w466MSCEHhGCQTEEIKHtVm4uoOYAxCWz",
+    "sourceName": "vsv/model.obj",
+    "sourceBytes": 1503207,
+    "sourceSha256": "36dab5cc268b7a7c578a10465d638dfc1dca8960b0e6bfaa687da785e746a7f1",
+    "gzip": true
+  },
+  "textures/mcmod/guns/vsv.png": {
+    "driveId": "19i9DjLce2f9-VyRFKfgVjB_4V3PNXmM1",
+    "sourceName": "vsv/texture.png",
+    "sourceBytes": 2252686,
+    "sourceSha256": "1cdc5c47b906c8eac6aa6c34214b006eb08a646427fb75916bf202b874052ceb",
+    "gzip": false
+  },
+  "textures/mcmod/guns/vsv_low.png": {
+    "driveId": "1ty-HHKe6E9Wv2GULyk9kt4m2ko2J18Qq",
+    "sourceName": "vsv/texture_low.png",
+    "sourceBytes": 161469,
+    "sourceSha256": "d755d2506257b0f3c668f0bf12d23195179af6893153b03ffa8ddd6979ba21b9",
+    "gzip": false
+  },
+  "models/mcmod/guns/ubo.obj.gz": {
+    "driveId": "1sYu0ih1QyOiCsnCFNG6Ad_2b6ruFTvum",
+    "sourceName": "ubo/model.obj",
+    "sourceBytes": 1203264,
+    "sourceSha256": "f50ff9d216631a9a046e825eea5395c04198005215c599032ab8966a5b10a3e6",
+    "gzip": true
+  },
+  "textures/mcmod/guns/ubo.png": {
+    "driveId": "1S254NNElhxYwocbB4lEADWCqWm9I_DQ0",
+    "sourceName": "ubo/texture.png",
+    "sourceBytes": 842809,
+    "sourceSha256": "1cd6590b65921a249d90934377f9c1c16c4634c2fad91e2b4bb712c9806d0849",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ubo_low.png": {
+    "driveId": "1II04Kd97ZELo921KIvIsQmBsSYZBzAYF",
+    "sourceName": "ubo/texture_low.png",
+    "sourceBytes": 100770,
+    "sourceSha256": "a90edd76bbea4ce82b62211a19f14ab96202de8ce2f406386f345809a8717f5f",
+    "gzip": false
+  },
+  "models/mcmod/guns/ventil.obj.gz": {
+    "driveId": "1QU_h7jpmKXtP1DpFjXAIGOE8SSvb8-7V",
+    "sourceName": "ventil/model.obj",
+    "sourceBytes": 2105230,
+    "sourceSha256": "558334b551a09658eb71b1a3626f3352a56ad5307155ef56cbcea39c1e647463",
+    "gzip": true
+  },
+  "textures/mcmod/guns/ventil.png": {
+    "driveId": "17kysCwj1cG3eyGJJVYiKwvcbSZYg1IsB",
+    "sourceName": "ventil/texture.png",
+    "sourceBytes": 1498006,
+    "sourceSha256": "06a4c85c71a5ec72dcc1871925eae20e2fce18e5571da72eef4b7afe7d9a4384",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ventil_low.png": {
+    "driveId": "1yZ4T2B4YszcldsjQQZWvnGNhQcvkjLC_",
+    "sourceName": "ventil/texture_low.png",
+    "sourceBytes": 120573,
+    "sourceSha256": "d0a1d3eac113ee699b97376780e07ece8f43653d31b75eaffaa97587cbe672d3",
+    "gzip": false
+  },
+  "models/mcmod/guns/preved.obj.gz": {
+    "driveId": "1TJMfMX_52rX4eCWzodsxehHRzWD0BYKH",
+    "sourceName": "preved/model.obj",
+    "sourceBytes": 1703925,
+    "sourceSha256": "30ed383f63cbb7a14c7e4742dfd343580adb1c84faab3413dc56d35348ea21d1",
+    "gzip": true
+  },
+  "textures/mcmod/guns/preved.png": {
+    "driveId": "1opUuQup7OMgEHYKGB5OkoLAIeoJ1pCYy",
+    "sourceName": "preved/texture.png",
+    "sourceBytes": 1710670,
+    "sourceSha256": "65fd72a70a3fd85d070b03eb64ae9bd826ee2ffd7f270441627feb92e5b0ae87",
+    "gzip": false
+  },
+  "textures/mcmod/guns/preved_low.png": {
+    "driveId": "15LaQagAGhVWNbFWpPQ7gSsMx_hEqeqnC",
+    "sourceName": "preved/texture_low.png",
+    "sourceBytes": 128849,
+    "sourceSha256": "b2b51ed3ee32c434b20c4d294c4d2c02d82af32e76ec07103f5680aaba856201",
+    "gzip": false
+  },
+  "models/mcmod/guns/rev.obj.gz": {
+    "driveId": "1UWREkX15zynUcDB8jI8_9E5pbNOsLUCl",
+    "sourceName": "rev/model.obj",
+    "sourceBytes": 1115760,
+    "sourceSha256": "506701c787d4aa144d35a5f73d23a2c4ef1b5384fd0f5903f01eccb1214bf686",
+    "gzip": true
+  },
+  "textures/mcmod/guns/rev.png": {
+    "driveId": "152g1yyLCv2zy2mKSsvF35BuxU1QLL-AP",
+    "sourceName": "rev/texture.png",
+    "sourceBytes": 2122089,
+    "sourceSha256": "1745cf98d6da2e5caa75a3ad38997182cbc476fb15a272e535806557453e2b40",
+    "gzip": false
+  },
+  "textures/mcmod/guns/rev_low.png": {
+    "driveId": "1PHucSF4ndZgftZlg8oZg1FPFbo2Bjen_",
+    "sourceName": "rev/texture_low.png",
+    "sourceBytes": 152375,
+    "sourceSha256": "85cdc272551724b60136cec92aae2a8dbde57420667978f8b32f5ae6804c3633",
+    "gzip": false
+  },
+  "models/mcmod/guns/tihar.obj.gz": {
+    "driveId": "1hmEa0M8J5ztMEaV9gYLauRXCYRbd2qEh",
+    "sourceName": "tihar/model.obj",
+    "sourceBytes": 1704983,
+    "sourceSha256": "702dc3698d7dd95f8953bacbac5a83f7b150fc7d57f46966f109643d65e62e97",
+    "gzip": true
+  },
+  "textures/mcmod/guns/tihar.png": {
+    "driveId": "1-1rgrh22S9XSVKyFmGFV4TL738qvQDZF",
+    "sourceName": "tihar/texture.png",
+    "sourceBytes": 2228583,
+    "sourceSha256": "1eee29acae094c72639e4a9427fde37f098d4313134ff99e0b102c73a5560c64",
+    "gzip": false
+  },
+  "textures/mcmod/guns/tihar_low.png": {
+    "driveId": "1Y2cBhHVVtq2KrHDAY7kyhXIulGDSRjs9",
+    "sourceName": "tihar/texture_low.png",
+    "sourceBytes": 153816,
+    "sourceSha256": "582e784694b6a7cf5b995a68b30c22b79caf89132774300f15ec7e08bb66909d",
+    "gzip": false
+  },
+  "models/mcmod/guns/ubludok.obj.gz": {
+    "driveId": "17FAEFCkHH2racGAuIJZcpmrNssUlhm2C",
+    "sourceName": "ubludok/model.obj",
+    "sourceBytes": 2059579,
+    "sourceSha256": "06a378e3dd2692a20b70f5ed7c7d1e9fdd31feb9970698b680e8b228e8508284",
+    "gzip": true
+  },
+  "textures/mcmod/guns/ubludok.png": {
+    "driveId": "17aFXguVFupG4pWQiJ48-ZVpr9XHABt3y",
+    "sourceName": "ubludok/texture.png",
+    "sourceBytes": 1497696,
+    "sourceSha256": "2b374455e2674dbf0f1d6080bc9da81e0c5a6ee22087a90f9c44a6eb923d0828",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ubludok_low.png": {
+    "driveId": "1bcN_TN_FYFCD6rmZ4AXHEi4_u4Z_vVzf",
+    "sourceName": "ubludok/texture_low.png",
+    "sourceBytes": 120021,
+    "sourceSha256": "eaf3f19ae49f35c75dfc7580870b73456941a4a6fe4eed0644a723c9b1fb58ec",
+    "gzip": false
+  },
+  "models/mcmod/guns/rpk.obj.gz": {
+    "driveId": "1jn35kaPD5zDV_mSMhNIT0aDwWrWHW3F7",
+    "sourceName": "rpk/model.obj",
+    "sourceBytes": 2190836,
+    "sourceSha256": "81301405723ce1d7d4f9665ce7d9656703c780102f8b2c730c5fa8c2d14b2fa2",
+    "gzip": true
+  },
+  "textures/mcmod/guns/rpk.png": {
+    "driveId": "1l0VnwIEmqU_Q25UY-c9t_D-KKX-cZtv0",
+    "sourceName": "rpk/texture.png",
+    "sourceBytes": 357446,
+    "sourceSha256": "07b8de4e0dec62e4c5becb0ccd794849aeb6de95b2086aaadb6a2e24cc4e677b",
+    "gzip": false
+  },
+  "textures/mcmod/guns/rpk_low.png": {
+    "driveId": "1SAsYAppL-SI5U6Qfbz9FMT-cMoS6yYZg",
+    "sourceName": "rpk/texture_low.png",
+    "sourceBytes": 42995,
+    "sourceSha256": "7168ec8c32629cd668d3864436b3f3fb017af1266d4e28238ff591715ebd3f23",
+    "gzip": false
+  },
+  "models/mcmod/guns/ashot.obj.gz": {
+    "driveId": "1mo_NdfHNctY3hVmo_WYxFobSM-Q_UtFO",
+    "sourceName": "ashot/model.obj",
+    "sourceBytes": 630229,
+    "sourceSha256": "3235e65f6beb67a3636cac8508a57c0ed468c3ce69260b1f9e68c9aee918810f",
+    "gzip": true
+  },
+  "textures/mcmod/guns/ashot.png": {
+    "driveId": "1A2J4td9nDelJA2TQ2PIcSklzTXZJlXS8",
+    "sourceName": "ashot/texture.png",
+    "sourceBytes": 1691921,
+    "sourceSha256": "d6ae0c46f8d666f51d88702627aa0a27a454b2070659107bb59c216564a0cc9c",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ashot_low.png": {
+    "driveId": "10YdHggw2Eg7WzGCgwiMG6mzy_tO-4jQ5",
+    "sourceName": "ashot/texture_low.png",
+    "sourceBytes": 124773,
+    "sourceSha256": "200edf12a011e37b241442dc01def7889f40504884feeb9906ba84668218b739",
+    "gzip": false
+  },
+  "models/mcmod/guns/duplet.obj.gz": {
+    "driveId": "1lvFnj-f6S1X28gEbvkrjStxeAMuVRjyJ",
+    "sourceName": "duplet/model.obj",
+    "sourceBytes": 1273936,
+    "sourceSha256": "5f472d17feda8236f5afade605b1ac17da18ee65523122474147f72ed3358022",
+    "gzip": true
+  },
+  "textures/mcmod/guns/duplet.png": {
+    "driveId": "1mfuZa20wowvGlHiNRlcOdtwuxqdaw8Ez",
+    "sourceName": "duplet/texture.png",
+    "sourceBytes": 1211568,
+    "sourceSha256": "c54486c6477d6b4366e6afc2c261d1559a08ffb89af63cdf8625c53f8a276e39",
+    "gzip": false
+  },
+  "textures/mcmod/guns/duplet_low.png": {
+    "driveId": "1cUXUZVfpLv_VcMDn_C3vMgOn-8GgY2du",
+    "sourceName": "duplet/texture_low.png",
+    "sourceBytes": 116747,
+    "sourceSha256": "9311dc5f2c957eadba755ce765ce6941fe77483f1a70864ce6698aa84ad3d0ef",
+    "gzip": false
+  },
+  "models/mcmod/guns/ak74u.obj.gz": {
+    "driveId": "17S-ZPTZsLIzrCwPBwfL-J6oXOKpOGdrd",
+    "sourceName": "ak74u/model.obj",
+    "sourceBytes": 1878080,
+    "sourceSha256": "f734b6a935f1f3c81b3242dfdc2ed5977a79efd1bc6824708cb4e243ad724287",
+    "gzip": true
+  },
+  "textures/mcmod/guns/ak74u.png": {
+    "driveId": "10lPv8e2onOnLLXYqLkTRZNMvl1lNOCxd",
+    "sourceName": "ak74u/texture.png",
+    "sourceBytes": 1729210,
+    "sourceSha256": "f101c2d0574312507dfbdd78d19023c3b8d9eb757cf96b5af1eb667add312992",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ak74u_low.png": {
+    "driveId": "1QNBNoML3go7KSIBIFiwwDNr9MrVJpIqp",
+    "sourceName": "ak74u/texture_low.png",
+    "sourceBytes": 123400,
+    "sourceSha256": "38c1ca0d6114dc2de8b948aa70ae5da35c803e68f80f184367522e8f37c97296",
+    "gzip": false
+  },
+  "models/mcmod/guns/ak2012.obj.gz": {
+    "driveId": "1CZLyrMZaiTdaoMQKXztQ82fafewvS4iS",
+    "sourceName": "ak2012/model.obj",
+    "sourceBytes": 1972044,
+    "sourceSha256": "9404b9e1b99acc85e23f80f4db8298e888ffd5713e8ccbcdaae2a873805fc3ae",
+    "gzip": true
+  },
+  "textures/mcmod/guns/ak2012.png": {
+    "driveId": "1T1QMkwDz-RjIqpVaB9Y3IJyGmtEgFDRm",
+    "sourceName": "ak2012/texture.png",
+    "sourceBytes": 1331719,
+    "sourceSha256": "c66bbcad10a1de6ef04412c3c822043a8b8b7c4048ec3114342bc434356beb3a",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ak2012_low.png": {
+    "driveId": "1BBHajnGnwQQITzXvEmzdJVxaUbQZwU5J",
+    "sourceName": "ak2012/texture_low.png",
+    "sourceBytes": 129517,
+    "sourceSha256": "e7ba81791a30e75e6a11a57905108071b7cb4ba18ca8a5ec4c2563eb732dbe98",
+    "gzip": false
+  },
+  "models/mcmod/guns/helsing.obj.gz": {
+    "driveId": "1tejbC96daS0Uh66heoLsSoTt1BAX0t4g",
+    "sourceName": "helsing/model.obj",
+    "sourceBytes": 1430987,
+    "sourceSha256": "717e8dff2614a149f11f07951678b3a7406009559419a0a0e3619eb046f83418",
+    "gzip": true
+  },
+  "textures/mcmod/guns/helsing.png": {
+    "driveId": "1XqSklgOn_XCcRHEL4UqcxjeLDizadupf",
+    "sourceName": "helsing/texture.png",
+    "sourceBytes": 1226956,
+    "sourceSha256": "0a2332e38df0aebcd0cc890040173d40cd53624acbbf35a3ca8a83f5e4ab3aae",
+    "gzip": false
+  },
+  "textures/mcmod/guns/helsing_low.png": {
+    "driveId": "11N2tcImjXQqKJl0sRMkF7orU-pf9LwMM",
+    "sourceName": "helsing/texture_low.png",
+    "sourceBytes": 125652,
+    "sourceSha256": "7dbb5d7c3fb40742a393a9a2e87fb1d3d24efb07665dc79653fe6417bdb81a6b",
+    "gzip": false
+  },
+  "models/mcmod/guns/railgun.obj.gz": {
+    "driveId": "1-o-EmcYvzLW_TzoRGRmNwBJenqGm1lNE",
+    "sourceName": "railgun/model.obj",
+    "sourceBytes": 1958708,
+    "sourceSha256": "92ba048ccbac32aa17508c798e372b0948ad9183896a02e06006b13a2ad74676",
+    "gzip": true
+  },
+  "textures/mcmod/guns/railgun.png": {
+    "driveId": "12KJcCkDWQLtI68wtY5LSbNHY3ZmET-Wv",
+    "sourceName": "railgun/tex.png",
+    "sourceBytes": 5101849,
+    "sourceSha256": "00402401730134d1470a79211ed1cb64a376bf8a312c9a51b80a8bfb2fd46664",
+    "gzip": false
+  },
+  "textures/mcmod/guns/railgun_body2.png": {
+    "driveId": "1xxDQl9zMwEwqRemEKr7TlAh6XQL4if4Z",
+    "sourceName": "railgun/tex2.png",
+    "sourceBytes": 5183168,
+    "sourceSha256": "be100ee21bcd4112e2194fc27703944952cde613f1f2f39e02cab14072bfeb40",
+    "gzip": false
+  },
+  "textures/mcmod/guns/railgun_volt.png": {
+    "driveId": "12MIZGuvv4mGN-4mKU26DLxAcfAQX2YYb",
+    "sourceName": "railgun/volt.png",
+    "sourceBytes": 1059390,
+    "sourceSha256": "8bb70201e4827ec8273e1f63c098dcbf0ef18e27b5fd4393d675685d425bbe7c",
+    "gzip": false
+  },
+  "textures/mcmod/guns/railgun_gen.png": {
+    "driveId": "1YZUvwH3J2TGvM3jHBry_zI1emeJYYPbE",
+    "sourceName": "railgun/gen.png",
+    "sourceBytes": 5677961,
+    "sourceSha256": "0eb299bba6f6a0fdbf5374b1c2c5f125aa7a034c35a2dc4ee60ab7c3079db726",
+    "gzip": false
+  },
+  "textures/mcmod/guns/mods.png": {
+    "driveId": "1gv2FoO8vjzqpNuYj6ZMiFoPJXegJY27q",
+    "sourceName": "mods/texture.png",
+    "sourceBytes": 2005610,
+    "sourceSha256": "f525bf935d68cafd219ce8a43f7926887e148ed0378ef6ba2ef81002a9450b76",
+    "gzip": false
+  },
+  "textures/mcmod/guns/mods_c.png": {
+    "driveId": "1wvxU9hezIDsehXDNEoxTb-Ox9TNzlnmD",
+    "sourceName": "mods/texturec.png",
+    "sourceBytes": 1450831,
+    "sourceSha256": "1802f19e3b51d244218ffd36d9e5a5503b034023d6bb638b35ba14198463c3b2",
+    "gzip": false
+  },
+  "textures/mcmod/guns/mods_n.png": {
+    "driveId": "1IONz4-94bVjLWzIgnHQYOUeA_2xqbv37",
+    "sourceName": "mods/texturen.png",
+    "sourceBytes": 130914,
+    "sourceSha256": "6065d1b8e6b6a003eff3f2cbced71d5797d04b80c80e250da83b6fb135d47f29",
+    "gzip": false
+  },
+  "textures/mcmod/guns/mods_s.png": {
+    "driveId": "1Pp11oyFTtBSV5lZJsp3Fx6OKrcUkPh2c",
+    "sourceName": "mods/textures.png",
+    "sourceBytes": 435724,
+    "sourceSha256": "097a06f0b7ecba6f8f74b20492236378d532a51e5f6d00c3a663b56471b7c415",
+    "gzip": false
+  },
+  "textures/mcmod/guns/mods_p.png": {
+    "driveId": "1SS1-d5G5GndmIjPyJV4NWnjZnui-AWbF",
+    "sourceName": "mods/texture_p.png",
+    "sourceBytes": 1176199,
+    "sourceSha256": "f30ca3146ab018d03c6b8bf714755b04862508cbe830d9051b593fe6481eb904",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ventil_icon.png": {
+    "driveId": "1xeXDHfTO9A7WHmT4pMKrgnQTjWt4soey",
+    "sourceName": "ventil.png",
+    "sourceBytes": 13910,
+    "sourceSha256": "e816f87fbf0f4dae041ee1176fcabb795583f2a95a6dae0b23d8aff299b38706",
+    "gzip": false
+  },
+  "textures/mcmod/guns/vsv_icon.png": {
+    "driveId": "1IVwNOSjYvzJl022Jb3w7jtvuhrX8GVck",
+    "sourceName": "vsv.png",
+    "sourceBytes": 35134,
+    "sourceSha256": "cb3b1259bf67642de253a73b74634c63328f8de3a4522d0ebff7b97cdb071cf2",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ubludok_icon.png": {
+    "driveId": "1WUdersr1YhwEb_n5Yj_XCUQmz8QWoLCv",
+    "sourceName": "ubludok.png",
+    "sourceBytes": 34881,
+    "sourceSha256": "22b7eaca9202400bc0a625aaacfb319524821e34384d3482295de2954d1e875a",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ubo_icon.png": {
+    "driveId": "1ikTcBIwkeRsncfX0D5UsCxalnqCorZsA",
+    "sourceName": "ubo.png",
+    "sourceBytes": 27311,
+    "sourceSha256": "7f2e1ac61f5d0a6b2ab44cf22055e6945d44089771e7b45c185264af8ec3f6f1",
+    "gzip": false
+  },
+  "textures/mcmod/guns/tihar_icon.png": {
+    "driveId": "1Mzn2E87KTpWLkMOoFvs6q0RC_Q9-PFse",
+    "sourceName": "tihar.png",
+    "sourceBytes": 26324,
+    "sourceSha256": "bd5654f2db49b0a9275eac33cc95d4973cc16493b7b7bde231dd3563713f6f97",
+    "gzip": false
+  },
+  "textures/mcmod/guns/rev_icon.png": {
+    "driveId": "1f75PQJZq-czsuPDtiQZj6vNaCe4A1ImT",
+    "sourceName": "rev.png",
+    "sourceBytes": 47411,
+    "sourceSha256": "f8f3094275aca135e813fdcf84ae330a58ac48208027ffa258cbb0991082fa0c",
+    "gzip": false
+  },
+  "textures/mcmod/guns/rpk_icon.png": {
+    "driveId": "1O5N00vHpL10BYjvkteKYTPk3jnCqgdv2",
+    "sourceName": "rpk.png",
+    "sourceBytes": 75402,
+    "sourceSha256": "7461a6e3dd68c0ac96ebb638320dcacbb068b7f65678ac10cb0d501348ce6b20",
+    "gzip": false
+  },
+  "textures/mcmod/guns/railgun_icon.png": {
+    "driveId": "1Zapfa1wpRIoM8xI6DVUXB_9O8Ceasuqj",
+    "sourceName": "railgun.png",
+    "sourceBytes": 27590,
+    "sourceSha256": "77778151493e170517f5f7cbfd399c2cdb87a140cee7790bd49c3b1631921dc2",
+    "gzip": false
+  },
+  "textures/mcmod/guns/preved_icon.png": {
+    "driveId": "1SfmuK-VVhCzYDI8-Tzrj2kXlnbPisTbP",
+    "sourceName": "preved.png",
+    "sourceBytes": 23367,
+    "sourceSha256": "4b42d53b78545791c25bbef7a1cb87ea267bcf5277ada8b03be6b9c2c8023e0f",
+    "gzip": false
+  },
+  "textures/mcmod/guns/helsing_icon.png": {
+    "driveId": "1v0UW-5VzzvuEdEG_npExHbbHKVB5mTQC",
+    "sourceName": "helsing.png",
+    "sourceBytes": 44082,
+    "sourceSha256": "2ba2e2ed7ee675e5030b27abdff27e84449f40f4e4d0eda03709eac3d12dacac",
+    "gzip": false
+  },
+  "textures/mcmod/guns/duplet_icon.png": {
+    "driveId": "1C67VEYx1TqpBkC7KiKFumXFT7gz_DRYJ",
+    "sourceName": "duplet.png",
+    "sourceBytes": 82275,
+    "sourceSha256": "c777c7a6c4233549ee5a1d08939b27847cb83228d84291360c33c196b4a0ab9d",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ashot_icon.png": {
+    "driveId": "1ONePQt0qsxmQbU6QGxHYlOBKA5B_13Vx",
+    "sourceName": "ashot.png",
+    "sourceBytes": 47148,
+    "sourceSha256": "9af8073a0feb3ce72d28437fec2498cc04dd155c77f95c174cf549dc9af31ede",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ak74u_icon.png": {
+    "driveId": "1gWYiuvyK2_koLD_SN-M4GwOcDVDAQkL8",
+    "sourceName": "ak74u.png",
+    "sourceBytes": 67254,
+    "sourceSha256": "93894bae3c49c56cbac0eb3454916581bcf09718906bf1a2c0a829f130a276bd",
+    "gzip": false
+  },
+  "textures/mcmod/guns/ak2012_icon.png": {
+    "driveId": "1wIoJxsj00rm1IV3gUrlezcedwYFPZVUV",
+    "sourceName": "ak2012.png",
+    "sourceBytes": 26127,
+    "sourceSha256": "8b9aaeed9bb8b78642ce5cc1308bd98877e054bcdba03c1a4d5a1d0200255339",
+    "gzip": false
+  },
+  "sounds/mcmod_wpn_shootgun_reload.ogg": {
+    "driveId": "1gN3JeQX-z19DvMrTIXXhVp4oyDFo27tL",
+    "sourceName": "wpn_shootgun_reload.ogg",
+    "sourceBytes": 21791,
+    "sourceSha256": "b63984f84fb76b4debae4d28ae18912d73fc600afcf321b28df1d37a6c7f07fa",
+    "gzip": false
+  },
+  "sounds/mcmod_ventil_shot.ogg": {
+    "driveId": "1WmS2_8dXHz0u9BS2MK2SAbfPuzU1k3TX",
+    "sourceName": "ventil_shot.ogg",
+    "sourceBytes": 36526,
+    "sourceSha256": "d45a45179690dddf341a0d86a9b11d0c7050230bc953fcc3c7765985efe0b2a1",
+    "gzip": false
+  },
+  "sounds/mcmod_ventil_reload.ogg": {
+    "driveId": "1GEl4Mrxjldv16K0MrjIzarTwlVvvSSus",
+    "sourceName": "ventil_reload.ogg",
+    "sourceBytes": 23116,
+    "sourceSha256": "311cd7c2a4334d46dde03bdad2ef0685e716995f9f61982bff80fc492ba13a85",
+    "gzip": false
+  },
+  "sounds/mcmod_wpn_shootgun_shoot.ogg": {
+    "driveId": "1Wqpvp2u6Zv4NCDxHxMCDWYfre6OcnKLX",
+    "sourceName": "wpn_shootgun_shoot.ogg",
+    "sourceBytes": 16768,
+    "sourceSha256": "f4cf7908a4a8d84d9f7ad5120ad8bf5b4b1c1e9cbb6b84b3fd355c6445c36b57",
+    "gzip": false
+  },
+  "sounds/mcmod_revolver_shot_1.ogg": {
+    "driveId": "1Ns0a2XhzPjUe4Ff_kE-DLhLPHcr2R5Ao",
+    "sourceName": "revolver_shot_1.ogg",
+    "sourceBytes": 21022,
+    "sourceSha256": "f6e0eabbd07beb3a67b7792ae6599f1df909b383bff32dc357bf471b163e7569",
+    "gzip": false
+  },
+  "sounds/mcmod_ubludok_shoot.ogg": {
+    "driveId": "1mZzEp92aaIFNg7gpRRBDRHvQIbSqoUSg",
+    "sourceName": "ubludok_shoot.ogg",
+    "sourceBytes": 10402,
+    "sourceSha256": "b03f702be9ad0e51bbfb7145e154f27a8b959610ece9860c066ec26a0759c473",
+    "gzip": false
+  },
+  "sounds/mcmod_ubo_reload.ogg": {
+    "driveId": "1ZFSpWMA-T7cQecImkMRtZRh1uQofe8fL",
+    "sourceName": "ubo_reload.ogg",
+    "sourceBytes": 54789,
+    "sourceSha256": "6d4bb1a2dd7ae048cf596bad79d067ba3a08c8e973535db68f07dd2ff13bd2cf",
+    "gzip": false
+  },
+  "sounds/mcmod_ubl_oblom_0.ogg": {
+    "driveId": "122bAv3TexLK-mnCwRlCUThJWyQdzUOuD",
+    "sourceName": "ubl_oblom_0.ogg",
+    "sourceBytes": 32503,
+    "sourceSha256": "76f62c0fc5d6c99004f3e497f77955d2cc42a7d9d85cfe751e5ea599480047f5",
+    "gzip": false
+  },
+  "sounds/mcmod_tihar_shoot.ogg": {
+    "driveId": "1qJhs3np6K4zlKd0mstD4gu9nLknhkfvz",
+    "sourceName": "tihar_shoot.ogg",
+    "sourceBytes": 22271,
+    "sourceSha256": "aa153bdfdf563c4d252860a8f285af0b988f88a51537a8050739c3becd351886",
+    "gzip": false
+  },
+  "sounds/mcmod_uboineg.ogg": {
+    "driveId": "1NuL8GH2CBqpNCDtDcqiVAUZ-oFx1Yuyq",
+    "sourceName": "uboineg.ogg",
+    "sourceBytes": 29085,
+    "sourceSha256": "670254cb7c69d21f79361621a55353b7ca9f930334ec05a7ef2c834def8ad494",
+    "gzip": false
+  },
+  "sounds/mcmod_preved_base_shot.ogg": {
+    "driveId": "1xIL7n52nVxjE1PsP4ycxC2jd7lfzkCS6",
+    "sourceName": "preved_base_shot.ogg",
+    "sourceBytes": 38669,
+    "sourceSha256": "543881cf67f354a3a0e562c8245102e484513f3221ea231f2808628988fee379",
+    "gzip": false
+  },
+  "sounds/mcmod_railgun_shoot.ogg": {
+    "driveId": "1cz1HuPVwDEVYWMOt16IyXPdktVdqd5RQ",
+    "sourceName": "railgun_shoot.ogg",
+    "sourceBytes": 20607,
+    "sourceSha256": "47b9c825f21db5bc800e65aaedb60e0cfb62296a55886492d942343ab0b24a88",
+    "gzip": false
+  },
+  "sounds/mcmod_railgun_reload.ogg": {
+    "driveId": "13qjZNCql7ijDMeEwK1SXEsA8-sd-K57Y",
+    "sourceName": "railgun_reload.ogg",
+    "sourceBytes": 17645,
+    "sourceSha256": "fa2e80b2bbcdfbb4349cfd8a6820a174d451c8f3eb3ef9bb87ffb675e6e57817",
+    "gzip": false
+  },
+  "sounds/mcmod_preved_reload.ogg": {
+    "driveId": "1k4fVkJ8BGmI8-FxaAlSLmg6cXLvB1f6G",
+    "sourceName": "preved_reload.ogg",
+    "sourceBytes": 24713,
+    "sourceSha256": "9e51c62dd417a020feb55ee3556974a7167f848ab3c9b4d36471279d54b4608b",
+    "gzip": false
+  },
+  "sounds/mcmod_open.ogg": {
+    "driveId": "1QNmL0HZtyUOvG3oiz-hyozuhqKrnuiWJ",
+    "sourceName": "open.ogg",
+    "sourceBytes": 42281,
+    "sourceSha256": "c903d3a24d49c19224274dcaa28bac4498bf8293a3a6a0be73a5e516b5bb6392",
+    "gzip": false
+  },
+  "sounds/mcmod_loot_metal.ogg": {
+    "driveId": "1TqKKS1r4PiiY_3haLR4IJlu5IOKToY3Y",
+    "sourceName": "loot_metal.ogg",
+    "sourceBytes": 14735,
+    "sourceSha256": "efdee6ddbdbc0ddee3ae9aa0935e4907983343268cf0cc472ec67c2d54f838f0",
+    "gzip": false
+  },
+  "sounds/mcmod_helsing_shoot.ogg": {
+    "driveId": "1wYUlgxhS81gu4WF2Y4C6EnvrTahcJong",
+    "sourceName": "helsing_shoot.ogg",
+    "sourceBytes": 19896,
+    "sourceSha256": "4cd86cd06bb973fc48ecabadfdbe7c56efe22e1237e880855341f006354de7b3",
+    "gzip": false
+  },
+  "sounds/mcmod_helsing_reload.ogg": {
+    "driveId": "1K0Tc3STv6-LDCKvtc3xjoY41aVrCB8gm",
+    "sourceName": "helsing_reload.ogg",
+    "sourceBytes": 72133,
+    "sourceSha256": "889601cb4ed8e9387a767ae31f0bb327ea600c3a4252150d33d09c6adb6eb715",
+    "gzip": false
+  },
+  "sounds/mcmod_craft.ogg": {
+    "driveId": "1cGTmsyDoM5xOtzbK5GwFdPUQV-A_Ag1z",
+    "sourceName": "craft.ogg",
+    "sourceBytes": 9290,
+    "sourceSha256": "3fc11ce455d2ee56387f74443825cbf6d82935d942613ebf9b69b6e4f8d48275",
+    "gzip": false
+  },
+  "sounds/mcmod_duplet_reload.ogg": {
+    "driveId": "1Asexm2el59COLjuUx0rezEPwUSoYxvhL",
+    "sourceName": "duplet_reload.ogg",
+    "sourceBytes": 28477,
+    "sourceSha256": "1c2c52b38f7d68e4b5223ca45377bb1d9468717869f1f6b1bdf8749f9b89acfd",
+    "gzip": false
+  },
+  "sounds/mcmod_ak2012.ogg": {
+    "driveId": "149T3UcVXJNsdZgvK9ZvyON8P2RiRdn-t",
+    "sourceName": "ak2012.ogg",
+    "sourceBytes": 13380,
+    "sourceSha256": "21b7632b0f70c3dc006fdcb78c4c078277cb42feb21d20f1262647a699425a89",
+    "gzip": false
+  }
+}
