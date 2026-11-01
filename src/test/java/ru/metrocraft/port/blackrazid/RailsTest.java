@@ -91,4 +91,6 @@ public class RailsTest {
 
     @Test public void buildHeightNotNetherTerrainCeilingAndBorderAreRespected()throws Exception{MapWorld m=new MapWorld(false);when(m.world.getHeight()).thenReturn(256);when(m.world.getActualHeight()).thenReturn(128);assertTrue(m.place(new BlockPos(0,200,0),0,0,m.kit(0)));for(BlockPos denied:Arrays.asList(new BlockPos(0,-1,0),new BlockPos(0,256,0),new BlockPos(30000000,60,0))){MapWorld n=new MapWorld(false);assertFalse(n.place(denied,0,0,n.kit(0)));assertEquals(0,n.writes);}}
 
+    @Test public void redstoneNeverQueriesPowerAcrossAnUnloadedNeighbor()throws Exception{MapWorld m=new MapWorld(false);BlockPos p=new BlockPos(0,60,0),neighbor=p.up();assertTrue(m.place(p,5,0,m.kit(5)));RailTile root=RailPlacement.at(m.world,p);clearInvocations(m.world);when(m.world.isBlockLoaded(neighbor)).thenReturn(false);root.updatePower();verify(m.world,never()).isBlockPowered(any(BlockPos.class));verify(m.world).scheduleUpdate(p,BlackrazidRails.RAIL,20);when(m.world.isBlockLoaded(neighbor)).thenReturn(true);when(m.world.isBlockPowered(p)).thenReturn(true);root.updatePower();assertTrue(root.active());}
+
 }
