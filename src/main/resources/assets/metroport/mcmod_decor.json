@@ -424,7 +424,7 @@
     "kind": "decor",
     "sourceId": "car_b",
     "nameRu": "БМВ Х5",
-    "nameEn": "Car wreck B",
+    "nameEn": "BMW X5 (static)",
     "scale": 1.0,
     "bounds": [
       -3.0349,
@@ -444,7 +444,7 @@
     "kind": "decor",
     "sourceId": "car_f",
     "nameRu": "ВАЗ-2110",
-    "nameEn": "Car wreck F",
+    "nameEn": "VAZ-2110 (static)",
     "scale": 1.0,
     "bounds": [
       -2.6229,
@@ -464,7 +464,7 @@
     "kind": "decor",
     "sourceId": "car_t",
     "nameRu": "МАЗ",
-    "nameEn": "Car wreck T",
+    "nameEn": "MAZ truck (static)",
     "scale": 1.0,
     "bounds": [
       -4.7225,
@@ -484,7 +484,7 @@
     "kind": "decor",
     "sourceId": "car_w",
     "nameRu": "ИЖ Ода",
-    "nameEn": "Car wreck W",
+    "nameEn": "IZH Oda (static)",
     "scale": 1.0,
     "bounds": [
       -1.2345,
@@ -504,7 +504,7 @@
     "kind": "decor",
     "sourceId": "covers_cart_010",
     "nameRu": "Зеленый железный шкаф",
-    "nameEn": "Covered cart",
+    "nameEn": "Green metal cabinet",
     "scale": 1.0,
     "bounds": [
       -0.3357,
@@ -524,7 +524,7 @@
     "kind": "decor",
     "sourceId": "covers_lump_010",
     "nameRu": "Деревянные ящики 1",
-    "nameEn": "Covered pile",
+    "nameEn": "Wooden crates 1",
     "scale": 1.0,
     "bounds": [
       -0.3256,
@@ -544,7 +544,7 @@
     "kind": "decor",
     "sourceId": "covers_lump_012",
     "nameRu": "Деревянные ящики 2",
-    "nameEn": "Covered pile 2",
+    "nameEn": "Wooden crates 2",
     "scale": 1.0,
     "bounds": [
       -0.449,
@@ -564,7 +564,7 @@
     "kind": "decor",
     "sourceId": "covers_strongbox_010",
     "nameRu": "Короб металл",
-    "nameEn": "Covered safe",
+    "nameEn": "Metal crate",
     "scale": 1.0,
     "bounds": [
       -0.2794,
@@ -584,7 +584,7 @@
     "kind": "decor",
     "sourceId": "covers_woodcase_010",
     "nameRu": "Короб деревянный",
-    "nameEn": "Covered wooden crate",
+    "nameEn": "Wooden crate",
     "scale": 1.0,
     "bounds": [
       -0.3326,
@@ -624,7 +624,7 @@
     "kind": "decor",
     "sourceId": "engine_turbo_01",
     "nameRu": "Дизель генератор",
-    "nameEn": "Turbine engine",
+    "nameEn": "Diesel generator (static)",
     "scale": 1.0,
     "bounds": [
       -0.7911,
@@ -644,7 +644,7 @@
     "kind": "decor",
     "sourceId": "fireplace_01",
     "nameRu": "Костер",
-    "nameEn": "Fireplace",
+    "nameEn": "Campfire (static)",
     "scale": 1.0,
     "bounds": [
       -0.4741,
@@ -664,7 +664,7 @@
     "kind": "decor",
     "sourceId": "g_1",
     "nameRu": "ГАЗ-3110",
-    "nameEn": "Grate",
+    "nameEn": "GAZ-3110 (static)",
     "scale": 1.0,
     "bounds": [
       -2.8797,
@@ -704,7 +704,7 @@
     "kind": "decor",
     "sourceId": "kachelka_2",
     "nameRu": "Качели 'весы'",
-    "nameEn": "Swing",
+    "nameEn": "Seesaw",
     "scale": 1.0,
     "bounds": [
       -0.2777,
@@ -764,7 +764,7 @@
     "kind": "decor",
     "sourceId": "l04_lampion04",
     "nameRu": "Свечка",
-    "nameEn": "Lantern",
+    "nameEn": "Candle (static)",
     "scale": 1.0,
     "bounds": [
       -0.0919,
@@ -964,7 +964,7 @@
     "kind": "decor",
     "sourceId": "trees_03_",
     "nameRu": "Дерево",
-    "nameEn": "Dead trees",
+    "nameEn": "Tree",
     "scale": 1.0,
     "bounds": [
       -2.1095,
@@ -984,7 +984,7 @@
     "kind": "decor",
     "sourceId": "tunnels_props_burn01",
     "nameRu": "Настройки из бревен",
-    "nameEn": "Burnt tunnel props",
+    "nameEn": "Log tunnel props",
     "scale": 1.0,
     "bounds": [
       -0.1656,
@@ -1004,7 +1004,7 @@
     "kind": "decor",
     "sourceId": "tunnels_props_r1_01",
     "nameRu": "Настройки из досок",
-    "nameEn": "Tunnel props",
+    "nameEn": "Plank tunnel props",
     "scale": 1.0,
     "bounds": [
       -3.6845,

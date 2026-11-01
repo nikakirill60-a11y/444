@@ -1,41 +1,197 @@
 {
- "afishapost":["11CAbximbiyS_Mnoo7H-hhNPnpnR-eLl9","1dXB8Q_ot0CMfxaodbUu637BDxbkuIfar","Poster column"],
- "car_b":["1p-GH1A43VH4-I4Cj2xCAffpUyCB5oERL","1x-dkZ2sM8ldai1zdV_Sca6eKN2NakAXt","Car wreck B"],
- "car_f":["1oPJhEA2EBXjpCQhVDG2TM_ySNR1-bgke","1ShrL4USRpfq2I38pGTl_vWCOOui64rMQ","Car wreck F"],
- "car_t":["1mPd5nF9AcM3M-vrkTW_wbUp1OjS_s2gs","1rJWHrNqc-6EfMoeQW_8h2HWdpETlBRKI","Car wreck T"],
- "car_w":["1w0BRiHpT0tPtQBHY5wuOgqisprlwubs1","1h1LtdY8U1c3QysJkYwoBxKqjyHQCS0w6","Car wreck W"],
- "covers_cart_010":["1AJPy9oxiSq9WawmbUWXM1tmIzX0xuB6L","1QYNVTXp-v5EqXbPXbI65tDECZFD9rqB6","Covered cart"],
- "covers_lump_010":["1UsOeAmo_Dt2Xi6hJh3nt9WOOZ49HTwpE","1zugzmNNH9vMT0nJp8lBTpV4P-utt38RY","Covered pile"],
- "covers_lump_012":["11skFtj6mDGdNup0ebjBuofP5aoy7A-h5","14gaXYNBOK61ubuaLi9uUWNyZ_plnbzVx","Covered pile 2"],
- "covers_strongbox_010":["17FPfu8nxmuSqjBTamIEGNlXFUdlXS7b8","1HkSnmMg7oncpF3_KOM8r51XxrV1IBEVY","Covered safe"],
- "covers_woodcase_010":["1M8fqUbZ4kXHyq81Js2IXQYW0DPCp6W4y","1Ip28MtK5rGHWet3tKsZ0qCgq2-MT_ZSU","Covered wooden crate"],
- "drizina_pricep_test":["1FpbHNsvo4zzA_vpRjt3VzsjR3ogYWHI7","10u3kYaZ7gdLPlJmeQML2FkEutnlwo0ra","Rail trolley trailer"],
- "engine_turbo_01":["12QQOfSyn6fKuD5rfzovSuffgVXNZLhsA","1Nnc_zISl9Jp1iCcJbvAI0oH2TdWx4Wsa","Turbine engine"],
- "fireplace_01":["17kp3jHbJAeuv8mryAgKaZdlDv9d_rGP3","1v2veFCu53JL0HfcA8kvF5rWB4sOgVAhx","Fireplace"],
- "g_1":["1dZ5ds3l2atdVfggnTSY5j7CAaI4TubrW","1UXxAOGB4xmry8YeR5aWlxp709o1fgSn1","Grate"],
- "germogates":["1tdLoGVll-GDBVamVy1wApdpOVd6RMWVu","1mpIWwS_mfye_L450eHmuAELlxY5gP8vb","Static hermetic gates"],
- "kachelka_2":["1Pvuv8BfDzQerL7uD5wI7jSEBg3rt7-mP","1xaoNsJ2oLksf4bw0LG9M5TMLte5BTTyW","Swing"],
- "kitchen_tv":["1lWbRwcGKp8AdvF72eGQYRWwHTZc6Msfs","1ePBqAq4lb-POrJJfAJSQIX9xMAbYS0gv","Kitchen television"],
- "krest":["1pAh19CmPqHFJJl39dDK_eQ25kkG6ToXk","1B1QJmWpNZWjKN4ttdfsjwIYGo9gcWq94","Cross"],
- "l04_lampion04":["1gblsWDbM-fFjsIm_6psE3qiI7mRen-k-","1P2GtBixC8z6c9uV5Ld3Q3rZNeJX31GaA","Lantern"],
- "lenin":["1-AhZl4rC8EYlxepxL7FLyNKisf4FCyvq","1Fo1Qga5KhBxJh8mypgAOiFsiJxoB_XRk","Lenin monument"],
- "metro_sign":["1gbmC6_mAftuQ93N6i4polcdG2-v7YROV","1HynGYvMqpZ9g1cb3TGqNNLtoHkBw7oow","Metro sign"],
- "monitor_80s_00":["1St5pL__VzofTdP31xHZfSmCxGHl8buBQ","1O8WWO1cVzSxJM71j0acbMrcCHN52Rahr","CRT monitor"],
- "musor_bidon_01":["1Qx-1nEl2vvYN3cXRcvoqoaUBRUua9pUs","1uJ3jhVc7NVi_K8MPHTAfg1Ek5yHMUJQf","Garbage can"],
- "patron_box_full":["1Lqn80nFPc97G7mPXhG8lsdUHEoYgiGSZ","1U0YUNR-UrLRtrSyEu8ZVVE_hWCfJc2UW","Ammunition crate"],
- "sartir_kabinka":["18scG0TIQtlUER4kyCRLU0edG7B4Q1j6e","1pfkZkJ4zPoDOjLimCOWAmzV_oNCypwmr","Toilet cubicle"],
- "televizor_br":["17c9PdZmxe6nQZ2QACxdUKNr2PUZhgePp","1X3GTjGAO8RyB8orxdYgnD2Qm9hTDyAfK","Old television"],
- "temp_regina":["1o41TdVaIhlIIZjjqQx34UjtzVb2OLqEM","1qX6SjUbR3h28sVxs0BWQo3MXtfA1ady4","Regina rail trolley (static)"],
- "tree_kashtan":["1J5tnX5bsCnMwiG8_nJiwR3xilezET_2z","1tk5Q8lezby0F6s1cou48cdlgjdTTqHQq","Chestnut tree"],
- "trees_03_":["1DGBhIASnX_GSCB5AdWpGR8VxOoK1hu9l","1hlnQA9liEF3zwBSCAKhw3EE2x4ei-2i8","Dead trees"],
- "tunnels_props_burn01":["18C-rLgYItW56FTlIdythkyW3-rE5UthV","1Jus3jk2cHKqWiNfEtvwj3vKjjZszdWVr","Burnt tunnel props"],
- "tunnels_props_r1_01":["1cP-Z1Eig1tOFYyFIf1-4icN5pfkTBamM","14mAJ4AfO_VLe1YVYRZfSJDR7_0X_BGe-","Tunnel props"],
- "tunnels_props_wood_tupik_01":["1L9GEcmUALCFhGbMzGR12eMUG-gr7QvU3","1A8Nsg-cih8nc_eErFA1Cd5mrvyunC5m1","Wooden tunnel dead end"],
- "umivalnik1":["17dUQ41uZwcjgp3tYzdzfWRHdtQT8BS5s","1cMyzccOGCUcDSbLkZHYDOvc1HNV3dUFr","Washbasin"],
- "vanna":["1Ud0MMhzjv_5KWfkQ9uy1E7knHiXZe_xE","1PY1G5kdKOYB-6RxGRbiSOZwpxEYQXsTb","Bathtub"],
- "veh_bus":["1djWgB6gOJGAYi_3-Fgjbd5R3Q6OTZkFB","1gBGP4UUecGcvWuHASxCUHpJRI1TYt6JZ","Bus (static)"],
- "veh_trolleybus":["1CU4qSwZh9ITvI8Is6oDB2YV9EEqo93f0","1fro_qgJ1SrmyV-wEkL7A05RfR2JdUT3-","Trolleybus (static)"],
- "veh_uaz_452":["1rJ0pQ15iBz3982ME0VoAlooi4KsJRggA","13u4QNZqzOUCmQhjlK--G4BCN0uJ3TpoA","UAZ-452 (static)"],
- "washing_mashine_01":["1Zym67j1dWC2z_Izzk4sNjtADGy4fjWgA","1kgzzJCfwFrcrJW2OTT_XFlkxvnRc4Wn_","Washing machine"],
- "wc_urinal_010":["1apaTvh-xM9xpTRPUbjY_X5gyogc-RwtH","1JUHCfPZdnxv4wOH_FwRaPazg3ZBKGm9t","Urinal"]
+  "afishapost": [
+    "11CAbximbiyS_Mnoo7H-hhNPnpnR-eLl9",
+    "1dXB8Q_ot0CMfxaodbUu637BDxbkuIfar",
+    "Poster column"
+  ],
+  "car_b": [
+    "1p-GH1A43VH4-I4Cj2xCAffpUyCB5oERL",
+    "1x-dkZ2sM8ldai1zdV_Sca6eKN2NakAXt",
+    "BMW X5 (static)"
+  ],
+  "car_f": [
+    "1oPJhEA2EBXjpCQhVDG2TM_ySNR1-bgke",
+    "1ShrL4USRpfq2I38pGTl_vWCOOui64rMQ",
+    "VAZ-2110 (static)"
+  ],
+  "car_t": [
+    "1mPd5nF9AcM3M-vrkTW_wbUp1OjS_s2gs",
+    "1rJWHrNqc-6EfMoeQW_8h2HWdpETlBRKI",
+    "MAZ truck (static)"
+  ],
+  "car_w": [
+    "1w0BRiHpT0tPtQBHY5wuOgqisprlwubs1",
+    "1h1LtdY8U1c3QysJkYwoBxKqjyHQCS0w6",
+    "IZH Oda (static)"
+  ],
+  "covers_cart_010": [
+    "1AJPy9oxiSq9WawmbUWXM1tmIzX0xuB6L",
+    "1QYNVTXp-v5EqXbPXbI65tDECZFD9rqB6",
+    "Green metal cabinet"
+  ],
+  "covers_lump_010": [
+    "1UsOeAmo_Dt2Xi6hJh3nt9WOOZ49HTwpE",
+    "1zugzmNNH9vMT0nJp8lBTpV4P-utt38RY",
+    "Wooden crates 1"
+  ],
+  "covers_lump_012": [
+    "11skFtj6mDGdNup0ebjBuofP5aoy7A-h5",
+    "14gaXYNBOK61ubuaLi9uUWNyZ_plnbzVx",
+    "Wooden crates 2"
+  ],
+  "covers_strongbox_010": [
+    "17FPfu8nxmuSqjBTamIEGNlXFUdlXS7b8",
+    "1HkSnmMg7oncpF3_KOM8r51XxrV1IBEVY",
+    "Metal crate"
+  ],
+  "covers_woodcase_010": [
+    "1M8fqUbZ4kXHyq81Js2IXQYW0DPCp6W4y",
+    "1Ip28MtK5rGHWet3tKsZ0qCgq2-MT_ZSU",
+    "Wooden crate"
+  ],
+  "drizina_pricep_test": [
+    "1FpbHNsvo4zzA_vpRjt3VzsjR3ogYWHI7",
+    "10u3kYaZ7gdLPlJmeQML2FkEutnlwo0ra",
+    "Rail trolley trailer"
+  ],
+  "engine_turbo_01": [
+    "12QQOfSyn6fKuD5rfzovSuffgVXNZLhsA",
+    "1Nnc_zISl9Jp1iCcJbvAI0oH2TdWx4Wsa",
+    "Diesel generator (static)"
+  ],
+  "fireplace_01": [
+    "17kp3jHbJAeuv8mryAgKaZdlDv9d_rGP3",
+    "1v2veFCu53JL0HfcA8kvF5rWB4sOgVAhx",
+    "Campfire (static)"
+  ],
+  "g_1": [
+    "1dZ5ds3l2atdVfggnTSY5j7CAaI4TubrW",
+    "1UXxAOGB4xmry8YeR5aWlxp709o1fgSn1",
+    "GAZ-3110 (static)"
+  ],
+  "germogates": [
+    "1tdLoGVll-GDBVamVy1wApdpOVd6RMWVu",
+    "1mpIWwS_mfye_L450eHmuAELlxY5gP8vb",
+    "Static hermetic gates"
+  ],
+  "kachelka_2": [
+    "1Pvuv8BfDzQerL7uD5wI7jSEBg3rt7-mP",
+    "1xaoNsJ2oLksf4bw0LG9M5TMLte5BTTyW",
+    "Seesaw"
+  ],
+  "kitchen_tv": [
+    "1lWbRwcGKp8AdvF72eGQYRWwHTZc6Msfs",
+    "1ePBqAq4lb-POrJJfAJSQIX9xMAbYS0gv",
+    "Kitchen television"
+  ],
+  "krest": [
+    "1pAh19CmPqHFJJl39dDK_eQ25kkG6ToXk",
+    "1B1QJmWpNZWjKN4ttdfsjwIYGo9gcWq94",
+    "Cross"
+  ],
+  "l04_lampion04": [
+    "1gblsWDbM-fFjsIm_6psE3qiI7mRen-k-",
+    "1P2GtBixC8z6c9uV5Ld3Q3rZNeJX31GaA",
+    "Candle (static)"
+  ],
+  "lenin": [
+    "1-AhZl4rC8EYlxepxL7FLyNKisf4FCyvq",
+    "1Fo1Qga5KhBxJh8mypgAOiFsiJxoB_XRk",
+    "Lenin monument"
+  ],
+  "metro_sign": [
+    "1gbmC6_mAftuQ93N6i4polcdG2-v7YROV",
+    "1HynGYvMqpZ9g1cb3TGqNNLtoHkBw7oow",
+    "Metro sign"
+  ],
+  "monitor_80s_00": [
+    "1St5pL__VzofTdP31xHZfSmCxGHl8buBQ",
+    "1O8WWO1cVzSxJM71j0acbMrcCHN52Rahr",
+    "CRT monitor"
+  ],
+  "musor_bidon_01": [
+    "1Qx-1nEl2vvYN3cXRcvoqoaUBRUua9pUs",
+    "1uJ3jhVc7NVi_K8MPHTAfg1Ek5yHMUJQf",
+    "Garbage can"
+  ],
+  "patron_box_full": [
+    "1Lqn80nFPc97G7mPXhG8lsdUHEoYgiGSZ",
+    "1U0YUNR-UrLRtrSyEu8ZVVE_hWCfJc2UW",
+    "Ammunition crate"
+  ],
+  "sartir_kabinka": [
+    "18scG0TIQtlUER4kyCRLU0edG7B4Q1j6e",
+    "1pfkZkJ4zPoDOjLimCOWAmzV_oNCypwmr",
+    "Toilet cubicle"
+  ],
+  "televizor_br": [
+    "17c9PdZmxe6nQZ2QACxdUKNr2PUZhgePp",
+    "1X3GTjGAO8RyB8orxdYgnD2Qm9hTDyAfK",
+    "Old television"
+  ],
+  "temp_regina": [
+    "1o41TdVaIhlIIZjjqQx34UjtzVb2OLqEM",
+    "1qX6SjUbR3h28sVxs0BWQo3MXtfA1ady4",
+    "Regina rail trolley (static)"
+  ],
+  "tree_kashtan": [
+    "1J5tnX5bsCnMwiG8_nJiwR3xilezET_2z",
+    "1tk5Q8lezby0F6s1cou48cdlgjdTTqHQq",
+    "Chestnut tree"
+  ],
+  "trees_03_": [
+    "1DGBhIASnX_GSCB5AdWpGR8VxOoK1hu9l",
+    "1hlnQA9liEF3zwBSCAKhw3EE2x4ei-2i8",
+    "Tree"
+  ],
+  "tunnels_props_burn01": [
+    "18C-rLgYItW56FTlIdythkyW3-rE5UthV",
+    "1Jus3jk2cHKqWiNfEtvwj3vKjjZszdWVr",
+    "Log tunnel props"
+  ],
+  "tunnels_props_r1_01": [
+    "1cP-Z1Eig1tOFYyFIf1-4icN5pfkTBamM",
+    "14mAJ4AfO_VLe1YVYRZfSJDR7_0X_BGe-",
+    "Plank tunnel props"
+  ],
+  "tunnels_props_wood_tupik_01": [
+    "1L9GEcmUALCFhGbMzGR12eMUG-gr7QvU3",
+    "1A8Nsg-cih8nc_eErFA1Cd5mrvyunC5m1",
+    "Wooden tunnel dead end"
+  ],
+  "umivalnik1": [
+    "17dUQ41uZwcjgp3tYzdzfWRHdtQT8BS5s",
+    "1cMyzccOGCUcDSbLkZHYDOvc1HNV3dUFr",
+    "Washbasin"
+  ],
+  "vanna": [
+    "1Ud0MMhzjv_5KWfkQ9uy1E7knHiXZe_xE",
+    "1PY1G5kdKOYB-6RxGRbiSOZwpxEYQXsTb",
+    "Bathtub"
+  ],
+  "veh_bus": [
+    "1djWgB6gOJGAYi_3-Fgjbd5R3Q6OTZkFB",
+    "1gBGP4UUecGcvWuHASxCUHpJRI1TYt6JZ",
+    "Bus (static)"
+  ],
+  "veh_trolleybus": [
+    "1CU4qSwZh9ITvI8Is6oDB2YV9EEqo93f0",
+    "1fro_qgJ1SrmyV-wEkL7A05RfR2JdUT3-",
+    "Trolleybus (static)"
+  ],
+  "veh_uaz_452": [
+    "1rJ0pQ15iBz3982ME0VoAlooi4KsJRggA",
+    "13u4QNZqzOUCmQhjlK--G4BCN0uJ3TpoA",
+    "UAZ-452 (static)"
+  ],
+  "washing_mashine_01": [
+    "1Zym67j1dWC2z_Izzk4sNjtADGy4fjWgA",
+    "1kgzzJCfwFrcrJW2OTT_XFlkxvnRc4Wn_",
+    "Washing machine"
+  ],
+  "wc_urinal_010": [
+    "1apaTvh-xM9xpTRPUbjY_X5gyogc-RwtH",
+    "1JUHCfPZdnxv4wOH_FwRaPazg3ZBKGm9t",
+    "Urinal"
+  ]
 }
