@@ -23,8 +23,8 @@ Demon имеет отдельный полёт, составную голову 
 Транспорт, ещё 17 тоннельных вариантов/генераторы, остальное окружение, оружейные модели/модули и игровая приёмка остаются в работе.
 [Честный статус, управление и адаптации](docs/BLACKRAZID_EXPANSION.md),
 [отчёт по каждому стволу/мутанту](docs/blackrazid-expansion-report.json).
-Разработческий runtime `3be7219` прошёл [сборку Java 8 / Forge и reobfuscation](https://github.com/nikakirill60-a11y/444/actions/runs/41336293508):
-**131 Python-проверка, 293 JUnit-теста** (0 failures/errors/skipped). [Артефакт dev.7](https://github.com/nikakirill60-a11y/444/actions/runs/41336293508/artifacts/13095214410).
+Разработческий runtime `ae9d86d` прошёл [сборку Java 8 / Forge и reobfuscation](https://github.com/nikakirill60-a11y/444/actions/runs/41338313142):
+**136 Python-проверок, 316 JUnit-тестов** (0 failures/errors/skipped). [Артефакт dev.8](https://github.com/nikakirill60-a11y/444/actions/runs/41338313142/artifacts/13095904317).
 Это промежуточная тестовая сборка, не готовый общий перенос; используйте копию мира.
 Полноценный игровой прогон и визуальная приёмка не выполнены.
 Последняя выданная пользователю сборка **1.12.0** остаётся ниже; готовый общий выпуск пока не объявлен.
