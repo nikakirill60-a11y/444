@@ -26,6 +26,12 @@ def lines_for(locale):
     if weapons.exists():
         for entry in json.loads(weapons.read_text()):
             lines.append('item.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
+    mutants=ASSETS/'blackrazid_mutants.json'
+    if mutants.exists():
+        for entry in json.loads(mutants.read_text()):
+            lines.append('entity.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
+        for id_,ru,en in [('spider','Паучье гнездо','Spider nest'),('biblio','Спавнер библиотекаря','Librarian spawner')]:
+            lines.append('entity.metroport.blackrazid_spawner_'+id_+'.name='+(ru if locale=='ru_ru' else en)+' [BlackRazid]')
     survival=ASSETS/'blackrazid_survival.json'
     if survival.exists():
         for entry in json.loads(survival.read_text()):
@@ -37,5 +43,5 @@ def lines_for(locale):
 def update():
     for locale in ['ru_ru','en_us']:
         path=ASSETS/('lang/'+locale+'.lang')
-        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','key.metroport.mods','key.metroport.pump','tile.metroport.mcmod_decor_','metroport.armor.builtin_head','metroport.inventory.','metroport.watch.','metroport.respawn.','tile.metroport.mcmod_','item.metroport.blackrazid_','metroport.blackrazid.','key.metroport.blackrazid_lamp','death.attack.metroflame'))]
+        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','key.metroport.mods','key.metroport.pump','tile.metroport.mcmod_decor_','metroport.armor.builtin_head','metroport.inventory.','metroport.watch.','metroport.respawn.','tile.metroport.mcmod_','item.metroport.blackrazid_','metroport.blackrazid.','key.metroport.blackrazid_lamp','death.attack.metroflame','entity.metroport.blackrazid_'))]
         path.write_text('\n'.join(lines+lines_for(locale))+'\n')

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "blackrazid_rat",
+    "sourceId": "Rat",
+    "model": "ModelRat",
+    "folder": "rat",
+    "texture": "act_rat_1.512c.png",
+    "nameRu": "Крыса",
+    "nameEn": "Rat",
+    "health": 15,
+    "damage": 4,
+    "speed": 0.45
+  },
+  {
+    "id": "blackrazid_spider",
+    "sourceId": "Spider",
+    "model": "ModelSpider",
+    "folder": "spider",
+    "texture": "spider.png",
+    "nameRu": "Паук",
+    "nameEn": "Spider",
+    "health": 80,
+    "damage": 6,
+    "speed": 0.45
+  },
+  {
+    "id": "blackrazid_biblio",
+    "sourceId": "Biblio",
+    "model": "ModelBiblio",
+    "folder": "bibliotecar",
+    "texture": "biblio.png",
+    "nameRu": "Библиотекарь",
+    "nameEn": "Librarian",
+    "health": 200,
+    "damage": 10,
+    "speed": 0.46
+  }
+]

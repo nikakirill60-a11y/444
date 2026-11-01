@@ -10,6 +10,7 @@ public final class ClientProxy extends CommonProxy {
             @Override protected net.minecraft.util.ResourceLocation getEntityTexture(ru.metrocraft.port.blackrazid.weapons.BlackrazidBullet entity){return net.minecraft.client.renderer.texture.TextureMap.LOCATION_BLOCKS_TEXTURE;}
         });
         ExodusClient.registerEntities();
+        ru.metrocraft.port.client.blackrazid.mutants.MutantRenderers.register();
         net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(
                 ru.metrocraft.port.gates.GateTile.class, new ru.metrocraft.port.client.gates.GateRenderer()); }
     @Override public void shotFeedback(String gun,float pitch,float yaw) {
@@ -17,5 +18,5 @@ public final class ClientProxy extends CommonProxy {
     }
     @Override public void survival(int dimension,int entity,float water,float energy,boolean lamp){BlackrazidSurvivalClient.receive(dimension,entity,water,energy,lamp);}
     @Override public void init() { ClientEvents.initialize();BlackrazidSurvivalClient.initialize();
-        ((net.minecraft.client.resources.IReloadableResourceManager)net.minecraft.client.Minecraft.getMinecraft().getResourceManager()).registerReloadListener(manager->McmodAkRenderer.reload()); }
+        ((net.minecraft.client.resources.IReloadableResourceManager)net.minecraft.client.Minecraft.getMinecraft().getResourceManager()).registerReloadListener(manager->{McmodAkRenderer.reload();ru.metrocraft.port.client.blackrazid.mutants.MutantObjPart.reload();}); }
 }

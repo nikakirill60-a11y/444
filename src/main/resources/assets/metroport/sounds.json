@@ -49,6 +49,21 @@
       "metroport:blackrazid_ashot_shoot"
     ]
   },
+  "blackrazid_biblio_alive": {
+    "sounds": [
+      "metroport:blackrazid_biblio_alive"
+    ]
+  },
+  "blackrazid_biblio_death": {
+    "sounds": [
+      "metroport:blackrazid_biblio_death"
+    ]
+  },
+  "blackrazid_biblio_hit": {
+    "sounds": [
+      "metroport:blackrazid_biblio_hit"
+    ]
+  },
   "blackrazid_empty": {
     "sounds": [
       "metroport:blackrazid_empty"
@@ -184,6 +199,21 @@
       "metroport:blackrazid_railgun_unload"
     ]
   },
+  "blackrazid_rat_alive": {
+    "sounds": [
+      "metroport:blackrazid_rat_alive"
+    ]
+  },
+  "blackrazid_rat_death": {
+    "sounds": [
+      "metroport:blackrazid_rat_death"
+    ]
+  },
+  "blackrazid_rat_hit": {
+    "sounds": [
+      "metroport:blackrazid_rat_hit"
+    ]
+  },
   "blackrazid_revolver_reload": {
     "sounds": [
       "metroport:blackrazid_revolver_reload"
@@ -222,6 +252,21 @@
   "blackrazid_saiga_unload": {
     "sounds": [
       "metroport:blackrazid_saiga_unload"
+    ]
+  },
+  "blackrazid_spider_alive": {
+    "sounds": [
+      "metroport:blackrazid_spider_alive"
+    ]
+  },
+  "blackrazid_spider_death": {
+    "sounds": [
+      "metroport:blackrazid_spider_death"
+    ]
+  },
+  "blackrazid_spider_hit": {
+    "sounds": [
+      "metroport:blackrazid_spider_hit"
     ]
   },
   "blackrazid_tihar_reload": {
