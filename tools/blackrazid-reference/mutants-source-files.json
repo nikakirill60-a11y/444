@@ -1,0 +1,144 @@
+{
+  "folderId": "1u3snbncRSvARWyceeoHUilIw2MTdOALv",
+  "scope": "Original mutant model sources, spawner bytecode and selected original assets. Recovery does not imply completed gameplay acceptance.",
+  "files": [
+    {
+      "path": "original-models/ModelSpider.java",
+      "driveId": "1ORrw6CkqP_KikShzp44BFzKxHJ7hzMUv",
+      "bytes": 2080,
+      "sha256": "cf688de8de1ddd4fc10b67b2a26360d1d18bb63bdc794ad59ea0cf4152146cc5"
+    },
+    {
+      "path": "original-models/ModelRat.java",
+      "driveId": "1Z5epqhDRINJnAX0sy5sDrLr6XlhbdkBB",
+      "bytes": 658,
+      "sha256": "a03628a9857426bbe3aabcfce36d6ccf7171648156db7ab43aaa60d70a697da2"
+    },
+    {
+      "path": "original-models/ModelMobus.java",
+      "driveId": "1uI2OQ_SZ72anlo3OqMa_AtzBIZm-ofnt",
+      "bytes": 2254,
+      "sha256": "3693ca59b74a179dfb9223ee8073525ae977d5922eeeb47726b2b03f394af083"
+    },
+    {
+      "path": "original-models/ModelKikimora.java",
+      "driveId": "1-8uCcFws2hZgbcSVPpsNhUfoUOK-sWyV",
+      "bytes": 3584,
+      "sha256": "08d298ff93ad2cf7b84090225c73479034ebe5f5105063cc9a5a7a24fed8b095"
+    },
+    {
+      "path": "original-models/ModelStrazh.java",
+      "driveId": "1rBy3KjWv66LF6pZQoG3bLR9_k8ChxtQN",
+      "bytes": 2262,
+      "sha256": "ef9011858d466e38c25fe9453e9e6e18aaf3a34538276c0e47ddd89d4e880b40"
+    },
+    {
+      "path": "original-models/ModelNosach.java",
+      "driveId": "1ds-O-wqWpMVIA0eqSceNYVupCPd_M5xD",
+      "bytes": 3212,
+      "sha256": "b019685f6c317fc040a45988d27f10bb867b40f50fea43b72be215c63b897638"
+    },
+    {
+      "path": "original-models/ModelDark.java",
+      "driveId": "1W-zhIAggHMj8NLrf92qAePcts53iGqch",
+      "bytes": 2936,
+      "sha256": "dbf48eed6f970d3c0db30e17206ab63eb2a783c0a6494ade27534175c3b5cac6"
+    },
+    {
+      "path": "original-models/ModelDemon.java",
+      "driveId": "1FhpGc2B28kLNk1IxKbrnuE1y9m12LQaM",
+      "bytes": 3423,
+      "sha256": "d6f7ea55322d1f82e3fa478eff5a8763cc8de25c035f4bda403a075e833d525c"
+    },
+    {
+      "path": "original-models/ModelBear.java",
+      "driveId": "1ksKiyy3ozZA3pfXj7iMqs03UTkE2YBoc",
+      "bytes": 2247,
+      "sha256": "8b4c0c208a8f3001abfacf4094b395a79c91253f4c6432e1285b0e3d440969ec"
+    },
+    {
+      "path": "original-models/ModelAquaf.java",
+      "driveId": "1d5N2En4TDagAEztzt8HitszMlB26BA01",
+      "bytes": 1989,
+      "sha256": "1292b9d5f3be3295273a3b01a867e98e7c48026ba582198c49d222f68b6a979f"
+    },
+    {
+      "path": "original-models/ModelBiblio.java",
+      "driveId": "1HNGKaSFNuPqdVsXfPisl6hu3HCVROMim",
+      "bytes": 3243,
+      "sha256": "3642805171f82486a6a5f8f309447683c3bdd5be73fa61883cbf4f326b2eaaa2"
+    },
+    {
+      "path": "original-models/ModelAquam.java",
+      "driveId": "1u9hl0ptmv1AUz-N4QwbyvR7X_v0869fE",
+      "bytes": 3443,
+      "sha256": "0730316957cc5187c7ea1d6a4c1389e8157d3c4cae7471eaae43503706d4a3a6"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerKikimora.class",
+      "driveId": "1JQZs4Zoc0BlycQLd8l3xBAbVjMes6AcI",
+      "bytes": 3322,
+      "sha256": "3e5112fd840711c6140bab295e20b83be6ce4b3d3622206ea5bad6c984fdddc3"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerAquaf.class",
+      "driveId": "18WvEsLEWY3zEU8WvkR0fMDyLsdd7blsc",
+      "bytes": 3246,
+      "sha256": "95eca2d8b7486304907fcada700036352f31be1c17cbfea78c38804872585829"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerDark.class",
+      "driveId": "1tLra5elOa_uduEllmrbY07TGx7MwZCXm",
+      "bytes": 3229,
+      "sha256": "8f3f777ab74a547f07be7caa16a65fde1f3ba767c9612a2f8fec3b5db9c4ea1b"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerMobus.class",
+      "driveId": "1EZ1VoFWd2iydWyGc-5Ez870FnaUDYuf2",
+      "bytes": 3234,
+      "sha256": "44b2189424fcd64f876566849c9cd5bd8cb98c1503605510349d00fcaba594b2"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerBiblio.class",
+      "driveId": "1DsTeJ9lomz3a9n3xMWAq8dUnWxWd_zab",
+      "bytes": 3173,
+      "sha256": "18beeb381fb490eabe650d03225103d1423ee09134091fe6957c78fc403b288e"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerStrazh.class",
+      "driveId": "1BGlEBUdyzghN4_WCz4Az-eNjV7s2KQud",
+      "bytes": 3312,
+      "sha256": "909406ef7278ec9cc0909ba50d26073f5e9b7deb0e796ecacf5521a829b46758"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerDemon.class",
+      "driveId": "1gxQV7A-qoZMr1yEtAQctHBxMa54bsa4f",
+      "bytes": 3168,
+      "sha256": "64acf6185f0f4ed0d27a3234687377b78351a1d31edb4e8d67692c9066e02804"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerSpider.class",
+      "driveId": "1AYCXKGy0HZ7aN7rz0mcP88UZCPjdROmF",
+      "bytes": 3239,
+      "sha256": "2d80f3258b973ba2702910412b80819fadeb011cb377c364c829b460fee13d6b"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerNosach.class",
+      "driveId": "1TgiXyNYzAbxTc_iHy8rM-ftik-y4CHvW",
+      "bytes": 3239,
+      "sha256": "499507e0116921aecd50d1a395bf6c87d37a133dae7805adb9f9f90abe15082f"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerBear.class",
+      "driveId": "1RIU63njAJxBV1ayr3WHqXGxTxj8wBrPD",
+      "bytes": 3229,
+      "sha256": "9742f1d010cada4ad8d00729c97069303bcfc8ef7418bb4c460431074ba746a0"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntitySpawnerAquam.class",
+      "driveId": "1kU0yTFVNLQxIHDcV11Vb2JAu3KKFPNQX",
+      "bytes": 3176,
+      "sha256": "fdc181b30a609412316cf482e7ab2f646bb1ba4d62867dd90d914d0dbbbbb79a"
+    }
+  ]
+}
