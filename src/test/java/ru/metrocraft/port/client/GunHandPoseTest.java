@@ -110,6 +110,8 @@ public class GunHandPoseTest {
             float[] palm={.3F,.2F,-.175F};float center=(left?1:-1)*(slim?.5F:1);
             Vector4f elbow=new Vector4f(center/16F,-2/16F,0,1);
             GunHandPose.armMatrix("ak74",palm,left,support,slim).transform(elbow);
+            Vector4f watchFace=new Vector4f(0,0,-1,0);GunHandPose.armMatrix("ak74",palm,left,support,slim).transform(watchFace);
+            assertTrue("outer wrist/watch face must face upwards",watchFace.y>0);
             assertTrue(elbow.x<palm[0]-.2F);assertTrue(elbow.y<palm[1]-.2F);
             assertTrue(left?elbow.z<palm[2]-.25F:elbow.z>palm[2]+.25F);
         }

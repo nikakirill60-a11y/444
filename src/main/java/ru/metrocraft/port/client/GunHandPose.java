@@ -33,7 +33,7 @@ public final class GunHandPose {
             // Aim each forearm from its own outboard elbow to the palm. The former
             // coplanar Z/X rotations put BOTH elbows behind the stock on screen.
             Vector3f along=new Vector3f(support?.32F:.26F,support?.28F:.32F,left?.34F:-.34F);along.normalize();
-            Vector3f across=new Vector3f();across.cross(along,new Vector3f(0,1,0));across.normalize();
+            Vector3f across=new Vector3f();across.cross(new Vector3f(0,1,0),along);across.normalize();
             Vector3f depth=new Vector3f();depth.cross(across,along);depth.normalize();
             across.scale(.85F);along.scale(.85F);depth.scale(.85F);step.setIdentity();
             step.setColumn(0,across.x,across.y,across.z,0);step.setColumn(1,along.x,along.y,along.z,0);step.setColumn(2,depth.x,depth.y,depth.z,0);result.mul(step);
