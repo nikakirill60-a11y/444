@@ -47,6 +47,21 @@ jobs:
           PY
           fi
           exit "$result"
+      - name: Report JUnit results
+        if: always()
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          suites = [ET.parse(p).getroot() for p in Path('build/test-results/test').glob('TEST-*.xml')]
+          if suites:
+              totals = {key: sum(int(s.get(key, '0')) for s in suites) for key in ('tests', 'failures', 'errors', 'skipped')}
+              text = ', '.join(str(value) + ' ' + key for key, value in totals.items())
+              print('::notice title=JUnit results::' + text)
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write('## JUnit results\n\n' + text + '\n')
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2

@@ -82,3 +82,12 @@ class BlackrazidMutantsTest(unittest.TestCase):
         self.assertEqual(1,code.count('this.renderParts('));self.assertNotIn('worldObj',code);self.assertNotIn('renderEngine',code)
         meshes=json.loads((A/'blackrazid_mutant_meshes.json').read_text());self.assertEqual(60,len(meshes));self.assertEqual(60,len(set(meshes)))
         for mesh in meshes:self.assertTrue((A/('models/blackrazid/mutants/'+mesh)).exists())
+
+    def test_native_cull_changes_use_minecraft_cache_and_restore_on_failure(self):
+        root=ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/mutants'
+        dark=(root/'ModelDark.java').read_text()
+        self.assertIn('GlStateManager.disableCull()',dark);self.assertIn('GlStateManager.enableCull()',dark)
+        self.assertNotIn('GL11.glDisable',dark);self.assertNotIn('GL11.glEnable',dark)
+        renderer=(root/'MutantRenderers.java').read_text()
+        self.assertEqual(2,renderer.count('boolean cull=GL11.glIsEnabled(GL11.GL_CULL_FACE)'))
+        self.assertEqual(2,renderer.count('finally{GL11.glShadeModel(shade);restoreCull(cull);'))

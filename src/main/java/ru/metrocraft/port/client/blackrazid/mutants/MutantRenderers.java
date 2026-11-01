@@ -34,10 +34,15 @@ public final class MutantRenderers {
         RenderingRegistry.registerEntityRenderingHandler(type,manager->new RenderLiving<T>(manager,model,0){
             @Override protected ResourceLocation getEntityTexture(T e){return atlas;}
             @Override public void doRender(T e,double x,double y,double z,float yaw,float partial){
-                int shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);
-                try{super.doRender(e,x,y,z,yaw,partial);}finally{GL11.glShadeModel(shade);}
+                int shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);boolean cull=GL11.glIsEnabled(GL11.GL_CULL_FACE);
+                try{super.doRender(e,x,y,z,yaw,partial);}finally{GL11.glShadeModel(shade);restoreCull(cull);}
             }
         });
+    }
+    // Do not restore culling through raw GL: Minecraft caches this capability.
+    private static void restoreCull(boolean enabled){
+        if(enabled)net.minecraft.client.renderer.GlStateManager.enableCull();
+        else net.minecraft.client.renderer.GlStateManager.disableCull();
     }
     private static <T extends MutantSpawner> void marker(Class<T> type){
         ResourceLocation atlas=new ResourceLocation("metroport:textures/blackrazid/mutants/rat.png");ModelRat model=new ModelRat();
@@ -45,11 +50,11 @@ public final class MutantRenderers {
             @Override protected ResourceLocation getEntityTexture(T e){return atlas;}
             @Override public void doRender(T e,double x,double y,double z,float yaw,float partial){
                 bindEntityTexture(e);net.minecraft.client.renderer.GlStateManager.pushMatrix();
-                int shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);
+                int shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);boolean cull=GL11.glIsEnabled(GL11.GL_CULL_FACE);
                 try{net.minecraft.client.renderer.GlStateManager.translate(x,y,z);net.minecraft.client.renderer.GlStateManager.rotate(180-yaw,0,1,0);
                     net.minecraft.client.renderer.GlStateManager.scale(-1,-1,1);net.minecraft.client.renderer.GlStateManager.translate(0,-1.5,0);
                     model.render(e,0,0,e.ticksExisted+partial,0,0,.0625F);
-                }finally{GL11.glShadeModel(shade);net.minecraft.client.renderer.GlStateManager.popMatrix();}
+                }finally{GL11.glShadeModel(shade);restoreCull(cull);net.minecraft.client.renderer.GlStateManager.popMatrix();}
             }
         });
     }
