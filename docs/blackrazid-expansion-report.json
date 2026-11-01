@@ -10,10 +10,12 @@
   "implementedInDevelopment": [
     "thirst/flask",
     "lamp/charger (documented light adaptation)",
-    "ordinary/big grenade mechanics"
+    "ordinary/big grenade mechanics",
+    "9 native round items and 20 magazines/canisters",
+    "6 basic native automatics, not a complete gun/module/model port"
   ],
   "pending": [
-    "22 selected BlackRazid firearms and their native models, magazines and modules",
+    "16 remaining BlackRazid firearms; native weapon/ammunition meshes, modules/animations for all 22; full gameplay acceptance",
     "Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models",
     "12 mutants and 11 spawners with native multipart models and behaviors",
     "tunnels, building/decor blocks, environment lights and faction teleport adaptation"
@@ -22,7 +24,7 @@
     {
       "sourceId": "Ubludok",
       "source": "guns/Ubludok.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -50,7 +52,7 @@
     {
       "sourceId": "AK2012",
       "source": "guns/AK2012.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -77,7 +79,7 @@
     {
       "sourceId": "AK",
       "source": "guns/AK.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -106,7 +108,7 @@
     {
       "sourceId": "AKSU",
       "source": "guns/AKSU.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -410,7 +412,7 @@
     {
       "sourceId": "Rpk",
       "source": "guns/Rpk.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
       "constructorAmmoArgument": 100,
       "baseDamage": 5,
       "dependencies": [
@@ -552,7 +554,7 @@
     {
       "sourceId": "Vsv",
       "source": "guns/Vsv.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
       "constructorAmmoArgument": 20,
       "baseDamage": 5,
       "dependencies": [
@@ -661,127 +663,148 @@
       "sourceId": "PodonokAmmo",
       "roundItem": "BulletMagnum",
       "capacity": 8,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 8,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "TiharAmmo",
       "roundItem": "Bullet15mm",
       "capacity": 15,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 15,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "HelsingAmmo",
       "roundItem": "BulletBolt",
       "capacity": 8,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 8,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "GatlingAmmo",
       "roundItem": "Bullet12x7",
       "capacity": 150,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 150,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "UbludokAmmo",
       "roundItem": "Bullet5x45",
       "capacity": 30,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 30,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "AK2012Ammo",
       "roundItem": "Bullet5x45",
       "capacity": 40,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 40,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "AKAmmo",
       "roundItem": "Bullet5x45",
       "capacity": 30,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 30,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "RpkAmmo",
       "roundItem": "Bullet5x45",
       "capacity": 40,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 40,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "RpkAmmoBig",
       "roundItem": "Bullet5x45",
       "capacity": 100,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 100,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "SaigaAmmo",
       "roundItem": "Bullet12x70",
       "capacity": 10,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 10,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "SaigaAmmoBig",
       "roundItem": "Bullet12x70",
       "capacity": 20,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 20,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "AbzacAmmo",
       "roundItem": "Bullet12x70",
       "capacity": 20,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 20,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "AbzacAmmoBig",
       "roundItem": "Bullet12x70",
       "capacity": 40,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 40,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "VentilAmmo",
       "roundItem": "Bullet7_62x54",
       "capacity": 5,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 5,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "VentilAmmoBig",
       "roundItem": "Bullet7_62x54",
       "capacity": 10,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 10,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "VsvAmmo",
       "roundItem": "Bullet5x45",
       "capacity": 20,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 20,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "VyhlopAmmo",
       "roundItem": "Bullet12_7x55",
       "capacity": 5,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 5,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "OgnemetAmmo",
       "roundItem": "Bullet12_7x55",
-      "capacity": 5,
-      "runtimeStatus": "pending"
+      "capacity": 200,
+      "sourceCapacityArgument": 5,
+      "runtimeStatus": "native fuel logic; flamethrower/model pending"
     },
     {
       "sourceId": "PodonokAmmoBig",
       "roundItem": "BulletMagnum",
       "capacity": 20,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 20,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "PrevedAmmo",
       "roundItem": "Bullet12_7x108",
       "capacity": 5,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 5,
+      "runtimeStatus": "magazine mechanics implemented; native mesh pending"
     },
     {
       "sourceId": "AKKAmmo",
       "roundItem": "Bullet5x45",
       "capacity": 30,
-      "runtimeStatus": "pending"
+      "sourceCapacityArgument": 30,
+      "runtimeStatus": "outside selected scope"
     }
   ],
   "mutants": [
@@ -943,6 +966,8 @@
   ],
   "warnings": [
     "Constructor ammo arguments are NOT necessarily the actual magazine capacity.",
+    "OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.",
+    "Six native automatics have basic mechanics only; original inventory icons are NOT native multipart meshes.",
     "AKK exists in the static initializer, but is outside the 22-gun selection; registration availability needs a separate audit.",
     "ExtendetPlayer/PacketHandler were recovered to READ selected rules only. They are not copied to runtime.",
     "Original Lamp handler has an empty lighting body; client illumination in the port is an explicit adaptation.",

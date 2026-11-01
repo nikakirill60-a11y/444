@@ -2,6 +2,7 @@
 """Inventory recovered behavior. Source recovery != implemented/accepted game content."""
 import hashlib,json,re
 from import_content import ROOT,write_json
+from import_blackrazid_weapons import AUTOMATICS
 S=ROOT/'tools/blackrazid-reference'
 J=S/'java/mods/provoda'
 GUNS='Ubludok AK2012 AK AKSU Ashot Duplet Gatling Helsing Tihar Podonok Preved Railgun Revolver Rpk Saiga Abzac Uboinik Ventil Vsv Vyhlop Velopal Ognemet'.split()
@@ -11,7 +12,7 @@ def report():
     for name in GUNS:
         path='guns/'+name+'.java';text=(J/path).read_text()
         args=re.search(r'\b'+name+r' = new '+name+r'\((\d+), (\d+), (\d+)\)',registration)
-        weapons.append(dict(sourceId=name,source=path,runtimeStatus='pending',constructorAmmoArgument=int(args[2]),baseDamage=int(args[3]),
+        weapons.append(dict(sourceId=name,source=path,runtimeStatus='basic-firearm; modules/native-mesh pending' if name in AUTOMATICS else 'pending',constructorAmmoArgument=int(args[2]),baseDamage=int(args[3]),
             dependencies=sorted(set(re.findall(r'ModBase\.(\w+)',text))),
             shootDelays=sorted(set(map(int,re.findall(r'ep\.upST\((\d+)\)',text)))),
             stateKeys=sorted(set(re.findall(r'\.q\(\)\.[a-z]\("(\w+)"',text))),
@@ -22,15 +23,17 @@ def report():
         damage=re.search(r'int c\(mp var1\)\s*{\s*return (\d+)',text)
         mobs.append(dict(sourceId=p.stem,source='mobs/mobs/'+p.name,runtimeStatus='pending',health=int(health[1]) if health else None,
             damage=int(damage[1]) if damage else None,sounds=sorted(set(re.findall(r'"([a-z]+_(?:alive|hit1?|death))"',text)))))
-    magazines=[dict(sourceId=n,roundItem=round_,capacity=int(capacity),runtimeStatus='pending') for n,round_,capacity in
+    magazines=[dict(sourceId=n,roundItem=round_,capacity=200 if n=='OgnemetAmmo' else int(capacity),sourceCapacityArgument=int(capacity),runtimeStatus='outside selected scope' if n=='AKKAmmo' else 'native fuel logic; flamethrower/model pending' if n=='OgnemetAmmo' else 'magazine mechanics implemented; native mesh pending') for n,round_,capacity in
         re.findall(r'\b(\w+Ammo\w*) = new \w+\(\d+, ModBase\.(\w+)\.cp, (\d+),',registration)]
     return dict(status='INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE',
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
-        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics'],
-        pending=['22 selected BlackRazid firearms and their native models, magazines and modules','Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models',
+        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','6 basic native automatics, not a complete gun/module/model port'],
+        pending=['16 remaining BlackRazid firearms; native weapon/ammunition meshes, modules/animations for all 22; full gameplay acceptance','Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models',
                  '12 mutants and 11 spawners with native multipart models and behaviors','tunnels, building/decor blocks, environment lights and faction teleport adaptation'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',
+                  'OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.',
+                  'Six native automatics have basic mechanics only; original inventory icons are NOT native multipart meshes.',
                   'AKK exists in the static initializer, but is outside the 22-gun selection; registration availability needs a separate audit.',
                   'ExtendetPlayer/PacketHandler were recovered to READ selected rules only. They are not copied to runtime.',
                   'Original Lamp handler has an empty lighting body; client illumination in the port is an explicit adaptation.',

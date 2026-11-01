@@ -53,3 +53,10 @@ Thirst, charging, projectiles and networking are safe 1.12.2 adaptations, descri
 Client lighting is a new adaptation because the recovered lamp event body is empty.
 22 firearms, transport, 12 mutants/spawners and environment are not claimed as completed by merely recovering their sources.
 Original rights/permissions remain as described above; user-provided files are not a grant of redistribution rights.
+
+Additional selected BlackRazid ammunition/firearm development references are listed in
+`tools/blackrazid-reference/weapons-source-files.json`: 29 original ammo classes, 35 native item PNGs,
+and 14 original OGGs, with Drive IDs, byte lengths and SHA-256. CFR recovery is audit-only;
+no original executable class is placed in runtime resources. The native six-gun baseline uses original
+inventory icons, **not** a completed native 3D mesh/module port. The other sixteen guns, all native
+weapon meshes/modules and the remaining requested expansion sections are still pending.
