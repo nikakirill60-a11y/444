@@ -5,8 +5,6 @@
  *  cpw.mods.fml.common.network.simpleimpl.IMessage
  *  metro.client.gui.GuiUtils
  *  metro.common.network.Network
- *  metro.common.network.packets.ModMessage
- *  metro.common.network.packets.RepairMessage
  *  metro.common.player.ExtendedPlayer
  *  net.minecraft.client.Minecraft
  *  net.minecraft.client.audio.ISound

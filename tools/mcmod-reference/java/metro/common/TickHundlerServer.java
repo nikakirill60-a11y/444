@@ -6,7 +6,6 @@
  *  cpw.mods.fml.common.gameevent.TickEvent$Phase
  *  cpw.mods.fml.common.gameevent.TickEvent$ServerTickEvent
  *  cpw.mods.fml.common.network.simpleimpl.IMessage
- *  metro.common.EntityBullet
  *  metro.common.network.Network
  *  metro.common.network.packets.DeathMessage
  *  metro.common.network.packets.RecoilMessage
