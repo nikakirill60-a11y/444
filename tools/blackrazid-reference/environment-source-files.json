@@ -8,13 +8,13 @@
       "sha256": "b970d896bf23e1df161a2a0c285b066fb874ed6f1b45690b4c22779207032698"
     },
     {
-      "path": "classes/mods/provoda/blocks/BlockTunnel.class",
+      "path": "classes/mods/provoda/model_blocks/BlockTunnel.class",
       "driveId": "19jmO5b8sHMiW_n5afBJVLMN12jJpmoO9",
       "bytes": 4984,
       "sha256": "7ab4dc53de3c79612e636ea167432d3bface9704632121f3a0a13e250d5f08e3"
     },
     {
-      "path": "classes/mods/provoda/blocks/BlockTunnelBeton1.class",
+      "path": "classes/mods/provoda/objblocks/tunnels/BlockTunnelBeton1.class",
       "driveId": "1d5hebL3PBu941tLNQKRZhUZSECPeSY2N",
       "bytes": 2001,
       "sha256": "5e450755a8f49c9e74987034a3aae66985f76036e90dc7c4838aded3d0e716ff"
@@ -96,6 +96,12 @@
       "driveId": "19DGzrqDoH33s_bqPdlMRGW2foL3HDATP",
       "bytes": 137365,
       "sha256": "f08114e12e6f8d843f90f2df245a4be50569ef37e340a90333ce54a83f623220"
+    },
+    {
+      "path": "assets/tunnels/tunnel.png",
+      "driveId": "1ufPi8AwUHkSyDScUSJH8x03TqGJINo12",
+      "bytes": 14946,
+      "sha256": "b6d08a9a5e9e7ab83259d0f6ced5ffef7bebd0bebff52888583a477a90b7ded8"
     }
   ]
 }

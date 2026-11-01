@@ -17,7 +17,7 @@ ENTRIES=json.loads((ASSETS/'content.json').read_text())
 class ExpandedTests(unittest.TestCase):
     def test_all_57_models_have_geometry_and_original_atlas(self):
         self.assertEqual(len(CATALOGUE),57)
-        self.assertEqual(len(list((ASSETS/'models/item').glob('*.json'))),248+(1 if (ASSETS/'blackrazid_rails.json').exists() else 0)+len(json.loads((ASSETS/'blackrazid_weapons.json').read_text()))+len(json.loads((ASSETS/'blackrazid_survival.json').read_text()))+len(json.loads((ASSETS/'blackrazid_equipment.json').read_text()))+len(json.loads((ASSETS/'mcmod_firearms.json').read_text()))+len(json.loads((ASSETS/'mcmod_decor.json').read_text()))+len(json.loads((ASSETS/'mcmod_support.json').read_text())) if (ASSETS/'mcmod_decor.json').exists() else 246)
+        self.assertEqual(len(list((ASSETS/'models/item').glob('*.json'))),248+(1 if (ASSETS/'blackrazid_rails.json').exists() else 0)+(1 if (ASSETS/'blackrazid_tunnels.json').exists() else 0)+len(json.loads((ASSETS/'blackrazid_weapons.json').read_text()))+len(json.loads((ASSETS/'blackrazid_survival.json').read_text()))+len(json.loads((ASSETS/'blackrazid_equipment.json').read_text()))+len(json.loads((ASSETS/'mcmod_firearms.json').read_text()))+len(json.loads((ASSETS/'mcmod_decor.json').read_text()))+len(json.loads((ASSETS/'mcmod_support.json').read_text())) if (ASSETS/'mcmod_decor.json').exists() else 246)
         for key,entry in CATALOGUE.items():
             self.assertTrue((ASSETS/('geometry/'+key+'.json')).is_file())
             self.assertTrue((ASSETS/entry['texture'].split(':',1)[1]).read_bytes().startswith(b'\x89PNG\r\n\x1a\n'))

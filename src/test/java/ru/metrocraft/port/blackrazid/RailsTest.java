@@ -19,7 +19,7 @@ import ru.metrocraft.port.blackrazid.transport.*;
 public class RailsTest {
     @BeforeClass public static void boot(){NativeWeaponsTest.boot();BlackrazidRails.initialize();}
     /** Models vanilla's important ordering: state is already changed when breakBlock sees the old tile. */
-    private static final class MapWorld {
+    static final class MapWorld {
         final EntityPlayer player;final World world;final Map<BlockPos,IBlockState> states=new HashMap<>();final Map<BlockPos,TileEntity> tiles=new HashMap<>();
         int writes,failAt=-1;
         MapWorld(boolean client)throws Exception{
@@ -31,7 +31,7 @@ public class RailsTest {
             when(world.setBlockState(any(BlockPos.class),any(IBlockState.class),anyInt())).thenAnswer(c->{
                 BlockPos p=((BlockPos)c.getArgument(0)).toImmutable();IBlockState next=c.getArgument(1),old=states.getOrDefault(p,Blocks.AIR.getDefaultState());
                 if(++writes==failAt)return false;states.put(p,next);
-                if(old.getBlock() instanceof WideRailBlock&&old.getBlock()!=next.getBlock())old.getBlock().breakBlock(world,p,old);
+                if((old.getBlock() instanceof WideRailBlock||old.getBlock() instanceof ru.metrocraft.port.blackrazid.environment.TunnelBlock)&&old.getBlock()!=next.getBlock())old.getBlock().breakBlock(world,p,old);
                 tiles.remove(p);
                 if(next.getBlock().hasTileEntity(next)){TileEntity t=next.getBlock().createTileEntity(world,next);t.setWorld(world);t.setPos(p);tiles.put(p,t);}
                 return true;
