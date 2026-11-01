@@ -49,13 +49,16 @@ public final class NativeWeaponVisuals {
         return Collections.unmodifiableList(parts);
     }
     /** Visual-only equipment snapshot. Values come from validated items/slots, never legacy display booleans. */
-    public static final class Equipment { public boolean magazine,big,laser,automatic,silenced,optic;public int rounds,pressure,action; }
+    public static final class Equipment { public boolean magazine,big,laser,automatic,silenced,optic,aim;public int rounds,pressure,action;public float phase;public final String[] slots={"","","","",""}; }
     public static Equipment equipment(ItemStack stack,EntityPlayer viewer){
         Equipment e=new Equipment();
         if(stack.isEmpty() || !(stack.getItem() instanceof BlackrazidGunItem))return e;
         BlackrazidGunItem gun=(BlackrazidGunItem)stack.getItem();
         ItemStack magazine=gun.visualMagazine(stack,viewer);e.magazine=!magazine.isEmpty();
-        e.big=e.magazine && magazine.getItem() instanceof MagazineItem && ((MagazineItem)magazine.getItem()).entry.sourceId.equals("AbzacAmmoBig");
+        e.big=e.magazine && magazine.getItem() instanceof MagazineItem && gun.entry.magazines.length>1 && gun.entry.magazines[0].equals(((MagazineItem)magazine.getItem()).entry.id);
+        for(int i=0;i<e.slots.length;i++){
+            ItemStack module=BlackrazidModules.get(stack,i);if(!module.isEmpty())e.slots[i]=((BlackrazidModules.ModuleItem)module.getItem()).entry.sourceId;
+        }
         e.rounds=gun.ammo(stack);e.pressure=gun.pressure(stack);e.action=gun.visualAction(stack);
         e.laser=BlackrazidModules.has(stack,1,"Laser");e.automatic=BlackrazidModules.has(stack,0,"AutoFire");
         e.silenced=BlackrazidModules.has(stack,2,"AbzacGlushak");e.optic=BlackrazidModules.has(stack,0,"Optica");return e;

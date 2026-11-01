@@ -53,5 +53,82 @@
       -0.17
     ],
     "nativeScale": 0.7
+  },
+  "AK": {
+    "id": "blackrazid_ak",
+    "sourceId": "AK",
+    "body": "ak/ak.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
+  },
+  "AK2012": {
+    "id": "blackrazid_ak2012",
+    "sourceId": "AK2012",
+    "body": "2012/2012.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
+  },
+  "AKSU": {
+    "id": "blackrazid_aksu",
+    "sourceId": "AKSU",
+    "body": "aksu/aksu.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
+  },
+  "Revolver": {
+    "id": "blackrazid_revolver",
+    "sourceId": "Revolver",
+    "body": "revolver/revolver.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
+  },
+  "Rpk": {
+    "id": "blackrazid_rpk",
+    "sourceId": "Rpk",
+    "body": "rpk/rpk.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
+  },
+  "Saiga": {
+    "id": "blackrazid_saiga",
+    "sourceId": "Saiga",
+    "body": "saiga/saiga.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
+  },
+  "Ubludok": {
+    "id": "blackrazid_ubludok",
+    "sourceId": "Ubludok",
+    "body": "ubludok/ubludok.obj",
+    "nativeTranslation": [
+      0.05,
+      0.17,
+      -0.175
+    ],
+    "nativeScale": 0.8
   }
 }

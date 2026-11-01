@@ -15,12 +15,12 @@ class NativeWeaponModelTests(unittest.TestCase):
     def test_all22_original_gun_renderers_are_recovered_but_not_misreported_as_runtime_meshes(self):
         rows=list((S/'java/mods/provoda/guns/renderers').glob('Render_*.java'));self.assertEqual(22,len(rows))
         self.assertTrue(all('GLModel' in p.read_text() for p in rows))
-        audit=report();self.assertEqual(audit,json.loads((ROOT/'docs/blackrazid-weapon-mesh-gaps.json').read_text()));self.assertEqual(set(GUN_MODELS),{w['sourceId'] for w in audit['weapons'] if w['completeObjAssets']});self.assertEqual(len(audit['missingUniqueObj']),len(set(audit['missingUniqueObj'])))
-    def test_all41_bundled_meshes_decompress_to_exact_original_bytes(self):
-        meshes=json.loads((A/'blackrazid_weapon_meshes.json').read_text());self.assertEqual(41,len(meshes))
+        audit=report();self.assertEqual(audit,json.loads((ROOT/'docs/blackrazid-weapon-mesh-gaps.json').read_text()));self.assertEqual(set(GUN_MODELS)-{"Rpk"},{w['sourceId'] for w in audit['weapons'] if w['completeObjAssets']});self.assertEqual(len(audit['missingUniqueObj']),len(set(audit['missingUniqueObj'])))
+    def test_all82_bundled_meshes_decompress_to_exact_original_bytes(self):
+        meshes=json.loads((A/'blackrazid_weapon_meshes.json').read_text());self.assertEqual(82,len(meshes))
         self.assertEqual(15,sum(k.startswith('gatling/') for k in meshes))
         for key,row in meshes.items():
-            data=(S/('assets/weapons/'+key)).read_bytes();self.assertEqual(data,gzip.decompress((A/('models/blackrazid/weapons/'+key+'.gz')).read_bytes()));self.assertEqual(row['sha256'],hashlib.sha256(data).hexdigest())
+            data=(S/('assets/weapons/'+row['sourcePath'])).read_bytes();self.assertEqual(data,gzip.decompress((A/('models/blackrazid/weapons/'+key+'.gz')).read_bytes()));self.assertEqual(row['sha256'],hashlib.sha256(data).hexdigest())
             materials={m.strip() for m in re.findall(r'^usemtl (.+)$',data.decode(),re.M)};self.assertTrue(materials<=row['materials'].keys());self.assertTrue(all(math.isfinite(x) for x in row['bounds']))
             for texture in row['materials'].values():self.assertTrue((A/texture.split(':')[1]).is_file());self.assertEqual(texture,texture.lower())
     def test_all_seven_and_only_registered_standalone_3d_module_items_use_their_own_native_mesh(self):

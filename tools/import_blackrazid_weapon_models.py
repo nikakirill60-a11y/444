@@ -3,7 +3,8 @@
 import gzip, hashlib, json, re
 from pathlib import Path
 from import_content import ROOT, ASSETS, put, write_json
-from blackrazid_weapon_profiles import models,poses
+from blackrazid_weapon_profiles import models,poses,SCENE_BODIES
+from blackrazid_weapon_scenes import scenes
 S=ROOT/'tools/blackrazid-reference'; A=S/'assets/weapons'; J=S/'java/mods/provoda'
 
 def material_map(path):
@@ -39,19 +40,28 @@ def catalog():
 def main():
     meshes={}
     for path in sorted(A.glob('*/*.obj')):
-        key=path.relative_to(A).as_posix();maps=material_map(path.with_suffix('.mtl'))
+        source_key=path.relative_to(A).as_posix();key=source_key.lower();assert key not in meshes,key
+        maps=material_map(path.with_suffix('.mtl'))
         used={x.strip() for x in re.findall(r'^usemtl (.+)',path.read_text(),re.M)};assert used<=maps.keys(),(key,used-maps.keys())
         put(ASSETS/('models/blackrazid/weapons/'+key+'.gz'),gzip.compress(path.read_bytes(),mtime=0))
-        meshes[key]=dict(materials=maps,bounds=bounds(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
-    assert len(meshes)==41
+        meshes[key]=dict(sourcePath=source_key,materials=maps,bounds=bounds(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+    compiled=scenes()
+    def required(nodes):
+        for node in nodes:
+            if node['op']=='draw':yield node['mesh']
+            elif node['op']=='if':yield from required(node['yes']);yield from required(node['no'])
+    for name in SCENE_BODIES:
+        assert set(required(compiled[name]['nodes']))<=meshes.keys(),name
+    write_json(ASSETS/'blackrazid_weapon_scenes.json',{name:compiled[name] for name in SCENE_BODIES})
     for name,model in models().items():
         text=(J/('guns/renderers/Render_'+name+'.java')).read_text()
         declared=re.findall(r'new GLModel\("/mods/provoda/guns/models/([^"\n]+)"\)',text)
-        assert model['body'] in declared and set(declared)<=meshes.keys(),name
+        assert model['body'] in declared,name
+        if name not in SCENE_BODIES:assert {p.lower() for p in declared}<=meshes.keys(),name
     write_json(ASSETS/'blackrazid_weapon_meshes.json',meshes)
     write_json(ASSETS/'blackrazid_weapon_module_models.json',catalog())
     write_json(ASSETS/'blackrazid_weapon_models.json',models())
     # Independent appended profiles: never replace the approved revolver or earlier weapon poses.
     write_json(ASSETS/'geometry/blackrazid_weapon_poses.json',poses())
-    print('Imported 41 native meshes: five complete declared gun OBJ sets and seven registered standalone module models; old frame animations/visual acceptance remain pending.')
+    print('Imported',len(meshes),'native meshes;',len(models()),'gun assemblies and seven registered standalone modules; complete old frame animations/visual acceptance remain pending.')
 if __name__=='__main__':main()

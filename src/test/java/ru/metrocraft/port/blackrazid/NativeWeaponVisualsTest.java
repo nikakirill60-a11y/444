@@ -16,8 +16,8 @@ import ru.metrocraft.port.mcmod.McmodObjMesh;
 
 public class NativeWeaponVisualsTest {
     @BeforeClass public static void boot(){NativeWeaponsTest.boot();}
-    @Test public void all41NativeMeshesParseThroughTheRealRuntimeObjReaderWithoutOpenGL()throws Exception{
-        assertEquals(41,NativeWeaponVisuals.meshes().size());
+    @Test public void all82NativeMeshesParseThroughTheRealRuntimeObjReaderWithoutOpenGL()throws Exception{
+        assertEquals(82,NativeWeaponVisuals.meshes().size());
         for(String key:NativeWeaponVisuals.meshes()){
             try(InputStream raw=getClass().getResourceAsStream("/assets/metroport/models/blackrazid/weapons/"+key+".gz");InputStream in=new GZIPInputStream(raw)){
                 McmodObjMesh mesh=McmodObjMesh.readMaterials(in);assertFalse(key,mesh.groups.isEmpty());assertTrue(NativeWeaponVisuals.mesh(key).materials.keySet().containsAll(mesh.groups.keySet()));
@@ -30,7 +30,7 @@ public class NativeWeaponVisualsTest {
         for(NativeWeaponVisuals.Module m:NativeWeaponVisuals.modules()){
             ItemStack stack=new ItemStack(BlackrazidWeapons.item(m.id));assertTrue(stack.getItem() instanceof BlackrazidModules.ModuleItem);assertTrue(NativeWeaponVisuals.supported(stack));assertFalse(stack.hasTagCompound());assertTrue(names.add(m.sourceId));assertTrue(m.scale>0);
         }
-        for(String source:NativeWeaponVisuals.guns())assertTrue(NativeWeaponVisuals.supported(new ItemStack(item(source.toLowerCase(java.util.Locale.ROOT)))));assertEquals(5,NativeWeaponVisuals.guns().size());assertFalse(NativeWeaponVisuals.supported(new ItemStack(item("revolver"))));assertFalse(NativeWeaponVisuals.supported(new ItemStack(item("ak"))));assertFalse(NativeWeaponVisuals.supported(ItemStack.EMPTY));assertNull(NativeWeaponVisuals.module("nonexistent"));
+        for(String source:NativeWeaponVisuals.guns())assertTrue(NativeWeaponVisuals.supported(new ItemStack(item(source.toLowerCase(java.util.Locale.ROOT)))));assertEquals(12,NativeWeaponVisuals.guns().size());assertFalse(NativeWeaponVisuals.supported(new ItemStack(item("tihar"))));assertFalse(NativeWeaponVisuals.supported(new ItemStack(item("ventil"))));assertFalse(NativeWeaponVisuals.supported(ItemStack.EMPTY));assertNull(NativeWeaponVisuals.module("nonexistent"));
     }
     private static Set<String> names(List<NativeWeaponVisuals.Part> parts){Set<String> result=new HashSet<>();for(NativeWeaponVisuals.Part p:parts)assertTrue("Duplicate native part "+p.mesh,result.add(p.mesh));return result;}
     @Test public void all24NativeEquipmentConfigurationsHaveExactlyOneBarrelAndDriveAndNoPhantomParts(){

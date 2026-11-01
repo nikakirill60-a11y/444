@@ -6,6 +6,12 @@ GUN_MODELS={
  'Velopal':('vyhlop/velo.obj',[.10,.175,-.17],.8,[.19,.145,-.175]),
  'Ognemet':('ognemet/ognemet1.obj',[.05,.17,-.17],.7,[.29,.145,-.175]),
 }
+# Additional native equipped assemblies. These isolated poses do not modify legacy IDs.
+SCENE_BODIES={'AK':'ak/ak.obj','AK2012':'2012/2012.obj','AKSU':'aksu/aksu.obj',
+ 'Revolver':'revolver/revolver.obj','Rpk':'rpk/rpk.obj','Saiga':'saiga/saiga.obj','Ubludok':'ubludok/ubludok.obj'}
+for name,body in SCENE_BODIES.items():
+ GUN_MODELS[name]=(body,[.05,.17,-.175],.8,[.28,.145,-.175])
+
 def models():
  return {name:dict(id='blackrazid_'+name.lower(),sourceId=name,body=body,nativeTranslation=translation,nativeScale=scale) for name,(body,translation,scale,support) in GUN_MODELS.items()}
 def poses():

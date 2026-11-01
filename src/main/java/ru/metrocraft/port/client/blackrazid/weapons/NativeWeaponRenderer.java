@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import ru.metrocraft.port.client.GlStateBuffers;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.BufferUtils;
 import ru.metrocraft.port.blackrazid.weapons.*;
 import ru.metrocraft.port.client.*;
 import ru.metrocraft.port.mcmod.McmodObjMesh;
@@ -77,6 +78,7 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
         int action=gun.visualAction(stack),duration=action==4?gun.entry.pumpTicks:action==2?gun.entry.unloadingTicks:action==3?gun.entry.looseLoadingTicks:gun.entry.loadingTicks;
         float excursion=NativeWeaponVisuals.excursion(NativeWeaponVisuals.actionProgress(gun.visualTicks(stack),duration,partial));
         float reload=action>=1 && action<=3?excursion:0,pump=action==4?excursion:0;
+        equipment.phase=NativeWeaponVisuals.actionProgress(gun.visualTicks(stack),duration,partial);equipment.aim=GunClient.aim>.5F;
         double now=mc.world==null?0:mc.world.getTotalWorldTime()+partial;
         boolean hasShot=stack.hasTagCompound() && stack.getTagCompound().hasKey(NativeWeaponVisuals.SHOT_TIME,99);
         double since=hasShot?now-stack.getTagCompound().getLong(NativeWeaponVisuals.SHOT_TIME):-1;
@@ -86,7 +88,17 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
         try{
             GlStateManager.translate(profile.nativeTranslation[0],profile.nativeTranslation[1],profile.nativeTranslation[2]);
             GlStateManager.rotate(90,0,1,0);GlStateManager.scale(profile.nativeScale,profile.nativeScale,profile.nativeScale);
-            for(NativeWeaponVisuals.Part part:NativeWeaponVisuals.special(gun.entry.sourceId,equipment,first)){
+            if(NativeWeaponScene.guns().contains(gun.entry.sourceId)){
+                FloatBuffer matrix=BufferUtils.createFloatBuffer(16);
+                for(NativeWeaponScene.Draw part:NativeWeaponScene.draw(gun.entry.sourceId,equipment)){
+                    GlStateManager.pushMatrix();try{
+                        matrix.clear();matrix.put(part.matrix);matrix.flip();GlStateManager.multMatrix(matrix);
+                        if(part.role.equals("magazine")){GlStateManager.translate(0,-.35F*reload,0);GlStateManager.rotate(-15*reload,0,0,1);}
+                        if(part.role.equals("bolt")){GlStateManager.translate(0,0,-.025F*kick);GlStateManager.rotate(-20*Math.max(reload,pump),1,0,0);}
+                        draw(part.mesh);
+                    }finally{GlStateManager.popMatrix();}
+                }
+            }else for(NativeWeaponVisuals.Part part:NativeWeaponVisuals.special(gun.entry.sourceId,equipment,first)){
                 GlStateManager.pushMatrix();try{
                     GlStateManager.translate(part.translation[0],part.translation[1],part.translation[2]);GlStateManager.rotate(part.angle,part.x,part.y,part.z);
                     if(part.role.equals("magazine")){GlStateManager.translate(0,-.35F*reload,0);GlStateManager.rotate(-15*reload,0,0,1);}

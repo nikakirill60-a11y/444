@@ -17,12 +17,12 @@ public class NativeSpecialWeaponVisualsTest {
     }
     private static NativeWeaponVisuals.Part part(List<NativeWeaponVisuals.Part> parts,String name){for(NativeWeaponVisuals.Part p:parts)if(p.mesh.equals(name))return p;throw new AssertionError(name);}
     @Test public void independentProfilesHaveRealBodiesAndFiniteHandSpaceTransforms(){
-        assertEquals(new HashSet<>(Arrays.asList("Gatling","Abzac","Vyhlop","Velopal","Ognemet")),NativeWeaponVisuals.guns());
+        assertEquals(new HashSet<>(Arrays.asList("Gatling","Abzac","Vyhlop","Velopal","Ognemet","AK","AKSU","AK2012","Revolver","Rpk","Saiga","Ubludok")),NativeWeaponVisuals.guns());
         for(String source:NativeWeaponVisuals.guns()){
             NativeWeaponVisuals.Gun profile=NativeWeaponVisuals.gun(source);assertEquals(source,profile.sourceId);assertTrue(NativeWeaponVisuals.meshes().contains(profile.body));assertTrue(profile.nativeScale>0);assertEquals(3,profile.nativeTranslation.length);
             for(float v:profile.nativeTranslation)assertTrue(Float.isFinite(v));
         }
-        assertNull(NativeWeaponVisuals.gun("Revolver"));
+        assertNull(NativeWeaponVisuals.gun("Tihar"));
     }
     @Test public void abzacEquipmentMatrixSelectsActualMagazineAndOnlyNativeBranches(){
         for(boolean first:new boolean[]{false,true})for(int bits=0;bits<32;bits++){
