@@ -54,6 +54,126 @@
       "driveId": "1DP24-9BvWrqZ6mOMjJ71sMINlInNzOcl",
       "bytes": 3525,
       "sha256": "17946b839ed25f47a819f4a9156127c8692609732798a2763af0141b2477faa8"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Abzac.class",
+      "driveId": "19qVy57jxnfpBUXpLwXc-k5etuTcNo4Ks",
+      "bytes": 33290,
+      "sha256": "932bcaee11f760f0cea92238094f59b87662f482c5c886b59eade53ec32a699b"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_AK2012.class",
+      "driveId": "1zLbMSVjoTaIpOLgLGNgGbWRoz20dn7Rv",
+      "bytes": 34896,
+      "sha256": "89d8aab562c2fea90f0cf7a5ca4a8ae12ba043cc1551d313c1c4eb31e09ab68f"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_AKSU.class",
+      "driveId": "1a-NbUNa13xwZ0nsRg5CEsp6BXXThG4xB",
+      "bytes": 41210,
+      "sha256": "94667f14a111d20707e3a6fda27ba06840dd44cf2da8ca38fffaa4291f878bba"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Ashot.class",
+      "driveId": "19HkC9p76GL6VCK-gvFOToaSmBmYDiZmS",
+      "bytes": 32486,
+      "sha256": "927ef901eb7d1f257af3673b01b1c20c29d691c8871e187d80728f08c888975e"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Duplet.class",
+      "driveId": "1ONEWZzG5qizRhG2K5hUtIznjmsKPpcAf",
+      "bytes": 32494,
+      "sha256": "9f3e35686a56bdb4df8229e2cd25ea45db11ba036aafb156ae0580b56b9326f1"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Helsing.class",
+      "driveId": "1E4WRNxxKHvyucOxc-gMldKL0mLlSDzkZ",
+      "bytes": 35226,
+      "sha256": "185c4d209d2abdaac1b673dace34a02db670bfb33800a09a20b0e87350f46be1"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Ognemet.class",
+      "driveId": "14WUFqPHh16l53iXhwV_jZXxtUVRNXBZE",
+      "bytes": 28853,
+      "sha256": "0628a31ae37d549add8719f09e975cd28572c0e33bf93657c805076f972c7e16"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Podonok.class",
+      "driveId": "1YG8B5ZtJSA4Rf8ZX1_Le_hZaETxRIx0k",
+      "bytes": 39984,
+      "sha256": "af3a77441b3072ebbda5c83332c44e97474430ac74a2a7316d05ca41b512787d"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Preved.class",
+      "driveId": "19HX6vB2CBVJsOWqc9Jo9WNnmYop3AjwM",
+      "bytes": 36395,
+      "sha256": "bc67f893e0f4ab323abb8869247b4218a4e815eb7245ffae7cb845580242e232"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Railgun.class",
+      "driveId": "1QhHSHP5sGhK0VEf_cMe2lQiblKhiVkbi",
+      "bytes": 36066,
+      "sha256": "7584166eb4057a6fc0bddfaa9c69585bbdf76dacb8b0fc82221efd372d732fdb"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Revolver.class",
+      "driveId": "1re-gJfTPT1nrRgNYWvd1XBzBzgHhrGjI",
+      "bytes": 35246,
+      "sha256": "01b03d06b8b60c41e0f0f8c2d3f280f9d4025d0b2092e45ebd0d6b2105e602c4"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Rpk.class",
+      "driveId": "13NYQzlA0oh1J7qDYN8h4SvvWgLoAzaOb",
+      "bytes": 40024,
+      "sha256": "c88e5ee1a70d403b1425af76e87c38f41b702a6f7f2cfad98f8362441faae3f4"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Saiga.class",
+      "driveId": "1MObFfPU4otz6qwQic0uYzc56cg1G052c",
+      "bytes": 36472,
+      "sha256": "140ec2637795c675b6ed33fbbb33a7436b152bf9236d0d6d45362d6d3eb1d747"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Tihar.class",
+      "driveId": "1rFkfCRhGiaJcIGi8H5Gq1d1cCD_HiEMr",
+      "bytes": 34340,
+      "sha256": "13434647acdb3182b9de1bd34f1c68461e308aad428bb992af2c47e1e01bd2b2"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Ubludok.class",
+      "driveId": "1rG6ZS0Gfc_KLLTnK6qciICulCC5w9FoZ",
+      "bytes": 34058,
+      "sha256": "460b4adea11cfe042e3bd66770852b0c9aba0851cbc581c795d585f9f52890b9"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Uboinik.class",
+      "driveId": "1XMozLE-oCLMmQLeVXM1k8KjvsX17UYAk",
+      "bytes": 39854,
+      "sha256": "7a6c496c11cf28d003ccbb2b18f204976bf14e4c82109a9c487b696b9236b4a0"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Velopal.class",
+      "driveId": "1zFKGB5KljhRajURzc-pxfFqfN5y0_qrg",
+      "bytes": 33646,
+      "sha256": "1e8b15e64e1cc32ca49d70be6d9f62469b0d505722e1cc87746d675f1e5de5b4"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Ventil.class",
+      "driveId": "17NCJsylg2oAGmycs_sb3qcD47DP8WQNo",
+      "bytes": 36643,
+      "sha256": "89ffab9b0f3c9c45d7fb0b2d890cae36054b23d8a7a86a3ec7c748fa52cd0e5f"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Vsv.class",
+      "driveId": "1L68Vi3cYBje5OnVUHJ91LR4gM_c_CzpZ",
+      "bytes": 37874,
+      "sha256": "d07044995ffd0adfbbfa83b4aafeffbbaa0f9ffc54136958b7c1b63370c3b480"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Vyhlop.class",
+      "driveId": "1rD4t3pRSZk5ln7Gio39e3KV22AMsIevj",
+      "bytes": 32080,
+      "sha256": "7015f499d820ec5a85e2f82a88a2c02cc9dadb533fe5d3c3c9f7a631d2031d63"
     }
   ]
 }
