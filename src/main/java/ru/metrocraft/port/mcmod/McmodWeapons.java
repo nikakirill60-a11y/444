@@ -25,7 +25,7 @@ public final class McmodWeapons {
         }
     }
     @SubscribeEvent public static void sounds(RegistryEvent.Register<SoundEvent> event){
-        for(String id:new String[]{"mcmod_ak_boom","mcmod_ak74_reload"}){
+        for(String id:new String[]{"mcmod_ak_boom","mcmod_ak74_reload","mcmod_medkit_use_heavy"}){
             ResourceLocation key=new ResourceLocation(MetroPort.ID,id);SoundEvent sound=new SoundEvent(key).setRegistryName(key);
             event.getRegistry().register(sound);MetroPort.SOUNDS.put(id,sound);
         }

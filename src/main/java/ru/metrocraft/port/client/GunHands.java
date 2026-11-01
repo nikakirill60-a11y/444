@@ -15,6 +15,9 @@ public final class GunHands {
     private static final java.nio.FloatBuffer MATRIX = org.lwjgl.BufferUtils.createFloatBuffer(16);
     private GunHands() {}
     public static void render(String id, TransformType context, float reload) {
+        render(id,context,reload,GunRenderPoses.handAnchor(id,false),GunRenderPoses.handAnchor(id,true));
+    }
+    public static void render(String id,TransformType context,float reload,float[] trigger,float[] supportAnchor) {
         if(context != TransformType.FIRST_PERSON_LEFT_HAND && context != TransformType.FIRST_PERSON_RIGHT_HAND) return;
         Minecraft mc = Minecraft.getMinecraft();
         AbstractClientPlayer player = mc.player;
@@ -27,24 +30,24 @@ public final class GunHands {
         mc.getTextureManager().bindTexture(player.getLocationSkin());
         GlStateManager.color(1,1,1,1);
         try {
-            arm(skin, player, alex, left, false, GunRenderPoses.handAnchor(id, false), reload);
+            arm(id,skin, player, alex, left, false, trigger, reload);
             if(GunHandPose.usesSupport(left, player.getPrimaryHand() == EnumHandSide.LEFT,
                     player.getHeldItemMainhand().isEmpty(), player.getHeldItemOffhand().isEmpty())) {
-                arm(skin, player, alex, !left, true, GunRenderPoses.handAnchor(id, true), reload);
+                arm(id,skin, player, alex, !left, true, supportAnchor, reload);
             }
         } finally {
             mc.getTextureManager().bindTexture(new net.minecraft.util.ResourceLocation(LegacyItemRenderer.info(id).texture));
             GlStateManager.color(1,1,1,1);
         }
     }
-    private static void arm(ModelPlayer skin, AbstractClientPlayer player, boolean alex, boolean left,
+    private static void arm(String id,ModelPlayer skin, AbstractClientPlayer player, boolean alex, boolean left,
                             boolean support, float[] anchor, float reload) {
         ModelRenderer base = left ? skin.bipedLeftArm : skin.bipedRightArm;
         ModelRenderer sleeve = left ? skin.bipedLeftArmwear : skin.bipedRightArmwear;
         // Reset the vanilla shoulder offset: this renderer is wrist-anchored in gun space.
         reset(base); reset(sleeve);
         float[] wrist = GunHandPose.wrist(anchor, support, support ? !left : left, reload);
-        javax.vecmath.Matrix4f matrix = GunHandPose.armMatrix(wrist, left, support, alex);
+        javax.vecmath.Matrix4f matrix = GunHandPose.armMatrix(id,wrist, left, support, alex);
         MATRIX.clear();
         for(int column=0; column<4; column++) for(int row=0; row<4; row++)
             MATRIX.put(matrix.getElement(row, column));
@@ -55,8 +58,13 @@ public final class GunHands {
             base.render(1/16F);
             if(player.isWearing(left ? EnumPlayerModelParts.LEFT_SLEEVE : EnumPlayerModelParts.RIGHT_SLEEVE))
                 sleeve.render(1/16F);
+            if(left && !ru.metrocraft.port.inventory.WatchEquipment.get(player).isEmpty()) {
+                WatchRenderer.onArm(alex,player.world.getWorldTime());
+                mcSkin(player);
+            }
         } finally { GlStateManager.popMatrix(); }
     }
+    private static void mcSkin(AbstractClientPlayer player){Minecraft.getMinecraft().getTextureManager().bindTexture(player.getLocationSkin());}
     private static void reset(ModelRenderer arm) {
         arm.setRotationPoint(0,0,0);
         arm.rotateAngleX=arm.rotateAngleY=arm.rotateAngleZ=0;

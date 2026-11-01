@@ -133,6 +133,7 @@ def main():
             for field in ['shootSound','reloadSound']:
                 sid=gun.get(field)
                 if sid:sounds[sid]={'sounds':['metroport:'+sid]}
+    if (ASSETS/'mcmod_support.json').exists():sounds['mcmod_medkit_use_heavy']={'sounds':['metroport:mcmod_medkit_use_heavy']}
     sounds['germo'] = {'sounds': ['metroport:germo']}
     write_json(ASSETS / 'sounds.json', dict(sorted(sounds.items())))
     translations = {

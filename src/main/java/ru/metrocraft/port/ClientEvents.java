@@ -36,6 +36,7 @@ public final class ClientEvents {
             playerRenderer.addLayer(new ru.metrocraft.port.client.BackpackClient(playerRenderer));
             playerRenderer.addLayer(new ru.metrocraft.port.client.FactionPatchLayer(playerRenderer));
             playerRenderer.addLayer(new ru.metrocraft.port.client.NvgLayer(playerRenderer));
+            playerRenderer.addLayer(new ru.metrocraft.port.client.WatchClient(playerRenderer));
         }
     }
 
@@ -62,6 +63,13 @@ public final class ClientEvents {
             item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodAkRenderer.INSTANCE);
             event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel("ak74",true,icon));
         }
+    }
+
+    @SubscribeEvent public static void watchModel(net.minecraftforge.client.event.ModelBakeEvent event) {
+        Item item=MetroPort.ITEMS.get("mcmod_watch");if(item==null)return;
+        ModelResourceLocation key=new ModelResourceLocation(item.getRegistryName(),"inventory");
+        net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(key);
+        if(icon!=null){item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.WatchRenderer.INSTANCE);event.getModelRegistry().putObject(key,new ru.metrocraft.port.client.LegacyItemModel("mcmod_watch",false,icon,false));}
     }
 
     @SubscribeEvent
@@ -113,7 +121,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void inventory(net.minecraftforge.client.event.GuiOpenEvent event) {
         Minecraft mc=Minecraft.getMinecraft();
-        if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiInventory && mc.player!=null && !mc.player.capabilities.isCreativeMode && !ru.metrocraft.port.inventory.InventoryModes.vanilla(mc.player)) {
+        if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiInventory && mc.player!=null && !mc.player.capabilities.isCreativeMode) {
             event.setCanceled(true);
             MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.inventory.OpenInventoryPacket());
         }

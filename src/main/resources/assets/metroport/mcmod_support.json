@@ -1,0 +1,86 @@
+[
+  {
+    "id": "mcmod_ammo12x70",
+    "nameRu": "Патроны 12×70 [MCMOD]",
+    "nameEn": "12x70 ammunition [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "texture": "x1270"
+  },
+  {
+    "id": "mcmod_ammo44",
+    "nameRu": "Патроны .44 [MCMOD]",
+    "nameEn": ".44 ammunition [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "texture": "x44"
+  },
+  {
+    "id": "mcmod_ammo762",
+    "nameRu": "Патроны 7,62 [MCMOD]",
+    "nameEn": "7.62 ammunition [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "texture": "x762"
+  },
+  {
+    "id": "mcmod_ammo145",
+    "nameRu": "Патроны 14,5 [MCMOD]",
+    "nameEn": "14.5 ammunition [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "texture": "x145"
+  },
+  {
+    "id": "mcmod_ammo_ball",
+    "nameRu": "Железные шарики [MCMOD]",
+    "nameEn": "Iron balls [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "texture": "ball"
+  },
+  {
+    "id": "mcmod_ammo_bolts",
+    "nameRu": "Болты [MCMOD]",
+    "nameEn": "Bolts [MCMOD]",
+    "kind": "ammo",
+    "stackSize": 64,
+    "texture": "ammo_bolts"
+  },
+  {
+    "id": "mcmod_collision",
+    "nameRu": "Коллизия [MCMOD]",
+    "nameEn": "Collision [MCMOD]",
+    "kind": "collision",
+    "texture": "collision"
+  },
+  {
+    "id": "mcmod_radiation",
+    "nameRu": "Радиация [MCMOD]",
+    "nameEn": "Radiation [MCMOD]",
+    "kind": "radiation",
+    "texture": "radiation"
+  },
+  {
+    "id": "mcmod_air",
+    "nameRu": "Безопасный воздух [MCMOD]",
+    "nameEn": "Safe air [MCMOD]",
+    "kind": "air",
+    "texture": "air"
+  },
+  {
+    "id": "mcmod_respawn",
+    "nameRu": "Точка возрождения [MCMOD]",
+    "nameEn": "Respawn point [MCMOD]",
+    "kind": "respawn",
+    "texture": "respawn"
+  },
+  {
+    "id": "mcmod_watch",
+    "nameRu": "Наручные часы-дозиметр",
+    "nameEn": "Wristwatch dosimeter",
+    "kind": "watch",
+    "stackSize": 1,
+    "texture": "watch"
+  }
+]

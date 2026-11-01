@@ -19,10 +19,16 @@ public final class GunHandPose {
     }
     /** The very same matrix is used by OpenGL and by the palm-contact JVM regression tests. */
     public static Matrix4f armMatrix(float[] contact, boolean left, boolean support, boolean slim) {
+        return armMatrix("revolver",contact,left,support,slim);
+    }
+    /** Revolver retains the approved pose; rifles use a slimmer, less rolled underhand grip. */
+    public static Matrix4f armMatrix(String id,float[] contact,boolean left,boolean support,boolean slim) {
+        boolean approved="revolver".equals(id);
         Matrix4f result = new Matrix4f(), step = new Matrix4f();
         result.setIdentity(); result.setTranslation(new Vector3f(contact));
-        step.rotZ((float)Math.toRadians(support ? -55 : -65)); result.mul(step);
-        step.rotX((float)Math.toRadians(-(left ? -1 : 1)*(support ? 30 : 18))); result.mul(step);
+        step.rotZ((float)Math.toRadians(approved ? (support ? -55 : -65) : (support ? -65 : -75))); result.mul(step);
+        step.rotX((float)Math.toRadians(-(left ? -1 : 1)*(approved ? (support ? 30 : 18) : (support ? 10 : 12)))); result.mul(step);
+        if(!approved){step.setIdentity();step.setScale(.85F);result.mul(step);}
         float center = (left ? 1 : -1)*(slim ? .5F : 1);
         step.setIdentity();
         // Anchor the palm CENTRE (y=9), not a shoulder/camera pivot or the end face at y=10.

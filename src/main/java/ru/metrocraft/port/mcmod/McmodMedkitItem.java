@@ -55,6 +55,7 @@ public final class McmodMedkitItem extends Item {
             if(canUse(stack,player.getHealth(),player.getMaxHealth(),player.isSpectator())) {
                 player.setHealth(player.getMaxHealth());
                 spend(stack,player.capabilities.isCreativeMode);
+                world.playSound(null,player.posX,player.posY,player.posZ,ru.metrocraft.port.MetroPort.SOUNDS.get("mcmod_medkit_use_heavy"),SoundCategory.PLAYERS,1,1);
                 player.inventory.markDirty();
             }
         }

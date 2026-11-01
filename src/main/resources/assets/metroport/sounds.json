@@ -44,6 +44,11 @@
       "metroport:mcmod_ak_boom"
     ]
   },
+  "mcmod_medkit_use_heavy": {
+    "sounds": [
+      "metroport:mcmod_medkit_use_heavy"
+    ]
+  },
   "mgreload": {
     "sounds": [
       "metroport:mgreload"

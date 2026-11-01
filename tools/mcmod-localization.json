@@ -20,9 +20,14 @@
     "key.metroport.inventory": "Экипировка Metro (ПНВ / рюкзак)",
     "metroport.armor.builtin_head": "Встроенный противогаз: снимите шлем; слот головы блокируется",
     "metroport.nvg.help": "Отдельный слот ПНВ: ПКМ — надеть; I — окно экипировки",
-    "metroport.inventory.mode": "Режим: %s",
-    "metroport.inventory.equipment": "Экипировка",
-    "metroport.inventory.clear_cursor": "Перед переключением уберите предмет с курсора и очистите сетку крафта."
+    "metroport.inventory.clear_cursor": "Перед переключением уберите предмет с курсора и очистите сетку крафта.",
+    "metroport.watch.slot": "Часы",
+    "metroport.watch.time": "Время: %s",
+    "metroport.watch.radiation": "Радиация: %s",
+    "metroport.watch.safe": "нет",
+    "metroport.watch.danger": "опасно",
+    "metroport.watch.help": "Отдельный слот в инвентаре Metro. Время мира и радиация зоны.",
+    "metroport.respawn.saved": "Точка возрождения сохранена."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -45,8 +50,13 @@
     "key.metroport.inventory": "Metro equipment (NVG / backpack)",
     "metroport.armor.builtin_head": "Built-in gas mask: remove helmet; head slot is locked",
     "metroport.nvg.help": "Dedicated NVG slot: right click to equip; I opens equipment",
-    "metroport.inventory.mode": "Mode: %s",
-    "metroport.inventory.equipment": "Equipment",
-    "metroport.inventory.clear_cursor": "Clear your cursor and crafting grid before switching."
+    "metroport.inventory.clear_cursor": "Clear your cursor and crafting grid before switching.",
+    "metroport.watch.slot": "Watch",
+    "metroport.watch.time": "Time: %s",
+    "metroport.watch.radiation": "Radiation: %s",
+    "metroport.watch.safe": "none",
+    "metroport.watch.danger": "danger",
+    "metroport.watch.help": "Dedicated Metro inventory slot. World time and ambient radiation.",
+    "metroport.respawn.saved": "Respawn point saved."
   }
 }

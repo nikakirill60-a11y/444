@@ -11,7 +11,7 @@ import ru.metrocraft.port.inventory.*;
 
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class CapacityRules {
-    public static int end(EntityPlayer player){return 9+9*InventoryModes.rows(player);}
+    public static int end(EntityPlayer player){return 9+9*InventoryCapacity.rows(player);}
     private static boolean limited(EntityPlayer player){return !player.capabilities.isCreativeMode && !player.isSpectator();}
     @SubscribeEvent(priority=net.minecraftforge.fml.common.eventhandler.EventPriority.LOWEST) public static void pickup(EntityItemPickupEvent event){
         EntityPlayer player=event.getEntityPlayer();

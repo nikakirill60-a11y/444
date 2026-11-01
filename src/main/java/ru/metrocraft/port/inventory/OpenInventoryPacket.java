@@ -16,7 +16,7 @@ public final class OpenInventoryPacket implements IMessage {
                 long now=player.world.getTotalWorldTime();
                 if(player.isEntityAlive() && !player.isSpectator() && player.openContainer==player.inventoryContainer
                         && now-player.getEntityData().getLong("MetroLastInventoryOpen")>=3) {
-                    if(!InventoryModes.emptyForSwitch(player)) {
+                    if(!InventoryCapacity.emptyForOpen(player)) {
                         player.sendStatusMessage(new net.minecraft.util.text.TextComponentTranslation("metroport.inventory.clear_cursor"),true);return;
                     }
                     player.getEntityData().setLong("MetroLastInventoryOpen",now);

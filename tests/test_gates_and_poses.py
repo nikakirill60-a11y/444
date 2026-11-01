@@ -80,8 +80,10 @@ class GateAndPoseTests(unittest.TestCase):
                     contact = pose[name].copy()
                     contact[2] += side * .025
                     self.assertLessEqual(mesh.contact_distance(contact, parts), .045, (id_, name, side))
-        # The screenshot regression: the old Duplet support was > 0.1 m below its mesh.
-        self.assertGreater(poses['duplet']['support'][1], .3)
+        # Underhand support must remain close to the actual lower mesh, not its upper barrel.
+        self.assertAlmostEqual(poses['duplet']['support'][1], .21)
+        self.assertEqual(poses['revolver']['trigger'], [.05,.14,-.175])
+        self.assertEqual(poses['revolver']['support'], [.12,.19,-.175])
         self.assertNotEqual(poses['duplet']['trigger'], poses['duplet']['grip'])
 
     def test_gate_meshes_and_atlases_are_original_bytes(self):

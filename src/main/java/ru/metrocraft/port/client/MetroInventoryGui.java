@@ -25,12 +25,15 @@ public final class MetroInventoryGui extends GuiContainer {
         drawRect(guiLeft+139,guiTop+17,guiLeft+157,guiTop+35,0xFF353535);
         drawRect(guiLeft+140,guiTop+18,guiLeft+156,guiTop+34,0xFF777777);
         fontRenderer.drawString(net.minecraft.client.resources.I18n.format("metroport.nvg.slot"),guiLeft+135,guiTop+6,0x404040);
+        drawRect(guiLeft+139,guiTop+53,guiLeft+157,guiTop+71,0xFF353535);
+        drawRect(guiLeft+140,guiTop+54,guiLeft+156,guiTop+70,0xFF777777);
+        fontRenderer.drawString(net.minecraft.client.resources.I18n.format("metroport.watch.slot"),guiLeft+135,guiTop+42,0x404040);
         if(ru.metrocraft.port.inventory.EquipmentRules.sealed(player.getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST))) {
             drawRect(guiLeft+43,guiTop+6,guiLeft+62,guiTop+25,0x88552222);
             fontRenderer.drawString("×",guiLeft+48,guiTop+11,0xFF5555);
         }
         GuiInventory.drawEntityOnScreen(guiLeft+88,guiTop+75,30,guiLeft+88-mouseX,guiTop+25-mouseY,player);
-        int rows=ru.metrocraft.port.inventory.InventoryModes.rows(player);
+        int rows=ru.metrocraft.port.inventory.InventoryCapacity.rows(player);
         mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/gui/slots.png"));
         GlStateManager.color(1,1,1,1);
         drawTexturedModalRect(guiLeft+7,guiTop+83,0,0,162,rows*18);

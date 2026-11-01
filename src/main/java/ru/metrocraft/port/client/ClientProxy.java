@@ -11,8 +11,5 @@ public final class ClientProxy extends CommonProxy {
     @Override public void shotFeedback(String gun,float pitch,float yaw) {
         net.minecraft.client.Minecraft.getMinecraft().addScheduledTask(()->GunClient.shot(gun,pitch,yaw));
     }
-    @Override public void inventoryMode(boolean vanilla,boolean open) {
-        net.minecraft.client.Minecraft.getMinecraft().addScheduledTask(()->InventoryComparison.receive(vanilla,open));
-    }
     @Override public void init() { ClientEvents.initialize(); }
 }

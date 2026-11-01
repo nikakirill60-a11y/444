@@ -4,6 +4,5 @@ package ru.metrocraft.port;
 public class CommonProxy {
     public void preInit() { }
     public void shotFeedback(String gun,float pitch,float yaw) {}
-    public void inventoryMode(boolean vanilla,boolean open) {}
     public void init() { }
 }

@@ -53,7 +53,7 @@ public final class McmodAkRenderer extends TileEntityItemStackRenderer {
             GlStateManager.pushMatrix();try{GlStateManager.translate(0,-.14*reload,0);GlStateManager.rotate(-12*reload,0,0,1);group("mag");}finally{GlStateManager.popMatrix();}
             if(first){
                 GlStateManager.pushMatrix();try{GlStateManager.translate(-.045*kick,0,0);group("zatv");}finally{GlStateManager.popMatrix();}
-                GunHands.render("ak74",type,reload);
+                GunHands.render("ak74",type,reload,McmodAkPose.handAnchor(false),McmodAkPose.handAnchor(true));
                 if(kick>.5F){
                     texture("_flash");GlStateManager.enableBlend();GlStateManager.blendFunc(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA);GlStateManager.disableLighting();
                     try{group("fire1");}finally{GlStateManager.enableLighting();GlStateManager.disableBlend();}
