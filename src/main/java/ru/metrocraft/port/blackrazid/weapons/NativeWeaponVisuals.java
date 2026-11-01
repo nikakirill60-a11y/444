@@ -15,7 +15,15 @@ public final class NativeWeaponVisuals {
     public static final class Mesh { public Map<String,String> materials; public float[] bounds; public String sha256; }
     public static final class Module { public String id,sourceId,mesh,source; public float[] center; public float scale; }
     private static final Map<String,Mesh> MESHES=read("blackrazid_weapon_meshes.json",new TypeToken<Map<String,Mesh>>(){}.getType());
-    public static final class Gun { public String id,sourceId,body; public float[] nativeTranslation; public float nativeScale; }
+    public static final class Gun { public String id,sourceId,body; public float[] nativeTranslation; public float nativeScale,nativeYaw;
+        /** Shared by the GL renderer and geometry/contact regression tests. */
+        public javax.vecmath.Matrix4f modelMatrix(){
+            javax.vecmath.Matrix4f result=new javax.vecmath.Matrix4f(),step=new javax.vecmath.Matrix4f();
+            result.setIdentity();result.setTranslation(new javax.vecmath.Vector3f(nativeTranslation));
+            step.rotY((float)Math.toRadians(nativeYaw));result.mul(step);
+            step.setIdentity();step.setScale(nativeScale);result.mul(step);return result;
+        }
+    }
     private static final Map<String,Gun> GUNS=read("blackrazid_weapon_models.json",new TypeToken<Map<String,Gun>>(){}.getType());
     public static Set<String> guns(){return Collections.unmodifiableSet(GUNS.keySet());}
     public static Gun gun(String sourceId){return GUNS.get(sourceId);}

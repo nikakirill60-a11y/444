@@ -47,7 +47,7 @@ public final class GunHands {
         ModelRenderer sleeve = left ? skin.bipedLeftArmwear : skin.bipedRightArmwear;
         // Reset the vanilla shoulder offset: this renderer is wrist-anchored in gun space.
         reset(base); reset(sleeve);
-        float[] wrist = GunHandPose.wrist(anchor, support, support && "revolver".equals(id) ? !left : left, reload);
+        float[] wrist = GunHandPose.wrist(id, anchor, support, support && "revolver".equals(id) ? !left : left, reload);
         javax.vecmath.Matrix4f matrix = GunHandPose.armMatrix(id,wrist, left, support, alex);
         MATRIX.clear();
         for(int column=0; column<4; column++) for(int row=0; row<4; row++)

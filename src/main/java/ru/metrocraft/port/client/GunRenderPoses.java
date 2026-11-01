@@ -14,7 +14,7 @@ import java.util.Map;
 /** Native gun-space -> hand-space. No item/generated camera transforms. */
 public final class GunRenderPoses {
     private static final class Pose { float[] translation, rotation; float scale; }
-    private static final class Profile { float[] grip, trigger, support; Pose firstPerson, thirdPerson, ground, fixed; }
+    private static final class Profile { float[] grip, trigger, support, aimSight; Pose firstPerson, thirdPerson, ground, fixed; }
     private static Map<String, Profile> profiles;
 
     public static void reload(){profiles=null;}
@@ -56,12 +56,22 @@ public final class GunRenderPoses {
         float[] translation=pose.translation.clone(),rotation=pose.rotation.clone();
         if(type==TransformType.FIRST_PERSON_LEFT_HAND || type==TransformType.FIRST_PERSON_RIGHT_HAND){
             float aim=GunClient.aim;
-            translation[0]+=(-.56F-translation[0])*aim;
-            translation[1]+=(.42F-translation[1])*aim;
+            float[] target=profile.aimSight==null?new float[]{-.56F,.42F,translation[2]}:
+                    aimTranslation(profile.grip,profile.aimSight,pose.scale,left,translation[2]);
+            translation[0]+=(target[0]-translation[0])*aim;
+            translation[1]+=(target[1]-translation[1])*aim;
             rotation[1]+=(90-rotation[1])*aim;
         }
         return compose(profile.grip, translation, rotation, pose.scale,
                 type == TransformType.FIRST_PERSON_LEFT_HAND || type == TransformType.FIRST_PERSON_RIGHT_HAND, left);
+    }
+    /** Align native iron sights after vanilla's (+/-.56,-.52,-.72) hand parent.
+     * Left-hand translation is pre-compensated for compose's tx inversion.
+     * Old profiles omit aimSight and retain their approved .42 target unchanged.
+     */
+    static float[] aimTranslation(float[] grip,float[] sight,float scale,boolean left,float z){
+        return new float[]{-.56F+(left?1:-1)*scale*(sight[2]-grip[2]),
+                .52F-scale*(sight[1]-grip[1]),z};
     }
     /** Pure math entry point shared with JVM tests; no Minecraft/OpenGL initialization. */
     static Matrix4f compose(float[] grip, float[] translation, float[] rotation, float scale, boolean firstPerson, boolean left) {

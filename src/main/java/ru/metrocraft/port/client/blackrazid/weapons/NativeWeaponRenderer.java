@@ -23,6 +23,12 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
     public static final NativeWeaponRenderer INSTANCE=new NativeWeaponRenderer();
     private static final Map<String,Map<String,Integer>> LISTS=new HashMap<>();
     public static void reload(){for(Map<String,Integer> materials:LISTS.values())for(int list:materials.values())GLAllocation.deleteDisplayLists(list);LISTS.clear();}
+    private static final FloatBuffer MODEL_MATRIX=BufferUtils.createFloatBuffer(16);
+    private static void applyModel(NativeWeaponVisuals.Gun profile){
+        javax.vecmath.Matrix4f matrix=profile.modelMatrix();MODEL_MATRIX.clear();
+        for(int column=0;column<4;column++)for(int row=0;row<4;row++)MODEL_MATRIX.put(matrix.getElement(row,column));
+        MODEL_MATRIX.flip();GlStateManager.multMatrix(MODEL_MATRIX);
+    }
     private static Map<String,Integer> mesh(String id){
         Map<String,Integer> cached=LISTS.get(id);if(cached!=null)return cached;
         Map<String,Integer> lists=new LinkedHashMap<>();
@@ -86,8 +92,7 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
         GlStateManager.translate(-.025F*kick,-.06F*reload,0);
         GlStateManager.pushMatrix();
         try{
-            GlStateManager.translate(profile.nativeTranslation[0],profile.nativeTranslation[1],profile.nativeTranslation[2]);
-            GlStateManager.rotate(90,0,1,0);GlStateManager.scale(profile.nativeScale,profile.nativeScale,profile.nativeScale);
+            applyModel(profile);
             if(NativeWeaponScene.guns().contains(gun.entry.sourceId)){
                 FloatBuffer matrix=BufferUtils.createFloatBuffer(16);
                 for(NativeWeaponScene.Draw part:NativeWeaponScene.draw(gun.entry.sourceId,equipment)){
@@ -123,8 +128,9 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
         GlStateManager.translate(-.035F*kick,-.08F*reload,0);
         GlStateManager.pushMatrix();
         try{
-            // Native Z-forward metres -> this gun's own X-forward palm/contact space.
-            GlStateManager.translate(.12,.164,-.126);GlStateManager.rotate(90,0,1,0);GlStateManager.scale(.7,.7,.7);
+            // Fit the complete Gatling (including its separate +Z barrel mesh)
+            // with the same measured handle origin/scale as its modules.
+            applyModel(NativeWeaponVisuals.gun(gun.entry.sourceId));
             for(NativeWeaponVisuals.Part part:NativeWeaponVisuals.gatling(five,stock,drive,magazine,rotation,pump)){
                 GlStateManager.pushMatrix();try{
                     GlStateManager.translate(part.translation[0],part.translation[1],part.translation[2]);GlStateManager.rotate(part.angle,part.x,part.y,part.z);

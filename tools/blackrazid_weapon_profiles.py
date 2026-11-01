@@ -1,22 +1,54 @@
-"""Selected native mesh assemblies. Hand-space conversion/poses are explicit 1.12 adaptations."""
-GUN_MODELS={
- 'Gatling':('gatling/gatling.obj',[.12,.164,-.126],.7,[.12,.20,-.32]),
- 'Abzac':('abzac/abzac.obj',[.05,.17,-.17],.8,[.30,.14,-.175]),
- 'Vyhlop':('vyhlop/vyhlop1.obj',[.075,.175,-.17],.8,[.28,.145,-.175]),
- 'Velopal':('vyhlop/velo.obj',[.10,.175,-.17],.8,[.19,.145,-.175]),
- 'Ognemet':('ognemet/ognemet1.obj',[.05,.17,-.17],.7,[.29,.145,-.175]),
-}
-# Additional native equipped assemblies. These isolated poses do not modify legacy IDs.
+"""Native OBJ-to-hand fitting. Contacts are measured in SOURCE metres, not legacy Flan wrists.
+
++Z is the muzzle for every complete assembly (including Gatling/stvol.obj). The model is fitted
+around its actual rear handle. Support contacts describe the underside surface;
+the palm centre sits below it, so the Steve/Alex fist does not swallow the receiver.
+The independent camera scale must not be used to fix the weapon/hand size ratio.
+"""
 SCENE_BODIES={'AK':'ak/ak.obj','AK2012':'2012/2012.obj','AKSU':'aksu/aksu.obj',
  'Revolver':'revolver/revolver.obj','Rpk':'rpk/rpk.obj','Saiga':'saiga/saiga.obj','Ubludok':'ubludok/ubludok.obj'}
-for name,body in SCENE_BODIES.items():
- GUN_MODELS[name]=(body,[.05,.17,-.175],.8,[.28,.145,-.175])
+GUN_MODELS={'Gatling':'gatling/gatling.obj','Abzac':'abzac/abzac.obj',
+ 'Vyhlop':'vyhlop/vyhlop1.obj','Velopal':'vyhlop/velo.obj','Ognemet':'ognemet/ognemet1.obj',**SCENE_BODIES}
+# scale, rear handle centre, support underside, iron-sight line, muzzle sign
+# These are intentionally per-weapon: AK2012's bullpup grip, Velopal's sloping
+# handle and Gatling's off-centre grip are not interchangeable AK contacts.
+FITS={
+ 'Gatling':(1.35,[-.075,-.075,-.12],[0,-.060,.055],[0,.085,.35],1),
+ 'Abzac':(1.40,[-.079,-.080,-.255],[0,-.055,.34],[0,.085,.15],1),
+ 'Vyhlop':(1.55,[0,-.075,-.035],[0,-.030,.16],[0,.055,.15],1),
+ 'Velopal':(1.55,[0,-.150,-.32],[0,-.100,.04],[0,.075,.12],1),
+ 'Ognemet':(1.35,[-.079,-.085,-.22],[.125,-.070,.26],[0,.070,.34],1),
+ 'AK':(1.65,[0,-.085,-.216],[0,-.025,.12],[0,.060,.25],1),
+ 'AK2012':(1.65,[-.025,-.085,.0],[-.025,-.015,.13],[-.025,.080,.18],1),
+ 'AKSU':(1.65,[0,-.085,-.216],[0,-.025,.075],[0,.060,.15],1),
+ 'Revolver':(1.60,[0,.015,-.09],[0,-.020,-.055],[0,.120,.12],1),
+ 'Rpk':(1.65,[0,-.085,-.216],[0,-.025,.14],[0,.060,.28],1),
+ 'Saiga':(1.65,[0,-.085,-.216],[0,-.030,.14],[0,.055,.25],1),
+ 'Ubludok':(1.65,[0,-.080,-.070],[0,-.045,.22],[0,.040,.25],1),
+}
+SUPPORT_CLEARANCE=.070
+
+def fitted_point(name,point):
+ scale,grip,_,_,sign=FITS[name]
+ return [round(sign*(point[2]-grip[2])*scale,6),round((point[1]-grip[1])*scale,6),round(-sign*(point[0]-grip[0])*scale,6)]
 
 def models():
- return {name:dict(id='blackrazid_'+name.lower(),sourceId=name,body=body,nativeTranslation=translation,nativeScale=scale) for name,(body,translation,scale,support) in GUN_MODELS.items()}
+ result={}
+ for name,body in GUN_MODELS.items():
+  scale,grip,_,_,sign=FITS[name]
+  result[name]=dict(id='blackrazid_'+name.lower(),sourceId=name,body=body,
+      nativeTranslation=[round(-sign*grip[2]*scale,6),round(-grip[1]*scale,6),round(sign*grip[0]*scale,6)],
+      nativeScale=scale,nativeYaw=90*sign)
+ return result
+
 def poses():
- return {'blackrazid_'+name.lower():dict(grip=[-.04,.1,-.175],trigger=[-.075,.115,-.175],support=support,
-    firstPerson=dict(translation=[-.18,-.045,-.40],rotation=[0,100,0],scale=.8),
-    thirdPerson=dict(translation=[0,.05,.1],rotation=[0,0,90],scale=.65),
-    ground=dict(translation=[0,.12,0],rotation=[0,0,0],scale=.3),
-    fixed=dict(translation=[0,0,0],rotation=[0,0,0],scale=.28)) for name,(body,translation,scale,support) in GUN_MODELS.items()}
+ result={}
+ for name in GUN_MODELS:
+  _,_,surface,sight,_=FITS[name]
+  support=fitted_point(name,surface);support[1]=round(support[1]-SUPPORT_CLEARANCE,6)
+  result['blackrazid_'+name.lower()]=dict(grip=[0,0,0],trigger=[0,0,0],support=support,aimSight=fitted_point(name,sight),
+      firstPerson=dict(translation=[-.20,.10,-.50],rotation=[0,100,0],scale=.8),
+      thirdPerson=dict(translation=[0,.05,.1],rotation=[0,0,90],scale=.65),
+      ground=dict(translation=[0,.12,0],rotation=[0,0,0],scale=.3),
+      fixed=dict(translation=[0,0,0],rotation=[0,0,0],scale=.28))
+ return result

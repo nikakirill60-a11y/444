@@ -17,6 +17,13 @@ public final class GunHandPose {
                 anchor[1] - (support ? .22F*p : 0),
                 anchor[2] + side*(support ? -.025F : .025F)};
     }
+    /** Native hands straddle the weapon; legacy/revolver wrist offsets stay byte-for-byte equivalent. */
+    public static float[] wrist(String id,float[] anchor,boolean support,boolean left,float reload){
+        float[] result=wrist(anchor,support,left,reload);
+        if(id.startsWith("blackrazid_"))result[2]=anchor[2]+(left?-.035F:.035F);
+        return result;
+    }
+    public static float armScale(String id){return id.startsWith("blackrazid_")?.60F:.85F;}
     /** The very same matrix is used by OpenGL and by the palm-contact JVM regression tests. */
     public static Matrix4f armMatrix(float[] contact, boolean left, boolean support, boolean slim) {
         return armMatrix("revolver",contact,left,support,slim);
@@ -35,7 +42,7 @@ public final class GunHandPose {
             Vector3f along=new Vector3f(support?.32F:.26F,support?.28F:.32F,left?.34F:-.34F);along.normalize();
             Vector3f across=new Vector3f();across.cross(new Vector3f(0,1,0),along);across.normalize();
             Vector3f depth=new Vector3f();depth.cross(across,along);depth.normalize();
-            across.scale(.85F);along.scale(.85F);depth.scale(.85F);step.setIdentity();
+            float scale=armScale(id);across.scale(scale);along.scale(scale);depth.scale(scale);step.setIdentity();
             step.setColumn(0,across.x,across.y,across.z,0);step.setColumn(1,along.x,along.y,along.z,0);step.setColumn(2,depth.x,depth.y,depth.z,0);result.mul(step);
         }
         float center = (left ? 1 : -1)*(slim ? .5F : 1);
