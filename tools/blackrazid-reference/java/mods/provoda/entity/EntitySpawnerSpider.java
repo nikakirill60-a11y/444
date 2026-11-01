@@ -7,7 +7,6 @@
  *  com.google.common.io.ByteArrayDataInput
  *  com.google.common.io.ByteArrayDataOutput
  *  cpw.mods.fml.common.registry.IEntityAdditionalSpawnData
- *  mods.provoda.entity.EntityObject
  *  mp
  *  sq
  */
@@ -83,6 +82,7 @@ implements IEntityAdditionalSpawnData {
         this.yaw = var1.readDouble();
     }
 
+    @Override
     public void c() {
         super.c();
         this.field_70888_h = this.field_70886_e;
