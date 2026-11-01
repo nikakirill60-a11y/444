@@ -33,7 +33,7 @@ public abstract class MutantSpawner extends Entity {
         int accepted=0;
         for(int i=0;i<Math.min(batch(),available);i++){
             BlackrazidMutant mob=create();
-            mob.setLocationAndAngles(posX+(batch()>1?(i==0?-.7:.7):0),posY+1,posZ,rotationYaw,0);
+            mob.setLocationAndAngles(posX+((i-(batch()-1)/2.0)*1.4),posY+1,posZ,rotationYaw,0);
             if(!world.getWorldBorder().contains(new BlockPos(mob)) || !world.getCollisionBoxes(mob,mob.getEntityBoundingBox()).isEmpty()
                 || !world.checkNoEntityCollision(mob.getEntityBoundingBox(),mob))continue;
             if(world.spawnEntity(mob))accepted++;
@@ -63,5 +63,53 @@ public abstract class MutantSpawner extends Entity {
         @Override public int period(){return 10000;}
         @Override public int batch(){return 1;}
         @Override protected BlackrazidMutant create(){return new BiblioEntity(world);}
+    }
+    public static final class KikimoraNest extends MutantSpawner {
+        public KikimoraNest(World w){super(w);}
+        @Override public int period(){return 4000;}
+        @Override public int batch(){return 3;}
+        @Override protected BlackrazidMutant create(){return new KikimoraEntity(world);}
+    }
+    public static final class StrazhNest extends MutantSpawner {
+        public StrazhNest(World w){super(w);}
+        @Override public int period(){return 4000;}
+        @Override public int batch(){return 3;}
+        @Override protected BlackrazidMutant create(){return new StrazhEntity(world);}
+    }
+    public static final class NosachNest extends MutantSpawner {
+        public NosachNest(World w){super(w);}
+        @Override public int period(){return 6000;}
+        @Override public int batch(){return 2;}
+        @Override protected BlackrazidMutant create(){return new NosachEntity(world);}
+    }
+    public static final class DarkNest extends MutantSpawner {
+        public DarkNest(World w){super(w);}
+        @Override public int period(){return 8000;}
+        @Override public int batch(){return 2;}
+        @Override protected BlackrazidMutant create(){return new DarkEntity(world);}
+    }
+    public static final class BearNest extends MutantSpawner {
+        public BearNest(World w){super(w);}
+        @Override public int period(){return 8000;}
+        @Override public int batch(){return 2;}
+        @Override protected BlackrazidMutant create(){return new BearEntity(world);}
+    }
+    public static final class MobusNest extends MutantSpawner {
+        public MobusNest(World w){super(w);}
+        @Override public int period(){return 8000;}
+        @Override public int batch(){return 2;}
+        @Override protected BlackrazidMutant create(){return new MobusEntity(world);}
+    }
+    public static final class AquaFemaleNest extends MutantSpawner {
+        public AquaFemaleNest(World w){super(w);}
+        @Override public int period(){return 6000;}
+        @Override public int batch(){return 2;}
+        @Override protected BlackrazidMutant create(){return new AquaFemaleEntity(world);}
+    }
+    public static final class AquaMaleNest extends MutantSpawner {
+        public AquaMaleNest(World w){super(w);}
+        @Override public int period(){return 10000;}
+        @Override public int batch(){return 1;}
+        @Override protected BlackrazidMutant create(){return new AquaMaleEntity(world);}
     }
 }

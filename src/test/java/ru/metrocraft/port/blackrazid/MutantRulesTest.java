@@ -24,7 +24,7 @@ public class MutantRulesTest {
         mob.setPosition(0,0,5);p.posX=0;p.posY=0;p.posZ=0;
         Vec3d direction=new Vec3d(0,mob.height*.5-p.getEyeHeight(),5).normalize();when(p.getLookVec()).thenReturn(direction);when(p.canEntityBeSeen(mob)).thenReturn(true);return p;
     }
-    private static World spawnWorld(boolean remote)throws Exception{
+    static World spawnWorld(boolean remote)throws Exception{
         World w=player(remote).world;when(w.getDifficulty()).thenReturn(EnumDifficulty.NORMAL);
         GameRules rules=new GameRules();when(w.getGameRules()).thenReturn(rules);
         when(w.isAreaLoaded(any(BlockPos.class),any(BlockPos.class))).thenReturn(true);
@@ -32,10 +32,13 @@ public class MutantRulesTest {
         when(w.checkNoEntityCollision(any(AxisAlignedBB.class),any(Entity.class))).thenReturn(true);
         when(w.spawnEntity(any(Entity.class))).thenReturn(true);return w;
     }
-    @Test public void allThirteenOriginalObjPartsParseWithoutGpuOrMissingGeometry()throws Exception{
-        String[] paths={"rat/rat", "spider/spider", "spider/leftleg", "spider/rightleg", "spider/leftarm", "spider/rightarm",
-            "bibliotecar/bibliotecar", "bibliotecar/leftleg", "bibliotecar/rightleg", "bibliotecar/leftarm", "bibliotecar/rightarm", "bibliotecar/leftarm1", "bibliotecar/rightarm1"};
-        for(String path:paths)try(java.io.InputStream in=getClass().getResourceAsStream("/assets/metroport/models/blackrazid/mutants/"+path+".obj")){
+    @Test public void allSixtyOriginalObjPartsParseWithoutGpuOrMissingGeometry()throws Exception{
+        String[] paths;
+        try(java.io.Reader index=new java.io.InputStreamReader(getClass().getResourceAsStream("/assets/metroport/blackrazid_mutant_meshes.json"),java.nio.charset.StandardCharsets.UTF_8)){
+            paths=new com.google.gson.Gson().fromJson(index,String[].class);
+        }
+        assertEquals(60,paths.length);
+        for(String path:paths)try(java.io.InputStream in=getClass().getResourceAsStream("/assets/metroport/models/blackrazid/mutants/"+path)){
             assertNotNull(path,in);ru.metrocraft.port.mcmod.McmodObjMesh mesh=ru.metrocraft.port.mcmod.McmodObjMesh.read(in);int vertices=0;
             for(java.util.List<float[]> group:mesh.groups.values())for(float[] vertex:group){vertices++;assertEquals(8,vertex.length);for(float value:vertex)assertTrue(path,Float.isFinite(value));}
             assertTrue(path,vertices>=3);assertEquals(path,0,vertices%3);

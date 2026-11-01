@@ -13,12 +13,12 @@
     "ordinary/big grenade mechanics",
     "9 native round items and 20 magazines/canisters",
     "22 basic native firearm profiles, not a complete gun/module/model port",
-    "3 native mutants (rat/spider/librarian), native OBJ animation and sounds; 2 bounded persistent map spawners"
+    "11 native ground mutants, native OBJ animation and available sounds; 10 bounded persistent map spawners"
   ],
   "pending": [
     "native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models",
-    "remaining 9 mutants and 9 spawners; full mutant gameplay/visual acceptance",
+    "Demon flight/multipart combat and its spawner; full mutant gameplay/visual acceptance",
     "tunnels, building/decor blocks, environment lights and faction teleport adaptation"
   ],
   "weapons": [
@@ -812,7 +812,7 @@
     {
       "sourceId": "Aqua_female",
       "source": "mobs/mobs/Aqua_female.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 90,
       "damage": 6,
       "sounds": [
@@ -825,7 +825,7 @@
     {
       "sourceId": "Aqua_male",
       "source": "mobs/mobs/Aqua_male.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 250,
       "damage": 10,
       "sounds": [
@@ -838,7 +838,7 @@
     {
       "sourceId": "Bear",
       "source": "mobs/mobs/Bear.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 140,
       "damage": 8,
       "sounds": [
@@ -851,7 +851,7 @@
     {
       "sourceId": "Biblio",
       "source": "mobs/mobs/Biblio.java",
-      "runtimeStatus": "native behavior, mesh and sounds; gameplay acceptance pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 200,
       "damage": 10,
       "sounds": [
@@ -864,7 +864,7 @@
     {
       "sourceId": "Dark",
       "source": "mobs/mobs/Dark.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 200,
       "damage": 12,
       "sounds": [
@@ -889,7 +889,7 @@
     {
       "sourceId": "Kikimora",
       "source": "mobs/mobs/Kikimora.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 40,
       "damage": 4,
       "sounds": [
@@ -902,7 +902,7 @@
     {
       "sourceId": "Mobus",
       "source": "mobs/mobs/Mobus.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 140,
       "damage": 8,
       "sounds": [
@@ -915,7 +915,7 @@
     {
       "sourceId": "Nosach",
       "source": "mobs/mobs/Nosach.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 120,
       "damage": 6,
       "sounds": [
@@ -928,7 +928,7 @@
     {
       "sourceId": "Rat",
       "source": "mobs/mobs/Rat.java",
-      "runtimeStatus": "native behavior, mesh and sounds; gameplay acceptance pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 15,
       "damage": 4,
       "sounds": [
@@ -941,7 +941,7 @@
     {
       "sourceId": "Spider",
       "source": "mobs/mobs/Spider.java",
-      "runtimeStatus": "native behavior, mesh and sounds; gameplay acceptance pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 80,
       "damage": 6,
       "sounds": [
@@ -954,7 +954,7 @@
     {
       "sourceId": "Strazh",
       "source": "mobs/mobs/Strazh.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and available sounds; gameplay acceptance pending",
       "health": 100,
       "damage": 8,
       "sounds": [

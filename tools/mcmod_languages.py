@@ -30,8 +30,10 @@ def lines_for(locale):
     if mutants.exists():
         for entry in json.loads(mutants.read_text()):
             lines.append('entity.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
-        for id_,ru,en in [('spider','Паучье гнездо','Spider nest'),('biblio','Спавнер библиотекаря','Librarian spawner')]:
-            lines.append('entity.metroport.blackrazid_spawner_'+id_+'.name='+(ru if locale=='ru_ru' else en)+' [BlackRazid]')
+        spawners=ASSETS/'blackrazid_spawners.json'
+        if spawners.exists():
+            for entry in json.loads(spawners.read_text()):
+                lines.append('entity.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
     survival=ASSETS/'blackrazid_survival.json'
     if survival.exists():
         for entry in json.loads(survival.read_text()):

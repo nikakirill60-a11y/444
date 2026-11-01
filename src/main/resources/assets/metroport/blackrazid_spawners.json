@@ -1,0 +1,82 @@
+[
+  {
+    "id": "blackrazid_spawner_spider",
+    "sourceId": "Spider",
+    "period": 4000,
+    "batch": 2,
+    "nameRu": "Паучье гнездо",
+    "nameEn": "Spider nest"
+  },
+  {
+    "id": "blackrazid_spawner_biblio",
+    "sourceId": "Biblio",
+    "period": 10000,
+    "batch": 1,
+    "nameRu": "Спавнер библиотекаря",
+    "nameEn": "Librarian spawner"
+  },
+  {
+    "id": "blackrazid_spawner_kikimora",
+    "sourceId": "Kikimora",
+    "period": 4000,
+    "batch": 3,
+    "nameRu": "Спавнер кикимор",
+    "nameEn": "Kikimora spawner"
+  },
+  {
+    "id": "blackrazid_spawner_strazh",
+    "sourceId": "Strazh",
+    "period": 4000,
+    "batch": 3,
+    "nameRu": "Спавнер стражей",
+    "nameEn": "Watcher spawner"
+  },
+  {
+    "id": "blackrazid_spawner_nosach",
+    "sourceId": "Nosach",
+    "period": 6000,
+    "batch": 2,
+    "nameRu": "Спавнер носачей",
+    "nameEn": "Nosach spawner"
+  },
+  {
+    "id": "blackrazid_spawner_dark",
+    "sourceId": "Dark",
+    "period": 8000,
+    "batch": 2,
+    "nameRu": "Спавнер тёмных",
+    "nameEn": "Dark One spawner"
+  },
+  {
+    "id": "blackrazid_spawner_bear",
+    "sourceId": "Bear",
+    "period": 8000,
+    "batch": 2,
+    "nameRu": "Спавнер медведей",
+    "nameEn": "Bear spawner"
+  },
+  {
+    "id": "blackrazid_spawner_mobus",
+    "sourceId": "Mobus",
+    "period": 8000,
+    "batch": 2,
+    "nameRu": "Спавнер Мобусов",
+    "nameEn": "Mobus spawner"
+  },
+  {
+    "id": "blackrazid_spawner_aqua_female",
+    "sourceId": "Aquaf",
+    "period": 6000,
+    "batch": 2,
+    "nameRu": "Спавнер водяных (самки)",
+    "nameEn": "Female water mutant spawner"
+  },
+  {
+    "id": "blackrazid_spawner_aqua_male",
+    "sourceId": "Aquam",
+    "period": 10000,
+    "batch": 1,
+    "nameRu": "Спавнер водяного (самец)",
+    "nameEn": "Male water mutant spawner"
+  }
+]

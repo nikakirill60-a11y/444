@@ -14,12 +14,15 @@ import ru.metrocraft.port.MetroPort;
 public abstract class BlackrazidMutant extends EntityMob {
     public BlackrazidMutant(World world){super(world);setPathPriority(PathNodeType.WATER,0);}
     public abstract String species();
+    public String soundFamily(){return species();}
+    public double followRange(){return 32;}
+    public float watchRange(){return 8;}
     public boolean timid(){return false;}
     protected void profile(double health,double damage,double speed){
         getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(health);
         getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(damage);
         getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(speed);
-        getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32);
+        getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(followRange());
     }
     @Override protected void initEntityAI(){
         if(timid())tasks.addTask(1,new EntityAIPanic(this,.38/.45));
@@ -30,7 +33,7 @@ public abstract class BlackrazidMutant extends EntityMob {
         }
         tasks.addTask(4,new EntityAILookIdle(this));
         tasks.addTask(5,new EntityAIWander(this,.5));
-        tasks.addTask(6,new EntityAIWatchClosest(this,EntityPlayer.class,8));
+        tasks.addTask(6,new EntityAIWatchClosest(this,EntityPlayer.class,watchRange()));
     }
     protected boolean looking(EntityPlayer p,double heightFraction){
         if(p==null || !p.isEntityAlive() || p.isSpectator())return false;
@@ -38,7 +41,7 @@ public abstract class BlackrazidMutant extends EntityMob {
     }
     @Override public void onEntityUpdate(){super.onEntityUpdate();if(!world.isRemote && canBreatheUnderwater() && isInWater())setAir(300);}
     @Override public boolean canBreatheUnderwater(){return false;}
-    protected SoundEvent sound(String suffix){return MetroPort.SOUNDS.get("blackrazid_"+species()+"_"+suffix);}
+    protected SoundEvent sound(String suffix){return MetroPort.SOUNDS.get("blackrazid_"+soundFamily()+"_"+suffix);}
     @Override protected SoundEvent getAmbientSound(){return sound("alive");}
     @Override protected SoundEvent getHurtSound(DamageSource source){return sound("hit");}
     @Override protected SoundEvent getDeathSound(){return sound("death");}

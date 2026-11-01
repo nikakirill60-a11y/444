@@ -39,6 +39,36 @@
       "metroport:blackrazid_aknew_unload"
     ]
   },
+  "blackrazid_aquaf_alive": {
+    "sounds": [
+      "metroport:blackrazid_aquaf_alive"
+    ]
+  },
+  "blackrazid_aquaf_death": {
+    "sounds": [
+      "metroport:blackrazid_aquaf_death"
+    ]
+  },
+  "blackrazid_aquaf_hit": {
+    "sounds": [
+      "metroport:blackrazid_aquaf_hit"
+    ]
+  },
+  "blackrazid_aquam_alive": {
+    "sounds": [
+      "metroport:blackrazid_aquam_alive"
+    ]
+  },
+  "blackrazid_aquam_death": {
+    "sounds": [
+      "metroport:blackrazid_aquam_death"
+    ]
+  },
+  "blackrazid_aquam_hit": {
+    "sounds": [
+      "metroport:blackrazid_aquam_hit"
+    ]
+  },
   "blackrazid_ashot_reload": {
     "sounds": [
       "metroport:blackrazid_ashot_reload"
@@ -47,6 +77,16 @@
   "blackrazid_ashot_shoot": {
     "sounds": [
       "metroport:blackrazid_ashot_shoot"
+    ]
+  },
+  "blackrazid_bear_alive": {
+    "sounds": [
+      "metroport:blackrazid_bear_alive"
+    ]
+  },
+  "blackrazid_bear_death": {
+    "sounds": [
+      "metroport:blackrazid_bear_death"
     ]
   },
   "blackrazid_biblio_alive": {
@@ -62,6 +102,11 @@
   "blackrazid_biblio_hit": {
     "sounds": [
       "metroport:blackrazid_biblio_hit"
+    ]
+  },
+  "blackrazid_dark_alive": {
+    "sounds": [
+      "metroport:blackrazid_dark_alive"
     ]
   },
   "blackrazid_empty": {
@@ -117,6 +162,36 @@
   "blackrazid_helsing_unload": {
     "sounds": [
       "metroport:blackrazid_helsing_unload"
+    ]
+  },
+  "blackrazid_kikimora_alive": {
+    "sounds": [
+      "metroport:blackrazid_kikimora_alive"
+    ]
+  },
+  "blackrazid_kikimora_death": {
+    "sounds": [
+      "metroport:blackrazid_kikimora_death"
+    ]
+  },
+  "blackrazid_kikimora_hit": {
+    "sounds": [
+      "metroport:blackrazid_kikimora_hit"
+    ]
+  },
+  "blackrazid_nosach_alive": {
+    "sounds": [
+      "metroport:blackrazid_nosach_alive"
+    ]
+  },
+  "blackrazid_nosach_death": {
+    "sounds": [
+      "metroport:blackrazid_nosach_death"
+    ]
+  },
+  "blackrazid_nosach_hit": {
+    "sounds": [
+      "metroport:blackrazid_nosach_hit"
     ]
   },
   "blackrazid_ognemet_empty": {
@@ -267,6 +342,21 @@
   "blackrazid_spider_hit": {
     "sounds": [
       "metroport:blackrazid_spider_hit"
+    ]
+  },
+  "blackrazid_strazh_alive": {
+    "sounds": [
+      "metroport:blackrazid_strazh_alive"
+    ]
+  },
+  "blackrazid_strazh_death": {
+    "sounds": [
+      "metroport:blackrazid_strazh_death"
+    ]
+  },
+  "blackrazid_strazh_hit": {
+    "sounds": [
+      "metroport:blackrazid_strazh_hit"
     ]
   },
   "blackrazid_tihar_reload": {

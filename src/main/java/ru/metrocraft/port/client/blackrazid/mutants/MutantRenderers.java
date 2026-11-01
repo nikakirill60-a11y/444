@@ -11,7 +11,23 @@ public final class MutantRenderers {
     private MutantRenderers(){}
     public static void register(){
         add(RatEntity.class,new ModelRat(),"rat");add(SpiderEntity.class,new ModelSpider(),"spider");add(BiblioEntity.class,new ModelBiblio(),"bibliotecar");
+        add(KikimoraEntity.class,new ModelKikimora(),"kikimora");
+        add(StrazhEntity.class,new ModelStrazh(),"strazh");
+        add(NosachEntity.class,new ModelNosach(),"nosach");
+        add(DarkEntity.class,new ModelDark(),"dark");
+        add(BearEntity.class,new ModelBear(),"bear");
+        add(MobusEntity.class,new ModelMobus(),"mobus");
+        add(AquaFemaleEntity.class,new ModelAquaf(),"aqua_female");
+        add(AquaMaleEntity.class,new ModelAquam(),"aqua_male");
         marker(MutantSpawner.SpiderNest.class);marker(MutantSpawner.LibrarianNest.class);
+        marker(MutantSpawner.KikimoraNest.class);
+        marker(MutantSpawner.StrazhNest.class);
+        marker(MutantSpawner.NosachNest.class);
+        marker(MutantSpawner.DarkNest.class);
+        marker(MutantSpawner.BearNest.class);
+        marker(MutantSpawner.MobusNest.class);
+        marker(MutantSpawner.AquaFemaleNest.class);
+        marker(MutantSpawner.AquaMaleNest.class);
     }
     private static <T extends EntityLiving> void add(Class<T> type,ModelBase model,String texture){
         ResourceLocation atlas=new ResourceLocation("metroport:textures/blackrazid/mutants/"+texture+".png");

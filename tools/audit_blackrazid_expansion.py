@@ -23,15 +23,15 @@ def report():
     for p in sorted((J/'mobs/mobs').glob('*.java')):
         text=p.read_text();health=re.search(r'int aW\(\)\s*{\s*return (\d+)',text)
         damage=re.search(r'int c\(mp var1\)\s*{\s*return (\d+)',text)
-        mobs.append(dict(sourceId=p.stem,source='mobs/mobs/'+p.name,runtimeStatus='native behavior, mesh and sounds; gameplay acceptance pending' if p.stem in NATIVE_MUTANTS else 'pending',health=int(health[1]) if health else None,
+        mobs.append(dict(sourceId=p.stem,source='mobs/mobs/'+p.name,runtimeStatus='native behavior, mesh and available sounds; gameplay acceptance pending' if p.stem in NATIVE_MUTANTS else 'pending',health=int(health[1]) if health else None,
             damage=int(damage[1]) if damage else None,sounds=sorted(set(re.findall(r'"([a-z]+_(?:alive|hit1?|death))"',text)))))
     magazines=[dict(sourceId=n,roundItem=round_,capacity=200 if n=='OgnemetAmmo' else int(capacity),sourceCapacityArgument=int(capacity),runtimeStatus='outside selected scope' if n=='AKKAmmo' else 'native fuel logic and basic flame runtime; native mesh pending' if n=='OgnemetAmmo' else 'magazine mechanics implemented; native mesh pending') for n,round_,capacity in
         re.findall(r'\b(\w+Ammo\w*) = new \w+\(\d+, ModBase\.(\w+)\.cp, (\d+),',registration)]
     return dict(status='INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE',
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
-        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','3 native mutants (rat/spider/librarian), native OBJ animation and sounds; 2 bounded persistent map spawners'],
+        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','11 native ground mutants, native OBJ animation and available sounds; 10 bounded persistent map spawners'],
         pending=['native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance','Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models',
-                 'remaining 9 mutants and 9 spawners; full mutant gameplay/visual acceptance','tunnels, building/decor blocks, environment lights and faction teleport adaptation'],
+                 'Demon flight/multipart combat and its spawner; full mutant gameplay/visual acceptance','tunnels, building/decor blocks, environment lights and faction teleport adaptation'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',
                   'OgnemetAmmo uses Ammo+200, not its unused constructor capacity 5; no invented bullet refill.',
