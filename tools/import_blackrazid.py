@@ -94,7 +94,7 @@ def geometry(path):
         if not p['parents']:
             # Some old sources render a free-standing Shape1 manually using GL.
             # Attach it once to the body instead of reproducing double rendering.
-            
+
             if re.search(r'this\.'+p['name']+r'\.a\(0\.0625f\)', tail):
                 p['parents'] = ['body']; p['recoveredFreePart'] = True
             else: p['unused'] = True

@@ -28,3 +28,15 @@
 ## MCMOD unified firearm resources (1.11)
 
 The remaining fourteen registered gun models, original textures/icons/sounds, shared attachment atlases and sixteen GuiMods images were recovered from the user-supplied unpacked MCMod resources. Runtime OBJ gzip is deterministic and lossless. Source file IDs, uncompressed sizes and SHA-256 are in `tools/mcmod-firearm-sources.json`. Reference bytecode/decompilation is for migration auditing only and is not included as executable legacy mod classes in the distributable. Native 1.12 renderer/GUI/transactions and animation curves are port implementations, not pixel-identical legacy code.
+
+## BlackRazidMetro (1.12.0)
+
+User-supplied Google Drive folder `blackrazidmetro`: original armor/backpack bytecode,
+18 worn atlases and 17 item icons. 78 exact originals, Drive IDs, sizes and SHA-256 are
+recorded in `tools/blackrazid-reference/source-files.json`. Registration/model sources
+are recovered with CFR 0.152 for reference only and are not compiled into the mod.
+Runtime box/UV data are derived from those original models; the PPM-88 inventory icon
+is newly rasterized from its original geometry/atlas, not an additional recovered source icon.
+Native 1.12 equipment, storage GUI, validation and networking are port implementations.
+No license granting public/commercial redistribution was supplied; original authorship
+and rights remain unchanged. User provision is not a license grant. See docs/BLACKRAZID.md.
