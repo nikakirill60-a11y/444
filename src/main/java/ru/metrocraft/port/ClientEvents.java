@@ -34,6 +34,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void models(ModelRegistryEvent event) {
+        for(int meta=1;meta<12;meta++)ModelLoader.setCustomModelResourceLocation(ru.metrocraft.port.blackrazid.transport.BlackrazidRails.KIT,meta,new ModelResourceLocation("metroport:blackrazid_wide_rails","inventory"));
         for (Item item : MetroPort.ITEMS.values()) {
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
         }

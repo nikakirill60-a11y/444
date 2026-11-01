@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "direction=0": {
+      "model": "metroport:blackrazid_rail_hidden"
+    },
+    "direction=1": {
+      "model": "metroport:blackrazid_rail_hidden"
+    },
+    "direction=2": {
+      "model": "metroport:blackrazid_rail_hidden"
+    },
+    "direction=3": {
+      "model": "metroport:blackrazid_rail_hidden"
+    }
+  }
+}

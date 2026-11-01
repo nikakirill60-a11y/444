@@ -34,6 +34,10 @@ def lines_for(locale):
         if spawners.exists():
             for entry in json.loads(spawners.read_text()):
                 lines.append('entity.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
+    rails=ASSETS/'blackrazid_rails.json'
+    if rails.exists():
+        for entry in json.loads(rails.read_text()):
+            lines.append('item.metroport.blackrazid_wide_rails_'+str(entry['id'])+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
     survival=ASSETS/'blackrazid_survival.json'
     if survival.exists():
         for entry in json.loads(survival.read_text()):

@@ -55,6 +55,66 @@
       "driveId": "1bEluuXGZvuLjpnQvDbAIEyTs-PNsL8mC",
       "bytes": 1680,
       "sha256": "8292dc1c3cb95878623089bbb5915a17e870dcf847c7db4120c924b45b832795"
+    },
+    {
+      "path": "assets/rails/rails.obj",
+      "driveId": "1Nlht4BvrUwFpXdtHFMQI5jlGTEBheFqP",
+      "bytes": 12606,
+      "sha256": "89f012861d54b77830103ad92c38f891f0df0c816a85ea257dcd2fc55d88ce9b"
+    },
+    {
+      "path": "assets/rails/railsX.obj",
+      "driveId": "1hueP8Pcw1-c4kY5ddINFbIMG-WgcMPZM",
+      "bytes": 37642,
+      "sha256": "fd07221ea4ab97925645206e384c79fc45f7e6b208a54f1db5c9057f93b9b0bd"
+    },
+    {
+      "path": "assets/rails/rails90.obj",
+      "driveId": "1MTKusTBe_3n-7zDZxMdP3ra_CifWEMBk",
+      "bytes": 115168,
+      "sha256": "93307adf89f64585b17c82614db9dd2812a7cf5ad20257b8d9ed09aa404e87eb"
+    },
+    {
+      "path": "assets/rails/rails.mtl",
+      "driveId": "1bPfPXWnkRfjafg3ei-95CCEPCyAuM33g",
+      "bytes": 957,
+      "sha256": "2a08b57db61db5d1096fad730ea8e3fd9fb1698c75e797846034d5678ea0cb24"
+    },
+    {
+      "path": "assets/rails/railsX.mtl",
+      "driveId": "1jvwm5m-l92GrlHrJdKEvYFID_0guk9ER",
+      "bytes": 2525,
+      "sha256": "4d089bf83530488489815eea0177a794dfd45ee2da6cdfa8e256661e815b6ad8"
+    },
+    {
+      "path": "assets/rails/rails90.mtl",
+      "driveId": "19fatzGRdCUzvveyRKLVP5SvSU9MGO4pa",
+      "bytes": 822,
+      "sha256": "a8e5bc935acf4135450cf957d7335e09bb0e910873d21983da67fa4bdf934699"
+    },
+    {
+      "path": "assets/rails/veh_rai.512c.png",
+      "driveId": "1xwaKPPYHM-hudM8zgbZLmJmBEML82vh5",
+      "bytes": 87427,
+      "sha256": "b9173c6cad63fd57ddb12265157b545dbc43d9bbeed0069b6540869057b67890"
+    },
+    {
+      "path": "assets/rails/veh_rail_bolt.512c.png",
+      "driveId": "1lfQz5srnFJxcXjD1kho-hmLF_R2prfuA",
+      "bytes": 113275,
+      "sha256": "1ec34876d3ab411fa97fdfc60d9f78da48ed845faaef08d159b385fd47d9de5c"
+    },
+    {
+      "path": "assets/rails/wood_shpala_01.1024c.png",
+      "driveId": "11OvRKzIlZtKG8mvDXCUWqH2nXiaOJAge",
+      "bytes": 144901,
+      "sha256": "01c905b69e3b4345f4053522cbbe89cbb385e47d6925382fa967450445b395cd"
+    },
+    {
+      "path": "assets/items/rails.png",
+      "driveId": "1bHw1nr6gTb5V8D1PhyLRAB-8bPTYztRy",
+      "bytes": 9231,
+      "sha256": "c3cdba6eb3a2f95049438808576073e0291311619771af6d7ad18fa18a9e9d29"
     }
   ]
 }

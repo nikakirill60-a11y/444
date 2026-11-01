@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.6", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.7", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -93,6 +93,7 @@ public final class MetroPort {
         ru.metrocraft.port.blackrazid.BlackrazidContent.load();
         ru.metrocraft.port.blackrazid.BlackrazidExpansion.initialize();
         ru.metrocraft.port.blackrazid.mutants.BlackrazidMutants.register();
+        ru.metrocraft.port.blackrazid.transport.BlackrazidRails.initialize();
         PROXY.preInit();
     }
 

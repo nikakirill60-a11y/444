@@ -15,7 +15,10 @@ public final class McmodObjMesh {
         groups = Collections.unmodifiableMap(result);
     }
     /** Preserve raw source OBJ, including CP1251 material labels in the original gas mask. */
-    public static McmodObjMesh read(InputStream input) throws IOException {
+    public static McmodObjMesh read(InputStream input) throws IOException {return read(input,false);}
+    /** Native transport OBJs switch materials inside a single object/group. */
+    public static McmodObjMesh readMaterials(InputStream input) throws IOException {return read(input,true);}
+    private static McmodObjMesh read(InputStream input,boolean byMaterial) throws IOException {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         byte[] buffer = new byte[8192]; int length;
         while ((length=input.read(buffer))!=-1) bytes.write(buffer,0,length);
@@ -23,9 +26,10 @@ public final class McmodObjMesh {
         try { text=StandardCharsets.UTF_8.newDecoder().decode(ByteBuffer.wrap(data)).toString(); }
         catch (CharacterCodingException e) { text=new String(data,Charset.forName("windows-1251")); }
         if (text.startsWith("\uFEFF")) text=text.substring(1);
-        return read(new StringReader(text));
+        return read(new StringReader(text),byMaterial);
     }
-    public static McmodObjMesh read(Reader input) throws IOException {
+    public static McmodObjMesh read(Reader input) throws IOException {return read(input,false);}
+    private static McmodObjMesh read(Reader input,boolean byMaterial) throws IOException {
         BufferedReader reader = new BufferedReader(input);
         List<float[]> positions = new ArrayList<>(), uv = new ArrayList<>(), normals = new ArrayList<>();
         Map<String, List<float[]>> groups = new LinkedHashMap<>();
@@ -38,7 +42,8 @@ public final class McmodObjMesh {
                 case "v": positions.add(new float[]{f(p[1]), f(p[2]), f(p[3])}); break;
                 case "vt": uv.add(new float[]{f(p[1]), 1-f(p[2])}); break;
                 case "vn": normals.add(new float[]{f(p[1]), f(p[2]), f(p[3])}); break;
-                case "g": case "o": group = p.length > 1 ? p[1] : "default"; break;
+                case "g": case "o": if(!byMaterial)group = p.length > 1 ? p[1] : "default"; break;
+                case "usemtl": if(byMaterial)group=p.length>1?p[1]:"default";break;
                 case "f":
                     if (p.length < 4) throw new IOException("OBJ face has fewer than three vertices");
                     List<float[]> vertices = groups.computeIfAbsent(group, key -> new ArrayList<>());

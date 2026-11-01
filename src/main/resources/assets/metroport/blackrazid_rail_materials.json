@@ -1,0 +1,24 @@
+{
+  "rails": {
+    "_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__7": "metroport:textures/blackrazid/rails/veh_rai.512c.png",
+    "_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__8": "metroport:textures/blackrazid/rails/veh_rail_bolt.512c.png",
+    "_tunnel_beton_1_tunnel_beton_1_tunnel_beton_1Material__9": "metroport:textures/blackrazid/rails/wood_shpala_01.1024c.png"
+  },
+  "rails90": {
+    "Material__2": "metroport:textures/blackrazid/rails/veh_rai.512c.png",
+    "Material__3": "metroport:textures/blackrazid/rails/wood_shpala_01.1024c.png",
+    "Material__4": "metroport:textures/blackrazid/rails/veh_rail_bolt.512c.png"
+  },
+  "railsx": {
+    "Material__7": "metroport:textures/blackrazid/rails/veh_rail_bolt.512c.png",
+    "Material__2": "metroport:textures/blackrazid/rails/wood_shpala_01.1024c.png",
+    "Material__11": "metroport:textures/blackrazid/rails/veh_rai.512c.png",
+    "Material__9": "metroport:textures/blackrazid/rails/veh_rail_bolt.512c.png",
+    "Material__5": "metroport:textures/blackrazid/rails/wood_shpala_01.1024c.png",
+    "Material__10": "metroport:textures/blackrazid/rails/veh_rai.512c.png",
+    "Material__8": "metroport:textures/blackrazid/rails/veh_rail_bolt.512c.png",
+    "Material__3": "metroport:textures/blackrazid/rails/wood_shpala_01.1024c.png",
+    "Material__6": "metroport:textures/blackrazid/rails/veh_rail_bolt.512c.png",
+    "Material__4": "metroport:textures/blackrazid/rails/wood_shpala_01.1024c.png"
+  }
+}
