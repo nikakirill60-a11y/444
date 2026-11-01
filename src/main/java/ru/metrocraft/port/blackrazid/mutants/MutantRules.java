@@ -7,7 +7,7 @@ public final class MutantRules {
     private MutantRules(){}
     public static boolean looking(Vec3d look,Vec3d offset,boolean visible){
         if(!visible || !finite(look) || !finite(offset))return false;
-        double distance=offset.lengthVector();
+        double distance=offset.length();
         if(distance<1e-8 || distance>46 || look.lengthSquared()<1e-12)return false;
         return look.normalize().dotProduct(offset.scale(1/distance))>1-.025/distance;
     }

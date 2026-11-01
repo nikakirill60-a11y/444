@@ -1,4 +1,4 @@
-import hashlib,json,re,unittest
+import hashlib,json,re,unittest,subprocess,sys
 from pathlib import Path
 from importlib import util
 ROOT=Path(__file__).resolve().parents[1]
@@ -40,3 +40,10 @@ class BlackrazidMutantsTest(unittest.TestCase):
         for banned in ['setBlockState(', 'createExplosion(', 'executeCommand(', 'addSpawn(']:self.assertNotIn(banned,code)
         spawner=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/mutants/MutantSpawner.java').read_text()
         self.assertIn('isAreaLoaded(',spawner);self.assertIn('NEARBY_CAP=16',spawner);self.assertIn('doMobSpawning',spawner)
+
+    def test_mutant_importer_is_reproducible(self):
+        paths=[A/'blackrazid_mutants.json',A/'sounds.json',A/'lang/ru_ru.lang',A/'lang/en_us.lang']
+        paths+=list((ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/mutants').glob('Model*.java'))
+        before=[p.read_bytes() for p in paths]
+        subprocess.run([sys.executable,'tools/import_blackrazid_mutants.py'],cwd=ROOT,check=True,capture_output=True)
+        self.assertEqual(before,[p.read_bytes() for p in paths])

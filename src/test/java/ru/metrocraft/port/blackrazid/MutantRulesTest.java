@@ -32,6 +32,15 @@ public class MutantRulesTest {
         when(w.checkNoEntityCollision(any(AxisAlignedBB.class),any(Entity.class))).thenReturn(true);
         when(w.spawnEntity(any(Entity.class))).thenReturn(true);return w;
     }
+    @Test public void allThirteenOriginalObjPartsParseWithoutGpuOrMissingGeometry()throws Exception{
+        String[] paths={"rat/rat", "spider/spider", "spider/leftleg", "spider/rightleg", "spider/leftarm", "spider/rightarm",
+            "bibliotecar/bibliotecar", "bibliotecar/leftleg", "bibliotecar/rightleg", "bibliotecar/leftarm", "bibliotecar/rightarm", "bibliotecar/leftarm1", "bibliotecar/rightarm1"};
+        for(String path:paths)try(java.io.InputStream in=getClass().getResourceAsStream("/assets/metroport/models/blackrazid/mutants/"+path+".obj")){
+            assertNotNull(path,in);ru.metrocraft.port.mcmod.McmodObjMesh mesh=ru.metrocraft.port.mcmod.McmodObjMesh.read(in);int vertices=0;
+            for(java.util.List<float[]> group:mesh.groups.values())for(float[] vertex:group){vertices++;assertEquals(8,vertex.length);for(float value:vertex)assertTrue(path,Float.isFinite(value));}
+            assertTrue(path,vertices>=3);assertEquals(path,0,vertices%3);
+        }
+    }
     @Test public void gazeRequiresVisibilityAndNativeNarrowAngle(){
         Vec3d forward=new Vec3d(0,0,1),offset=new Vec3d(0,0,10);
         assertTrue(MutantRules.looking(forward,offset,true));assertFalse(MutantRules.looking(forward,offset,false));
