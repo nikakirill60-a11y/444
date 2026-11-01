@@ -11,3 +11,9 @@ Weapon references now cover all 22 selected gun classes. Asset provenance is spl
 (59 originals, including the two visual-only flame helpers). Baseline runtime profiles
 live in `../blackrazid-special-profiles.json`; native models, modules and exact FX are
 not implemented merely because references have been recovered.
+
+`mutants-source-files.json` records 62 additional originals, including all twelve supplied
+Java model sources, twelve renderer bytecodes, eleven spawners plus EntityObject, and the
+selected original Rat/Spider/Biblio meshes, atlases and recordings. Only those three creatures
+and two spawners currently have runtime counterparts; source recovery is not completion.
+See `docs/BLACKRAZID_MUTANTS.md` from the repository root for API mapping notes and adaptations.
