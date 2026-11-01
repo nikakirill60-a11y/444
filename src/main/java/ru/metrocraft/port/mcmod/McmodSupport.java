@@ -69,8 +69,14 @@ public final class McmodSupport {
         @Override public AxisAlignedBB getBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos){return BOUNDS;}
         @Override public boolean onBlockActivated(World world,BlockPos pos,IBlockState state,EntityPlayer player,EnumHand hand,EnumFacing face,float x,float y,float z){
             if(!world.isRemote && !player.isSpectator()){
-                player.setSpawnPoint(player.getPosition(),true);
-                player.sendStatusMessage(new TextComponentTranslation("metroport.respawn.saved"),true);
+                BlockPos spawn=player.getPosition();
+                player.setSpawnPoint(spawn,true);
+                // Forge keeps per-dimension spawn positions; also select that dimension for
+                // providers (e.g. Nether) that would otherwise force an Overworld respawn.
+                if(spawn.equals(player.getBedLocation(player.dimension)) && player.isSpawnForced(player.dimension)) {
+                    player.setSpawnDimension(player.dimension);
+                    player.sendStatusMessage(new TextComponentTranslation("metroport.respawn.saved"),true);
+                }
             }
             return true;
         }

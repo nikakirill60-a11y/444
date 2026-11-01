@@ -51,6 +51,13 @@ class SupportTests(unittest.TestCase):
         client=(J/'client/WatchClient.java').read_text();self.assertIn('getDimension()!=dimension',client);self.assertIn('addScheduledTask',client)
         self.assertNotIn('RadiationSystem.level',client)
         self.assertIn('WatchSyncPacket.class,7,Side.CLIENT',(J/'MetroPort.java').read_text())
+    def test_respawn_records_forced_position_and_selects_the_forge_dimension_only_after_success(self):
+        source=(J/'mcmod/McmodSupport.java').read_text()
+        self.assertIn('!world.isRemote && !player.isSpectator()',source)
+        self.assertIn('player.setSpawnPoint(spawn,true)',source)
+        self.assertIn('spawn.equals(player.getBedLocation(player.dimension))',source)
+        self.assertIn('player.isSpawnForced(player.dimension)',source)
+        self.assertIn('player.setSpawnDimension(player.dimension)',source)
     def test_support_generator_is_reproducible(self):
         paths=list((A/'textures/mcmod/support').glob('*'))+[A/'mcmod_support.json',A/'sounds.json',A/'models/mcmod/watch.obj',A/'lang/ru_ru.lang',A/'lang/en_us.lang']
         before={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
