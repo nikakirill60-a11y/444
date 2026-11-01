@@ -333,3 +333,13 @@ GlStateManager для Dark и восстановление shade/cull в `finall
 теперь читает все **60 исходных OBJ**, не только первые 13.
 Demon не включён в runtime. Модули оружия, транспорт и окружение не объявляются готовыми.
 Игровая/визуальная приёмка всех новых моделей и dedicated server остаются обязательными.
+
+
+## Проверенная сборка dev.5
+
+Runtime **4fe3f1b**, [Actions 41331571039](https://github.com/nikakirill60-a11y/444/actions/runs/41331571039):
+**SUCCESS — 124 Python / 239 JUnit (0 failures, 0 errors, 0 skipped), Java 8 / Forge 2860 / build/reobfJar**.
+Артефакт [13093931617](https://github.com/nikakirill60-a11y/444/actions/runs/41331571039/artifacts/13093931617),
+ZIP **158 190 855 байт**, внутри `metrocraft-port-1.12.2-1.13.0-dev.5.jar`.
+Это разработческий этап с 11 мутантами / 10 узлами, не завершение всего расширения.
+Игровой клиент, dedicated server и визуальная приёмка этим запуском не подтверждены.
