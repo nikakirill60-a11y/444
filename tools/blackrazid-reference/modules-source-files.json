@@ -36,6 +36,174 @@
       "driveId": "1tmEttRoAcnBQ-QDHbYpwZlfs5HyROqzN",
       "bytes": 707,
       "sha256": "c3b64bb90c545bd3a3d015a9f066f5b8c9e00901f014c063150d3c324b801605"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/AbzacGlushak.class",
+      "driveId": "1IyKTym9JGLc-FDXaBii1lhAwnEu1nJVK",
+      "bytes": 643,
+      "sha256": "346dd61f253cbbeb15c74eb80b0b3cbd541cd98999503e8968ef3a05d49bed07"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/AshotButt.class",
+      "driveId": "1YDXdB3dfOW0WUjNBI6WvaGSMa7Y6kYru",
+      "bytes": 631,
+      "sha256": "89fd839436f346001ce5302a468d44c2dbf367656bcc317ef5ed8bc62c2910f4"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/AutoFire.class",
+      "driveId": "11wTaxW-yRUhLu-xzWY1GsK2jwph8JV4D",
+      "bytes": 631,
+      "sha256": "a4ea62b1011120c05e9f1313c3d52087316ade1f90be692ecea4cd30f2ca5617"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/Barrel.class",
+      "driveId": "1fTaHhjzOdUXzD69OD9sz3Q5JftvM08Yg",
+      "bytes": 618,
+      "sha256": "8b8b307643807b9577c9a750bddf776dd66fbb621e0a3728a48588d9bac6a447"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/Butt.class",
+      "driveId": "1QODFiWYe1mTprH88Mqu9Rm_qc0dJb2w7",
+      "bytes": 610,
+      "sha256": "13ec5879ed9f7d015e1ca277ae8e6bf1d69b075884d152fcd3a3067a9377e0ab"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/DupletBarrel.class",
+      "driveId": "1214quhRD4tL8UwYlWn5ad3Z2BPaRptY8",
+      "bytes": 643,
+      "sha256": "9a9873b1c3a64578bc72ca5996441045b3728cfabfc8e0575e6b53a11a3004d5"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/DupletButt.class",
+      "driveId": "1NkK-mANdY12XXyh0icBbdbb2IZ6b3aFo",
+      "bytes": 635,
+      "sha256": "41306ddd36e6808375f34988eb9744fd9bb012af7c6cd296be80bb87174e9f7e"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/DupletGlushak.class",
+      "driveId": "1N6XOsLwaSr8aLKkDxRcwWiz8oAGjoDVt",
+      "bytes": 647,
+      "sha256": "8cabecfcac97b145096a4c81117d6d0dc189610b71725e36a07f5b6163df997a"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/DupletPriklad.class",
+      "driveId": "1ziwdkKQtdlNrfA2B6bLOYME7kGbgPe1m",
+      "bytes": 647,
+      "sha256": "ed8289e30ea502dfb82c8fb0ab9d265185c4a48d60f1aa85d0887f276aa01b9f"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/GatlingBarrel.class",
+      "driveId": "1he6tcMwbkUOfH6Ms2QRP5EN6i-LuYY0a",
+      "bytes": 647,
+      "sha256": "5e484597a4f43ef55d1cfe698e26897431a603c218937160f48814865678ec2d"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/GatlingButt.class",
+      "driveId": "1owUWDRsLOKQO0fQLlR0hvrcHtl6digO9",
+      "bytes": 639,
+      "sha256": "8f3dbdfc79a71a11c3d47f22191c6c95054d4340fb2a4b44446ca4f60d0ec9eb"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/GatlingGiro.class",
+      "driveId": "1C0goNkBP2Z0-mdwLEOG7X-H2LGIIJJ5A",
+      "bytes": 639,
+      "sha256": "599cb0b01b9cad2aa6ccd94434a78bbd80f07a2b06e76e7b441303fea3babc01"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/GatlingMotor.class",
+      "driveId": "1A_2IxhhhiDPe2IGm6P6Cqlpr7WrQOPSy",
+      "bytes": 643,
+      "sha256": "ab205a38eb7a6d39a209ca1bded17eafb3c64c3377402ed8bc633d833a0513a4"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/Glushak.class",
+      "driveId": "19ClkI0-46b9st5Hgt0AWjv5srHuRNTxY",
+      "bytes": 622,
+      "sha256": "7718f49646f127d2eedf83cba03f1a79d5dd191882d178164492a042f8b1a145"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/Kolimator.class",
+      "driveId": "1t_I4S3EcGUXdUdHBF1NqmURNm0AHzbHo",
+      "bytes": 630,
+      "sha256": "813b2e9f4403c4450800476dc1acbb2d492cecb22cbeecb088c9b4cc0cb5ab38"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/Laser.class",
+      "driveId": "1FiezAunqLdo_kxXhvQK0W3U3xZOCi51B",
+      "bytes": 614,
+      "sha256": "2bbb106929df6cd27a5d423471c4480f5273c2d93224d83a4ae2ed6c1bc79c82"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/Optica.class",
+      "driveId": "1T2_UA-oDNe7PjQ5f6NEO1EAwyJwTs8D2",
+      "bytes": 618,
+      "sha256": "525ac6ffbb2969526314732e93cdb7f7f00af0bcb985e7aa4c01e5be959f4a1d"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/OpticaSmall.class",
+      "driveId": "1YxFtj3Q3JJyOFYy88lMkx6A0RzXDh-3c",
+      "bytes": 638,
+      "sha256": "ee145da9ae3039e05e8877c21af0481f1cfd3e43d57bc31e353d83448553d2be"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/PodonokButt.class",
+      "driveId": "1D8IqGmwqY5woMStfe5UwaCilNbv1F0yt",
+      "bytes": 639,
+      "sha256": "b51b4ef843252e80e520cf91169ebe185748f26eed7784a10b25c11a59a03686"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/PodonokGas.class",
+      "driveId": "1dWC4oG1hrT-fzR3yy6xZ7GHE5pngAXxU",
+      "bytes": 635,
+      "sha256": "c76bddddfa3dad94ce5cdcaa835c051c5f71db393e0b36e2d961e28503dc5678"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/QuadBarrel.class",
+      "driveId": "1iWGGHW0jUxX7ndBp9UxciexWrI5RgkpZ",
+      "bytes": 634,
+      "sha256": "4c33c9882af1ffa8d39263a56bf8d863e7e3508a33f831dc111b39665140d2a3"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/RailgunAkk.class",
+      "driveId": "1ideIc_LBieiZ0wzITjeC-fFKraRgqwLL",
+      "bytes": 635,
+      "sha256": "a0a47a4a59a7568247dd9b3a18f02a0801e7f2533a79b160a8a8959bc388419a"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/RailgunKon.class",
+      "driveId": "1rAQt-g58jwzhmahukDOoGD22FE1PLnHT",
+      "bytes": 635,
+      "sha256": "099edd3dbd40dbfbd165dccb53d26128b49b8fd7c74afe354a2b1caea04734c0"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/TiharOptica.class",
+      "driveId": "1eDSMSOzXukv5cJF1REVZHPJbRm_lZlkp",
+      "bytes": 639,
+      "sha256": "6ff19b12e4fb5aa8071d4f10325a420dd691f47c1e694865caa575c9e084ead3"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/UbludokButt.class",
+      "driveId": "1V_XMDx9BRbnm7J65oMSiQEz3cc6kKXXe",
+      "bytes": 639,
+      "sha256": "11b79c71ca874f2032e39bb46ab3b3f6b63e876880c1d066f74c6b6d42741e52"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/UboinikBarrel.class",
+      "driveId": "1s_e_zVlcSiq1eiCi7LSr56TL7QFVHpg7",
+      "bytes": 647,
+      "sha256": "b4c455e147bdca5bdaa9a5f9be4b456de1fbc8d528cdef8bc93c2ca0315c5921"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/VentilGlushak.class",
+      "driveId": "1kXFS3rgn_JaRx1EdNV8S-25b12Myyryb",
+      "bytes": 647,
+      "sha256": "6da5309c9da186c68c0596d6b06ad8d1d97e637bd271accc0e008fff39cd436f"
+    },
+    {
+      "path": "classes/mods/provoda/items/att/VsvGlushak.class",
+      "driveId": "1fH661o0OvY44WR9GqgBOLWi0T8ePOcaq",
+      "bytes": 635,
+      "sha256": "acff681a8247bae8e56d6348d89a66fe0dbb733f8bad52d825c1b346b59284ce"
     }
   ]
 }
