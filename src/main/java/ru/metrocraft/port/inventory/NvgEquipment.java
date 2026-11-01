@@ -20,6 +20,22 @@ import ru.metrocraft.port.mechanics.NoDrop;
 public final class NvgEquipment {
     private static final String KEY="MetroEquippedNvg",VISION="MetroNvgVisionOwned";
     private static final ru.metrocraft.port.util.WeakIdentityMap<EntityPlayer,EquipmentInventory> INVENTORIES=new ru.metrocraft.port.util.WeakIdentityMap<>();
+    private static final ru.metrocraft.port.util.WeakIdentityMap<EntityPlayer,PendingEquip> PENDING=new ru.metrocraft.port.util.WeakIdentityMap<>();
+    private static final class PendingEquip {
+        final net.minecraft.util.EnumHand hand;final ItemStack stack;
+        PendingEquip(net.minecraft.util.EnumHand hand,ItemStack stack){this.hand=hand;this.stack=stack;}
+    }
+    public static void equipAfterUse(EntityPlayer player,net.minecraft.util.EnumHand hand,ItemStack held){
+        if(!player.world.isRemote)PENDING.computeIfAbsent(player,key->new PendingEquip(hand,held));
+    }
+    static void finishPendingEquip(EntityPlayer player){
+        PendingEquip pending=PENDING.remove(player);
+        if(pending==null||player.world.isRemote||!player.isEntityAlive()||player.isSpectator()
+                ||player.getHeldItem(pending.hand)!=pending.stack||!accepts(pending.stack)||!get(player).isEmpty())return;
+        // PlayerInteractionManager restores creative held counts after onItemRightClick.
+        // Consume only AFTER that vanilla use transaction has completely finished.
+        ItemStack moved=pending.stack.splitStack(1);set(player,moved);player.inventory.markDirty();
+    }
     private NvgEquipment() {}
     public static boolean accepts(ItemStack stack) {
         return !stack.isEmpty() && stack.getItem() instanceof MetroArmor && ((MetroArmor)stack.getItem()).getDefinition().nightVision;
@@ -85,6 +101,7 @@ public final class NvgEquipment {
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player=event.player;
         if(event.phase!=TickEvent.Phase.END || player.world.isRemote)return;
+        finishPendingEquip(player);
         if(player.ticksExisted==1 || player.ticksExisted==20)set(player,get(player));
         if(!player.isEntityAlive())return;
         PotionEffect current=player.getActivePotionEffect(MobEffects.NIGHT_VISION);

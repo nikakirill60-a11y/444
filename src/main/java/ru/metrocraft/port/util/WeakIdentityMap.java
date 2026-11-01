@@ -19,6 +19,7 @@ public final class WeakIdentityMap<K,V> {
         }
     }
     private void clean(){Reference<? extends K> key;while((key=queue.poll())!=null)values.remove(key);}
+    public synchronized V remove(K key){clean();return values.remove(new Key<>(key,null));}
     public synchronized V get(K key){clean();return values.get(new Key<>(key,null));}
     public synchronized V computeIfAbsent(K key,Function<? super K,? extends V> factory){
         clean();Key<K> lookup=new Key<>(key,null);V value=values.get(lookup);

@@ -55,6 +55,20 @@ public class EquipmentSideIsolationTest {
         Map<EntityPlayer,String> broken=new WeakHashMap<>();broken.put(server,"server inventory");assertEquals("server inventory",broken.get(client));
         WeakIdentityMap<EntityPlayer,String> fixed=new WeakIdentityMap<>();fixed.computeIfAbsent(server,k->"server inventory");assertNull(fixed.get(client));
     }
+    @Test public void legacySharedSlotPredictionThenExecutionReproducesTwoServerItems()throws Exception{
+        Player server=player(850,false),client=player(850,true);
+        EquipmentInventory shared=new EquipmentInventory("legacy shared",ItemStack.EMPTY,s->s.getItem()==watch,s->{});
+        Map<EntityPlayer,EquipmentInventory> broken=new WeakHashMap<>();broken.put(server,shared);
+        assertSame(shared,broken.get(client));
+        Container s=single(shared),c=single(broken.get(client));
+        server.inventory.setItemStack(new ItemStack(watch));client.inventory.setItemStack(new ItemStack(watch));
+        c.slotClick(0,0,ClickType.PICKUP,client);s.slotClick(0,0,ClickType.PICKUP,server);
+        assertEquals("old alias bug: equipped copy AND unchanged server cursor",2,shared.getStackInSlot(0).getCount()+server.inventory.getItemStack().getCount());
+    }
+    private static Container single(InventoryBasic inventory){return new Container(){
+        {addSlotToContainer(new Slot(inventory,0,0,0));}
+        @Override public boolean canInteractWith(EntityPlayer player){return true;}
+    };}
     @Test public void realWatchClientPredictionAndServerClickNeverShareOrMultiplyStacks()throws Exception{pairedClicks(true);}
     @Test public void realNvgClientPredictionAndServerClickNeverShareOrMultiplyStacks()throws Exception{pairedClicks(false);}
     private static void pairedClicks(boolean clock)throws Exception{
@@ -91,6 +105,19 @@ public class EquipmentSideIsolationTest {
         InventoryBasic server=WatchEquipment.inventory(s),client=WatchEquipment.inventory(c);
         server.setInventorySlotContents(0,new ItemStack(watch));
         for(int i=0;i<20;i++){assertSame(server,new MetroContainer(s).watch);assertSame(client,new MetroContainer(c).watch);assertTrue(client.isEmpty());}
+    }
+    @Test public void creativeRightClickConsumesAfterVanillaRestoresHeldCount()throws Exception{
+        Player p=player(1250,false);NvgEquipment.inventory(p);p.capabilities.isCreativeMode=true;ItemStack held=new ItemStack(nvg);p.inventory.mainInventory.set(0,held);
+        nvg.onItemRightClick(p.world,p,net.minecraft.util.EnumHand.MAIN_HAND);assertEquals(1,held.getCount());assertTrue(NvgEquipment.get(p).isEmpty());
+        held.setCount(1); // Vanilla PlayerInteractionManager's creative restoration, after item use.
+        NvgEquipment.finishPendingEquip(p);assertTrue(held.isEmpty());assertEquals(1,NvgEquipment.get(p).getCount());
+        NvgEquipment.finishPendingEquip(p);assertEquals(1,NvgEquipment.get(p).getCount());
+    }
+    @Test public void delayedRightClickCannotEquipAChangedHandOrCopyAnAlreadyEquippedDevice()throws Exception{
+        Player p=player(1260,false);NvgEquipment.inventory(p);ItemStack held=new ItemStack(nvg);p.inventory.mainInventory.set(0,held);
+        NvgEquipment.equipAfterUse(p,net.minecraft.util.EnumHand.MAIN_HAND,held);p.inventory.currentItem=1;NvgEquipment.finishPendingEquip(p);
+        assertEquals(1,held.getCount());assertTrue(NvgEquipment.get(p).isEmpty());
+        p.inventory.currentItem=0;NvgEquipment.set(p,new ItemStack(nvg));NvgEquipment.equipAfterUse(p,net.minecraft.util.EnumHand.MAIN_HAND,held);NvgEquipment.finishPendingEquip(p);assertEquals(1,held.getCount());
     }
     @Test public void concurrentFactoryIsAtomicAndEqualIdsRemainIndependent()throws Exception{
         Player s=player(1300,false),c=player(1300,true);WeakIdentityMap<Player,Object> map=new WeakIdentityMap<>();AtomicInteger calls=new AtomicInteger();

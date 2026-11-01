@@ -11,11 +11,7 @@ public final class NvgItem extends MetroArmor {
     @Override public ActionResult<ItemStack> onItemRightClick(World world,EntityPlayer player,EnumHand hand) {
         ItemStack held=player.getHeldItem(hand);
         if(player.isSpectator() || !NvgEquipment.get(player).isEmpty())return new ActionResult<>(EnumActionResult.FAIL,held);
-        if(!world.isRemote) {
-            ItemStack equipped=held.copy();equipped.setCount(1);NvgEquipment.set(player,equipped);
-            held.shrink(1); // Real equipment, even in creative; removing returns the very same stack.
-            player.inventory.markDirty();
-        }
+        if(!world.isRemote)NvgEquipment.equipAfterUse(player,hand,held);
         return new ActionResult<>(EnumActionResult.SUCCESS,held);
     }
 }
