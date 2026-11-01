@@ -5,7 +5,7 @@ import hashlib,json,re,shutil
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/metroport'
 SOURCE=ROOT/'tools/mcmod-reference'
-# Verified individual Drive downloads, OBJ then PNG. Not all remaining registrations are imported yet.
+# Verified individual Drive downloads, OBJ then PNG. The completion manifest adds the remaining 39.
 FILES={
  'barrel_01':('1sgseiMrCMoDFK6S8dtPofAmX87oX6YsM','1QyFkdQi2zWII_aSVgz9CLbvPd4Pr9zUv','Fire barrel'),
  'barrel_01_close':('1LbpH9Al1sbleLl-dCGJ3sDFTT05Ty4pv','179CQ-8-Y5D5hXA9EukCW2Gl_jRHCtnfL','Closed barrel'),
