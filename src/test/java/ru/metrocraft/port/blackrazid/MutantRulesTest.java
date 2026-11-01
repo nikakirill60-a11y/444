@@ -22,7 +22,7 @@ public class MutantRulesTest {
     @BeforeClass public static void boot(){NativeWeaponsTest.boot();}
     private static EntityPlayer sight(BlackrazidMutant mob,EntityPlayer p){
         mob.setPosition(0,0,5);p.posX=0;p.posY=0;p.posZ=0;
-        when(p.getLookVec()).thenReturn(new Vec3d(0,mob.height*.5-p.getEyeHeight(),5).normalize());when(p.canEntityBeSeen(mob)).thenReturn(true);return p;
+        Vec3d direction=new Vec3d(0,mob.height*.5-p.getEyeHeight(),5).normalize();when(p.getLookVec()).thenReturn(direction);when(p.canEntityBeSeen(mob)).thenReturn(true);return p;
     }
     private static World spawnWorld(boolean remote)throws Exception{
         World w=player(remote).world;when(w.getDifficulty()).thenReturn(EnumDifficulty.NORMAL);
@@ -74,10 +74,11 @@ public class MutantRulesTest {
         assertTrue(rat.canBreatheUnderwater());assertTrue(spider.canBreatheUnderwater());assertFalse(b.canBreatheUnderwater());
     }
     @Test public void actualLibrarianAppliesWebOnlyAfterAcceptedServerGaze()throws Exception{
-        EntityPlayer p=player(false);BiblioEntity b=spy(new BiblioEntity(p.world));b.setPosition(0,0,5);
-        when(p.getLookVec()).thenReturn(new Vec3d(0,b.height/1.5-p.getEyeHeight(),5).normalize());when(p.canEntityBeSeen(b)).thenReturn(true);
-        assertTrue(b.applyGaze(p));verify(b).setInWeb();b.setHealth(125);assertFalse(b.applyGaze(p));
-        b.setHealth(200);when(p.canEntityBeSeen(b)).thenReturn(false);assertFalse(b.applyGaze(p));verify(b,times(1)).setInWeb();
+        EntityPlayer p=player(false);BiblioEntity b=new BiblioEntity(p.world);b.setPosition(0,0,5);
+        java.lang.reflect.Field web=Entity.class.getDeclaredField("isInWeb");web.setAccessible(true);
+        Vec3d direction=new Vec3d(0,b.height/1.5-p.getEyeHeight(),5).normalize();when(p.getLookVec()).thenReturn(direction);when(p.canEntityBeSeen(b)).thenReturn(true);
+        assertTrue(b.applyGaze(p));assertTrue(web.getBoolean(b));web.setBoolean(b,false);b.setHealth(125);assertFalse(b.applyGaze(p));assertFalse(web.getBoolean(b));
+        b.setHealth(200);when(p.canEntityBeSeen(b)).thenReturn(false);assertFalse(b.applyGaze(p));assertFalse(web.getBoolean(b));
         BiblioEntity client=new BiblioEntity(player(true).world);assertFalse(client.applyGaze(p));
     }
     @Test public void actualSpiderUsesSelectedSurvivalNamespaceAndRealHeldLamp()throws Exception{
