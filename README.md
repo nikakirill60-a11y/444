@@ -28,8 +28,8 @@ Demon имеет отдельный полёт, составную голову 
 они не включены под ложным названием. [Проверенный разбор](docs/blackrazid-generator-audit.json).
 [Честный статус, управление и адаптации](docs/BLACKRAZID_EXPANSION.md),
 [отчёт по каждому стволу/мутанту](docs/blackrazid-expansion-report.json).
-Разработческий runtime `465b754` прошёл [сборку Java 8 / Forge и reobfuscation](https://github.com/nikakirill60-a11y/444/actions/runs/41339488218):
-**143 Python-проверки, 339 JUnit-тестов** (0 failures/errors/skipped). [Артефакт dev.9](https://github.com/nikakirill60-a11y/444/actions/runs/41339488218/artifacts/13096752446).
+Разработческая версия dev.10 (`ceafbbd`) прошла [сборку Java 8 / Forge и reobfuscation](https://github.com/nikakirill60-a11y/444/actions/runs/41340852956):
+**152 Python-проверки, 346 JUnit-тестов** (0 failures/errors/skipped). [Артефакт dev.10](https://github.com/nikakirill60-a11y/444/actions/runs/41340852956/artifacts/13096439201).
 Это промежуточная тестовая сборка, не готовый общий перенос; используйте копию мира.
 Полноценный игровой прогон и визуальная приёмка не выполнены.
 Базовая сборка **1.12.0** до расширения остаётся ниже; готовый общий выпуск пока не объявлен.

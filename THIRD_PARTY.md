@@ -72,3 +72,15 @@ The remaining nine mutant models and eleven spawner references are not evidence 
 Old obfuscated calls were cross-checked against MCP 1.5.2 mappings in
 https://github.com/MeLlamoGamer/MCP751_WITH_FORGE_1.5.2/tree/main/conf .
 These mappings were read as reference only, not bundled or executed in the mod.
+
+
+BlackRazid module sources and original icons are recorded in `tools/blackrazid-reference/modules-source-files.json`
+(67 originals); dev.9 implements the separate 28 native items and authoritative fitting/effect system,
+not completed native 3D attachment meshes.
+`tools/blackrazid-reference/environment-source-files.json` now records 107 originals with Drive IDs and SHA-256,
+including all 19 registered tunnel block classes/renderers, 18 OBJ/MTL meshes, their supplied atlases,
+and six unregistered `ItemSpawnTunnel*` classes retained for reference only.
+Dev.10 uses all 19 registered tunnel profiles. Recovered class files are never bundled as runtime executable code;
+the six misleadingly named furniture helpers are not activated as tunnel generators.
+See `docs/BLACKRAZID_TUNNELS.md` and `docs/blackrazid-generator-audit.json` for exact behavior/provenance.
+Original rights and redistribution caveats above remain unchanged.
