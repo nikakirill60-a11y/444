@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/lenin"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/lenin"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/lenin"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/lenin"
+    }
+  }
+}

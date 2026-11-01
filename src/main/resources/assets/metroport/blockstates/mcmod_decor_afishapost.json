@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/afishapost"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/afishapost"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/afishapost"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/afishapost"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/temp_regina"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/temp_regina"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/temp_regina"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/temp_regina"
+    }
+  }
+}

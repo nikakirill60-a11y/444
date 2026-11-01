@@ -5,10 +5,10 @@ ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'src/main/resources/assets/metroport'
 JAVA=ROOT/'src/main/java/ru/metrocraft/port'
 class EquipmentAndDecorTests(unittest.TestCase):
-    def test_decor_batch_does_not_claim_the_remaining_39_objects(self):
+    def test_all_fifty_nine_original_decorations_are_accounted_for(self):
         report=json.loads((ROOT/'docs/mcmod-decor-report.json').read_text())
         entries=json.loads((ASSETS/'mcmod_decor.json').read_text())
-        self.assertEqual(20,len(entries));self.assertEqual(59,len(report['registeredDecor']));self.assertEqual(39,len(report['pending']))
+        self.assertEqual(59,len(entries));self.assertEqual(59,len(report['registeredDecor']));self.assertEqual([],report['pending'])
         self.assertFalse(set(report['pending'])&set(report['imported']))
         self.assertEqual(set(report['registeredDecor']),set(report['pending'])|set(report['imported']))
         for e in entries:self.assertEqual(e['scale'],report['registeredDecor'][e['sourceId']]['scale'])

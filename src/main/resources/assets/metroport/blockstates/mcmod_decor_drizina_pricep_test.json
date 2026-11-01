@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/drizina_pricep_test"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/drizina_pricep_test"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/drizina_pricep_test"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/drizina_pricep_test"
+    }
+  }
+}

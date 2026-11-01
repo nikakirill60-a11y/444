@@ -1,5 +1,5 @@
 {
-  "batch": 1,
+  "batch": 2,
   "registeredDecor": {
     "afishapost": {
       "model": "afishapost",
@@ -317,9 +317,7 @@
     "table_selfmade",
     "divan",
     "bag_line",
-    "bag_line_short"
-  ],
-  "pending": [
+    "bag_line_short",
     "afishapost",
     "car_b",
     "car_f",
@@ -360,6 +358,7 @@
     "washing_mashine_01",
     "wc_urinal_010"
   ],
+  "pending": [],
   "technicalBlocksNotDecor": [
     "collision",
     "rad_block",
@@ -368,9 +367,9 @@
   ],
   "provenance": "Original HudrantBlock registrations, original per-block scale, recovered RenderTileEntityHudrant rotations [270,180,90,0]. Runtime OBJ/PNG byte-exact; old classes are references only.",
   "adaptations": [
-    "Four orientations; shared TESR and normalized 3D item views instead of 20 fixed renderer bindings.",
+    "Four orientations; shared TESR and normalized 3D item views instead of 59 fixed renderer bindings.",
     "Preserve original unbreakable map-decor behavior; no container, seating, fire, vehicle or door mechanics invented.",
     "Collision is the rotated model bounding box clipped to the installation cell. Protruding furniture does not reserve/edit neighbouring cells.",
-    "Shared iron-block break particles avoid putting twenty large atlases into the item texture atlas. Actual visible geometry uses each original texture."
+    "Shared iron-block break particles avoid putting 59 large atlases into the item texture atlas. Actual visible geometry uses each original texture."
   ]
 }

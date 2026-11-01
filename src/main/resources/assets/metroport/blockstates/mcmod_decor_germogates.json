@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/germogates"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/germogates"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/germogates"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/germogates"
+    }
+  }
+}

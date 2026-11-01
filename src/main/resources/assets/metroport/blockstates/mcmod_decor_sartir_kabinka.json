@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/sartir_kabinka"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/sartir_kabinka"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/sartir_kabinka"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/sartir_kabinka"
+    }
+  }
+}

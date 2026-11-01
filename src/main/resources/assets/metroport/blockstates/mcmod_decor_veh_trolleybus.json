@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/veh_trolleybus"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/veh_trolleybus"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/veh_trolleybus"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/veh_trolleybus"
+    }
+  }
+}

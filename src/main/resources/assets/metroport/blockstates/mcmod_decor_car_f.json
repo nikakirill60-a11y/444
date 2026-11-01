@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/car_f"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/car_f"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/car_f"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/car_f"
+    }
+  }
+}

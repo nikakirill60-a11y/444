@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/vanna"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/vanna"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/vanna"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/vanna"
+    }
+  }
+}

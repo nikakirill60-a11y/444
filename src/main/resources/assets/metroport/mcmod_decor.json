@@ -398,5 +398,785 @@
       "obj": "7afedfe6e7961db1ce76b50e4b4305da82a32caf6db433e24b5e7ee525e0f887",
       "png": "10d4ad610c1b7cb709fd9a98730c4c6eff20c16ccbf5189ec9bd0825650d1244"
     }
+  },
+  {
+    "id": "mcmod_decor_afishapost",
+    "kind": "decor",
+    "sourceId": "afishapost",
+    "nameRu": "Афиша",
+    "nameEn": "Poster column",
+    "scale": 1.0,
+    "bounds": [
+      -0.7931,
+      0.0,
+      -0.7931,
+      0.7931,
+      3.8044,
+      0.7931
+    ],
+    "sha256": {
+      "obj": "7ec4815f3ddc0e9e04eb87fec54cd272031b0b2438a4160822572f4fe54d734c",
+      "png": "10a8791caabceff887b1abd810f9d32e317abfd2b7701e4505170711c2fe4e3a"
+    }
+  },
+  {
+    "id": "mcmod_decor_car_b",
+    "kind": "decor",
+    "sourceId": "car_b",
+    "nameRu": "БМВ Х5",
+    "nameEn": "Car wreck B",
+    "scale": 1.0,
+    "bounds": [
+      -3.0349,
+      -0.0381,
+      -1.7717,
+      3.4472,
+      2.3701,
+      2.4987
+    ],
+    "sha256": {
+      "obj": "dbf7fc3a4bc09c7c48cfa22bf1c48b10ed1a021fc03528a7773e8437664acc76",
+      "png": "1755f7f4e8e8123a7f3b22108ea0521f7b2a388b48b32d6d5bace351f58f1ca7"
+    }
+  },
+  {
+    "id": "mcmod_decor_car_f",
+    "kind": "decor",
+    "sourceId": "car_f",
+    "nameRu": "ВАЗ-2110",
+    "nameEn": "Car wreck F",
+    "scale": 1.0,
+    "bounds": [
+      -2.6229,
+      -0.0422,
+      -1.1782,
+      2.4812,
+      1.7013,
+      1.1215
+    ],
+    "sha256": {
+      "obj": "cc1e9e4ae88c18ddc873469aa19bedbebb6d636681366d7962fabaaa413d784c",
+      "png": "017d77881941fa04cb6abdd6134add4736cc66dcb4f5eb0424a27946895aece5"
+    }
+  },
+  {
+    "id": "mcmod_decor_car_t",
+    "kind": "decor",
+    "sourceId": "car_t",
+    "nameRu": "МАЗ",
+    "nameEn": "Car wreck T",
+    "scale": 1.0,
+    "bounds": [
+      -4.7225,
+      -0.0683,
+      -1.9157,
+      6.0121,
+      4.6444,
+      2.2146
+    ],
+    "sha256": {
+      "obj": "866fb232cc627e5911eb9fd34a30d06f8d4446d7183c350a5a393bc33bb26789",
+      "png": "025e2325f6197ea6c51daee1e1debeeca6f1efc63991051190da0295828e35c6"
+    }
+  },
+  {
+    "id": "mcmod_decor_car_w",
+    "kind": "decor",
+    "sourceId": "car_w",
+    "nameRu": "ИЖ Ода",
+    "nameEn": "Car wreck W",
+    "scale": 1.0,
+    "bounds": [
+      -1.2345,
+      -0.0795,
+      -2.8849,
+      1.7196,
+      2.3838,
+      2.7929
+    ],
+    "sha256": {
+      "obj": "a48e5de6148379804f05925c0a80ac9aff97e40a35640bb8f74e486db8c4d36f",
+      "png": "c5b6880353ca89b1f329982ea48a47ba8455867c810d0a726ed24486ed4d4af0"
+    }
+  },
+  {
+    "id": "mcmod_decor_covers_cart_010",
+    "kind": "decor",
+    "sourceId": "covers_cart_010",
+    "nameRu": "Зеленый железный шкаф",
+    "nameEn": "Covered cart",
+    "scale": 1.0,
+    "bounds": [
+      -0.3357,
+      0.0,
+      -0.5966,
+      0.3055,
+      1.5468,
+      0.5968
+    ],
+    "sha256": {
+      "obj": "e13618461ba3794f55c499224c77ef52d2ddc5871ab176803c25f33a3e8935d1",
+      "png": "439ad9b1dd4640a800b74ab6e1aed9b4b8e50614ebe027bfef1e3cae565a5ec6"
+    }
+  },
+  {
+    "id": "mcmod_decor_covers_lump_010",
+    "kind": "decor",
+    "sourceId": "covers_lump_010",
+    "nameRu": "Деревянные ящики 1",
+    "nameEn": "Covered pile",
+    "scale": 1.0,
+    "bounds": [
+      -0.3256,
+      -0.0,
+      -0.4436,
+      0.3568,
+      1.2385,
+      0.4374
+    ],
+    "sha256": {
+      "obj": "1bcb3f08873d7b06b21e9fd2ea52fb432c65c4d66fb7645c0f8437ffe2218f96",
+      "png": "e78289ba9c8b271a4ad8db09c29d55a04add095d77d992ecedbc81559c739061"
+    }
+  },
+  {
+    "id": "mcmod_decor_covers_lump_012",
+    "kind": "decor",
+    "sourceId": "covers_lump_012",
+    "nameRu": "Деревянные ящики 2",
+    "nameEn": "Covered pile 2",
+    "scale": 1.0,
+    "bounds": [
+      -0.449,
+      -0.0092,
+      -0.3477,
+      0.4289,
+      1.0765,
+      0.3508
+    ],
+    "sha256": {
+      "obj": "e29e5ae24c352574dc676d09234b97c2963e20290c7d4423b217796557699199",
+      "png": "e78289ba9c8b271a4ad8db09c29d55a04add095d77d992ecedbc81559c739061"
+    }
+  },
+  {
+    "id": "mcmod_decor_covers_strongbox_010",
+    "kind": "decor",
+    "sourceId": "covers_strongbox_010",
+    "nameRu": "Короб металл",
+    "nameEn": "Covered safe",
+    "scale": 1.0,
+    "bounds": [
+      -0.2794,
+      0.0,
+      -0.2683,
+      0.2873,
+      1.4243,
+      0.2683
+    ],
+    "sha256": {
+      "obj": "edbb4fc7afbdd66c9b910b828f87027eb7dc5a08c9b3666572558a7607b84806",
+      "png": "a62141de2f867e4c17e595c89069be1512bc955166e1b8bd0608adb667954f75"
+    }
+  },
+  {
+    "id": "mcmod_decor_covers_woodcase_010",
+    "kind": "decor",
+    "sourceId": "covers_woodcase_010",
+    "nameRu": "Короб деревянный",
+    "nameEn": "Covered wooden crate",
+    "scale": 1.0,
+    "bounds": [
+      -0.3326,
+      0.0002,
+      -0.6696,
+      0.3326,
+      0.9335,
+      0.6696
+    ],
+    "sha256": {
+      "obj": "abbcb190b3975647996c7f98317d5119159ced60ff1e9bd20a01732edbbe2c1e",
+      "png": "8e0d46de87bfa677521e9c48e921318b0e91bc0a41be90aad526d6c3c729d52f"
+    }
+  },
+  {
+    "id": "mcmod_decor_drizina_pricep_test",
+    "kind": "decor",
+    "sourceId": "drizina_pricep_test",
+    "nameRu": "Дрезина прицеп",
+    "nameEn": "Rail trolley trailer",
+    "scale": 1.0,
+    "bounds": [
+      -1.2442,
+      -0.0356,
+      -2.1861,
+      1.2442,
+      1.4249,
+      2.1536
+    ],
+    "sha256": {
+      "obj": "5a8197f6e8dc8b058c4740eb6d69156d50ef47cff01d9938c247095f67317c47",
+      "png": "4101c579db5b77e307de09acf4437294c3fae61b58e0a978e4ef6acf7895b3bf"
+    }
+  },
+  {
+    "id": "mcmod_decor_engine_turbo_01",
+    "kind": "decor",
+    "sourceId": "engine_turbo_01",
+    "nameRu": "Дизель генератор",
+    "nameEn": "Turbine engine",
+    "scale": 1.0,
+    "bounds": [
+      -0.7911,
+      -0.0006,
+      -0.326,
+      0.8715,
+      1.2361,
+      0.4079
+    ],
+    "sha256": {
+      "obj": "b6159741fd2a164e45b1b49e0bd3adfa4fa8cd50e9d5f29734c05eb827f73f92",
+      "png": "4ecc71c6c9bdefe25097c6aeffd800d35ffcf9ab28017fc963d9bba37947357f"
+    }
+  },
+  {
+    "id": "mcmod_decor_fireplace_01",
+    "kind": "decor",
+    "sourceId": "fireplace_01",
+    "nameRu": "Костер",
+    "nameEn": "Fireplace",
+    "scale": 1.0,
+    "bounds": [
+      -0.4741,
+      -0.014,
+      -0.4738,
+      0.4533,
+      0.2189,
+      0.4763
+    ],
+    "sha256": {
+      "obj": "2d886d3a46ab908981e8f9f0382ba8d9cc1b69357ed8ce92f3a130fd66ad7fa8",
+      "png": "13b313b2738ef1170540f60f49241fd56a7d36fe785c7c98442843e319a1f95f"
+    }
+  },
+  {
+    "id": "mcmod_decor_g_1",
+    "kind": "decor",
+    "sourceId": "g_1",
+    "nameRu": "ГАЗ-3110",
+    "nameEn": "Grate",
+    "scale": 1.0,
+    "bounds": [
+      -2.8797,
+      -0.0081,
+      -1.076,
+      2.9925,
+      1.7108,
+      1.0289
+    ],
+    "sha256": {
+      "obj": "2541f135e4377ec508abd9c0005019e7cad72b09155fe71021717ebc4d6145be",
+      "png": "c8e944c0973845f7ea89c93ba849f44b2ec70c0b5a72521098a8899136351baa"
+    }
+  },
+  {
+    "id": "mcmod_decor_germogates",
+    "kind": "decor",
+    "sourceId": "germogates",
+    "nameRu": "Гермоворота (статичные)",
+    "nameEn": "Static hermetic gates",
+    "scale": 1.0,
+    "bounds": [
+      -0.1913,
+      0.0,
+      -2.4601,
+      0.1869,
+      5.8122,
+      2.5018
+    ],
+    "sha256": {
+      "obj": "3704d0e5be96f3386585ca8c1030091d3d429d649a3c46d6e9517e878330f0fb",
+      "png": "dea91f481838ab27d9aba255a00f3f71ca36ce191146ea1ee35f13534cd4761f"
+    }
+  },
+  {
+    "id": "mcmod_decor_kachelka_2",
+    "kind": "decor",
+    "sourceId": "kachelka_2",
+    "nameRu": "Качели 'весы'",
+    "nameEn": "Swing",
+    "scale": 1.0,
+    "bounds": [
+      -0.2777,
+      -0.0,
+      -2.1236,
+      0.2777,
+      0.8238,
+      2.1236
+    ],
+    "sha256": {
+      "obj": "938aed260b301cdcf7462c3704d3a68ca6167b6f00c97e2dfe5264f7b487d707",
+      "png": "2c04d00f8dd3c90732cec4b3fbceb67eb744037eaeba26000bc43163c6dcf949"
+    }
+  },
+  {
+    "id": "mcmod_decor_kitchen_tv",
+    "kind": "decor",
+    "sourceId": "kitchen_tv",
+    "nameRu": "Кухонный телевизор",
+    "nameEn": "Kitchen television",
+    "scale": 1.0,
+    "bounds": [
+      -0.1829,
+      -0.0036,
+      -0.2443,
+      0.1861,
+      0.3487,
+      0.2395
+    ],
+    "sha256": {
+      "obj": "dbd154fb53a2915c139d77953c9e448d6005f6a07fe3a46e400eed7661821fac",
+      "png": "1a0a01c93222826ef4b4fa81fa2aab450611a1fa3d3d131c7731aff1c2365e4c"
+    }
+  },
+  {
+    "id": "mcmod_decor_krest",
+    "kind": "decor",
+    "sourceId": "krest",
+    "nameRu": "Металлический крест",
+    "nameEn": "Cross",
+    "scale": 1.0,
+    "bounds": [
+      -0.0841,
+      0.006,
+      -0.9424,
+      0.023,
+      2.7141,
+      0.8702
+    ],
+    "sha256": {
+      "obj": "ac9e39ccef4618b057ec1af1c1fae7a17aee8a73e4a32d9c6ab0e43e924a3c94",
+      "png": "62bb34c6302a586e4d81b66a893a6c2eb6e8009ee7c407e8feefa54163b1c54c"
+    }
+  },
+  {
+    "id": "mcmod_decor_l04_lampion04",
+    "kind": "decor",
+    "sourceId": "l04_lampion04",
+    "nameRu": "Свечка",
+    "nameEn": "Lantern",
+    "scale": 1.0,
+    "bounds": [
+      -0.0919,
+      0.0005,
+      -0.0999,
+      0.0942,
+      0.1593,
+      0.0879
+    ],
+    "sha256": {
+      "obj": "062bccd12ddc451390f79665af929417dcbb8eda57fb1b255ed2ef85e33696ff",
+      "png": "18325861aabf964faae5fad53beaf92ad3a7644e5696cdc12abe842a8ab16525"
+    }
+  },
+  {
+    "id": "mcmod_decor_lenin",
+    "kind": "decor",
+    "sourceId": "lenin",
+    "nameRu": "Ленин",
+    "nameEn": "Lenin monument",
+    "scale": 1.0,
+    "bounds": [
+      -4.0391,
+      -0.0001,
+      -4.0143,
+      6.865,
+      19.8859,
+      4.0261
+    ],
+    "sha256": {
+      "obj": "7f93d3b57a1abcfa45cea2c26b4000fcd1a7ff0e818eccc9f263f43284fe425d",
+      "png": "b48e391aa7f7e2af53086c4082c25d3347de4d5591baea7478a62c083e147dbe"
+    }
+  },
+  {
+    "id": "mcmod_decor_metro_sign",
+    "kind": "decor",
+    "sourceId": "metro_sign",
+    "nameRu": "Знак метро",
+    "nameEn": "Metro sign",
+    "scale": 1.0,
+    "bounds": [
+      -0.0761,
+      -0.0001,
+      -0.2618,
+      0.0882,
+      3.9473,
+      0.2618
+    ],
+    "sha256": {
+      "obj": "ae65a9112bc59e41296da2994055ef6e65375cd7e60c1c6c84650b3d547119c1",
+      "png": "f7c00a531a9d544708b91ae761fe3b137e373cdccad98d8152856bf2d370ba6d"
+    }
+  },
+  {
+    "id": "mcmod_decor_monitor_80s_00",
+    "kind": "decor",
+    "sourceId": "monitor_80s_00",
+    "nameRu": "Монитор старого образца",
+    "nameEn": "CRT monitor",
+    "scale": 1.0,
+    "bounds": [
+      -0.2823,
+      -0.0018,
+      -0.2714,
+      0.281,
+      0.513,
+      0.2825
+    ],
+    "sha256": {
+      "obj": "bb755b569c982efab0dbe3e21802a419a1424a387f7c7d591eeca1f3fa51b49a",
+      "png": "9c245e5ebbd3bab22b62573e5dbc2d752dffb8236f4e83021b4b968b4e8f0f43"
+    }
+  },
+  {
+    "id": "mcmod_decor_musor_bidon_01",
+    "kind": "decor",
+    "sourceId": "musor_bidon_01",
+    "nameRu": "Мусорный бидон",
+    "nameEn": "Garbage can",
+    "scale": 1.0,
+    "bounds": [
+      -0.2495,
+      -0.0002,
+      -0.2405,
+      0.2494,
+      0.9202,
+      0.2625
+    ],
+    "sha256": {
+      "obj": "600df742005efd71f96908c8541136520a0a3a4dc8d1a025bb9cf73e4473135d",
+      "png": "8a9677ef48a32d9ac89a79c427839d8cc56557d1c9e3430ea9f346cc2060680f"
+    }
+  },
+  {
+    "id": "mcmod_decor_patron_box_full",
+    "kind": "decor",
+    "sourceId": "patron_box_full",
+    "nameRu": "Коробочка с патронами",
+    "nameEn": "Ammunition crate",
+    "scale": 1.0,
+    "bounds": [
+      -0.0896,
+      0.0008,
+      -0.1006,
+      0.0988,
+      0.1625,
+      0.0938
+    ],
+    "sha256": {
+      "obj": "1ce69a0d9566203205ffe1a8a71d455deb03103304b24f8476741006038240da",
+      "png": "6df46e644ca132d778e5df18e83cdbc58eb586a3729ae31fee2e80795e1d8760"
+    }
+  },
+  {
+    "id": "mcmod_decor_sartir_kabinka",
+    "kind": "decor",
+    "sourceId": "sartir_kabinka",
+    "nameRu": "Сартир",
+    "nameEn": "Toilet cubicle",
+    "scale": 1.0,
+    "bounds": [
+      -0.9475,
+      0.0,
+      -0.7751,
+      0.981,
+      2.8799,
+      0.7752
+    ],
+    "sha256": {
+      "obj": "5a02865659199a8aa8a5ddbd81d7d11e0df813d97060c53a17ccb475515d88fd",
+      "png": "bc06160490fe03d072cd9531472a7b9019a8d757a60717b6e2b466ca266580b6"
+    }
+  },
+  {
+    "id": "mcmod_decor_televizor_br",
+    "kind": "decor",
+    "sourceId": "televizor_br",
+    "nameRu": "Телевизор",
+    "nameEn": "Old television",
+    "scale": 1.0,
+    "bounds": [
+      -0.2733,
+      0.0006,
+      -0.4297,
+      0.3096,
+      0.6143,
+      0.4295
+    ],
+    "sha256": {
+      "obj": "244daa5c17c6080d60d1ddc2f95d63fc69f6d5e44cbad402089f47a456303904",
+      "png": "f258159f377f8fe5da333206a5d41ea0909f094b4c0b61fd5c63af4fe053fca5"
+    }
+  },
+  {
+    "id": "mcmod_decor_temp_regina",
+    "kind": "decor",
+    "sourceId": "temp_regina",
+    "nameRu": "Остов Регины",
+    "nameEn": "Regina rail trolley (static)",
+    "scale": 1.0,
+    "bounds": [
+      -1.4061,
+      0.4057,
+      -2.6411,
+      1.406,
+      2.2771,
+      2.7353
+    ],
+    "sha256": {
+      "obj": "c3821452a2927d34ac0f63888c8b35c5d2caf43e3f33bff24bf0fbe0b07a0261",
+      "png": "0d05d146a6f12f436ee1621bb65d30b9b48374c1bcf36d3f6cb7ecc6ae3ab192"
+    }
+  },
+  {
+    "id": "mcmod_decor_tree_kashtan",
+    "kind": "decor",
+    "sourceId": "tree_kashtan",
+    "nameRu": "Дерево каштан",
+    "nameEn": "Chestnut tree",
+    "scale": 0.35,
+    "bounds": [
+      -10.3842,
+      -0.4408,
+      -8.977,
+      9.7901,
+      24.4104,
+      11.4591
+    ],
+    "sha256": {
+      "obj": "bfb190140b9b848f939f7dd15020c974bd95cb6cd1f95ff323b4cd9e26bf90e3",
+      "png": "6feed26641260ecab0527a6fd11d2810924d117690321dedcf7321d9e7c95247"
+    }
+  },
+  {
+    "id": "mcmod_decor_trees_03_",
+    "kind": "decor",
+    "sourceId": "trees_03_",
+    "nameRu": "Дерево",
+    "nameEn": "Dead trees",
+    "scale": 1.0,
+    "bounds": [
+      -2.1095,
+      0.0,
+      -2.2617,
+      1.5555,
+      11.0227,
+      3.7603
+    ],
+    "sha256": {
+      "obj": "c9dab14d0e03e9f05f716051cb89281e81bb8e94216f84b07f6a1e9467cbc609",
+      "png": "d2a4ccd59cfad7434452a86d029a58ed7b07f30a8145ca190821988fe8c19e89"
+    }
+  },
+  {
+    "id": "mcmod_decor_tunnels_props_burn01",
+    "kind": "decor",
+    "sourceId": "tunnels_props_burn01",
+    "nameRu": "Настройки из бревен",
+    "nameEn": "Burnt tunnel props",
+    "scale": 1.0,
+    "bounds": [
+      -0.1656,
+      -0.0815,
+      -2.6227,
+      1.5435,
+      4.82,
+      2.5255
+    ],
+    "sha256": {
+      "obj": "2a80f141de43214f69eb62bdafe361f1da6f57d4488cbcd41f19c6caebd8d205",
+      "png": "5360f00f46c2e36977db97988c01f1fb64bae79ac32693059d60120d97167353"
+    }
+  },
+  {
+    "id": "mcmod_decor_tunnels_props_r1_01",
+    "kind": "decor",
+    "sourceId": "tunnels_props_r1_01",
+    "nameRu": "Настройки из досок",
+    "nameEn": "Tunnel props",
+    "scale": 1.0,
+    "bounds": [
+      -3.6845,
+      -0.2459,
+      -0.088,
+      3.7256,
+      4.9201,
+      9.1891
+    ],
+    "sha256": {
+      "obj": "4dc583ff14e01e7ff23696fa65eb4e8adf14a83e8422ae18260fd4ea3a80e4f1",
+      "png": "33de51b95c8ae52ced5939c75e58fd154017eddc762406aafcdb9aea36014e3a"
+    }
+  },
+  {
+    "id": "mcmod_decor_tunnels_props_wood_tupik_01",
+    "kind": "decor",
+    "sourceId": "tunnels_props_wood_tupik_01",
+    "nameRu": "Конец пути из бревен (тупик)",
+    "nameEn": "Wooden tunnel dead end",
+    "scale": 1.0,
+    "bounds": [
+      -3.6164,
+      -0.0763,
+      -1.5641,
+      3.821,
+      6.2357,
+      2.4611
+    ],
+    "sha256": {
+      "obj": "f3d7540e345a21a73be6d99fdc1d09801ae9a1f7c9b8b025045264b761a682e0",
+      "png": "06892fd3c18fb17bb7f6d3afac4a41ece73e48fa17db94e52a0ce3cf989fd009"
+    }
+  },
+  {
+    "id": "mcmod_decor_umivalnik1",
+    "kind": "decor",
+    "sourceId": "umivalnik1",
+    "nameRu": "Умывальник",
+    "nameEn": "Washbasin",
+    "scale": 1.0,
+    "bounds": [
+      -0.4692,
+      0.0001,
+      -0.522,
+      0.4692,
+      2.1004,
+      0.522
+    ],
+    "sha256": {
+      "obj": "70e9750970bdd3af6136ee7cfddc0d04ef9426a100a85d2e8fb6d6b16d93038e",
+      "png": "46ddc3b397dbff59a1f91dfd8367ec7652fd1fc94cc8f359476598dab4c96306"
+    }
+  },
+  {
+    "id": "mcmod_decor_vanna",
+    "kind": "decor",
+    "sourceId": "vanna",
+    "nameRu": "Ванна",
+    "nameEn": "Bathtub",
+    "scale": 1.0,
+    "bounds": [
+      -1.3828,
+      -0.0008,
+      -0.5458,
+      1.3459,
+      0.7623,
+      0.5521
+    ],
+    "sha256": {
+      "obj": "9173fcf64819a1a749b43bb075155e38ede8e19cedcbb206ec63490346ea2157",
+      "png": "cf6d8b24c042bf33992f9701357e4291cd6c3f117ba18e3b4382b3837824eadd"
+    }
+  },
+  {
+    "id": "mcmod_decor_veh_bus",
+    "kind": "decor",
+    "sourceId": "veh_bus",
+    "nameRu": "Автобус",
+    "nameEn": "Bus (static)",
+    "scale": 1.0,
+    "bounds": [
+      -10.2332,
+      -0.5623,
+      -4.1811,
+      9.4701,
+      4.5816,
+      2.7189
+    ],
+    "sha256": {
+      "obj": "5db228670139167f04010e05e384832a9f4680d0c0bc2f66d33987ca7c6c9f4a",
+      "png": "deb7b72d24ce276b11260ddfd860fe9a3033e7701e9ee969953bf1679bbd205d"
+    }
+  },
+  {
+    "id": "mcmod_decor_veh_trolleybus",
+    "kind": "decor",
+    "sourceId": "veh_trolleybus",
+    "nameRu": "Тролейбус",
+    "nameEn": "Trolleybus (static)",
+    "scale": 1.0,
+    "bounds": [
+      -9.2289,
+      -0.0509,
+      -3.0346,
+      8.8652,
+      4.5734,
+      2.3619
+    ],
+    "sha256": {
+      "obj": "098d061e2bb627f0f5e53dc86d74a910a47b3ef18c1d238a9a5f99bed81a9149",
+      "png": "0f7b45c01aad4c9f543010f1aacade93d13eb7bd7e4c26591b4decceb612e632"
+    }
+  },
+  {
+    "id": "mcmod_decor_veh_uaz_452",
+    "kind": "decor",
+    "sourceId": "veh_uaz_452",
+    "nameRu": "УАЗ Буханка",
+    "nameEn": "UAZ-452 (static)",
+    "scale": 1.0,
+    "bounds": [
+      -3.1363,
+      -0.1307,
+      -1.561,
+      3.2759,
+      2.9692,
+      1.5671
+    ],
+    "sha256": {
+      "obj": "b24d29226d19866b9dcafe755847d76bc3c9b72eb70bccbc032d3d0a2d26d777",
+      "png": "5803f337fd2c9430cb1aa5ed2892c6588f3c0c50d4443335e28b759060bb9cb3"
+    }
+  },
+  {
+    "id": "mcmod_decor_washing_mashine_01",
+    "kind": "decor",
+    "sourceId": "washing_mashine_01",
+    "nameRu": "Стиральная машина",
+    "nameEn": "Washing machine",
+    "scale": 1.0,
+    "bounds": [
+      -0.3429,
+      -0.0009,
+      -0.5744,
+      0.3002,
+      1.2938,
+      0.466
+    ],
+    "sha256": {
+      "obj": "35ce9cfcb08caaa0837a5ffdd1fe72fec29742a7f5708857118295c2e9dc5144",
+      "png": "9ab2176b01b3442a6359d492978ea8566b22603626b5aa6844211e68fa7eff38"
+    }
+  },
+  {
+    "id": "mcmod_decor_wc_urinal_010",
+    "kind": "decor",
+    "sourceId": "wc_urinal_010",
+    "nameRu": "Писуар",
+    "nameEn": "Urinal",
+    "scale": 1.0,
+    "bounds": [
+      -3.6164,
+      -0.0763,
+      -1.5641,
+      3.821,
+      6.2357,
+      2.4611
+    ],
+    "sha256": {
+      "obj": "9f514e5c25f54c8edd3257f3e10e3fc43540d96d3a883798b03f132f2f385153",
+      "png": "272bd3348137d23c31ef06c83dbb03e414020fe72980536567048e8953b00daf"
+    }
   }
 ]

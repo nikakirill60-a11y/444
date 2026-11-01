@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/patron_box_full"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/patron_box_full"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/patron_box_full"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/patron_box_full"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/trees_03_"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/trees_03_"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/trees_03_"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/trees_03_"
+    }
+  }
+}

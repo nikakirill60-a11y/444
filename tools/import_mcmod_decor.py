@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""First verified MCMOD decorative-object batch. Runtime OBJ/PNG stay byte-exact originals."""
+"""All registered MCMOD decorative objects. Runtime OBJ/PNG stay byte-exact originals."""
 from pathlib import Path
 import hashlib,json,re,shutil
 ROOT=Path(__file__).resolve().parents[1]
@@ -28,6 +28,7 @@ FILES={
  'bag_line':('1mhJ_nF0vNnha1e7vgRwTbwzP3twUjRZQ','1qv00XbSvuE0D2Ze3ghSwTXpNbB-rpqYe','Sandbags — long row'),
  'bag_line_short':('11Oqxv1zsY1oHVSDqxx0qQKtmd82zk69t','1szFbFyISnF3P5b0qMW8Cu1A6nkHFu4wy','Sandbags — short row'),
 }
+FILES.update(json.loads((ROOT/'tools/mcmod-decor-completion.json').read_text()))
 def write(path,data):
  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 def main():
@@ -55,10 +56,10 @@ def main():
   write(ASSETS/('models/item/'+entry['id']+'.json'),{'parent':'metroport:block/'+block,'display':display})
   write(ASSETS/('blockstates/'+entry['id']+'.json'),{'variants':{'facing='+f:{'model':'metroport:'+block} for f in ['north','east','south','west']}})
  write(ASSETS/'mcmod_decor.json',entries)
- write(ROOT/'docs/mcmod-decor-report.json',{'batch':1,'registeredDecor':registered,'imported':[e['sourceId'] for e in entries],'pending':sorted(set(registered)-set(FILES)),
+ write(ROOT/'docs/mcmod-decor-report.json',{'batch':2,'registeredDecor':registered,'imported':[e['sourceId'] for e in entries],'pending':sorted(set(registered)-set(FILES)),
   'technicalBlocksNotDecor':['collision','rad_block','air_block','reg_block'],
   'provenance':'Original HudrantBlock registrations, original per-block scale, recovered RenderTileEntityHudrant rotations [270,180,90,0]. Runtime OBJ/PNG byte-exact; old classes are references only.',
-  'adaptations':['Four orientations; shared TESR and normalized 3D item views instead of 20 fixed renderer bindings.','Preserve original unbreakable map-decor behavior; no container, seating, fire, vehicle or door mechanics invented.','Collision is the rotated model bounding box clipped to the installation cell. Protruding furniture does not reserve/edit neighbouring cells.','Shared iron-block break particles avoid putting twenty large atlases into the item texture atlas. Actual visible geometry uses each original texture.']})
+  'adaptations':['Four orientations; shared TESR and normalized 3D item views instead of 59 fixed renderer bindings.','Preserve original unbreakable map-decor behavior; no container, seating, fire, vehicle or door mechanics invented.','Collision is the rotated model bounding box clipped to the installation cell. Protruding furniture does not reserve/edit neighbouring cells.','Shared iron-block break particles avoid putting 59 large atlases into the item texture atlas. Actual visible geometry uses each original texture.']})
  write(SOURCE/'source-files.json',manifest)
  from mcmod_languages import update
  update()

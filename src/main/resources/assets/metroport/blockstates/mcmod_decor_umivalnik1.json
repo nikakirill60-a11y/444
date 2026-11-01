@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/umivalnik1"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/umivalnik1"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/umivalnik1"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/umivalnik1"
+    }
+  }
+}

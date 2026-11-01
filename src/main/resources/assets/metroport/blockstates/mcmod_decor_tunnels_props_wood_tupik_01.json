@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/tunnels_props_wood_tupik_01"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/tunnels_props_wood_tupik_01"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/tunnels_props_wood_tupik_01"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/tunnels_props_wood_tupik_01"
+    }
+  }
+}

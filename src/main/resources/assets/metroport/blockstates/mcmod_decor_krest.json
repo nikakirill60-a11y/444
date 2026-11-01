@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/krest"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/krest"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/krest"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/krest"
+    }
+  }
+}

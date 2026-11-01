@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "metroport:mcmod_decor/tree_kashtan"
+    },
+    "facing=east": {
+      "model": "metroport:mcmod_decor/tree_kashtan"
+    },
+    "facing=south": {
+      "model": "metroport:mcmod_decor/tree_kashtan"
+    },
+    "facing=west": {
+      "model": "metroport:mcmod_decor/tree_kashtan"
+    }
+  }
+}
