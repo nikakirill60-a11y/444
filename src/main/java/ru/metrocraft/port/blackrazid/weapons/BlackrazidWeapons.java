@@ -44,6 +44,19 @@ public final class BlackrazidWeapons {
             event.getRegistry().register(e.getValue());
         }
     }
+    private static void cancelActions(net.minecraft.entity.player.EntityPlayer player){
+        if(player.world.isRemote)return;
+        for(int i=0;i<player.inventory.getSizeInventory();i++){
+            net.minecraft.item.ItemStack stack=player.inventory.getStackInSlot(i);
+            if(stack.getItem() instanceof BlackrazidGunItem)((BlackrazidGunItem)stack.getItem()).cancel(stack);
+        }
+        player.inventory.markDirty();
+    }
+    @SubscribeEvent public static void death(net.minecraftforge.event.entity.living.LivingDeathEvent event){
+        if(event.getEntityLiving() instanceof net.minecraft.entity.player.EntityPlayer)cancelActions((net.minecraft.entity.player.EntityPlayer)event.getEntityLiving());
+    }
+    @SubscribeEvent public static void logout(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent event){cancelActions(event.player);}
+    @SubscribeEvent public static void dimension(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent event){cancelActions(event.player);}
     @SubscribeEvent public static void registerSounds(RegistryEvent.Register<SoundEvent> event){
         load();Set<String> ids=new LinkedHashSet<>();ids.add("blackrazid_empty");ids.add("blackrazid_vsv_shootclose");
         for(Entry e:entries)if("gun".equals(e.kind)){ids.add(e.shootSound);ids.add(e.reloadSound);ids.add(e.unloadSound);}

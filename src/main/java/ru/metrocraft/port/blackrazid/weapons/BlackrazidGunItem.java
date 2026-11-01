@@ -74,7 +74,7 @@ public final class BlackrazidGunItem extends GunItem {
         tag(gun).setInteger(TICKS,duration);tag(gun).setInteger(ACTION,unload?2:1);tag(gun).setUniqueId(OWNER,p.getUniqueID());
         sound(p.world,p,unload?entry.unloadSound:entry.reloadSound,1);
     }
-    private void cancel(ItemStack gun){tag(gun).removeTag(TICKS);tag(gun).removeTag(ACTION);tag(gun).removeTag(OWNER+"Most");tag(gun).removeTag(OWNER+"Least");}
+    void cancel(ItemStack gun){if(!gun.hasTagCompound())return;tag(gun).removeTag(TICKS);tag(gun).removeTag(ACTION);tag(gun).removeTag(OWNER+"Most");tag(gun).removeTag(OWNER+"Least");}
     @Override public void onUpdate(ItemStack gun,World world,Entity entity,int slot,boolean selected){
         if(world.isRemote || !(entity instanceof EntityPlayer))return;EntityPlayer p=(EntityPlayer)entity;
         if(gun.hasTagCompound()){int cd=gun.getTagCompound().getInteger(COOLDOWN);if(cd>0)tag(gun).setInteger(COOLDOWN,Math.min(7,cd-1));}

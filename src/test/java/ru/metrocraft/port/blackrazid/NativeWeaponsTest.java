@@ -151,4 +151,10 @@ public class NativeWeaponsTest {
         assertFalse(BlackrazidBullet.loadedPath(world,from,new Vec3d(Double.NaN,64,21)));assertFalse(BlackrazidBullet.loadedPath(world,from,new Vec3d(1000,64,21)));
         verify(world,never()).rayTraceBlocks(any(Vec3d.class),any(Vec3d.class),anyBoolean(),anyBoolean(),anyBoolean());
     }
+    @Test public void deathAndLogoutCancelPendingActionWithoutSpendingResources()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=new ItemStack(item("ak"));hold(p,s);ItemStack m=magazine("ak_ammo",15);p.inventory.setInventorySlotContents(1,m);
+        gun("ak").startReload(s,p);BlackrazidWeapons.death(new net.minecraftforge.event.entity.living.LivingDeathEvent(p,DamageSource.GENERIC));assertFalse(gun("ak").reloading(s));assertSame(m,p.inventory.getStackInSlot(1));
+        gun("ak").startReload(s,p);BlackrazidWeapons.logout(new net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent(p));assertFalse(gun("ak").reloading(s));assertSame(m,p.inventory.getStackInSlot(1));
+        gun("ak").insertMagazine(s,p);gun("ak").startReload(s,p);BlackrazidWeapons.dimension(new net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent(p,0,1));assertFalse(gun("ak").reloading(s));assertEquals(15,gun("ak").ammo(s));
+    }
 }
