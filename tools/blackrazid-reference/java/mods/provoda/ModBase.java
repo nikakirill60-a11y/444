@@ -118,36 +118,7 @@
  *  mods.provoda.entity.EntitySpawnerStrazh
  *  mods.provoda.entity.EntityTestDeathFull
  *  mods.provoda.guns.AKK
- *  mods.provoda.guns.ammo.AK2012Ammo
- *  mods.provoda.guns.ammo.AKAmmo
  *  mods.provoda.guns.ammo.AKKAmmo
- *  mods.provoda.guns.ammo.AbzacAmmo
- *  mods.provoda.guns.ammo.AbzacAmmoBig
- *  mods.provoda.guns.ammo.Bullet12_7x108
- *  mods.provoda.guns.ammo.Bullet12_7x55
- *  mods.provoda.guns.ammo.Bullet12x7
- *  mods.provoda.guns.ammo.Bullet12x70
- *  mods.provoda.guns.ammo.Bullet15mm
- *  mods.provoda.guns.ammo.Bullet5x45
- *  mods.provoda.guns.ammo.Bullet7_62x54
- *  mods.provoda.guns.ammo.BulletBolt
- *  mods.provoda.guns.ammo.BulletMagnum
- *  mods.provoda.guns.ammo.GatlingAmmo
- *  mods.provoda.guns.ammo.HelsingAmmo
- *  mods.provoda.guns.ammo.OgnemetAmmo
- *  mods.provoda.guns.ammo.PodonokAmmo
- *  mods.provoda.guns.ammo.PodonokAmmoBig
- *  mods.provoda.guns.ammo.PrevedAmmo
- *  mods.provoda.guns.ammo.RpkAmmo
- *  mods.provoda.guns.ammo.RpkAmmoBig
- *  mods.provoda.guns.ammo.SaigaAmmo
- *  mods.provoda.guns.ammo.SaigaAmmoBig
- *  mods.provoda.guns.ammo.TiharAmmo
- *  mods.provoda.guns.ammo.UbludokAmmo
- *  mods.provoda.guns.ammo.VentilAmmo
- *  mods.provoda.guns.ammo.VentilAmmoBig
- *  mods.provoda.guns.ammo.VsvAmmo
- *  mods.provoda.guns.ammo.VyhlopAmmo
  *  mods.provoda.handlers.BlockHandlerBarStol
  *  mods.provoda.handlers.BlockHandlerBed
  *  mods.provoda.handlers.BlockHandlerBox1
