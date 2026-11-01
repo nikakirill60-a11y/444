@@ -53,14 +53,12 @@
  *  mods.provoda.guns.grenades.renderers.RenderGrenadeBig
  *  mods.provoda.guns.grenades.renderers.RendererGrenade
  *  mods.provoda.guns.grenades.renderers.RendererGrenadeBig
- *  mods.provoda.guns.renderers.Render_AK
  *  mods.provoda.guns.renderers.Render_AK2012
  *  mods.provoda.guns.renderers.Render_AKK
  *  mods.provoda.guns.renderers.Render_AKSU
  *  mods.provoda.guns.renderers.Render_Abzac
  *  mods.provoda.guns.renderers.Render_Ashot
  *  mods.provoda.guns.renderers.Render_Duplet
- *  mods.provoda.guns.renderers.Render_Gatling
  *  mods.provoda.guns.renderers.Render_Helsing
  *  mods.provoda.guns.renderers.Render_Machete
  *  mods.provoda.guns.renderers.Render_Ognemet
