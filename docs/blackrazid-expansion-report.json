@@ -12,6 +12,7 @@
     "lamp/charger (documented light adaptation)",
     "ordinary/big grenade mechanics",
     "9 native round items and 20 magazines/canisters",
+    "28 native attachment items with server-owned five-slot fitting/removal and actual source-based gun effects; zoom/laser are documented client adaptations",
     "22 basic native firearm profiles, not a complete gun/module/model port",
     "12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners",
     "12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches",
@@ -19,7 +20,7 @@
     "4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams"
   ],
   "pending": [
-    "native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance",
+    "native weapon/ammunition/attachment meshes and animations for all 22; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance",
     "full mutant gameplay/visual acceptance",
     "remaining 17 tunnel variants, tunnel generators, building/decor blocks and full environment gameplay/visual acceptance"
@@ -28,7 +29,7 @@
     {
       "sourceId": "Ubludok",
       "source": "guns/Ubludok.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -51,12 +52,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "9c9742303b6ca460aa60374769cf6bd91e8dc5c848986cce1053f66ed9766474"
+      "sourceHash": "2843590f109d7acfac9ebc49afa1be33c86f6f280753797d1c122904aac5e9cd"
     },
     {
       "sourceId": "AK2012",
       "source": "guns/AK2012.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -78,12 +79,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "92bf4140b3aa28fe59e8a13d9f2165c1400710427e5c19e9eec1cd26166fbb03"
+      "sourceHash": "8f8c3f4476b4622b893c01b199a10b37a281d5dc529542ea7c5f6e245f57f611"
     },
     {
       "sourceId": "AK",
       "source": "guns/AK.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -107,12 +108,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "cc69e66af19f41c9d7f2ec080083fd96098f5cbaa237d05f37d2367d45caaeba"
+      "sourceHash": "8770590746aed31e537474e5442b7b2eaf885ff197eb2acf8464e5af7000779b"
     },
     {
       "sourceId": "AKSU",
       "source": "guns/AKSU.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 30,
       "baseDamage": 5,
       "dependencies": [
@@ -136,12 +137,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "8661cea0706c531b15603c1b62a406fb53e6f1674b68f0572066d92911687f67"
+      "sourceHash": "f963fe927b9260153b5f6f5698903e376ddfc259b01b7b16af421f79dc7c04d9"
     },
     {
       "sourceId": "Ashot",
       "source": "guns/Ashot.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 1,
       "baseDamage": 2,
       "dependencies": [
@@ -163,12 +164,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "4d96f4cd2d38a82e7fe47b8db2ef783ec75e4747d281e692f2986c95c901047a"
+      "sourceHash": "61e30b9589f84cd60a08c0700927f940d6bcf87a5b1bdcebd205380c527caa6f"
     },
     {
       "sourceId": "Duplet",
       "source": "guns/Duplet.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 2,
       "baseDamage": 3,
       "dependencies": [
@@ -191,12 +192,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "bd164840bed53c9ede5ad32db86945611000efcfadd5ede4abf1a9954aac08e0"
+      "sourceHash": "1116ee7bab83e192805c242d8316fccc597f0a1de4aac17bf1bccf5f6a075196"
     },
     {
       "sourceId": "Gatling",
       "source": "guns/Gatling.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 150,
       "baseDamage": 6,
       "dependencies": [
@@ -229,12 +230,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "fab1b25445d3780b33a5c75b0a2180dee5af368cacf5451f077a5fd407065869"
+      "sourceHash": "430d72c9b493003c05d9311afcaa6b84416c18422beddf2b62cb1c914039f550"
     },
     {
       "sourceId": "Helsing",
       "source": "guns/Helsing.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 6,
       "dependencies": [
@@ -258,12 +259,12 @@
         "ST",
         "UnloadingTimer"
       ],
-      "sourceHash": "25b7a13c01a6444a88d118750f56eae5c52777910c0d1f51a6eb21cbdadbba3d"
+      "sourceHash": "e21e05348e90c0aa3c593c6bd54b4b764f7160afb3db4770439efdf66c2c580f"
     },
     {
       "sourceId": "Tihar",
       "source": "guns/Tihar.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 15,
       "baseDamage": 6,
       "dependencies": [
@@ -287,12 +288,12 @@
         "ST",
         "UnloadingTimer"
       ],
-      "sourceHash": "f1a31ec9ca6edb96e235b6d96847a416f9c05bf78968bfff7b9b766601c84169"
+      "sourceHash": "466f6505ceaa8aaae1d425d42f47e3e97d457d7387fcd9170c28327069469aab"
     },
     {
       "sourceId": "Podonok",
       "source": "guns/Podonok.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 20,
       "baseDamage": 4,
       "dependencies": [
@@ -320,12 +321,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "8afba6e1d292660e5755ecc4d2fed7279f323f77b7f2b9ebcd560ea65d7a1fb5"
+      "sourceHash": "4dd249570bdb7a0345805328e3fe8d81701b0ebb1a9d62b730d399246403bdcd"
     },
     {
       "sourceId": "Preved",
       "source": "guns/Preved.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 1,
       "baseDamage": 15,
       "dependencies": [
@@ -350,12 +351,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "a9d68409c709c72e178c4323cdec63a90f3181287a3a6b763935cc4b16feaa73"
+      "sourceHash": "44ebf35412d6394bd325348b3c12f438f2da885d156aeb39f7c3ac40a8298748"
     },
     {
       "sourceId": "Railgun",
       "source": "guns/Railgun.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 15,
       "baseDamage": 5,
       "dependencies": [
@@ -383,12 +384,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "0be11cb780892d6118e491b1c43f3be453a332ffbbbf7fd6e73162876bc6c107"
+      "sourceHash": "da0883e6f2a5760d654953af83c9e972a58c5bf7bf27194067bb9e48cc80d017"
     },
     {
       "sourceId": "Revolver",
       "source": "guns/Revolver.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 4,
       "dependencies": [
@@ -411,12 +412,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "416ea816c689258387ed73f4ca79a3559acf71494cb5b9cb8dc00747eec2644a"
+      "sourceHash": "57d88bd852cac7ca251ff1d1ab087dfa6acbaf725b401daa74b880504789c552"
     },
     {
       "sourceId": "Rpk",
       "source": "guns/Rpk.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 100,
       "baseDamage": 5,
       "dependencies": [
@@ -439,12 +440,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "289032eaec5a469284cdac7b1ac46e14aded96477d8bd49e7aebc0ebd165bc15"
+      "sourceHash": "454842aa11de61707b6654934fa056215a3c4f6fd5f8601ac2d547e4648c01b9"
     },
     {
       "sourceId": "Saiga",
       "source": "guns/Saiga.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 20,
       "baseDamage": 3,
       "dependencies": [
@@ -468,12 +469,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "056da8203846c727d22c231fc51b4c6a7e21b6e4800ce5a2e6d1be1528700b7a"
+      "sourceHash": "167a124374c878e877a5ca1f763077265c52155a6fa71721135054237cd7d046"
     },
     {
       "sourceId": "Abzac",
       "source": "guns/Abzac.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 40,
       "baseDamage": 4,
       "dependencies": [
@@ -497,12 +498,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "c46b05ebfed5e4935f11329d65386e3bf139c2e5d4589941c337a60823526cd1"
+      "sourceHash": "691668de5ee2127a1eadfe0aa7b4f5318f011180472b6b79be786e1a62001eb9"
     },
     {
       "sourceId": "Uboinik",
       "source": "guns/Uboinik.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 3,
       "dependencies": [
@@ -524,12 +525,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "2b60c75d2c319658f5e672f7ce538f07c2cfaeda99b9c8db4149b0d906fafe18"
+      "sourceHash": "437fbaf125fd519b84ca446eeb2bfa00a884b47624fa591273b4ccf11d6eb57e"
     },
     {
       "sourceId": "Ventil",
       "source": "guns/Ventil.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 10,
       "baseDamage": 10,
       "dependencies": [
@@ -553,12 +554,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "76e79966b97a8534bcfb0b754ba237d7a2cfa3e463ad8369436a6bf569ff0968"
+      "sourceHash": "52d2ce4bd43f94c349b1cc85e23f35f5c6644b9cef3b19c391e52b65f09c91b1"
     },
     {
       "sourceId": "Vsv",
       "source": "guns/Vsv.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 20,
       "baseDamage": 5,
       "dependencies": [
@@ -580,12 +581,12 @@
         "Shoot",
         "UnloadingTimer"
       ],
-      "sourceHash": "ea608de2d8b3b0bcde09bdb9de9b34f280a1b917970cd99320996410cc53b69f"
+      "sourceHash": "1b732786960f18eed7af6323ec70a0fe6432d996feefae3a43ddc24efd164fff"
     },
     {
       "sourceId": "Vyhlop",
       "source": "guns/Vyhlop.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 5,
       "baseDamage": 12,
       "dependencies": [
@@ -605,12 +606,12 @@
         "Modifi",
         "UnloadingTimer"
       ],
-      "sourceHash": "862209589b691e19cf5ff1c88dda7d34655fb3ec385a0ed36740c5575c16697e"
+      "sourceHash": "39110d60c97e86b1dab9a8ac30dbd812facc63b8ac8159df47420febf916cd2e"
     },
     {
       "sourceId": "Velopal",
       "source": "guns/Velopal.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 4,
       "dependencies": [
@@ -629,12 +630,12 @@
         "Modifi",
         "UnloadingTimer"
       ],
-      "sourceHash": "385530cf9cb742f0972c1ce7169f1b07be99d25001c0d770bf830cb6c9cca261"
+      "sourceHash": "6b65012af8bf510ee36452879568084e1148cd51d326fc03fb08f68464790075"
     },
     {
       "sourceId": "Ognemet",
       "source": "guns/Ognemet.java",
-      "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+      "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
       "constructorAmmoArgument": 6,
       "baseDamage": 4,
       "dependencies": [

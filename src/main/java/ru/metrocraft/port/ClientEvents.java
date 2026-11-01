@@ -154,7 +154,8 @@ public final class ClientEvents {
         if(aiming() && held.getItem() instanceof GunItem) {
             float zoom=held.getItem() instanceof ru.metrocraft.port.mcmod.McmodAkItem?
                     (ru.metrocraft.port.mcmod.McmodAkItem.module(held,"modScope")==1?4:ru.metrocraft.port.mcmod.McmodAkItem.module(held,"modScope")==2?1.5F:1.2F):
-                    Math.max(1.2F,Math.min(8,AttachmentItem.multiplier(held,"zoom")));
+                    held.getItem() instanceof ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem?
+                    ru.metrocraft.port.blackrazid.weapons.BlackrazidModules.zoom(held):Math.max(1.2F,Math.min(8,AttachmentItem.multiplier(held,"zoom")));
             event.setNewfov(event.getNewfov()/zoom);
         }
     }

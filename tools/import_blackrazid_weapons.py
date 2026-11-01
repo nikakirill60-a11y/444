@@ -36,7 +36,7 @@ def catalog():
         entries.append(dict(id=identifier(name),sourceId=name,kind='gun',icon=re.search(r'a\("provoda:([^"\n]+)"',text)[1],nameRu=labels[name],nameEn=name,
             magazines=[identifier(c) for c in choices],damage=int(args[2]),speed=float(shot[2]),accuracy=int(shot[1]),delay=min(map(int,re.findall(r'ep.upST\((\d+)\)',text))),
             loadingTicks=loading,unloadingTicks=unloading,recoil=.4 if name=='Vsv' else .6,
-            shootSound='blackrazid_'+sounds[0],reloadSound='blackrazid_'+sounds[1],unloadSound='blackrazid_'+sounds[2],runtimeStatus='basic-firearm; modules/native-mesh pending'))
+            shootSound='blackrazid_'+sounds[0],reloadSound='blackrazid_'+sounds[1],unloadSound='blackrazid_'+sounds[2],runtimeStatus='basic-firearm with native attachment effects; native-mesh/animations pending'))
     for name,profile in SPECIALS.items():
         text=(J/('guns/'+name+'.java')).read_text()
         args=re.search(r'\b'+name+r' = new '+name+r'\(\d+, (\d+), (\d+)\)',registration)
@@ -45,7 +45,7 @@ def catalog():
         e=dict(id=identifier(name),sourceId=name,kind='gun',icon=re.search(r'a\("provoda:([^"\n]+)"',text)[1],nameRu=labels[name],nameEn=name,
             magazines=[identifier(c) for c in choices],damage=4 if profile.get('flame') else int(args[2]),sourceConstructorDamage=int(args[2]),
             loadingTicks=profile.get('loadingTicks',profile.get('looseLoadingTicks',1)),unloadingTicks=profile.get('unloadingTicks',1),
-            runtimeStatus='basic-firearm; modules/native-mesh pending')
+            runtimeStatus='basic-firearm with native attachment effects; native-mesh/animations pending')
         e.update({k:v for k,v in profile.items() if k not in ['sounds','magazineOverride']})
         if 'looseRound' in e:e['looseRound']=identifier(e['looseRound'])
         for key in ['looseReloadSound','cycleSound','pumpSound']:

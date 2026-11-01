@@ -38,7 +38,7 @@ public class NativeWeaponsTest {
     static void hold(EntityPlayer p,ItemStack stack){p.inventory.currentItem=0;p.inventory.setInventorySlotContents(0,stack);when(p.getHeldItemMainhand()).thenReturn(stack);}
     static void ticks(BlackrazidGunItem item,ItemStack stack,EntityPlayer p,int count){for(int i=0;i<count;i++)item.onUpdate(stack,p.world,p,0,true);}
     @Test public void allNativeItemsHaveSeparateIdsAndMagazineCapacities(){
-        assertEquals(51,BlackrazidWeapons.items().size());assertEquals(30,mag("ak_ammo").entry.capacity);assertEquals(40,mag("rpk_ammo").entry.capacity);assertEquals(100,mag("rpk_ammo_big").entry.capacity);
+        assertEquals(79,BlackrazidWeapons.items().size());assertEquals(30,mag("ak_ammo").entry.capacity);assertEquals(40,mag("rpk_ammo").entry.capacity);assertEquals(100,mag("rpk_ammo_big").entry.capacity);
         assertEquals(150,mag("gatling_ammo").entry.capacity);assertEquals(8,mag("helsing_ammo").entry.capacity);assertEquals(15,mag("tihar_ammo").entry.capacity);
     }
     @Test public void freshMagazinesEmptyExceptNativeFuelOffset(){

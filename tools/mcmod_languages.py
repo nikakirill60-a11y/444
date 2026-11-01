@@ -26,6 +26,10 @@ def lines_for(locale):
     if weapons.exists():
         for entry in json.loads(weapons.read_text()):
             lines.append('item.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
+    modules=ASSETS/'blackrazid_modules.json'
+    if modules.exists():
+        for entry in json.loads(modules.read_text()):
+            lines.append('item.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
     mutants=ASSETS/'blackrazid_mutants.json'
     if mutants.exists():
         for entry in json.loads(mutants.read_text()):

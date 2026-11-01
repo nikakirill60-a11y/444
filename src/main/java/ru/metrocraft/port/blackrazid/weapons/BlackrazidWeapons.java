@@ -34,6 +34,10 @@ public final class BlackrazidWeapons {
                 item.setRegistryName(MetroPort.ID,e.id).setTranslationKey("metroport."+e.id).setCreativeTab(MetroPort.WEAPONS);
                 if(ITEMS.put(e.id,item)!=null)throw new IllegalStateException("Duplicate BlackRazid item "+e.id);
             }
+            for(BlackrazidModules.Entry e:BlackrazidModules.entries()){
+                Item item=new BlackrazidModules.ModuleItem(e).setRegistryName(MetroPort.ID,e.id).setTranslationKey("metroport."+e.id).setCreativeTab(MetroPort.WEAPONS);
+                if(ITEMS.put(e.id,item)!=null)throw new IllegalStateException("Duplicate module "+e.id);
+            }
         }catch(IOException ex){throw new IllegalStateException("Cannot load BlackRazid firearms",ex);}
     }
     public static Item item(String id){load();return ITEMS.get(id);}
@@ -58,7 +62,7 @@ public final class BlackrazidWeapons {
     @SubscribeEvent public static void logout(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent event){cancelActions(event.player);}
     @SubscribeEvent public static void dimension(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent event){cancelActions(event.player);}
     @SubscribeEvent public static void registerSounds(RegistryEvent.Register<SoundEvent> event){
-        load();Set<String> ids=new LinkedHashSet<>();ids.add("blackrazid_empty");ids.add("blackrazid_vsv_shootclose");ids.add("blackrazid_gatling_rot");
+        load();Set<String> ids=new LinkedHashSet<>();ids.add("blackrazid_empty");ids.add("blackrazid_vsv_shootclose");ids.add("blackrazid_gatling_rot");ids.add("blackrazid_saiga_closeshoot");ids.add("blackrazid_abzac_fastshoot");
         for(Entry e:entries)if("gun".equals(e.kind)){for(String id:new String[]{e.shootSound,e.reloadSound,e.unloadSound,e.looseReloadSound,e.cycleSound,e.pumpSound,e.emptySound})if(id!=null && !id.equals("blackrazid_railgun_air"))ids.add(id);}
         for(String id:ids){ResourceLocation key=new ResourceLocation(MetroPort.ID,id);SoundEvent sound=new SoundEvent(key).setRegistryName(key);
             if(MetroPort.SOUNDS.put(id,sound)!=null)throw new IllegalStateException("Duplicate sound "+id);event.getRegistry().register(sound);}

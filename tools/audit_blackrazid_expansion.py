@@ -14,7 +14,7 @@ def report():
     for name in GUNS:
         path='guns/'+name+'.java';text=(J/path).read_text()
         args=re.search(r'\b'+name+r' = new '+name+r'\((\d+), (\d+), (\d+)\)',registration)
-        weapons.append(dict(sourceId=name,source=path,runtimeStatus='basic-firearm; modules/native-mesh pending' if name in BASIC_GUNS else 'pending',constructorAmmoArgument=int(args[2]),baseDamage=int(args[3]),
+        weapons.append(dict(sourceId=name,source=path,runtimeStatus='basic-firearm with native attachment effects; native-mesh/animations pending' if name in BASIC_GUNS else 'pending',constructorAmmoArgument=int(args[2]),baseDamage=int(args[3]),
             dependencies=sorted(set(re.findall(r'ModBase\.(\w+)',text))),
             shootDelays=sorted(set(map(int,re.findall(r'ep\.upST\((\d+)\)',text)))),
             stateKeys=sorted(set(re.findall(r'\.q\(\)\.[a-z]\("(\w+)"',text))),
@@ -29,8 +29,8 @@ def report():
         re.findall(r'\b(\w+Ammo\w*) = new \w+\(\d+, ModBase\.(\w+)\.cp, (\d+),',registration)]
     return dict(status='INCOMPLETE DEVELOPMENT — NOT A FULL-PORT RELEASE',
         excluded=['AirSetup','general EventHandler','PlayerTracker','general ExtendetPlayer implementation','CommandDefence'],
-        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','22 basic native firearm profiles, not a complete gun/module/model port','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches','2 native tunnel sections with 159 original cubes / concrete OBJ and owned ring helpers','4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams'],
-        pending=['native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance','Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance',
+        implementedInDevelopment=['thirst/flask','lamp/charger (documented light adaptation)','ordinary/big grenade mechanics','9 native round items and 20 magazines/canisters','28 native attachment items with server-owned five-slot fitting/removal and actual source-based gun effects; zoom/laser are documented client adaptations','22 basic native firearm profiles, not a complete gun/module/model port','12 native mutants including flying multipart Demon, native OBJ animation and available sounds; 11 bounded persistent map spawners','12 native wide-rail footprints, owned transactional multiblocks and pure tangent API; reconstructed empty draw branches','2 native tunnel sections with 159 original cubes / concrete OBJ and owned ring helpers','4 internal expiring light levels; selected faction teleport adapted to server scoreboard teams'],
+        pending=['native weapon/ammunition/attachment meshes and animations for all 22; visual-only Ashot stock, auxiliary flame effects and full gameplay acceptance','Regina/Drezina entities, coupling, fuel, controls and missing native models/audio; complete source-faithful rail visuals and gameplay acceptance',
                  'full mutant gameplay/visual acceptance','remaining 17 tunnel variants, tunnel generators, building/decor blocks and full environment gameplay/visual acceptance'],
         weapons=weapons,magazines=magazines,mutants=mobs,
         warnings=['Constructor ammo arguments are NOT necessarily the actual magazine capacity.',

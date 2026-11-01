@@ -390,6 +390,18 @@
       "driveId": "1DIoqMTu4UtqPq6HQdi0U1iK-HiwNYEfW",
       "bytes": 8353,
       "sha256": "476f4bd431486295c2e53c06c66b133ccc66f537923bed93db07ba7c01f8d457"
+    },
+    {
+      "path": "assets/sounds/abzac_fastshoot.ogg",
+      "driveId": "14CeIHX43U6poivyYjuCIjOqmGI9c6t0j",
+      "bytes": 11105,
+      "sha256": "1e64c4faddae537e610c39aff41f201ea3b893a760499e3408dcfd23572f2cd1"
+    },
+    {
+      "path": "assets/sounds/saiga_closeshoot.ogg",
+      "driveId": "1UmBr_Blp5mxUwtnYLUkoeUCB8aqUHiMd",
+      "bytes": 10912,
+      "sha256": "176dede9f4f7142d01d686afb143f0c3acfd7211d9d1fadff88109c115161220"
     }
   ]
 }

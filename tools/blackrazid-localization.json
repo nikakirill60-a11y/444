@@ -14,10 +14,16 @@
     "metroport.blackrazid.magazine.fuel": "Баллон не перезаполняется",
     "metroport.blackrazid.gun.reload": "R / Shift+ПКМ — вставить или извлечь магазин",
     "metroport.blackrazid.gun.empty": "Магазин не установлен",
-    "metroport.blackrazid.gun.basic": "Разработка: модули и исходная 3D-модель ещё не перенесены",
+    "metroport.blackrazid.gun.basic": "Разработка: исходные 3D-модели и анимации ещё не перенесены",
     "metroport.blackrazid.gun.loose": "R / Shift+ПКМ — зарядить подходящие патроны",
     "metroport.blackrazid.gun.pressure": "Давление / взвод: %s / %s; удерживать V для накачки",
-    "death.attack.metroflame": "%1$s сгорел от огнемёта %2$s"
+    "death.attack.metroflame": "%1$s сгорел от огнемёта %2$s",
+    "metroport.blackrazid.modules.help": "Клавиша модификаций — установка и снятие деталей из инвентаря",
+    "metroport.blackrazid.modules.slot": "Гнездо %s",
+    "metroport.blackrazid.modules.empty": "Пусто",
+    "metroport.blackrazid.modules.remove": "Снять",
+    "metroport.blackrazid.modules.failed": "Недоступно: нужны подходящая деталь и свободное место; проверьте боезапас",
+    "metroport.blackrazid.modules.note": "Снятие возвращает исходную деталь. Модели оружия пока временные."
   },
   "en_us": {
     "key.metroport.blackrazid_lamp": "BlackRazid flashlight",
@@ -34,9 +40,15 @@
     "metroport.blackrazid.magazine.fuel": "This fuel canister is not refillable",
     "metroport.blackrazid.gun.reload": "R / sneak+right click to insert or eject magazine",
     "metroport.blackrazid.gun.empty": "No magazine inserted",
-    "metroport.blackrazid.gun.basic": "Development: modules and native 3D model not yet ported",
+    "metroport.blackrazid.gun.basic": "Development: native 3D models and animations still pending",
     "metroport.blackrazid.gun.loose": "R / sneak+right click to load matching loose rounds",
     "metroport.blackrazid.gun.pressure": "Pressure / winding: %s / %s; hold V to pump",
-    "death.attack.metroflame": "%1$s was burned by %2$s's flamethrower"
+    "death.attack.metroflame": "%1$s was burned by %2$s's flamethrower",
+    "metroport.blackrazid.modules.help": "Modification key: install/remove parts from your inventory",
+    "metroport.blackrazid.modules.slot": "Socket %s",
+    "metroport.blackrazid.modules.empty": "Empty",
+    "metroport.blackrazid.modules.remove": "Remove",
+    "metroport.blackrazid.modules.failed": "Unavailable: check matching part, free inventory space and ammunition",
+    "metroport.blackrazid.modules.note": "Removal returns the original part. Gun models remain temporary."
   }
 }

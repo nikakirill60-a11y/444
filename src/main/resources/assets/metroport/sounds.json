@@ -9,6 +9,11 @@
       "metroport:ak74shoot"
     ]
   },
+  "blackrazid_abzac_fastshoot": {
+    "sounds": [
+      "metroport:blackrazid_abzac_fastshoot"
+    ]
+  },
   "blackrazid_abzac_reload": {
     "sounds": [
       "metroport:blackrazid_abzac_reload"
@@ -327,6 +332,11 @@
   "blackrazid_rpk_unload": {
     "sounds": [
       "metroport:blackrazid_rpk_unload"
+    ]
+  },
+  "blackrazid_saiga_closeshoot": {
+    "sounds": [
+      "metroport:blackrazid_saiga_closeshoot"
     ]
   },
   "blackrazid_saiga_reload": {

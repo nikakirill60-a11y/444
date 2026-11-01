@@ -1,0 +1,198 @@
+[
+  {
+    "id": "blackrazid_mod_abzac_glushak",
+    "sourceId": "AbzacGlushak",
+    "icon": "abzac_glushak",
+    "nameRu": "Глушитель для абзаца",
+    "nameEn": "AbzacGlushak"
+  },
+  {
+    "id": "blackrazid_mod_ashot_butt",
+    "sourceId": "AshotButt",
+    "icon": "ashot_butt",
+    "nameRu": "Приклад для Ашота",
+    "nameEn": "AshotButt"
+  },
+  {
+    "id": "blackrazid_mod_auto_fire",
+    "sourceId": "AutoFire",
+    "icon": "abzac_compens",
+    "nameRu": "Модуль для абзаца \"Autofire\"",
+    "nameEn": "AutoFire"
+  },
+  {
+    "id": "blackrazid_mod_barrel",
+    "sourceId": "Barrel",
+    "icon": "barrel",
+    "nameRu": "Ствол",
+    "nameEn": "Barrel"
+  },
+  {
+    "id": "blackrazid_mod_butt",
+    "sourceId": "Butt",
+    "icon": "butt",
+    "nameRu": "Приклад",
+    "nameEn": "Butt"
+  },
+  {
+    "id": "blackrazid_mod_duplet_barrel",
+    "sourceId": "DupletBarrel",
+    "icon": "duplet_barrel",
+    "nameRu": "Ствол для Дуплета",
+    "nameEn": "DupletBarrel"
+  },
+  {
+    "id": "blackrazid_mod_duplet_butt",
+    "sourceId": "DupletButt",
+    "icon": "duplet_butt",
+    "nameRu": "Рукоять для Дуплета",
+    "nameEn": "DupletButt"
+  },
+  {
+    "id": "blackrazid_mod_duplet_glushak",
+    "sourceId": "DupletGlushak",
+    "icon": "duplet_glushak",
+    "nameRu": "Глушитель для Дуплета",
+    "nameEn": "DupletGlushak"
+  },
+  {
+    "id": "blackrazid_mod_duplet_priklad",
+    "sourceId": "DupletPriklad",
+    "icon": "duplet_priklad",
+    "nameRu": "Приклад для Дуплета",
+    "nameEn": "DupletPriklad"
+  },
+  {
+    "id": "blackrazid_mod_gatling_barrel",
+    "sourceId": "GatlingBarrel",
+    "icon": "gatling_barrel",
+    "nameRu": "5 стволов для Ручного пулемёта",
+    "nameEn": "GatlingBarrel"
+  },
+  {
+    "id": "blackrazid_mod_gatling_butt",
+    "sourceId": "GatlingButt",
+    "icon": "gatling_butt",
+    "nameRu": "Приклад для Ручного пулемёта",
+    "nameEn": "GatlingButt"
+  },
+  {
+    "id": "blackrazid_mod_gatling_giro",
+    "sourceId": "GatlingGiro",
+    "icon": "gatling_giro",
+    "nameRu": "Стабилизатор для Ручного пулемёта",
+    "nameEn": "GatlingGiro"
+  },
+  {
+    "id": "blackrazid_mod_gatling_motor",
+    "sourceId": "GatlingMotor",
+    "icon": "gatling_motor",
+    "nameRu": "Мотор для Ручного пулемёта",
+    "nameEn": "GatlingMotor"
+  },
+  {
+    "id": "blackrazid_mod_glushak",
+    "sourceId": "Glushak",
+    "icon": "glushak",
+    "nameRu": "Глушитель",
+    "nameEn": "Glushak"
+  },
+  {
+    "id": "blackrazid_mod_kolimator",
+    "sourceId": "Kolimator",
+    "icon": "kolimator",
+    "nameRu": "Коллиматорный прицел",
+    "nameEn": "Kolimator"
+  },
+  {
+    "id": "blackrazid_mod_laser",
+    "sourceId": "Laser",
+    "icon": "laser",
+    "nameRu": "Лазер",
+    "nameEn": "Laser"
+  },
+  {
+    "id": "blackrazid_mod_optica",
+    "sourceId": "Optica",
+    "icon": "optica",
+    "nameRu": "Оптика",
+    "nameEn": "Optica"
+  },
+  {
+    "id": "blackrazid_mod_optica_small",
+    "sourceId": "OpticaSmall",
+    "icon": "opticasmall",
+    "nameRu": "Оптика IRNV",
+    "nameEn": "OpticaSmall"
+  },
+  {
+    "id": "blackrazid_mod_podonok_butt",
+    "sourceId": "PodonokButt",
+    "icon": "podonok_butt",
+    "nameRu": "Приклад для Подонка",
+    "nameEn": "PodonokButt"
+  },
+  {
+    "id": "blackrazid_mod_podonok_gas",
+    "sourceId": "PodonokGas",
+    "icon": "podonok_gas",
+    "nameRu": "Газоотводный механизм для Подонка",
+    "nameEn": "PodonokGas"
+  },
+  {
+    "id": "blackrazid_mod_quad_barrel",
+    "sourceId": "QuadBarrel",
+    "icon": "quadbarrel",
+    "nameRu": "2 дополнительных ствола для Дуплета",
+    "nameEn": "QuadBarrel"
+  },
+  {
+    "id": "blackrazid_mod_railgun_akk",
+    "sourceId": "RailgunAkk",
+    "icon": "railgun_akk",
+    "nameRu": "Расширенный аккамулятор для Рельсы",
+    "nameEn": "RailgunAkk"
+  },
+  {
+    "id": "blackrazid_mod_railgun_kon",
+    "sourceId": "RailgunKon",
+    "icon": "railgun_kon",
+    "nameRu": "Конденсатор повышенной мощности для Рельсы",
+    "nameEn": "RailgunKon"
+  },
+  {
+    "id": "blackrazid_mod_tihar_optica",
+    "sourceId": "TiharOptica",
+    "icon": "tihar_optica",
+    "nameRu": "Оптика для Тихаря",
+    "nameEn": "TiharOptica"
+  },
+  {
+    "id": "blackrazid_mod_ubludok_butt",
+    "sourceId": "UbludokButt",
+    "icon": "ubludok_butt",
+    "nameRu": "Приклад для Ублюдка",
+    "nameEn": "UbludokButt"
+  },
+  {
+    "id": "blackrazid_mod_uboinik_barrel",
+    "sourceId": "UboinikBarrel",
+    "icon": "uboinik_barrel",
+    "nameRu": "Ствол для убойника",
+    "nameEn": "UboinikBarrel"
+  },
+  {
+    "id": "blackrazid_mod_ventil_glushak",
+    "sourceId": "VentilGlushak",
+    "icon": "ventil_glushak",
+    "nameRu": "Пламегаситель",
+    "nameEn": "VentilGlushak"
+  },
+  {
+    "id": "blackrazid_mod_vsv_glushak",
+    "sourceId": "VsvGlushak",
+    "icon": "vsv_glushak",
+    "nameRu": "Глушитель для ВСВ",
+    "nameEn": "VsvGlushak"
+  }
+]

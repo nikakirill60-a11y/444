@@ -18,7 +18,25 @@ public final class GunActionPacket implements IMessage {
                 ItemStack gun=player.getHeldItemMainhand();
                 if(!player.isEntityAlive()||player.isSpectator())return;
                 if(gun.getItem() instanceof ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem){
-                    if(msg.action==2)((ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem)gun.getItem()).startPump(gun,player);
+                    ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem nativeGun=(ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem)gun.getItem();
+                    long now=player.world.getTotalWorldTime();
+                    if(msg.action==2)nativeGun.startPump(gun,player);
+                    else if(msg.action==0){
+                        if(player.openContainer!=player.inventoryContainer || !InventoryCapacity.emptyForOpen(player) || !nativeGun.modificationReady(gun)
+                                || !ru.metrocraft.port.blackrazid.weapons.BlackrazidModules.hasSockets(gun))return;
+                        if(player.getEntityData().hasKey("BlackrazidLastModsOpen") && now-player.getEntityData().getLong("BlackrazidLastModsOpen")<5)return;
+                        player.getEntityData().setLong("BlackrazidLastModsOpen",now);player.stopActiveHand();
+                        player.openGui(MetroPort.INSTANCE,3,player.world,0,0,0);
+                    }else if(msg.action==3){
+                        if(!(player.openContainer instanceof ru.metrocraft.port.blackrazid.weapons.NativeModuleContainer)
+                                || player.openContainer.windowId!=msg.window || !player.openContainer.canInteractWith(player))return;
+                        if(player.getEntityData().hasKey("BlackrazidLastModuleChange") && now-player.getEntityData().getLong("BlackrazidLastModuleChange")<3)return;
+                        player.getEntityData().setLong("BlackrazidLastModuleChange",now);
+                        boolean ok=ru.metrocraft.port.blackrazid.weapons.BlackrazidModules.change(player,gun,msg.page,msg.value);
+                        if(!ok)player.sendStatusMessage(new net.minecraft.util.text.TextComponentTranslation("metroport.blackrazid.modules.failed"),true);
+                        // Button-only container has no inventory slots; explicitly synchronize the real inventory/NBT.
+                        if(ok)player.sendContainerToPlayer(player.inventoryContainer);
+                    }
                     return;
                 }
                 if(!(gun.getItem() instanceof McmodAkItem))return;

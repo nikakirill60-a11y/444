@@ -351,7 +351,7 @@
     "shootSound": "blackrazid_ubludok_shoot",
     "reloadSound": "blackrazid_ubludok_reload",
     "unloadSound": "blackrazid_ubludok_unload",
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending"
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending"
   },
   {
     "id": "blackrazid_ak2012",
@@ -373,7 +373,7 @@
     "shootSound": "blackrazid_rpk_shoot",
     "reloadSound": "blackrazid_aknew_reload",
     "unloadSound": "blackrazid_aknew_unload",
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending"
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending"
   },
   {
     "id": "blackrazid_ak",
@@ -396,7 +396,7 @@
     "shootSound": "blackrazid_ak_shoot",
     "reloadSound": "blackrazid_rpk_reload",
     "unloadSound": "blackrazid_rpk_unload",
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending"
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending"
   },
   {
     "id": "blackrazid_aksu",
@@ -419,7 +419,7 @@
     "shootSound": "blackrazid_ak_shoot",
     "reloadSound": "blackrazid_rpk_reload",
     "unloadSound": "blackrazid_rpk_unload",
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending"
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending"
   },
   {
     "id": "blackrazid_rpk",
@@ -442,7 +442,7 @@
     "shootSound": "blackrazid_rpk_shoot",
     "reloadSound": "blackrazid_rpk_reload",
     "unloadSound": "blackrazid_rpk_unload",
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending"
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending"
   },
   {
     "id": "blackrazid_vsv",
@@ -464,7 +464,7 @@
     "shootSound": "blackrazid_vsv_shoot",
     "reloadSound": "blackrazid_saiga_reload",
     "unloadSound": "blackrazid_saiga_unload",
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending"
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending"
   },
   {
     "id": "blackrazid_ashot",
@@ -478,7 +478,7 @@
     "sourceConstructorDamage": 2,
     "loadingTicks": 25,
     "unloadingTicks": 1,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 8,
     "accuracy": 80,
     "speed": 4,
@@ -504,7 +504,7 @@
     "sourceConstructorDamage": 3,
     "loadingTicks": 30,
     "unloadingTicks": 1,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 8,
     "accuracy": 80,
     "speed": 5,
@@ -533,7 +533,7 @@
     "sourceConstructorDamage": 6,
     "loadingTicks": 40,
     "unloadingTicks": 30,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 25,
     "speed": 4,
@@ -564,7 +564,7 @@
     "sourceConstructorDamage": 6,
     "loadingTicks": 25,
     "unloadingTicks": 30,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 10,
     "speed": 4,
@@ -594,7 +594,7 @@
     "sourceConstructorDamage": 6,
     "loadingTicks": 25,
     "unloadingTicks": 30,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 10,
     "speed": 10,
@@ -625,7 +625,7 @@
     "sourceConstructorDamage": 4,
     "loadingTicks": 35,
     "unloadingTicks": 22,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 15,
     "speed": 4,
@@ -650,7 +650,7 @@
     "sourceConstructorDamage": 15,
     "loadingTicks": 35,
     "unloadingTicks": 20,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 5,
     "speed": 4,
@@ -681,7 +681,7 @@
     "sourceConstructorDamage": 5,
     "loadingTicks": 30,
     "unloadingTicks": 30,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 5,
     "speed": 4,
@@ -709,7 +709,7 @@
     "sourceConstructorDamage": 4,
     "loadingTicks": 30,
     "unloadingTicks": 1,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 15,
     "speed": 4,
@@ -738,7 +738,7 @@
     "sourceConstructorDamage": 3,
     "loadingTicks": 30,
     "unloadingTicks": 20,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 10,
     "accuracy": 80,
     "speed": 5,
@@ -764,7 +764,7 @@
     "sourceConstructorDamage": 4,
     "loadingTicks": 40,
     "unloadingTicks": 40,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 10,
     "accuracy": 80,
     "speed": 4,
@@ -787,7 +787,7 @@
     "sourceConstructorDamage": 3,
     "loadingTicks": 110,
     "unloadingTicks": 1,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 10,
     "accuracy": 80,
     "speed": 5,
@@ -817,7 +817,7 @@
     "sourceConstructorDamage": 10,
     "loadingTicks": 40,
     "unloadingTicks": 20,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 5,
     "speed": 10,
@@ -846,7 +846,7 @@
     "sourceConstructorDamage": 12,
     "loadingTicks": 40,
     "unloadingTicks": 20,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 5,
     "speed": 10,
@@ -872,7 +872,7 @@
     "sourceConstructorDamage": 4,
     "loadingTicks": 40,
     "unloadingTicks": 20,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 10,
     "accuracy": 30,
     "speed": 5,
@@ -902,7 +902,7 @@
     "sourceConstructorDamage": 4,
     "loadingTicks": 40,
     "unloadingTicks": 20,
-    "runtimeStatus": "basic-firearm; modules/native-mesh pending",
+    "runtimeStatus": "basic-firearm with native attachment effects; native-mesh/animations pending",
     "pellets": 1,
     "accuracy": 0,
     "speed": 1,
