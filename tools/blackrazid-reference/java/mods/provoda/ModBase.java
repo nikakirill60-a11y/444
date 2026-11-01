@@ -103,8 +103,6 @@
  *  mods.provoda.blocks.GrassTall
  *  mods.provoda.blocks.Sapling_Tall
  *  mods.provoda.entity.EntityMountableBlock
- *  mods.provoda.entity.EntityPassiveFire
- *  mods.provoda.entity.EntityPropulsionFX
  *  mods.provoda.entity.EntitySpawnerAquaf
  *  mods.provoda.entity.EntitySpawnerAquam
  *  mods.provoda.entity.EntitySpawnerBear

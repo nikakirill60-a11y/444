@@ -8,7 +8,6 @@
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
- *  mods.provoda.entity.EntityPassiveFire
  *  mp
  *  ng
  *  org.lwjgl.input.Keyboard

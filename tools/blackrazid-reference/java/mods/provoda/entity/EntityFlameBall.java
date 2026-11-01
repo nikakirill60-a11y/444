@@ -9,7 +9,6 @@
  *  bs
  *  kx
  *  mg
- *  mods.provoda.entity.EntityPropulsionFX
  *  mp
  *  ng
  */
