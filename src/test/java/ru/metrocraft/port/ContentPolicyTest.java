@@ -29,5 +29,5 @@ public class ContentPolicyTest {
         assertEquals(new HashSet<>(Arrays.asList("exodus_guard","exodus_shrimp","exodus_gasmask_pumpkin")),ids);
         assertFalse(ContentPolicy.exodus("exodus_gasmask_gold","mask"));assertFalse(ContentPolicy.exodus("exodus_gasmask_diamond","mask"));
     }
-    @Test public void noSeparateOwnFirearmCreativeTabIsCreated(){assertSame(MetroPort.THINGS,MetroPort.WEAPONS);assertNotSame(MetroPort.THINGS,MetroPort.DECOR);}
+    @Test public void retainedMeleeAndGrenadesKeepTheirOwnCreativeTab(){assertNotSame(MetroPort.THINGS,MetroPort.WEAPONS);assertNotSame(MetroPort.THINGS,MetroPort.DECOR);}
 }

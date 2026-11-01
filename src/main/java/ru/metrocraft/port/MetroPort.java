@@ -36,8 +36,8 @@ public final class MetroPort {
 
     public static final CreativeTabs ARMOR = tab("armor", "armor", Items.IRON_CHESTPLATE);
     public static final CreativeTabs THINGS = tab("things", "medkit", Items.PAPER);
-    // No own firearm creative tab; retained grenades use Things.
-    public static final CreativeTabs WEAPONS = THINGS;
+    // Retained melee and grenades keep the requested Weapons catalogue; no firearms.
+    public static final CreativeTabs WEAPONS = tab("weapons", "mcmod_machete", Items.IRON_SWORD);
 
     public static final CreativeTabs DECOR = tab("decor", "block0", Items.PAINTING);
 

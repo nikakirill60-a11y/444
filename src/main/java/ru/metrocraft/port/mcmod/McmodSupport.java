@@ -44,7 +44,7 @@ public final class McmodSupport {
         for(Definition d:definitions()){
             if("ammo".equals(d.kind))continue;
             Item item=d.kind.equals("ammo")?new ContentItem(d):d.kind.equals("watch")?new WatchItem():new ItemBlock(BLOCKS.get(d.id));
-            item.setRegistryName(MetroPort.ID,d.id).setTranslationKey("metroport."+d.id).setCreativeTab(d.kind.equals("ammo")?MetroPort.WEAPONS:d.kind.equals("watch")?MetroPort.THINGS:MetroPort.THINGS);
+            item.setRegistryName(MetroPort.ID,d.id).setTranslationKey("metroport."+d.id).setCreativeTab(d.id.equals("mcmod_machete")?MetroPort.WEAPONS:MetroPort.THINGS);
             event.getRegistry().register(item);MetroPort.ITEMS.put(d.id,item);
         }
     }

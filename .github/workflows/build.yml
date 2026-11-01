@@ -57,6 +57,8 @@ jobs:
           PY
           fi
           exit "$result"
+      - name: Verify reduced distribution and retained model dependencies
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.16.jar
       - name: Report JUnit results
         if: always()
         run: |

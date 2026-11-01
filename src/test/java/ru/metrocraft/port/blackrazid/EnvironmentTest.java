@@ -10,7 +10,9 @@ import static org.mockito.Mockito.*;
 import ru.metrocraft.port.blackrazid.environment.*;
 public class EnvironmentTest {
     @Rule public org.junit.rules.TemporaryFolder temporary=new org.junit.rules.TemporaryFolder();
-    @BeforeClass public static void boot(){NativeWeaponsTest.boot();BlackrazidEnvironment.initialize();}
+    @BeforeClass public static void boot(){NativeWeaponsTest.boot();BlackrazidEnvironment.initialize();
+        // Archive-only serialization tests: this tile is deliberately NOT registered by the mod.
+        net.minecraftforge.fml.common.registry.GameRegistry.registerTileEntity(TunnelTile.class,new net.minecraft.util.ResourceLocation("metroport_test","archived_tunnel"));}
     private static ItemStack kit(int shape){return new ItemStack(BlackrazidEnvironment.KIT,64,shape);}
     @Test public void nativeRingHasSeventeenHelpersAndHollowCenter(){assertEquals(net.minecraft.block.material.Material.GROUND,BlackrazidEnvironment.TUNNEL.getDefaultState().getMaterial());assertEquals(net.minecraft.block.material.Material.ROCK,BlackrazidEnvironment.PROXY.getDefaultState().getMaterial());for(int d=0;d<4;d++){List<BlockPos> f=TunnelRules.footprint(0,d);assertEquals(18,f.size());assertEquals(18,new HashSet<>(f).size());for(int y=-5;y<=-1;y++)assertFalse(f.contains(new BlockPos(0,y,0)));}assertEquals(1,TunnelRules.footprint(1,0).size());assertTrue(TunnelRules.footprint(-1,0).isEmpty());assertTrue(TunnelRules.footprint(19,0).isEmpty());}
     @Test public void nativePlacementYawAndBothRendererAngleTablesAreRetained(){assertEquals(3,TunnelRules.placementDirection(0));assertEquals(0,TunnelRules.placementDirection(90));assertEquals(1,TunnelRules.placementDirection(180));assertEquals(2,TunnelRules.placementDirection(270));for(int d=0;d<4;d++){assertEquals(new int[]{90,180,270,0}[d],TunnelRules.renderAngle(0,d));assertEquals(new int[]{270,180,450,360}[d],TunnelRules.renderAngle(1,d));}}

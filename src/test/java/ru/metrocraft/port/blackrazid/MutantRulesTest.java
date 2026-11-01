@@ -84,15 +84,17 @@ public class MutantRulesTest {
         b.setHealth(200);when(p.canEntityBeSeen(b)).thenReturn(false);assertFalse(b.applyGaze(p));assertFalse(web.getBoolean(b));
         BiblioEntity client=new BiblioEntity(player(true).world);assertFalse(client.applyGaze(p));
     }
-    @Test public void actualSpiderUsesSelectedSurvivalNamespaceAndRealHeldLamp()throws Exception{
+    @Test public void actualSpiderUsesSelectedSurvivalNamespaceAndDedicatedLampSlot()throws Exception{
         EntityPlayer p=player(false);SpiderEntity spider=new SpiderEntity(p.world);sight(spider,p);
         SurvivalState s=new SurvivalState();s.energy=20;s.lamp=true;SurvivalSystem.save(p,s);
-        assertFalse(spider.applyLamp(p));ItemStack lamp=new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP));hold(p,lamp);
+        assertFalse(spider.applyLamp(p));ItemStack lamp=new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP));hold(p,lamp);assertFalse(spider.applyLamp(p));
+        ru.metrocraft.port.inventory.ExtraEquipment.inventory(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).setInventorySlotContents(0,lamp);
         assertTrue(spider.applyLamp(p));assertEquals(60,spider.panicTicks());assertTrue(spider.isBurning());
         assertFalse(spider.applyLamp(p));assertFalse(spider.attackEntityAsMob(p));assertEquals(20,SurvivalSystem.get(p).energy,0);
     }
     @Test public void spiderLampHonorsOcclusionAndDoesNotRunOnClient()throws Exception{
-        EntityPlayer p=player(false);SpiderEntity spider=new SpiderEntity(p.world);sight(spider,p);hold(p,new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP)));
+        EntityPlayer p=player(false);SpiderEntity spider=new SpiderEntity(p.world);sight(spider,p);
+        ru.metrocraft.port.inventory.ExtraEquipment.inventory(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).setInventorySlotContents(0,new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP)));
         SurvivalState s=new SurvivalState();s.energy=50;s.lamp=true;SurvivalSystem.save(p,s);when(p.canEntityBeSeen(spider)).thenReturn(false);
         assertFalse(spider.applyLamp(p));assertEquals(0,spider.panicTicks());assertFalse(spider.isBurning());
         assertFalse(new SpiderEntity(player(true).world).applyLamp(p));
