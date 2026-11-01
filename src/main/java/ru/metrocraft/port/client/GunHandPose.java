@@ -17,10 +17,21 @@ public final class GunHandPose {
                 anchor[1] - (support ? .22F*p : 0),
                 anchor[2] + side*(support ? -.025F : .025F)};
     }
-    /** Native hands straddle the weapon; legacy/revolver wrist offsets stay byte-for-byte equivalent. */
+    /** Native support is a real mesh SURFACE contact, not an arbitrary palm centre.
+     * Pin the upper fingertip pad to it; legacy/revolver wrist offsets stay unchanged.
+     */
     public static float[] wrist(String id,float[] anchor,boolean support,boolean left,float reload){
         float[] result=wrist(anchor,support,left,reload);
-        if(id.startsWith("blackrazid_"))result[2]=anchor[2]+(left?-.035F:.035F);
+        if(id.startsWith("blackrazid_")){
+            if(support){
+                // Steve/Alex share the same centre-relative fingertip pad: y=10,z=-2.
+                // Reuse the ACTUAL arm matrix so yaw, roll and scale cannot make
+                // the palm float below a short front handle or bury the barrel.
+                javax.vecmath.Vector4f pad=new javax.vecmath.Vector4f((left?1:-1)/16F,10/16F,-2/16F,1);
+                armMatrix(id,new float[]{0,0,0},left,true,false).transform(pad);
+                result[0]-=pad.x;result[1]-=pad.y;result[2]=anchor[2]-pad.z;
+            }else result[2]=anchor[2]+(left?-.035F:.035F);
+        }
         return result;
     }
     public static float armScale(String id){return id.startsWith("blackrazid_")?.60F:.85F;}

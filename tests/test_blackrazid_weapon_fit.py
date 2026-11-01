@@ -3,7 +3,7 @@ import hashlib,json,math,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from blackrazid_weapon_profiles import FITS,GUN_MODELS,SUPPORT_CLEARANCE,fitted_point,models,poses
+from blackrazid_weapon_profiles import FITS,GUN_MODELS,fitted_point,models,poses
 A=ROOT/'src/main/resources/assets/metroport'
 S=ROOT/'tools/blackrazid-reference/assets/weapons'
 
@@ -37,16 +37,16 @@ class NativeWeaponFitTests(unittest.TestCase):
    with self.subTest(weapon=name):
     distance=min(triangle_distance(FITS[name][1],*tri) for tri in triangles(name))
     self.assertLess(distance,.025,'rear grip must be within 25 mm of the original handle surface')
- def test_support_surface_is_on_actual_geometry_before_palm_clearance(self):
+ def test_support_pad_contact_is_on_the_actual_underside_mesh_surface(self):
   for name in FITS:
    with self.subTest(weapon=name):
     distance=min(triangle_distance(FITS[name][2],*tri) for tri in triangles(name))
-    self.assertLess(distance,.035,'support cannot float far from the original underside')
+    self.assertLess(distance,.000003,'support fingertip pad must touch the original underside surface')
  def test_palm_origin_and_support_are_generated_from_each_models_own_fit(self):
   for name,model in models().items():
    pose=poses()[model['id']];scale,grip,surface,sight,sign=FITS[name]
    self.assertEqual([0,0,0],fitted_point(name,grip));self.assertEqual([0,0,0],pose['trigger']);self.assertEqual([0,0,0],pose['grip'])
-   support=fitted_point(name,surface);support[1]=round(support[1]-SUPPORT_CLEARANCE,6)
+   support=fitted_point(name,surface)
    self.assertEqual(support,pose['support']);self.assertEqual(fitted_point(name,sight),pose['aimSight'])
    self.assertGreater(support[0],0);self.assertEqual(sign*90,model['nativeYaw']);self.assertGreaterEqual(scale,1.35)
  def test_no_shared_flan_contacts_and_complete_gatling_barrels_establish_muzzle_sign(self):

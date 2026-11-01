@@ -65,14 +65,26 @@ public class NativeWeaponFitTest {
                 assertTrue(elbow.x<contact[0]);assertTrue(elbow.y<contact[1]);assertTrue(left?elbow.z<contact[2]:elbow.z>contact[2]);
             }
     }
-    @Test public void nativeWristsDoNotPutBothHandsOnTheSameSideAndDoNotChangeLegacyOffsets(){
+    @Test public void nativePrimaryWristWrapsHandleAndDoesNotChangeLegacyOffsets(){
         float[] anchor={.3F,.1F,0};
         for(boolean left:new boolean[]{false,true})for(boolean support:new boolean[]{false,true}){
             float[] wrist=GunHandPose.wrist("blackrazid_ak",anchor,support,left,0);
-            assertEquals(left?-.035F:.035F,wrist[2],0);
+            if(!support)assertEquals(left?-.035F:.035F,wrist[2],0);
             for(String id:new String[]{"revolver","ak74","mcmod_ak74"})
                 assertArrayEquals(GunHandPose.wrist(anchor,support,left,0),GunHandPose.wrist(id,anchor,support,left,0),0);
         }
+    }
+    @Test public void supportFingertipPadActuallyTouchesSourceSurfaceForBothSkinWidthsAndReload() throws Exception {
+        for(Map.Entry<String,Fit> entry:fits().entrySet())for(boolean left:new boolean[]{false,true})
+            for(boolean slim:new boolean[]{false,true})for(float reload:new float[]{0,.5F,1}){
+                float[] surface=entry.getValue().support;
+                float[] wrist=GunHandPose.wrist(entry.getKey(),surface,true,left,reload);
+                Vector4f pad=new Vector4f((left?1:-1)*(slim?.5F:1)/16,10/16F,-2/16F,1);
+                GunHandPose.armMatrix(entry.getKey(),wrist,left,true,slim).transform(pad);
+                assertEquals(surface[0]-.12F*reload,pad.x,1e-6F);
+                assertEquals(surface[1]-.22F*reload,pad.y,1e-6F);
+                assertEquals(surface[2],pad.z,1e-6F);
+            }
     }
     @Test public void idleGripIsVisibleAboveHotbarAndNativeStockDoesNotReachNearClipPlane() throws Exception {
         Map<String,Fit> fits=fits();
