@@ -65,3 +65,10 @@ The next native baseline covers all 22 selected firearms but still does not clai
 `EntityPassiveFire` and `EntityPropulsionFX` are visual-only references; client FLAME particles are an explicit temporary adaptation.
 `vyhlop_shoot.ogg` is absent from the supplied sound folder; the original BlackRazid ventil shot is a documented fallback,
 not claimed to be a recovered Vyhlop recording. Native models, hands, modules, FX, transport, mutants and environment remain pending.
+
+BlackRazid mutant references/assets are recorded in `tools/blackrazid-reference/mutants-source-files.json`
+(62 originals). Rat, Spider and Biblio use the supplied Java animation transforms and native OBJ/atlas/audio.
+The remaining nine mutant models and eleven spawner references are not evidence of a completed port.
+Old obfuscated calls were cross-checked against MCP 1.5.2 mappings in
+https://github.com/MeLlamoGamer/MCP751_WITH_FORGE_1.5.2/tree/main/conf .
+These mappings were read as reference only, not bundled or executed in the mod.

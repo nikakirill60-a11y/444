@@ -14,7 +14,7 @@ def main():
     for m in MOBS:
         text=(S/'original-models'/(m['model']+'.java')).read_text()
         text=re.sub(r'package [^;]+;', 'package ru.metrocraft.port.client.blackrazid.mutants;',text)
-        text=text.replace('import mods.provoda.GLLoader.GLModel;', '')
+        text=text.replace('import mods.provoda.GLLoader.GLModel;', '').replace('net.minecraft.util.MathHelper','net.minecraft.util.math.MathHelper')
         text=re.sub(r'\s*EntityLiving entity1 = \(EntityLiving\)entity;', '',text)
         text=text.replace('GLModel','MutantObjPart').replace('"/mods/provoda/mobs/models/', '"metroport:models/blackrazid/mutants/')
         text='// Generated from the user-supplied original model by import_blackrazid_mutants.py.\n'+text

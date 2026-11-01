@@ -12,12 +12,13 @@
     "lamp/charger (documented light adaptation)",
     "ordinary/big grenade mechanics",
     "9 native round items and 20 magazines/canisters",
-    "22 basic native firearm profiles, not a complete gun/module/model port"
+    "22 basic native firearm profiles, not a complete gun/module/model port",
+    "3 native mutants (rat/spider/librarian), native OBJ animation and sounds; 2 bounded persistent map spawners"
   ],
   "pending": [
     "native weapon/ammunition meshes, modules/animations for all 22; auxiliary flame effects and full gameplay acceptance",
     "Regina/Drezina, rail geometry, switches, coupling, fuel, controls and models",
-    "12 mutants and 11 spawners with native multipart models and behaviors",
+    "remaining 9 mutants and 9 spawners; full mutant gameplay/visual acceptance",
     "tunnels, building/decor blocks, environment lights and faction teleport adaptation"
   ],
   "weapons": [
@@ -783,7 +784,7 @@
       "roundItem": "Bullet12_7x55",
       "capacity": 200,
       "sourceCapacityArgument": 5,
-      "runtimeStatus": "native fuel logic; flamethrower/model pending"
+      "runtimeStatus": "native fuel logic and basic flame runtime; native mesh pending"
     },
     {
       "sourceId": "PodonokAmmoBig",
@@ -850,7 +851,7 @@
     {
       "sourceId": "Biblio",
       "source": "mobs/mobs/Biblio.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and sounds; gameplay acceptance pending",
       "health": 200,
       "damage": 10,
       "sounds": [
@@ -927,7 +928,7 @@
     {
       "sourceId": "Rat",
       "source": "mobs/mobs/Rat.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and sounds; gameplay acceptance pending",
       "health": 15,
       "damage": 4,
       "sounds": [
@@ -940,7 +941,7 @@
     {
       "sourceId": "Spider",
       "source": "mobs/mobs/Spider.java",
-      "runtimeStatus": "pending",
+      "runtimeStatus": "native behavior, mesh and sounds; gameplay acceptance pending",
       "health": 80,
       "damage": 6,
       "sounds": [
