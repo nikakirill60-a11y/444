@@ -6,7 +6,6 @@
  *  bs
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
- *  mods.provoda.entity.RotativePoint
  *  mp
  *  sq
  *  wk
@@ -35,10 +34,10 @@ extends EntityDrezinaStock {
     public byte regulator = 0;
     public float maxForce = 10.0f;
     public float maxClutchSpeed;
-    public RotativePoint smokePos = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
-    public RotativePoint steamPosLeft = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
-    public RotativePoint steamPosRight = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
-    public RotativePoint lightsPos = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
+    public RotativePoint smokePos = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
+    public RotativePoint steamPosLeft = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
+    public RotativePoint steamPosRight = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
+    public RotativePoint lightsPos = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
     public int lastLightPosX = 0;
     public int lastLightPosY = -1;
     public int lastLightPosZ = 0;

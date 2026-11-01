@@ -8,8 +8,6 @@
  *  kx
  *  lx
  *  ly
- *  mods.provoda.tileentitys.tunnels.TileEntityGag
- *  mods.provoda.tileentitys.tunnels.TileEntityWideRail
  *  mp
  *  net.minecraftforge.common.ForgeDirection
  *  sq

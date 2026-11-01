@@ -4,8 +4,6 @@
  * Could not load the following classes:
  *  aab
  *  mods.provoda.entity.EntityDrezinaStock$CouplerType
- *  mods.provoda.entity.RotativePoint
- *  mp
  */
 package mods.provoda.entity;
 
@@ -23,9 +21,9 @@ extends EntityDrezinaBase {
         this.maxSpeed = 0.2f;
         this.aa = 1.0f;
         this.maxFuel = 100;
-        this.riderPos = new RotativePoint((mp)this, 0.5f, 0.0f, -1.75f);
-        this.couplerFront = new RotativePoint((mp)this, 0.0f, 0.0f, 2.375f);
-        this.couplerRear = new RotativePoint((mp)this, 0.0f, 0.0f, -2.5f);
+        this.riderPos = new RotativePoint(this, 0.5f, 0.0f, -1.75f);
+        this.couplerFront = new RotativePoint(this, 0.0f, 0.0f, 2.375f);
+        this.couplerRear = new RotativePoint(this, 0.0f, 0.0f, -2.5f);
         this.walkableMinX = 0.0f;
         this.walkableMinZ = -1.75f;
         this.walkableMaxX = 0.0f;

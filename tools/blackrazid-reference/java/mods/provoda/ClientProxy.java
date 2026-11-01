@@ -282,10 +282,8 @@
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelZelezoExit
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelZelezoProvoda
  *  mods.provoda.tileentitys.tunnels.TileEntityTunnelZelezoTrub
- *  mods.provoda.tileentitys.tunnels.TileEntityWideRail
  *  mods.provoda.until.ClientTickHandler
  *  mods.provoda.until.ClockKeyBind
- *  mods.provoda.until.DrezinaKeyHandler
  *  mods.provoda.until.ReloadKeyBind
  *  net.minecraftforge.client.IItemRenderer
  *  net.minecraftforge.client.MinecraftForgeClient

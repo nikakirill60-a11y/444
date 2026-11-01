@@ -8,7 +8,6 @@
  *  akz
  *  aqp
  *  ara
- *  mods.provoda.tileentitys.tunnels.TileEntityWideRail
  *  wm
  */
 package mods.provoda.blocks;

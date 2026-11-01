@@ -11,10 +11,6 @@
  *  kx
  *  mg
  *  mods.provoda.entity.EntityDrezinaStock$CouplerType
- *  mods.provoda.entity.RotativePoint
- *  mods.provoda.tileentitys.tunnels.TileEntityGag
- *  mods.provoda.tileentitys.tunnels.TileEntityWideRail
- *  mods.provoda.until.LinkResolver
  *  mp
  *  ng
  *  sq
@@ -85,9 +81,9 @@ extends mp {
         this.rotationCos = 1.0f;
         this.rotationSin = 0.0f;
         this.bogieShift = 12.0f;
-        this.riderPos = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
-        this.couplerFront = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
-        this.couplerRear = new RotativePoint((mp)this, 0.0f, 0.0f, 0.0f);
+        this.riderPos = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
+        this.couplerFront = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
+        this.couplerRear = new RotativePoint(this, 0.0f, 0.0f, 0.0f);
         this.walkableMinX = 0.0f;
         this.walkableMinZ = 0.0f;
         this.walkableMaxX = 0.0f;
@@ -252,19 +248,19 @@ extends mp {
         if (this.frontCoupledCart != null && !this.frontCoupledCart.M) {
             this.frontCoupledCart.updateCouplingPos();
             if (this.frontCoupledCart.rearCoupledCart == this) {
-                LinkResolver.solveLink((mp)this, (mp)this.frontCoupledCart, (float)this.couplerFront.getX(), (float)((float)this.v), (float)this.couplerFront.getZ(), (float)this.frontCoupledCart.couplerRear.getX(), (float)((float)this.frontCoupledCart.v), (float)this.frontCoupledCart.couplerRear.getZ(), (float)0.0f);
+                LinkResolver.solveLink(this, this.frontCoupledCart, this.couplerFront.getX(), (float)this.v, this.couplerFront.getZ(), this.frontCoupledCart.couplerRear.getX(), (float)this.frontCoupledCart.v, this.frontCoupledCart.couplerRear.getZ(), 0.0f);
             }
             if (this.frontCoupledCart.frontCoupledCart == this) {
-                LinkResolver.solveLink((mp)this, (mp)this.frontCoupledCart, (float)this.couplerFront.getX(), (float)((float)this.v), (float)this.couplerFront.getZ(), (float)this.frontCoupledCart.couplerFront.getX(), (float)((float)this.frontCoupledCart.v), (float)this.frontCoupledCart.couplerFront.getZ(), (float)0.0f);
+                LinkResolver.solveLink(this, this.frontCoupledCart, this.couplerFront.getX(), (float)this.v, this.couplerFront.getZ(), this.frontCoupledCart.couplerFront.getX(), (float)this.frontCoupledCart.v, this.frontCoupledCart.couplerFront.getZ(), 0.0f);
             }
         }
         if (this.rearCoupledCart != null && !this.rearCoupledCart.M) {
             this.rearCoupledCart.updateCouplingPos();
             if (this.rearCoupledCart.rearCoupledCart == this) {
-                LinkResolver.solveLink((mp)this, (mp)this.rearCoupledCart, (float)this.couplerRear.getX(), (float)((float)this.v), (float)this.couplerRear.getZ(), (float)this.rearCoupledCart.couplerRear.getX(), (float)((float)this.rearCoupledCart.v), (float)this.rearCoupledCart.couplerRear.getZ(), (float)0.0f);
+                LinkResolver.solveLink(this, this.rearCoupledCart, this.couplerRear.getX(), (float)this.v, this.couplerRear.getZ(), this.rearCoupledCart.couplerRear.getX(), (float)this.rearCoupledCart.v, this.rearCoupledCart.couplerRear.getZ(), 0.0f);
             }
             if (this.rearCoupledCart.frontCoupledCart == this) {
-                LinkResolver.solveLink((mp)this, (mp)this.rearCoupledCart, (float)this.couplerRear.getX(), (float)((float)this.v), (float)this.couplerRear.getZ(), (float)this.rearCoupledCart.couplerFront.getX(), (float)((float)this.rearCoupledCart.v), (float)this.rearCoupledCart.couplerFront.getZ(), (float)0.0f);
+                LinkResolver.solveLink(this, this.rearCoupledCart, this.couplerRear.getX(), (float)this.v, this.couplerRear.getZ(), this.rearCoupledCart.couplerFront.getX(), (float)this.rearCoupledCart.v, this.rearCoupledCart.couplerFront.getZ(), 0.0f);
             }
         }
     }
