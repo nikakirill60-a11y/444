@@ -15,7 +15,7 @@ class BlackrazidExpansionTests(unittest.TestCase):
     def test_audit_is_reproducible_and_explicitly_incomplete(self):
         r=report();self.assertEqual(r,json.loads((ROOT/'docs/blackrazid-expansion-report.json').read_text()))
         self.assertIn('INCOMPLETE',r['status']);self.assertEqual(len(r['weapons']),22);self.assertEqual(len(r['mutants']),12)
-        self.assertEqual({w['sourceId'] for w in r['weapons']},set(GUNS));self.assertEqual(22,sum(w['runtimeStatus'].startswith('basic-firearm') for w in r['weapons']));self.assertEqual(0,sum(w['runtimeStatus']=='pending' for w in r['weapons']))
+        self.assertEqual({w['sourceId'] for w in r['weapons']},set(GUNS));self.assertEqual(21,sum(w['runtimeStatus'].startswith('basic-firearm') for w in r['weapons']));self.assertEqual(['Gatling'],[w['sourceId'] for w in r['weapons'] if w['runtimeStatus'].startswith('native multipart mesh')]);self.assertEqual(0,sum(w['runtimeStatus']=='pending' for w in r['weapons']))
         self.assertIn('CommandDefence',r['excluded'])
     def test_only_five_new_runtime_items_claimed(self):
         entries=json.loads((A/'blackrazid_survival.json').read_text());self.assertEqual(len(entries),5)

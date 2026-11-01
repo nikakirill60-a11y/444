@@ -54,6 +54,8 @@ public final class BlackrazidGunItem extends GunItem {
     public NativeModuleEffects effects(ItemStack gun){return new NativeModuleEffects(entry,gun,pressure(gun));}
     public int shotDelay(ItemStack gun){return effects(gun).delay;}
     public boolean modificationReady(ItemStack gun){return validGun(gun) && !reloading(gun) && (!gun.hasTagCompound() || gun.getTagCompound().getInteger(COOLDOWN)<=0);}
+    public int visualAction(ItemStack gun){return validGun(gun) && reloading(gun)?gun.getTagCompound().getInteger(ACTION):0;}
+    public int visualTicks(ItemStack gun){return validGun(gun) && reloading(gun)?Math.max(0,Math.min(10000,gun.getTagCompound().getInteger(TICKS))):0;}
     @Override public boolean reloading(ItemStack gun){return gun.hasTagCompound() && gun.getTagCompound().getInteger(TICKS)>0;}
     private int slot(EntityPlayer p){
         int end=MagazineItem.inventoryEnd(p);
@@ -151,7 +153,7 @@ public final class BlackrazidGunItem extends GunItem {
         if(!loose.isEmpty()){loose.shrink(effects.ammoCost);store(gun,LOOSE,loose);feedChamber(gun,mag);}
         else ((MagazineItem)mag.getItem()).rounds(mag,rounds(mag)-effects.ammoCost);
         store(gun,MAG,mag);if(entry.airCapacity>0)pressure(gun,motor?entry.airCapacity:pressure(gun)-entry.airCost);
-        tag(gun).setInteger(COOLDOWN,delay);p.inventory.markDirty();
+        tag(gun).setInteger(COOLDOWN,delay);tag(gun).setLong(NativeWeaponVisuals.SHOT_TIME,p.world.getTotalWorldTime());p.inventory.markDirty();
         if(!entry.flame || tag(gun).getInteger(SOUND)==0){sound(p.world,p,effects.sound,effects.volume);if(entry.flame)tag(gun).setInteger(SOUND,23);}
         if(entry.cycleAfterShot && ammo(gun)>0 && !mag.isEmpty())sound(p.world,p,entry.cycleSound,1);
         if(entry.rotor)sound(p.world,p,"blackrazid_gatling_rot",1);

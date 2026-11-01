@@ -540,6 +540,12 @@
       "driveId": "14_ATWbopt0NZt9G4CILrmHzMPCdntavC",
       "bytes": 141132,
       "sha256": "a91902b6e754dfb0fcad0bf57110d118300045cf483785c4d993f8e38341a032"
+    },
+    {
+      "path": "assets/weapons/gatling/wpn_obves.2048.png",
+      "driveId": "1cahBhF8hz31J_P0pPF-11m6rzBQKzs6y",
+      "bytes": 141132,
+      "sha256": "a91902b6e754dfb0fcad0bf57110d118300045cf483785c4d993f8e38341a032"
     }
   ]
 }

@@ -22,6 +22,7 @@ public final class GunHands {
         Minecraft mc = Minecraft.getMinecraft();
         AbstractClientPlayer player = mc.player;
         if(player == null || player.isInvisible() || player.isSpectator()) return;
+        int previousTexture=org.lwjgl.opengl.GL11.glGetInteger(org.lwjgl.opengl.GL11.GL_TEXTURE_BINDING_2D);
         boolean left = context == TransformType.FIRST_PERSON_LEFT_HAND;
         boolean alex = "slim".equals(player.getSkinType());
         if(alex && slim == null) slim = new ModelPlayer(0, true);
@@ -36,7 +37,7 @@ public final class GunHands {
                 arm(id,skin, player, alex, !left, true, supportAnchor, reload);
             }
         } finally {
-            mc.getTextureManager().bindTexture(new net.minecraft.util.ResourceLocation(LegacyItemRenderer.info(id).texture));
+            GlStateManager.bindTexture(previousTexture);
             GlStateManager.color(1,1,1,1);
         }
     }

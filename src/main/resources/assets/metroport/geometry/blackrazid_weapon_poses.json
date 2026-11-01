@@ -1,0 +1,71 @@
+{
+  "blackrazid_gatling": {
+    "grip": [
+      -0.04,
+      0.1,
+      -0.175
+    ],
+    "trigger": [
+      -0.075,
+      0.115,
+      -0.175
+    ],
+    "support": [
+      0.12,
+      0.2,
+      -0.32
+    ],
+    "firstPerson": {
+      "translation": [
+        -0.18,
+        -0.045,
+        -0.4
+      ],
+      "rotation": [
+        0,
+        100,
+        0
+      ],
+      "scale": 0.8
+    },
+    "thirdPerson": {
+      "translation": [
+        0,
+        0.05,
+        0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "scale": 0.65
+    },
+    "ground": {
+      "translation": [
+        0,
+        0.12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": 0.3
+    },
+    "fixed": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": 0.28
+    }
+  }
+}

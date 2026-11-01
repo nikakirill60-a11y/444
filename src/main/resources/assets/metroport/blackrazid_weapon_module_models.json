@@ -1,0 +1,86 @@
+[
+  {
+    "id": "blackrazid_mod_barrel",
+    "sourceId": "Barrel",
+    "mesh": "revolver/barrel.obj",
+    "center": [
+      0.00019999999999999966,
+      0.1008,
+      0.31120000000000003
+    ],
+    "scale": 1.663201663201663,
+    "source": "items/att/renderers/RenderBarrel.java"
+  },
+  {
+    "id": "blackrazid_mod_butt",
+    "sourceId": "Butt",
+    "mesh": "revolver/butt.obj",
+    "center": [
+      -0.013149999999999998,
+      0.02835,
+      -0.04845000000000001
+    ],
+    "scale": 1.3617021276595742,
+    "source": "items/att/renderers/RenderButt.java"
+  },
+  {
+    "id": "blackrazid_mod_kolimator",
+    "sourceId": "Kolimator",
+    "mesh": "rpk/kolimator.obj",
+    "center": [
+      0.0008500000000000001,
+      -0.019049999999999997,
+      -0.010450000000000001
+    ],
+    "scale": 3.764705882352941,
+    "source": "items/att/renderers/RenderKolimator.java"
+  },
+  {
+    "id": "blackrazid_mod_laser",
+    "sourceId": "Laser",
+    "mesh": "rpk/laser.obj",
+    "center": [
+      0.0233,
+      0.0048,
+      0.2662
+    ],
+    "scale": 3.6529680365296815,
+    "source": "items/att/renderers/RenderLaser.java"
+  },
+  {
+    "id": "blackrazid_mod_optica",
+    "sourceId": "Optica",
+    "mesh": "railgun/optica.obj",
+    "center": [
+      0.004400000000000001,
+      0.1442,
+      -0.1185
+    ],
+    "scale": 1.3528748590755355,
+    "source": "items/att/renderers/RenderOptica.java"
+  },
+  {
+    "id": "blackrazid_mod_optica_small",
+    "sourceId": "OpticaSmall",
+    "mesh": "rpk/optica.obj",
+    "center": [
+      -0.0105,
+      -0.00405,
+      -0.06695
+    ],
+    "scale": 3.547671840354767,
+    "source": "items/att/renderers/RenderOpticaSmall.java"
+  },
+  {
+    "id": "blackrazid_mod_ubludok_butt",
+    "sourceId": "UbludokButt",
+    "mesh": "ubludok/butt2.obj",
+    "center": [
+      0.00015000000000000083,
+      -0.05625,
+      -0.20145
+    ],
+    "scale": 1.711229946524064,
+    "source": "items/att/renderers/RenderUbludokButt.java"
+  }
+]

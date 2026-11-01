@@ -1,0 +1,324 @@
+{
+  "gatling/air.obj": {
+    "materials": {
+      "_airI__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.027,
+      -0.0263,
+      -0.519,
+      0.0263,
+      0.027,
+      -0.5072
+    ],
+    "sha256": "b395373649c0eca17f6cf91e2f8335aee38601fc96cd78a01c3107ad1b16491b"
+  },
+  "gatling/base3.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.1349,
+      -0.1324,
+      -0.6272,
+      0.3206,
+      0.1257,
+      -0.2041
+    ],
+    "sha256": "e1915744fbaa3e3d3bd7e8d93d2a67201db49b71ad4ec902ceee15e6cf75291c"
+  },
+  "gatling/base5.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.2231,
+      -0.0879,
+      -0.6269,
+      0.3202,
+      0.1257,
+      -0.2026
+    ],
+    "sha256": "d7d1ebeecb86b7eba1baf800972ce06e655e1a2b59bba974a5add642545f6130"
+  },
+  "gatling/bullet.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_dshk_512": "metroport:textures/blackrazid/weapons/gatling/wpn_dshk.2048.png",
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_obves_512": "metroport:textures/blackrazid/weapons/gatling/wpn_obves.2048.png"
+    },
+    "bounds": [
+      -0.0212,
+      -0.0243,
+      -0.2081,
+      0.0211,
+      0.026,
+      -0.0287
+    ],
+    "sha256": "23c7b9e04920e0f014066f9a93748a17a40c957c60db460de002f391530ba8f6"
+  },
+  "gatling/butt.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png",
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_preved_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_preved.2048.png"
+    },
+    "bounds": [
+      -0.1618,
+      -0.1919,
+      -0.7393,
+      0.0228,
+      -0.0397,
+      -0.4375
+    ],
+    "sha256": "5046f0309e7c974e2bb3af565c2ea69541c705bf13e0058cf372a20d331a4b78"
+  },
+  "gatling/gatling.obj": {
+    "materials": {
+      "_gatling_gatlingMaterial__28": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png",
+      "_gatling_gatlingMaterial__32": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.1129,
+      -0.1,
+      -0.45,
+      0.3261,
+      0.1,
+      0.1044
+    ],
+    "sha256": "c0eab1a01393f44eb21cd08cded25a3a959aa4321b880cf92bf98ba81fe3b3a4"
+  },
+  "gatling/gilza.obj": {
+    "materials": {
+      "_bulletI__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_dshk_512": "metroport:textures/blackrazid/weapons/gatling/wpn_dshk.2048.png",
+      "_bulletI__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_obves_512": "metroport:textures/blackrazid/weapons/gatling/wpn_obves.2048.png"
+    },
+    "bounds": [
+      -0.0212,
+      -0.0243,
+      -0.2081,
+      0.0211,
+      0.026,
+      -0.1029
+    ],
+    "sha256": "afb47617abc020cbd97cc73c164888d7610550538736d8f3acb3cfc9c05e72a8"
+  },
+  "gatling/giro.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png",
+      "I__Games_Metro_Last_Light_Original_content_textures_veh34_veh34_regina_512": "metroport:textures/blackrazid/weapons/gatling/veh34_regina.2048.png"
+    },
+    "bounds": [
+      -0.1272,
+      -0.0772,
+      -0.406,
+      0.1066,
+      0.1357,
+      -0.2431
+    ],
+    "sha256": "72419029b066e1fd77e40a37d595d81963f3817c40fdc12a2f8dbf120de343a2"
+  },
+  "gatling/giro_wheel.obj": {
+    "materials": {
+      "_giro_wheelI__Games_Metro_Last_Light_Original_content_textures_veh34_veh34_regina_512": "metroport:textures/blackrazid/weapons/gatling/veh34_regina.2048.png"
+    },
+    "bounds": [
+      -0.0985,
+      0.0899,
+      -0.0994,
+      0.0989,
+      0.1279,
+      0.098
+    ],
+    "sha256": "6e52d2be7939f08814f20475dc10096d28cd3bffb2f4d458242cdd34c62a169c"
+  },
+  "gatling/mag.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_dshk_512": "metroport:textures/blackrazid/weapons/gatling/wpn_dshk.2048.png"
+    },
+    "bounds": [
+      -0.0445,
+      -0.2776,
+      -0.2169,
+      0.2743,
+      -0.0404,
+      -0.0169
+    ],
+    "sha256": "fe139cfd312e95f791efc5f764399f5dfdc2f4b1f151c29a07f718c796634bc1"
+  },
+  "gatling/pruj.obj": {
+    "materials": {
+      "_prujI__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.1171,
+      -0.0168,
+      -0.0552,
+      0.1358,
+      0.2589,
+      0.0121
+    ],
+    "sha256": "ed7e9217d0ecffd5bd9a974a6a68aa9e8311d931da92f9e81c066ce57c05b377"
+  },
+  "gatling/prujmeh.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.0688,
+      -0.0691,
+      -0.5037,
+      0.0688,
+      0.0695,
+      -0.4191
+    ],
+    "sha256": "5865906279e9f39aeab2135c4b93cf88180bbb9afd33efb9caf64f03d8de94f7"
+  },
+  "gatling/stvol.obj": {
+    "materials": {
+      "Material__27": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.0827,
+      -0.0592,
+      -0.2007,
+      0.0824,
+      0.0868,
+      0.7081
+    ],
+    "sha256": "841592188fefaee7451d7a09e37c384bc2374954b6204443352c9df9425890c6"
+  },
+  "gatling/stvol5.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.0897,
+      -0.0816,
+      -0.1993,
+      0.0901,
+      0.0915,
+      0.7095
+    ],
+    "sha256": "f5d6ca5240fd076dbb12a52722c1f74d59804c7860c54ccfeebe1ba2a0ba0259"
+  },
+  "gatling/zvezda.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gatling_512": "metroport:textures/blackrazid/weapons/gatling/wpn34_gatling.2048.png"
+    },
+    "bounds": [
+      -0.0343,
+      -0.0385,
+      -0.2213,
+      0.0352,
+      0.0394,
+      -0.0956
+    ],
+    "sha256": "3eb48469dbf99680ca494e131072cf7efedbb46eb08ff7949d8788ae9b802dd1"
+  },
+  "railgun/optica.obj": {
+    "materials": {
+      "_optica_optica_opticaI__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gun_pricel_512": "metroport:textures/blackrazid/weapons/railgun/wpn34_gun_pricel.2048.png",
+      "_optica_optica_opticaI__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_obves_512": "metroport:textures/blackrazid/weapons/railgun/wpn_obves.2048.png"
+    },
+    "bounds": [
+      -0.0232,
+      0.0828,
+      -0.2959,
+      0.032,
+      0.2056,
+      0.0589
+    ],
+    "sha256": "6044b92df4b4e0252c797b6dabef01f718db8115a12d6078612736da2df8a006"
+  },
+  "revolver/barrel.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_revolver_512": "metroport:textures/blackrazid/weapons/textures/wpn_revolver.2048.png"
+    },
+    "bounds": [
+      -0.0125,
+      0.0881,
+      0.1669,
+      0.0129,
+      0.1135,
+      0.4555
+    ],
+    "sha256": "1c5ac4f900e719260e5c504c673ffa1454c4c48bd1bdb81a4160c84df4e49813"
+  },
+  "revolver/butt.obj": {
+    "materials": {
+      "_revolver_butt_revolverI__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_revolver_512": "metroport:textures/blackrazid/weapons/textures/wpn_revolver.2048.png",
+      "_revolver_buttMaterial__29": "metroport:textures/blackrazid/weapons/textures/wpn_revolver.2048.png",
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_revolver_512": "metroport:textures/blackrazid/weapons/textures/wpn_revolver.2048.png"
+    },
+    "bounds": [
+      -0.0428,
+      -0.0629,
+      -0.2247,
+      0.0165,
+      0.1196,
+      0.1278
+    ],
+    "sha256": "0399f12082d5aba5b0be8f74bd6774ea492550a56e23523d80cdcde9537d08c7"
+  },
+  "rpk/kolimator.obj": {
+    "materials": {
+      "_kalomkaMaterial__234": "metroport:textures/blackrazid/weapons/textures/kalim1.png",
+      "_kalomkaMaterial__235": "metroport:textures/blackrazid/weapons/textures/kalim2.png"
+    },
+    "bounds": [
+      -0.0226,
+      -0.0537,
+      -0.0742,
+      0.0243,
+      0.0156,
+      0.0533
+    ],
+    "sha256": "e0824dfd82753979b20e61f76292c3d74ff2f63c5d8351f4068adf7480f46c02"
+  },
+  "rpk/laser.obj": {
+    "materials": {
+      "_LaseraMaterial__10": "metroport:textures/blackrazid/weapons/textures/laser1.png",
+      "_LaseraMaterial__11": "metroport:textures/blackrazid/weapons/textures/laser2.png"
+    },
+    "bounds": [
+      -0.0031,
+      -0.0099,
+      0.2005,
+      0.0497,
+      0.0195,
+      0.3319
+    ],
+    "sha256": "b3b344856d196c9a511d5ba434d8d466d670b16f1337f7b7be44e385dc00432c"
+  },
+  "rpk/optica.obj": {
+    "materials": {
+      "_testI__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_obves_512": "metroport:textures/blackrazid/weapons/textures/wpn_obves.2048.png",
+      "_testI__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_gun_pricel_512": "metroport:textures/blackrazid/weapons/textures/wpn34_gun_pricel.2048.png",
+      "_testI__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_infrared_scope_512": "metroport:textures/blackrazid/weapons/textures/wpn34_infrared_scope.1024c.png"
+    },
+    "bounds": [
+      -0.0456,
+      -0.0375,
+      -0.1346,
+      0.0246,
+      0.0294,
+      0.0007
+    ],
+    "sha256": "5d68d46adeb262bd872a61c863f668814e5cf60542e3ecb4928e3158f5f7ba26"
+  },
+  "ubludok/butt2.obj": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_ubludok_512": "metroport:textures/blackrazid/weapons/textures/wpn_ubludok.2048.png",
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_obves_512": "metroport:textures/blackrazid/weapons/textures/wpn_obves.1024c.png",
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn34_wpn34_ak_512": "metroport:textures/blackrazid/weapons/textures/wpn34_ak.1024c.png"
+    },
+    "bounds": [
+      -0.0173,
+      -0.109,
+      -0.3417,
+      0.0176,
+      -0.0035,
+      -0.0612
+    ],
+    "sha256": "046bfe9cd0761b9cc4cbecf4b1697e19c338797fd9491feb4f03cf1e34dbad1c"
+  }
+}

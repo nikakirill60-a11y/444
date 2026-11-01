@@ -68,6 +68,19 @@ public final class ClientEvents {
         }
     }
 
+    @SubscribeEvent public static void nativeWeaponModels(net.minecraftforge.client.event.ModelBakeEvent event){
+        for(Item item:MetroPort.ITEMS.values()){
+            net.minecraft.item.ItemStack stack=new net.minecraft.item.ItemStack(item);
+            if(!ru.metrocraft.port.blackrazid.weapons.NativeWeaponVisuals.supported(stack))continue;
+            ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(location);
+            if(icon!=null){item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.blackrazid.weapons.NativeWeaponRenderer.INSTANCE);
+                boolean gun=item instanceof ru.metrocraft.port.blackrazid.weapons.BlackrazidGunItem;
+                event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel(item.getRegistryName().getPath(),gun,icon));
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void mcmodAkModel(net.minecraftforge.client.event.ModelBakeEvent event) {
         for(Definition d:ru.metrocraft.port.mcmod.McmodWeapons.definitions()){

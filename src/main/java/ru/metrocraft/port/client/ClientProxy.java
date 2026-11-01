@@ -20,5 +20,5 @@ public final class ClientProxy extends CommonProxy {
     }
     @Override public void survival(int dimension,int entity,float water,float energy,boolean lamp){BlackrazidSurvivalClient.receive(dimension,entity,water,energy,lamp);}
     @Override public void init() { ClientEvents.initialize();BlackrazidSurvivalClient.initialize();
-        ((net.minecraft.client.resources.IReloadableResourceManager)net.minecraft.client.Minecraft.getMinecraft().getResourceManager()).registerReloadListener(manager->{McmodAkRenderer.reload();ru.metrocraft.port.client.blackrazid.environment.TunnelRenderer.reload();ru.metrocraft.port.client.blackrazid.transport.WideRailRenderer.reload();ru.metrocraft.port.client.blackrazid.mutants.MutantObjPart.reload();}); }
+        ((net.minecraft.client.resources.IReloadableResourceManager)net.minecraft.client.Minecraft.getMinecraft().getResourceManager()).registerReloadListener(manager->{GunRenderPoses.reload();ru.metrocraft.port.client.blackrazid.weapons.NativeWeaponRenderer.reload();McmodAkRenderer.reload();ru.metrocraft.port.client.blackrazid.environment.TunnelRenderer.reload();ru.metrocraft.port.client.blackrazid.transport.WideRailRenderer.reload();ru.metrocraft.port.client.blackrazid.mutants.MutantObjPart.reload();}); }
 }

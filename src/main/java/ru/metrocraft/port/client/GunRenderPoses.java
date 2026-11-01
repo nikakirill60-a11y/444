@@ -17,12 +17,23 @@ public final class GunRenderPoses {
     private static final class Profile { float[] grip, trigger, support; Pose firstPerson, thirdPerson, ground, fixed; }
     private static Map<String, Profile> profiles;
 
+    public static void reload(){profiles=null;}
     private static Profile profile(String id) {
         if (profiles == null) {
             try (InputStreamReader reader = new InputStreamReader(Minecraft.getMinecraft().getResourceManager()
                     .getResource(new ResourceLocation("metroport:geometry/gun_poses.json")).getInputStream(), StandardCharsets.UTF_8)) {
                 profiles = new Gson().fromJson(reader, new TypeToken<Map<String, Profile>>() {}.getType());
             } catch (Exception e) { throw new IllegalStateException("Cannot load gun poses", e); }
+        }
+        if(id.equals("blackrazid_gatling") && !profiles.containsKey(id)){
+            try(InputStreamReader reader=new InputStreamReader(Minecraft.getMinecraft().getResourceManager()
+                    .getResource(new ResourceLocation("metroport:geometry/blackrazid_weapon_poses.json")).getInputStream(),StandardCharsets.UTF_8)){
+                Map<String,Profile> nativeProfiles=new Gson().fromJson(reader,new TypeToken<Map<String,Profile>>(){}.getType());
+                for(Map.Entry<String,Profile> entry:nativeProfiles.entrySet()){
+                    if(profiles.containsKey(entry.getKey()))throw new IllegalStateException("Native pose cannot overwrite existing pose: "+entry.getKey());
+                    profiles.put(entry.getKey(),entry.getValue());
+                }
+            }catch(Exception e){throw new IllegalStateException("Cannot load native gun poses",e);}
         }
         Profile profile = profiles.get(id);
         if (profile == null) throw new IllegalStateException("Missing gun pose: " + id);
