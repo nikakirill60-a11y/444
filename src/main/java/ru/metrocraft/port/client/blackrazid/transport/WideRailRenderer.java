@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.BufferUtils;
+import ru.metrocraft.port.client.GlStateBuffers;
 import org.lwjgl.opengl.GL11;
 import ru.metrocraft.port.blackrazid.transport.*;
 import ru.metrocraft.port.mcmod.McmodObjMesh;
@@ -68,7 +68,7 @@ public final class WideRailRenderer extends TileEntitySpecialRenderer<RailTile> 
     @Override public void render(RailTile tile,double x,double y,double z,float partial,int destroyStage,float alpha){
         if(!tile.primary())return;
         int texture=GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D),shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);boolean normalize=GL11.glIsEnabled(GL11.GL_NORMALIZE);
-        FloatBuffer color=BufferUtils.createFloatBuffer(4);GL11.glGetFloat(GL11.GL_CURRENT_COLOR,color);
+        FloatBuffer color=GlStateBuffers.colorQuery();GL11.glGetFloat(GL11.GL_CURRENT_COLOR,color);
         GlStateManager.pushMatrix();
         try{
             GlStateManager.translate(x+.5,y,z+.5);GlStateManager.rotate(-90*tile.direction(),0,1,0);GlStateManager.shadeModel(GL11.GL_SMOOTH);GlStateManager.enableNormalize();GlStateManager.color(1,1,1,alpha);

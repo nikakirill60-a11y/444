@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.BufferUtils;
+import ru.metrocraft.port.client.GlStateBuffers;
 import org.lwjgl.opengl.GL11;
 import ru.metrocraft.port.blackrazid.weapons.*;
 import ru.metrocraft.port.client.*;
@@ -49,7 +49,7 @@ public final class NativeWeaponRenderer extends TileEntityItemStackRenderer {
         int texture=GL11.glGetInteger(GL11.GL_TEXTURE_BINDING_2D),shade=GL11.glGetInteger(GL11.GL_SHADE_MODEL);
         boolean normalize=GL11.glIsEnabled(GL11.GL_NORMALIZE),cull=GL11.glIsEnabled(GL11.GL_CULL_FACE),blend=GL11.glIsEnabled(GL11.GL_BLEND);
         int srcRGB=GL11.glGetInteger(GL14_SRC_RGB),dstRGB=GL11.glGetInteger(GL14_DST_RGB),srcA=GL11.glGetInteger(GL14_SRC_ALPHA),dstA=GL11.glGetInteger(GL14_DST_ALPHA);
-        FloatBuffer color=BufferUtils.createFloatBuffer(4);GL11.glGetFloat(GL11.GL_CURRENT_COLOR,color);
+        FloatBuffer color=GlStateBuffers.colorQuery();GL11.glGetFloat(GL11.GL_CURRENT_COLOR,color);
         GlStateManager.pushMatrix();
         try{
             GlStateManager.translate(.5,.5,.5);GlStateManager.color(1,1,1,1);GlStateManager.enableNormalize();GlStateManager.disableCull();GlStateManager.shadeModel(GL11.GL_SMOOTH);
