@@ -180,23 +180,6 @@
  *  mods.provoda.renderers.RendererVanna
  *  mods.provoda.renderers.RendererWash
  *  mods.provoda.renderers.death.RenderDeath1
- *  mods.provoda.renderers.tunnels.RenderTunnel90
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonDerevo
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonDerevo1
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonDouble1
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonExit
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonProvoda
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonTrub
- *  mods.provoda.renderers.tunnels.RenderTunnelBetonX
- *  mods.provoda.renderers.tunnels.RenderTunnelNew
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezo1
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezo90
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezoDerevo
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezoDerevo1
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezoDouble
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezoExit
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezoProvoda
- *  mods.provoda.renderers.tunnels.RenderTunnelZelezoTrub
  *  mods.provoda.renderers.tunnels.TileEntityWideRailRenderer
  *  mods.provoda.tileentitys.TileEntityBarStol
  *  mods.provoda.tileentitys.TileEntityBed
