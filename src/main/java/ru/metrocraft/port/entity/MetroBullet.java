@@ -14,17 +14,18 @@ public final class MetroBullet extends Entity {
     private UUID shooter, shot;
     private float damage, gravity=.25F, power=1;
     private int age,lagIndex;
+    private boolean mcmod;
     private final Set<UUID> victims=new HashSet<>();
     public MetroBullet(World world){super(world);setSize(.1F,.1F);}
     public MetroBullet(World world,EntityPlayer player,ItemStackData data,Vec3d velocity,UUID shot){
         this(world);this.shooter=player.getUniqueID();this.shot=shot;
         lagIndex=ru.metrocraft.port.ballistics.PlayerHistory.indexForPing(
                 player instanceof net.minecraft.entity.player.EntityPlayerMP?((net.minecraft.entity.player.EntityPlayerMP)player).ping:0);
-        this.damage=data.damage;this.gravity=data.gravity;this.power=data.power;
+        this.mcmod=data.mcmod;this.damage=data.damage;this.gravity=data.gravity;this.power=data.power;
         Vec3d origin=player.getPositionEyes(1);setPosition(origin.x,origin.y,origin.z);
         motionX=velocity.x;motionY=velocity.y;motionZ=velocity.z;
     }
-    public static final class ItemStackData { public float damage,gravity,power; }
+    public static final class ItemStackData { public float damage,gravity,power;public boolean mcmod; }
     @Override protected void entityInit(){}
     public static Vec3d nextMotion(Vec3d velocity,float drag,float fallSpeed){
         return velocity.scale(drag).add(0,-.02F*fallSpeed,0);
@@ -55,7 +56,7 @@ public final class MetroBullet extends Entity {
             if(target instanceof EntityPlayer){
                 ru.metrocraft.port.ballistics.LagSnapshot.Hit hit=ru.metrocraft.port.ballistics.PlayerHistory.trace(
                         (EntityPlayer)target,lagIndex,start,end);
-                if(hit!=null){hits.put(target,start.squareDistanceTo(end)*hit.fraction*hit.fraction);multipliers.put(target,hit.damageMultiplier());}
+                if(hit!=null){hits.put(target,start.squareDistanceTo(end)*hit.fraction*hit.fraction);multipliers.put(target,mcmod?1F:hit.damageMultiplier());}
                 continue;
             }
             AxisAlignedBB box=target.getEntityBoundingBox();

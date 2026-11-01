@@ -31,6 +31,7 @@ public final class GunClient {
         if(mc.player==null || mc.world==null){aim=0;recoverPitch=0;recoverYaw=0;return;}
         ItemStack stack=mc.player.getHeldItemMainhand();
         Definition d=stack.getItem() instanceof GunItem?((GunItem)stack.getItem()).getDefinition():null;
+        if(d!=null&&d.mcmodAir&&ClientEvents.pumping()&&mc.player.ticksExisted%8==0)MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.mcmod.GunActionPacket(2,0,0,0));
         aim=Math.max(0,Math.min(1,aim+(d!=null&&ClientEvents.aiming()?.2F:-.2F)));
         float dp=Math.min(recoverPitch,d==null?.5F:Math.max(.05F,d.decreaseRecoil*.1F));
         float dy=Math.copySign(Math.min(Math.abs(recoverYaw),d==null?.1F:Math.max(.05F,d.decreaseYaw*.1F)),recoverYaw);
@@ -39,6 +40,7 @@ public final class GunClient {
     }
     public static String scope(ItemStack gun){
         if(!(gun.getItem() instanceof GunItem))return "None";
+        if(gun.getItem() instanceof ru.metrocraft.port.mcmod.McmodAkItem)return ru.metrocraft.port.mcmod.McmodAkItem.module(gun,"modScope")==1?"svd":"None";
         String id=gun.hasTagCompound()?gun.getTagCompound().getCompoundTag(AttachmentItem.TAG).getString("scope"):"";
         net.minecraft.item.Item item=MetroPort.ITEMS.get(id);
         if(item instanceof AttachmentItem && java.util.Arrays.asList(((GunItem)gun.getItem()).getDefinition().allowedAttachments).contains(id))

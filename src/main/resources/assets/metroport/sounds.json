@@ -34,6 +34,11 @@
       "metroport:m9shoot"
     ]
   },
+  "mcmod_ak2012": {
+    "sounds": [
+      "metroport:mcmod_ak2012"
+    ]
+  },
   "mcmod_ak74_reload": {
     "sounds": [
       "metroport:mcmod_ak74_reload"
@@ -44,9 +49,109 @@
       "metroport:mcmod_ak_boom"
     ]
   },
+  "mcmod_craft": {
+    "sounds": [
+      "metroport:mcmod_craft"
+    ]
+  },
+  "mcmod_duplet_reload": {
+    "sounds": [
+      "metroport:mcmod_duplet_reload"
+    ]
+  },
+  "mcmod_helsing_reload": {
+    "sounds": [
+      "metroport:mcmod_helsing_reload"
+    ]
+  },
+  "mcmod_helsing_shoot": {
+    "sounds": [
+      "metroport:mcmod_helsing_shoot"
+    ]
+  },
+  "mcmod_loot_metal": {
+    "sounds": [
+      "metroport:mcmod_loot_metal"
+    ]
+  },
   "mcmod_medkit_use_heavy": {
     "sounds": [
       "metroport:mcmod_medkit_use_heavy"
+    ]
+  },
+  "mcmod_open": {
+    "sounds": [
+      "metroport:mcmod_open"
+    ]
+  },
+  "mcmod_preved_base_shot": {
+    "sounds": [
+      "metroport:mcmod_preved_base_shot"
+    ]
+  },
+  "mcmod_preved_reload": {
+    "sounds": [
+      "metroport:mcmod_preved_reload"
+    ]
+  },
+  "mcmod_railgun_reload": {
+    "sounds": [
+      "metroport:mcmod_railgun_reload"
+    ]
+  },
+  "mcmod_railgun_shoot": {
+    "sounds": [
+      "metroport:mcmod_railgun_shoot"
+    ]
+  },
+  "mcmod_revolver_shot_1": {
+    "sounds": [
+      "metroport:mcmod_revolver_shot_1"
+    ]
+  },
+  "mcmod_tihar_shoot": {
+    "sounds": [
+      "metroport:mcmod_tihar_shoot"
+    ]
+  },
+  "mcmod_ubl_oblom_0": {
+    "sounds": [
+      "metroport:mcmod_ubl_oblom_0"
+    ]
+  },
+  "mcmod_ubludok_shoot": {
+    "sounds": [
+      "metroport:mcmod_ubludok_shoot"
+    ]
+  },
+  "mcmod_ubo_reload": {
+    "sounds": [
+      "metroport:mcmod_ubo_reload"
+    ]
+  },
+  "mcmod_uboineg": {
+    "sounds": [
+      "metroport:mcmod_uboineg"
+    ]
+  },
+  "mcmod_ventil_reload": {
+    "sounds": [
+      "metroport:mcmod_ventil_reload"
+    ]
+  },
+  "mcmod_ventil_shot": {
+    "sounds": [
+      "metroport:mcmod_ventil_shot"
+    ]
+  },
+  "mcmod_wpn_shootgun_reload": {
+    "sounds": [
+      "metroport:mcmod_wpn_shootgun_reload"
+    ]
+  },
+  "mcmod_wpn_shootgun_shoot": {
+    "sounds": [
+      "metroport:mcmod_wpn_shootgun_shoot"
     ]
   },
   "mgreload": {

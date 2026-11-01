@@ -5,6 +5,8 @@ public final class Definition {
     public String id, kind, name, description, source, shortName;
     public int stackSize = 64, durability;
     public String ammo, shootSound, reloadSound;
+    public boolean mcmodAir;
+    public int mcmodFireMode;
     public int capacity, reloadTicks, delay, pellets = 1;
     public float damage, spread;
     public float bulletSpeed=40, fallSpeed=.25F, hitBoxSize=.5F;

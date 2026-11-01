@@ -14,9 +14,9 @@
   ],
   "adaptations": [
     "Uses existing server-authoritative port projectiles, recoil and controls (RMB fire, Alt aim, R or sneak+RMB reload); no exact MCMOD 1000-HP damage system claimed.",
-    "Projectile speed 4 blocks/tick and gravity .01 are port settings, not recovered MCMOD parameters.",
+    "Recovered EntityBullet launch speed is 20 blocks/tick, Gaussian .0075 × accuracy, gravity .001/tick; swept collision uses the port engine.",
     "Condition zero jams but retains the gun; repair restores functionality.",
     "Original native OBJ uses AK camera space but its own lower foregrip anchors; skin-hand profiles were corrected in 1.10.0. Magazine and bolt animation use port timing.",
-    "Only base AK-74. Original upgrade GUI, optics, silencers, laser, grenade launcher and other MCMOD weapons are not included."
+    "This report covers the base AK import unit only; the unified firearm report covers remaining guns, implemented upgrade pages and source limitations."
   ]
 }

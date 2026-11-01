@@ -38,16 +38,16 @@ public class GunItem extends ContentItem {
         setMaxDamage(Math.max(1, d.durability));
     }
 
-    private static NBTTagCompound tag(ItemStack stack) {
+    protected static NBTTagCompound tag(ItemStack stack) {
         if (!stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
         return stack.getTagCompound();
     }
 
-    private int ammo(ItemStack stack) {
-        return stack.hasTagCompound() ? Math.max(0, Math.min(definition.capacity, stack.getTagCompound().getInteger(AMMO))) : 0;
+    public int ammo(ItemStack stack) {
+        return stack.hasTagCompound() ? Math.max(0, Math.min(capacity(stack), stack.getTagCompound().getInteger(AMMO))) : 0;
     }
 
-    private boolean reloading(ItemStack stack) {
+    public boolean reloading(ItemStack stack) {
         return stack.hasTagCompound() && stack.getTagCompound().getInteger(RELOAD) > 0;
     }
 
@@ -67,7 +67,7 @@ public class GunItem extends ContentItem {
     }
 
     public void startReload(ItemStack stack, EntityPlayer player) {
-        if (player.world.isRemote || player.isSpectator() || reloading(stack) || ammo(stack) >= definition.capacity) return;
+        if (player.world.isRemote || player.isSpectator() || reloading(stack) || ammo(stack) >= capacity(stack)) return;
         if (!player.capabilities.isCreativeMode && available(player, false, 1) == 0) return;
         int duration=Math.max(1,Math.round(definition.reloadTicks*AttachmentItem.multiplier(stack,"reload")));
         tag(stack).setInteger(RELOAD,duration);
@@ -88,7 +88,7 @@ public class GunItem extends ContentItem {
         tag(stack).setInteger(RELOAD, ticks);
         tag(stack).setLong("MetroReloadStart",world.getTotalWorldTime()-(tag(stack).getInteger("MetroReloadDuration")-ticks));
         if (ticks == 0) {
-            int needed = definition.capacity - ammo(stack);
+            int needed = capacity(stack) - ammo(stack);
             int loaded = player.capabilities.isCreativeMode ? needed : available(player, true, needed);
             tag(stack).setInteger(AMMO, ammo(stack) + loaded);
             player.inventory.markDirty();
@@ -121,6 +121,12 @@ public class GunItem extends ContentItem {
         }
     }
 
+    public int capacity(ItemStack stack){return definition.capacity;}
+    protected float shotDamage(ItemStack stack){return definition.damage*AttachmentItem.multiplier(stack,"damage");}
+    protected double deviation(ItemStack stack,EntityPlayer player,int pellet){return definition.spread*AttachmentItem.multiplier(stack,"spread")*.0025;}
+    protected float shotVolume(ItemStack stack){return AttachmentItem.multiplier(stack,"sound");}
+    protected boolean originalMcmodFlight(){return false;}
+    protected void afterShot(ItemStack stack,EntityPlayer player){}
     protected boolean canFire(ItemStack stack){return true;}
 
     private void fire(ItemStack stack, EntityPlayer player) {
@@ -131,18 +137,19 @@ public class GunItem extends ContentItem {
         }
         if (!player.capabilities.isCreativeMode) tag(stack).setInteger(AMMO, ammo(stack) - 1);
         player.getCooldownTracker().setCooldown(this, Math.max(1, definition.delay));
-        sound(player.world, player, definition.shootSound, AttachmentItem.multiplier(stack,"sound"));
+        sound(player.world, player, definition.shootSound, shotVolume(stack));
         Definition ammunition=((ContentItem)MetroPort.ITEMS.get(definition.ammo)).getDefinition();
         java.util.UUID shot=java.util.UUID.randomUUID();
         for(int i=0;i<Math.max(1,definition.pellets);i++){
             Vec3d look=player.getLookVec();
-            double deviation=definition.spread*AttachmentItem.multiplier(stack,"spread")*.0025;
+            double deviation=deviation(stack,player,i);
             float speed=definition.bulletSpeed*AttachmentItem.multiplier(stack,"speed");
             Vec3d velocity=look.scale(speed).add(player.getRNG().nextGaussian()*deviation*speed,
                     player.getRNG().nextGaussian()*deviation*speed,player.getRNG().nextGaussian()*deviation*speed);
             ru.metrocraft.port.entity.MetroBullet.ItemStackData data=new ru.metrocraft.port.entity.MetroBullet.ItemStackData();
-            data.damage=definition.damage*AttachmentItem.multiplier(stack,"damage");
-            data.gravity=ammunition.fallSpeed;data.power=ammunition.penetrates?1:.25F;
+            data.damage=shotDamage(stack);
+            data.mcmod=originalMcmodFlight();
+            data.gravity=originalMcmodFlight()?.05F:ammunition.fallSpeed;data.power=ammunition.penetrates?1:.25F;
             player.world.spawnEntity(new ru.metrocraft.port.entity.MetroBullet(player.world,player,data,velocity,shot));
         }
         MetroPort.NETWORK.sendTo(new ShotFeedbackPacket(definition.id,
@@ -151,6 +158,7 @@ public class GunItem extends ContentItem {
                 (net.minecraft.entity.player.EntityPlayerMP)player);
         tag(stack).setLong("MetroLastShot",player.world.getTotalWorldTime());
         tag(stack).setInteger("MetroShotSequence",tag(stack).getInteger("MetroShotSequence")+1);
+        afterShot(stack,player);
         stack.damageItem(1, player);
     }
 
@@ -166,7 +174,7 @@ public class GunItem extends ContentItem {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag flag) {
-        lines.add(I18n.format("metroport.gun.ammo", ammo(stack), definition.capacity));
+        lines.add(I18n.format("metroport.gun.ammo", ammo(stack), capacity(stack)));
         Item bullet = MetroPort.ITEMS.get(definition.ammo);
         if (bullet != null) lines.add(new ItemStack(bullet).getDisplayName());
         lines.add(I18n.format("metroport.gun.help"));

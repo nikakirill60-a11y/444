@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class McmodAkTest {
     @BeforeClass public static void setup(){Bootstrap.register();}
-    @Test public void onlyOneMCMODGunAndItsOwnAmmoAreDeclared(){
-        Definition[] d=McmodWeapons.definitions();assertEquals(2,d.length);
+    @Test public void allFifteenRegisteredMCMODGunsAndBaseAmmoAreDeclared(){
+        Definition[] d=McmodWeapons.definitions();assertEquals(16,d.length);
         assertEquals("mcmod_ak74",d[0].id);assertEquals("gun",d[0].kind);assertTrue(d[0].automatic);
         assertEquals(30,d[0].capacity);assertEquals(60,d[0].reloadTicks);assertEquals(2,d[0].delay);
         assertEquals(13,d[0].damage,0);assertEquals(1600,d[0].durability);

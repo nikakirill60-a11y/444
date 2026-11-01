@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.10.0", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.11.0", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -70,6 +70,7 @@ public final class MetroPort {
         } catch (Exception e) {
             throw new IllegalStateException("Cannot load MetroCraft content", e);
         }
+        NETWORK.registerMessage(ru.metrocraft.port.mcmod.GunActionPacket.Handler.class,ru.metrocraft.port.mcmod.GunActionPacket.class,8,Side.SERVER);
         NETWORK.registerMessage(ReloadPacket.Handler.class, ReloadPacket.class, 0, Side.SERVER);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.BackpackSyncPacket.Handler.class,
                 ru.metrocraft.port.inventory.BackpackSyncPacket.class,1,Side.CLIENT);

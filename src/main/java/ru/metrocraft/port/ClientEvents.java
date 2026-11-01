@@ -18,6 +18,8 @@ import org.lwjgl.input.Keyboard;
 public final class ClientEvents {
     private static final KeyBinding INVENTORY = new KeyBinding("key.metroport.inventory", Keyboard.KEY_I, "key.categories.metroport");
     private static final KeyBinding AIM = new KeyBinding("key.metroport.aim", Keyboard.KEY_LMENU, "key.categories.metroport");
+    private static final KeyBinding MODS=new KeyBinding("key.metroport.mods",Keyboard.KEY_M,"key.categories.metroport");
+    private static final KeyBinding PUMP=new KeyBinding("key.metroport.pump",Keyboard.KEY_V,"key.categories.metroport");
     private static final KeyBinding RELOAD = new KeyBinding("key.metroport.reload", Keyboard.KEY_R, "key.categories.metroport");
 
     private static Boolean editorCreative;
@@ -38,7 +40,7 @@ public final class ClientEvents {
     }
 
     public static void initialize() {
-        ClientRegistry.registerKeyBinding(RELOAD);
+        ClientRegistry.registerKeyBinding(RELOAD);ClientRegistry.registerKeyBinding(MODS);ClientRegistry.registerKeyBinding(PUMP);
         ClientRegistry.registerKeyBinding(INVENTORY);
         ClientRegistry.bindTileEntitySpecialRenderer(ru.metrocraft.port.mcmod.decor.McmodDecorTile.class,new ru.metrocraft.port.client.McmodDecorRenderer());
         ClientRegistry.registerKeyBinding(AIM);
@@ -66,12 +68,15 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void mcmodAkModel(net.minecraftforge.client.event.ModelBakeEvent event) {
-        Item item=MetroPort.ITEMS.get("mcmod_ak74");if(item==null)return;
-        ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");
-        net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(location);
-        if(icon!=null){
-            item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodAkRenderer.INSTANCE);
-            event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel("ak74",true,icon));
+        for(Definition d:ru.metrocraft.port.mcmod.McmodWeapons.definitions()){
+            if(!d.kind.equals("gun"))continue;
+            Item item=MetroPort.ITEMS.get(d.id);if(item==null)continue;
+            ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon=event.getModelRegistry().getObject(location);
+            if(icon!=null){
+                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.McmodAkRenderer.INSTANCE);
+                event.getModelRegistry().putObject(location,new ru.metrocraft.port.client.LegacyItemModel(ru.metrocraft.port.client.McmodAkRenderer.profile(d.id),true,icon));
+            }
         }
     }
 
@@ -137,6 +142,7 @@ public final class ClientEvents {
         }
     }
 
+    public static boolean pumping(){return PUMP.isKeyDown() && Minecraft.getMinecraft().currentScreen==null;}
     public static boolean aiming(){
         return AIM.isKeyDown() && Minecraft.getMinecraft().currentScreen==null;
     }
@@ -144,7 +150,9 @@ public final class ClientEvents {
     public static void fov(net.minecraftforge.client.event.FOVUpdateEvent event) {
         net.minecraft.item.ItemStack held=event.getEntity().getHeldItemMainhand();
         if(aiming() && held.getItem() instanceof GunItem) {
-            float zoom=Math.max(1.2F,Math.min(8,AttachmentItem.multiplier(held,"zoom")));
+            float zoom=held.getItem() instanceof ru.metrocraft.port.mcmod.McmodAkItem?
+                    (ru.metrocraft.port.mcmod.McmodAkItem.module(held,"modScope")==1?4:ru.metrocraft.port.mcmod.McmodAkItem.module(held,"modScope")==2?1.5F:1.2F):
+                    Math.max(1.2F,Math.min(8,AttachmentItem.multiplier(held,"zoom")));
             event.setNewfov(event.getNewfov()/zoom);
         }
     }
@@ -152,6 +160,8 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void key(InputEvent.KeyInputEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
+        if(MODS.isPressed() && mc.player!=null && mc.currentScreen==null)MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.mcmod.GunActionPacket(0,0,0,0));
+        if(PUMP.isPressed() && mc.player!=null && mc.currentScreen==null)MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.mcmod.GunActionPacket(2,0,0,0));
         if(INVENTORY.isPressed() && mc.player!=null && mc.currentScreen==null)
             MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.inventory.OpenInventoryPacket());
         if (RELOAD.isPressed() && mc.player != null && mc.currentScreen == null

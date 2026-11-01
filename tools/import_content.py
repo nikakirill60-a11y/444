@@ -128,11 +128,8 @@ def main():
     if len(set(ids)) != len(ids):
         raise ValueError('Duplicate registry IDs')
     write_json(ASSETS / 'content.json', entries)
-    if (ASSETS/'mcmod_guns.json').exists():
-        for gun in json.loads((ASSETS/'mcmod_guns.json').read_text()):
-            for field in ['shootSound','reloadSound']:
-                sid=gun.get(field)
-                if sid:sounds[sid]={'sounds':['metroport:'+sid]}
+    for path in sorted((ASSETS/'sounds').glob('mcmod_*.ogg')):
+        sounds[path.stem]={'sounds':['metroport:'+path.stem]}
     if (ASSETS/'mcmod_support.json').exists():sounds['mcmod_medkit_use_heavy']={'sounds':['metroport:mcmod_medkit_use_heavy']}
     sounds['germo'] = {'sounds': ['metroport:germo']}
     write_json(ASSETS / 'sounds.json', dict(sorted(sounds.items())))

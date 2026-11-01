@@ -11,5 +11,6 @@ public final class ClientProxy extends CommonProxy {
     @Override public void shotFeedback(String gun,float pitch,float yaw) {
         net.minecraft.client.Minecraft.getMinecraft().addScheduledTask(()->GunClient.shot(gun,pitch,yaw));
     }
-    @Override public void init() { ClientEvents.initialize(); }
+    @Override public void init() { ClientEvents.initialize();
+        ((net.minecraft.client.resources.IReloadableResourceManager)net.minecraft.client.Minecraft.getMinecraft().getResourceManager()).registerReloadListener(manager->McmodAkRenderer.reload()); }
 }

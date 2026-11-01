@@ -11,7 +11,8 @@
     "durability": 1600,
     "ammo": "mcmod_ammo5x45",
     "automatic": true,
-    "bulletSpeed": 4,
+    "bulletSpeed": 20,
+    "mcmodFireMode": 1,
     "spread": 1,
     "recoil": 1,
     "randomRecoil": 0,
@@ -26,6 +27,6 @@
     "nameEn": "5x45 ammunition [MCMOD]",
     "kind": "ammo",
     "stackSize": 64,
-    "fallSpeed": 0.01
+    "fallSpeed": 0.05
   }
 ]

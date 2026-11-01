@@ -26,7 +26,7 @@ public final class GunHandPose {
         boolean approved="revolver".equals(id);
         Matrix4f result = new Matrix4f(), step = new Matrix4f();
         result.setIdentity(); result.setTranslation(new Vector3f(contact));
-        step.rotZ((float)Math.toRadians(approved ? (support ? -55 : -65) : (support ? -65 : -75))); result.mul(step);
+        step.rotZ((float)Math.toRadians(approved ? (support ? -55 : -65) : (support ? -42 : -48))); result.mul(step);
         step.rotX((float)Math.toRadians(-(left ? -1 : 1)*(approved ? (support ? 30 : 18) : (support ? 10 : 12)))); result.mul(step);
         if(!approved){step.setIdentity();step.setScale(.85F);result.mul(step);}
         float center = (left ? 1 : -1)*(slim ? .5F : 1);

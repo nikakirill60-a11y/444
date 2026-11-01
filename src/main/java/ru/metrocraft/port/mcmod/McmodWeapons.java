@@ -13,9 +13,12 @@ import java.nio.charset.StandardCharsets;
 public final class McmodWeapons {
     private McmodWeapons(){}
     public static Definition[] definitions(){
-        try(Reader in=new InputStreamReader(McmodWeapons.class.getResourceAsStream("/assets/metroport/mcmod_guns.json"),StandardCharsets.UTF_8)){
-            return new Gson().fromJson(in,Definition[].class);
-        }catch(Exception e){throw new IllegalStateException("Cannot load MCMOD AK-74",e);}
+        java.util.List<Definition> entries=new java.util.ArrayList<>();
+        for(String catalog:new String[]{"mcmod_guns.json","mcmod_firearms.json"})
+            try(Reader in=new InputStreamReader(McmodWeapons.class.getResourceAsStream("/assets/metroport/"+catalog),StandardCharsets.UTF_8)){
+                java.util.Collections.addAll(entries,new Gson().fromJson(in,Definition[].class));
+            }catch(Exception e){throw new IllegalStateException("Cannot load MCMOD firearms: "+catalog,e);}
+        return entries.toArray(new Definition[0]);
     }
     @SubscribeEvent public static void items(RegistryEvent.Register<Item> event){
         for(Definition d:definitions()){
@@ -25,7 +28,11 @@ public final class McmodWeapons {
         }
     }
     @SubscribeEvent public static void sounds(RegistryEvent.Register<SoundEvent> event){
-        for(String id:new String[]{"mcmod_ak_boom","mcmod_ak74_reload","mcmod_medkit_use_heavy"}){
+        java.util.Set<String> ids=new java.util.LinkedHashSet<>();
+        ids.add("mcmod_medkit_use_heavy");
+        for(Definition d:definitions())if(d.kind.equals("gun")){ids.add(d.shootSound);ids.add(d.reloadSound);}
+        java.util.Collections.addAll(ids,"mcmod_craft","mcmod_open","mcmod_loot_metal");
+        for(String id:ids){
             ResourceLocation key=new ResourceLocation(MetroPort.ID,id);SoundEvent sound=new SoundEvent(key).setRegistryName(key);
             event.getRegistry().register(sound);MetroPort.SOUNDS.put(id,sound);
         }
