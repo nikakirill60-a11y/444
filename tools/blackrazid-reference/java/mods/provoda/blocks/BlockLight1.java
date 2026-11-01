@@ -9,7 +9,6 @@
  *  aqp
  *  aqx
  *  ly
- *  mods.provoda.until.BlockLightTile
  */
 package mods.provoda.blocks;
 
