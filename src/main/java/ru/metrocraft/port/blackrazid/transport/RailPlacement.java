@@ -17,7 +17,7 @@ public final class RailPlacement {
     public static RailTile primary(World w,BlockPos p){RailTile t=at(w,p);if(t==null)return null;if(t.primary())return w.getBlockState(p).getBlock()==BlackrazidRails.RAIL?t:null;if(w.getBlockState(p).getBlock()!=BlackrazidRails.PROXY)return null;RailTile parent=at(w,t.owner());return parent!=null&&w.getBlockState(parent.getPos()).getBlock()==BlackrazidRails.RAIL&&parent.owns(t)?parent:null;}
     public static boolean place(World w,BlockPos origin,int shape,int direction,EntityPlayer player,ItemStack stack){
         if(w.isRemote||!RailRules.valid(shape)||stack.isEmpty()||player.isSpectator())return false;
-        Map<BlockPos,IBlockState> before=new LinkedHashMap<>();int height=w.getActualHeight();if(height<=0)height=256;
+        Map<BlockPos,IBlockState> before=new LinkedHashMap<>();int height=w.getHeight();if(height<=0)height=256;
         for(BlockPos offset:RailRules.footprint(shape,direction)){
             BlockPos p=origin.add(offset);
             if(p.getY()<0||p.getY()>=height||!w.isBlockLoaded(p)||!w.getWorldBorder().contains(p)||!w.isBlockModifiable(player,p)||!player.canPlayerEdit(p,EnumFacing.UP,stack))return false;
