@@ -4,7 +4,6 @@
  * Could not load the following classes:
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
- *  metro.client.events.LeftClickingEvent
  *  metro.common.blocks.tileentity.TileEntityRad
  *  net.minecraft.block.Block
  *  net.minecraft.block.ITileEntityProvider
