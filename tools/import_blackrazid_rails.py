@@ -34,6 +34,7 @@ def main():
         missingRowSounds=['whistle_cher','piston_cher','brake'],
         emptyNativeDrawBranches=[2,5,6,7,8,9,10,11],
         adaptations=['Switch/composite tracks are displayed with repeated native rail segments; original renderer only transforms matrices in these branches.',
+                     'Switch activated state is driven by server redstone in the port; recovered tiles only persist that flag and the vehicle reads it.',
                      'Dead end keeps its source collision but uses a native straight rail marker: no recovered buffer-stop mesh.',
                      'Placement validates ALL source footprint cells and rolls back on failure; native placement only prints most validation failures.',
                      'Straight and left-turn footprints also receive owner-linked proxies; the old item accidentally skipped their helper placement.'],
