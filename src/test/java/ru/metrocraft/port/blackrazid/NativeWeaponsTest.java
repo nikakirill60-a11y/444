@@ -1,7 +1,6 @@
 package ru.metrocraft.port.blackrazid;
 
 import net.minecraft.entity.*;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.*;
 import net.minecraft.init.*;
 import net.minecraft.item.*;
@@ -110,10 +109,11 @@ public class NativeWeaponsTest {
         EntityPlayer p=player(false);ItemStack s=new ItemStack(item("ak"));hold(p,s);ItemStack m=magazine("ak_ammo",11);m.getTagCompound().setString("Owner","tag");p.inventory.setInventorySlotContents(1,m);gun("ak").insertMagazine(s,p);
         gun("ak").startReload(s,p);ticks(gun("ak"),s,p,21);assertEquals(11,gun("ak").ammo(s));ticks(gun("ak"),s,p,1);assertEquals(0,gun("ak").ammo(s));assertEquals(11,mag("ak_ammo").rounds(p.inventory.getStackInSlot(1)));assertEquals("tag",p.inventory.getStackInSlot(1).getTagCompound().getString("Owner"));
     }
-    @Test public void failedDropWhenFullRestoresMagazineInsteadOfDeletingIt()throws Exception{
-        EntityPlayer p=player(false);ItemStack s=new ItemStack(item("ak"));hold(p,s);p.inventory.setInventorySlotContents(1,magazine("ak_ammo",14));gun("ak").insertMagazine(s,p);
+    @Test public void fullInventoryRetainsMagazineWithoutAnyTossOrNoDropCallback()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=new ItemStack(item("ak"));hold(p,s);ItemStack retained=magazine("ak_ammo",14);retained.getTagCompound().setBoolean("NoDrop",true);p.inventory.setInventorySlotContents(1,retained);gun("ak").insertMagazine(s,p);
         for(int i=1;i<9;i++)p.inventory.setInventorySlotContents(i,new ItemStack(Items.STICK));assertFalse(gun("ak").ejectMagazine(s,p));assertEquals(14,gun("ak").ammo(s));assertTrue(p.inventory.getStackInSlot(9).isEmpty());
-        when(p.dropItem(any(ItemStack.class),eq(false))).thenReturn(mock(EntityItem.class));assertTrue(gun("ak").ejectMagazine(s,p));assertEquals(0,gun("ak").ammo(s));assertFalse(gun("ak").ejectMagazine(s,p));
+        assertFalse(gun("ak").ejectMagazine(s,p));verify(p,never()).dropItem(any(ItemStack.class),anyBoolean());
+        assertEquals(14,gun("ak").ammo(s));p.inventory.setInventorySlotContents(1,ItemStack.EMPTY);assertTrue(gun("ak").ejectMagazine(s,p));assertEquals(14,mag("ak_ammo").rounds(p.inventory.getStackInSlot(1)));assertFalse(gun("ak").ejectMagazine(s,p));
     }
     @Test public void playerTimersAndGunCopiesAreIndependent()throws Exception{
         EntityPlayer a=player(false),b=player(false);ItemStack x=new ItemStack(item("ak")),y=new ItemStack(item("ak"));hold(a,x);hold(b,y);a.inventory.setInventorySlotContents(1,magazine("ak_ammo",10));b.inventory.setInventorySlotContents(1,magazine("ak_ammo",20));gun("ak").startReload(x,a);ticks(gun("ak"),x,a,40);assertEquals(10,gun("ak").ammo(x));assertEquals(0,gun("ak").ammo(y));assertFalse(gun("ak").reloading(y));

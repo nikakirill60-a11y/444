@@ -57,15 +57,15 @@ public final class BlackrazidGunItem extends GunItem {
         int slot=slot(p);if(slot<0)return false;ItemStack source=p.inventory.getStackInSlot(slot);
         store(gun,source.copy());p.inventory.setInventorySlotContents(slot,ItemStack.EMPTY);p.inventory.markDirty();return true;
     }
-    /** Remove before publishing; on failed drop, restore the exact stack including unrelated NBT. */
+    /** No toss callbacks: a full inventory keeps the exact magazine inside the gun. */
     public boolean ejectMagazine(ItemStack gun,EntityPlayer p){
         if(!live(gun,p))return false;ItemStack mag=magazine(gun);if(mag.isEmpty())return false;
-        store(gun,ItemStack.EMPTY);
         for(int i=0;i<MagazineItem.inventoryEnd(p);i++)if(p.inventory.getStackInSlot(i).isEmpty()){
-            p.inventory.setInventorySlotContents(i,mag);p.inventory.markDirty();return true;
+            store(gun,ItemStack.EMPTY);p.inventory.setInventorySlotContents(i,mag);p.inventory.markDirty();return true;
         }
-        if(p.dropItem(mag.copy(),false)!=null){p.inventory.markDirty();return true;}
-        store(gun,mag);return false;
+        // ItemTossEvent listeners may already retain a canceled drop (e.g. NoDrop).
+        // Restoring after such a callback duplicates ammunition; never publish it at all.
+        return false;
     }
     @Override public void startReload(ItemStack gun,EntityPlayer p){
         if(!live(gun,p) || reloading(gun))return;
