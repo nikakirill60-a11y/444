@@ -16,7 +16,7 @@ import net.minecraft.world.*;
 public final class TunnelBlock extends Block {
     public static final PropertyInteger DIRECTION=PropertyInteger.create("direction",0,3);
     private final boolean main;
-    public TunnelBlock(boolean main){super(Material.ROCK);this.main=main;setBlockUnbreakable();setResistance(6000000);setLightOpacity(0);setSoundType(SoundType.STONE);if(main)setDefaultState(blockState.getBaseState().withProperty(DIRECTION,0));}
+    public TunnelBlock(boolean main){super(main?Material.GROUND:Material.ROCK);this.main=main;setBlockUnbreakable();setResistance(6000000);setLightOpacity(0);setSoundType(SoundType.STONE);if(main)setDefaultState(blockState.getBaseState().withProperty(DIRECTION,0));}
     @Override protected BlockStateContainer createBlockState(){return new BlockStateContainer(this,DIRECTION);}
     @Override public IBlockState getStateFromMeta(int meta){return getDefaultState().withProperty(DIRECTION,meta&3);}
     @Override public int getMetaFromState(IBlockState s){return s.getValue(DIRECTION);}
