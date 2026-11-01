@@ -33,7 +33,7 @@ public class DemonTest {
     }
     @Test public void replacesGroundAiRatherThanAddingEnderDragonPhases()throws Exception{
         DemonEntity d=demon(world(false));assertTrue(d.tasks.taskEntries.isEmpty());assertTrue(d.targetTasks.taskEntries.isEmpty());
-        assertFalse(d instanceof net.minecraft.entity.IEntityOwnable);assertEquals(0,d.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue(),0);
+        assertFalse((Object)d instanceof net.minecraft.entity.IEntityOwnable);assertEquals(0,d.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue(),0);
     }
     @Test public void headOwnedByBodyCannotForwardDamageAndPartsArrayIsProtected()throws Exception{
         World w=world(false);DemonEntity d=demon(w);assertSame(w,d.getWorld());assertSame(d,d.dragonPartHead.parent);

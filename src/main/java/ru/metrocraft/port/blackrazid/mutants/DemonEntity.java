@@ -106,7 +106,7 @@ public final class DemonEntity extends BlackrazidMutant implements IEntityMultiP
     /** Never force-load a flight corridor or clip the large body through the world border. */
     public boolean canMoveFlight(double x,double y,double z){
         if(!Double.isFinite(x)||!Double.isFinite(y)||!Double.isFinite(z)||Math.abs(x)>16||Math.abs(y)>16||Math.abs(z)>16)return false;
-        AxisAlignedBB box=getEntityBoundingBox().offset(x,y,z);
+        AxisAlignedBB box=getEntityBoundingBox().expand(x,y,z);
         BlockPos min=new BlockPos(box.minX,box.minY,box.minZ),max=new BlockPos(box.maxX,box.maxY,box.maxZ);
         return box.minY>=0&&box.maxY<ceiling()&&world.isAreaLoaded(min,max)&&world.getWorldBorder().contains(min)&&world.getWorldBorder().contains(max);
     }
