@@ -73,3 +73,10 @@ CI компилирует Java 8/Forge, выполняет JUnit и reobfuscatio
 динамо и часов на руке, синхронизация на настоящем сервере и совместная работа
 с ModularWarfare-Shining ещё не приняты в игре. Тексты о прежних 22 стволах,
 железной дороге и тоннелях в исторической документации к dev.16 не относятся.
+
+## Подтверждённая CI-сборка
+
+Исходники `10a6aa2`: [успешная сборка](https://github.com/nikakirill60-a11y/444/actions/runs/41350191604),
+180 Python-проверок и 392 JUnit-теста, 0 failures/errors/skipped. Компиляция,
+reobfuscation и проверка фактического JAR прошли.
+[Артефакт dev.16](https://github.com/nikakirill60-a11y/444/actions/runs/41350191604/artifacts/13101221937).
