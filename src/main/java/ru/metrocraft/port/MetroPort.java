@@ -95,6 +95,7 @@ public final class MetroPort {
         ru.metrocraft.port.blackrazid.mutants.BlackrazidMutants.register();
         ru.metrocraft.port.blackrazid.transport.BlackrazidRails.initialize();
         ru.metrocraft.port.blackrazid.environment.BlackrazidEnvironment.initialize();
+        ru.metrocraft.port.blackrazid.environment.FactionTeleportBlock.load(new java.io.File(event.getModConfigurationDirectory(),"metroport-blackrazid-teleports.cfg"));
         PROXY.preInit();
     }
 

@@ -20,4 +20,4 @@ class BlackrazidEnvironmentTest(unittest.TestCase):
     def test_no_excluded_faction_or_general_handler_dependency(self):
         code='\n'.join(p.read_text() for p in (ROOT/'src/main/java/ru/metrocraft/port/blackrazid/environment').glob('*.java'))
         for forbidden in ['ExtendetPlayer','CommandDefence','executeCommand','net.minecraft.client','AirSetup','createExplosion']:self.assertNotIn(forbidden,code)
-        registry=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/environment/BlackrazidEnvironment.java').read_text();self.assertNotIn('ItemBlock',registry);self.assertIn('setCreativeTab(MetroPort.DECOR)',registry)
+        registry=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/environment/BlackrazidEnvironment.java').read_text();self.assertEqual(1,registry.count('new net.minecraft.item.ItemBlock(TELEPORT)'));self.assertIn('setCreativeTab(MetroPort.DECOR)',registry)

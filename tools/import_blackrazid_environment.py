@@ -49,5 +49,9 @@ def main():
     for block in ['blackrazid_tunnel','blackrazid_tunnel_proxy']:
         write_json(ASSETS/('blockstates/'+block+'.json'),dict(variants={'direction='+str(i):dict(model='metroport:blackrazid_tunnel_hidden') for i in range(4)}))
     for i in range(4):write_json(ASSETS/('blockstates/blackrazid_transient_light_'+str(i)+'.json'),dict(variants={'normal':dict(model='metroport:blackrazid_tunnel_hidden')}))
+    put(ASSETS/'textures/blackrazid/tunnels/tpblock.png',(S/'assets/tunnels/block/tpblock.png').read_bytes())
+    write_json(ASSETS/'models/block/blackrazid_faction_teleport.json',dict(parent='block/cube_all',textures=dict(all='metroport:blackrazid/tunnels/tpblock')))
+    write_json(ASSETS/'models/item/blackrazid_faction_teleport.json',dict(parent='metroport:block/blackrazid_faction_teleport'))
+    write_json(ASSETS/'blockstates/blackrazid_faction_teleport.json',dict(variants={'normal':dict(model='metroport:blackrazid_faction_teleport')}))
     update();print('Imported 159 native tunnel cubes, concrete OBJ / 5 material atlases and 17 ring-helper offsets.')
 if __name__=='__main__':main()

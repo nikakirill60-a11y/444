@@ -42,6 +42,7 @@ def lines_for(locale):
     if tunnels.exists():
         for entry in json.loads(tunnels.read_text()):
             lines.append('item.metroport.blackrazid_tunnels_'+str(entry['id'])+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
+        lines.extend(['tile.metroport.blackrazid_faction_teleport.name='+('Фракционный переход [BlackRazid]' if locale=='ru_ru' else 'Faction teleport [BlackRazid]'),'metroport.blackrazid.teleport.unavailable='+('Переход недоступен: проверьте команду, настройку точки и безопасность места.' if locale=='ru_ru' else 'Teleport unavailable: check team, destination settings and landing safety.')])
     survival=ASSETS/'blackrazid_survival.json'
     if survival.exists():
         for entry in json.loads(survival.read_text()):
@@ -53,5 +54,5 @@ def lines_for(locale):
 def update():
     for locale in ['ru_ru','en_us']:
         path=ASSETS/('lang/'+locale+'.lang')
-        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','key.metroport.mods','key.metroport.pump','tile.metroport.mcmod_decor_','metroport.armor.builtin_head','metroport.inventory.','metroport.watch.','metroport.respawn.','tile.metroport.mcmod_','item.metroport.blackrazid_','metroport.blackrazid.','key.metroport.blackrazid_lamp','death.attack.metroflame','entity.metroport.blackrazid_'))]
+        lines=[l for l in path.read_text().splitlines() if not l.startswith(('item.metroport.mcmod_','metroport.mcmod.','item.metroport.patch_','metroport.patch.','metroport.nvg.','key.metroport.inventory','key.metroport.mods','key.metroport.pump','tile.metroport.mcmod_decor_','metroport.armor.builtin_head','metroport.inventory.','metroport.watch.','metroport.respawn.','tile.metroport.mcmod_','item.metroport.blackrazid_','metroport.blackrazid.','key.metroport.blackrazid_lamp','death.attack.metroflame','entity.metroport.blackrazid_','tile.metroport.blackrazid_'))]
         path.write_text('\n'.join(lines+lines_for(locale))+'\n')
