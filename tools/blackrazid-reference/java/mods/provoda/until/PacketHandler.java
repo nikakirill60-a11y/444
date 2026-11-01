@@ -11,7 +11,6 @@
  *  dk
  *  ei
  *  mods.provoda.until.ClientTickHandler
- *  mods.provoda.until.ExtendetPlayer
  *  net.minecraft.server.MinecraftServer
  *  sq
  *  t
@@ -187,7 +186,7 @@ ab {
     private void handleSetFaction(dk var1, sq p, DataInputStream var3) {
         try {
             int e = var3.readInt();
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             ep.setFaction(e);
         }
         catch (IOException var6) {
@@ -200,7 +199,7 @@ ab {
     }
 
     private void handleGetWater(dk packet, sq p, DataInputStream i) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+        ExtendetPlayer ep = ExtendetPlayer.get(p);
     }
 
     private void handleMed(dk var1, sq var2, DataInputStream var3) {
@@ -213,7 +212,7 @@ ab {
                 var2.bK.a[13] = ep;
             }
             var2.bK.a[cur] = apt;
-            ExtendetPlayer ep1 = ExtendetPlayer.get((sq)var2);
+            ExtendetPlayer ep1 = ExtendetPlayer.get(var2);
             ep1.aptTimer();
         }
     }
@@ -245,32 +244,32 @@ ab {
     }
 
     private void handleReloadKeyPressed(dk packet, sq player, DataInputStream inputStream) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)player);
+        ExtendetPlayer ep = ExtendetPlayer.get(player);
         ep.setReloadKeyPressed();
     }
 
     private void handleReloadKeyUnpressed(dk packet, sq player, DataInputStream inputStream) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)player);
+        ExtendetPlayer ep = ExtendetPlayer.get(player);
         ep.setReloadKeyUnpressed();
     }
 
     private void handleLampKeyPressed(dk packet, sq player, DataInputStream inputStream) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)player);
+        ExtendetPlayer ep = ExtendetPlayer.get(player);
         ep.setLampKeyP();
     }
 
     private void handleLampKeyUnpressed(dk packet, sq player, DataInputStream inputStream) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)player);
+        ExtendetPlayer ep = ExtendetPlayer.get(player);
         ep.setLampKeyUp();
     }
 
     private void handleShootPress(dk packet, sq player, DataInputStream inputStream) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)player);
+        ExtendetPlayer ep = ExtendetPlayer.get(player);
         ep.setShootKeyPressed();
     }
 
     private void handleShootUnpess(dk packet, sq player, DataInputStream inputStream) {
-        ExtendetPlayer ep = ExtendetPlayer.get((sq)player);
+        ExtendetPlayer ep = ExtendetPlayer.get(player);
         ep.setShootKeyUnpressed();
     }
 

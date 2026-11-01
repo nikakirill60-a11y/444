@@ -10,7 +10,6 @@
  *  ly
  *  mods.provoda.gui.modifi.ModifiGui
  *  mods.provoda.gui.modifi.ModifiInventory
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  net.minecraft.client.Minecraft
  *  ng
@@ -72,7 +71,7 @@ extends wk {
         if (e instanceof sq && ((sq)e).bK.h() == i) {
             wm ammo;
             sq p = (sq)e;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if (i.q().e("UnloadingTimer") > 0) {
                 i.q().a("UnloadingTimer", i.q().e("UnloadingTimer") - 1);
                 if (i.q().e("UnloadingTimer") == 2 && i.q().n("HasAmmo")) {

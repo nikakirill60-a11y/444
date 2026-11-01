@@ -282,18 +282,6 @@
  *  mods.provoda.items.att.UboinikBarrel
  *  mods.provoda.items.att.VentilGlushak
  *  mods.provoda.items.att.VsvGlushak
- *  mods.provoda.mobs.mobs.Aqua_female
- *  mods.provoda.mobs.mobs.Aqua_male
- *  mods.provoda.mobs.mobs.Bear
- *  mods.provoda.mobs.mobs.Biblio
- *  mods.provoda.mobs.mobs.Dark
- *  mods.provoda.mobs.mobs.Demon
- *  mods.provoda.mobs.mobs.Kikimora
- *  mods.provoda.mobs.mobs.Mobus
- *  mods.provoda.mobs.mobs.Nosach
- *  mods.provoda.mobs.mobs.Rat
- *  mods.provoda.mobs.mobs.Spider
- *  mods.provoda.mobs.mobs.Strazh
  *  mods.provoda.model_blocks.BlockDivan
  *  mods.provoda.model_blocks.BlockGermo
  *  mods.provoda.model_blocks.BlockGermo1

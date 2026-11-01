@@ -13,7 +13,6 @@
  *  jc
  *  kx
  *  mg
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  ne
  *  ng
@@ -123,7 +122,7 @@ extends tb {
                 }
                 if (!(entity instanceof ne) && this.shooter != null && entity != this.shooter && entity instanceof sq && this.shooter instanceof jc) {
                     sq player;
-                    if (entity instanceof sq && this.shooter instanceof sq && ExtendetPlayer.get((sq)(player = (sq)entity)).getFaction() != ExtendetPlayer.get((sq)((sq)this.shooter)).getFaction()) {
+                    if (entity instanceof sq && this.shooter instanceof sq && ExtendetPlayer.get(player = (sq)entity).getFaction() != ExtendetPlayer.get((sq)this.shooter).getFaction()) {
                         entity.a(damagesource, this.damage);
                     }
                 } else {

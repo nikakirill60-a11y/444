@@ -4,7 +4,6 @@
  * Could not load the following classes:
  *  cpw.mods.fml.common.network.Player
  *  mg
- *  mods.provoda.until.ExtendetPlayer
  *  net.minecraftforge.event.ForgeSubscribe
  *  net.minecraftforge.event.entity.living.LivingEvent$LivingUpdateEvent
  *  sq
@@ -24,7 +23,7 @@ public class Thirst {
     public void onEntityUpdate(LivingEvent.LivingUpdateEvent var1) {
         if (var1.entityLiving instanceof sq) {
             sq var2 = (sq)var1.entityLiving;
-            ExtendetPlayer var3 = ExtendetPlayer.get((sq)var2);
+            ExtendetPlayer var3 = ExtendetPlayer.get(var2);
             Player player1 = (Player)var2;
             if (!var2.q.I) {
                 if (var3.thirsted()) {

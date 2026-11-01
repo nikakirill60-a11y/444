@@ -8,7 +8,6 @@
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  ng
  *  org.lwjgl.input.Keyboard
@@ -37,7 +36,7 @@ extends wk {
 
     public wm a(wm var1, aab var2, sq var3) {
         ExtendetPlayer ep;
-        if (!var2.I && (ep = ExtendetPlayer.get((sq)var3)).medTimer() <= 0 && var1.q().e("Heal_Left") > -5) {
+        if (!var2.I && (ep = ExtendetPlayer.get(var3)).medTimer() <= 0 && var1.q().e("Heal_Left") > -5) {
             var1.q().a("Charge", true);
             var2.a((mp)var3, "med", 1.0f, 1.0f);
             var1.q().a("Heal_Left1", var1.q().e("Heal_Left1") - 1);
@@ -52,7 +51,7 @@ extends wk {
         }
         if (par3Entity instanceof sq && ((sq)par3Entity).bK.h() == par1ItemStack) {
             sq p = (sq)par3Entity;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if (!par2World.I && ep.medTimer() == 10) {
                 p.j(15);
                 par1ItemStack.q().a("Charge", false);

@@ -7,7 +7,6 @@
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  ng
  *  sq
@@ -35,7 +34,7 @@ extends wk {
         }
         if (par3Entity instanceof sq && ((sq)par3Entity).bK.h() == par1ItemStack) {
             sq p = (sq)par3Entity;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if (!par2World.I) {
                 float en = ep.energyGet();
                 par1ItemStack.q().a("Energy", en);

@@ -9,7 +9,6 @@
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
  *  mods.provoda.entity.EntityPassiveFire
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  ng
  *  org.lwjgl.input.Keyboard
@@ -59,7 +58,7 @@ extends wk {
         if (e instanceof sq && ((sq)e).bK.h() == i) {
             wm ammo;
             sq p = (sq)e;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if (!p.ag() && i.q().e("UnloadingTimer") > 0 && !i.q().n("Modifi")) {
                 i.q().a("UnloadingTimer", i.q().e("UnloadingTimer") - 1);
                 if (i.q().e("UnloadingTimer") == 2) {

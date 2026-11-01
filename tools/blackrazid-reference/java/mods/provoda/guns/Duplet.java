@@ -10,7 +10,6 @@
  *  ly
  *  mods.provoda.gui.modifi.ModifiGui
  *  mods.provoda.gui.modifi.ModifiInventory
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  net.minecraft.client.Minecraft
  *  ng
@@ -64,7 +63,7 @@ extends wk {
         ModifiInventory revinv = new ModifiInventory(i);
         if (e instanceof sq && ((sq)e).bK.h() == i) {
             sq p = (sq)e;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if ((revinv.a(1) == null || revinv.a(1) != null && revinv.a(1).b() != ModBase.QuadBarrel) && i.q().e("Bullet_Left") > 2) {
                 i.q().a("Bullet_Left", 2);
             }

@@ -96,18 +96,6 @@
  *  mods.provoda.items.renderers.RenderLamp
  *  mods.provoda.items.renderers.RenderMed
  *  mods.provoda.items.renderers.RenderPower
- *  mods.provoda.mobs.mobs.Aqua_female
- *  mods.provoda.mobs.mobs.Aqua_male
- *  mods.provoda.mobs.mobs.Bear
- *  mods.provoda.mobs.mobs.Biblio
- *  mods.provoda.mobs.mobs.Dark
- *  mods.provoda.mobs.mobs.Demon
- *  mods.provoda.mobs.mobs.Kikimora
- *  mods.provoda.mobs.mobs.Mobus
- *  mods.provoda.mobs.mobs.Nosach
- *  mods.provoda.mobs.mobs.Rat
- *  mods.provoda.mobs.mobs.Spider
- *  mods.provoda.mobs.mobs.Strazh
  *  mods.provoda.mobs.models.aqua_female.ModelAquaf
  *  mods.provoda.mobs.models.aqua_male.ModelAquam
  *  mods.provoda.mobs.models.bear.ModelBear
@@ -301,7 +289,6 @@
  *  mods.provoda.until.ClientTickHandler
  *  mods.provoda.until.ClockKeyBind
  *  mods.provoda.until.DrezinaKeyHandler
- *  mods.provoda.until.ModifiKeyBind
  *  mods.provoda.until.ReloadKeyBind
  *  net.minecraftforge.client.IItemRenderer
  *  net.minecraftforge.client.MinecraftForgeClient

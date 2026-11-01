@@ -9,7 +9,6 @@
  *  arc
  *  kx
  *  mg
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  sq
  *  zl
@@ -102,8 +101,8 @@ extends zw {
             double var371 = (1.0 - var341) * var361;
             if (var19 instanceof sq) {
                 int factionHitEntity;
-                int var28 = ExtendetPlayer.get((sq)this.damager).getFaction();
-                if (var28 != (factionHitEntity = ExtendetPlayer.get((sq)((sq)var19)).getFaction())) {
+                int var28 = ExtendetPlayer.get(this.damager).getFaction();
+                if (var28 != (factionHitEntity = ExtendetPlayer.get((sq)var19).getFaction())) {
                     var19.a(var17, (int)(var371 * (double)this.damage));
                 }
             } else {

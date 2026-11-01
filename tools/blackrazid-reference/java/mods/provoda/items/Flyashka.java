@@ -8,7 +8,6 @@
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  ng
  *  org.lwjgl.input.Keyboard
@@ -38,7 +37,7 @@ extends wk {
     public wm a(wm var1, aab var2, sq var3) {
         ExtendetPlayer ep;
         int water;
-        if (var1.q().e("Timer") <= 0 && var1.q().e("Water") > -10 && (water = (ep = ExtendetPlayer.get((sq)var3)).thirst()) < 100) {
+        if (var1.q().e("Timer") <= 0 && var1.q().e("Water") > -10 && (water = (ep = ExtendetPlayer.get(var3)).thirst()) < 100) {
             var1.q().a("Charge", true);
             var2.a((mp)var3, "flyashka", 1.0f, 1.0f);
             var1.q().a("Timer", 40);
@@ -52,7 +51,7 @@ extends wk {
         }
         if (par3Entity instanceof sq && ((sq)par3Entity).bK.h() == par1ItemStack) {
             sq p = (sq)par3Entity;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if (par1ItemStack.q().e("Timer") == 10) {
                 par1ItemStack.q().a("Water", par1ItemStack.q().e("Water") - 1);
                 par1ItemStack.q().a("Charge", false);

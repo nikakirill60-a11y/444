@@ -7,7 +7,6 @@
  *  cpw.mods.fml.relauncher.SideOnly
  *  ly
  *  mg
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  ng
  *  sq
@@ -43,8 +42,8 @@ extends wk {
         mg var17 = mg.a((sq)player);
         if (entity instanceof sq) {
             int factionHitEntity;
-            int factionDamager = ExtendetPlayer.get((sq)player).getFaction();
-            if (factionDamager == (factionHitEntity = ExtendetPlayer.get((sq)((sq)entity)).getFaction())) {
+            int factionDamager = ExtendetPlayer.get(player).getFaction();
+            if (factionDamager == (factionHitEntity = ExtendetPlayer.get((sq)entity).getFaction())) {
                 return false;
             }
             entity.a(var17, this.weaponDamage);

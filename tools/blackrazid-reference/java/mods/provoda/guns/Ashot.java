@@ -10,7 +10,6 @@
  *  ly
  *  mods.provoda.gui.modifi.ModifiGui
  *  mods.provoda.gui.modifi.ModifiInventory
- *  mods.provoda.until.ExtendetPlayer
  *  mp
  *  net.minecraft.client.Minecraft
  *  ng
@@ -70,7 +69,7 @@ extends wk {
         ModifiInventory revinv = new ModifiInventory(i);
         if (e instanceof sq && ((sq)e).bK.h() == i) {
             sq p = (sq)e;
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)p);
+            ExtendetPlayer ep = ExtendetPlayer.get(p);
             if (i.q().e("Bullet_Left") > 0 && ep.getShootKeyPressed() && i.q().e("LoadingTimer") == 0 && i.q().e("UnloadingTimer") == 0 && !i.q().n("Modifi") && ep.getST() <= 0 && !p.ah()) {
                 if (w.I && otdachaTimer <= 0) {
                     otdachaTimer = 3;

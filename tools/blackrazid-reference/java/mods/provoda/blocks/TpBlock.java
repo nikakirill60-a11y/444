@@ -8,7 +8,6 @@
  *  aif
  *  apa
  *  ly
- *  mods.provoda.until.ExtendetPlayer
  *  net.minecraft.server.MinecraftServer
  *  sq
  *  t
@@ -32,7 +31,7 @@ implements ab {
 
     public boolean a(aab var1, int var2, int var3, int var4, sq var5, int var6, float var7, float var8, float var9) {
         if (!var1.I) {
-            ExtendetPlayer ep = ExtendetPlayer.get((sq)var5);
+            ExtendetPlayer ep = ExtendetPlayer.get(var5);
             MinecraftServer minecraftserver = MinecraftServer.D();
             aa icommandmanager = minecraftserver.E();
             if (ep.getFaction() == 0) {
