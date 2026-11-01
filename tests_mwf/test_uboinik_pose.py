@@ -37,6 +37,7 @@ class PoseConversionTests(unittest.TestCase):
         p=self.pose;h=vec(p['aim']['rotateHipPosition']);ar=vec(p['aim']['rotateAimPosition']);hp=vec(p['aim']['translateHipPosition'])+[0,.04,-.15];ap=vec(p['aim']['translateAimPosition'])
         angles=[h[0]-(ar[0]+h[0])*ads,46+h[1]-(1+ar[1]+h[1])*ads,1+h[2]-(1+ar[2]+h[2])*ads]
         pos=np.array([-1.3,.834,-1.05])+hp-(np.array([0,-.064,.35])+ap+hp)*ads
+        pos[1]-=.25*(1-ads) # approved HIP-only lowering after in-game screenshot
         return T([.56,-.52,-.71999997])@R('y',45)@S(.4)@xyz_rotation(angles)@T(pos)
     def enhanced_camera(self,ads):
         c=self.config;gl=c['global'];a=c['aim'];angles=vec(gl['globalRotate'])*3.14/math.pi
@@ -71,6 +72,14 @@ class PoseConversionTests(unittest.TestCase):
         self.config['global']['globalRotate']['y']=-44*math.pi/3.14
         try:self.assertLess(self.projected_body_fraction(self.enhanced_camera(0)),.01)
         finally:self.config=correct
+    def test_lowering_leaves_ads_endpoint_and_other_transforms_unchanged(self):
+        from uboinik_pose import render_pose
+        base=render_pose(self.pose,hip_lowering=0);new=render_pose(self.pose)
+        for key in ['global','thirdPerson','sprint','extra']:self.assertEqual(base[key],new[key])
+        self.assertAlmostEqual(base['aim']['translateHipPosition']['y']-.25,new['aim']['translateHipPosition']['y'])
+        for axis in 'xyz':
+            self.assertAlmostEqual(base['aim']['translateHipPosition'][axis]+base['aim']['translateAimPosition'][axis],new['aim']['translateHipPosition'][axis]+new['aim']['translateAimPosition'][axis])
+        self.assertEqual(base['aim']['rotateAimPosition'],new['aim']['rotateAimPosition'])
     def test_third_person_matches_supplied_scale_and_offsets(self):
         c=self.config['thirdPerson']['renderElements']['player'];r=vec(c['rot'])
         actual=T(vec(c['pos']))@S(.1)@S(vec(c['size']))@R('y',-r[1])@R('x',-r[0])@R('z',-r[2])@node_matrix(self.nodes['gunModel'])@S(.04)
@@ -96,7 +105,7 @@ class PoseConversionTests(unittest.TestCase):
         for name in ['flashModel']+['bulletModel_'+str(i) for i in range(6)]:np.testing.assert_allclose(node_matrix(self.nodes[name]),expected,atol=0)
         self.assertEqual([0,0,0],self.nodes['root']['translation'])
     def test_original_pose_file_hash_is_recorded(self):
-        m=json.loads((P/'SOURCE_MANIFEST.json').read_bytes());self.assertEqual(3,m['packRevision']);self.assertEqual(hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),m['poseSource']['sha256'])
+        m=json.loads((P/'SOURCE_MANIFEST.json').read_bytes());self.assertEqual(4,m['packRevision']);self.assertEqual(hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),m['poseSource']['sha256'])
     def test_supplied_recoil_and_sprint_settings_are_preserved(self):
         self.assertEqual(self.pose['sprint'],self.config['sprint'])
         for key in ['modelRecoilBackwards','modelRecoilUpwards','modelRecoilShake']:self.assertEqual(self.pose['extra'][key],self.config['extra'][key])

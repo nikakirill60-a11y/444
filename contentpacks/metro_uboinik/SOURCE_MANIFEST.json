@@ -121,7 +121,12 @@
     "animations": "Adapted root-motion timeline; no original animation data was provided.",
     "balance": "Adapted values, not recovered original gun stats."
   },
-  "packRevision": 3,
+  "packRevision": 4,
+  "poseAdjustment": {
+    "hipLowering": 0.25,
+    "adsEndpointUnchanged": true,
+    "reason": "User screenshot feedback: first-person hip hold too high."
+  },
   "poseSource": {
     "path": "tools/uboinik-reference/render.ubo.json",
     "sha256": "f8ce8fdd31df86b3d80a2936677adc8f95b7bcbcab71e4ee7527ad6ffcf033a8",

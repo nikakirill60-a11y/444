@@ -13,7 +13,7 @@ class UboinikPackTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.source=originals();cls.groups=obj_read(cls.source['uboinik.obj']);cls.gltf=js(A/'gltf/guns/metro_uboinik.gltf')
-        cls.archive=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v3.zip'
+        cls.archive=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v4.zip'
     def test_full_pack_structure_and_loader_dependencies(self):
         with contextlib.redirect_stdout(io.StringIO()):result=verify(P)
         self.assertEqual({'files':40,'rounds':6,'triangles':6901,'items':5},result)
@@ -64,7 +64,7 @@ class UboinikPackTests(unittest.TestCase):
         b=js(P/'bullets/metro_12g_buckshot.json');self.assertEqual({'shellModel'},set(obj_read((P/'obj/shells'/b['shellModelFileName']).read_bytes())))
         self.assertFalse(js(P/'guns/metro_uboinik.json')['dropBulletCasing'])
     def test_ads_has_explicit_matrix_offset_not_only_unused_aim_clip(self):
-        aim=js(P/'guns/render/metro_uboinik.render.json')['aim']['translateAimPosition'];self.assertAlmostEqual(-.15,aim['x']);self.assertAlmostEqual(.049,aim['y']);self.assertAlmostEqual(-.2,aim['z'])
+        aim=js(P/'guns/render/metro_uboinik.render.json')['aim']['translateAimPosition'];self.assertAlmostEqual(-.15,aim['x']);self.assertAlmostEqual(.299,aim['y']);self.assertAlmostEqual(-.2,aim['z'])
     def test_third_person_flat_icon_is_disabled_to_avoid_double_render(self):
         m=js(A/'models/item/metro_uboinik.json')
         for side in ['thirdperson_lefthand','thirdperson_righthand']:self.assertEqual([0,0,0],m['display'][side]['scale'])

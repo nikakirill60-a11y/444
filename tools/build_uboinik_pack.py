@@ -245,7 +245,8 @@ def build(output,archive,ref=SOURCE_REF):
     manifest['conversion']={'unitScale':SCALE,'bodyTexture':'Uboinik tex.png','roundTexture':'shell (2).png','atlasSize':[2048,1024],
       'attachmentTextures':{id:v[1] for id,v in ATTACHMENTS.items()},'triangles':{name:len(t) for name,t in groups.items()},
       'animations':'Adapted root-motion timeline; no original animation data was provided.','balance':'Adapted values, not recovered original gun stats.'}
-    manifest['packRevision']=3
+    manifest['packRevision']=4
+    manifest['poseAdjustment']={'hipLowering':.25,'adsEndpointUnchanged':True,'reason':'User screenshot feedback: first-person hip hold too high.'}
     manifest['poseSource']={'path':POSE_FILE.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(POSE_FILE.read_bytes()).hexdigest(),'conversion':'BASIC camera/weapon/arm transforms converted to Enhanced; reload arm poses interpolated from supplied configuration.'}
     jsonwrite(output/'SOURCE_MANIFEST.json',manifest)
     (output/'README_RU.txt').write_text(README,encoding='utf-8')
@@ -258,7 +259,7 @@ def build(output,archive,ref=SOURCE_REF):
     print('Built',archive,'bytes:',archive.stat().st_size,'SHA256:',hashlib.sha256(archive.read_bytes()).hexdigest())
     return g.doc
 
-README='''METRO: УБОЙНИК v3 — контент-пак для ModularWarfare-Shining 2024.2.4.6f-fix1
+README='''METRO: УБОЙНИК v4 — контент-пак для ModularWarfare-Shining 2024.2.4.6f-fix1
 
 УСТАНОВКА
 1. Нужны Minecraft 1.12.2, Forge и предоставленная пользователем версия MWF.
@@ -298,7 +299,12 @@ README='''METRO: УБОЙНИК v3 — контент-пак для ModularWarfa
 MTL не содержат map_Kd; соответствия PNG выбраны по содержимому атласов и записаны
 в SOURCE_MANIFEST.json. Посадку обвеса и правильность выбора текстур проверить в игре.
 
-ИСПРАВЛЕНО В v3
+ИСПРАВЛЕНО В v4
+По игровому скриншоту опущено обычное держание оружия вместе с руками.
+Смещение HIP по Y уменьшено на 0.25; конечная поза ADS, масштаб, угол,
+third-person, модель и текстуры сохранены.
+
+СОХРАНЕНО ИЗ v3
 Enhanced сбрасывает внешнюю матрицу камеры: восстановлены базовые смещение,
 поворот и масштаб, которые BASIC получает от ClientRenderHooks.
 Для глушителя применяется textures.png, для ЛЦУ — texturen.png, как указал пользователь.
@@ -321,5 +327,5 @@ Enhanced сбрасывает внешнюю матрицу камеры: вос
 '''
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'contentpacks/metro_uboinik');p.add_argument('--zip',type=Path,default=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v3.zip');p.add_argument('--source-ref',default=SOURCE_REF)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'contentpacks/metro_uboinik');p.add_argument('--zip',type=Path,default=ROOT/'artifacts/Metro_Uboinik_MWF_fix1_v4.zip');p.add_argument('--source-ref',default=SOURCE_REF)
     a=p.parse_args();build(a.output,a.zip,a.source_ref)

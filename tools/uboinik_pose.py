@@ -54,8 +54,11 @@ def arm_transform(pose,side,reload=0):
     offset=np.array(gun_transform(pose)['translation']) if moving else np.zeros(3)
     return {'translation':list(map(float,offset+p+pivot-m@pivot)),'rotation':quaternion(m),'scale':list(map(float,vec(a['armScale'])))}
 
-def render_pose(pose):
+def render_pose(pose,hip_lowering=.25):
     hip,ht=legacy_camera(pose);ads,at=legacy_camera(pose,True)
+    # Screenshot feedback: lower HIP only. Recompute ADS delta from the unchanged
+    # ADS endpoint so the gun and both arms move together without shifting sights.
+    ht=ht+np.array([0,-hip_lowering,0])
     # Actual JAR globalRotate uses 3.14, but aim rotations use Math.PI.
     angles=euler_yxz(rotation([0,-90,0])@rotation([0,45,0])@hip)*math.pi/3.14
     # Prefix at this point is Ry(180) S(1/10000), BEFORE globalScale.
