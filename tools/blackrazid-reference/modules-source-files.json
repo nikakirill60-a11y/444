@@ -1,0 +1,41 @@
+{
+  "scope": "Native attachment sources and icons; recovery is not runtime acceptance",
+  "files": [
+    {
+      "path": "classes/mods/provoda/gui/modifi/ModifiGui.class",
+      "driveId": "1e9WzLsUuMRZeQ4JjQIgA9DemyknJCOdu",
+      "bytes": 3638,
+      "sha256": "023417bdf8f4ef1e88f53a1050d71bd6727c74c5690fc14c20b9250e33e12407"
+    },
+    {
+      "path": "classes/mods/provoda/gui/modifi/ModifiInventory.class",
+      "driveId": "1aJjPXDgWlKNByPem2IBwOv_13Zks_R8I",
+      "bytes": 3139,
+      "sha256": "5d9d476231f0f5d34e7ec5b52b25c9e6d3c86cdf4c4018e72ddee611bad94551"
+    },
+    {
+      "path": "classes/mods/provoda/gui/modifi/ModifiContainer.class",
+      "driveId": "10z-dfwuNADbVVEVWwC-1lPB7onsx-0LL",
+      "bytes": 5337,
+      "sha256": "959fbfece709940acc63314b5ad650e2860374e3d239751f23ae0e7d99884d97"
+    },
+    {
+      "path": "classes/mods/provoda/gui/modifi/ModifiSlot.class",
+      "driveId": "1WnyE2r-D1FgchAxhh0gPqjmL0loUyGr6",
+      "bytes": 947,
+      "sha256": "ec8368094157998e231e40720a2001e924540ec250608deb7500d2ed33c25151"
+    },
+    {
+      "path": "classes/mods/provoda/gui/modifi/GlushakSlot.class",
+      "driveId": "1khP2rdNTnZsH0iw1VTW-L91F5ZszOB3t",
+      "bytes": 1142,
+      "sha256": "8e3f205c88e2575661ee214b9f6b950758d0b2a0fdd0d742eded8ba0bd9d6020"
+    },
+    {
+      "path": "classes/mods/provoda/gui/modifi/LaserSlot.class",
+      "driveId": "1tmEttRoAcnBQ-QDHbYpwZlfs5HyROqzN",
+      "bytes": 707,
+      "sha256": "c3b64bb90c545bd3a3d015a9f066f5b8c9e00901f014c063150d3c324b801605"
+    }
+  ]
+}
