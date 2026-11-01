@@ -139,6 +139,240 @@
       "driveId": "1kU0yTFVNLQxIHDcV11Vb2JAu3KKFPNQX",
       "bytes": 3176,
       "sha256": "fdc181b30a609412316cf482e7ab2f646bb1ba4d62867dd90d914d0dbbbbb79a"
+    },
+    {
+      "path": "original-renderers/RendererBiblio.class",
+      "driveId": "1cF-NaPJzDYl3l9wgK62YXyusyqXEgI-8",
+      "bytes": 533,
+      "sha256": "62f5c380650dda53e6b3c645087491c9b2f1f8cd1def766d7743acd68e7cd53c"
+    },
+    {
+      "path": "original-renderers/RendererMobus.class",
+      "driveId": "1X9YfnyTGMVc-w5SPK45vH_Env0kxu7kH",
+      "bytes": 516,
+      "sha256": "0620a0c4dd3715b5c7988a86510941c681e612278748ce179bb855540c9bd529"
+    },
+    {
+      "path": "original-renderers/RendererSpider.class",
+      "driveId": "1fLahVBHasF3C5wA-_393jLH98MLYkn5f",
+      "bytes": 523,
+      "sha256": "5e177bc0e97cdf9c0977d30af9e87531a2c1bd929503b18b0ba77497e5a5cb13"
+    },
+    {
+      "path": "original-renderers/RendererDemon.class",
+      "driveId": "1Vmx0tPtlf7sQXADfWo2EpTH-JvvR9Vw2",
+      "bytes": 516,
+      "sha256": "498657e81c53137d6dc79aad9ca03062154dccfe56ddae794008aeb6e3cea885"
+    },
+    {
+      "path": "original-renderers/RendererAquaf.class",
+      "driveId": "10jh7Td4Hs9l71g2FsapdFsVAyic3uPVg",
+      "bytes": 528,
+      "sha256": "097cf82fa0b8b943dee4839ef468efdda7fd911e0f06ee8248e61672eef03cec"
+    },
+    {
+      "path": "original-renderers/RendererRat.class",
+      "driveId": "1RGuHJFa036wjmIpcY3r9Z4D0k6ZWgnUO",
+      "bytes": 502,
+      "sha256": "d75850bb874ff640b80dc9b549145dd3711df932a5aac16977604d1921b23a64"
+    },
+    {
+      "path": "original-renderers/RendererStrazh.class",
+      "driveId": "1YERlJljSZePrxVKfMhUBlPObyf_ZYxxx",
+      "bytes": 523,
+      "sha256": "db8810d06d1c1de9e35fd1a0aa8bfae1bc7fd926b2501f0f8dd92ba198093df9"
+    },
+    {
+      "path": "original-renderers/RendererAquam.class",
+      "driveId": "1ELDGGnBRPclFsPrDcDYGWu9AhyKxjDnP",
+      "bytes": 524,
+      "sha256": "d6da57db43604a1d69ecd6c0c64b094f0e9462b624195d86afde2a7d105a0b61"
+    },
+    {
+      "path": "original-renderers/RendererNosach.class",
+      "driveId": "1jhPmKIeNZe8NNbagDncQzN4QT9poM-G4",
+      "bytes": 523,
+      "sha256": "3ce15ec4a43425ae4a479704fcf58627bbd7e0841fa3b383a2232b0f28e6aa3b"
+    },
+    {
+      "path": "original-renderers/RendererBear.class",
+      "driveId": "1ENF-Dje9CHfW_YD10aQBu6wRHC7KsWlZ",
+      "bytes": 509,
+      "sha256": "65a68d0d942fac243a31a5a0b27494082b687d83610a77d92aec3220aaa9da28"
+    },
+    {
+      "path": "original-renderers/RendererDark.class",
+      "driveId": "1Wpjc60wP0Wong5QcdgqcJgW14Gx5XNAd",
+      "bytes": 509,
+      "sha256": "9263b914dd324142aef5d5acbf163e0ff49dd4d0551059e4e9dd44f9f9717499"
+    },
+    {
+      "path": "original-renderers/RendererKikimora.class",
+      "driveId": "1tX2RdrOW4PClPA2pwQO1BqCvy2fbJCD2",
+      "bytes": 537,
+      "sha256": "372c0b85e093ca8304829ad7d26e02ef4ae032428086513da0778d5dba9440d6"
+    },
+    {
+      "path": "assets/mutants/spider/spider.obj",
+      "driveId": "1dsD7yfK9T293hmWZRb_NYLJeW-eu4x8m",
+      "bytes": 148712,
+      "sha256": "0313f44b211f00e42c4fcda54d0141fc0d02d93e6eee8dabacb908249768d9e7"
+    },
+    {
+      "path": "assets/mutants/spider/leftarm.obj",
+      "driveId": "1NaArssvKMgsKCEmhtTHMZP6w40Pb5LxV",
+      "bytes": 22184,
+      "sha256": "9ed2804a77b9eaa249fc1afeb8f91ab7f114f7e9ee95b60c3491c3b051af9c69"
+    },
+    {
+      "path": "assets/mutants/spider/rightarm.obj",
+      "driveId": "1qIriZOLhXTEgrPHYZ_R2wqFfwuVQE-uG",
+      "bytes": 22534,
+      "sha256": "6d7e6c78a78e0383e623f6c36f22492118c10b4c386a00961264f0a5abc9d2cb"
+    },
+    {
+      "path": "assets/mutants/spider/leftleg.obj",
+      "driveId": "18obwiFPC3ZNYI3XbfipW-3OUKjVHBBVq",
+      "bytes": 28049,
+      "sha256": "7fc6e54cb161eb0311104f7face051fb991491a81bf2266eef2ea027c109c65b"
+    },
+    {
+      "path": "assets/mutants/spider/rightleg.obj",
+      "driveId": "1rNKaqHGiDi8M60M1CQaWxcAtgvnVCXul",
+      "bytes": 28583,
+      "sha256": "0fb06565bb5129010f24a9c357bb63fd04756d3d2b777c03d2d3027f53fe6580"
+    },
+    {
+      "path": "assets/mutants/spider/spider.png",
+      "driveId": "1zbQlwd6D714zVscOSAlab_OHx4sZ4wOC",
+      "bytes": 114265,
+      "sha256": "66f88b95e10e1ac2b1724872795329fcee1b1c8ac60e3aa816c9d14c0023c4df"
+    },
+    {
+      "path": "assets/mutants/rat/rat.obj",
+      "driveId": "1XJCzi4G2q5kLxQAmSY9vEnS2hWdOHroq",
+      "bytes": 17137,
+      "sha256": "ce6cb6db4db39cef79a54095fdec12550225f9443b3c1203e71f5885f39c65a2"
+    },
+    {
+      "path": "assets/mutants/rat/act_rat_1.512c.png",
+      "driveId": "1mihD2Tm_ZFGHy09v6Y_4kXlWORnM0sd4",
+      "bytes": 143627,
+      "sha256": "b44d1dff49b0fcd51e0ff2327c6f86d8c954f6d544973b5e7fb7632841b41244"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/bibliotecar.obj",
+      "driveId": "149TD2PjwAutG5aLHoXWmiMZ53vDGuxEk",
+      "bytes": 54114,
+      "sha256": "98abe65270a8c9121977ed65b57e82b3880ac9842e2c009f72c55ecc7096a0ed"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/leftarm.obj",
+      "driveId": "1GGj6ApeeMCzl9lgmEZYt9FjWULFQUo-w",
+      "bytes": 3977,
+      "sha256": "e21488723e2a074af3e3babc4bba13ae7c56c931819e0ab5218ca4d10332f8b6"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/leftarm1.obj",
+      "driveId": "1cebjfZV6BfHKJ4r2O5gmDDz2VdKBG9TX",
+      "bytes": 18929,
+      "sha256": "51c367736eda060af7ee1ff625b33be50906a50d49128f327362ada7b5337b54"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/rightarm.obj",
+      "driveId": "1duU7QBKfJm5y9XXrLVdMke2LXWOvSerL",
+      "bytes": 3034,
+      "sha256": "305c4271c287d6865f27178551dd432a4c27b5fbd621aa16fcf313e25ce8bdbf"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/rightarm1.obj",
+      "driveId": "1Lm2K8jFTKWz47tog82qPe8Q40AxEJIzC",
+      "bytes": 18053,
+      "sha256": "e8d311a33ecd463b1c34bfbe299908ed64fe01ca39a0f461924bc0f8aa8e66fa"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/leftleg.obj",
+      "driveId": "1lcS5b6sBWrJgszq9s4dq-vPBk2-EHrtw",
+      "bytes": 13064,
+      "sha256": "48e1836ed2e8342ee2cd83333ea23bbe252731b96bb78292e0acbad708f8c782"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/rightleg.obj",
+      "driveId": "1etuCQm8AU8vwIdAvvJHLnrCqzPiOdAbi",
+      "bytes": 13590,
+      "sha256": "71ef93591e52cd5d81101c1523cb833d5dc04d42e8efd3741b7b983af3fafab0"
+    },
+    {
+      "path": "assets/mutants/bibliotecar/biblio.png",
+      "driveId": "1tYZ1VZkHiey-_SNqSXpVeTLAF7Oh9WcZ",
+      "bytes": 120280,
+      "sha256": "3c79588e8a9c5765b189bda629f7b896fbc5b61edf3357cdcb49b00065373166"
+    },
+    {
+      "path": "assets/mutants/rat/rat.mtl",
+      "driveId": "1TN_B-M4DJSPV4YtSTVZvTNG5glrGF8BT",
+      "bytes": 398,
+      "sha256": "a0970df4437fd30526c0f8164448d88f9e2a4101caacc657d5905bf3aac981df"
+    },
+    {
+      "path": "assets/sounds/spider_death.ogg",
+      "driveId": "16xkoyEfQMGbtkEXSYUvnxbNlhPZORe6_",
+      "bytes": 22479,
+      "sha256": "43c852dc568ec37eea06e736bce9ad018287f108f7f9628bff251ad4ace0d35c"
+    },
+    {
+      "path": "assets/sounds/spider_alive.ogg",
+      "driveId": "1ORYkIKYQ9iKc2BPDwuArl8-gmbm61l4u",
+      "bytes": 18279,
+      "sha256": "74951fdc51d9f853337999ac8f1ccd308c93f093fd779dfac7182d35a7d558b4"
+    },
+    {
+      "path": "assets/sounds/spider_hit.ogg",
+      "driveId": "13PaD4uTS6VyNTfYZ6WMb_XHRVNT4mI8K",
+      "bytes": 8834,
+      "sha256": "3dc5534dd9c9d1cf2b33ed1d1b3d58a5e88c6fdca4ee7618f23ab0335835c2e9"
+    },
+    {
+      "path": "assets/sounds/rat_alive.ogg",
+      "driveId": "1B21QL-mL6J5IIiZYD7JwRj1qHekfozbJ",
+      "bytes": 7338,
+      "sha256": "f4f721a827fdcb60812ece0cf1b31a01531bc04a2223d71571aa8bcfce82a3bb"
+    },
+    {
+      "path": "assets/sounds/rat_death.ogg",
+      "driveId": "1i_5ZzE73iAhzbegqaUt2ZPEzf-1hcHwU",
+      "bytes": 4443,
+      "sha256": "9b82fe37c4a9f553e63dc88756709d869a26ac40aa9ac71bb6d0d0cc3c8d4a95"
+    },
+    {
+      "path": "assets/sounds/rat_hit.ogg",
+      "driveId": "171Tzk-3S841mgyaxOILH9C-rvMoE-TIu",
+      "bytes": 4881,
+      "sha256": "cc62d2adc82e42ff8a1d399a1baa534f9e3be7b405315c7ff786797dcc0e6c1b"
+    },
+    {
+      "path": "assets/sounds/biblio_hit.ogg",
+      "driveId": "1LPSErXBkWFAUjLDAtJzMUgB6UkB2mZmW",
+      "bytes": 15589,
+      "sha256": "f12bac7aec10fd0752538a3dd7d472b53f33da36f3a0cd5e84552bc954080a63"
+    },
+    {
+      "path": "assets/sounds/biblio_death.ogg",
+      "driveId": "1DqEZIM_XX5LkLN0fI_KsGv0Og_dePZ1g",
+      "bytes": 14441,
+      "sha256": "a26bc06725b925cc822c69e52388886e08ff0fb4dd4710517082287b3dbcd751"
+    },
+    {
+      "path": "assets/sounds/biblio_alive.ogg",
+      "driveId": "1yIW8ufC1Tta-nNB1ad4dZPLx5NWYryzR",
+      "bytes": 23320,
+      "sha256": "9c4905746fd3f628e2b30f9d31bf8e76cd167efcd77fcb5cc341d1203b77350e"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntityObject.class",
+      "driveId": "1axM-mdz5B-CDdsGy8SAvZOIL3aVY8WWR",
+      "bytes": 3055,
+      "sha256": "4fe2f5cac3d0f57c7e937ce43c3754a042143e8e9ab274b9371b0bcb70c914d5"
     }
   ]
 }
