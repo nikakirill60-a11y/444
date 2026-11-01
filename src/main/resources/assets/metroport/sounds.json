@@ -9,6 +9,26 @@
       "metroport:ak74shoot"
     ]
   },
+  "blackrazid_ak_shoot": {
+    "sounds": [
+      "metroport:blackrazid_ak_shoot"
+    ]
+  },
+  "blackrazid_aknew_reload": {
+    "sounds": [
+      "metroport:blackrazid_aknew_reload"
+    ]
+  },
+  "blackrazid_aknew_unload": {
+    "sounds": [
+      "metroport:blackrazid_aknew_unload"
+    ]
+  },
+  "blackrazid_empty": {
+    "sounds": [
+      "metroport:blackrazid_empty"
+    ]
+  },
   "blackrazid_flyashka": {
     "sounds": [
       "metroport:blackrazid_flyashka"
@@ -17,6 +37,56 @@
   "blackrazid_railgun_air": {
     "sounds": [
       "metroport:blackrazid_railgun_air"
+    ]
+  },
+  "blackrazid_rpk_reload": {
+    "sounds": [
+      "metroport:blackrazid_rpk_reload"
+    ]
+  },
+  "blackrazid_rpk_shoot": {
+    "sounds": [
+      "metroport:blackrazid_rpk_shoot"
+    ]
+  },
+  "blackrazid_rpk_unload": {
+    "sounds": [
+      "metroport:blackrazid_rpk_unload"
+    ]
+  },
+  "blackrazid_saiga_reload": {
+    "sounds": [
+      "metroport:blackrazid_saiga_reload"
+    ]
+  },
+  "blackrazid_saiga_unload": {
+    "sounds": [
+      "metroport:blackrazid_saiga_unload"
+    ]
+  },
+  "blackrazid_ubludok_reload": {
+    "sounds": [
+      "metroport:blackrazid_ubludok_reload"
+    ]
+  },
+  "blackrazid_ubludok_shoot": {
+    "sounds": [
+      "metroport:blackrazid_ubludok_shoot"
+    ]
+  },
+  "blackrazid_ubludok_unload": {
+    "sounds": [
+      "metroport:blackrazid_ubludok_unload"
+    ]
+  },
+  "blackrazid_vsv_shoot": {
+    "sounds": [
+      "metroport:blackrazid_vsv_shoot"
+    ]
+  },
+  "blackrazid_vsv_shootclose": {
+    "sounds": [
+      "metroport:blackrazid_vsv_shootclose"
     ]
   },
   "duplet_reload": {

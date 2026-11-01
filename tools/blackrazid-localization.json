@@ -8,7 +8,13 @@
     "metroport.blackrazid.sips": "Воды осталось: %s / 10",
     "metroport.blackrazid.flask.help": "Удерживайте ПКМ 2 секунды: +30 воды; отмена не расходует воду",
     "metroport.blackrazid.lamp.help": "ПКМ или L: включить; держите в любой руке; зарядите устройством",
-    "metroport.blackrazid.power.help": "Удерживайте ПКМ: +20 заряда каждые 15 тактов"
+    "metroport.blackrazid.power.help": "Удерживайте ПКМ: +20 заряда каждые 15 тактов",
+    "metroport.blackrazid.rounds": "Боезапас: %s / %s",
+    "metroport.blackrazid.magazine.fill": "ПКМ — вложить один подходящий патрон",
+    "metroport.blackrazid.magazine.fuel": "Баллон не перезаполняется",
+    "metroport.blackrazid.gun.reload": "R / Shift+ПКМ — вставить или извлечь магазин",
+    "metroport.blackrazid.gun.empty": "Магазин не установлен",
+    "metroport.blackrazid.gun.basic": "Разработка: модули и исходная 3D-модель ещё не перенесены"
   },
   "en_us": {
     "key.metroport.blackrazid_lamp": "BlackRazid flashlight",
@@ -19,6 +25,12 @@
     "metroport.blackrazid.sips": "Water remaining: %s / 10",
     "metroport.blackrazid.flask.help": "Hold right click for 2 seconds: +30 water; cancellation consumes nothing",
     "metroport.blackrazid.lamp.help": "Right click or L: toggle; hold in either hand; use the charger to recharge",
-    "metroport.blackrazid.power.help": "Hold right click: +20 charge every 15 ticks"
+    "metroport.blackrazid.power.help": "Hold right click: +20 charge every 15 ticks",
+    "metroport.blackrazid.rounds": "Ammunition: %s / %s",
+    "metroport.blackrazid.magazine.fill": "Right click to insert one matching round",
+    "metroport.blackrazid.magazine.fuel": "This fuel canister is not refillable",
+    "metroport.blackrazid.gun.reload": "R / sneak+right click to insert or eject magazine",
+    "metroport.blackrazid.gun.empty": "No magazine inserted",
+    "metroport.blackrazid.gun.basic": "Development: modules and native 3D model not yet ported"
   }
 }

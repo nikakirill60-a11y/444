@@ -22,6 +22,10 @@ def lines_for(locale):
         lines.extend(['metroport.blackrazid.open='+('Открыть' if locale=='ru_ru' else 'Open'),
             'metroport.blackrazid.storage='+('Хранилище: %s ячеек' if locale=='ru_ru' else 'Storage: %s slots'),
             'metroport.blackrazid.help='+('ПКМ — открыть; слот рюкзака — надеть' if locale=='ru_ru' else 'Right click to open; backpack slot to equip')])
+    weapons=ASSETS/'blackrazid_weapons.json'
+    if weapons.exists():
+        for entry in json.loads(weapons.read_text()):
+            lines.append('item.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn']+' [BlackRazid]')
     survival=ASSETS/'blackrazid_survival.json'
     if survival.exists():
         for entry in json.loads(survival.read_text()):

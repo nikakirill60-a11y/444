@@ -1,0 +1,474 @@
+{
+  "folderId": "1u3snbncRSvARWyceeoHUilIw2MTdOALv",
+  "scope": "Original selected ammunition and first automatic-firearm assets. Source recovery is not a full weapon port.",
+  "files": [
+    {
+      "path": "assets/icons/12.7x108mm.png",
+      "driveId": "14xoGgxO0DTxFBulnepuNP_noQcAUU8Mk",
+      "bytes": 5376,
+      "sha256": "94117633ff10b93dc0ec8abce64eab6bdde3e031a62a33847945e5b455e549fb"
+    },
+    {
+      "path": "assets/icons/12_7x55.png",
+      "driveId": "12tfG7q1CRB66YE0z3EYujyQpfBRvve9_",
+      "bytes": 7783,
+      "sha256": "0ad3713145d8eab0b2421d37f0a7a770773720dbbff1b9701dca327afaadc70b"
+    },
+    {
+      "path": "assets/icons/12x7.png",
+      "driveId": "10X2rREDV9z33VhaGk7g_6xFK4C7AW_QW",
+      "bytes": 5376,
+      "sha256": "94117633ff10b93dc0ec8abce64eab6bdde3e031a62a33847945e5b455e549fb"
+    },
+    {
+      "path": "assets/icons/12x70.png",
+      "driveId": "1DqCUUK9Jnr0TlfozQ5qAX4q473dwGIg0",
+      "bytes": 12123,
+      "sha256": "b6f482acac3ea3bb32ef909580ef7902c8519614c537024969085f04370e88ba"
+    },
+    {
+      "path": "assets/icons/15mm.png",
+      "driveId": "130VWTGYF1W7ADp-228-uY73KWzNBXkUg",
+      "bytes": 9779,
+      "sha256": "77c8b15a50f36c6f0923261d5e5ec3f7f1b79213fc2af0e7be11a671055ccb1f"
+    },
+    {
+      "path": "assets/icons/abzac_ammo.png",
+      "driveId": "1XIaOYUDsPcuAjFg5_T__MIBtoY4K2Ojr",
+      "bytes": 16209,
+      "sha256": "b54479b3d826cc8565100a31e6088d47cfc259dc2694c89795485683f71a5282"
+    },
+    {
+      "path": "assets/icons/abzac_ammobig.png",
+      "driveId": "1GxqzFJi2M7v1hLN5jGq1C041JLMhlmLr",
+      "bytes": 18440,
+      "sha256": "f25e9626fe076045e47136e49ca7d9f8186bbfa11948a96cc361b6ca23679df3"
+    },
+    {
+      "path": "assets/icons/ak.png",
+      "driveId": "1HIiF4uE4CtfimZTn9S8MeHuSSg7NYiJ_",
+      "bytes": 8880,
+      "sha256": "370885594f461804b112863560b544c79ede978ec6ad03bc1e5a183b70d72f61"
+    },
+    {
+      "path": "assets/icons/ak2012.png",
+      "driveId": "1J3r5bwTSqqOb2c3JG9toZVnYVUfvb-Ol",
+      "bytes": 9870,
+      "sha256": "8c55af271bf760e24e080e5333a6ed4c56d3d47c75a92472a6f4793302b166ca"
+    },
+    {
+      "path": "assets/icons/ak2012_ammo.png",
+      "driveId": "1F4sqF9BVUqVRkrDEHHntd_nkIED5hKmD",
+      "bytes": 13653,
+      "sha256": "e75408c96c85b68e1d2b993fc06a1b321c4565508912c4dd828fa2435cb90d0a"
+    },
+    {
+      "path": "assets/icons/ak_ammo.png",
+      "driveId": "1zGi5IvGnI1gMrzrUhkBqhhZSPmnXHwt8",
+      "bytes": 9105,
+      "sha256": "5aabc28ba04094bea08f4521fe5e5c5b8c3d3c6a0e826fdf98a3c2c27e37dee0"
+    },
+    {
+      "path": "assets/icons/aksu.png",
+      "driveId": "1OLP2ffMQJm1p2nFm0igw3534z_sU_6YD",
+      "bytes": 3165,
+      "sha256": "8cc543b4ff348ee63761e22e94706d562981a45feec5d3159956a562cab9bc83"
+    },
+    {
+      "path": "assets/icons/bolt.png",
+      "driveId": "1XQRi9QVJqeU6IOB3oFQYRMD1Z8jSqMEl",
+      "bytes": 3020,
+      "sha256": "22def15e949f8838934eeaad0bda954448be752450d5d3220041a4a313270320"
+    },
+    {
+      "path": "assets/icons/bullet7_62x54.png",
+      "driveId": "1q2WJwgGJm4QonlmWaIFbESb1PNz8UP6W",
+      "bytes": 5752,
+      "sha256": "5cf9a72e9d9e3b85f58ef4be3c6750b190094703bd87873b178c4901eba92202"
+    },
+    {
+      "path": "assets/icons/gatling_ammo.png",
+      "driveId": "1XZX2TavKPiQR8v8IGPl_fjEZHPXSEVX6",
+      "bytes": 15945,
+      "sha256": "b66fffaf00a421419a7e4eead56521a30c3741d22e2374a5a5cb6edefa7d3c50"
+    },
+    {
+      "path": "assets/icons/helsing_ammo.png",
+      "driveId": "14ThsDZGAm7GnvFrARLprEsFR7W706Cnz",
+      "bytes": 13924,
+      "sha256": "8f1912bc0051498a41c5bb75583404931706b1b4e39a7dc3007186a4a686a99e"
+    },
+    {
+      "path": "assets/icons/magnum.png",
+      "driveId": "1GRh-hKa_sc6St7p8hnhtmx0nNcPrjskl",
+      "bytes": 6224,
+      "sha256": "e1325169685bb8b0797b9b13920400f0e153e7c3278dd638fc159b187a8e36a1"
+    },
+    {
+      "path": "assets/icons/ognemet_ammo.png",
+      "driveId": "1k0RU2mtcnaPr8uyegZcrHYA1cq3zWzYX",
+      "bytes": 15553,
+      "sha256": "751637f5e08bdbb121925d8673a53824f95d242a5279ad6a5b2f4c7c498bf83a"
+    },
+    {
+      "path": "assets/icons/patron.png",
+      "driveId": "1eier6iVGil2ONhU95lvsb1TgysA3dpH5",
+      "bytes": 4330,
+      "sha256": "5e273cf656e857614ef866d71805b226ed67007ea1690b3fe838e53ab2a230c8"
+    },
+    {
+      "path": "assets/icons/podonok_ammo.png",
+      "driveId": "10POaOVXwIFuqrbVBIVZFTSbHOstpMW11",
+      "bytes": 11498,
+      "sha256": "2011435845964858a981c786c30707e2ef7a4f8fb78f6b9fb6a867c58b0e6c3c"
+    },
+    {
+      "path": "assets/icons/podonok_ammobig.png",
+      "driveId": "1_ENorOKl-UFJh5cbnmBGNQ3fYEnSIyAf",
+      "bytes": 10081,
+      "sha256": "c7aa30d18dffa53080ee40f04491b50c30d857bca72d2380e96549327f3eecb5"
+    },
+    {
+      "path": "assets/icons/preved_ammo.png",
+      "driveId": "1eXkwFlKbCh9j7lcRAMFLrf7RstSLWpim",
+      "bytes": 16533,
+      "sha256": "0e2f2e84a49dbaede5cac707aa97552d80a9f1b8472a386fdd637541a212edd6"
+    },
+    {
+      "path": "assets/icons/rpk.png",
+      "driveId": "1adlu2p65ExM9GAt1OUiXyLnzVv6CbNJs",
+      "bytes": 7291,
+      "sha256": "526061bfe48150dba31a000658a92a11c90efd7c5398d0da277d345700b18c2e"
+    },
+    {
+      "path": "assets/icons/rpk_ammo.png",
+      "driveId": "1D7gyzyDRF46pSZVX0uGOq5wOjBQIIfVt",
+      "bytes": 7188,
+      "sha256": "284c9cd55fac6f9403d2d912dbb6916dd4e84da6eadd13492e940a800771c4d9"
+    },
+    {
+      "path": "assets/icons/rpk_ammobig.png",
+      "driveId": "1hszesMtEy2e1gFgItK_hlHZ92Wapku5e",
+      "bytes": 15446,
+      "sha256": "169e0f3fe75a56e12ceeb0f534d8800e05ac3ab64ce2e6015fd2930d46de399c"
+    },
+    {
+      "path": "assets/icons/saiga_ammo.png",
+      "driveId": "131ssTNYWBZx_xrRYFKyP1WaZr5qnUNgt",
+      "bytes": 12090,
+      "sha256": "53105dce8ce5037970b7b54e48e705f05aeb777b1f052fbf8a7b7d563845772b"
+    },
+    {
+      "path": "assets/icons/saiga_ammobig.png",
+      "driveId": "1yJ9xPtbpTy_ewsxKOlDw12tZH10fYxYZ",
+      "bytes": 13932,
+      "sha256": "fb480e683871f304f655ba3786c1656cc757ab6dc7c1219089a75c95b19e6aae"
+    },
+    {
+      "path": "assets/icons/tihar_ammo.png",
+      "driveId": "1VL0nAOC4pvZveXZdESev2agrvFR5GezM",
+      "bytes": 6648,
+      "sha256": "766fdc599d86f835616c30d79f4095be734822168b5e7dde4023250250853469"
+    },
+    {
+      "path": "assets/icons/ubludok.png",
+      "driveId": "1PNKhSbYrlIUwXbK8nU1d3kTuHxICXSAi",
+      "bytes": 6791,
+      "sha256": "e3362d451b30c9f7073d710b905d52e9d8cf8de522c3475282152a87fff49755"
+    },
+    {
+      "path": "assets/icons/ubludok_ammo.png",
+      "driveId": "1ozUfHDABdHGsfFLWP89Ct-kfqMWZh1Dq",
+      "bytes": 14322,
+      "sha256": "75657c0ef6353d9384f4d771f11b46bd886f86b3f1bbc0308b37345776135e81"
+    },
+    {
+      "path": "assets/icons/ventil_ammo.png",
+      "driveId": "1zmbpHRsotAnmqX0Oea9oo-YkGekiY9dV",
+      "bytes": 15261,
+      "sha256": "2a5b2e4b1cf145c145b6ec8a46a54bd1fbacf849fb6f8c7daea300fd4ffda56c"
+    },
+    {
+      "path": "assets/icons/ventil_ammobig.png",
+      "driveId": "1yYjH05nLYYLLiEz-WrZtAB-jwbEpBYpN",
+      "bytes": 17379,
+      "sha256": "17e9a02002197c86fa82929198ef96413da71a2ac743f1e20ec2631ea27b171e"
+    },
+    {
+      "path": "assets/icons/vsv.png",
+      "driveId": "1XmjE8RhLdvNFpuU_-pm1TNz0kYjH5fT4",
+      "bytes": 8196,
+      "sha256": "cdec7641cbfd6517373006008d26a1c07cd5fac1a1707528d4879b119522c1c2"
+    },
+    {
+      "path": "assets/icons/vsv_ammo.png",
+      "driveId": "1oM0R0HqK7tKDSR9_vDrw0IsPb4n-SsXf",
+      "bytes": 9863,
+      "sha256": "98db4cfda4bb104961ba90c66ab869d946571ec907cdbd47a2bf0ddb0e6a00e2"
+    },
+    {
+      "path": "assets/icons/vyhlop_ammo.png",
+      "driveId": "1wWifL4ZQejeYmTWuHq_bUP-Nbl1OxIfw",
+      "bytes": 19902,
+      "sha256": "4fd70d0d07aba106ef0ad10931d5de40faa8bfcc3f5f54c93a4511e39ea6cd9e"
+    },
+    {
+      "path": "assets/sounds/ak_shoot.ogg",
+      "driveId": "1GEW8yfY2w2JPguhb1QjyYPAqMaoZ8Ejj",
+      "bytes": 10165,
+      "sha256": "d48733f5f6497b06c9639ec9891f5a6ada85d6da5d8885af811178fea9876e1f"
+    },
+    {
+      "path": "assets/sounds/aknew_reload.ogg",
+      "driveId": "1C8EXKhoRmbG7sbclyjXvDVXx8Md1ws7g",
+      "bytes": 15746,
+      "sha256": "ec1002bb08e093328fa40e74a4f83db892a16ab549c4811d4bbec79c0417a3f8"
+    },
+    {
+      "path": "assets/sounds/aknew_unload.ogg",
+      "driveId": "1YOsWGpnOXcMT22_N6GRB2EZo5tYdeJ6J",
+      "bytes": 15226,
+      "sha256": "118f9d1fe857d785cced64bd857f88a113d0bf31aa88a34f8e656e5a55828a19"
+    },
+    {
+      "path": "assets/sounds/empty.ogg",
+      "driveId": "1Hk1rLgFbImEXJ6KXJuGGP0rVAWOlCDK2",
+      "bytes": 4532,
+      "sha256": "dd9ace4c0a4750b30da28cd826b9f09a39ac459bdb470458d664856eb5e314e3"
+    },
+    {
+      "path": "assets/sounds/rpk_reload.ogg",
+      "driveId": "1SzSBzjn2rJIMZmD1OFpwvcwkDgthVS7z",
+      "bytes": 13012,
+      "sha256": "e8b3fb13257e1a422b4172ebee34a88daa13254aaf99f090448e3f731b7f1c22"
+    },
+    {
+      "path": "assets/sounds/rpk_shoot.ogg",
+      "driveId": "1TjCABOEkC8CixOYx__C_qnLzrxPlW9xt",
+      "bytes": 11257,
+      "sha256": "0009dbe2580db205ce48b8d3a4fe558573fa001b358b76cea423f142b3a4ff61"
+    },
+    {
+      "path": "assets/sounds/rpk_unload.ogg",
+      "driveId": "1GHg4Q3Y9Dr4SzPFoETk9gIqzqhf2Izrs",
+      "bytes": 9792,
+      "sha256": "b544f82646c3932b09abc71868b1270e6d497d2f838a293426d89b04fbd42ab0"
+    },
+    {
+      "path": "assets/sounds/saiga_reload.ogg",
+      "driveId": "1RK6enjdt4HXw-6pel2ldn6L9lmhkkz3u",
+      "bytes": 19833,
+      "sha256": "0e4a289c90e61a46baa7b934d52163d4875c6d57e54f07e029410a3ef122da79"
+    },
+    {
+      "path": "assets/sounds/saiga_unload.ogg",
+      "driveId": "1-ygWQJ7vt5Ig2FAZFJn9XD0cORfDX-Qs",
+      "bytes": 8847,
+      "sha256": "7511552fb0c9d7d5ab31e37530c1b2c1c95d7465439a5419a67081b8b798aa02"
+    },
+    {
+      "path": "assets/sounds/ubludok_reload.ogg",
+      "driveId": "11a_eO1Y-Q_Ed90MnWXH8YKbvSAD4m9BT",
+      "bytes": 20767,
+      "sha256": "0199b1a5509ad537754f98c78cc797e512c5daeede3abb101ef283a0621bc65b"
+    },
+    {
+      "path": "assets/sounds/ubludok_shoot.ogg",
+      "driveId": "1wNKK7hmuDhcmXsNWi7_35SuCetirwbDt",
+      "bytes": 10591,
+      "sha256": "8b6a693dc6f2d329050c893b62f5e87d87b3e427cbd5fb8991be723637ebf1fe"
+    },
+    {
+      "path": "assets/sounds/ubludok_unload.ogg",
+      "driveId": "1oZ_IscbbuAj5vxtpuYb7bwg9VDfIGlKk",
+      "bytes": 10384,
+      "sha256": "df6fc919322922e5e03f9014d869d491224c75f44e433755c362385a86a74b7d"
+    },
+    {
+      "path": "assets/sounds/vsv_shoot.ogg",
+      "driveId": "1pKTacnaVvn-fIdMRab8ZIEOGr1rhX2Ml",
+      "bytes": 8712,
+      "sha256": "7ea915a2710ef6bdcbbfaf2420c50505db276defe3d7dbc021cb34fb801fb4c4"
+    },
+    {
+      "path": "assets/sounds/vsv_shootclose.ogg",
+      "driveId": "1wf_tnTsU1KViqmGZfQRpyiE1ekj8bbkW",
+      "bytes": 11160,
+      "sha256": "f796fec4ff6bd4e66972585c925cb780bbe7d5e442419aa6a65bbd4cf55b1cdb"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/AK2012Ammo.class",
+      "driveId": "1wOpGgaqzJWUwReA7WljleyHfE1xGfkeb",
+      "bytes": 3048,
+      "sha256": "15d8f7c0b97543b5b1f40f76d80965b98cbefbb038cc53469b8b133fdde35f8b"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/AKAmmo.class",
+      "driveId": "1hqj0FzFQFP6VkOE1kOfvjsJY4uyofwvV",
+      "bytes": 3032,
+      "sha256": "3ea2e82e7076b97ab8b5f101220a06415d2107f6fba87476b30353eb83c960c0"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/AbzacAmmo.class",
+      "driveId": "1e5ffYKPSZVDi-9re1DJMyksspDk_5twZ",
+      "bytes": 3044,
+      "sha256": "1766efe5ad13da7d37f78d69ef0522d12fd986a4a03aaeb738fdff1c2c15536b"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/AbzacAmmoBig.class",
+      "driveId": "1nCvZ7vdT5Ea2FbYcS8aBGFW8s9D1zaew",
+      "bytes": 3056,
+      "sha256": "bbfba16aabf6031f5ca708b7671ed3fdf910e7ce2ab74c7fa379574410e0e51b"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet12_7x108.class",
+      "driveId": "1e5IPjbTyr6gyvaTYW6GERdkkvDFrhj42",
+      "bytes": 781,
+      "sha256": "7895a5073a4bf4e8c63b6ca7760ff9d473893dbaf798c6f63c85ddd2bfda64a0"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet12_7x55.class",
+      "driveId": "1XALtCQtvInoSW-SiqxGmGgMSpujK7LzY",
+      "bytes": 775,
+      "sha256": "9ce24beb3ce9205560ebf6100dbddabec1d2656ba7a1585f2bbb94c195610434"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet12x7.class",
+      "driveId": "1QzlmKWXcdG_jxlq33UYlhpTxEWqo3I1t",
+      "bytes": 763,
+      "sha256": "e62656031341900c6922745c063ea22dccb9c0fcc9fc942d2a51ce0d6918f795"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet12x70.class",
+      "driveId": "1WuIsQivpne-VuLKwX0f2m5zmX3RrkhxR",
+      "bytes": 767,
+      "sha256": "cd6fbac9a6fbfba33fe630e8b0cbc09eb88e99ee82b7327407334571d9e5922a"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet15mm.class",
+      "driveId": "1tbyJc_F8jY-4TYM5jWsXIgeEfndbanN9",
+      "bytes": 763,
+      "sha256": "f39680335983a3e7c75580acc06a51afc224f99e4e918b5ccb2ffc690efd9ebb"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet5x45.class",
+      "driveId": "1e-UWSZsYX_6sM0kC1POnYLneGmkniF5J",
+      "bytes": 765,
+      "sha256": "7ecd3f42e761a76a2d8e8dca55476e5949ca1853e40e313bf1c0cc5485db65a0"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/Bullet7_62x54.class",
+      "driveId": "1crakoqz-hN_jLWImffdl9MkcWp7BuYrp",
+      "bytes": 781,
+      "sha256": "a4a2ac0f15235e9fb69593b02e8a5b7d86d83bcbc91d7374c21d77388ffe9c42"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/BulletBolt.class",
+      "driveId": "1ryHnlr6Tq7iHwCDGQMmzaFEaQWbCivp9",
+      "bytes": 763,
+      "sha256": "fa3ad1d6e34f08e110989731d4ed27837393adda92f3282cb1f30d7c0d9b710c"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/BulletMagnum.class",
+      "driveId": "1HFwVIU1GE8PVJvnmk6PdUy4LhTvqFC9s",
+      "bytes": 771,
+      "sha256": "62c3fff2f3b7eb485494b90ff98df882b6b5e46811d26393930b651d1c52cd85"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/GatlingAmmo.class",
+      "driveId": "1rgyxhK7mYVbMZ4KQcYXfRecntWqQ8_Mr",
+      "bytes": 3052,
+      "sha256": "4e798df156209fdd5c92971286d8c8f08bac11aca686cbb8f88fafe9b1a48408"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/HelsingAmmo.class",
+      "driveId": "1-aWoozB436bL_WAzJ8ErYpCL3kh0aDaT",
+      "bytes": 3052,
+      "sha256": "4e40528b8de70969551d664214f5c79b1ec29949dcc1ea08205480bb032b1a7f"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/OgnemetAmmo.class",
+      "driveId": "1AVfDwnXkqpnvB63X1WKeLt4iU-NQx08R",
+      "bytes": 2511,
+      "sha256": "538dbdf224eb31ef1deebb6562a45203a2811b037250a8a2fa155017c8016d35"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/PodonokAmmo.class",
+      "driveId": "1wifp9-rgKdzOQBH_YmUyEFY_IheqNtkN",
+      "bytes": 3052,
+      "sha256": "c0a6eb08f86299970fa737b49d29124669a4cfb7b7d6bd7422fa31c2f8174184"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/PodonokAmmoBig.class",
+      "driveId": "1HZtPKppWPbkxPOyS3LMCqfrKnnG9vy99",
+      "bytes": 3064,
+      "sha256": "5db3c28ed6e2bc57f70979a20bea0d7b704ccd1eaebb3709dcea2ba3a1a7c029"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/PrevedAmmo.class",
+      "driveId": "1ZlbtL39voqDKwtAro3irTeWZQglamRhC",
+      "bytes": 3048,
+      "sha256": "6b2ab2173e6795107977f23bd7e864d96b5620512bf01790bae75aa3b676c77e"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/RpkAmmo.class",
+      "driveId": "1Qfj3beirljSSZVzW13bnJObpQjZd-ZsT",
+      "bytes": 3036,
+      "sha256": "a4f29542752079fd50de45a0027c2501c0ada277fbc9368a01d6839d4e1d51de"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/RpkAmmoBig.class",
+      "driveId": "1okK6hT4_5GYjCTQw2QVdIQwm-CjoUcHr",
+      "bytes": 3048,
+      "sha256": "2402d1934b99463509efff607c499360c53ea7703d81e52f9b665555dc85da15"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/SaigaAmmo.class",
+      "driveId": "1dLAobNXf07VrzYWIyTEYaewx6cDx1bV5",
+      "bytes": 3044,
+      "sha256": "a4cf4e6e1c1f2e486f4e8c60fcb894cf1b3fce2496db80b30da5a03a05ad7710"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/SaigaAmmoBig.class",
+      "driveId": "1tXXDJW-bBSuXHpM4ApV_ctC8bkbBYuvv",
+      "bytes": 3056,
+      "sha256": "c3ac3b6f73ee62d54c9452b3ace2c55b2d7fd6344eb187ffb6d9f4e13f26f63a"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/TiharAmmo.class",
+      "driveId": "1H_IMPlWS4HagbxjRD2Z_FnsQv5g3MFLm",
+      "bytes": 3044,
+      "sha256": "b77780d07ff3185d8af300bb88aa4bc092e0fff34e107cd067cc7101b6394607"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/UbludokAmmo.class",
+      "driveId": "1N9zFlsiYyJowPql_plL6JAVKqLWyQ08O",
+      "bytes": 3052,
+      "sha256": "f0b2757b15b9ecdef4202dce59090845dc590333a9bcb096aa0bb05d359daff2"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/VentilAmmo.class",
+      "driveId": "1DT7KzsSmQZov_JaFPJ6quNKQiMLh91nt",
+      "bytes": 3048,
+      "sha256": "4ad2f3d71ecdf3131302a2d035dd132e8eec7a3170eab151caf8c8c56f185032"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/VentilAmmoBig.class",
+      "driveId": "1BBHAhQjZ4rVxnO59_KBiAkJrjYxPt5OB",
+      "bytes": 3060,
+      "sha256": "dd2b2cf2f2b5c0064295d7321e30f615578decbf7469bfadb42361e138d27885"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/VsvAmmo.class",
+      "driveId": "1D55oLX7ZdWwI-QlfCWR5dXps-QV9GzyO",
+      "bytes": 3036,
+      "sha256": "748562a7e9a6bf6d499ac9fde78447864477f47b4a262807e72285ece2e6c6f8"
+    },
+    {
+      "path": "classes/mods/provoda/guns/ammo/VyhlopAmmo.class",
+      "driveId": "1X750L2Qwfk8yyUlskZ2_1JKYQ1TXnzoB",
+      "bytes": 3048,
+      "sha256": "596645300096e157e1b72978a0b400663a819ae4257f60505527466c6d98e208"
+    }
+  ]
+}

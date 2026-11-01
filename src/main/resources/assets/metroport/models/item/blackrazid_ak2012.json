@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "metroport:blackrazid/icons/ak2012"
+  }
+}

@@ -13,7 +13,9 @@ import ru.metrocraft.port.blackrazid.grenades.*;
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class BlackrazidExpansion {
     private BlackrazidExpansion(){}
-    public static void initialize(){EntityRegistry.registerModEntity(new ResourceLocation(MetroPort.ID,"blackrazid_grenade"),GrenadeEntity.class,"blackrazid_grenade",70,MetroPort.INSTANCE,64,1,true);}
+    public static void initialize(){
+        EntityRegistry.registerModEntity(new ResourceLocation(MetroPort.ID,"blackrazid_bullet"),ru.metrocraft.port.blackrazid.weapons.BlackrazidBullet.class,"blackrazid_bullet",71,MetroPort.INSTANCE,96,1,true);
+        EntityRegistry.registerModEntity(new ResourceLocation(MetroPort.ID,"blackrazid_grenade"),GrenadeEntity.class,"blackrazid_grenade",70,MetroPort.INSTANCE,64,1,true);}
     private static void item(RegistryEvent.Register<Item> event,String id,Item item,boolean weapon){
         item.setRegistryName(MetroPort.ID,id).setTranslationKey("metroport."+id).setCreativeTab(weapon?MetroPort.WEAPONS:MetroPort.THINGS);
         if(MetroPort.ITEMS.put(id,item)!=null)throw new IllegalStateException("Duplicate BlackRazid item "+id);event.getRegistry().register(item);
