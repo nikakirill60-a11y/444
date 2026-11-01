@@ -1,0 +1,59 @@
+{
+  "source": "User-supplied BlackRazid native weapon and attachment meshes/renderers. Reference-only bytecode; never compiled in runtime.",
+  "files": [
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_AK.class",
+      "driveId": "1PWJvdkTnmeEwhg8xGS4dm4MtPKBO2dIC",
+      "bytes": 40939,
+      "sha256": "ef761850e2ca45d8b0541aea0a2d73086c3f6fe6d94b98e2811a2d78081cc314"
+    },
+    {
+      "path": "classes/mods/provoda/guns/renderers/Render_Gatling.class",
+      "driveId": "1g50JP-N8AQubkZDhzegn2IvkyN5YIh-y",
+      "bytes": 40306,
+      "sha256": "58d2065837eed476e228be1b1156f806e30e37b64369aeb0fec502134d6a7e0d"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderKolimator.class",
+      "driveId": "1AZTP1DiAftvFs489bKdm1XWbb3mtTNU5",
+      "bytes": 3474,
+      "sha256": "cb1f3dd1597257d4a6752037461fbf007dafc862498b2c440abdb15d152145ee"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderButt.class",
+      "driveId": "13WRVbSVVzvjPb4jC4EnQr_YvoI2O0lDd",
+      "bytes": 3508,
+      "sha256": "ab8f7e4f708dac086de3b5c03fd10cfe26fdce0c3b97dd21c59089d4357bad41"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderBarrel.class",
+      "driveId": "1tQFkapHXSvWsbkNL4KPZo85jiCglRCN1",
+      "bytes": 3450,
+      "sha256": "6ebd9844916feb1b2fb40da9fc73b804354be045ab8c4bc49d82bf8d07acb5e3"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderLaser.class",
+      "driveId": "15wjme7ycJHFIfZxn0eP7FN6uLwHKPPqc",
+      "bytes": 3486,
+      "sha256": "f90c5dea7be6d1b655d90624487e9bf0159ac372e0c923be4b66280bc7ea3b36"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderOptica.class",
+      "driveId": "1T-dKhuKPskviaNdUw5cWSqZ9U3jW2gwP",
+      "bytes": 3454,
+      "sha256": "92e4d1b19245e4779eef5ae12e1fb781217fbc2dddb290ffd8ad981d9cd7e87d"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderOpticaSmall.class",
+      "driveId": "1cxm5DBX-vnutB0EePPp1tL5MKtQgBht6",
+      "bytes": 3477,
+      "sha256": "d0c14ff613916782ca1d9eaf33c1bfd35491eb2ddffa1fcfbf9e91af2346db98"
+    },
+    {
+      "path": "classes/mods/provoda/guns/attachments/renderers/RenderUbludokButt.class",
+      "driveId": "1DP24-9BvWrqZ6mOMjJ71sMINlInNzOcl",
+      "bytes": 3525,
+      "sha256": "17946b839ed25f47a819f4a9156127c8692609732798a2763af0141b2477faa8"
+    }
+  ]
+}
