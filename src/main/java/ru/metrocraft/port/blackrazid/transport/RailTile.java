@@ -29,7 +29,11 @@ public final class RailTile extends TileEntity {
     private void changed(){markDirty();if(world!=null){IBlockState s=world.getBlockState(pos);world.notifyBlockUpdate(pos,s,s,2);}}
     public void updatePower(){if(world!=null&&!world.isRemote&&primary){
         // World.isBlockPowered reads all six neighbors and can otherwise force a neighboring chunk.
-        for(net.minecraft.util.EnumFacing face:net.minecraft.util.EnumFacing.values())if(!world.isBlockLoaded(pos.offset(face))){world.scheduleUpdate(pos,getBlockType(),20);return;}
+        int height=world.getHeight();if(height<=0)height=256;
+        for(net.minecraft.util.EnumFacing face:net.minecraft.util.EnumFacing.values()){
+            BlockPos neighbor=pos.offset(face);if(neighbor.getY()<0||neighbor.getY()>=height)continue;
+            if(!world.isBlockLoaded(neighbor)){world.scheduleUpdate(pos,getBlockType(),20);return;}
+        }
         boolean power=world.isBlockPowered(pos);if(active!=power){active=power;changed();}}}
     public boolean owns(RailTile other){return primary&&other!=null&&!other.primary&&identity.equals(other.identity)&&pos.equals(other.owner)&&RailRules.footprint(shape,direction).contains(other.pos.subtract(pos));}
     @Override public NBTTagCompound writeToNBT(NBTTagCompound tag){
