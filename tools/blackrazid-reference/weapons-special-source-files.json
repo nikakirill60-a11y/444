@@ -1,0 +1,360 @@
+{
+  "folderId": "1u3snbncRSvARWyceeoHUilIw2MTdOALv",
+  "scope": "Remaining 16 selected firearm icons/basic sounds; no claim of completed native models/modules. vyhlop_shoot absent from supplied sound folder.",
+  "files": [
+    {
+      "path": "assets/icons/abzac.png",
+      "driveId": "1rVAY39YnnRp1PIE8HfrfXDOMNkZHXjeS",
+      "bytes": 7068,
+      "sha256": "ecdb06cb4fcb3baaa5c9051d2db606bb4d0aca5c835b25480c77c2992d91b1b0"
+    },
+    {
+      "path": "assets/icons/ashot.png",
+      "driveId": "1W28kHC-4n_93uLLvlMSolQb1lgZTENZ9",
+      "bytes": 7959,
+      "sha256": "4bd8645bd8fc46a9f80cf3fab6e3ad377ce4470539fa3e9f4b776a5410681190"
+    },
+    {
+      "path": "assets/icons/duplet.png",
+      "driveId": "17qMxw9XoxvTCIYwNv4MuA8bHaGOujPef",
+      "bytes": 6246,
+      "sha256": "eb8221ed152cafaa8e62712e74ee4618425bda55cdb87453ebd525f0d12161a0"
+    },
+    {
+      "path": "assets/icons/gatling.png",
+      "driveId": "1sZa6BJl2JKTFF-AEy7JpBV1Zwn-6IKan",
+      "bytes": 11257,
+      "sha256": "92c63a86c32c94097ea018c50aa8061b8f526389ebb50ea7f6363b3df7783429"
+    },
+    {
+      "path": "assets/icons/helsing.png",
+      "driveId": "1KJNDbT8Sp2xf9J2F4IgI3luFB_S0vlg3",
+      "bytes": 10083,
+      "sha256": "f5a939c1d3e9b04deeb1cbaed580292218dcd3bf1d9d8f477c03ac6c76b9832a"
+    },
+    {
+      "path": "assets/icons/ognemet.png",
+      "driveId": "15o7vJg_k8HOlhC05jN_xr_ZGLuKGSixV",
+      "bytes": 8667,
+      "sha256": "82ed6bfa37cb1d74e33c85a77fa8c5a2aa100205d35e5dc2c1485a25054dc7fa"
+    },
+    {
+      "path": "assets/icons/podonok.png",
+      "driveId": "1j5_iybgaDM2l8k7u7eCih1qkI44eFgCM",
+      "bytes": 9769,
+      "sha256": "be75ba51efaed136273e965cdbaecb8de91aa26b37a6202cdb707ba293d3c4c6"
+    },
+    {
+      "path": "assets/icons/preved.png",
+      "driveId": "1JHbF5JqE8e17hOs_yt_n9Xx8nykcJd-C",
+      "bytes": 6663,
+      "sha256": "3230309e5a3709f6ef5838d41517b94fc9a866cb45815337270e1d343cac8888"
+    },
+    {
+      "path": "assets/icons/railgun.png",
+      "driveId": "1cWyaiyfIbj6m1h9uk-qH-YhVq5vO7KnQ",
+      "bytes": 7509,
+      "sha256": "fe87c29db3bdb72844f5c4b2b4d370d514a527172bcd43e171671a2f8be4c3b0"
+    },
+    {
+      "path": "assets/icons/revolver.png",
+      "driveId": "1XXIeHLKdizC9phbsgYXq9LRwGN8BWVhS",
+      "bytes": 8030,
+      "sha256": "35f6efb8406b513a16fa194e5146b1d8985f6a992ca57fc52d3997da8e9a9042"
+    },
+    {
+      "path": "assets/icons/saiga.png",
+      "driveId": "1vrlQS3mZhd8XVKxzZQGObY61-niryVhy",
+      "bytes": 7880,
+      "sha256": "8fe6f8d1777a5eb7ea1cd0dce2474b2a09ce8275bf1c3c76ae00fbef4642dc4e"
+    },
+    {
+      "path": "assets/icons/tihar.png",
+      "driveId": "1n6klU2MrTBzyNeIzGh49diXTpFFM-x6f",
+      "bytes": 7527,
+      "sha256": "48bb2a47b1d716941c7e477f33a201451416b821cb7724301627f5838a44ffe6"
+    },
+    {
+      "path": "assets/icons/uboinik.png",
+      "driveId": "1VU4z23p4zw7FdlyN861GSrK8Q6w9APjT",
+      "bytes": 9005,
+      "sha256": "17f5d78a0e242ea27e8cd1f6205fa902bfbec6ce76ed4de97d010e7d912847bc"
+    },
+    {
+      "path": "assets/icons/ventil.png",
+      "driveId": "140pO6PeoPVzPm5snY39uz7cAw5VDuZiw",
+      "bytes": 4633,
+      "sha256": "6c4e690902f9fb8cb758d9a9f5b3fbbe0a05c2be08de4b62e9819e965411bdb2"
+    },
+    {
+      "path": "assets/icons/vyhlop.png",
+      "driveId": "1Mcp3nfUqKFNJMcNyJvSG2cJ0ZOZ2zoyE",
+      "bytes": 2101,
+      "sha256": "2e3f791857030ea434bcd0aa5d61e2944a906c648317549ef55503151d8a4942"
+    },
+    {
+      "path": "assets/sounds/abzac_reload.ogg",
+      "driveId": "1654vZrxm02ixvh5TozJkl2BoxGMPPULa",
+      "bytes": 28039,
+      "sha256": "99d1823a8d74ef10ab42a1a19bb6bf88c147893c8c9c87418247924ec6ac9f28"
+    },
+    {
+      "path": "assets/sounds/abzac_shoot.ogg",
+      "driveId": "1Jomy1i3ghdIqGsD8RNszZFWEUPUozK4p",
+      "bytes": 14806,
+      "sha256": "3c6b55f063ee829c854b5b2b1de182d51fb88fa1e2f208ff3bff9ec3ccb3b9ae"
+    },
+    {
+      "path": "assets/sounds/abzac_unload.ogg",
+      "driveId": "1dGBu0aJPZAzDAao0157B8YTnt3WI3851",
+      "bytes": 28929,
+      "sha256": "60ba701a1bf4fa601ed642cee6df83d0325bb2777b6c0242d3e0c72e05444021"
+    },
+    {
+      "path": "assets/sounds/ashot_reload.ogg",
+      "driveId": "1HUfDBneZ_hzqKioWmbfoYYu5ZezhUWDu",
+      "bytes": 20258,
+      "sha256": "455b43a401250ec42699747a24b41e4336fd3d07e2555cf6e5e3bbf48a6df17c"
+    },
+    {
+      "path": "assets/sounds/ashot_shoot.ogg",
+      "driveId": "13D-PMuwj7cw6qr1xfiLJimxsw3zHJKh3",
+      "bytes": 14806,
+      "sha256": "3c6b55f063ee829c854b5b2b1de182d51fb88fa1e2f208ff3bff9ec3ccb3b9ae"
+    },
+    {
+      "path": "assets/sounds/gatling_air.ogg",
+      "driveId": "1uNQrmbZyWL8ggYRgUdwySZwNGJe20sMU",
+      "bytes": 7092,
+      "sha256": "c643f873e2c22f261c97d9f8bb1aab139a875fac70f479aeea7759fb2457afb3"
+    },
+    {
+      "path": "assets/sounds/gatling_reload.ogg",
+      "driveId": "1DUazwfGoMX4LLlmOFhRAgeo_TY_8myxj",
+      "bytes": 27406,
+      "sha256": "8213ff9a51c11db2eaf803321fba727151807161629d4f09e9f49243a498a421"
+    },
+    {
+      "path": "assets/sounds/gatling_rot.ogg",
+      "driveId": "16Uca3B-pqUPEWMYhmTqsl1wK_oUHYMQr",
+      "bytes": 11135,
+      "sha256": "5b848fd1ea6bab14ad548ed0d3213b33997b1ab72da948729f72d2a41ad926c3"
+    },
+    {
+      "path": "assets/sounds/gatling_shoot.ogg",
+      "driveId": "13SH-zv6KMwRRWg0AeMYvg1C0JFMhpGnZ",
+      "bytes": 15806,
+      "sha256": "c1c9186674d2424633b9d4c98cbd978a8fd8bf3712f995bfd083b8c2cd259993"
+    },
+    {
+      "path": "assets/sounds/gatling_unload.ogg",
+      "driveId": "1NSd1bvnZu1N8mY6hZ-XpOSvOH0-a7yzc",
+      "bytes": 21656,
+      "sha256": "a85cb85304c21690eb66e21fc65bafe37261948f097434898798309c2ec461e1"
+    },
+    {
+      "path": "assets/sounds/helsing_air.ogg",
+      "driveId": "1CKFkYKKjlMlWbZCcOAtfr7RnQzbnaSLD",
+      "bytes": 12149,
+      "sha256": "eab92d4a875c7da60ec07a763806e90d980cf6ffb38e401a8d1fba3acba82ff7"
+    },
+    {
+      "path": "assets/sounds/helsing_reload.ogg",
+      "driveId": "16hPl2NprZSiedriw82ZRPZYNk0fVMXkB",
+      "bytes": 11584,
+      "sha256": "503adb4fb436ab94b036dd2b4e22d18dfcdc713f1135b3f74e424ec61de33989"
+    },
+    {
+      "path": "assets/sounds/helsing_shoot.ogg",
+      "driveId": "1lnuST1cPRdNrzUF1dpDLaP6qnQq1r59I",
+      "bytes": 9779,
+      "sha256": "da188b32a65f57b9c784a8438241d8aa8d3f342a1be5f956840011cbe3fbae63"
+    },
+    {
+      "path": "assets/sounds/helsing_unload.ogg",
+      "driveId": "1wVs0EcCnfbKkIZP06zvrJDJNg-WkzObk",
+      "bytes": 12878,
+      "sha256": "9ef5369271af1c7d636bb1dd9687424bfce289ff61c8d345fbae1b47004ed09f"
+    },
+    {
+      "path": "assets/sounds/ognemet_empty.ogg",
+      "driveId": "1BkF2mRF0289aPrXx_oiNYY6i3Qg5vQMt",
+      "bytes": 13324,
+      "sha256": "f05c209d98066d66391f38699b64856b933aa8f5904fcfcba749921202a6abfa"
+    },
+    {
+      "path": "assets/sounds/ognemet_reload.ogg",
+      "driveId": "1QjevplceEMWQgEL8HqkPO_Q6IS8sr7n3",
+      "bytes": 23557,
+      "sha256": "f3b2195dea2c3949035588a490b83f5cb80292ba715378a987d3a4fe003d4cbe"
+    },
+    {
+      "path": "assets/sounds/ognemet_shoot.ogg",
+      "driveId": "1JoJPx89bxmq37kjDgIm2o3FeX1QeGHQn",
+      "bytes": 20389,
+      "sha256": "17ef597f5542a036440988b3221cfc8dac9f0908fa6bb544c56a234fdd8d4a91"
+    },
+    {
+      "path": "assets/sounds/ognemet_unload.ogg",
+      "driveId": "1_Fy3HrBFdnSJD9vnBLNaPJMi52SV4phl",
+      "bytes": 14561,
+      "sha256": "0dd2b0278a1504588a01c89e6db62785fbd8ec8ed9f161ee5902f82207929b40"
+    },
+    {
+      "path": "assets/sounds/podonok_reload.ogg",
+      "driveId": "1NqO3CLrgM9MXTIQh1jDkRJ2BuLqOEoLB",
+      "bytes": 16998,
+      "sha256": "2a5ba44d89a7517262aa2f0f9395a76d6db16d0da356b938bfa1bf41402c253a"
+    },
+    {
+      "path": "assets/sounds/podonok_shoot.ogg",
+      "driveId": "1ROYbS-emVKsW9F9ne4Ls_a8fSW3xYi6R",
+      "bytes": 5660,
+      "sha256": "e82510fc9ed509a27d6a551029e90796df7f1edbe2ddf5e08357cca124cfb266"
+    },
+    {
+      "path": "assets/sounds/podonok_unload.ogg",
+      "driveId": "1xXrthJpiTkaXrOYP_K637H9C3AX5A-Vt",
+      "bytes": 8895,
+      "sha256": "c7e32b120c0df36e9b0930ae895d3ed765ba3ce865fdd071f0d1ac342788d63f"
+    },
+    {
+      "path": "assets/sounds/preved_rel.ogg",
+      "driveId": "1VBhRMQBJgtpGHsdKYjTjzA_WV1FfiUuQ",
+      "bytes": 18126,
+      "sha256": "3034c5af871fe5d8a59459c8f0ef4ae43d17e2b3883bfb5a2d24ff4ee98c9fed"
+    },
+    {
+      "path": "assets/sounds/preved_reload.ogg",
+      "driveId": "1B4ksH3TmMWll8Ifjuq2-Rfjl8ia9sqpb",
+      "bytes": 27291,
+      "sha256": "2294ab5064a2e3fcf69d4d30e075d1629423ad429c8c7003afb9fd332b2a3adb"
+    },
+    {
+      "path": "assets/sounds/preved_reloadammo.ogg",
+      "driveId": "1U_cC04j1zkVPr7SvRkIkxFUOEEnrMs8A",
+      "bytes": 27904,
+      "sha256": "ccd3415c787eaf0f678c1965f401ebf094e256dac5989d2fdf0c74f7ecc1d7ed"
+    },
+    {
+      "path": "assets/sounds/preved_shoot.ogg",
+      "driveId": "1OpA4bL51nBG3gwUdP5NnW1AVRVZoGGpi",
+      "bytes": 31117,
+      "sha256": "68250e28efb7d850ba95b51b59b8490676086612a6b0d4e4c504a9b8bd2b524f"
+    },
+    {
+      "path": "assets/sounds/preved_unload.ogg",
+      "driveId": "1m4rMuvFC0yY3ft_hhZ5E62OekZWJQXc6",
+      "bytes": 9158,
+      "sha256": "327a6055f621fb082197d741e95d43b447869d19dd130ec145a290e478c92428"
+    },
+    {
+      "path": "assets/sounds/railgun_reload.ogg",
+      "driveId": "1Tjll4pxOsPvlANnfKA5vaQjqltjzwn14",
+      "bytes": 14994,
+      "sha256": "efde74e23c95f0ffc0d036ef14ed7b0ac9362a53b94d2a88151b031c02f6e76a"
+    },
+    {
+      "path": "assets/sounds/railgun_shoot.ogg",
+      "driveId": "1apjJLfcDwJYiAT1rQAvm7SIsYSw7FNDM",
+      "bytes": 17187,
+      "sha256": "03796cecd4c1f9e0b218220d31ca6a6025824c4b8e87288eaa23557d0bcf0368"
+    },
+    {
+      "path": "assets/sounds/railgun_unload.ogg",
+      "driveId": "12Hy0zhkAsDva8Mhtbhtx0V9p-ifVkfOJ",
+      "bytes": 24083,
+      "sha256": "124bef442853b4215a8cf1cba41132845ac6a7f89a3109311dbf86d302449bb8"
+    },
+    {
+      "path": "assets/sounds/revolver_reload.ogg",
+      "driveId": "1Gk_0BrphBTSzl-161eUIA3THUXP9t2BS",
+      "bytes": 28362,
+      "sha256": "6c7ef1db71b31e7457a128b438b46d28055f0bf6ed216cf35c5435de9957e28a"
+    },
+    {
+      "path": "assets/sounds/revolver_shoot.ogg",
+      "driveId": "1sdFGBaTb92xvER-EiTDbAACESqwcZQJX",
+      "bytes": 16880,
+      "sha256": "108d20475f1f2c69037d9966d857babb471a2f1e72369f81047d3fde700b83a5"
+    },
+    {
+      "path": "assets/sounds/saiga_shoot.ogg",
+      "driveId": "1lshTNM0HH8WLAvKXqSSiJOphiJae9Egl",
+      "bytes": 18609,
+      "sha256": "782d3ca4d04b8a5502e02fd896d1b114e68a780d6d63d600e5b7067fb0670582"
+    },
+    {
+      "path": "assets/sounds/tihar_reload.ogg",
+      "driveId": "11e1L1ikJVIzcxIWHyimlCO6xgSATEWTu",
+      "bytes": 17233,
+      "sha256": "8f3908b4700d6f58a894f4d0e09274e59961823f9f203b52c6132032f07e566c"
+    },
+    {
+      "path": "assets/sounds/tihar_shoot.ogg",
+      "driveId": "1ri-1Q5lBuf-gcKnE9N_-20Fc5KVnCnft",
+      "bytes": 6744,
+      "sha256": "043a86cead6fac50019154832c6b14ec5f1dd35587c623aaec3485d7204e4f66"
+    },
+    {
+      "path": "assets/sounds/tihar_unload.ogg",
+      "driveId": "1d-7l1_BER6KVFuuxP2YekWQAFyWDHSVM",
+      "bytes": 28907,
+      "sha256": "546a23073673f80fd1ebbe0aa27b1df75a57b447c742f3295718702642c06d95"
+    },
+    {
+      "path": "assets/sounds/uboinik_reload.ogg",
+      "driveId": "1mFN7gYJt7IbYa1h5sYncWWnTCO0tThCj",
+      "bytes": 97162,
+      "sha256": "5a62fb15d5f0e01a73132c7bfccc423ba9d6588085431c7bbeea10dbc353efb2"
+    },
+    {
+      "path": "assets/sounds/ventil_preload.ogg",
+      "driveId": "1t3tItvGLzT77HqV2gihqZ0XzthFk-9a1",
+      "bytes": 14313,
+      "sha256": "31bff48f2ea38f20eb3552b5ec0822fea1f09ab390008fe11e035a1fcf42cba9"
+    },
+    {
+      "path": "assets/sounds/ventil_reload.ogg",
+      "driveId": "1Thc7t29zNhDQP0PwQu5JwgXoKQTpNN3-",
+      "bytes": 21758,
+      "sha256": "52dcf82a67dc7b60f3dab5c8897510b6c302e60fc5358e9f16d6ba77f33de2de"
+    },
+    {
+      "path": "assets/sounds/ventil_shoot.ogg",
+      "driveId": "1l-XJt_9by-FrncwtGoXSzJyBainF9v8T",
+      "bytes": 29466,
+      "sha256": "d567bafe692f2b87f91b398c2e9b5645777c7c2d38a71fcaec3dc75264278925"
+    },
+    {
+      "path": "assets/sounds/ventil_unload.ogg",
+      "driveId": "1_Ug32R5yvrjwY72UTm9JqsLoO1KjM0wD",
+      "bytes": 11786,
+      "sha256": "f867ce089f4bc7f86216a9dbdb69a369fc9ae4b1aaa480a8ad2df852ec4bbfa8"
+    },
+    {
+      "path": "assets/sounds/vyhlop_reload.ogg",
+      "driveId": "1fPWAifRGcWPrxRZOEW6a6IuJPKvMnl9H",
+      "bytes": 33000,
+      "sha256": "4ac0ef9301b6729ec97e75eac1c36961820d349f166e976e78b3aaffb982ec5f"
+    },
+    {
+      "path": "assets/sounds/vyhlop_unload.ogg",
+      "driveId": "1NYCf3vnEhn5g9XeBcSEImvAd9p-7pgfh",
+      "bytes": 20889,
+      "sha256": "9e53eeb055a65c2754103b29bfb5a5d8e29ec0ae86b6c0400a79d334bca6c340"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntityPassiveFire.class",
+      "driveId": "1ItStotVEm6UJ-52tivYcwbCHLMen-9H-",
+      "bytes": 5079,
+      "sha256": "24214aeb0157a55884b77f10975297dacd37991110a28a28bf2783953b1e20fe"
+    },
+    {
+      "path": "classes/mods/provoda/entity/EntityPropulsionFX.class",
+      "driveId": "15jJWd6DnZxl3yId1CibYmer3RA-tw2Xl",
+      "bytes": 2344,
+      "sha256": "646df440609eec67543ef415841b93be4b87f8aabab98bee32a0ba1deb7db9ce"
+    }
+  ]
+}
