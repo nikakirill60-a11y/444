@@ -34,6 +34,9 @@ public final class RailTile extends TileEntity {
             BlockPos neighbor=pos.offset(face);if(neighbor.getY()<0||neighbor.getY()>=height)continue;
             if(!world.isBlockLoaded(neighbor)){world.scheduleUpdate(pos,getBlockType(),20);return;}
         }
+        // Vanilla also probes indirect power through solid blocks and the shape of nearby dust.
+        // A four-block horizontal halo covers those paths; fewer than four chunks are involved.
+        for(int x=-4;x<=4;x+=4)for(int z=-4;z<=4;z+=4)if(!world.isBlockLoaded(pos.add(x,0,z))){world.scheduleUpdate(pos,getBlockType(),20);return;}
         boolean power=world.isBlockPowered(pos);if(active!=power){active=power;changed();}}}
     public boolean owns(RailTile other){return primary&&other!=null&&!other.primary&&identity.equals(other.identity)&&pos.equals(other.owner)&&RailRules.footprint(shape,direction).contains(other.pos.subtract(pos));}
     @Override public NBTTagCompound writeToNBT(NBTTagCompound tag){
