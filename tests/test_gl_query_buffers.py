@@ -33,4 +33,4 @@ class GlQueryBufferTests(unittest.TestCase):
                 name = match[1]
                 self.assertIn('FloatBuffer '+name+'=GlStateBuffers.colorQuery()', text, str(path))
                 queries.append(path.relative_to(CLIENT).as_posix())
-        self.assertEqual(sorted('blackrazid/'+name for name in RENDERERS), sorted(queries))
+        self.assertEqual(sorted(['blackrazid/'+name for name in RENDERERS]+['BlackrazidGadgetRenderer.java','BlackrazidWatchRenderer.java']), sorted(queries))

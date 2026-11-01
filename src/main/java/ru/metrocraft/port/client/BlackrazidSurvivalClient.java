@@ -24,6 +24,7 @@ public final class BlackrazidSurvivalClient {
     private static WorldClient world;
     private static final Map<BlockPos,int[]> previous=new LinkedHashMap<>();
     private BlackrazidSurvivalClient(){}
+    public static float energyPercent(){return energy;}
     public static void initialize(){ClientRegistry.registerKeyBinding(LAMP);}
     public static void receive(int dimension,int entity,float w,float e,boolean on){
         Minecraft mc=Minecraft.getMinecraft();WorldClient expected=mc.world;

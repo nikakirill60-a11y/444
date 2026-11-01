@@ -34,7 +34,7 @@ public final class ExpandedContent {
         add(event,"smallrucksack",new ru.metrocraft.port.inventory.BackpackItem(1));
         add(event,"mediumrucksack",new ru.metrocraft.port.inventory.BackpackItem(2));
         add(event,"bigrucksack",new ru.metrocraft.port.inventory.BackpackItem(3));
-        add(event, "testpickaxe", new MetroPickaxe());
+        // Metro pickaxe removed by the reduced-content decision.
     }
     private static void add(RegistryEvent.Register<Item> event, String id, Item item) {
         item.setRegistryName(MetroPort.ID, id).setTranslationKey("metroport." + id).setCreativeTab(item instanceof ItemBlock && !id.equals("radiation")

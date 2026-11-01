@@ -10,12 +10,12 @@ public final class BackpackContainer extends Container {
     public final BackpackStorage storage;public final ItemStack bag;
     private final EntityPlayer owner;private final int source,heldIndex;
     public static ItemStack source(EntityPlayer player,int source){
-        return source==0?player.getHeldItemMainhand():source==1?player.getHeldItemOffhand():source==2?Backpacks.inventory(player).getStackInSlot(0):ItemStack.EMPTY;
+        return source==0?player.getHeldItemMainhand():source==1?player.getHeldItemOffhand():source==2?ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK).getStackInSlot(0):ItemStack.EMPTY;
     }
     public static boolean valid(EntityPlayer player,int source){return !player.isSpectator() && BackpackStorage.size(source(player,source))>0;}
     public BackpackContainer(EntityPlayer player,int source){
         owner=player;this.source=source;heldIndex=source==0?player.inventory.currentItem:source==1?40:-1;bag=source(player,source);
-        storage=new BackpackStorage(bag,()->{if(!player.world.isRemote){if(source==2)Backpacks.inventory(player).markDirty();else player.inventory.markDirty();}});
+        storage=new BackpackStorage(bag,()->{if(!player.world.isRemote){if(source==2)ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK).markDirty();else player.inventory.markDirty();}});
         for(int i=0;i<storage.getSizeInventory();i++)addSlotToContainer(new Slot(storage,i,44+(i%5)*18,18+(i/5)*18){
             @Override public boolean isItemValid(ItemStack stack){return storage.isItemValidForSlot(getSlotIndex(),stack);}
         });

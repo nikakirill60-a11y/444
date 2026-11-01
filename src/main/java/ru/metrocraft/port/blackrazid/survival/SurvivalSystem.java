@@ -23,7 +23,7 @@ public final class SurvivalSystem {
     }
     public static SurvivalState get(EntityPlayer p){return decode(p.getEntityData().getCompoundTag(KEY));}
     public static void save(EntityPlayer p,SurvivalState s){p.getEntityData().setTag(KEY,encode(s));}
-    public static boolean hasLamp(EntityPlayer p){return isLamp(p.getHeldItemMainhand()) || isLamp(p.getHeldItemOffhand());}
+    public static boolean hasLamp(EntityPlayer p){return !ru.metrocraft.port.inventory.ExtraEquipment.get(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).isEmpty();}
     private static boolean isLamp(ItemStack s){return !s.isEmpty() && s.getItem() instanceof SurvivalItem && ((SurvivalItem)s.getItem()).type==SurvivalItem.Type.LAMP;}
     public static void sync(EntityPlayer p){if(p instanceof EntityPlayerMP && !p.world.isRemote)MetroPort.NETWORK.sendTo(new SurvivalPacket(p,get(p)),(EntityPlayerMP)p);}
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){

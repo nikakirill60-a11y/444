@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.15", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.16", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -34,9 +34,10 @@ public final class MetroPort {
     public static SimpleNetworkWrapper NETWORK;
     public static Definition[] definitions;
 
-    public static final CreativeTabs WEAPONS = tab("weapons", "ak74", Items.BOW);
     public static final CreativeTabs ARMOR = tab("armor", "armor", Items.IRON_CHESTPLATE);
     public static final CreativeTabs THINGS = tab("things", "medkit", Items.PAPER);
+    // No own firearm creative tab; retained grenades use Things.
+    public static final CreativeTabs WEAPONS = THINGS;
 
     public static final CreativeTabs DECOR = tab("decor", "block0", Items.PAINTING);
 
@@ -66,22 +67,24 @@ public final class MetroPort {
     public void preInit(FMLPreInitializationEvent event) {
         try (InputStream stream = MetroPort.class.getResourceAsStream("/assets/metroport/content.json")) {
             if (stream == null) throw new IllegalStateException("Missing content.json");
-            definitions = new Gson().fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), Definition[].class);
+            definitions = java.util.Arrays.stream(new Gson().fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), Definition[].class)).filter(ContentPolicy::definition).toArray(Definition[]::new);
         } catch (Exception e) {
             throw new IllegalStateException("Cannot load MetroCraft content", e);
         }
         NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(ID);
         NETWORK.registerMessage(ru.metrocraft.port.blackrazid.OpenBackpackPacket.Handler.class,ru.metrocraft.port.blackrazid.OpenBackpackPacket.class,9,Side.SERVER);
-        NETWORK.registerMessage(ru.metrocraft.port.mcmod.GunActionPacket.Handler.class,ru.metrocraft.port.mcmod.GunActionPacket.class,8,Side.SERVER);
-        NETWORK.registerMessage(ReloadPacket.Handler.class, ReloadPacket.class, 0, Side.SERVER);
+        // Retired: NETWORK.registerMessage(ru.metrocraft.port.mcmod.GunActionPacket.Handler.class,ru.metrocraft.port.mcmod.GunActionPacket.class,8,Side.SERVER);
+        // Retired: NETWORK.registerMessage(ReloadPacket.Handler.class, ReloadPacket.class, 0, Side.SERVER);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.BackpackSyncPacket.Handler.class,
                 ru.metrocraft.port.inventory.BackpackSyncPacket.class,1,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.OpenInventoryPacket.Handler.class,
                 ru.metrocraft.port.inventory.OpenInventoryPacket.class,2,Side.SERVER);
-        NETWORK.registerMessage(ShotFeedbackPacket.Handler.class,ShotFeedbackPacket.class,3,Side.CLIENT);
+        // Retired: NETWORK.registerMessage(ShotFeedbackPacket.Handler.class,ShotFeedbackPacket.class,3,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgSyncPacket.Handler.class,ru.metrocraft.port.inventory.NvgSyncPacket.class,4,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.blackrazid.survival.SurvivalPacket.Handler.class,ru.metrocraft.port.blackrazid.survival.SurvivalPacket.class,10,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.blackrazid.survival.LampPacket.Handler.class,ru.metrocraft.port.blackrazid.survival.LampPacket.class,11,Side.SERVER);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.ExtraEquipmentSyncPacket.Handler.class,ru.metrocraft.port.inventory.ExtraEquipmentSyncPacket.class,12,Side.CLIENT);
+        // IDs 0/3/8 belonged to retired firearms and are not reused.
         // IDs 5/6 belonged to the removed inventory comparator; never reuse them.
         NETWORK.registerMessage(ru.metrocraft.port.inventory.WatchSyncPacket.Handler.class,ru.metrocraft.port.inventory.WatchSyncPacket.class,7,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
@@ -93,9 +96,9 @@ public final class MetroPort {
         ru.metrocraft.port.blackrazid.BlackrazidContent.load();
         ru.metrocraft.port.blackrazid.BlackrazidExpansion.initialize();
         ru.metrocraft.port.blackrazid.mutants.BlackrazidMutants.register();
-        ru.metrocraft.port.blackrazid.transport.BlackrazidRails.initialize();
+        // Retired: ru.metrocraft.port.blackrazid.transport.BlackrazidRails.initialize();
         ru.metrocraft.port.blackrazid.environment.BlackrazidEnvironment.initialize();
-        ru.metrocraft.port.blackrazid.environment.FactionTeleportBlock.load(new java.io.File(event.getModConfigurationDirectory(),"metroport-blackrazid-teleports.cfg"));
+        // Retired: ru.metrocraft.port.blackrazid.environment.FactionTeleportBlock.load(new java.io.File(event.getModConfigurationDirectory(),"metroport-blackrazid-teleports.cfg"));
         PROXY.preInit();
     }
 

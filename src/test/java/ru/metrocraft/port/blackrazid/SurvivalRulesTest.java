@@ -41,8 +41,10 @@ public class SurvivalRulesTest {
         EntityPlayer old=player(false),next=player(false);SurvivalState s=new SurvivalState();s.water=19;s.energy=33;s.lamp=true;SurvivalSystem.save(old,s);
         SurvivalSystem.clone(new net.minecraftforge.event.entity.player.PlayerEvent.Clone(next,old,false));s=SurvivalSystem.get(next);assertEquals(19,s.water,0);assertEquals(33,s.energy,0);assertFalse(s.lamp);
     }
-    @Test public void actualOffhandLampIsRecognized()throws Exception{
-        EntityPlayer p=player(false);assertFalse(SurvivalSystem.hasLamp(p));when(p.getHeldItemOffhand()).thenReturn(new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP)));assertTrue(SurvivalSystem.hasLamp(p));
+    @Test public void lampRequiresItsDedicatedSlotNotAnOccupiedHand()throws Exception{
+        EntityPlayer p=player(false);assertFalse(SurvivalSystem.hasLamp(p));when(p.getHeldItemOffhand()).thenReturn(new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP)));assertFalse(SurvivalSystem.hasLamp(p));
+        ru.metrocraft.port.inventory.ExtraEquipment.inventory(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).setInventorySlotContents(0,p.getHeldItemOffhand());assertTrue(SurvivalSystem.hasLamp(p));
+        ru.metrocraft.port.inventory.ExtraEquipment.inventory(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).setInventorySlotContents(0,ItemStack.EMPTY);
         when(p.getHeldItemOffhand()).thenReturn(new ItemStack(new SurvivalItem(SurvivalItem.Type.POWER)));assertFalse(SurvivalSystem.hasLamp(p));
     }
     @Test public void flaskReadingDoesNotWriteNBTAndStacksStayIndependent(){
@@ -62,6 +64,7 @@ public class SurvivalRulesTest {
     }
     @Test public void chargerRequiresFull15TickCycles()throws Exception{
         SurvivalItem item=new SurvivalItem(SurvivalItem.Type.POWER);ItemStack stack=new ItemStack(item);EntityPlayer p=player(false);
+        ru.metrocraft.port.inventory.ExtraEquipment.inventory(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).setInventorySlotContents(0,new ItemStack(new SurvivalItem(SurvivalItem.Type.LAMP)));
         item.onUsingTick(stack,p,72000);item.onUsingTick(stack,p,71986);assertEquals(0,SurvivalSystem.get(p).energy,0);
         item.onUsingTick(stack,p,71985);assertEquals(20,SurvivalSystem.get(p).energy,0);item.onUsingTick(stack,p,71970);assertEquals(40,SurvivalSystem.get(p).energy,0);
     }

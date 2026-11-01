@@ -14,11 +14,9 @@ public final class BlackrazidEnvironment {
     public static final FactionTeleportBlock TELEPORT=new FactionTeleportBlock();
     public static final TunnelKitItem KIT=new TunnelKitItem();
     public static final TransientLightBlock[] LIGHTS={new TransientLightBlock(.7F),new TransientLightBlock(.6F),new TransientLightBlock(.5F),new TransientLightBlock(.3F)};
-    public static void initialize(){GameRegistry.registerTileEntity(TunnelTile.class,new ResourceLocation(MetroPort.ID,"blackrazid_tunnel"));GameRegistry.registerTileEntity(TransientLightTile.class,new ResourceLocation(MetroPort.ID,"blackrazid_transient_light"));}
+    public static void initialize(){GameRegistry.registerTileEntity(TransientLightTile.class,new ResourceLocation(MetroPort.ID,"blackrazid_transient_light"));}
     @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> e){
-        TUNNEL.setRegistryName(MetroPort.ID,"blackrazid_tunnel");PROXY.setRegistryName(MetroPort.ID,"blackrazid_tunnel_proxy");e.getRegistry().registerAll(TUNNEL,PROXY);
-        TELEPORT.setRegistryName(MetroPort.ID,"blackrazid_faction_teleport").setTranslationKey("metroport.blackrazid_faction_teleport").setCreativeTab(MetroPort.DECOR);e.getRegistry().register(TELEPORT);
         for(int i=0;i<LIGHTS.length;i++){LIGHTS[i].setRegistryName(MetroPort.ID,"blackrazid_transient_light_"+i);e.getRegistry().register(LIGHTS[i]);}
     }
-    @SubscribeEvent public static void items(RegistryEvent.Register<Item> e){KIT.setRegistryName(MetroPort.ID,"blackrazid_tunnels").setTranslationKey("metroport.blackrazid_tunnels").setCreativeTab(MetroPort.DECOR);e.getRegistry().register(KIT);Item teleport=new net.minecraft.item.ItemBlock(TELEPORT).setRegistryName(TELEPORT.getRegistryName());e.getRegistry().register(teleport);if(MetroPort.ITEMS.put("blackrazid_faction_teleport",teleport)!=null)throw new IllegalStateException("Duplicate teleport block");if(MetroPort.ITEMS.put("blackrazid_tunnels",KIT)!=null)throw new IllegalStateException("Duplicate tunnel kit");}
+    // No obtainable tunnel, furniture, rail or teleport item in this build.
 }

@@ -20,6 +20,9 @@ def main():
         put(ASSETS/('sounds/blackrazid_'+name+'.ogg'),(SOURCE/('assets/sounds/'+name+'.ogg')).read_bytes())
         sounds['blackrazid_'+name]=dict(sounds=['metroport:blackrazid_'+name])
     write_json(ASSETS/'sounds.json',dict(sorted(sounds.items())))
+    if (SOURCE/'gadgets/sources.json').exists():
+        from import_blackrazid_gadgets import main as gadgets
+        gadgets()
     from mcmod_languages import update
     update()
     print('Imported five survival/grenade items, NOT all remaining BlackRazid content.')

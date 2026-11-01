@@ -29,7 +29,7 @@ public final class ExodusContent {
     public static void load() {
         try (InputStream stream = ExodusContent.class.getResourceAsStream("/assets/metroport/exodus.json")) {
             if (stream == null) throw new IllegalStateException("Missing Exodus catalogue");
-            entries = new Gson().fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), Entry[].class);
+            entries = java.util.Arrays.stream(new Gson().fromJson(new InputStreamReader(stream, StandardCharsets.UTF_8), Entry[].class)).filter(e -> ru.metrocraft.port.ContentPolicy.exodus(e.id,e.kind)).toArray(Entry[]::new);
         } catch (Exception e) { throw new IllegalStateException("Cannot load Exodus content", e); }
     }
     public static void registerEntities() {

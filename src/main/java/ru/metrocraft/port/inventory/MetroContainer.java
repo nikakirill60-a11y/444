@@ -6,13 +6,14 @@ import net.minecraft.item.ItemStack;
 
 public final class MetroContainer extends Container {
     public final InventoryBasic bag;
-    public final InventoryBasic nvg,watch;
+    public final InventoryBasic nvg,watch,lamp,nativeBag;
     private final EntityPlayer owner;
     public MetroContainer(EntityPlayer player) {
-        owner=player;
+        owner=player;ExtraEquipment.migrateLegacyBackpack(player);
         bag=Backpacks.inventory(player);nvg=NvgEquipment.inventory(player);watch=WatchEquipment.inventory(player);
+        lamp=ExtraEquipment.inventory(player,ExtraEquipment.Kind.LAMP);nativeBag=ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK);
         addSlotToContainer(new Slot(bag,0,24,18) {
-            @Override public boolean isItemValid(ItemStack stack) { return stack.getItem() instanceof BackpackItem; }
+            @Override public boolean isItemValid(ItemStack stack) { return stack.getItem() instanceof BackpackItem && !(stack.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidBackpackItem); }
             @Override public int getSlotStackLimit() { return 1; }
         });
         EntityEquipmentSlot[] armor={EntityEquipmentSlot.HEAD,EntityEquipmentSlot.CHEST,EntityEquipmentSlot.LEGS,EntityEquipmentSlot.FEET};
@@ -46,12 +47,19 @@ public final class MetroContainer extends Container {
             @Override public int getSlotStackLimit(){return 1;}
             @Override public boolean canTakeStack(EntityPlayer actor){return actor.capabilities.isCreativeMode || !net.minecraft.enchantment.EnchantmentHelper.hasBindingCurse(getStack());}
         });
+        addSlotToContainer(extraSlot(lamp,ExtraEquipment.Kind.LAMP,184,18));
+        addSlotToContainer(extraSlot(nativeBag,ExtraEquipment.Kind.BLACKRAZID_BACKPACK,184,54));
+    }
+    private Slot extraSlot(InventoryBasic inventory,ExtraEquipment.Kind kind,int x,int y){
+        return new Slot(inventory,0,x,y){
+            @Override public boolean isItemValid(ItemStack stack){return ExtraEquipment.accepts(kind,stack);}
+            @Override public int getSlotStackLimit(){return 1;}
+            @Override public boolean canTakeStack(EntityPlayer actor){return actor.capabilities.isCreativeMode || !net.minecraft.enchantment.EnchantmentHelper.hasBindingCurse(getStack());}
+        };
     }
     @Override public boolean canInteractWith(EntityPlayer player){return player==owner && player.isEntityAlive();}
     @Override public ItemStack transferStackInSlot(EntityPlayer player,int index){return ItemStack.EMPTY;}
-    @Override public boolean canMergeSlot(ItemStack stack,Slot slot){return slot.inventory!=bag && slot.inventory!=nvg && slot.inventory!=watch && slot.isItemValid(stack);}
-    @Override public ItemStack slotClick(int index,int drag,ClickType type,EntityPlayer player) {
-        return super.slotClick(index,drag,type,player);
-    }
-    @Override public void onContainerClosed(EntityPlayer player){super.onContainerClosed(player); Backpacks.enforceCapacity(player);}
+    @Override public boolean canMergeSlot(ItemStack stack,Slot slot){return slot.inventory!=bag && slot.inventory!=nvg && slot.inventory!=watch && slot.inventory!=lamp && slot.inventory!=nativeBag && slot.isItemValid(stack);}
+    @Override public ItemStack slotClick(int index,int drag,ClickType type,EntityPlayer player){return super.slotClick(index,drag,type,player);}
+    @Override public void onContainerClosed(EntityPlayer player){super.onContainerClosed(player);Backpacks.enforceCapacity(player);}
 }

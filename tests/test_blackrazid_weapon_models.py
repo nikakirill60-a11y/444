@@ -39,7 +39,7 @@ class NativeWeaponModelTests(unittest.TestCase):
         code=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/weapons/NativeWeaponRenderer.java').read_text();self.assertIn('LISTS.clear()',code);self.assertIn('GLAllocation.deleteDisplayLists',code);self.assertIn('GlStateManager.tryBlendFuncSeparate(srcRGB,dstRGB,srcA,dstA)',code);self.assertIn('GlStateManager.bindTexture(texture)',code)
         for forbidden in ['ExtendetPlayer','AirSetup','new Clock','GL11.glPopMatrix','setTagCompound','setInteger','setLong','MinecraftForge.EVENT_BUS']:self.assertNotIn(forbidden,code)
         wiring=(ROOT/'src/main/java/ru/metrocraft/port/ClientEvents.java').read_text();self.assertIn('NativeWeaponVisuals.supported(stack)',wiring);self.assertIn('NativeWeaponRenderer.INSTANCE',wiring)
-        reload=(ROOT/'src/main/java/ru/metrocraft/port/client/ClientProxy.java').read_text();self.assertIn('NativeWeaponRenderer.reload()',reload);self.assertIn('GunRenderPoses.reload()',reload)
+        reload=(ROOT/'src/main/java/ru/metrocraft/port/client/ClientProxy.java').read_text();self.assertNotIn('NativeWeaponRenderer.reload()',reload);self.assertNotIn('GunRenderPoses.reload()',reload);self.assertIn('BlackrazidGadgetRenderer.reload()',reload)
     def test_native_gatling_mesh_selection_and_offsets_agree_with_source(self):
         text=(S/'java/mods/provoda/guns/renderers/Render_Gatling.java').read_text()
         for source in ['GatlingBarrel','GatlingButt','GatlingMotor','GatlingGiro','this.stvol5.render()','this.base5.render()','this.giro_wheel.render()','(float)0.002f, (float)-0.002f, (float)-0.32f','(float)-0.0f, (float)-0.093f, (float)-0.441f']:self.assertIn(source,text)

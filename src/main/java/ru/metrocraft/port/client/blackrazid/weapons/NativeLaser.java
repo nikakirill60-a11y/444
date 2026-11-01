@@ -13,7 +13,7 @@ import ru.metrocraft.port.MetroPort;
 import ru.metrocraft.port.blackrazid.weapons.BlackrazidModules;
 
 /** Explicit visual adaptation: a bounded, depth-tested aiming dot; not the still-missing native laser mesh. */
-@Mod.EventBusSubscriber(modid=MetroPort.ID,value=Side.CLIENT)
+// Archived feature: intentionally not registered in the reduced build.
 public final class NativeLaser {
     private NativeLaser(){}
     @SubscribeEvent public static void render(RenderWorldLastEvent event){

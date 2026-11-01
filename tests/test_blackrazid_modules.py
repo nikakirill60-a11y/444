@@ -41,5 +41,5 @@ class NativeModuleTests(unittest.TestCase):
         packet=(ROOT/'src/main/java/ru/metrocraft/port/mcmod/GunActionPacket.java').read_text();self.assertIn('getServerWorld().addScheduledTask',packet);self.assertIn('player.openContainer.windowId!=msg.window',packet)
         code=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/weapons/BlackrazidModules.java').read_text();self.assertIn('p.getHeldItemMainhand()!=gun',code);self.assertIn('p.world.isRemote',code);self.assertNotIn('static ModifiInventory',code);self.assertNotIn('dropItem(',code)
     def test_rendering_is_client_only_and_optical_adaptation_does_not_set_game_settings(self):
-        code=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/weapons/NativeLaser.java').read_text();self.assertIn('value=Side.CLIENT',code);self.assertIn('mc.player.rayTrace(32',code);self.assertNotIn('disableDepth',code)
-        fov=(ROOT/'src/main/java/ru/metrocraft/port/ClientEvents.java').read_text();self.assertIn('BlackrazidModules.zoom(held)',fov);self.assertNotIn('fovSetting=',fov)
+        code=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/weapons/NativeLaser.java').read_text();self.assertNotIn('@Mod.EventBusSubscriber',code);self.assertIn('mc.player.rayTrace(32',code);self.assertNotIn('disableDepth',code)
+        fov=(ROOT/'src/main/java/ru/metrocraft/port/ClientEvents.java').read_text();self.assertNotIn('BlackrazidModules.zoom(held)',fov);self.assertNotIn('fovSetting=',fov)

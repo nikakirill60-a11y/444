@@ -13,7 +13,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-@Mod.EventBusSubscriber(modid=MetroPort.ID)
+// Archived feature: intentionally not registered in the reduced build.
 public final class McmodDecorContent {
     public static final class Entry {
         public String id,sourceId,nameRu,nameEn,kind;

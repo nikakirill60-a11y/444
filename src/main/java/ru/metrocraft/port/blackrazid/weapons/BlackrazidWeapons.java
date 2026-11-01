@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /** Own native items; never aliases for similarly named MCMOD guns or ammunition. */
-@Mod.EventBusSubscriber(modid=MetroPort.ID)
+// Archived feature: intentionally not registered in the reduced build.
 public final class BlackrazidWeapons {
     public static final class Entry {
         public String id,sourceId,kind,icon,nameRu,nameEn,roundItem,shootSound,reloadSound,unloadSound,runtimeStatus,looseRound,looseReloadSound,cycleSound,pumpSound,emptySound;

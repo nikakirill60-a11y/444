@@ -10,9 +10,6 @@ import ru.metrocraft.port.client.mobs.*;
 
 public final class LegacyEntityRenderers {
     public static void register() {
-        RenderingRegistry.registerEntityRenderingHandler(MetroBullet.class,manager -> new net.minecraft.client.renderer.entity.Render<MetroBullet>(manager){
-            @Override protected ResourceLocation getEntityTexture(MetroBullet entity){return null;}
-        });
         add(KrisEntity.class,new Kris(),"kris"); add(MurzikEntity.class,new Murzik(),"murzik");
         add(TuzicEntity.class,new Tuzic(),"tuzic"); add(JeryEntity.class,new Jery(),"jery");
         add(Trup1Entity.class,new Trup1(),"trup1"); add(Trup2Entity.class,new Trup2(),"trup2");

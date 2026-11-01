@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import ru.metrocraft.port.MetroPort;
 
-@Mod.EventBusSubscriber(modid=MetroPort.ID)
+// Archived feature: intentionally not registered in the reduced build.
 public final class BlackrazidRails {
     private BlackrazidRails(){}
     public static final WideRailBlock RAIL=new WideRailBlock(true),PROXY=new WideRailBlock(false);

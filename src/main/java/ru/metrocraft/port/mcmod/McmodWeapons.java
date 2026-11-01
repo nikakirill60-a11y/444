@@ -21,6 +21,7 @@ public final class McmodWeapons {
         return entries.toArray(new Definition[0]);
     }
     @SubscribeEvent public static void items(RegistryEvent.Register<Item> event){
+        if(!ContentPolicy.FIREARMS)return;
         for(Definition d:definitions()){
             Item item=d.kind.equals("gun")?new McmodAkItem(d):new ContentItem(d);
             item.setRegistryName(MetroPort.ID,d.id).setTranslationKey("metroport."+d.id).setCreativeTab(MetroPort.WEAPONS);
@@ -30,7 +31,7 @@ public final class McmodWeapons {
     @SubscribeEvent public static void sounds(RegistryEvent.Register<SoundEvent> event){
         java.util.Set<String> ids=new java.util.LinkedHashSet<>();
         ids.add("mcmod_medkit_use_heavy");
-        for(Definition d:definitions())if(d.kind.equals("gun")){ids.add(d.shootSound);ids.add(d.reloadSound);}
+        if(ContentPolicy.FIREARMS)for(Definition d:definitions())if(d.kind.equals("gun")){ids.add(d.shootSound);ids.add(d.reloadSound);}
         java.util.Collections.addAll(ids,"mcmod_craft","mcmod_open","mcmod_loot_metal","mcmod_tikhar_pump_1");
         for(String id:ids){
             ResourceLocation key=new ResourceLocation(MetroPort.ID,id);SoundEvent sound=new SoundEvent(key).setRegistryName(key);

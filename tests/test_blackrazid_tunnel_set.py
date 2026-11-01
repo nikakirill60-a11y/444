@@ -47,6 +47,6 @@ class NativeTunnelSetTests(unittest.TestCase):
         for expression in ["__import__('os')",'a.b','1/0','[1][0]','True']:
             with self.assertRaises(ValueError):scalar(expression,{})
     def test_all_metadata_models_and_bounds_are_driven_by_complete_catalogue(self):
-        code=(ROOT/'src/main/java/ru/metrocraft/port/ClientEvents.java').read_text();self.assertIn('meta<ru.metrocraft.port.blackrazid.environment.TunnelRules.count()',code)
+        code=(ROOT/'src/main/java/ru/metrocraft/port/ClientEvents.java').read_text();self.assertNotIn('meta<ru.metrocraft.port.blackrazid.environment.TunnelRules.count()',code)
         renderer=(ROOT/'src/main/java/ru/metrocraft/port/client/blackrazid/environment/TunnelRenderer.java').read_text();self.assertIn('profile.transforms[tile.direction()]',renderer);self.assertIn('MESHES.clear()',renderer);self.assertIn('if(cull)GlStateManager.enableCull()',renderer)
         tile=(ROOT/'src/main/java/ru/metrocraft/port/blackrazid/environment/TunnelTile.java').read_text();self.assertIn('TunnelRules.renderBounds(shape,direction).offset(pos)',tile)

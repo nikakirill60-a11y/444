@@ -24,7 +24,8 @@ public final class BackpackClient implements LayerRenderer<AbstractClientPlayer>
     }
     @Override
     public void doRenderLayer(AbstractClientPlayer player,float swing,float amount,float ticks,float age,float yaw,float pitch,float scale) {
-        ItemStack stack=Backpacks.get(player);
+        ItemStack stack=ru.metrocraft.port.inventory.ExtraEquipment.get(player,ru.metrocraft.port.inventory.ExtraEquipment.Kind.BLACKRAZID_BACKPACK);
+        if(stack.isEmpty())stack=Backpacks.get(player);
         if(stack.isEmpty() || player.isInvisible())return;
         String id=stack.getItem().getRegistryName().getPath();
         if(stack.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidBackpackItem){

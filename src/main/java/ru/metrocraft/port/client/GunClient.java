@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import ru.metrocraft.port.*;
 
-@Mod.EventBusSubscriber(modid=MetroPort.ID,value=Side.CLIENT)
+// Archived feature: intentionally not registered in the reduced build.
 public final class GunClient {
     public static float aim;
     private static float recoverPitch,recoverYaw;

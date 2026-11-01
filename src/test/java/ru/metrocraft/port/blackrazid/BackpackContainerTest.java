@@ -39,10 +39,10 @@ public class BackpackContainerTest {
         assertTrue(c.slotClick(0,0,ClickType.PICKUP,p).isEmpty());
     }
     @Test public void equippedStoragePersistsOnTheActualLiveEquipmentStack()throws Exception{
-        Player p=player(3003,false);InventoryBasic slot=Backpacks.inventory(p);slot.setInventorySlotContents(0,new ItemStack(BackpackStorageTest.item(10)));
+        Player p=player(3003,false);InventoryBasic slot=ExtraEquipment.inventory(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK);slot.setInventorySlotContents(0,new ItemStack(BackpackStorageTest.item(10)));
         BackpackContainer c=new BackpackContainer(p,2);p.openContainer=c;c.storage.setInventorySlotContents(9,new ItemStack(Items.DIAMOND,4));
         assertSame(slot.getStackInSlot(0),c.bag);assertTrue(c.canInteractWith(p));
-        assertEquals(4,new BackpackStorage(Backpacks.get(p),null).getStackInSlot(9).getCount());
+        assertEquals(4,new BackpackStorage(ExtraEquipment.get(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK),null).getStackInSlot(9).getCount());
         assertEquals(4,new BackpackContainer(p,2).storage.getStackInSlot(9).getCount());assertEquals(0,Backpacks.rows(c.bag));
     }
     @Test public void offhandBagCannotBeSwappedIntoItsOwnContents()throws Exception{
@@ -51,12 +51,12 @@ public class BackpackContainerTest {
     }
     @Test public void clientAndServerWithEqualEntityIdsNeverShareEquippedBag()throws Exception{
         Player server=player(3005,false),client=player(3005,true);assertEquals(server,client);
-        InventoryBasic a=Backpacks.inventory(server),b=Backpacks.inventory(client);assertNotSame(a,b);
+        InventoryBasic a=ExtraEquipment.inventory(server,ExtraEquipment.Kind.BLACKRAZID_BACKPACK),b=ExtraEquipment.inventory(client,ExtraEquipment.Kind.BLACKRAZID_BACKPACK);assertNotSame(a,b);
         a.setInventorySlotContents(0,new ItemStack(BackpackStorageTest.item(5)));assertTrue(b.isEmpty());
-        assertSame(a,new MetroContainer(server).bag);assertSame(b,new MetroContainer(client).bag);
+        assertSame(a,new MetroContainer(server).nativeBag);assertSame(b,new MetroContainer(client).nativeBag);
     }
     @Test public void lateEquipmentPacketCannotOverwriteOpenStorageBag()throws Exception{
-        Player p=player(3006,true);InventoryBasic slot=Backpacks.inventory(p);slot.setInventorySlotContents(0,new ItemStack(BackpackStorageTest.item(5)));
-        BackpackContainer c=new BackpackContainer(p,2);p.openContainer=c;Backpacks.receive(p,ItemStack.EMPTY);assertSame(c.bag,slot.getStackInSlot(0));
+        Player p=player(3006,true);InventoryBasic slot=ExtraEquipment.inventory(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK);slot.setInventorySlotContents(0,new ItemStack(BackpackStorageTest.item(5)));
+        BackpackContainer c=new BackpackContainer(p,2);p.openContainer=c;ExtraEquipment.receive(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK,ItemStack.EMPTY);assertSame(c.bag,slot.getStackInSlot(0));
     }
 }

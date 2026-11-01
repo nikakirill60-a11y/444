@@ -1,0 +1,92 @@
+{
+  "flashlight": {
+    "materials": {
+      "Material__25": "metroport:textures/blackrazid/gadgets/flashlight_d.png"
+    },
+    "bounds": [
+      -0.052,
+      -0.0522,
+      -0.0,
+      0.0518,
+      0.0522,
+      0.508
+    ],
+    "center": [
+      -0.0001,
+      0.0,
+      0.254
+    ]
+  },
+  "flyashka": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_wpn_wpn_atach_512": "metroport:textures/blackrazid/gadgets/wpn_atach.2048.png"
+    },
+    "bounds": [
+      -0.0768,
+      -0.1096,
+      -0.0301,
+      0.0846,
+      0.1103,
+      0.0232
+    ],
+    "center": [
+      0.0039,
+      0.00035,
+      -0.00345
+    ]
+  },
+  "dynamo": {
+    "materials": {
+      "_dynamoI__Games_Metro_Last_Light_Original_content_textures_veh_veh_zuzik_512": "metroport:textures/blackrazid/gadgets/veh_zuzik.2048.png"
+    },
+    "bounds": [
+      -0.1401,
+      -0.0746,
+      -0.1978,
+      0.1404,
+      0.0743,
+      0.1974
+    ],
+    "center": [
+      0.00015,
+      -0.00015,
+      -0.0002
+    ]
+  },
+  "meh": {
+    "materials": {
+      "_mehI__Games_Metro_Last_Light_Original_content_textures_veh_veh_zuzik_512": "metroport:textures/blackrazid/gadgets/veh_zuzik.2048.png"
+    },
+    "bounds": [
+      -0.0084,
+      -0.0199,
+      -0.132,
+      0.0497,
+      0.0129,
+      0.0449
+    ],
+    "center": [
+      0.02065,
+      -0.0035,
+      -0.04355
+    ]
+  },
+  "strelka": {
+    "materials": {
+      "I__Games_Metro_Last_Light_Original_content_textures_veh_veh_zuzik_512": "metroport:textures/blackrazid/gadgets/veh_zuzik.2048.png"
+    },
+    "bounds": [
+      -0.0024,
+      -0.0008,
+      -0.0048,
+      0.0024,
+      0.0025,
+      0.0224
+    ],
+    "center": [
+      0.0,
+      0.00085,
+      0.0088
+    ]
+  }
+}

@@ -29,10 +29,14 @@ public final class WatchClient implements LayerRenderer<AbstractClientPlayer> {
     @SubscribeEvent public static void hud(RenderGameOverlayEvent.Post event){
         Minecraft mc=Minecraft.getMinecraft();
         if(event.getType()!=RenderGameOverlayEvent.ElementType.ALL || mc.player==null || mc.gameSettings.hideGUI || mc.player.isSpectator())return;
-        if(WatchEquipment.get(mc.player).isEmpty() && !(mc.player.getHeldItemMainhand().getItem() instanceof WatchItem) && !(mc.player.getHeldItemOffhand().getItem() instanceof WatchItem))return;
+        ItemStack watch=WatchEquipment.get(mc.player);
+        if(watch.isEmpty() && WatchEquipment.accepts(mc.player.getHeldItemMainhand()))watch=mc.player.getHeldItemMainhand();
+        if(watch.isEmpty() && WatchEquipment.accepts(mc.player.getHeldItemOffhand()))watch=mc.player.getHeldItemOffhand();
+        if(watch.isEmpty())return;
+        boolean timeOnly=watch.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidWatchItem;
         int y=event.getResolution().getScaledHeight()-64;boolean danger=WatchEquipment.reading(mc.player)>0;
         mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.watch.time",WatchItem.time(mc.world.getWorldTime())),8,y,0xDAE9CE);
-        mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.watch.radiation",I18n.format(danger?"metroport.watch.danger":"metroport.watch.safe")),8,y+11,danger?0xFF6655:0x9AC87B);
+        if(!timeOnly)mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.watch.radiation",I18n.format(danger?"metroport.watch.danger":"metroport.watch.safe")),8,y+11,danger?0xFF6655:0x9AC87B);
     }
     @Override public void doRenderLayer(AbstractClientPlayer player,float swing,float amount,float partial,float age,float yaw,float pitch,float scale){
         if(WatchEquipment.get(player).isEmpty() || player.isInvisible() || player.isSpectator())return;
@@ -40,7 +44,9 @@ public final class WatchClient implements LayerRenderer<AbstractClientPlayer> {
         try{
             if(player.isSneaking())GlStateManager.translate(0,.2,0);
             renderer.getMainModel().bipedLeftArm.postRender(1/16F);
-            WatchRenderer.onArm("slim".equals(player.getSkinType()),player.world.getWorldTime(),WatchEquipment.reading(player));
+            if(WatchEquipment.get(player).getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidWatchItem)
+                BlackrazidWatchRenderer.onArm("slim".equals(player.getSkinType()),player.world.getWorldTime());
+            else WatchRenderer.onArm("slim".equals(player.getSkinType()),player.world.getWorldTime(),WatchEquipment.reading(player));
         }finally{GlStateManager.popMatrix();}
     }
     @Override public boolean shouldCombineTextures(){return false;}

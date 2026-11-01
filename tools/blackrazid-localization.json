@@ -7,8 +7,8 @@
     "metroport.blackrazid.off": "выкл.",
     "metroport.blackrazid.sips": "Воды осталось: %s / 10",
     "metroport.blackrazid.flask.help": "Удерживайте ПКМ 2 секунды: +30 воды; отмена не расходует воду",
-    "metroport.blackrazid.lamp.help": "ПКМ или L: включить; держите в любой руке; зарядите устройством",
-    "metroport.blackrazid.power.help": "Удерживайте ПКМ: +20 заряда каждые 15 тактов",
+    "metroport.blackrazid.lamp.help": "ПКМ — надеть в отдельный слот; L — включить/выключить.",
+    "metroport.blackrazid.power.help": "Наденьте фонарь в слот; удерживайте ПКМ для зарядки.",
     "metroport.blackrazid.rounds": "Боезапас: %s / %s",
     "metroport.blackrazid.magazine.fill": "ПКМ — вложить один подходящий патрон",
     "metroport.blackrazid.magazine.fuel": "Баллон не перезаполняется",
@@ -23,7 +23,11 @@
     "metroport.blackrazid.modules.empty": "Пусто",
     "metroport.blackrazid.modules.remove": "Снять",
     "metroport.blackrazid.modules.failed": "Недоступно: нужны подходящая деталь и свободное место; проверьте боезапас",
-    "metroport.blackrazid.modules.note": "Снятие возвращает исходную деталь. Модели оружия пока временные."
+    "metroport.blackrazid.modules.note": "Снятие возвращает исходную деталь. Модели оружия пока временные.",
+    "metroport.blackrazid.watch.help": "Только игровое время. Надевается в слот часов.",
+    "item.metroport.blackrazid_watch.name": "Часы [BlackRazid]",
+    "metroport.blackrazid.bag_slot": "Сумка",
+    "metroport.blackrazid.lamp_slot": "Фонарь"
   },
   "en_us": {
     "key.metroport.blackrazid_lamp": "BlackRazid flashlight",
@@ -33,8 +37,8 @@
     "metroport.blackrazid.off": "off",
     "metroport.blackrazid.sips": "Water remaining: %s / 10",
     "metroport.blackrazid.flask.help": "Hold right click for 2 seconds: +30 water; cancellation consumes nothing",
-    "metroport.blackrazid.lamp.help": "Right click or L: toggle; hold in either hand; use the charger to recharge",
-    "metroport.blackrazid.power.help": "Hold right click: +20 charge every 15 ticks",
+    "metroport.blackrazid.lamp.help": "Right click to equip the separate slot; L toggles light.",
+    "metroport.blackrazid.power.help": "Equip a flashlight in its slot; hold right click to charge.",
     "metroport.blackrazid.rounds": "Ammunition: %s / %s",
     "metroport.blackrazid.magazine.fill": "Right click to insert one matching round",
     "metroport.blackrazid.magazine.fuel": "This fuel canister is not refillable",
@@ -49,6 +53,10 @@
     "metroport.blackrazid.modules.empty": "Empty",
     "metroport.blackrazid.modules.remove": "Remove",
     "metroport.blackrazid.modules.failed": "Unavailable: check matching part, free inventory space and ammunition",
-    "metroport.blackrazid.modules.note": "Removal returns the original part. Gun models remain temporary."
+    "metroport.blackrazid.modules.note": "Removal returns the original part. Gun models remain temporary.",
+    "metroport.blackrazid.watch.help": "World time only. Equip in the watch slot.",
+    "item.metroport.blackrazid_watch.name": "Watch [BlackRazid]",
+    "metroport.blackrazid.bag_slot": "Bag",
+    "metroport.blackrazid.lamp_slot": "Lamp"
   }
 }

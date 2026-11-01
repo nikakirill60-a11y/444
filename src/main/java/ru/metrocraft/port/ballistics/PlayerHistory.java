@@ -11,7 +11,7 @@ import ru.metrocraft.port.MetroPort;
 import java.util.*;
 
 /** Same 20 snapshots and ping/50 selection as the supplied PlayerData/EntityBullet. */
-@Mod.EventBusSubscriber(modid=MetroPort.ID)
+// Archived feature: intentionally not registered in the reduced build.
 public final class PlayerHistory {
     private static final Map<World,Map<UUID,Deque<LagSnapshot>>> HISTORY=new WeakHashMap<>();
     public static int indexForPing(int ping){return Math.max(0,Math.min(19,ping/50));}

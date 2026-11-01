@@ -20,7 +20,7 @@ public final class WatchEquipment {
     private static final ru.metrocraft.port.util.WeakIdentityMap<EntityPlayer,EquipmentInventory> INVENTORIES=new ru.metrocraft.port.util.WeakIdentityMap<>();
     private WatchEquipment() {}
     public static boolean accepts(ItemStack stack) {
-        return !stack.isEmpty() && stack.getItem() instanceof ru.metrocraft.port.mcmod.WatchItem;
+        return !stack.isEmpty() && (stack.getItem() instanceof ru.metrocraft.port.mcmod.WatchItem || stack.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidWatchItem);
     }
     public static ItemStack get(EntityPlayer player) {
         EquipmentInventory live=INVENTORIES.get(player);

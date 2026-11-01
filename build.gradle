@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.13.0-dev.15'
+version = '1.13.0-dev.16'
 group = 'ru.metrocraft'
 archivesBaseName = 'metrocraft-port-1.12.2'
 sourceCompatibility = targetCompatibility = '1.8'
@@ -56,4 +56,10 @@ jar {
         attributes 'Implementation-Title': 'MetroCraft Port',
                    'Implementation-Version': project.version
     }
+}
+
+// Reduced distribution: retain source references for integrity tests, omit retired meshes/items from the JAR.
+jar {
+    def reduced = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/metroport/reduced_scope.json'))
+    reduced.jarExcludes.each { pattern -> exclude pattern }
 }

@@ -43,7 +43,7 @@ public class EquipmentSideIsolationTest {
         Field caps=EntityPlayer.class.getField("capabilities");caps.setAccessible(true);caps.set(player,new PlayerCapabilities());
         return player;
     }
-    private static int slot(MetroContainer c,boolean clock){return c.inventorySlots.size()-(clock?1:2);}
+    private static int slot(MetroContainer c,boolean clock){return clock?43:42;}
     private static InventoryBasic equipment(MetroContainer c,boolean clock){return clock?c.watch:c.nvg;}
     private static int count(Player p,MetroContainer c,Item item){
         int count=0;for(ItemStack stack:p.inventory.mainInventory)if(stack.getItem()==item)count+=stack.getCount();

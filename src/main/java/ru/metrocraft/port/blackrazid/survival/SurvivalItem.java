@@ -18,7 +18,13 @@ public final class SurvivalItem extends Item {
     @Override public ActionResult<ItemStack> onItemRightClick(World world,EntityPlayer p,EnumHand hand){
         ItemStack stack=p.getHeldItem(hand);
         if(!p.isEntityAlive() || p.isSpectator())return new ActionResult<>(EnumActionResult.FAIL,stack);
-        if(type==Type.LAMP){if(!world.isRemote){SurvivalState s=SurvivalSystem.get(p);s.toggle(SurvivalSystem.hasLamp(p));SurvivalSystem.save(p,s);SurvivalSystem.sync(p);p.getCooldownTracker().setCooldown(this,5);}return new ActionResult<>(EnumActionResult.SUCCESS,stack);}
+        if(type==Type.LAMP){
+            if(!world.isRemote){
+                if(!ru.metrocraft.port.inventory.ExtraEquipment.get(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP).isEmpty())return new ActionResult<>(EnumActionResult.FAIL,stack);
+                ru.metrocraft.port.inventory.ExtraEquipment.equipAfterUse(p,ru.metrocraft.port.inventory.ExtraEquipment.Kind.LAMP,hand,stack);
+            }return new ActionResult<>(EnumActionResult.SUCCESS,stack);
+        }
+        if(type==Type.POWER && !SurvivalSystem.hasLamp(p))return new ActionResult<>(EnumActionResult.FAIL,stack);
         SurvivalState s=SurvivalSystem.get(p);
         if(type==Type.FLASK && (sips(stack)<=0 || (!world.isRemote && s.water>=100)) || type==Type.POWER && !world.isRemote && s.energy>=100)return new ActionResult<>(EnumActionResult.FAIL,stack);
         p.setActiveHand(hand);return new ActionResult<>(EnumActionResult.SUCCESS,stack);
@@ -35,7 +41,7 @@ public final class SurvivalItem extends Item {
     }
     @Override public void onUsingTick(ItemStack stack,EntityLivingBase entity,int count){
         if(type!=Type.POWER || entity.world.isRemote || !(entity instanceof EntityPlayer))return;
-        EntityPlayer p=(EntityPlayer)entity;if(!p.isEntityAlive() || p.isSpectator()){p.stopActiveHand();return;}
+        EntityPlayer p=(EntityPlayer)entity;if(!p.isEntityAlive() || p.isSpectator() || !SurvivalSystem.hasLamp(p)){p.stopActiveHand();return;}
         int elapsed=getMaxItemUseDuration(stack)-count;if(elapsed<=0 || elapsed%15!=0)return;
         SurvivalState s=SurvivalSystem.get(p);if(s.charge()){
             SurvivalSystem.save(p,s);SurvivalSystem.sync(p);
