@@ -26,9 +26,11 @@ public class McmodAkTest {
             }
         }
     }
-    @Test public void originalRawGripAndForeendLandExactlyOnExistingSkinHandAnchors(){
+    @Test public void originalRawModelMappingAndSeparateUnderForegripContactsAreStable(){
         assertArrayEquals(new float[]{-.1F,.13F,-.175F},McmodAkPose.point(0,-500,550),1e-5F);
         assertArrayEquals(new float[]{.5F,.3F,-.175F},McmodAkPose.point(0,-160,-650),1e-5F);
+        assertArrayEquals(new float[]{.30F,.25F,-.175F},McmodAkPose.handAnchor(true),0);
+        assertArrayEquals(new float[]{-.115F,.115F,-.175F},McmodAkPose.handAnchor(false),0);
         assertTrue(McmodAkPose.point(0,-100,-1326)[0]>McmodAkPose.point(0,-100,1367)[0]);
     }
     @Test public void zeroConditionRetainsTheGunAndRepairPreservesCustomNBT(){

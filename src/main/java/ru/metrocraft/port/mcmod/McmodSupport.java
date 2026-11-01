@@ -47,7 +47,20 @@ public final class McmodSupport {
             event.getRegistry().register(item);MetroPort.ITEMS.put(d.id,item);
         }
     }
-    private static final class CollisionBlock extends BlockBarrier {CollisionBlock(){super();}}
+    private static final class CollisionBlock extends BlockBarrier {
+        CollisionBlock(){super();}
+        @Override @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+        public EnumBlockRenderType getRenderType(IBlockState state){
+            EntityPlayer player=net.minecraft.client.Minecraft.getMinecraft().player;
+            return player!=null && player.capabilities.isCreativeMode?EnumBlockRenderType.MODEL:EnumBlockRenderType.INVISIBLE;
+        }
+        @Override @net.minecraftforge.fml.relauncher.SideOnly(net.minecraftforge.fml.relauncher.Side.CLIENT)
+        public void randomDisplayTick(IBlockState state,World world,BlockPos pos,java.util.Random random){
+            EntityPlayer player=net.minecraft.client.Minecraft.getMinecraft().player;
+            if(player!=null && player.capabilities.isCreativeMode && (player.getHeldItemMainhand().getItem()==Item.getItemFromBlock(this) || player.getHeldItemOffhand().getItem()==Item.getItemFromBlock(this)))
+                world.spawnParticle(EnumParticleTypes.BARRIER,pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5,0,0,0);
+        }
+    }
     private static final class RespawnBlock extends Block {
         private static final AxisAlignedBB BOUNDS=new AxisAlignedBB(0,0,0,1,.1,.5);
         RespawnBlock(){super(Material.IRON);setBlockUnbreakable();setResistance(6000000);}

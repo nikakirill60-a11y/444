@@ -40,7 +40,7 @@ public final class WatchClient implements LayerRenderer<AbstractClientPlayer> {
         try{
             if(player.isSneaking())GlStateManager.translate(0,.2,0);
             renderer.getMainModel().bipedLeftArm.postRender(1/16F);
-            WatchRenderer.onArm("slim".equals(player.getSkinType()),player.world.getWorldTime());
+            WatchRenderer.onArm("slim".equals(player.getSkinType()),player.world.getWorldTime(),WatchEquipment.reading(player));
         }finally{GlStateManager.popMatrix();}
     }
     @Override public boolean shouldCombineTextures(){return false;}

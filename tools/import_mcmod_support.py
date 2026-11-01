@@ -12,6 +12,7 @@ def main():
  for id,ru,en,kind,color in [('collision','Коллизия','Collision','collision','#cc3333'),('radiation','Радиация','Radiation','radiation','#bdd44a'),('air','Безопасный воздух','Safe air','air','#42cce5'),('respawn','Точка возрождения','Respawn point','respawn','#dddddd')]:
   entries.append(dict(id='mcmod_'+id,nameRu=ru+' [MCMOD]',nameEn=en+' [MCMOD]',kind=kind,texture=id))
   if kind=='respawn':shutil.copyfile(S/'pass.png',A/'textures/mcmod/support/respawn.png')
+  elif kind=='collision':shutil.copyfile(S/'collision.png',A/'textures/mcmod/support/collision.png')
   else:
    # New editor icons, not claimed to be recovered original textures. Runtime blocks stay invisible.
    im=Image.new('RGBA',(16,16),'#202020');d=ImageDraw.Draw(im);d.rectangle((1,1,14,14),outline=color,width=2)
@@ -25,6 +26,10 @@ def main():
   id=entry['id'];tex=entry['texture'];kind=entry['kind'];(A/'textures/mcmod/support').mkdir(parents=True,exist_ok=True)
   if kind=='ammo':shutil.copyfile(S/(tex+'.png'),A/('textures/mcmod/support/'+tex+'.png'))
   if kind in ['ammo','watch']:write(A/('models/item/'+id+'.json'),{'parent':'item/generated','textures':{'layer0':'metroport:mcmod/support/'+('radiation' if kind=='watch' else tex)}})
+  elif kind=='collision':
+   write(A/('models/block/'+id+'.json'),{'parent':'block/cube_all','textures':{'all':'metroport:mcmod/support/collision'}})
+   write(A/('blockstates/'+id+'.json'),{'variants':{'normal':{'model':'metroport:'+id}}})
+   write(A/('models/item/'+id+'.json'),{'parent':'metroport:block/'+id})
   elif kind=='respawn':
    write(A/('models/block/'+id+'.json'),{'parent':'block/block','textures':{'particle':'metroport:mcmod/support/respawn','all':'metroport:mcmod/support/respawn'},'elements':[{'from':[0,0,0],'to':[16,1.6,8],'faces':{f:{'texture':'#all'} for f in ['down','up','north','south','east','west']}}]})
    write(A/('blockstates/'+id+'.json'),{'variants':{'normal':{'model':'metroport:'+id}}})

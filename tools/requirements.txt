@@ -1,0 +1,2 @@
+# Asset generators and their deterministic reproduction tests.
+Pillow==13.0.0

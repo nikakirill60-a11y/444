@@ -16,7 +16,7 @@
     "Uses existing server-authoritative port projectiles, recoil and controls (RMB fire, Alt aim, R or sneak+RMB reload); no exact MCMOD 1000-HP damage system claimed.",
     "Projectile speed 4 blocks/tick and gravity .01 are port settings, not recovered MCMOD parameters.",
     "Condition zero jams but retains the gun; repair restores functionality.",
-    "Original native OBJ is mapped into the tested existing AK hand space; player skin hands, magazine and bolt animation use port timing.",
-    "Only base AK-74. Original upgrade GUI, optics, silencers, clocks, laser, grenade launcher and other MCMOD weapons are not included."
+    "Original native OBJ uses AK camera space but its own lower foregrip anchors; skin-hand profiles were corrected in 1.10.0. Magazine and bolt animation use port timing.",
+    "Only base AK-74. Original upgrade GUI, optics, silencers, laser, grenade launcher and other MCMOD weapons are not included."
   ]
 }

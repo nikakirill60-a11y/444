@@ -71,4 +71,38 @@ public class GunHandPoseTest {
         }
     }
 
+    @Test public void newUnderhandProfilesKeepPalmsPinnedForEveryGunSkinSideAndReloadPhase(){
+        for(String id:new String[]{"ak74","aks74u","duplet","rpk","saiga","tihar","vsv","vintovka","pkm","podonok","preved","svd","vssk","ybludok","yboinik"})
+            for(boolean left:new boolean[]{false,true})for(boolean slim:new boolean[]{false,true})
+                for(boolean support:new boolean[]{false,true})for(float reload:new float[]{0,.5F,1}){
+                    float[] contact=GunHandPose.wrist(new float[]{.4F,.19F,-.175F},support,left,reload);
+                    Matrix4f matrix=GunHandPose.armMatrix(id,contact,left,support,slim);
+                    float center=(left?1:-1)*(slim?.5F:1);
+                    Vector4f palm=new Vector4f(center/16,9/16F,0,1),shoulder=new Vector4f(center/16,-2/16F,0,1);
+                    matrix.transform(palm);matrix.transform(shoulder);
+                    assertEquals(contact[0],palm.x,1e-6F);assertEquals(contact[1],palm.y,1e-6F);assertEquals(contact[2],palm.z,1e-6F);
+                    assertTrue(shoulder.x<contact[0]);assertTrue(shoulder.y<contact[1]);assertTrue(matrix.determinant()>0);
+                }
+    }
+    @Test public void newRifleArmsAreSmallerButTheApprovedRevolverIsUnchanged(){
+        float[] contact={.2F,.1F,-.175F};
+        for(boolean left:new boolean[]{false,true})for(boolean slim:new boolean[]{false,true})for(boolean support:new boolean[]{false,true}){
+            Matrix4f original=GunHandPose.armMatrix(contact,left,support,slim);
+            Matrix4f revolver=GunHandPose.armMatrix("revolver",contact,left,support,slim);
+            assertTrue(original.epsilonEquals(revolver,0));
+            assertEquals(.85F*.85F*.85F,GunHandPose.armMatrix("ak74",contact,left,support,slim).determinant(),1e-6F);
+        }
+    }
+
+    @Test public void revolverStillUsesTheFrozenVersion190Matrices(){
+        float[] contact={.12F,.19F,-.175F};
+        for(boolean left:new boolean[]{false,true})for(boolean slim:new boolean[]{false,true})for(boolean support:new boolean[]{false,true}){
+            Matrix4f expected=new Matrix4f(),step=new Matrix4f();expected.setIdentity();expected.setTranslation(new javax.vecmath.Vector3f(contact));
+            step.rotZ((float)Math.toRadians(support?-55:-65));expected.mul(step);
+            step.rotX((float)Math.toRadians(-(left?-1:1)*(support?30:18)));expected.mul(step);
+            step.setIdentity();step.setTranslation(new javax.vecmath.Vector3f(-(left?1:-1)*(slim?.5F:1)/16,-9/16F,0));expected.mul(step);
+            assertTrue(expected.epsilonEquals(GunHandPose.armMatrix("revolver",contact,left,support,slim),1e-7F));
+        }
+    }
+
 }

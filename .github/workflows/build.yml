@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Install asset-generation dependency
+        run: python -m pip install -r tools/requirements.txt
       - name: Validate imported content
         run: python -m unittest discover -s tests -v
       - uses: actions/setup-java@v5

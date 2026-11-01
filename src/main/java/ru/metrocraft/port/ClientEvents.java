@@ -20,6 +20,16 @@ public final class ClientEvents {
     private static final KeyBinding AIM = new KeyBinding("key.metroport.aim", Keyboard.KEY_LMENU, "key.categories.metroport");
     private static final KeyBinding RELOAD = new KeyBinding("key.metroport.reload", Keyboard.KEY_R, "key.categories.metroport");
 
+    private static Boolean editorCreative;
+    @SubscribeEvent public static void editorMode(net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent event){
+        if(event.phase!=net.minecraftforge.fml.common.gameevent.TickEvent.Phase.END)return;
+        Minecraft mc=Minecraft.getMinecraft();
+        if(mc.player==null){editorCreative=null;return;}
+        boolean creative=mc.player.capabilities.isCreativeMode;
+        if(editorCreative!=null && editorCreative!=creative)mc.renderGlobal.loadRenderers();
+        editorCreative=creative;
+    }
+
     @SubscribeEvent
     public static void models(ModelRegistryEvent event) {
         for (Item item : MetroPort.ITEMS.values()) {

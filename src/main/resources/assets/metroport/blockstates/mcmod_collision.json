@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "minecraft:air"
+      "model": "metroport:mcmod_collision"
     }
   }
 }
