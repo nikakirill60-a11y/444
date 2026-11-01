@@ -22,6 +22,9 @@ class CompletionTests(unittest.TestCase):
             self.assertIn(marker,modes)
         for forbidden in ['writeToNBT','readFromNBT','clearMatchingItems','setInventorySlotContents']:self.assertNotIn(forbidden,modes)
         self.assertIn('addScheduledTask',(JAVA/'inventory/InventoryModePacket.java').read_text())
+        equipment=(JAVA/'inventory/OpenInventoryPacket.java').read_text()
+        self.assertIn('InventoryModes.emptyForSwitch(player)',equipment)
+        self.assertIn('player.openContainer==player.inventoryContainer',equipment)
         for f in ['mechanics/CapacityRules.java','inventory/Backpacks.java','inventory/MetroContainer.java','client/MetroInventoryGui.java']:
             self.assertIn('InventoryModes.rows(player)',(JAVA/f).read_text())
     def test_inventory_source_is_vanilla_not_a_fabricated_original_container(self):
