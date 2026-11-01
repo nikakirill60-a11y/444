@@ -16,8 +16,8 @@ Demon имеет отдельный полёт, составную голову 
 Транспорт/пути, тоннели/окружение и недоделанный оружейный блок остаются в работе.
 [Честный статус, управление и адаптации](docs/BLACKRAZID_EXPANSION.md),
 [отчёт по каждому стволу/мутанту](docs/blackrazid-expansion-report.json).
-Разработческий runtime `4fe3f1b` прошёл [сборку Java 8 / Forge и reobfuscation](https://github.com/nikakirill60-a11y/444/actions/runs/41331571039):
-**124 Python-проверки, 239 JUnit-тестов**. [Артефакт dev.5](https://github.com/nikakirill60-a11y/444/actions/runs/41331571039/artifacts/13093931617). Полноценный игровой прогон и визуальная приёмка не выполнены.
+Разработческий runtime `c5eee95` прошёл [сборку Java 8 / Forge и reobfuscation](https://github.com/nikakirill60-a11y/444/actions/runs/41332807867):
+**125 Python-проверок, 259 JUnit-тестов**. [Артефакт dev.6](https://github.com/nikakirill60-a11y/444/actions/runs/41332807867/artifacts/13093883984). Полноценный игровой прогон и визуальная приёмка не выполнены.
 Последняя выданная пользователю сборка **1.12.0** остаётся ниже; готовый общий выпуск пока не объявлен.
 
 ## Скачать тестовую сборку
