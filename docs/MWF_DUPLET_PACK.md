@@ -4,7 +4,11 @@
 
 ## Скачать
 
-Обязательные файлы:
+**[Единый архив установки Дуплета v1 — 11,06 МБ](https://raw.githubusercontent.com/nikakirill60-a11y/444/arena/dcab859f-444/downloads/Metro_Duplet_Install_v1.zip)** — рекомендуемый вариант: оба обязательных файла и русская инструкция внутри. Это та же сборка v1, без изменения пака и переходника. Распаковать внешний архив отдельно, затем перенести внутренний ZIP в `ModularWarfare/`, JAR — в `mods/`. Сам внешний архив не является контент-паком; внутренний ZIP не распаковывать. Старый пак Убойника/Дуплета предварительно убрать.
+
+Сборка оболочки: `python tools/build_duplet_install.py`. Проверены CRC, точное равенство вложенных файлов опубликованным оригиналам и байтовая воспроизводимость. Размер **11 064 260 байт**, SHA-256 `0d81193f970ae7a221c82d1e9840bde76225ebdcaf47f71d873321c6f24a2b30`.
+
+Либо скачать обязательные файлы отдельно:
 1. [Общий пак «Убойник v5 + Дуплет» — ZIP, 11,05 МБ](https://raw.githubusercontent.com/nikakirill60-a11y/444/arena/dcab859f-444/downloads/Metro_Uboinik_Duplet_MWF_fix1_v1.zip)
 2. [Мод-переходник для съёмного «+2 ствола» — JAR, 9,5 КБ](https://raw.githubusercontent.com/nikakirill60-a11y/444/arena/dcab859f-444/downloads/metro-duplet-bridge-1.0.0.jar)
 
