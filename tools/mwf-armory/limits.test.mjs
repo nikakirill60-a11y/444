@@ -18,13 +18,13 @@ test('more than 160 MiB unpacked payload is accepted',()=>{
  const files={...baseline().files,'data/large.bin':new Uint8Array(161*1024*1024).fill(42)};
  const zipped=zipSync(files,{level:1});const p=A.loadPack(zipped);assert.equal(p.files['data/large.bin'].length,161*1024*1024);assert.equal(p.files['data/large.bin'][0],42);
 });
-test('real full-arsenal ZIP above 64 MiB opens and exports all unsupported guns unchanged',()=>{
+test('real full-arsenal ZIP above 64 MiB opens and exports 23 editable guns and canonical fire modes',()=>{
  const bytes=readFileSync(new URL('../../downloads/Metro_Full_Arsenal_MWF_fix1_v1.zip',import.meta.url));assert.ok(bytes.length>64*1024*1024);
- const p=A.loadPack(bytes),g=A.selectGun(p);assert.equal(p.guns.length,23);assert.equal(g.type.internalName,'metro_ashot');
- assert.equal(p.guns.filter(g=>A.editableType(g.type)).length,4);assert.throws(()=>A.selectGun(p,'metro_ak'),/магазин/i);
+ const p=A.loadPack(bytes),g=A.selectGun(p,'metro_ashot');assert.equal(p.guns.length,23);assert.equal(g.type.internalName,'metro_ashot');
+ assert.equal(p.guns.filter(g=>A.editableType(g.type)).length,23);assert.equal(A.selectGun(p,'metro_ak').type.acceptedAmmo.length,2);
  A.validateConfig(g.config);const type={...g.type,gunDamage:7};
  const q=A.loadPack(A.exportWorkspace(p,g,type,g.config,A.defaults(),A.modelDefaults()));assert.equal(q.guns.length,23);assert.equal(A.selectGun(q,'metro_ashot').type.gunDamage,7);
- for(const path of Object.keys(p.files).filter(n=>/^(ammo\/|guns\/metro_ak|assets\/modularwarfare\/skins\/)/.test(n)))assert.deepEqual(q.files[path],p.files[path],path);
+ for(const path of Object.keys(p.files).filter(n=>/^(ammo\/|assets\/modularwarfare\/skins\/)/.test(n)))assert.deepEqual(q.files[path],p.files[path],path);
 });
 test('zero attachment scales remain valid for native hide/show geometry',()=>{
  const g=A.selectGun(baseline()),c=A.clone(g.config);c.attachment.test_hide={scale:{x:0,y:0,z:0}};assert.equal(A.validateConfig(c),c);

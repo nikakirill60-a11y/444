@@ -17,7 +17,8 @@ try{
  await page.screenshot({path:path.join(root,'artifacts/armory-v2-empty.png'),fullPage:true});
  await page.locator('#packInput').setInputFiles(path.join(root,'downloads/Metro_Full_Arsenal_MWF_fix1_v1.zip'));
  await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.guns.length===23);
- assert.equal(await page.evaluate(()=>mwfEditor.gun),'metro_ashot');assert.equal(await page.locator('#libraryGun option:disabled').count(),19);
+ assert.equal(await page.evaluate(()=>mwfEditor.gun),'metro_abzac');assert.equal(await page.locator('#libraryGun option:disabled').count(),0);
+ await page.locator('#libraryGun').selectOption('metro_ashot');await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='metro_ashot');
  assert.equal(await page.locator('#emptyState').isVisible(),false);assert.equal(await page.locator('#exportPack').isEnabled(),true);
  await page.locator('[data-panel=stats]').click();const damage=page.getByRole('spinbutton',{name:'Урон за пулю / дробину',exact:true});await damage.fill('7');await damage.press('Tab');
  const [project]=await Promise.all([page.waitForEvent('download'),page.locator('#saveProject').click()]);const projectPath=path.join(root,'artifacts/armory-large-project.json');await project.saveAs(projectPath);
@@ -30,8 +31,8 @@ try{
  const source=unzipSync(readFileSync(path.join(root,'downloads/Metro_Full_Arsenal_MWF_fix1_v1.zip'))),exported=unzipSync(readFileSync(out));
  assert.equal(Object.keys(exported).filter(n=>/^guns\/[^/]+\.json$/.test(n)).length,23);
  assert.equal(JSON.parse(strFromU8(exported['guns/metro_ashot.json'])).gunDamage,7);
- for(const name of ['guns/metro_ak.json','ammo/metro_rpk_ammo_big.json','assets/modularwarfare/skins/guns/metro_native_atlas.png'])assert.deepEqual(exported[name],source[name],name);
+ for(const name of ['ammo/metro_rpk_ammo_big.json','assets/modularwarfare/skins/guns/metro_native_atlas.png'])assert.deepEqual(exported[name],source[name],name);
  await page.screenshot({path:path.join(root,'artifacts/armory-v2-large-pack.png'),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
- console.log(`Large-pack browser PASS: empty boot; 23 guns imported, 19 explicitly preserved without editing; ${statSync(projectPath).size} byte project saved/restored; ${statSync(out).size} byte ZIP exported; edited Ashot retained, magazine gun/ammo/shared atlas unchanged; 0 page errors, 0 HTTP requests.`);
+ console.log(`Large-pack browser PASS: empty boot; 23 guns imported and enabled; ${statSync(projectPath).size} byte project saved/restored; ${statSync(out).size} byte ZIP exported; edited Ashot retained, magazine ammo/shared atlas unchanged, legacy auto modes canonicalized; 0 page errors, 0 HTTP requests.`);
 }finally{await browser.close();}

@@ -17,17 +17,23 @@ def verify(pack,mwf,jvm=None):
  asset='assets/modularwarfare/';records=[];gltfs=set();guns=[];attachments=[]
  for p in files:
   if p.startswith('guns/') and p.count('/')==1 and p.endswith('.json'):
-   t=js(p);id=t['internalName'];guns.append(id);assert t['animationType']=='enhanced';assert t['internalAmmoStorage']>0
-   records.append(('com/modularwarfare/common/guns/GunType',t));cfg=js(f'guns/render/{id}.render.json');records.append(('com/modularwarfare/client/fpp/enhanced/configs/GunEnhancedRenderConfig',cfg))
-   for a in cfg['animations'].values():assert a['speed']>0 and a['endTime']>a['startTime']>=0
-   path=asset+'gltf/guns/'+cfg['modelFileName'];gltfs.add(path);g=js(path);names={n['name'] for n in g['nodes']}
-   assert {'gunModel','leftArmModel','rightArmModel'}<=names
+   t=js(p);id=t['internalName'];guns.append(id);assert t.get('animationType','basic') in ('enhanced','basic');assert t.get('acceptedAmmo') or t.get('internalAmmoStorage',0)>0
+   assert set(t.get('fireModes',['semi'])) <= {'semi','full','burst'}
+   records.append(('com/modularwarfare/common/guns/GunType',t));cfg=js(f'guns/render/{id}.render.json')
+   if t.get('animationType','basic')=='basic':
+    records.append(('com/modularwarfare/client/fpp/basic/configs/GunRenderConfig',cfg));obj=files['obj/guns/'+cfg['modelFileName']].decode();assert 'o gunModel' in obj or 'g gunModel' in obj
+    names=set()
+   else:
+    records.append(('com/modularwarfare/client/fpp/enhanced/configs/GunEnhancedRenderConfig',cfg))
+    for a in cfg['animations'].values():assert a['speed']>0 and a['endTime']>a['startTime']>=0
+    path=asset+'gltf/guns/'+cfg['modelFileName'];gltfs.add(path);g=js(path);names={n['name'] for n in g['nodes']};assert 'gunModel' in names
+   for aid in t.get('acceptedAmmo',[]):assert js('ammo/'+aid+'.json')['internalName']==aid
    for skin in t['modelSkins']:assert files[asset+'skins/guns/'+skin.get('skinAsset',skin['internalName'])+'.png'].startswith(b'\x89PNG')
-   for bullet in t['acceptedBullets']:assert js('bullets/'+bullet+'.json')['internalName']==bullet
+   for bullet in t.get('acceptedBullets',[]):assert js('bullets/'+bullet+'.json')['internalName']==bullet
    for slot,ids in t.get('acceptedAttachments',{}).items():
     for id in ids:
      at=js('attachments/'+id+'.json');assert at['attachmentType']==slot
-     if id in cfg.get('attachment',{}):assert cfg['attachment'][id].get('binding','gunModel') in names
+     if names and id in cfg.get('attachment',{}):assert cfg['attachment'][id].get('binding','gunModel') in names
    for slot,id in t.get('defaultAttachments',{}).items():assert id in t['acceptedAttachments'][slot]
    for lists in t.get('weaponSoundMap',{}).values():
     sounds=js(asset+'sounds.json')
@@ -42,6 +48,12 @@ def verify(pack,mwf,jvm=None):
     if line.startswith('v '):verts+=1
     if line.startswith('f '):assert len(line.split())==4 and all(0<int(v.split('/')[0])<=verts for v in line.split()[1:])
    for skin in t['modelSkins']:assert files[asset+'skins/attachments/'+skin.get('skinAsset',skin['internalName'])+'.png'].startswith(b'\x89PNG')
+  if p.startswith('ammo/') and p.count('/')==1 and p.endswith('.json'):
+   a=js(p);id=a['internalName'];records.append(('com/modularwarfare/common/guns/AmmoType',a));assert a['ammoCapacity']>0 and a.get('magazineCount',1)>0
+   for bid in a.get('subAmmo',[]):assert js('bullets/'+bid+'.json')['internalName']==bid
+   if a.get('isDynamicAmmo'):
+    r=js(f'ammo/render/{id}.render.json');records.append(('com/modularwarfare/client/fpp/basic/configs/AmmoRenderConfig',r));assert 'obj/ammo/'+r['modelFileName'] in files
+    for skin in a['modelSkins']:assert files[asset+'skins/ammo/'+skin.get('skinAsset',skin['internalName'])+'.png'].startswith(b'\x89PNG')
   if p.startswith('bullets/') and p.count('/')==1 and p.endswith('.json'):
    b=js(p);records.append(('com/modularwarfare/common/guns/BulletType',b));assert 'obj/shells/'+b['shellModelFileName'] in files
  with zipfile.ZipFile(mwf) as jar:

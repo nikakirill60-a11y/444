@@ -26,4 +26,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: MWF-Armory-Studio-offline
-          path: downloads/MWF_Armory_Studio_v2.zip
+          path: downloads/MWF_Armory_Studio_v3.zip

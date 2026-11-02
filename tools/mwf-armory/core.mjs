@@ -22,8 +22,17 @@ export function loadPack(bytes){
     if(name.includes('\\')||name.startsWith('/')||name.split('/').includes('..')||/^[a-z]:/i.test(name))throw Error('Небезопасный путь в ZIP');
     return true;
   }});
-  const guns=Object.keys(files).filter(n=>/^guns\/[^/]+\.json$/i.test(n)).map(path=>({path,type:readJSON(files,path)})).filter(x=>x.type.animationType==='enhanced');
-  if(!guns.length)throw Error('Нет Enhanced-оружия. BASIC/OBJ не поддерживается этой версией.');
+  // A single enclosing folder is common in user-created ZIPs. Strip only an
+  // unambiguous content-pack root, never combine several independent packs.
+  const roots=[...new Set(Object.keys(files).filter(n=>/(?:^|\/)guns\/[^/]+\.json$/.test(n)).map(n=>n.slice(0,n.lastIndexOf('guns/'))))];
+  if(roots.length>1)throw Error('В ZIP несколько паков. Открой один контент-пак отдельно.');
+  if(roots.length===1&&roots[0]){const prefix=roots[0],normalized={};for(const [n,v] of Object.entries(files)){if(n===prefix)continue;const key=n.startsWith(prefix)?n.slice(prefix.length):'_archive_metadata/'+n;normalized[key]=v;}for(const n of Object.keys(files))delete files[n];Object.assign(files,normalized);}
+  const guns=Object.keys(files).filter(n=>/^guns\/[^/]+\.json$/i.test(n)).map(path=>({path,type:readJSON(files,path)}));
+  if(!guns.length){
+    if(Object.keys(files).some(n=>/MWF_Armory_Studio\.html$/i.test(n)))throw Error('Это архив программы, не пак оружия. Распакуй его, открой HTML и загрузи отдельный контент-пак MWF.');
+    if(Object.keys(files).some(n=>/\.obj$/i.test(n)))throw Error('В ZIP только исходные модели, нет guns/*.json. Открой готовый BASIC/Enhanced-пак; OBJ + PNG импортируются в разделе «OBJ / модель».');
+    throw Error('Не найдено guns/*.json: нужен контент-пак MWF, не архив мода или программы.');
+  }
   return {bytes,files,guns};
 }
 export function selectGun(pack,id){
@@ -35,7 +44,6 @@ export function selectGun(pack,id){
   if((gltf.buffers||[]).some(b=>!b.uri?.startsWith('data:')))throw Error('Нужен glTF со встроенными буферами.');
   if((gltf.skins||[]).length)throw Error('Скелетные модели с skin/joints пока не поддерживаются. Нужны отдельные стандартные узлы рук MWF.');
   const present=Object.values(HAND_NAMES).flat().filter(n=>gltf.nodes.some(x=>x.name===n));
-  if(!present.length)throw Error('В модели нет стандартных узлов рук MWF');
   const skin=entry.type.modelSkins?.[0];const texturePath=`assets/modularwarfare/skins/guns/${skin?.skinAsset||skin?.internalName||name}.png`;
   if(!pack.files[texturePath])throw Error('Нет скина оружия '+texturePath);
   return {...entry,configPath,config,gltfPath,gltf,texturePath,present};
@@ -69,17 +77,17 @@ export function cameraMatrix(config,ads=0){
   translate(vector(a.translateHipPosition,0).add(vector(a.translateAimPosition,0).multiplyScalar(ads)));
   return m;
 }
-export function reloadSequence(config,count=6){
+export function reloadSequence(config,count=6,magazine=false){
   const a=config.animations||{};const pick=(...names)=>names.find(n=>a[n]);let sequence=[];
   const add=(key,rounds)=>{if(!key)return;const c=a[key];sequence.push({key,rounds,seconds:(c.endTime-c.startTime)/(config.FPS||24)/(c.speed||1)});};
   add(pick('preReloadEmpty','preReload','preLoad'),0);
-  for(let i=0;i<count;i++){add(pick('reloadFirstEmpty','reloadFirst','load'),i);if(i<count-1)add(pick('reloadSecondEmpty','reloadSecond','load'),i+1);}
+  for(let i=0;i<(magazine?1:count);i++){add(pick('reloadFirstEmpty','reloadFirst','load'),i);if(magazine||i<count-1)add(pick('reloadSecondEmpty','reloadSecond','load'),i+1);}
   add(pick('postReloadEmpty','postReload','postLoad'),count);
   return sequence;
 }
-export function actionAt(config,action,time,rounds=6){
+export function actionAt(config,action,time,rounds=6,magazine=false){
   if(action==='reload'){
-    const seq=reloadSequence(config,rounds),duration=seq.reduce((v,c)=>v+c.seconds,0);let t=MathUtils.clamp(time,0,duration);
+    const seq=reloadSequence(config,rounds,magazine),duration=seq.reduce((v,c)=>v+c.seconds,0);let t=MathUtils.clamp(time,0,duration);
     for(let i=0;i<seq.length;i++){const s=seq[i];if(t<=s.seconds||i===seq.length-1){const a=config.animations[s.key];return {frame:MathUtils.lerp(a.startTime,a.endTime,MathUtils.clamp(t/s.seconds,0,1)),duration,rounds:s.rounds};}t-=s.seconds;}
   }
   const a=config.animations?.[action]||config.animations?.default;

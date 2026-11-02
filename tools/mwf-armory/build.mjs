@@ -11,5 +11,5 @@ const html=readFileSync(path.join(here,'index.html'),'utf8').replace('/*__STYLE_
 const out=path.join(root,'artifacts/mwf-armory');mkdirSync(out,{recursive:true});writeFileSync(path.join(out,'index.html'),html);
 const readme=readFileSync(path.join(here,'README_RU.txt'));
 const zip=zipSync({'MWF_Armory_Studio.html':strToU8(html),'ИНСТРУКЦИЯ.txt':new Uint8Array(readme),'LICENSE_THREE.txt':new Uint8Array(readFileSync(path.join(here,'node_modules/three/LICENSE'))),'РЕСУРСЫ_И_ЛИЦЕНЗИИ.txt':strToU8('Редактор: three.js MIT, fflate MIT. В дистрибутиве нет оружия, моделей, текстур, звуков и контент-паков MWF. Программа запускается с пустым рабочим пространством. Загружаемые пользователем ресурсы сохраняют исходное авторство и лицензии; редактор не передаёт права на них. Используйте свои ресурсы только с разрешения авторов.\n'),'LICENSE_FFLATE.txt':new Uint8Array(readFileSync(path.join(here,'node_modules/fflate/LICENSE')))},{level:9});
-mkdirSync(path.join(root,'downloads'),{recursive:true});writeFileSync(path.join(root,'downloads/MWF_Armory_Studio_v2.zip'),zip);
+mkdirSync(path.join(root,'downloads'),{recursive:true});writeFileSync(path.join(root,'downloads/MWF_Armory_Studio_v3.zip'),zip);
 console.log('Offline HTML:',Buffer.byteLength(html),'bytes; downloadable ZIP:',zip.length,'bytes');
