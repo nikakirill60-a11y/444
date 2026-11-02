@@ -1,0 +1,1 @@
+package net.minecraft.item;public class Item {public static boolean fourRegistered=true;private final String name;public Item(String s){name=s;}public String getRegistryName(){return name;}public int max(){return name.contains("duplet")?1:64;}}

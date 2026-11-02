@@ -1,0 +1,1 @@
+package com.modularwarfare.common.handler;import java.util.*;public class ServerTickHandler {public static Map<UUID,Object> playerReloadCooldown=new HashMap<UUID,Object>();public static Map<UUID,Object> reloadEnhancedTask=new HashMap<UUID,Object>();}

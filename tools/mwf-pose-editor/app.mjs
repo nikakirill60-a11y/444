@@ -111,8 +111,8 @@ async function loadAttachments(){
       if(tex){tex.flipY=true;tex.needsUpdate=true;} // MWF's OBJ loader flips V.
       object.traverse(o=>{if(o.isMesh)o.material=new THREE.MeshLambertMaterial({map:tex,color:tex?'#ffffff':'#ce9b58',side:THREE.DoubleSide});});
       const t=gun.config.attachment?.[id]||{},binding=rig.getObjectByName(t.binding||'gunModel');if(!binding)continue;
-      const wrapper=new THREE.Group();wrapper.add(object);const trans=t.translate||{},rot=t.rotate||{},s=t.scale||{};wrapper.position.set(trans.x||0,trans.y||0,trans.z||0);wrapper.rotation.set(THREE.MathUtils.degToRad(rot.x||0),THREE.MathUtils.degToRad(rot.y||0),THREE.MathUtils.degToRad(rot.z||0),'YXZ');wrapper.scale.set(s.x??1,s.y??1,s.z??1);wrapper.visible=false;binding.add(wrapper);attachmentRoots.push(wrapper);
-      const label=document.createElement('label');label.className='switch';const text=document.createElement('span');text.textContent=type.displayName||id;const input=document.createElement('input');input.type='checkbox';input.onchange=()=>wrapper.visible=input.checked;label.append(text,input);$('attachments').append(label);
+      const wrapper=new THREE.Group();wrapper.add(object);const trans=t.translate||{},rot=t.rotate||{},s=t.scale||{};wrapper.position.set(trans.x||0,trans.y||0,trans.z||0);wrapper.rotation.set(THREE.MathUtils.degToRad(rot.x||0),THREE.MathUtils.degToRad(rot.y||0),THREE.MathUtils.degToRad(rot.z||0),'YXZ');wrapper.scale.set(s.x??1,s.y??1,s.z??1);wrapper.visible=gun.type.defaultAttachments?.[slot]===id;wrapper.userData.slot=slot;binding.add(wrapper);attachmentRoots.push(wrapper);
+      const label=document.createElement('label');label.className='switch';const text=document.createElement('span');text.textContent=type.displayName||id;const input=document.createElement('input');input.type='checkbox';input.checked=wrapper.visible;wrapper.userData.input=input;input.onchange=()=>{wrapper.visible=input.checked;if(input.checked)for(const other of attachmentRoots)if(other!==wrapper&&other.userData.slot===slot){other.visible=false;other.userData.input.checked=false;}};label.append(text,input);$('attachments').append(label);
     }catch(e){console.warn('Обвес не показан:',id,e.message);}
   }
 }
@@ -167,4 +167,4 @@ $('exportPack').onclick=safe(async()=>{
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 // Expose a read-only test bridge, not an external API or network service.
 window.mwfEditor={get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},exportBytes:()=>exportPack(pack,gun,edits,config)};
-safe(async()=>{await openPackBytes(fromBase64(__DEFAULT_PACK_B64__));setView('fp');message('Готово. Встроен «Убойник v5». Программа работает без интернета; исходный пак не изменяется.');})();
+safe(async()=>{await openPackBytes(fromBase64(__DEFAULT_PACK_B64__),__DEFAULT_GUN__);setView('fp');message('Готово. Встроенный пак: '+pack.guns.map(g=>g.type.displayName).join(', ')+'. Исходный ZIP не изменяется.');})();

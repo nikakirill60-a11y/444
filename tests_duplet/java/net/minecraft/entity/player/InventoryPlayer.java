@@ -1,0 +1,3 @@
+package net.minecraft.entity.player;import net.minecraft.item.ItemStack;
+public class InventoryPlayer {public int currentItem=0;public final ItemStack[] slots=new ItemStack[36];private ItemStack cursor=new ItemStack("",0);public boolean dirty;public int failOnceAt=-1;
+ public InventoryPlayer(){for(int i=0;i<36;i++)slots[i]=new ItemStack("",0);}public ItemStack getStackInSlot(int i){return slots[i];}public void setInventorySlotContents(int i,ItemStack s){if(i==failOnceAt){failOnceAt=-1;throw new RuntimeException("injected write failure");}slots[i]=s;}public ItemStack getItemStack(){return cursor;}public void setItemStack(ItemStack s){cursor=s;}public void markDirty(){dirty=true;}}

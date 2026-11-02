@@ -23,8 +23,8 @@
 <label class="field-title" for="rounds">Патроны в предпросмотре</label><input id="rounds" type="number" min="0" max="6" step="1" value="6">
 <label class="switch"><span>Подсветить выбранную руку</span><input id="highlight" type="checkbox"></label>
 <details><summary>Положение всего оружия</summary><label class="switch"><span>Сохранять конечную позу ADS</span><input type="checkbox" id="keepAds" checked></label><div id="weaponControls"></div><button id="resetWeapon" class="wide">Вернуть исходное положение</button></details>
-<details><summary>Обвес в предпросмотре</summary><div id="attachments"></div><p class="hint">Выбор обвеса здесь не меняет предмет в игре и не переключает хват автоматически.</p></details>
-<details><summary>Другой Enhanced-пак</summary><p class="hint">Поддерживаются ZIP с текстовым glTF, встроенными буферами и отдельными узлами рук, как в этом Убойнике. Скелетные skin/joints, GLB и BASIC/OBJ в v1 не поддерживаются.</p><label for="gunSelect">Оружие в паке</label><select id="gunSelect"></select></details>
+<details><summary>Обвес в предпросмотре</summary><div id="attachments"></div><p class="hint">Обвес здесь только для осмотра, один на слот. Для Дуплета с четырьмя зарядами выбери «Дуплет (4 ствола)» в списке оружия ниже. Экспорт ZIP не включает мод-переходник.</p></details>
+<details><summary>Выбор оружия / другой пак</summary><p class="hint">Поддерживаются ZIP с текстовым glTF, встроенными буферами и отдельными узлами рук, как в этом Убойнике. Скелетные skin/joints, GLB и BASIC/OBJ в v1 не поддерживаются.</p><label for="gunSelect">Оружие в паке</label><select id="gunSelect"></select></details>
 </aside>
 </main>
 <footer><span>LOCAL / OFFLINE · файлы не отправляются на сервер</span><span>Экспорт сохраняет узлы рук и их анимационные ключи в glTF</span></footer>
