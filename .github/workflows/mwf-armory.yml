@@ -4,6 +4,7 @@ on:
     paths:
       - 'tools/mwf-armory/**'
       - 'downloads/Metro_Uboinik*_MWF_fix1_*.zip'
+      - 'downloads/Metro_Full_Arsenal_MWF_fix1_v1.zip'
       - '.github/workflows/mwf-armory.yml'
   pull_request:
     paths:
@@ -25,4 +26,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: MWF-Armory-Studio-offline
-          path: downloads/MWF_Armory_Studio_v1.zip
+          path: downloads/MWF_Armory_Studio_v2.zip

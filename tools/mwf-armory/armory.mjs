@@ -1,11 +1,20 @@
 import {Vector2,Vector3,Quaternion,Euler,ShapeUtils,MathUtils} from 'three';
-import {zipSync,unzipSync,strFromU8,strToU8} from 'fflate';
-import {loadPack as parsePack,selectGun,jsonBytes,fromBase64,bytesToBase64,exportPack,defaults} from './core.mjs';
-export {selectGun,jsonBytes,defaults};
-export function loadPack(bytes){
- if(bytes.length>64*1024*1024)throw Error('ZIP больше 64 МБ');let total=0,count=0;
- unzipSync(bytes,{filter:f=>{total+=f.originalSize;count++;if(total>160*1024*1024||count>10000)throw Error('Распакованный пак слишком большой');if(f.name.includes('\\')||f.name.startsWith('/')||f.name.split('/').includes('..')||/^[a-z]:/i.test(f.name))throw Error('Небезопасный путь в ZIP');return false;}});
- return parsePack(bytes);
+import {zipSync,strFromU8,strToU8} from 'fflate';
+import {loadPack as parsePack,selectGun as selectGunCore,jsonBytes,fromBase64,bytesToBase64,exportPack,defaults} from './core.mjs';
+export {jsonBytes,defaults};
+export function loadPack(bytes){return parsePack(bytes);}
+export function editableType(type){try{validateType(type);return true;}catch{return false;}}
+export function selectGun(pack,id){
+ const entry=id?pack.guns.find(g=>g.type.internalName===id):pack.guns.find(g=>editableType(g.type));
+ if(!entry)throw Error(id?'В паке нет оружия '+id:'Нет поддерживаемого Enhanced-оружия с внутренним боезапасом. Магазинные пушки в этой версии не редактируются.');
+ validateType(entry.type);return selectGunCore(pack,entry.type.internalName);
+}
+export function previewHiddenParts(config,selected){
+ const hidden=new Set(config.defaultHidePart||[]);
+ for(const show of [false,true])for(const {id,slot} of selected){
+  for(const cfg of [config.attachmentGroup?.[slot],config.attachment?.[id]])for(const part of cfg?.[show?'showPart':'hidePart']||[]){if(show)hidden.delete(part);else hidden.add(part);}
+ }
+ return hidden;
 }
 export const SLOTS=['barrel','sight','grip','stock','laser'];
 export const WEAPON_TYPES=['custom','pistol','revolver','mp','smg','carbine','rifle','ar','dmr','semisniper','boltsniper','shotgun','launcher'];
@@ -156,7 +165,7 @@ export function exportWorkspace(pack,gun,type,config,edits,model){
   for(const [slot,ids] of Object.entries(t.acceptedAttachments||{}))for(const id of ids){const at=readJSON(result,`attachments/${id}.json`);if(at.attachmentType!==slot)throw Error('Слот обвеса не совпадает: '+id);}
  }
  for(const locale of ['ru_ru','ru_RU','en_us','en_US']){let text=result.files[`assets/modularwarfare/lang/${locale}.lang`]?strFromU8(result.files[`assets/modularwarfare/lang/${locale}.lang`]):'';const names=new Map(result.guns.map(g=>[g.type.internalName,g.type.displayName]));for(const n of Object.keys(result.files).filter(n=>/^(attachments|bullets)\/[^/]+\.json$/.test(n))){const a=readJSON(result,n);names.set(a.internalName,a.displayName);}text=text.split(/\r?\n/).filter(l=>!names.has(l.split('=')[0].replace(/^item\./,'').replace(/\.name$/,''))).join('\n');result.files[`assets/modularwarfare/lang/${locale}.lang`]=strToU8(text+'\n'+[...names].map(([id,n])=>`item.${id}.name=${String(n).replace(/[\r\n]/g,' ')}`).join('\n')+'\n');}
- result.files['ARMORY_README_RU.txt']=strToU8('Создано в MWF Armory Studio v1.\nУстановка: полностью закрыть игру, убрать старые ZIP с теми же ID, установить этот ZIP целиком в ModularWarfare/, перезапустить.\nДополнительный мод НЕ нужен. Новые возможности движка конфигом не добавляются.\nПредпросмотр не является Minecraft. OBJ преобразован в rigid glTF, анимации/руки из шаблона.\nИсходные SOURCE_MANIFEST описывают исходники, не хеши изменённого результата. Соблюдайте авторство ресурсов.\n');
+ result.files['ARMORY_README_RU.txt']=strToU8('Создано в MWF Armory Studio v2.\nУстановка: полностью закрыть игру, убрать старые ZIP с теми же ID, установить этот ZIP целиком в ModularWarfare/, перезапустить.\nДополнительный мод НЕ нужен. Новые возможности движка конфигом не добавляются.\nПредпросмотр не является Minecraft. OBJ преобразован в rigid glTF, анимации/руки из шаблона.\nИсходные SOURCE_MANIFEST описывают исходники, не хеши изменённого результата. Соблюдайте авторство ресурсов.\n');
  return zipSync(result.files,{level:6});
 }
 export function setSound(files,type,event,bytes){if(bytes.length<4||strFromU8(bytes.subarray(0,4))!=='OggS')throw Error('Нужен OGG, не MP3/WAV');const sig=[1,118,111,114,98,105,115];let start=-1;for(let i=0;i<Math.min(4096,bytes.length-12);i++)if(sig.every((v,j)=>bytes[i+j]===v)){start=i;break;}if(start<0||bytes[start+11]!==1)throw Error('Для Minecraft нужен mono OGG Vorbis (не stereo и не Opus)');if(bytes.length>12*1024*1024)throw Error('OGG больше 12 МБ');const key=type.internalName+'_'+event.toLowerCase();files[`assets/modularwarfare/sounds/${key}.ogg`]=bytes;const path='assets/modularwarfare/sounds.json',sounds=files[path]?JSON.parse(strFromU8(files[path])):{};sounds[key]={sounds:[{name:'modularwarfare:'+key}]};files[path]=jsonBytes(sounds);type.weaponSoundMap??={};type.weaponSoundMap[event]=[{soundEvent:event,soundName:key,soundRange:event.toLowerCase().includes('fire')?64:12,soundRandomPitch:0}];}
@@ -172,6 +181,6 @@ export function validateConfig(c){
  for(const [key,a] of Object.entries(c.animations)){if(!a||![a.startTime,a.endTime,a.speed].every(Number.isFinite)||a.startTime<0||a.endTime<=a.startTime||a.speed<=0)throw Error('Некорректная анимация '+key);}
  const vector=(v,key,scale=false)=>{if(!v)return;for(const [axis,n] of Object.entries(v))if(!['x','y','z'].includes(axis)||!Number.isFinite(n)||Math.abs(n)>1e7||(scale&&n<=0))throw Error('Некорректная трансформация '+key);};
  for(const [section,groups] of Object.entries({aim:c.aim,global:c.global}))for(const [key,v] of Object.entries(groups||{}))if(typeof v==='object')vector(v,section+'.'+key,/scale/i.test(key));
- for(const [id,t] of Object.entries(c.attachment||{})){validId(id);if(typeof (t.binding||'gunModel')!=='string')throw Error('Некорректный binding');for(const key of ['translate','rotate','sightAimPosOffset','sightAimRotOffset','scale'])vector(t[key],id+'.'+key,key==='scale');}
+ for(const [id,t] of Object.entries(c.attachment||{})){validId(id);if(typeof (t.binding||'gunModel')!=='string')throw Error('Некорректный binding');for(const key of ['translate','rotate','sightAimPosOffset','sightAimRotOffset','scale']){vector(t[key],id+'.'+key,false);if(key==='scale'&&t[key]&&Object.values(t[key]).some(n=>n<0))throw Error('Некорректный масштаб обвеса');}}
  return c;
 }

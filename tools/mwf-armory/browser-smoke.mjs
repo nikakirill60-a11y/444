@@ -9,9 +9,12 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.MW
 try{
  const page=await browser.newPage({viewport:{width:1500,height:1000}}),errors=[],requests=[];page.setDefaultTimeout(45000);
  page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});await page.route('https://**/*',r=>r.abort());await page.route('http://**/*',r=>r.abort());
- await page.goto(pathToFileURL(path.join(root,'artifacts/mwf-armory/index.html')).href);await page.waitForFunction(()=>window.mwfEditor?.ready);
+ await page.goto(pathToFileURL(path.join(root,'artifacts/mwf-armory/index.html')).href);await page.waitForFunction(()=>window.mwfEditor?.empty);
+ assert.deepEqual(await page.evaluate(()=>mwfEditor.guns),[]);assert.equal(await page.locator('#exportPack').isDisabled(),true);assert.equal(await page.locator('#saveProject').isDisabled(),true);
+ await page.locator('#packInput').setInputFiles(path.join(root,'downloads/Metro_Uboinik_Duplet_MWF_fix1_v2.zip'));await page.waitForFunction(()=>mwfEditor.ready);
  const tab=async name=>page.locator(`[data-panel=${name}]`).click();const set=async(name,value)=>{const el=page.getByRole('spinbutton',{name,exact:true});await el.fill(String(value));await el.press('Tab');};
  assert.equal(await page.locator('#libraryGun option').count(),3);
+ await page.locator('#libraryGun').selectOption('metro_duplet');await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='metro_duplet');
  await page.locator('#newGunId').fill('studio_test');await page.locator('#newGunName').fill('Тестовая пушка');await page.locator('#createGun').click();await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='studio_test');
  await tab('stats');await set('Урон за пулю / дробину',9.5);await page.locator('#undo').click();assert.equal(await page.evaluate(()=>mwfEditor.type.gunDamage),3);await page.locator('#redo').click();assert.equal(await page.evaluate(()=>mwfEditor.type.gunDamage),9.5);
  await set('Ёмкость (внутренний боезапас)',4);await set('Перезарядка пустого, секунд',5);await set('Темп, выстрелов / минуту',240);await page.getByRole('checkbox',{name:'Автоматический',exact:true}).check();

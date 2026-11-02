@@ -4,14 +4,14 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 import {strFromU8,zipSync} from 'fflate';
 import * as Armory from './armory.mjs';
-import {defaults,validateEdits,selectGun,bytesToBase64,fromBase64,cameraMatrix,applyPose,reloadWeight,actionAt,exportPack,HAND_NAMES} from './core.mjs';
+import {defaults,validateEdits,bytesToBase64,fromBase64,cameraMatrix,applyPose,reloadWeight,actionAt,exportPack,HAND_NAMES} from './core.mjs';
 const $=id=>document.getElementById(id);
-const loadPack=Armory.loadPack;
+const loadPack=Armory.loadPack,selectGun=Armory.selectGun;
 let pack,gun,rig,edits=defaults(),config,side='left',editMode='idle',view='fp',playing=false,time=0,dirty=false,skinTexture,attachmentRoots=[],rest=[],tracks=[],token=0;
 let undo=[],redo=[],lastSaved='',pending=false,modelEdit=Armory.modelDefaults(),importData=null,activeMod='';
 const preview={fov:70,aspect:16/9,ads:0,slim:false,rounds:6,action:'default'};
 function message(text,error=false){$('message').textContent=text;$('message').hidden=!text;$('message').className=error?'error':'';}
-function safe(fn){return async(...args)=>{try{await fn(...args);}catch(e){console.error(e);$('loading').hidden=!!rig;if(!rig)$('loading').textContent='Не удалось открыть модель. Выбери другой пак ZIP.';if(gun)$('gunSelect').value=gun.type.internalName;message(e.message||String(e),true);}};}
+function safe(fn){return async(...args)=>{try{await fn(...args);}catch(e){console.error(e);$('loading').hidden=true;$('emptyState').hidden=!!rig;if(gun)$('gunSelect').value=gun.type.internalName;message(e.message||String(e),true);}};}
 function download(bytes,name,type='application/octet-stream'){
   const blob=new Blob([bytes],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
 }
@@ -81,13 +81,14 @@ function setView(next){
   view=next;for(const b of $('viewTabs').children)b.classList.toggle('selected',b.dataset.view===view);
   controls.enabled=view==='orbit';crosshair.visible=view==='fp';
   if(view==='fp'){camera.position.set(0,0,0);camera.quaternion.identity();controls.target.set(0,0,-1);}
-  else{weaponGroup.updateWorldMatrix(true,true);const bounds=new THREE.Box3();rig.traverseVisible(o=>{if(o.isMesh){o.geometry.computeBoundingBox();bounds.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld));}});const center=bounds.getCenter(new THREE.Vector3()),radius=bounds.getSize(new THREE.Vector3()).length()/2;const distance=Math.max(.1,radius)/Math.sin(THREE.MathUtils.degToRad(preview.fov)/2)*1.25;camera.position.copy(center).add(new THREE.Vector3(.8,.35,.75).normalize().multiplyScalar(distance));controls.target.copy(center);controls.update();}
+  else if(rig){weaponGroup.updateWorldMatrix(true,true);const bounds=new THREE.Box3();rig.traverseVisible(o=>{if(o.isMesh){o.geometry.computeBoundingBox();bounds.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld));}});const center=bounds.getCenter(new THREE.Vector3()),radius=bounds.getSize(new THREE.Vector3()).length()/2;const distance=Math.max(.1,radius)/Math.sin(THREE.MathUtils.degToRad(preview.fov)/2)*1.25;camera.position.copy(center).add(new THREE.Vector3(.8,.35,.75).normalize().multiplyScalar(distance));controls.target.copy(center);controls.update();}
   $('viewHint').textContent=view==='fp'?'Предпросмотр MWF, не запущенный Minecraft':'Мышь — поворот · колесо — масштаб · ПКМ — перемещение';
 }
 function textureFromBytes(bytes){return new Promise((resolve,reject)=>{const url=URL.createObjectURL(new Blob([bytes],{type:'image/png'}));new THREE.TextureLoader().load(url,t=>{URL.revokeObjectURL(url);t.flipY=false;t.colorSpace=THREE.SRGBColorSpace;t.magFilter=THREE.NearestFilter;t.minFilter=THREE.NearestFilter;t.wrapS=t.wrapT=THREE.RepeatWrapping;resolve(t);},undefined,()=>{URL.revokeObjectURL(url);reject(Error('Не удалось прочитать PNG'));});});}
 function disposeRig(){if(rig){rig.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of [].concat(o.material)){if(m.map!==skinTexture)m.map?.dispose();m.dispose();}}});weaponGroup.remove(rig);}for(const a of attachmentRoots)a.removeFromParent();attachmentRoots=[];}
 async function openGun(id){
   const mine=++token;playing=false;time=0;$('play').textContent='▶';$('loading').hidden=false;message('');
+  $('emptyState').hidden=true;
   const sourcePack=pack,selected=selectGun(sourcePack,id);Armory.validateType(selected.type);
   // MWF binds its own atlas: discard embedded material image URIs to keep imports offline.
   const displayGltf=structuredClone(selected.gltf);delete displayGltf.images;delete displayGltf.textures;
@@ -100,17 +101,18 @@ async function openGun(id){
   for(const clip of loaded.animations)for(const track of clip.tracks){const split=track.name.lastIndexOf('.'),name=track.name.slice(0,split),property=track.name.slice(split+1);const o=rig.getObjectByName(name)||rig.getObjectByProperty('uuid',name);if(o&&['position','quaternion','scale'].includes(property))tracks.push({o,property,interpolant:track.createInterpolant()});}
   $('gunTitle').textContent=gun.type.displayName||gun.type.internalName;$('gunSelect').value=gun.type.internalName;
   $('rounds').max=gun.type.internalAmmoStorage||6;preview.rounds=Number($('rounds').max);$('rounds').value=preview.rounds;
-  $('action').value='default';preview.action='default';buildHandControls();buildWeaponControls();await loadAttachments();buildStudio();resetHistory();$('loading').hidden=true;resize();
+  $('action').value='default';preview.action='default';buildHandControls();buildWeaponControls();await loadAttachments();buildStudio();resetHistory();$('loading').hidden=true;setWorkspaceEnabled(true);resize();setView(view);
   if(gun.present.length<4)message('В модели найдены не все варианты рук. Изменятся только существующие узлы.');
 }
 async function loadAttachments(){
   for(const a of attachmentRoots){a.traverse(o=>{o.geometry?.dispose();for(const m of [].concat(o.material||[])){m.map?.dispose();m.dispose();}});a.removeFromParent();}attachmentRoots=[];
-  $('attachments').replaceChildren();
+  $('attachments').replaceChildren();const textures=new Map();
+  const attachmentTexture=path=>{if(!textures.has(path))textures.set(path,textureFromBytes(pack.files[path]));return textures.get(path);};
   for(const [slot,ids] of Object.entries(gun.type.acceptedAttachments||{}))for(const id of ids){
     try{
       const type=JSON.parse(strFromU8(pack.files[`attachments/${id}.json`])),cfg=JSON.parse(strFromU8(pack.files[`attachments/render/${id}.render.json`]));const data=pack.files['obj/attachments/'+cfg.modelFileName];if(!data)continue;
       const object=new OBJLoader().parse(strFromU8(data)),skin=type.modelSkins?.[0],mapPath=`assets/modularwarfare/skins/attachments/${skin?.skinAsset||skin?.internalName||id}.png`;
-      const tex=type.sameTextureAsGun?await textureFromBytes(pack.files[gun.texturePath]):pack.files[mapPath]?await textureFromBytes(pack.files[mapPath]):null;
+      const tex=type.sameTextureAsGun?await attachmentTexture(gun.texturePath):pack.files[mapPath]?await attachmentTexture(mapPath):null;
       if(tex){tex.flipY=true;tex.needsUpdate=true;} // MWF's OBJ loader flips V.
       object.traverse(o=>{if(o.isMesh&&!['attachmentModel','attachmentModel_glow'].includes(o.name))o.visible=false;if(o.isMesh)o.material=new THREE.MeshLambertMaterial({map:tex,color:tex?'#ffffff':'#ce9b58',side:THREE.DoubleSide});});
       const t=config.attachment?.[id]||{},binding=rig.getObjectByName(t.binding||'gunModel');if(!binding)continue;
@@ -119,13 +121,29 @@ async function loadAttachments(){
     }catch(e){console.warn('Обвес не показан:',id,e.message);}
   }
 }
-async function openPackBytes(bytes,id){const candidate=loadPack(bytes);selectGun(candidate,id);const previous=pack;pack=candidate;try{await openGun(id);}catch(e){pack=previous;throw e;}$('gunSelect').replaceChildren();for(const g of pack.guns){const o=document.createElement('option');o.value=g.type.internalName;o.textContent=g.type.displayName||o.value;$('gunSelect').append(o);}$('gunSelect').value=gun.type.internalName;}
-function render(now){requestAnimationFrame(render);if(!rig||!config)return;
+async function openPackBytes(bytes,id){
+ message('Читаю ZIP… Большой пак может потребовать время и много памяти.');
+ await new Promise(resolve=>setTimeout(resolve,30));
+ const candidate=loadPack(bytes),selected=selectGun(candidate,id),previous=pack;pack=candidate;
+ try{await openGun(selected.type.internalName);}catch(e){pack=previous;throw e;}
+ refreshGunLists();const unsupported=pack.guns.filter(g=>!Armory.editableType(g.type)).length;
+ message(unsupported?`Пак открыт: ${pack.guns.length} оружия. ${unsupported} неподдерживаемых оружий сохранены в паке без редактирования; они помечены в списке.`:'Пак открыт. Изменения сохраняются только в проект или новый ZIP.');
+}
+function setWorkspaceEnabled(enabled){
+ for(const el of document.querySelectorAll('main input,main select,main button')){
+  if(el.matches('[data-panel],#loadLocal,#emptyOpenPack'))continue;
+  el.disabled=!enabled;
+ }
+ $('saveProject').disabled=$('exportPack').disabled=!enabled;
+ $('applyOBJ').disabled=!enabled||!importData;$('undo').disabled=!enabled||!undo.length;$('redo').disabled=!enabled||!redo.length;
+}
+
+function render(now){requestAnimationFrame(render);if(!rig||!config){renderer.render(scene,camera);return;}
   const dt=Math.min((now-(render.last||now))/1000,.1);render.last=now;
   let sample=actionAt(config,preview.action,time,preview.rounds);
   if(playing){time+=dt;if(time>sample.duration)time=0;sample=actionAt(config,preview.action,time,preview.rounds);}
   $('timeline').max=sample.duration;$('timeline').value=time;$('timeLabel').textContent=`${time.toFixed(2)} / ${sample.duration.toFixed(2)} с`;
-  for(const r of rest){r.o.position.copy(r.p);r.o.quaternion.copy(r.q);r.o.scale.copy(r.s);}
+  for(const r of rest){r.o.position.copy(r.p);r.o.quaternion.copy(r.q);r.o.scale.copy(r.s);r.o.visible=r.visible;}
   for(const track of tracks)track.o[track.property].fromArray(track.interpolant.evaluate(sample.frame/(config.FPS||24)));
   if(JSON.stringify(modelEdit)!==JSON.stringify(Armory.modelDefaults()))for(const base of Armory.modelNodes(gun.gltf)){const o=rig.getObjectByName(base.name);if(o){const v=Armory.modelTRS(base,modelEdit);o.position.fromArray(v.translation);o.quaternion.fromArray(v.rotation);o.scale.fromArray(v.scale);}}
   for(const a of attachmentRoots)updateAttachment(a);
@@ -136,6 +154,8 @@ function render(now){requestAnimationFrame(render);if(!rig||!config)return;
     o.position.fromArray(result.translation);o.quaternion.fromArray(result.rotation);o.scale.fromArray(result.scale);o.visible=name.includes('Slim')===preview.slim&&!name.includes('Layer');
   }
   rig.traverse(o=>{if(/^bulletModel_\d+$/.test(o.name))o.visible=Number(o.name.split('_').pop())<(preview.action==='reload'?sample.rounds:preview.rounds);if(o.name==='flashModel'||/^shellModel_\d+$/.test(o.name))o.visible=false;});
+  const hidden=Armory.previewHiddenParts(config,attachmentRoots.filter(a=>a.visible).map(a=>a.userData));
+  for(const r of rest)if(hidden.has(r.o.name))r.o.visible=false;
   weaponGroup.matrix.copy(cameraMatrix(config,preview.ads));
   const sight=attachmentRoots.find(a=>a.visible&&a.userData.slot==='sight');if(sight&&preview.ads){const t=config.attachment?.[sight.userData.id]||{},p=t.sightAimPosOffset||{},r=t.sightAimRotOffset||{};weaponGroup.matrix.multiply(new THREE.Matrix4().makeTranslation(p.x||0,p.y||0,p.z||0)).multiply(new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(...['x','y','z'].map(k=>THREE.MathUtils.degToRad((r[k]||0)*3.14/Math.PI)),'YXZ')));}
   scene.updateMatrixWorld(true);
@@ -166,14 +186,14 @@ $('packInput').onchange=safe(async()=>{const f=$('packInput').files[0];if(f&&(!d
 $('gunSelect').onchange=safe(async()=>switchGun($('gunSelect').value));
 $('skinInput').onchange=safe(async()=>{const f=$('skinInput').files[0];if(!f)return;const bitmap=await createImageBitmap(f);if(bitmap.width!==64||bitmap.height!==64)throw Error('Нужен скин PNG размером 64×64');bitmap.close();const old=skinTexture;skinTexture=await textureFromBytes(new Uint8Array(await f.arrayBuffer()));rig?.traverse(o=>{if(Object.values(HAND_NAMES).flat().includes(o.name)&&o.isMesh)o.material.map=skinTexture;});old.dispose();message('Скин используется только для предпросмотра. В игре будет скин игрока.');});
 $('saveProject').onclick=safe(async()=>{commit();download(JSON.stringify(projectObject()),gun.type.internalName+'.armory-project.json','application/json');message('Проект сохранён со всеми пушками и ресурсами. Для игры нужен отдельный экспорт ZIP.');});
-$('projectInput').onchange=safe(async()=>{const f=$('projectInput').files[0];if(!f)return;if(f.size>95*1024*1024)throw Error('Проект слишком большой');if(dirty&&!confirm('Открыть другой проект вместо текущего?'))return;await restoreProject(JSON.parse(await f.text()));$('projectInput').value='';});
+$('projectInput').onchange=safe(async()=>{const f=$('projectInput').files[0];if(!f)return;if(dirty&&!confirm('Открыть другой проект вместо текущего?'))return;await restoreProject(JSON.parse(await f.text()));$('projectInput').value='';});
 $('exportPack').onclick=safe(async()=>{
  if(pending)return;pending=true;$('exportPack').disabled=true;message('Проверяю ресурсы и собираю ZIP…');
  try{await new Promise(r=>setTimeout(r,30));const result=buildExport();download(result,gun.type.internalName+'_MWF_ARMORY.zip','application/zip');dirty=false;commit();message('ZIP готов. Закрой Minecraft, убери старые паки с теми же ID, установи новый ZIP целиком в ModularWarfare/. На сервере нужен такой же пак.');}finally{pending=false;$('exportPack').disabled=false;}
 });
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 // Expose a read-only test bridge, not an external API or network service.
-window.mwfEditor={get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},get type(){return structuredClone(gun?.type);},get model(){return structuredClone(modelEdit);},get guns(){return pack.guns.map(g=>g.type.internalName);},exportBytes:()=>buildExport(),project:()=>projectObject()};
+window.mwfEditor={get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},get type(){return structuredClone(gun?.type);},get model(){return structuredClone(modelEdit);},get guns(){return (pack?.guns||[]).map(g=>g.type.internalName);},get empty(){return !gun&&!rig;},exportBytes:()=>buildExport(),project:()=>projectObject()};
 // Boot after authoring UI handlers below have been installed.
 function panel(name){for(const b of document.querySelectorAll('[data-panel]'))b.classList.toggle('selected',b.dataset.panel===name);for(const el of document.querySelectorAll('.tool-panel'))el.hidden=el.id!=='panel-'+name;}
 for(const b of document.querySelectorAll('[data-panel]'))b.onclick=()=>{panel(b.dataset.panel);if(b.dataset.panel==='assets')refreshJSON();};
@@ -203,7 +223,7 @@ function buildStats(){
  checkbox(box,'Разрешить стрельбу при беге',t.allowSprintFiring??true,v=>t.allowSprintFiring=v);
  checkbox(box,'Выбрасывать гильзы (если настроены)',t.dropBulletCasing,v=>t.dropBulletCasing=v);
 }
-function refreshGunLists(){for(const name of ['gunSelect','libraryGun']){const select=$(name);select.replaceChildren();for(const g of pack.guns){const o=document.createElement('option');o.value=g.type.internalName;o.textContent=g.type.internalName===gun.type.internalName?gun.type.displayName:g.type.displayName||g.type.internalName;select.append(o);}select.value=gun.type.internalName;}}
+function refreshGunLists(){for(const name of ['gunSelect','libraryGun']){const select=$(name);select.replaceChildren();for(const g of pack.guns){const o=document.createElement('option');o.value=g.type.internalName;o.textContent=g.type.internalName===gun.type.internalName?gun.type.displayName:g.type.displayName||g.type.internalName;o.disabled=!Armory.editableType(g.type);if(o.disabled)o.textContent+=' — без редактирования';select.append(o);}select.value=gun.type.internalName;}}
 function buildStudio(){if(!gun)return;refreshGunLists();buildStats();buildModelControls();buildModList();buildBulletControls();refreshJSON();$('packInfo').textContent=`${pack.guns.length} оружия · ${Object.keys(pack.files).length} файлов · выбран ID: ${gun.type.internalName}`;}
 function refreshJSON(){if(gun)$('jsonView').textContent=JSON.stringify(gun.type,null,2);}
 $('refreshJSON').onclick=refreshJSON;
@@ -216,7 +236,7 @@ function buildModelControls(){const box=$('modelControls');box.replaceChildren()
 $('resetModel').onclick=()=>{modelEdit=Armory.modelDefaults();buildModelControls();commit();};
 function buildExport(){validateEdits(edits);return Armory.exportWorkspace(pack,gun,gun.type,config,edits,modelEdit);}
 async function flushCurrent(){const bytes=buildExport();pack=loadPack(bytes);}
-async function switchGun(id){if(id===gun.type.internalName)return;const changed=dirty;await flushCurrent();await openGun(id);dirty=changed;commit();}
+async function switchGun(id){if(!gun||id===gun.type.internalName)return;selectGun(pack,id);const changed=dirty;await flushCurrent();await openGun(id);dirty=changed;commit();}
 $('libraryGun').onchange=safe(async()=>switchGun($('libraryGun').value));
 $('createGun').onclick=safe(async()=>{const id=$('newGunId').value.trim(),name=$('newGunName').value.trim();Armory.validId(id);if(!name)throw Error('Введи название оружия');await flushCurrent();pack=Armory.createWeapon(pack,gun.type.internalName,id,name);await openGun(id);dirty=true;commit();panel('model');message('Создан новый предмет '+id+'. Теперь загрузи свой OBJ/PNG и настрой параметры.');});
 function transformMatrix(t={}){const p=t.translate||{},r=t.rotate||{},s=t.scale||{};return new THREE.Matrix4().makeTranslation(p.x||0,p.y||0,p.z||0).multiply(new THREE.Matrix4().makeScale(s.x??1,s.y??1,s.z??1)).multiply(new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(...['x','y','z'].map(k=>THREE.MathUtils.degToRad(r[k]||0)),'YXZ')));}
@@ -259,7 +279,7 @@ $('applyOBJ').onclick=safe(async()=>{if(!importData)throw Error('Сначала 
  $('applyOBJ').disabled=true;try{message('Преобразую OBJ и собираю текстуры…');await new Promise(r=>setTimeout(r,30));const atlas=await atlasTexture(importData),triangles=Armory.orientTriangles(importData.parsed,{forward:$('objForward').value,length:Number($('objLength').value),center:$('objCenter').checked});await flushCurrent();const next=kind==='gun'?Armory.replaceModel(pack,id,triangles,atlas.bytes,atlas.rects):Armory.addAttachment(pack,id,modId,$('newModName').value,$('newModSlot').value,triangles,atlas.bytes,atlas.rects);pack=next;await openGun(id);dirty=true;commit();if(kind==='attachment'){activeMod=modId;buildModList();panel('mods');const root=attachmentRoots.find(a=>a.userData.id===modId);if(root){root.visible=true;root.userData.input.checked=true;}}message('Импорт готов. Модель/текстуры встроены в проект. Проверь хват и ADS, затем экспортируй ZIP.');}finally{$('applyOBJ').disabled=false;}
 });
 function projectObject(){validateEdits(edits);Armory.validateType(gun.type);return {format:'MWF-Armory-Studio',version:1,gun:gun.type.internalName,packBase64:bytesToBase64(zipSync(pack.files,{level:3})),edits:structuredClone(edits),config:structuredClone(config),type:structuredClone(gun.type),model:structuredClone(modelEdit),preview:{...preview}};}
-async function restoreProject(p){if(p.format!=='MWF-Armory-Studio'||p.version!==1)throw Error('Это не проект MWF Armory Studio v1');validateEdits(p.edits);Armory.validateType(p.type);if(p.gun!==p.type.internalName||!p.config?.animations||!p.config?.global)throw Error('Повреждён проект');Armory.modelTRS({},p.model);if(typeof p.packBase64!=='string'||p.packBase64.length>90*1024*1024)throw Error('Повреждён или слишком большой проект');const candidate=loadPack(fromBase64(p.packBase64));if(!candidate.guns.some(g=>g.type.internalName===p.gun))throw Error('В проекте отсутствует выбранная пушка');const testGun=selectGun(candidate,p.gun);Armory.exportWorkspace(candidate,testGun,p.type,p.config,p.edits,p.model);await openPackBytes(candidate.bytes,p.gun);edits=p.edits;config=p.config;gun.type=p.type;modelEdit=p.model;buildHandControls();buildWeaponControls();buildStudio();await loadAttachments();resetHistory();dirty=true;commit();message('Проект восстановлен. Все пушки, ресурсы и настройки на месте.');}
+async function restoreProject(p){if(p.format!=='MWF-Armory-Studio'||p.version!==1)throw Error('Неподдерживаемый формат проекта MWF Armory Studio');validateEdits(p.edits);Armory.validateType(p.type);if(p.gun!==p.type.internalName||!p.config?.animations||!p.config?.global)throw Error('Повреждён проект');Armory.modelTRS({},p.model);if(typeof p.packBase64!=='string')throw Error('Повреждён проект: нет данных ZIP');const candidate=loadPack(fromBase64(p.packBase64));if(!candidate.guns.some(g=>g.type.internalName===p.gun))throw Error('В проекте отсутствует выбранная пушка');const testGun=selectGun(candidate,p.gun);Armory.exportWorkspace(candidate,testGun,p.type,p.config,p.edits,p.model);await openPackBytes(candidate.bytes,p.gun);edits=p.edits;config=p.config;gun.type=p.type;modelEdit=p.model;buildHandControls();buildWeaponControls();buildStudio();await loadAttachments();resetHistory();dirty=true;commit();message('Проект восстановлен. Все пушки, ресурсы и настройки на месте.');}
 async function localStore(mode,value){return new Promise((resolve,reject)=>{const request=indexedDB.open('MWF-Armory-Studio',1);request.onupgradeneeded=()=>request.result.createObjectStore('projects');request.onerror=()=>reject(Error('Хранилище недоступно. Используй файл проекта.'));request.onsuccess=()=>{const db=request.result,tx=db.transaction('projects',mode==='save'?'readwrite':'readonly'),store=tx.objectStore('projects'),r=mode==='save'?store.put(value,'latest'):store.get('latest');let result;r.onsuccess=()=>result=r.result;tx.oncomplete=()=>{db.close();resolve(result);};tx.onerror=()=>{db.close();reject(Error('Не удалось сохранить/открыть: проверь квоту браузера. Используй файл проекта.'));};};});}
 $('saveLocal').onclick=safe(async()=>{await localStore('save',projectObject());message('Сохранено в браузере. Для переноса на другой ПК сохрани также файл проекта.');});
 $('loadLocal').onclick=safe(async()=>{const p=await localStore('load');if(!p)throw Error('В этом браузере ещё нет сохранения');if(dirty&&!confirm('Восстановить сохранение вместо текущего проекта?'))return;await restoreProject(p);});
@@ -277,4 +297,6 @@ function buildBulletControls(){
  textField(box,'Название патрона',b.displayName,v=>{b.displayName=v;save();});numberField(box,'Множитель урона патрона',b.bulletDamageFactor??1,.01,100,.05,v=>{b.bulletDamageFactor=v;save();});numberField(box,'Множитель точности патрона',b.bulletAccuracyFactor??1,.01,10,.05,v=>{b.bulletAccuracyFactor=v;save();});numberField(box,'Патронов в стаке',b.maxStackSize??64,1,64,1,v=>{b.maxStackSize=v;save();});checkbox(box,'Пуля / slug вместо дроби',b.isSlug,v=>{b.isSlug=v;save();});
 }
 $('createBullet').onclick=safe(async()=>{Armory.cloneBullet(pack,gun.type,$('newBulletId').value.trim(),$('newBulletName').value.trim());buildStats();buildBulletControls();resetHistory();dirty=true;commit();message('Создан новый патрон и назначен текущей пушке. Геометрия/иконка гильзы унаследованы.');});
-safe(async()=>{await openPackBytes(fromBase64(__DEFAULT_PACK_B64__),__DEFAULT_GUN__);setView('fp');panel('library');message('MWF Armory Studio готов. Создай копию оружия или выбери существующее. Работа полностью локальная; исходный ZIP не изменяется.');})();
+$('emptyOpenPack').onclick=()=>$('packInput').click();
+setWorkspaceEnabled(false);$('loading').hidden=true;$('emptyState').hidden=false;setView('fp');panel('library');resize();
+message('Встроенных паков нет. Открой свой ZIP или проект. Ограничений размера ZIP/проекта в программе нет; доступный объём зависит от памяти браузера.');

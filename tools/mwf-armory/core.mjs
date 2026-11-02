@@ -15,10 +15,13 @@ export function fromBase64(text){return Uint8Array.from(atob(text),c=>c.charCode
 export function jsonBytes(value){return strToU8(JSON.stringify(value,null,2)+'\n');}
 function readJSON(files,path){if(!files[path])throw Error('Нет файла '+path);return JSON.parse(strFromU8(files[path]));}
 export function loadPack(bytes){
-  if(bytes.length>64*1024*1024)throw Error('ZIP больше 64 МБ. Этот редактор рассчитан на отдельный пак оружия.');
-  const files=unzipSync(bytes);let total=0;
-  for(const [name,data] of Object.entries(files)){total+=data.length;if(name.startsWith('/')||name.split('/').includes('..'))throw Error('Небезопасный путь в ZIP');}
-  if(total>160*1024*1024||Object.keys(files).length>10000)throw Error('Слишком большой распакованный пак');
+  // Validate directory entries BEFORE inflation. No application size/file-count cap;
+  // the user's browser memory and typed-array/ZIP implementation remain real limits.
+  const files=unzipSync(bytes,{filter:file=>{
+    const name=file.name;
+    if(name.includes('\\')||name.startsWith('/')||name.split('/').includes('..')||/^[a-z]:/i.test(name))throw Error('Небезопасный путь в ZIP');
+    return true;
+  }});
   const guns=Object.keys(files).filter(n=>/^guns\/[^/]+\.json$/i.test(n)).map(path=>({path,type:readJSON(files,path)})).filter(x=>x.type.animationType==='enhanced');
   if(!guns.length)throw Error('Нет Enhanced-оружия. BASIC/OBJ не поддерживается этой версией.');
   return {bytes,files,guns};
@@ -29,8 +32,8 @@ export function selectGun(pack,id){
   const gltfPath='assets/modularwarfare/gltf/guns/'+config.modelFileName;
   if(!gltfPath.endsWith('.gltf'))throw Error('Нужна текстовая модель .gltf, не GLB/OBJ');
   const gltf=readJSON(pack.files,gltfPath);
-  if((gltf.buffers||[]).some(b=>!b.uri?.startsWith('data:')))throw Error('Нужен glTF с встроенными буферами, как в паке «Убойник».');
-  if((gltf.skins||[]).length)throw Error('Скелетные модели с skin/joints пока не поддерживаются. Нужны отдельные узлы рук, как у «Убойника».');
+  if((gltf.buffers||[]).some(b=>!b.uri?.startsWith('data:')))throw Error('Нужен glTF со встроенными буферами.');
+  if((gltf.skins||[]).length)throw Error('Скелетные модели с skin/joints пока не поддерживаются. Нужны отдельные стандартные узлы рук MWF.');
   const present=Object.values(HAND_NAMES).flat().filter(n=>gltf.nodes.some(x=>x.name===n));
   if(!present.length)throw Error('В модели нет стандартных узлов рук MWF');
   const skin=entry.type.modelSkins?.[0];const texturePath=`assets/modularwarfare/skins/guns/${skin?.skinAsset||skin?.internalName||name}.png`;
