@@ -14,11 +14,11 @@ await page.waitForFunction(()=>window.mwfEditor?.ready&&mwfEditor.gun==='metro_d
 await page.screenshot({path:path.join(root,'artifacts/duplet-fp.png'),fullPage:true});
 await page.locator('summary').filter({hasText:'Выбор оружия / другой пак'}).click();assert.equal(await page.locator('#gunSelect option').count(),3);
 await page.locator('#gunSelect').selectOption('metro_duplet_4');await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='metro_duplet_4');
-assert.equal(await page.locator('#rounds').getAttribute('max'),'4');assert.equal(await page.locator('#attachments input').count(),5);
+assert.equal(await page.locator('#rounds').getAttribute('max'),'2');assert.equal(await page.locator('#attachments input').count(),5);
 await page.locator('summary').filter({hasText:'Обвес в предпросмотре'}).click();assert.equal(await page.locator('#attachments input:checked').count(),1);
 const checks=page.locator('#attachments input');await checks.nth(1).check();assert.equal(await page.locator('#attachments input:checked').count(),1);assert.equal(await checks.nth(0).isChecked(),false);await checks.nth(0).check();await checks.nth(3).check();await checks.nth(4).check();
 await page.locator('#ads').check();await page.screenshot({path:path.join(root,'artifacts/duplet-ads-idle.png'),fullPage:true});await page.locator('#ads').uncheck();
-await page.locator('#action').selectOption('reload');await page.waitForFunction(()=>document.getElementById('timeLabel').textContent.includes('4.80'));
+await page.locator('#action').selectOption('reload');await page.waitForFunction(()=>document.getElementById('timeLabel').textContent.includes('3.00'));
 await page.locator('#timeline').fill('2');await page.locator('#timeline').dispatchEvent('input');
 await page.locator('#ads').check();await page.screenshot({path:path.join(root,'artifacts/duplet-ads.png'),fullPage:true});
 await page.locator('[data-view=orbit]').click();await page.screenshot({path:path.join(root,'artifacts/duplet-four-orbit.png'),fullPage:true});
@@ -29,5 +29,5 @@ await page.locator('#resetHand').click();await page.locator('#projectInput').set
 const [zip]=await Promise.all([page.waitForEvent('download'),page.locator('#exportPack').click()]);await zip.saveAs(path.join(root,'artifacts/duplet-browser-export.zip'));
 await page.locator('#gunSelect').selectOption('metro_uboinik');await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='metro_uboinik');assert.equal(await page.locator('#rounds').getAttribute('max'),'6');
 assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
-console.log('Duplet browser smoke PASS: offline file://, three guns, 2/4/6 capacity, default +2, exclusive barrel previews, stock/grip, reload 4.8s, ADS/orbit, hand editing, undo/redo, project download/import and actual ZIP export. No page errors or HTTP requests.');
+console.log('Duplet browser smoke PASS: offline file://, three guns, 2/2/6 capacity, default +2, exclusive barrel previews, stock/grip, reload 3s; cosmetic +2 without bridge, ADS/orbit, hand editing, undo/redo, project download/import and actual ZIP export. No page errors or HTTP requests.');
 }finally{await browser.close();}

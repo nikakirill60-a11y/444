@@ -3,7 +3,7 @@
 import argparse, base64, hashlib, json, math, struct, zipfile
 from pathlib import Path
 from verify_uboinik_pack import verify as verify_ubo, ClassSchema, TARGET
-from build_duplet_pack import BASE, FOUR, MODULE, ATTACHMENTS, SOURCE_REF, originals
+from build_duplet_pack import BASE, LEGACY_EXTRA, MODULE, ATTACHMENTS, SOURCE_REF, originals
 ROOT=Path(__file__).resolve().parents[1]
 def verify(pack,mwf,jvm=None):
  verify_ubo(pack,mwf,jvm)
@@ -30,7 +30,7 @@ def verify(pack,mwf,jvm=None):
   for c in a['channels']:
    s=a['samplers'][c['sampler']];ts=arrays[s['input']];assert all(ts[i]<ts[i+1] for i in range(len(ts)-1));assert g['accessors'][s['input']]['count']==g['accessors'][s['output']]['count']
  records=[]
- for id,count,duration in [(BASE,2,3),(FOUR,4,4.8)]:
+ for id,count,duration in [(BASE,2,3),(LEGACY_EXTRA,2,3)]:
   gun=js('guns/'+id+'.json');cfg=js('guns/render/'+id+'.render.json')
   assert gun['internalAmmoStorage']==count and gun['reloadTime']==round(duration*20)
   assert gun['acceptedBullets']==['metro_12g_buckshot'] and gun['numBullets']==8 and gun['fireModes']==['semi']
@@ -40,8 +40,11 @@ def verify(pack,mwf,jvm=None):
   assert math.isclose(seconds,duration,abs_tol=1e-10)
   assert js(asset+'models/item/'+id+'.json')['display']['thirdperson_righthand']['scale']==[0,0,0]
   records.extend([('com/modularwarfare/common/guns/GunType',gun),('com/modularwarfare/client/fpp/enhanced/configs/GunEnhancedRenderConfig',cfg)])
- assert js('guns/'+FOUR+'.json')['defaultAttachments']=={'barrel':MODULE}
- manifest=js('DUPLET_SOURCE_MANIFEST.json');assert manifest['sourceCommit']==SOURCE_REF and manifest['capacityBridgeRequired']
+ assert js('guns/'+LEGACY_EXTRA+'.json')['defaultAttachments']=={'barrel':MODULE}
+ manifest=js('DUPLET_SOURCE_MANIFEST.json');assert manifest['sourceCommit']==SOURCE_REF and not manifest['capacityBridgeRequired'] and manifest['extraBarrelsCosmeticOnly']
+ assert manifest['packRevision']==2 and manifest['dupletCapacity']==2
+ assert not any(n.endswith(('.jar','.class')) for n in files)
+ assert js('attachments/'+MODULE+'.json')['barrel']=={'isSuppressor':False,'hideFlash':False,'accuracyFactor':1}
  src=originals()
  assert files[asset+'skins/guns/'+BASE+'.png']==src['texture.png']
  for id,(obj,tex,slot,name) in ATTACHMENTS.items():
@@ -66,10 +69,6 @@ def verify(pack,mwf,jvm=None):
     descriptor=actual[key]
     if isinstance(value,dict) and descriptor.startswith(('Lcom/modularwarfare/','Lorg/joml/')):record(descriptor[1:-1],value)
   for cls,data in records:record(cls,data)
-  for cls in ['com/modularwarfare/api/WeaponAttachmentEvent$Load','com/modularwarfare/api/WeaponAttachmentEvent$Unload']:
-   assert 'Lnet/minecraftforge/fml/common/eventhandler/Cancelable;' in ClassSchema(z.read(cls+'.class')).cp
-  cp=ClassSchema(z.read('com/modularwarfare/common/handler/ServerTickHandler.class')).cp
-  assert all(n in cp for n in ['playerReloadCooldown','reloadEnhancedTask'])
  if jvm:
   import jpype
   if not jpype.isJVMStarted():jpype.startJVM(str(jvm),classpath=[str(Path(mwf).resolve())])
@@ -78,7 +77,7 @@ def verify(pack,mwf,jvm=None):
    model=jpype.JClass('de.javagl.jgltf.model.io.GltfModelReader')().readWithoutReferences(stream)
    assert len(model.getNodeModels())==7 and len(model.getMeshModels())==6
   finally:stream.close()
- print('Duplet verified:',len(files),'files; 2/4 rounds; 5 attachments; real-JAR schemas/API and 7-node/6-mesh glTF; Uboinik v5 retained')
+ print('Duplet verified:',len(files),'files; 2 rounds, cosmetic +2, no bridge; 5 attachments; real-JAR schemas/API and 7-node/6-mesh glTF; Uboinik v5 retained')
  return len(files)
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('pack',type=Path);p.add_argument('--mwf-jar',type=Path,required=True);p.add_argument('--jvm',type=Path);a=p.parse_args();verify(a.pack,a.mwf_jar,a.jvm)

@@ -5,7 +5,7 @@ import path from 'node:path';
 import {zipSync,strToU8} from 'fflate';
 const here=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(here,'../..');
 const duplet=process.argv.includes('--duplet');
-const pack=readFileSync(path.join(root,duplet?'downloads/Metro_Uboinik_Duplet_MWF_fix1_v1.zip':'downloads/Metro_Uboinik_MWF_fix1_v5.zip'));
+const pack=readFileSync(path.join(root,duplet?'downloads/Metro_Uboinik_Duplet_MWF_fix1_v2.zip':'downloads/Metro_Uboinik_MWF_fix1_v5.zip'));
 const result=await build({entryPoints:[path.join(here,'app.mjs')],bundle:true,minify:true,write:false,format:'iife',target:['chrome100','firefox100','safari16'],define:{__DEFAULT_PACK_B64__:JSON.stringify(pack.toString('base64')),__DEFAULT_GUN__:JSON.stringify(duplet?'metro_duplet':'metro_uboinik')}});
 const js=result.outputFiles[0].text.replaceAll('</script','<\\/script');
 const css=readFileSync(path.join(here,'style.css'),'utf8');
@@ -13,5 +13,5 @@ const html=readFileSync(path.join(here,'index.html'),'utf8').replace('/*__STYLE_
 const out=path.join(root,'artifacts/mwf-pose-editor');mkdirSync(out,{recursive:true});writeFileSync(path.join(out,'index.html'),html);
 const readme=readFileSync(path.join(here,duplet?'README_DUPLET_RU.txt':'README_RU.txt'));
 const zip=zipSync({'MWF_Pose_Editor.html':strToU8(html),'ИНСТРУКЦИЯ.txt':new Uint8Array(readme),'LICENSE_THREE.txt':new Uint8Array(readFileSync(path.join(here,'node_modules/three/LICENSE'))),'LICENSE_FFLATE.txt':new Uint8Array(readFileSync(path.join(here,'node_modules/fflate/LICENSE')))},{level:9});
-mkdirSync(path.join(root,'downloads'),{recursive:true});writeFileSync(path.join(root,duplet?'downloads/MWF_Pose_Editor_v2_Duplet.zip':'downloads/MWF_Pose_Editor_v1.zip'),zip);
+mkdirSync(path.join(root,'downloads'),{recursive:true});writeFileSync(path.join(root,duplet?'downloads/MWF_Pose_Editor_v3_Duplet_Cosmetic.zip':'downloads/MWF_Pose_Editor_v1.zip'),zip);
 console.log('Offline HTML:',Buffer.byteLength(html),'bytes; downloadable ZIP:',zip.length,'bytes');

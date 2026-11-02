@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Compile Java-8 bridge against the selected MWF JAR and compile-only test ABI.
+"""ARCHIVED bridge, disabled by default. Not used by the current cosmetic pack.
+Explicit legacy opt-in can compile against the selected MWF JAR/test ABI.
 No Forge/Minecraft/MWF classes are copied into the deliverable.
 ECJ + Java-8 boot API can be provided for restricted build environments.
 """
@@ -7,7 +8,8 @@ import argparse, hashlib, json, subprocess, struct, zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 TARGET='f91a5419cbc9e3cbd18f831e37c17aa2833d577142d324fed1ca14846ce95183'
-def build(java,ecj,boot,mwf,out):
+def build(java,ecj,boot,mwf,out,enable_legacy_bridge=False):
+ if not enable_legacy_bridge:raise RuntimeError("Duplet bridge is disabled: +2 barrels are cosmetic. Legacy builds require explicit opt-in.")
  assert hashlib.sha256(mwf.read_bytes()).hexdigest()==TARGET,'Wrong MWF JAR'
  classes=ROOT/'artifacts/duplet-bridge/classes';classes.mkdir(parents=True,exist_ok=True)
  sources=list((ROOT/'addons/mwf-duplet-bridge/src/main/java').rglob('*.java'))+list((ROOT/'tests_duplet/java').rglob('*.java'))
@@ -28,4 +30,5 @@ def build(java,ecj,boot,mwf,out):
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__)
  for name in ['java','ecj','boot','mwf']:p.add_argument('--'+name,type=Path,required=True)
- p.add_argument('--out',type=Path,default=ROOT/'downloads/metro-duplet-bridge-1.0.0.jar');a=p.parse_args();build(a.java,a.ecj,a.boot,a.mwf,a.out)
+ p.add_argument('--enable-legacy-bridge',action='store_true',help='Historical reference only; not part of current distribution')
+ p.add_argument('--out',type=Path,default=ROOT/'artifacts/legacy-duplet-bridge/metro-duplet-bridge-1.0.0.jar');a=p.parse_args();build(a.java,a.ecj,a.boot,a.mwf,a.out,a.enable_legacy_bridge)
