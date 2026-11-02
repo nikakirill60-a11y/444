@@ -1,0 +1,28 @@
+name: MWF Armory Studio
+on:
+  push:
+    paths:
+      - 'tools/mwf-armory/**'
+      - 'downloads/Metro_Uboinik*_MWF_fix1_*.zip'
+      - '.github/workflows/mwf-armory.yml'
+  pull_request:
+    paths:
+      - 'tools/mwf-armory/**'
+      - '.github/workflows/mwf-armory.yml'
+jobs:
+  offline-editor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/mwf-armory/package-lock.json
+      - run: npm ci --prefix tools/mwf-armory --no-audit --no-fund
+      - run: npm test --prefix tools/mwf-armory
+      - run: npm run build --prefix tools/mwf-armory
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MWF-Armory-Studio-offline
+          path: downloads/MWF_Armory_Studio_v1.zip

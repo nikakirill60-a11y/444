@@ -1,0 +1,47 @@
+import assert from 'node:assert/strict';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+import path from 'node:path';
+import {readFileSync} from 'node:fs';
+import {unzipSync,strFromU8} from 'fflate';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright-core');
+const browser=await chromium.launch({headless:true,executablePath:process.env.MWF_CHROMIUM||undefined,args:['--no-sandbox','--no-zygote','--single-process','--in-process-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{
+ const page=await browser.newPage({viewport:{width:1500,height:1000}}),errors=[],requests=[];page.setDefaultTimeout(45000);
+ page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.accept());page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});await page.route('https://**/*',r=>r.abort());await page.route('http://**/*',r=>r.abort());
+ await page.goto(pathToFileURL(path.join(root,'artifacts/mwf-armory/index.html')).href);await page.waitForFunction(()=>window.mwfEditor?.ready);
+ const tab=async name=>page.locator(`[data-panel=${name}]`).click();const set=async(name,value)=>{const el=page.getByRole('spinbutton',{name,exact:true});await el.fill(String(value));await el.press('Tab');};
+ assert.equal(await page.locator('#libraryGun option').count(),3);
+ await page.locator('#newGunId').fill('studio_test');await page.locator('#newGunName').fill('Тестовая пушка');await page.locator('#createGun').click();await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='studio_test');
+ await tab('stats');await set('Урон за пулю / дробину',9.5);await page.locator('#undo').click();assert.equal(await page.evaluate(()=>mwfEditor.type.gunDamage),3);await page.locator('#redo').click();assert.equal(await page.evaluate(()=>mwfEditor.type.gunDamage),9.5);
+ await set('Ёмкость (внутренний боезапас)',4);await set('Перезарядка пустого, секунд',5);await set('Темп, выстрелов / минуту',240);await page.getByRole('checkbox',{name:'Автоматический',exact:true}).check();
+ const png=async color=>Buffer.from(await page.evaluate(color=>{const c=document.createElement('canvas');c.width=c.height=32;const ctx=c.getContext('2d');ctx.fillStyle=color;ctx.fillRect(0,0,32,32);return c.toDataURL('image/png').split(',')[1];},color),'base64');
+ const obj='mtllib model.mtl\no body\nv -1 -0.2 -0.2\nv 1 -0.2 -0.2\nv 1 0.2 -0.2\nv -1 0.2 -0.2\nv -1 -0.2 0.2\nv 1 -0.2 0.2\nv 1 0.2 0.2\nv -1 0.2 0.2\nvt 0 0\nvt 1 0\nvt 1 1\nvt 0 1\nusemtl metal\nf 1/1 2/2 3/3 4/4\nf 5/1 8/4 7/3 6/2\nf 1/1 5/2 6/3 2/4\nusemtl wood\nf 4/1 3/2 7/3 8/4\nf 2/1 6/2 7/3 3/4\nf 1/1 4/2 8/3 5/4\ng bulletModel_0\nf 5/1 6/2 7/3\ng bulletModel_1\nf 1/1 2/2 3/3\n';
+ const mtl='newmtl metal\nmap_Kd textures/red.png\nnewmtl wood\nmap_Kd blue.png\n';
+ const files=[{name:'model.obj',mimeType:'text/plain',buffer:Buffer.from(obj)},{name:'model.mtl',mimeType:'text/plain',buffer:Buffer.from(mtl)},{name:'red.png',mimeType:'image/png',buffer:await png('#ff0000')},{name:'blue.png',mimeType:'image/png',buffer:await png('#0000ff')}];
+ await tab('model');await page.locator('#objFiles').setInputFiles(files);await page.waitForFunction(()=>!document.getElementById('applyOBJ').disabled);assert.equal(await page.getByRole('combobox',{name:'metal',exact:true}).inputValue(),'red.png');assert.equal(await page.getByRole('combobox',{name:'wood',exact:true}).inputValue(),'blue.png');
+ await page.locator('#applyOBJ').click();await page.waitForFunction(()=>mwfEditor.ready&&document.getElementById('message').textContent.startsWith('Импорт готов'));
+ await set('Смещение модели x',.05);await set('Масштаб модели s',1.2);
+ await tab('hands');await set('Положение x',.03);await page.locator('#ads').check();await page.locator('#bodyType').selectOption('slim');await page.locator('#ads').uncheck();await page.locator('#bodyType').selectOption('classic');
+ await page.locator('#rounds').fill('2');await page.locator('#shootPreview').click();assert.equal(await page.locator('#rounds').inputValue(),'1');await page.locator('#rounds').fill('4');await page.locator('#action').selectOption('reload');await page.waitForFunction(()=>document.getElementById('timeLabel').textContent.includes('/ 5.00'));await page.locator('#timeline').fill('2');await page.locator('#timeline').dispatchEvent('input');
+ await tab('mods');await page.locator('#goImportMod').click();await page.locator('#newModId').fill('studio_mod');await page.locator('#newModName').fill('Тестовый глушитель');await page.locator('#objFiles').setInputFiles(files);await page.waitForFunction(()=>!document.getElementById('applyOBJ').disabled);await page.locator('#applyOBJ').click();await page.waitForFunction(()=>mwfEditor.ready&&document.querySelector('#modSelect option[value=studio_mod]'));
+ await page.getByRole('checkbox',{name:'Установлен по умолчанию',exact:true}).check();await page.getByRole('checkbox',{name:'Глушитель',exact:true}).check();await set('Положение обвеса x',.2);await set('accuracyFactor',.8);
+ await tab('model');await set('Смещение модели x',.05);await tab('hands');await set('Положение x',.03);
+ await tab('assets');await page.locator('summary').filter({hasText:'Патроны: создать'}).click();await page.locator('#newBulletId').fill('studio_ammo');await page.locator('#newBulletName').fill('Тестовый патрон');await page.locator('#createBullet').click();await set('Множитель урона патрона',1.25);
+ const base=unzipSync(readFileSync(path.join(root,'downloads/Metro_Uboinik_Duplet_MWF_fix1_v2.zip'))),ogg=Object.entries(base).find(([n])=>n.endsWith('_fire.ogg'))[1];await page.locator('#soundInput').setInputFiles({name:'fire.ogg',mimeType:'audio/ogg',buffer:Buffer.from(ogg)});await page.waitForFunction(()=>mwfEditor.type.weaponSoundMap.weaponFire[0].soundName==='studio_test_weaponfire');
+ await page.locator('[data-view=orbit]').click();await page.locator('#captureIcon').click();await page.waitForFunction(()=>mwfEditor.type.iconName==='studio_test_armory_icon');
+ await tab('library');await page.locator('#saveLocal').click();await page.waitForFunction(()=>document.getElementById('message').textContent.startsWith('Сохранено в браузере'));
+ const [project]=await Promise.all([page.waitForEvent('download'),page.locator('#saveProject').click()]);const projectPath=path.join(root,'artifacts/armory-browser-project.json');await project.saveAs(projectPath);
+ // Switching must preserve edits to other guns without a discard prompt.
+ await page.locator('#libraryGun').selectOption('metro_uboinik');await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='metro_uboinik');await tab('stats');await set('Урон за пулю / дробину',4.25);
+ await tab('library');await page.locator('#libraryGun').selectOption('studio_test');await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.gun==='studio_test');assert.equal(await page.evaluate(()=>mwfEditor.type.gunDamage),9.5);assert.equal(await page.locator('#rounds').getAttribute('max'),'4');
+ const [zip]=await Promise.all([page.waitForEvent('download'),page.locator('#exportPack').click()]);const out=path.join(root,'artifacts/armory-browser-export.zip');await zip.saveAs(out);
+ const result=unzipSync(readFileSync(out)),js=p=>JSON.parse(strFromU8(result[p]));assert.equal(js('guns/metro_uboinik.json').gunDamage,4.25);assert.equal(js('guns/studio_test.json').defaultAttachments.barrel,'studio_mod');assert.equal(js('attachments/studio_mod.json').barrel.isSuppressor,true);assert.equal(js('attachments/studio_mod.json').barrel.accuracyFactor,.8);assert.equal(js('bullets/studio_ammo.json').bulletDamageFactor,1.25);assert.ok(result['assets/modularwarfare/sounds/studio_test_weaponfire.ogg']);
+ // Restore the unbaked project and compare the final glTF TRS to the switched/baked export.
+ const cfg=js('guns/render/studio_test.render.json'),g=js('assets/modularwarfare/gltf/guns/'+cfg.modelFileName),pos=g.nodes.find(n=>n.name==='gunModel').translation;
+ await page.locator('#projectInput').setInputFiles(projectPath);await page.waitForFunction(()=>mwfEditor.ready&&mwfEditor.edits.left.idle.p[0]===.03);assert.equal(await page.evaluate(()=>mwfEditor.model.p[0]),.05);
+ const [download2]=await Promise.all([page.waitForEvent('download'),page.locator('#exportPack').click()]);const out2=path.join(root,'artifacts/armory-browser-restored.zip');await download2.saveAs(out2);const restored=unzipSync(readFileSync(out2)),cfg2=JSON.parse(strFromU8(restored['guns/render/studio_test.render.json'])),g2=JSON.parse(strFromU8(restored['assets/modularwarfare/gltf/guns/'+cfg2.modelFileName]));assert.deepEqual(g2.nodes.find(n=>n.name==='gunModel').translation,pos);
+ await tab('library');await page.locator('#loadLocal').click();await page.waitForFunction(()=>document.getElementById('message').textContent.startsWith('Проект восстановлен'));
+ await tab('model');await page.screenshot({path:path.join(root,'artifacts/armory-imported-model.png'),fullPage:true});
+ assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);console.log('Armory browser PASS: offline file://, new gun, stats + undo/redo, 2-PNG MTL atlas, indexed cartridges, model/hand positioning, 5s reload, attachment import/default/transform/factors, new ammo, OGG, icon capture, IndexedDB + file projects, no double-baking, multi-gun preservation, actual ZIP download. No page errors or HTTP requests.');
+}finally{await browser.close();}
