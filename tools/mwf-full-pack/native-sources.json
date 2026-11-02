@@ -1,0 +1,456 @@
+{
+  "source": "User-supplied unpacked Google Drive Mod; native models directory 1Hs6nCtb1GK-lbMH1o7169aD6j8fmHqPT",
+  "license": "Source-owned third-party assets; not covered by the tool code license. See existing THIRD_PARTY.md.",
+  "files": [
+    {
+      "path": "akk/Aka1.png",
+      "bytes": 19113,
+      "sha256": "f52316a97a224d7d66a13e3b74f8e907cc1390c38a30d29367f8803920976f7a"
+    },
+    {
+      "path": "akk/Aka2.png",
+      "bytes": 9137,
+      "sha256": "073550b629fd6b513a5415fb452931a543dac68672a8d04710ef2273a57f0dfe"
+    },
+    {
+      "path": "akk/Aka3.png",
+      "bytes": 16896,
+      "sha256": "0cbf317f9036ee4dd2f2c1bb25473ff02ab972651a96cccd559d3ad6e94f818c"
+    },
+    {
+      "path": "akk/Bullet1.png",
+      "bytes": 297905,
+      "sha256": "de660ca35381e1c835324a7fbe7cac88dded4a1aaaac8b5f3e53239511396ca9"
+    },
+    {
+      "path": "akk/ak.mtl",
+      "bytes": 1585,
+      "sha256": "9a5774fc08aa3a92a658177673ceb16f1a30f21ff1b74914e84691938adff474"
+    },
+    {
+      "path": "akk/ak.obj",
+      "bytes": 49486,
+      "sha256": "ce9b104016f54a3dec612fc5a49a64efca8ff3cad8d88cef552b4fb8d897b843"
+    },
+    {
+      "path": "akk/akka1.png",
+      "bytes": 3529,
+      "sha256": "abcd7ebb089899c50cd99ba80f48c06d3c2a2a708b21c1e7246ea0e5c2ffb732"
+    },
+    {
+      "path": "akk/akka2.png",
+      "bytes": 6312,
+      "sha256": "a78a517b9c30c6f277c487e667c7f74c33a747dbef36bd261e7d4836cb7e94f4"
+    },
+    {
+      "path": "akk/bullet.mtl",
+      "bytes": 352,
+      "sha256": "8bae3883e170b89a9904620cf304e367546fb2e7d57a82f21ba960df22bee47f"
+    },
+    {
+      "path": "akk/bullet.obj",
+      "bytes": 31211,
+      "sha256": "99a865bf37884f8688292746d48dd9b2b8b3973ba34a6803b27d631a1a300966"
+    },
+    {
+      "path": "akk/mag.mtl",
+      "bytes": 350,
+      "sha256": "017170281acc6b58931c532dc0de107aa34280e24f8fe9affbe2406462ff3745"
+    },
+    {
+      "path": "akk/mag.obj",
+      "bytes": 12360,
+      "sha256": "0a7fac193ce7ab1f75390a38dad5643dd039ae550a3cd7e2de7066d6107eb3cd"
+    },
+    {
+      "path": "akk/zatvor.obj",
+      "bytes": 7088,
+      "sha256": "0c62e93339dd8295945913fc062531c8a1d1c67afb6f50979816ca58c2f2b842"
+    },
+    {
+      "path": "helsing/air.obj",
+      "bytes": 25764,
+      "sha256": "e2ceb5258d19c15300d043759f67cb0fd817f1b1c00384032bb4221be63e82c3"
+    },
+    {
+      "path": "helsing/bullet.obj",
+      "bytes": 2830,
+      "sha256": "18da4ceb985d77ea4bac897e0e7cf7aa239847d3c3c7515e461caa0ab62a250e"
+    },
+    {
+      "path": "helsing/dav.obj",
+      "bytes": 1142,
+      "sha256": "f67252098806b4b874e91c1f4e0230d1432706f8a952d3e2eede75b76c2d5b72"
+    },
+    {
+      "path": "helsing/helsing.mtl",
+      "bytes": 1270,
+      "sha256": "a92e3840183ea524124196c843268e7e043babafe82f69594d70f9276e3a86cb"
+    },
+    {
+      "path": "helsing/helsing.obj",
+      "bytes": 426977,
+      "sha256": "f93f85b6488bd0035653d005f27589021cc3a53a1f5f2813fd80cc2777049450"
+    },
+    {
+      "path": "helsing/mag.mtl",
+      "bytes": 373,
+      "sha256": "77b50e505305738fd53e43a61739f43df6b7f1664958139b661df29b5bd4ace5"
+    },
+    {
+      "path": "helsing/mag.obj",
+      "bytes": 37736,
+      "sha256": "ef665a8f080081d2e0f3fc3fe66c5bbf93656a7dce3f8738bb9d610a332d00b8"
+    },
+    {
+      "path": "helsing/wpn_helsing.2048.png",
+      "bytes": 635784,
+      "sha256": "7d22bc09758fb5327c4bbd6e1f3ceb00f0e33b9d2577125ab2e38f2804c31903"
+    },
+    {
+      "path": "podonok/barrel.obj",
+      "bytes": 6589,
+      "sha256": "cd718a1081313230e8cf1f6d2928e76562056b14ee2abda34f003b1b6d22f3c0"
+    },
+    {
+      "path": "podonok/bullet.obj",
+      "bytes": 12008,
+      "sha256": "f04bfa4ebe63f2b9693fed04c18073d5ac4add0b1378535b7b8ae5d7d0f017c6"
+    },
+    {
+      "path": "podonok/butt.obj",
+      "bytes": 40495,
+      "sha256": "2afd9a427adbf07d00eba26f2fdcfdb07f771eff36aa66f12b14d772a2358aab"
+    },
+    {
+      "path": "podonok/butt1.obj",
+      "bytes": 82121,
+      "sha256": "f953a59cfd2b25c6ace3b3cf6c8b2116abee18c1c1f184a448fb494bf93cbd4e"
+    },
+    {
+      "path": "podonok/butt2.obj",
+      "bytes": 55476,
+      "sha256": "183bfab7bfc10346ded24ef1e910980ec31a74ed65bb9bc27a5453a152b12764"
+    },
+    {
+      "path": "podonok/gazootvod.obj",
+      "bytes": 60692,
+      "sha256": "7608b476a8f40badadce397f084c06c27c98d741d97371d5f7b5cdb0f8f99df7"
+    },
+    {
+      "path": "podonok/glushak.obj",
+      "bytes": 28809,
+      "sha256": "c296616587082a2f70d7a5d07ccb254477d70096652716fdeca5318fc9863f00"
+    },
+    {
+      "path": "podonok/mag.obj",
+      "bytes": 12025,
+      "sha256": "c70fa95369229f8ea970daf53157b6e7f5f503d2fc19b87eb9bb99e4376fe673"
+    },
+    {
+      "path": "podonok/mag1.obj",
+      "bytes": 12417,
+      "sha256": "395be86264e51d7a521566e7b985f9a1fe77850d77e6e5493dc539ca7689cf34"
+    },
+    {
+      "path": "podonok/podonok.mtl",
+      "bytes": 753,
+      "sha256": "6442127c178fb7b2a3b7fff5f353ed4fac6fd6ad7ad6a55dcbf87e3657ae179a"
+    },
+    {
+      "path": "podonok/podonok.obj",
+      "bytes": 305508,
+      "sha256": "74202f89379612044a31210e7ae3c6d92522c3e375d8bac11e51e24636ebe156"
+    },
+    {
+      "path": "podonok/wpn34_padonocheg.1024c.png",
+      "bytes": 484978,
+      "sha256": "9a88c905d96825e4614128c07f1b22a3933cafe1cdbc220509edd841b9312d9e"
+    },
+    {
+      "path": "podonok/wpn34_padonocheg_addon.1024c.png",
+      "bytes": 493808,
+      "sha256": "afbd248797e784cb6fbc50378cc47ef35bd1a9e7deffe014a44d2e1b102f6988"
+    },
+    {
+      "path": "podonok/wpn_revolver_new.512c.png",
+      "bytes": 27611,
+      "sha256": "ce156972a494b228820fc60ffabbd6658b9ad7faf39fa448ce5ffc039d2bfaa1"
+    },
+    {
+      "path": "podonok/zatvor.obj",
+      "bytes": 7397,
+      "sha256": "734cff4e668ca98dc43f9cf1762d612d7b5271c6111c846e222a4979230018ae"
+    },
+    {
+      "path": "preved/bullet.obj",
+      "bytes": 16196,
+      "sha256": "93fdd0b9fcde2864d1ce31f0ea454ff2610b22aadc1f49188460a255f35a2a3f"
+    },
+    {
+      "path": "preved/glushak.obj",
+      "bytes": 94510,
+      "sha256": "4b92286c2e1c50f122df5bd63025b37a538e1d807b123a6e951f855305b9f6ee"
+    },
+    {
+      "path": "preved/mag.obj",
+      "bytes": 13415,
+      "sha256": "ec4a3b5a4bdf7afff6009e5fbf8fd2e3e864c89401ea984ad0fcf69cf58a25ce"
+    },
+    {
+      "path": "preved/preved.mtl",
+      "bytes": 725,
+      "sha256": "cc155290334d46311da2a529651e0bfa685922a5737a974ba199ee2be6a41c9e"
+    },
+    {
+      "path": "preved/preved.obj",
+      "bytes": 310370,
+      "sha256": "643d3cb98c7d592b7a22132f2c70b98816d60ffa25999877b45758d1f7455d84"
+    },
+    {
+      "path": "preved/wpn34_preved.2048.png",
+      "bytes": 619430,
+      "sha256": "29119f8f39e7768a00d9d932b259613452f395ea77b141e7f7c9400beb65761b"
+    },
+    {
+      "path": "preved/zatvor.obj",
+      "bytes": 79158,
+      "sha256": "ee48601ee896bd17766e84976d27dab7fe47e112f2e3f5468ed0e3890e4f77e2"
+    },
+    {
+      "path": "railgun/el.mtl",
+      "bytes": 383,
+      "sha256": "d8c1f60118e244265f3b2576e90eab7d40721b4e71e9e68b2cd89597b3166638"
+    },
+    {
+      "path": "railgun/el.obj",
+      "bytes": 13713,
+      "sha256": "35eb458902e67f62ad1c70be8517f0622920750ce79c12b1ebd8b6a2da001325"
+    },
+    {
+      "path": "railgun/krep.mtl",
+      "bytes": 605,
+      "sha256": "34bf015bda406a604b3c421a09cef0d14d4da260e84b07bc106184f3f4906997"
+    },
+    {
+      "path": "railgun/krep.obj",
+      "bytes": 45984,
+      "sha256": "2252ed6ed01b1211b518307fde89a3a26ee5ff2829817a436ee2bc02aaaa116a"
+    },
+    {
+      "path": "railgun/mag.obj",
+      "bytes": 15461,
+      "sha256": "abc7c7cffdc5dc0dfb70e064f72c6c0f4660762d9f2d2a10987958416a31306a"
+    },
+    {
+      "path": "railgun/railgun.mtl",
+      "bytes": 1337,
+      "sha256": "dc237d203789f7a634c7cc1f428e232ec77b65043743a4d65d5836190a8316bf"
+    },
+    {
+      "path": "railgun/railgun.obj",
+      "bytes": 915057,
+      "sha256": "3ac7abc4633bcf041522cd3ad66180b9c2e67f5d0114c5447487d5927dc523ec"
+    },
+    {
+      "path": "railgun/railgun_akk.mtl",
+      "bytes": 835,
+      "sha256": "adf932597af013cc6a5e60fa8fdf94149c0dc83e63de6d3280b9c3c872514a78"
+    },
+    {
+      "path": "railgun/railgun_akk.obj",
+      "bytes": 148128,
+      "sha256": "90437e4ec90652204446ff3e2c5e2c5dc871de9c48dfcc57ab6b48c2ae87cee5"
+    },
+    {
+      "path": "railgun/railgun_kon.mtl",
+      "bytes": 861,
+      "sha256": "316ede325950c7ca2a9d8b2ab4451ae58b65c9d8418de835f62f2af8bfa7f437"
+    },
+    {
+      "path": "railgun/railgun_kon.obj",
+      "bytes": 280458,
+      "sha256": "0ecbb417c82bb8280dea4d7953e7090689eceba1b0899fb885047fec7f7d53f0"
+    },
+    {
+      "path": "railgun/strelka.obj",
+      "bytes": 2201,
+      "sha256": "fc36b3059321f19572b32254190824956288c2bc49b8e09f4d269c42a40f7745"
+    },
+    {
+      "path": "railgun/veh_zuzik.2048.png",
+      "bytes": 697512,
+      "sha256": "8f4df5f48587b6bacd7afa6a88b0551998b444eb2fd8fa520c8c1dc364a87cc0"
+    },
+    {
+      "path": "railgun/wpn_railgun.2048.png",
+      "bytes": 608943,
+      "sha256": "08b7795210f47c69021bb143d11db763a58c654c5ab7eac2c44af9ec066e34b1"
+    },
+    {
+      "path": "railgun/zoomer.mtl",
+      "bytes": 337,
+      "sha256": "4d7b7de5e59cf517ba76f9c5c92a3af3f6c67ed909b02bf4a3543c4a13bfdecb"
+    },
+    {
+      "path": "railgun/zoomer.obj",
+      "bytes": 9764,
+      "sha256": "a624258f3d5141df2e2053deaf06347c4a633f5354d69417faa32a99e466b728"
+    },
+    {
+      "path": "textures/wpn34_flachhider.512c.png",
+      "bytes": 33089,
+      "sha256": "134758ba2f18004984fc386b03985e625e100933191b97795165f6716138feb2"
+    },
+    {
+      "path": "tihar/air.obj",
+      "bytes": 31318,
+      "sha256": "d5e0c7db8d515362c51f376432ddf4609e5ca733dee40f8826a5fa6af8fecaed"
+    },
+    {
+      "path": "tihar/air2.obj",
+      "bytes": 6907,
+      "sha256": "e66354ef2154bb1573181d8512189da3d447076b943ffaa7b961c8fa56c0a30f"
+    },
+    {
+      "path": "tihar/bullet.obj",
+      "bytes": 3687,
+      "sha256": "265add18dea0dabe31cebf377eb730122d5154dae68f39abe33b543a2f8f5df6"
+    },
+    {
+      "path": "tihar/mag.obj",
+      "bytes": 13705,
+      "sha256": "4572a5d2371dacfccf5c69eaf9b8d2f755ad991083191ca22a36a204ff4f17e4"
+    },
+    {
+      "path": "tihar/optica.obj",
+      "bytes": 165509,
+      "sha256": "710d5104fcc7b701d7cbd2ea6c5ffb518cf7010f6352f783928143bcce185baf"
+    },
+    {
+      "path": "tihar/strelka.obj",
+      "bytes": 5265,
+      "sha256": "bce51d6ce36eba064166a0ba82e086d7e09210161d1314e41e58b4f5740ebfb3"
+    },
+    {
+      "path": "tihar/tihar.mtl",
+      "bytes": 428,
+      "sha256": "d8507add594bbe330c389ca9aa1638c75124ca320d333c922f6bbcf814e4e3d1"
+    },
+    {
+      "path": "tihar/tihar.obj",
+      "bytes": 468724,
+      "sha256": "c6b1a3b7fbf371d6c99ca36e2a50dc20be28f7a5e766e3066668f6e39d74f83b"
+    },
+    {
+      "path": "tihar/wpn34_gun_pricel.2048.png",
+      "bytes": 99847,
+      "sha256": "56ca9511b7cbbb1c3759c37d3e34330aa0159e2d1c6c9f701470d193c63b50e0"
+    },
+    {
+      "path": "tihar/wpn_pricel_electronika.512.png",
+      "bytes": 107343,
+      "sha256": "e0ce625366d55713398c63272ed928328fdddd643105b7a484f007618a820f47"
+    },
+    {
+      "path": "tihar/wpn_tihar.2048.png",
+      "bytes": 624710,
+      "sha256": "a20e7275c37ddf04603b22fb47ba3ace5430acc5a70450838aee4f9b1b59f0f4"
+    },
+    {
+      "path": "tihar/zatvor.obj",
+      "bytes": 9114,
+      "sha256": "b0c38022128a6c898443153caa7874b26517729d77a08d5f4ce94cf615b04fdf"
+    },
+    {
+      "path": "uboinik/glushak.mtl",
+      "bytes": 398,
+      "sha256": "eb840c46a80aa8cd18a4c02c254a2b2e7d151f48bf74b3450696b5b0fe3a2c29"
+    },
+    {
+      "path": "uboinik/glushak.obj",
+      "bytes": 16361,
+      "sha256": "fb3355e2b744dc3746d5d22712970bf087574e67a97a870323daae9af4bd9925"
+    },
+    {
+      "path": "ventil/bullet.obj",
+      "bytes": 7022,
+      "sha256": "7c8b181f7619f1b47f0d910dad68534495236c01cbc0fb9953b6b13ada86fab8"
+    },
+    {
+      "path": "ventil/glushak.obj",
+      "bytes": 59434,
+      "sha256": "f8249395325a92f4ac1489d9caf6eb77332f012b3696469b33485c9744a3c0c8"
+    },
+    {
+      "path": "ventil/mag.obj",
+      "bytes": 20494,
+      "sha256": "5c6ffd849564db8cabab18d533dd4587a8782635b62060525e44a18de91fe199"
+    },
+    {
+      "path": "ventil/magbig.obj",
+      "bytes": 25389,
+      "sha256": "56ecbfe8c8204b13a88ce5597d6bba95029bac8a5fb9c1cafd2156ebd1dc1a98"
+    },
+    {
+      "path": "ventil/ventil.mtl",
+      "bytes": 409,
+      "sha256": "7cef6575bf36c798b8008331eb1068f9c5b92f2a3cba437cf02c829c284f8abd"
+    },
+    {
+      "path": "ventil/ventil.obj",
+      "bytes": 430277,
+      "sha256": "0345b670726a72862127825dce0b080c0a03ff0b505ac6a1a71e679cc38407e6"
+    },
+    {
+      "path": "ventil/wpn34_gun_01.2048.png",
+      "bytes": 546319,
+      "sha256": "ebcd07885fe55faaf9ef97d3bc8bb0fb5aa09b650063f418c4144fa908be9484"
+    },
+    {
+      "path": "ventil/zatvor.obj",
+      "bytes": 208870,
+      "sha256": "7fcb1dd31d87eda52649eea2dfee68d94a1f1c82f2844862f4575827d8b8feca"
+    },
+    {
+      "path": "vsv/bullet.obj",
+      "bytes": 6356,
+      "sha256": "15971639f3d403eb85436415c02f740f041fe7f9e9c9896ce57ea21407f708c4"
+    },
+    {
+      "path": "vsv/glushak.obj",
+      "bytes": 5089,
+      "sha256": "c7c11847658f16177d102d01e68ffe1219960eef2676234e5d4edc7f99fc1e04"
+    },
+    {
+      "path": "vsv/krep.obj",
+      "bytes": 66075,
+      "sha256": "f4060e7894906ca4d90fcb85b49f61e27f49a3934a3ed6a7e708776dfd758201"
+    },
+    {
+      "path": "vsv/mag.obj",
+      "bytes": 65236,
+      "sha256": "c845ce01c533d398faefdd742e0d89a6787e5bb3ffe271c16bab5efda81c33db"
+    },
+    {
+      "path": "vsv/vsv.mtl",
+      "bytes": 691,
+      "sha256": "dbbd78f04013f3f4555b2c69851580214012f402043e8ea0ca5bda40993101d4"
+    },
+    {
+      "path": "vsv/vsv.obj",
+      "bytes": 278782,
+      "sha256": "8cdc94b054c0c6e4c2f48f0ddcd4155b7393e7a20c2309d21aabc0cd35da7bc3"
+    },
+    {
+      "path": "vsv/wpn_zelenka.2048.png",
+      "bytes": 620020,
+      "sha256": "bd8ceee5e575e9587576bf16429f3aca31d2ef953249991157e2c1571e023097"
+    },
+    {
+      "path": "vsv/zatvor.obj",
+      "bytes": 10842,
+      "sha256": "d70a4bf43422d0b4ec180b66120f427a59ec0e9925242de1640850a74623fc79"
+    }
+  ]
+}

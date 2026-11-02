@@ -1,0 +1,35 @@
+name: MWF full arsenal pack
+on:
+  push:
+    paths:
+      - 'tools/build_full_mwf_pack.py'
+      - 'tools/verify_full_mwf_pack.py'
+      - 'tools/mwf-full-pack/**'
+      - '.github/workflows/mwf-full-pack.yml'
+  pull_request:
+    paths:
+      - 'tools/build_full_mwf_pack.py'
+      - 'tools/verify_full_mwf_pack.py'
+      - 'tools/mwf-full-pack/**'
+      - '.github/workflows/mwf-full-pack.yml'
+  workflow_dispatch:
+jobs:
+  content-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/mwf-full-pack/requirements.txt
+      - run: pip install -r tools/mwf-full-pack/requirements.txt
+      - run: python tools/mwf-full-pack/test_full_pack.py -v
+      - run: python tools/build_full_mwf_pack.py
+      - run: python tools/verify_full_mwf_pack.py downloads/Metro_Full_Arsenal_MWF_fix1_v1.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Metro-Full-Arsenal-MWF-fix1-v1
+          path: downloads/Metro_Full_Arsenal_MWF_fix1_v1.zip
