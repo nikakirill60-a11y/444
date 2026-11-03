@@ -111,8 +111,8 @@ public final class MechanicsTest {
         new MechanicsHooks().tick(ev);equal(MechanicsHooks.energy(p.getHeldItemMainhand()),118,"inventory energy tick leaks excess");
         Player rail=player("metro_railgun",0);attach(rail.getHeldItemMainhand(),"metro_mod_railgun_akk");equal(MechanicsHooks.maximum(rail.getHeldItemMainhand()),150,"battery expands energy by 50 percent");
         attach(rail.getHeldItemMainhand(),"metro_mod_railgun_kon");equal(MechanicsHooks.maximum(rail.getHeldItemMainhand()),100,"capacitor not a capacity upgrade");
-        check(MechanicsRules.damage("metro_railgun",100,9,true)>MechanicsRules.damage("metro_railgun",100,9,false),"capacitor accumulates full shot sooner");
-        check(Math.abs(MechanicsRules.damage("metro_railgun",100,9,true)-1f)<.0001,"upgraded full charge at nine ticks");
+        check(MechanicsRules.damage("metro_railgun",100,20,true)>MechanicsRules.damage("metro_railgun",100,20,false),"capacitor accumulates full shot sooner");
+        check(Math.abs(MechanicsRules.damage("metro_railgun",100,30,true)-1f)<.0001,"upgraded full charge at thirty ticks");
         Player twoRails=player("metro_railgun",100);ItemStack first=twoRails.getHeldItemMainhand();
         check(MechanicsHooks.beforeShot(twoRails,new Packet("metro_railgun",1)),"first rail shot");
         twoRails.world.tick+=8;twoRails.inventory.slots[0]=gun("metro_railgun",100);

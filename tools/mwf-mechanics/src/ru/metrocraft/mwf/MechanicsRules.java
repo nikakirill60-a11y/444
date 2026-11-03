@@ -15,7 +15,7 @@ public final class MechanicsRules {
         float level = clamp(energy, 150) / 100.0f;
         float result = .35f + .65f * Math.min(1.0f, level);
         if (!"metro_railgun".equals(id)) return result + Math.max(0, Math.min(.2f, level - 1));
-        int fullChargeTicks = capacitor ? 9 : 12; // capacitor: exactly 25% less accumulation time
+        int fullChargeTicks = capacitor ? 30 : 40; // capacitor: exactly 25% less accumulation time
         return result * Math.max(.25f, Math.min(1f, ticksSinceRailShot / (float) fullChargeTicks));
     }
     public static int leak(int energy, long elapsedTicks) {
