@@ -12,6 +12,8 @@ public final class MechanicsHooks {
     public static final String ENERGY = "metroEnergy", LEAK = "metroEnergyTime";
     private static final Logger LOG = Logger.getLogger("MetroMWFMechanics");
     private static final Map<Object, State> STATES = new HashMap<Object, State>();
+    private static final java.util.concurrent.ConcurrentMap<Class<?>,Method[]> METHOD_LISTS = new java.util.concurrent.ConcurrentHashMap<Class<?>,Method[]>();
+    private static final java.util.concurrent.ConcurrentMap<Class<?>,java.util.concurrent.ConcurrentMap<String,Field>> FIELDS = new java.util.concurrent.ConcurrentHashMap<Class<?>,java.util.concurrent.ConcurrentMap<String,Field>>();
     private static boolean installed;
     static final class State {
         long lastPump = Long.MIN_VALUE, busyUntil, nextFire;
@@ -206,6 +208,8 @@ public final class MechanicsHooks {
             if(remote(player))return;
             long tick=now(player); Object uuid=call(player,"getUniqueID|func_110124_au");State s=STATES.get(uuid);
             if(s!=null&&s.shot!=null&&tick>s.shot.expires)s.shot=null;
+            // Idle leakage has one-second resolution; do not scan 41 inventory slots every tick.
+            if(tick%20!=0)return;
             Object inv=field(player,"inventory","field_71071_by");
             for(int i=0;i<41;i++) {
                 Object stack=call(inv,"getStackInSlot|func_70301_a",i);String id=id(stack);
@@ -231,8 +235,12 @@ public final class MechanicsHooks {
     /** MCP + SRG lookup keeps one binary usable in Forge production and deobfuscated tests. */
     public static Object field(Object target,String... names) throws Exception {
         Class<?> type=target instanceof Class?(Class<?>)target:target.getClass();
+        java.util.concurrent.ConcurrentMap<String,Field> cache=FIELDS.get(type);
+        if(cache==null){cache=new java.util.concurrent.ConcurrentHashMap<String,Field>();java.util.concurrent.ConcurrentMap<String,Field> prior=FIELDS.putIfAbsent(type,cache);if(prior!=null)cache=prior;}
+        String key=Arrays.toString(names);Field saved=cache.get(key);
+        if(saved!=null)return saved.get(target instanceof Class?null:target);
         for(Class<?> c=type;c!=null;c=c.getSuperclass())for(String name:names)try {
-            Field f=c.getDeclaredField(name);f.setAccessible(true);return f.get(target instanceof Class?null:target);
+            Field f=c.getDeclaredField(name);f.setAccessible(true);cache.putIfAbsent(key,f);return f.get(target instanceof Class?null:target);
         }catch(NoSuchFieldException ignored){}
         throw new NoSuchFieldException(type.getName()+Arrays.toString(names));
     }
@@ -243,7 +251,9 @@ public final class MechanicsHooks {
     public static Object call(Object target,String names,Object... args) throws Exception {
         if(target==null)throw new NullPointerException(names);
         Class<?> type=target instanceof Class?(Class<?>)target:target.getClass();
-        for(String name:names.split("\\|"))for(Method m:type.getMethods())if(m.getName().equals(name)&&m.getParameterTypes().length==args.length) {
+        Method[] methods=METHOD_LISTS.get(type);
+        if(methods==null){methods=type.getMethods();Method[] prior=METHOD_LISTS.putIfAbsent(type,methods);if(prior!=null)methods=prior;}
+        for(String name:names.split("\\|"))for(Method m:methods)if(m.getName().equals(name)&&m.getParameterTypes().length==args.length) {
             boolean match=true;Class<?>[] types=m.getParameterTypes();
             for(int i=0;i<args.length;i++)if(args[i]!=null&&!boxed(types[i]).isInstance(args[i]))match=false;
             if(match)try{return m.invoke(target instanceof Class?null:target,args);}catch(InvocationTargetException e){
