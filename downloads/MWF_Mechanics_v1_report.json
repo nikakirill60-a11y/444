@@ -4,8 +4,8 @@
   "basePackSha256": "87a1c12a14543b022810da233d8db26548e7587d7b9cd804bd155712e624f6ec",
   "jar": {
     "name": "modularwarfare-shining-2024.2.4.6f-fix1-metro1.jar",
-    "bytes": 22686600,
-    "sha256": "576e03879a4ab3300bb4a46e0f80b626212bbe3bf6747b01952e2e0426212dcc",
+    "bytes": 22747138,
+    "sha256": "aa7cf521e5bb9422088ae1df1a5515fec7384abe481416ee93b2da251e12599e",
     "changedClasses": [
       "com/modularwarfare/ModularWarfare.class",
       "com/modularwarfare/client/fpp/enhanced/renderers/RenderGunEnhanced.class",
@@ -33,8 +33,8 @@
   },
   "pack": {
     "name": "Metro_Full_Arsenal_MWF_fix1_v3_mechanics.zip",
-    "bytes": 83642673,
-    "sha256": "dc5efe9fc183d5dfc7f2b4f99269660f1310afb599b163b6a78d56726750adf3",
+    "bytes": 83642675,
+    "sha256": "007525d77b4bfb8addd0ac7e3f25e5e78f16112faa7068f118787ea5c2c80936",
     "files": 500,
     "suppressedWeapons": [
       "metro_ak",
@@ -90,7 +90,7 @@
     ]
   },
   "isolatedTests": "MECHANICS_TESTS_OK 68 isolated assertions; NOT a Minecraft runtime test",
-  "patchVerification": "PATCH_OK {afterConsume=1, allowLegacy=1, beforeHit=1, beforeShot=1, capacity=15, classes=11, clientCanFire=5, damage=3, install=1} SHA256=576e03879a4ab3300bb4a46e0f80b626212bbe3bf6747b01952e2e0426212dcc",
+  "patchVerification": "PATCH_OK {afterConsume=1, allowLegacy=1, beforeHit=1, beforeShot=1, capacity=15, classes=11, clientCanFire=5, damage=3, install=1} SHA256=aa7cf521e5bb9422088ae1df1a5515fec7384abe481416ee93b2da251e12599e",
   "minecraftRuntimeTested": false,
   "forgeLaunchTested": false,
   "multiplayerTested": false
