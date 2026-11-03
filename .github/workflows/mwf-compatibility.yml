@@ -24,13 +24,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Fetch exact selected MWF build from pinned upload
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p .cache/compatibility
-          gh api -H 'Accept: application/vnd.github.raw+json' \
-            repos/${{ github.repository }}/contents/modularwarfare-shining-2024.2.4.6f-fix1.jar?ref=ce2783694767296a102221f69f622d35264924e4 \
-            > .cache/compatibility/selected.jar
+          curl --fail --location --retry 3 \
+            --output .cache/compatibility/selected.jar \
+            'https://raw.githubusercontent.com/nikakirill60-a11y/444/ce2783694767296a102221f69f622d35264924e4/modularwarfare-shining-2024.2.4.6f-fix1.jar'
       - name: Validate distributed archive and actual JAR schemas
         env:
           MWF_JAR: .cache/compatibility/selected.jar
