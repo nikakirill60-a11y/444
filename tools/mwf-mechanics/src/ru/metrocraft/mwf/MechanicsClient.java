@@ -51,11 +51,12 @@ public final class MechanicsClient {
             int width=((Number)call(resolution,"getScaledWidth|func_78326_a")).intValue();
             int height=((Number)call(resolution,"getScaledHeight|func_78328_b")).intValue();
             int value=energy(stack),max=maximum(stack),color=value<MechanicsRules.cost(id)?0xff7777:0xffdd77;
+            int x=Math.max(6,Math.min(width-125,width/2+95));
             String text=("metro_railgun".equals(id)?"Заряд ":"Давление ")+value+"/"+max;
             Object font=field(mc,"fontRenderer","field_71466_p");
-            call(font,"drawStringWithShadow|func_175063_a",text,(float)(width/2+95),(float)(height-52),color);
+            call(font,"drawStringWithShadow|func_175063_a",text,(float)x,(float)(height-52),color);
             String help=String.valueOf(call(Class.forName("net.minecraft.client.settings.GameSettings"),"getKeyDisplayString|func_74298_c",((Number)call(key,"getKeyCode|func_151463_i")).intValue()));
-            call(font,"drawStringWithShadow|func_175063_a","["+help+"] "+("metro_railgun".equals(id)?"зарядить":"накачать"),(float)(width/2+95),(float)(height-41),0xaaaaaa);
+            call(font,"drawStringWithShadow|func_175063_a","["+help+"] "+("metro_railgun".equals(id)?"зарядить":"накачать"),(float)x,(float)(height-41),0xaaaaaa);
         } catch(Exception e) {throw new IllegalStateException("Metro energy HUD failed",e);}
     }
 }

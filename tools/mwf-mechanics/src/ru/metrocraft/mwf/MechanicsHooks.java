@@ -14,7 +14,7 @@ public final class MechanicsHooks {
     private static final Map<Object, State> STATES = new HashMap<Object, State>();
     private static boolean installed;
     static final class State {
-        long lastPump = Long.MIN_VALUE, busyUntil, nextFire, lastRailShot = Long.MIN_VALUE;
+        long lastPump = Long.MIN_VALUE, busyUntil, nextFire;
         Shot shot;
     }
     static final class Shot {
@@ -99,10 +99,14 @@ public final class MechanicsHooks {
             if(MechanicsRules.energyGun(actual)) {
                 int value=energy(stack);
                 if(value<MechanicsRules.cost(actual))return reject(player);
-                long since=s.lastRailShot==Long.MIN_VALUE?1000:Math.max(0,tick-s.lastRailShot);
+                Object n=tag(stack);long since=1000;
+                if("metro_railgun".equals(actual)&&Boolean.TRUE.equals(call(n,"hasKey|func_74764_b","metroRailLastShot"))) {
+                    long last=((Number)call(n,"getLong|func_74763_f","metroRailLastShot")).longValue();
+                    if(last<=tick)since=tick-last;
+                }
                 factor=MechanicsRules.damage(actual,value,since,attachment(stack,"metro_mod_railgun_kon"));
-                call(tag(stack),"setInteger|func_74768_a",ENERGY,MechanicsRules.afterShot(actual,value,maximum(stack)));
-                s.lastRailShot=tick;
+                call(n,"setInteger|func_74768_a",ENERGY,MechanicsRules.afterShot(actual,value,maximum(stack)));
+                if("metro_railgun".equals(actual))call(n,"setLong|func_74772_a","metroRailLastShot",tick);
             }
             s.nextFire=tick+MechanicsRules.fireInterval(rpm);
             int pellets=Math.max(1,((Number)field(gt,"numBullets")).intValue());

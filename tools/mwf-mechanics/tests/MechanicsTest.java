@@ -111,6 +111,14 @@ public final class MechanicsTest {
         attach(rail.getHeldItemMainhand(),"metro_mod_railgun_kon");equal(MechanicsHooks.maximum(rail.getHeldItemMainhand()),100,"capacitor not a capacity upgrade");
         check(MechanicsRules.damage("metro_railgun",100,9,true)>MechanicsRules.damage("metro_railgun",100,9,false),"capacitor accumulates full shot sooner");
         check(Math.abs(MechanicsRules.damage("metro_railgun",100,9,true)-1f)<.0001,"upgraded full charge at nine ticks");
+        Player twoRails=player("metro_railgun",100);ItemStack first=twoRails.getHeldItemMainhand();
+        check(MechanicsHooks.beforeShot(twoRails,new Packet("metro_railgun",1)),"first rail shot");
+        twoRails.world.tick+=8;twoRails.inventory.slots[0]=gun("metro_railgun",100);
+        check(MechanicsHooks.beforeShot(twoRails,new Packet("metro_railgun",1)),"second rail shot after player cooldown");
+        check(Math.abs(MechanicsHooks.scaleDamage(10,twoRails)-10f)<.0001,"independent rail stack has independent accumulator");
+        Player saved=player("metro_railgun",0);saved.inventory.slots[0]=first.copy();saved.world.tick=103;
+        check(MechanicsHooks.beforeShot(saved,new Packet("metro_railgun",1)),"saved rail state can fire");
+        check(MechanicsHooks.scaleDamage(10,saved)<3,"saved NBT remembers incomplete accumulator charge");
         Player client=player("metro_tihar",100);FMLCommonHandler.side=FMLCommonHandler.Side.CLIENT;
         MechanicsHooks.afterConsume(client.getHeldItemMainhand());equal(MechanicsHooks.energy(client.getHeldItemMainhand()),92,"client predicts one charge consumption");
         FMLCommonHandler.side=FMLCommonHandler.Side.SERVER;MechanicsHooks.afterConsume(client.getHeldItemMainhand());

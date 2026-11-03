@@ -245,14 +245,16 @@ def build(args):
         if p.exists(): shutil.rmtree(p)
         p.mkdir(parents=True)
     javac, java = args.javac, args.java
-    run([javac, '--release', '8', '-encoding', 'UTF-8', '-d', stub_classes, *module.materialize(stubs)])
+    # The supplied fat JAR contains Mixin annotation processors. We are not compiling mixins
+    # and must not auto-run those processors (nor substitute an upstream dependency graph).
+    run([javac, '-proc:none', '--release', '8', '-encoding', 'UTF-8', '-d', stub_classes, *module.materialize(stubs)])
     classpath = os.pathsep.join(map(str, [stub_classes, args.mwf_jar]))
-    run([javac, '--release', '8', '-encoding', 'UTF-8', '-cp', classpath, '-d', helper_classes, *sorted((SOURCE / 'src').rglob('*.java'))])
+    run([javac, '-proc:none', '--release', '8', '-encoding', 'UTF-8', '-cp', classpath, '-d', helper_classes, *sorted((SOURCE / 'src').rglob('*.java'))])
     testpath = os.pathsep.join(map(str, [helper_classes, stub_classes, args.mwf_jar]))
-    run([javac, '--release', '8', '-encoding', 'UTF-8', '-cp', testpath, '-d', test_classes,
+    run([javac, '-proc:none', '--release', '8', '-encoding', 'UTF-8', '-cp', testpath, '-d', test_classes,
          *module.materialize(backend, True), *sorted((SOURCE / 'tests').rglob('*.java'))])
     testlog = run([java, '-Xverify:all', '-cp', os.pathsep.join(map(str, [test_classes, helper_classes, stub_classes, args.mwf_jar])), 'ru.metrocraft.mwf.MechanicsTest'])
-    run([javac, *EXPORTS, '-encoding', 'UTF-8', '-d', tool_classes, SOURCE / 'PatchMwf.java'])
+    run([javac, '-proc:none', *EXPORTS, '-encoding', 'UTF-8', '-d', tool_classes, SOURCE / 'PatchMwf.java'])
     patched = args.output_dir / JAR_NAME
     patchlog = run([java, *EXPORTS, '-cp', tool_classes, 'PatchMwf', args.mwf_jar, patched, helper_classes])
     jar_report = validate_jar(args.mwf_jar, patched, helper_classes)
