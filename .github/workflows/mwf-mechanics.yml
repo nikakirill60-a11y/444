@@ -1,0 +1,58 @@
+name: Integrated Metro MWF mechanics
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths:
+      - 'tools/mwf-mechanics/**'
+      - 'tools/build_mwf_mechanics.py'
+      - '.github/workflows/mwf-mechanics.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-integrated-mwf:
+    if: github.ref == 'refs/heads/arena/dcab859f-444'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/dcab859f-444
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/mwf-mechanics/
+            /tools/build_mwf_mechanics.py
+            /downloads/Metro_Full_Arsenal_MWF_fix1_v2_compat.zip
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Fetch exact supplied MWF binary
+        run: |
+          mkdir -p .cache/mechanics
+          curl --fail --location --retry 3 --output .cache/mechanics/selected.jar \
+            'https://raw.githubusercontent.com/nikakirill60-a11y/444/ce2783694767296a102221f69f622d35264924e4/modularwarfare-shining-2024.2.4.6f-fix1.jar'
+      - name: Install pinned audio tool
+        run: python -m pip install imageio-ffmpeg==0.6.0
+      - name: Compile, test, patch exact binary and build content pack
+        run: python tools/build_mwf_mechanics.py --mwf-jar .cache/mechanics/selected.jar
+      - name: Publish only verified deliverables on this same branch
+        run: |
+          if [ "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" != "$GITHUB_SHA" ]; then
+            echo 'A newer source commit exists; refusing to publish stale binaries.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --sparse -- \
+            downloads/modularwarfare-shining-2024.2.4.6f-fix1-metro1.jar \
+            downloads/Metro_Full_Arsenal_MWF_fix1_v3_mechanics.zip \
+            downloads/MWF_Mechanics_v1_report.json \
+            downloads/MWF_Mechanics_v1_README_RU.txt
+          git diff --cached --check
+          git commit -m 'Publish verified integrated MWF mechanics and arsenal v3 [skip ci]'
+          git push origin arena/dcab859f-444
