@@ -55,6 +55,14 @@ public final class PatchMwf implements Opcodes {
             boolean shot=cls.name.equals("com/modularwarfare/common/network/PacketExpShot$1")&&method.name.equals("run");
             boolean hit=cls.name.equals("com/modularwarfare/common/network/PacketExpGunFire$1")&&method.name.equals("run");
             if(shot||hit) {gate(cls,method,shot?"beforeShot":"beforeHit");changed=true;}
+            if(cls.name.equals("com/modularwarfare/common/guns/manager/ShotManager")&&method.name.equals("fireServer")) {
+                InsnList inject=new InsnList();LabelNode pass=new LabelNode();
+                inject.add(new VarInsnNode(ALOAD,0));inject.add(new VarInsnNode(ALOAD,4));
+                inject.add(hook("allowLegacy","(Ljava/lang/Object;Ljava/lang/Object;)Z"));
+                inject.add(new JumpInsnNode(IFNE,pass));inject.add(new InsnNode(RETURN));inject.add(pass);
+                inject.add(new FrameNode(F_SAME,0,null,0,null));method.instructions.insert(inject);
+                count("allowLegacy");changed=true;
+            }
             for(AbstractInsnNode ins:method.instructions.toArray()) {
                 if(ins instanceof FieldInsnNode) {
                     FieldInsnNode f=(FieldInsnNode)ins;
@@ -125,7 +133,7 @@ public final class PatchMwf implements Opcodes {
         }
         if(edits.getOrDefault("capacity",0)!=15||edits.getOrDefault("beforeShot",0)!=1||edits.getOrDefault("beforeHit",0)!=1
             ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=5
-            ||edits.getOrDefault("afterConsume",0)!=1)throw new IllegalStateException("Unexpected hook counts: "+edits);
+            ||edits.getOrDefault("afterConsume",0)!=1||edits.getOrDefault("allowLegacy",0)!=1)throw new IllegalStateException("Unexpected hook counts: "+edits);
         try(var paths=Files.walk(helpers.resolve("ru/metrocraft/mwf"))) {
             for(Path p:paths.filter(p->p.toString().endsWith(".class")).toList()) {
                 String name=helpers.relativize(p).toString().replace(File.separatorChar,'/');

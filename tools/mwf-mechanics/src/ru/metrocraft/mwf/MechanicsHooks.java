@@ -132,6 +132,11 @@ public final class MechanicsHooks {
             --shot.remaining; return true;
         } catch(Exception e) { LOG.warning("Hit refused: "+e); return false; }
     }
+    /** The Metro pack is Enhanced. Never let a legacy/basic packet bypass its logical-shot gate. */
+    public static boolean allowLegacy(Object player,Object stack) {
+        try {return !scoped(id(held(player)))&&!scoped(id(stack))?true:reject(player);}
+        catch(Exception e){LOG.warning("Legacy shot refused: "+e);return false;}
+    }
     public static float scaleDamage(float base,Object player) {
         try {
             if(!scoped(id(held(player))))return base;

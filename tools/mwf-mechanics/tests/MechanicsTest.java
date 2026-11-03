@@ -38,6 +38,7 @@ public final class MechanicsTest {
     static void pumpTests() throws Exception {
         Player p=player("metro_tihar",0);ItemStack g=p.getHeldItemMainhand();
         check(!MechanicsHooks.beforeShot(p,new Packet("metro_tihar",0)),"empty pressure rejects shot");
+        check(!MechanicsHooks.allowLegacy(p,g),"legacy/basic packet cannot bypass pressure authorization");
         check(MechanicsHooks.pump(p,0),"first pump accepted");equal(MechanicsHooks.energy(g),20,"pump adds 20");
         check(!MechanicsHooks.pump(p,0),"same-tick spam rejected");check(!MechanicsHooks.beforeShot(p,new Packet("metro_tihar",0)),"cannot fire during pumping");
         p.world.tick+=10;check(MechanicsHooks.beforeShot(p,new Packet("metro_tihar",0)),"charged shot accepted");
@@ -58,6 +59,7 @@ public final class MechanicsTest {
         check(!MechanicsHooks.beforeHit(zero,new Packet("metro_helsing",1)),"hit weapon-ID spoof refused");
         Player normal=player("metro_ak",0);check(MechanicsHooks.beforeShot(normal,new Packet("metro_ak",1)),"unrelated gun untouched");
         check(MechanicsHooks.beforeHit(normal,new Packet("metro_ak",1)),"unrelated hit untouched");
+        check(MechanicsHooks.allowLegacy(normal,normal.getHeldItemMainhand()),"unrelated legacy path untouched");
         Player negative=player("metro_helsing",-99);equal(MechanicsHooks.energy(negative.getHeldItemMainhand()),0,"negative pressure clamped");
         Player huge=player("metro_tihar",Integer.MAX_VALUE);equal(MechanicsHooks.energy(huge.getHeldItemMainhand()),120,"NBT pressure cannot exceed maximum");
         Player noammo=player("metro_tihar",100);noammo.getHeldItemMainhand().tag.setInteger("ammocount",0);
