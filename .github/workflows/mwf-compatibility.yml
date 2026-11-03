@@ -1,0 +1,44 @@
+name: MWF attachment compatibility
+on:
+  push:
+    paths:
+      - 'tools/patch_full_mwf_compatibility.py'
+      - 'tests_mwf/test_full_pack_compatibility.py'
+      - 'downloads/Metro_Full_Arsenal_MWF_fix1_v2_compat.zip'
+      - '.github/workflows/mwf-compatibility.yml'
+  pull_request:
+    paths:
+      - 'tools/patch_full_mwf_compatibility.py'
+      - 'tests_mwf/test_full_pack_compatibility.py'
+      - 'downloads/Metro_Full_Arsenal_MWF_fix1_v2_compat.zip'
+      - '.github/workflows/mwf-compatibility.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compatibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch exact selected MWF build from pinned upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p .cache/compatibility
+          gh api -H 'Accept: application/vnd.github.raw+json' \
+            repos/${{ github.repository }}/contents/modularwarfare-shining-2024.2.4.6f-fix1.jar?ref=ce2783694767296a102221f69f622d35264924e4 \
+            > .cache/compatibility/selected.jar
+      - name: Validate distributed archive and actual JAR schemas
+        env:
+          MWF_JAR: .cache/compatibility/selected.jar
+        run: python -m unittest discover -s tests_mwf -p test_full_pack_compatibility.py -v
+      - name: Rebuild without changing baseline assets
+        run: python tools/patch_full_mwf_compatibility.py --output .cache/compatibility/rebuilt.zip
+      - name: Validate rebuilt archive
+        env:
+          MWF_JAR: .cache/compatibility/selected.jar
+          MWF_COMPAT_ZIP: .cache/compatibility/rebuilt.zip
+        run: python -m unittest discover -s tests_mwf -p test_full_pack_compatibility.py -v
