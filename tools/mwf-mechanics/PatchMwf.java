@@ -124,8 +124,8 @@ public final class PatchMwf implements Opcodes {
             }
         }
         if(edits.getOrDefault("capacity",0)!=15||edits.getOrDefault("beforeShot",0)!=1||edits.getOrDefault("beforeHit",0)!=1
-            ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=1
-            ||edits.getOrDefault("afterConsume",0)<1)throw new IllegalStateException("Unexpected hook counts: "+edits);
+            ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=5
+            ||edits.getOrDefault("afterConsume",0)!=1)throw new IllegalStateException("Unexpected hook counts: "+edits);
         try(var paths=Files.walk(helpers.resolve("ru/metrocraft/mwf"))) {
             for(Path p:paths.filter(p->p.toString().endsWith(".class")).toList()) {
                 String name=helpers.relativize(p).toString().replace(File.separatorChar,'/');

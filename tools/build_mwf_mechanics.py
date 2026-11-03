@@ -69,7 +69,7 @@ README = '''METRO MWF MECHANICS 1.0 / Minecraft 1.12.2
 Это обработанные исходные записи пака: фильтрация, компрессия и короткий хвост;
 не выдаются за оригинальные игровые записи выстрелов с глушителем Metro.
 Маршрутизация — штатный isSuppressor MWF, локально и для других игроков.
-Дульный тормоз Абзаца больше не считается звуковым глушителем.
+Дульный тормоз Абзаца и пламегаситель Вентиля/Преведа не считаются звуковыми глушителями.
 
 ЧЕГО ЭТА ВЕРСИЯ НЕ ДЕЛАЕТ
 Нет полноценной струи огнемёта, вращения Gatling, автоадаптеров и новых моделей.
@@ -143,6 +143,9 @@ def patch_pack(source, output, patched_jar, work):
     brake = json.loads(files[brake_path]); brake['barrel']['isSuppressor'] = False
     brake['barrel']['hideFlash'] = True; brake['displayName'] = 'Дульный тормоз Абзаца'
     files[brake_path] = js(brake)
+    flash_path = 'attachments/metro_mod_ventil_glushak.json'
+    flash = json.loads(files[flash_path]); flash['barrel']['isSuppressor'] = False
+    files[flash_path] = js(flash)
     modules = {json.loads(v)['internalName']: json.loads(v) for n, v in files.items()
                if n.startswith('attachments/') and n.count('/') == 1 and n.endswith('.json')}
     suppressed = []
