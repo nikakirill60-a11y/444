@@ -120,12 +120,14 @@ public final class PatchMwf implements Opcodes {
         Path source=Paths.get(args[0]),destination=Paths.get(args[1]),helpers=Paths.get(args[2]);
         if(source.toAbsolutePath().equals(destination.toAbsolutePath()))throw new IllegalArgumentException("Never overwrite the original JAR");
         if(!BASE.equals(sha(Files.readAllBytes(source))))throw new IllegalArgumentException("Not the selected closed MWF JAR");
-        TreeMap<String,byte[]> files=new TreeMap<>();
+        // Keep the original manifest-first order and explicit directory entries as well as files.
+        LinkedHashMap<String,byte[]> files=new LinkedHashMap<>();
         try(ZipFile zip=new ZipFile(source.toFile())) {
             Enumeration<? extends ZipEntry> entries=zip.entries();
             while(entries.hasMoreElements()) {
-                ZipEntry e=entries.nextElement();if(e.isDirectory())continue;
+                ZipEntry e=entries.nextElement();
                 String n=e.getName();if(n.matches("(?i)META-INF/[^/]+\\.(SF|RSA|DSA)"))continue;
+                if(e.isDirectory()){files.put(n,new byte[0]);continue;}
                 byte[] data=zip.getInputStream(e).readAllBytes();
                 if(n.startsWith("com/modularwarfare/")&&n.endsWith(".class"))data=patch(data);
                 if(files.put(n,data)!=null)throw new IllegalStateException("Duplicate original entry "+n);
@@ -135,7 +137,7 @@ public final class PatchMwf implements Opcodes {
             ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=5
             ||edits.getOrDefault("afterConsume",0)!=1||edits.getOrDefault("allowLegacy",0)!=1)throw new IllegalStateException("Unexpected hook counts: "+edits);
         try(var paths=Files.walk(helpers.resolve("ru/metrocraft/mwf"))) {
-            for(Path p:paths.filter(p->p.toString().endsWith(".class")).toList()) {
+            for(Path p:paths.filter(p->p.toString().endsWith(".class")).sorted().toList()) {
                 String name=helpers.relativize(p).toString().replace(File.separatorChar,'/');
                 if(name.contains("Test"))continue;
                 if(files.put(name,Files.readAllBytes(p))!=null)throw new IllegalStateException("Helper already present: "+name);

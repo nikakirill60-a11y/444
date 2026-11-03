@@ -224,6 +224,9 @@ def validate_jar(base, patched, classes):
     with zipfile.ZipFile(base) as b, zipfile.ZipFile(patched) as z:
         assert z.testzip() is None and len(z.namelist()) == len(set(z.namelist()))
         names = set(z.namelist())
+        import re
+        original_names = {n for n in b.namelist() if not re.fullmatch(r'META-INF/[^/]+\.(?:SF|RSA|DSA)', n, re.IGNORECASE)}
+        assert original_names <= names, 'Original JAR entries, including resource directories, were removed'
         helpers = {n for n in names if n.startswith('ru/metrocraft/mwf/')}
         assert helpers and all(n.endswith('.class') and 'Test' not in n for n in helpers)
         assert not any(n.startswith(('net/', 'io/')) and n not in b.namelist() for n in names), 'Compile facades leaked into JAR'
