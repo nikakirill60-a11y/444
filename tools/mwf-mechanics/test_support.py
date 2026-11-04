@@ -69,6 +69,8 @@ public class RenderGameOverlayEvent extends net.minecraftforge.fml.common.eventh
 
 # Test-only replacements for reflective backend calls; production compiles against the real MWF JAR.
 TEST_BACKEND = {
+'com/modularwarfare/common/guns/ItemBullet.java': '''package com.modularwarfare.common.guns;
+public class ItemBullet extends net.minecraft.item.Item {public ItemBullet(String id){super(id,64);}}''',
 'com/modularwarfare/common/guns/ItemGun.java': '''package com.modularwarfare.common.guns;
 public class ItemGun extends net.minecraft.item.Item {public Object type;public ItemGun(String name,Object type){super("modularwarfare:"+name,1);this.type=type;}
  public static boolean hasNextShot(net.minecraft.item.ItemStack stack){return stack.tag!=null&&stack.tag.getInteger("ammocount")>0;}}

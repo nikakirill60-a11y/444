@@ -64,6 +64,25 @@ public final class PatchMwf implements Opcodes {
                 count("allowLegacy");changed=true;
             }
             for(AbstractInsnNode ins:method.instructions.toArray()) {
+                if(ins.getOpcode()==AALOAD) {
+                    // The crash at GuiGunModify:1457 is modelSkins[skinId] with stale skinId=1
+                    // and a one-element array. Guard native direct skin reads, not all arrays.
+                    AbstractInsnNode index=ins.getPrevious();
+                    while(index!=null&&index.getOpcode()<0)index=index.getPrevious();
+                    AbstractInsnNode array=index==null?null:index.getPrevious();
+                    while(array!=null&&array.getOpcode()<0)array=array.getPrevious();
+                    if(array instanceof FieldInsnNode) {
+                        FieldInsnNode f=(FieldInsnNode)array;
+                        if(f.getOpcode()==GETFIELD&&f.name.equals("modelSkins")
+                            &&f.desc.equals("[Lcom/modularwarfare/common/guns/SkinType;")) {
+                            method.instructions.set(ins,new MethodInsnNode(INVOKESTATIC,"ru/metrocraft/mwf/SafeSkins","select",
+                                "([Lcom/modularwarfare/common/guns/SkinType;I)Lcom/modularwarfare/common/guns/SkinType;",false));
+                            count("safeSkin");
+                            if(cls.name.equals("com/modularwarfare/client/gui/GuiGunModify")&&method.name.equals("lambda$null$12"))count("crashGuiSkin");
+                            changed=true;continue;
+                        }
+                    }
+                }
                 if(ins instanceof FieldInsnNode) {
                     FieldInsnNode f=(FieldInsnNode)ins;
                     if(f.getOpcode()==GETFIELD&&f.owner.equals(GUN)&&f.name.equals("internalAmmoStorage")) {
@@ -97,10 +116,10 @@ public final class PatchMwf implements Opcodes {
             }
         }
         if(cls.name.equals("com/modularwarfare/ModularWarfare")) {
-            for(FieldNode f:cls.fields)if(f.name.equals("MOD_VERSION"))f.value="2024.2.4.6f-metro1";
+            for(FieldNode f:cls.fields)if(f.name.equals("MOD_VERSION"))f.value="2024.2.4.6f-metro2";
             for(AnnotationNode a:cls.visibleAnnotations)if(a.desc.equals("Lnet/minecraftforge/fml/common/Mod;")) {
-                for(int i=0;i<a.values.size();i+=2)if(a.values.get(i).equals("version"))a.values.set(i+1,"2024.2.4.6f-metro1");
-                a.values.add("acceptableRemoteVersions");a.values.add("[2024.2.4.6f-metro1]");
+                for(int i=0;i<a.values.size();i+=2)if(a.values.get(i).equals("version"))a.values.set(i+1,"2024.2.4.6f-metro2");
+                a.values.add("acceptableRemoteVersions");a.values.add("[2024.2.4.6f-metro2]");
             }
             changed=true;
         }
@@ -135,7 +154,8 @@ public final class PatchMwf implements Opcodes {
         }
         if(edits.getOrDefault("capacity",0)!=15||edits.getOrDefault("beforeShot",0)!=1||edits.getOrDefault("beforeHit",0)!=1
             ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=5
-            ||edits.getOrDefault("afterConsume",0)!=1||edits.getOrDefault("allowLegacy",0)!=1)throw new IllegalStateException("Unexpected hook counts: "+edits);
+            ||edits.getOrDefault("afterConsume",0)!=1||edits.getOrDefault("allowLegacy",0)!=1
+            ||edits.getOrDefault("crashGuiSkin",0)!=2||edits.getOrDefault("safeSkin",0)<2)throw new IllegalStateException("Unexpected hook counts: "+edits);
         try(var paths=Files.walk(helpers.resolve("ru/metrocraft/mwf"))) {
             for(Path p:paths.filter(p->p.toString().endsWith(".class")).sorted().toList()) {
                 String name=helpers.relativize(p).toString().replace(File.separatorChar,'/');
@@ -143,7 +163,7 @@ public final class PatchMwf implements Opcodes {
                 if(files.put(name,Files.readAllBytes(p))!=null)throw new IllegalStateException("Helper already present: "+name);
             }
         }
-        files.put("metro-mechanics-build.txt",("Metro mechanics 1.0\nBase SHA-256: "+BASE+"\nHooks: "+edits+"\nNot Minecraft runtime validated.\n").getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        files.put("metro-mechanics-build.txt",("Metro mechanics 1.1\nBase SHA-256: "+BASE+"\nHooks: "+edits+"\nNot Minecraft runtime validated.\n").getBytes(java.nio.charset.StandardCharsets.UTF_8));
         Files.createDirectories(destination.getParent());
         try(ZipOutputStream zip=new ZipOutputStream(Files.newOutputStream(destination))) {
             for(var entry:files.entrySet()) {ZipEntry e=new ZipEntry(entry.getKey());e.setTime(0);zip.putNextEntry(e);zip.write(entry.getValue());zip.closeEntry();}

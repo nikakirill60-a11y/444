@@ -44,7 +44,8 @@ public final class AttachmentTransactions {
         if(count(gun)!=1)throw new Refusal("В слоте должен быть один Дуплет.");
         Object tag=call(gun,"getTagCompound|func_77978_p");
         if(tag==null)throw new Refusal("Подожди один тик после получения оружия.");
-        if(((Number)call(tag,"getInteger|func_74762_e","ammocount")).intValue()!=0)throw new Refusal("Сначала полностью разряди Дуплет.");
+        int loaded=((Number)call(tag,"getInteger|func_74762_e","ammocount")).intValue();
+        if(loaded<0||loaded>4)throw new Refusal("Некорректное количество патронов Дуплета; операция отменена.");
         Object uuid=call(player,"getUniqueID|func_110124_au");
         Class<?> handler=Class.forName("com.modularwarfare.common.handler.ServerTickHandler");
         for(String name:new String[]{"playerReloadCooldown","reloadEnhancedTask"}) {
@@ -77,8 +78,30 @@ public final class AttachmentTransactions {
         }
         // Capacity is read dynamically from this stack; never swap item IDs or mutate GunType.
         if(!BASE.equals(id(updated))||count(updated)!=1)throw new Refusal("Некорректный Дуплет.");
+        int capacity=MechanicsHooks.capacity(field(call(updated,"getItem|func_77973_b"),"type"),updated).intValue();
+        int excess=Math.max(0,loaded-capacity);
+        Object extraRounds=null;
+        if(excess>0) {
+            // Native loose-ammo MWF stores the actual loaded bullet ItemStack under "bullet".
+            // Never invent default rounds or discard custom bullet NBT when reducing 4 -> 2.
+            if(!Boolean.TRUE.equals(call(tag,"hasKey|func_74764_b","bullet")))
+                throw new Refusal("Не найден тип заряженных патронов; операция отменена без потерь.");
+            extraRounds=fromNbt(gun,call(tag,"getCompoundTag|func_74775_l","bullet"));
+            if(empty(extraRounds)||!Class.forName("com.modularwarfare.common.guns.ItemBullet").isInstance(call(extraRounds,"getItem|func_77973_b")))
+                throw new Refusal("Некорректный тип заряженных патронов.");
+            Object gunType=field(call(gun,"getItem|func_77973_b"),"type");
+            Object accepted=field(gunType,"acceptedBullets");
+            boolean compatible=false;
+            if(accepted instanceof String[])for(String allowed:(String[])accepted)
+                if(allowed.equals(MechanicsHooks.id(extraRounds)))compatible=true;
+            if(!compatible)throw new Refusal("Заряженные патроны не подходят Дуплету.");
+            call(extraRounds,"setCount|func_190920_e",excess);
+            call(nbt,"setInteger|func_74768_a","ammocount",loaded-excess);
+        }
         plan[held]=updated;
         for(Object item:returned){if(count(item)!=1)throw new Refusal("Некорректное количество сохранённого обвеса.");if(!insert(plan,item))throw new Refusal("Освободи место в инвентаре для снятого обвеса.");}
+        if(extraRounds!=null&&!insert(plan,extraRounds))
+            throw new Refusal("Освободи место для лишних патронов; обвес и заряд не изменены.");
         // All validation, consumption and return-space checks happen on copies first.
         // Native inventory writes run together on the server thread, with rollback if an API call fails.
         try {

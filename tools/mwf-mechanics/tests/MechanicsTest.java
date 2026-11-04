@@ -12,12 +12,13 @@ public final class MechanicsTest {
     static int checks;
     static void check(boolean value,String label){checks++;if(!value)throw new AssertionError(label);}
     static void equal(int actual,int expected,String label){check(actual==expected,label+": "+actual+" != "+expected);}
-    public static final class Type {public Integer internalAmmoStorage=2;public String internalName;public int roundsPerMin=150,numBullets=1;Type(String id){internalName=id;}}
+    public static final class Type {public Integer internalAmmoStorage=2;public String internalName;public String[] acceptedBullets={"metro_12g_buckshot"};public int roundsPerMin=150,numBullets=1;Type(String id){internalName=id;}}
     public static final class World {public boolean isRemote;public long tick=100;public long getTotalWorldTime(){return tick;}}
     public static final class Inventory {
         public int currentItem;public ItemStack[] slots=new ItemStack[41];public ItemStack cursor=ItemStack.EMPTY;
         public Inventory(){Arrays.fill(slots,ItemStack.EMPTY);}public ItemStack getStackInSlot(int i){return slots[i];}
-        public void setInventorySlotContents(int i,ItemStack s){slots[i]=s;}public ItemStack getItemStack(){return cursor;}
+        public int writes,failOnWrite=-1;
+        public void setInventorySlotContents(int i,ItemStack s){if(++writes==failOnWrite)throw new IllegalStateException("simulated inventory API failure");slots[i]=s;}public ItemStack getItemStack(){return cursor;}
         public void setItemStack(ItemStack s){cursor=s;}public void markDirty(){}
     }
     public static final class Container {public List<Object> inventorySlots=new ArrayList<Object>();public Container(){for(int i=0;i<46;i++)inventorySlots.add(new Object());}}
@@ -89,10 +90,11 @@ public final class MechanicsTest {
         AttachmentTransactions.transact(p,p.getHeldItemMainhand(),null,"barrel",false);
         check(!MechanicsHooks.attachment(p.getHeldItemMainhand(),"metro_duplet_extra_barrels"),"quad removed");
         check("metro_duplet_extra_barrels".equals(MechanicsHooks.id(p.inventory.slots[1])),"module returned");
-        p.getHeldItemMainhand().tag.setInteger("ammocount",4);
-        boolean refused=false;try{AttachmentTransactions.transact(p,p.getHeldItemMainhand(),p.inventory.slots[1],null,false);}catch(AttachmentTransactions.Refusal e){refused=true;}
-        check(refused,"loaded weapon modification refused without losing shells");
-        equal(p.getHeldItemMainhand().tag.getInteger("ammocount"),4,"loaded shells unchanged");
+        p.getHeldItemMainhand().tag.setInteger("ammocount",2);
+        AttachmentTransactions.transact(p,p.getHeldItemMainhand(),p.inventory.slots[1],null,false);
+        equal(p.getHeldItemMainhand().tag.getInteger("ammocount"),2,"loaded base installs quad without unloading");
+        equal(MechanicsHooks.capacity(((ItemGun)p.getHeldItemMainhand().item).type,p.getHeldItemMainhand()),4,"loaded upgrade expands capacity");
+        boolean refused=false;
         p.getHeldItemMainhand().tag.setInteger("ammocount",0);
         for(int i=1;i<36;i++)p.inventory.slots[i]=new ItemStack(new Item("test:stone",64),64);
         attach(p.getHeldItemMainhand(),"metro_duplet_extra_barrels");NBTTagCompound before=p.getHeldItemMainhand().writeToNBT(new NBTTagCompound());
@@ -102,6 +104,86 @@ public final class MechanicsTest {
         AttachmentTransactions.transact(p,p.getHeldItemMainhand(),p.inventory.cursor,null,false);
         check(p.inventory.cursor.isEmpty(),"cursor module consumed once");check(MechanicsHooks.attachment(p.getHeldItemMainhand(),"metro_duplet_suppressor"),"cursor replacement installed");
         check("metro_duplet_extra_barrels".equals(MechanicsHooks.id(p.inventory.slots[1])),"replaced quad returned atomically");
+    }
+    static ItemStack bullet(int amount) {
+        ItemStack s=new ItemStack(new com.modularwarfare.common.guns.ItemBullet("modularwarfare:metro_12g_buckshot"),amount);
+        s.tag=new NBTTagCompound();s.tag.setString("batch","preserve-custom-bullet-nbt");return s;
+    }
+    static void loaded(ItemStack gun,int rounds) {
+        gun.tag.setInteger("ammocount",rounds);gun.tag.setTag("bullet",bullet(1).writeToNBT(new NBTTagCompound()));
+    }
+    static int inventoryCount(Player p,String id) throws Exception {
+        int result=0;for(int i=0;i<36;i++)if(id.equals(MechanicsHooks.id(p.inventory.slots[i])))result+=p.inventory.slots[i].count;
+        return result;
+    }
+    static List<NBTTagCompound> snapshot(Player p) {
+        List<NBTTagCompound> result=new ArrayList<NBTTagCompound>();
+        for(int i=0;i<36;i++)result.add(p.inventory.slots[i].writeToNBT(new NBTTagCompound()));
+        result.add(p.inventory.cursor.writeToNBT(new NBTTagCompound()));return result;
+    }
+    static void loadedTransactions() throws Exception {
+        for(int rounds=0;rounds<=4;rounds++) {
+            Player p=player("metro_duplet",0);loaded(p.getHeldItemMainhand(),rounds);attach(p.getHeldItemMainhand(),"metro_duplet_extra_barrels");
+            AttachmentTransactions.transact(p,p.getHeldItemMainhand(),null,"barrel",false);
+            equal(p.getHeldItemMainhand().tag.getInteger("ammocount"),Math.min(2,rounds),"removing quad retains loaded rounds "+rounds);
+            equal(inventoryCount(p,"metro_12g_buckshot"),Math.max(0,rounds-2),"exact excess returned "+rounds);
+            equal(inventoryCount(p,"metro_duplet_extra_barrels"),1,"removed quad returned once "+rounds);
+            for(ItemStack item:p.inventory.slots)if("metro_12g_buckshot".equals(MechanicsHooks.id(item)))
+                check("preserve-custom-bullet-nbt".equals(item.tag.getString("batch")),"returned bullet metadata preserved");
+        }
+        for(String incoming:new String[]{"metro_duplet_suppressor","metro_duplet_long_barrel"}) {
+            Player p=player("metro_duplet",0);loaded(p.getHeldItemMainhand(),4);attach(p.getHeldItemMainhand(),"metro_duplet_extra_barrels");
+            p.inventory.slots[1]=module(incoming);
+            AttachmentTransactions.transact(p,p.getHeldItemMainhand(),p.inventory.slots[1],null,false);
+            equal(p.getHeldItemMainhand().tag.getInteger("ammocount"),2,"loaded barrel replacement retains two");
+            equal(inventoryCount(p,"metro_12g_buckshot"),2,"loaded barrel replacement refunds two");
+            check(MechanicsHooks.attachment(p.getHeldItemMainhand(),incoming),"replacement installed");
+            equal(inventoryCount(p,incoming),0,"incoming consumed exactly once");
+        }
+        Player full=player("metro_duplet",0);loaded(full.getHeldItemMainhand(),4);attach(full.getHeldItemMainhand(),"metro_duplet_extra_barrels");
+        for(int i=1;i<36;i++)full.inventory.slots[i]=new ItemStack(new Item("test:stone",64),64);
+        full.inventory.slots[1]=ItemStack.EMPTY; // room for module, but not for two shells
+        List<NBTTagCompound> before=snapshot(full);
+        boolean refused=false;try{AttachmentTransactions.transact(full,full.getHeldItemMainhand(),null,"barrel",false);}catch(AttachmentTransactions.Refusal e){refused=true;}
+        check(refused,"no shell space refuses entire operation");check(before.equals(snapshot(full)),"no item/NBT loss when only module fits");
+        full.inventory.slots[2]=bullet(62);
+        AttachmentTransactions.transact(full,full.getHeldItemMainhand(),null,"barrel",false);
+        equal(full.inventory.slots[2].count,64,"excess shells merge into compatible existing stack");
+        equal(full.getHeldItemMainhand().tag.getInteger("ammocount"),2,"successful merged refund leaves two");
+        Player rollback=player("metro_duplet",0);loaded(rollback.getHeldItemMainhand(),4);attach(rollback.getHeldItemMainhand(),"metro_duplet_extra_barrels");
+        rollback.inventory.cursor=module("metro_duplet_suppressor");before=snapshot(rollback);rollback.inventory.failOnWrite=2;
+        refused=false;try{AttachmentTransactions.transact(rollback,rollback.getHeldItemMainhand(),rollback.inventory.cursor,null,false);}catch(Exception e){refused=true;}
+        check(refused,"simulated backend error propagates");check(before.equals(snapshot(rollback)),"rollback restores gun, shells, attachments and cursor");
+        for(boolean all:new boolean[]{false,true}) {
+            Player p=player("metro_duplet",0);loaded(p.getHeldItemMainhand(),4);attach(p.getHeldItemMainhand(),"metro_duplet_extra_barrels");
+            p.getHeldItemMainhand().tag.setTag("attachment_laser",module("metro_mod_laser").writeToNBT(new NBTTagCompound()));
+            AttachmentTransactions.transact(p,p.getHeldItemMainhand(),null,all?null:"laser",all);
+            equal(p.getHeldItemMainhand().tag.getInteger("ammocount"),all?2:4,"unload all versus unrelated slot preserves capacity");
+            equal(inventoryCount(p,"metro_12g_buckshot"),all?2:0,"unrelated slot must not eject shells");
+        }
+        for(int mode=0;mode<4;mode++) {
+            Player p=player("metro_duplet",0);loaded(p.getHeldItemMainhand(),4);attach(p.getHeldItemMainhand(),"metro_duplet_extra_barrels");
+            if(mode==0)p.getHeldItemMainhand().tag.removeTag("bullet");
+            if(mode==1)p.getHeldItemMainhand().tag.setTag("bullet",module("metro_duplet_stock").writeToNBT(new NBTTagCompound()));
+            if(mode==2)ServerTickHandler.reloadEnhancedTask.put(p.uuid,new Object());
+            if(mode==3)p.getHeldItemMainhand().tag.setInteger("ammocount",Integer.MAX_VALUE);
+            before=snapshot(p);refused=false;
+            try{AttachmentTransactions.transact(p,p.getHeldItemMainhand(),null,"barrel",false);}catch(AttachmentTransactions.Refusal e){refused=true;}
+            check(refused,"unsafe loaded transaction refused "+mode);check(before.equals(snapshot(p)),"refusal is atomic "+mode);
+            ServerTickHandler.reloadEnhancedTask.clear();
+        }
+    }
+    static void skinTests() {
+        com.modularwarfare.common.guns.SkinType first=new com.modularwarfare.common.guns.SkinType();first.skinAsset="original";
+        com.modularwarfare.common.guns.SkinType second=new com.modularwarfare.common.guns.SkinType();second.skinAsset="alternate";
+        com.modularwarfare.common.guns.SkinType[] one={first},two={first,second};
+        check(SafeSkins.select(one,1)==first,"reported GuiGunModify skinId=1 crash falls back to zero");
+        check(SafeSkins.select(one,-1)==first,"negative skin id safe");
+        check(SafeSkins.select(one,Integer.MAX_VALUE)==first,"large skin id safe");
+        check(SafeSkins.select(two,1)==second,"valid alternative skin unchanged");
+        check(SafeSkins.select(new com.modularwarfare.common.guns.SkinType[]{null,second},0)==second,"null skin entry falls back");
+        check(SafeSkins.select(null,1).getSkin()!=null,"null skin array has nonnull texture fallback");
+        check(SafeSkins.select(new com.modularwarfare.common.guns.SkinType[0],1).getSkin()!=null,"empty skin array safe");
     }
     static void leakAndRail() throws Exception {
         equal(MechanicsRules.leak(120,40),118,"overpressure leaks once per second");equal(MechanicsRules.leak(120,10000),100,"leak stops at normal pressure");
@@ -127,7 +209,7 @@ public final class MechanicsTest {
         equal(MechanicsHooks.energy(client.getHeldItemMainhand()),92,"server native ammo consumption cannot double-spend pressure");
     }
     public static void main(String[] args) throws Exception {
-        pumpTests();capacityTests();transactions();leakAndRail();
+        pumpTests();capacityTests();transactions();loadedTransactions();skinTests();leakAndRail();
         System.out.println("MECHANICS_TESTS_OK "+checks+" isolated assertions; NOT a Minecraft runtime test");
     }
 }

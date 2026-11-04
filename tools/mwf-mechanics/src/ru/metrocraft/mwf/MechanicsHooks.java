@@ -39,7 +39,7 @@ public final class MechanicsHooks {
             if ("CLIENT".equals(String.valueOf(call(handler,"getSide"))))
                 call(Class.forName("ru.metrocraft.mwf.MechanicsClient"),"install");
             installed=true;
-            LOG.info("Metro mechanics 1.0: integrated pressure/energy, dynamic Duplet capacity and server shot authorization");
+            LOG.info("Metro mechanics 1.1: integrated pressure/energy, dynamic Duplet capacity and server shot authorization");
         } catch(Exception e) { throw new IllegalStateException("Metro mechanics initialization failed",e); }
     }
     private static State state(Object player) throws Exception {

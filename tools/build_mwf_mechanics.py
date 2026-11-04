@@ -20,20 +20,20 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'tools/mwf-mechanics'
 BASE_JAR_SHA = 'f91a5419cbc9e3cbd18f831e37c17aa2833d577142d324fed1ca14846ce95183'
 BASE_PACK_SHA = '87a1c12a14543b022810da233d8db26548e7587d7b9cd804bd155712e624f6ec'
-JAR_NAME = 'modularwarfare-shining-2024.2.4.6f-fix1-metro1.jar'
-PACK_NAME = 'Metro_Full_Arsenal_MWF_fix1_v3_mechanics.zip'
+JAR_NAME = 'modularwarfare-shining-2024.2.4.6f-fix1-metro2.jar'
+PACK_NAME = 'Metro_Full_Arsenal_MWF_fix1_v4_mechanics.zip'
 EXPORTS = [f'--add-exports=java.base/jdk.internal.org.objectweb.asm{s}=ALL-UNNAMED'
            for s in ('', '.tree', '.tree.analysis')]
-README = '''METRO MWF MECHANICS 1.0 / Minecraft 1.12.2
+README = '''METRO MWF MECHANICS 1.1 / Minecraft 1.12.2
 
 ОБЯЗАТЕЛЬНАЯ УСТАНОВКА ОБОИХ ФАЙЛОВ, НА КЛИЕНТЕ И СЕРВЕРЕ
 1. Резервная копия мира. Полностью закрыть игру/сервер.
-2. Удалить прежний modularwarfare-shining-2024.2.4.6f-fix1.jar из mods.
-   Вместо него поставить modularwarfare-shining-2024.2.4.6f-fix1-metro1.jar.
+2. Удалить прежний MWF JAR из mods — исходный fix1 или уже установленный metro1.
+   Вместо него поставить modularwarfare-shining-2024.2.4.6f-fix1-metro2.jar.
    Это доработанная копия именно предоставленного закрытого MWF, не другой upstream.
    ДВА MWF JAR одновременно ставить НЕЛЬЗЯ. Старый metro-duplet-bridge тоже удалить.
-3. Заменить полный контент-пак на Metro_Full_Arsenal_MWF_fix1_v3_mechanics.zip
-   в .minecraft/ModularWarfare/. Не оставлять v1/v2 или отдельные паки Убойника/Дуплета.
+3. Заменить полный контент-пак на Metro_Full_Arsenal_MWF_fix1_v4_mechanics.zip
+   в .minecraft/ModularWarfare/. Не оставлять v1/v2/v3 или отдельные паки Убойника/Дуплета.
 4. Такие же JAR и ZIP должны стоять у всех игроков и на сервере.
    Версия сетевого мода отличается: старые клиенты намеренно не допускаются.
 
@@ -61,8 +61,15 @@ README = '''METRO MWF MECHANICS 1.0 / Minecraft 1.12.2
 Работают вместимость, загрузка четырёх патронов, HUD и расход на сервере.
 Один выстрел тратит один патрон. Отдельные залпы 2/4 и новое действие ПКМ НЕ добавлены.
 Нет второго предмета metro_duplet_4 и нет дополнительного bridge-мода.
-Для установки/снятия обвесов полностью разрядить Дуплет и закончить перезарядку.
+Для смены обвесов разряжать Дуплет НЕ нужно. Дождаться окончания перезарядки.
+При снятии +2 стволов до двух патронов остаются в оружии, лишние возвращаются
+в инвентарь тем же типом патронов с сохранением их NBT.
+Если нет места для обвеса или лишних патронов, вся операция отменяется без потерь.
 Если снятый обвес не помещается в инвентарь, операция отменяется без потери вещей.
+
+ИСПРАВЛЕНИЕ КРАША
+Окно модификаций больше не индексирует modelSkins вне границ при старом skinId.
+Неверный индекс получает первую доступную текстуру без изменения NBT на клиенте.
 
 ГЛУШИТЕЛИ
 Подключены отдельные OGG, отличающиеся от обычного выстрела, и меньшая дистанция звука.
@@ -189,8 +196,8 @@ def patch_pack(source, output, patched_jar, work):
                       'key.categories.metro_mechanics=Metro MWF'])
         files[path] = ('\n'.join(lines) + '\n').encode()
     manifest = json.loads(files['FULL_PACK_MANIFEST.json'])
-    manifest.update(dupletCapacityWithExtraBarrels=4, dupletCapacityDynamic=True, integratedMechanicsVersion='1.0.0')
-    manifest['implementedMechanics'] = ['pneumatic_pressure', 'railgun_energy', 'dynamic_duplet_capacity', 'suppressed_audio']
+    manifest.update(dupletCapacityWithExtraBarrels=4, dupletCapacityDynamic=True, integratedMechanicsVersion='1.1.0')
+    manifest['implementedMechanics'] = ['pneumatic_pressure', 'railgun_energy', 'dynamic_duplet_capacity', 'suppressed_audio', 'loaded_duplet_attachment_transactions', 'safe_skin_rendering']
     manifest['mechanicsRequiresJarSha256'] = sha(patched_jar.read_bytes())
     manifest['limitations'] = [s for s in manifest['limitations'] if not s.startswith('Pressure, pumping, rail charging,')]
     manifest['limitations'].extend(['Flame stream, native projectiles, Gatling rotor and automatic adapters remain unimplemented.',
@@ -200,9 +207,9 @@ def patch_pack(source, output, patched_jar, work):
     manifest['mechanicsAudio'] = {'suppressedWeapons': suppressed, 'conversions': conversions,
                                   'provenance': 'Filtered source pack recordings, NOT original Metro suppressed recordings.'}
     files['FULL_PACK_MANIFEST.json'] = js(manifest)
-    files['README_MECHANICS_V3_RU.txt'] = README.encode()
+    files['README_MECHANICS_V4_RU.txt'] = README.encode()
     files['README_FULL_PACK_RU.txt'] = README.encode()
-    files['README_COMPATIBILITY_V2_RU.txt'] = ('ИСТОРИЯ v2; в v3 дополнительные стволы уже рабочие. См. README_MECHANICS_V3_RU.txt.\n\n').encode() + files['README_COMPATIBILITY_V2_RU.txt']
+    files['README_COMPATIBILITY_V2_RU.txt'] = ('ИСТОРИЯ v2; в v4 дополнительные стволы рабочие и смена обвесов без разрядки. См. README_MECHANICS_V4_RU.txt.\n\n').encode() + files['README_COMPATIBILITY_V2_RU.txt']
     # Binary visual assets and first-person holding/animation configurations must not drift.
     for name, data in original.items():
         if name.startswith(('obj/', 'assets/modularwarfare/gltf/', 'assets/modularwarfare/skins/', 'guns/render/', 'ammo/', 'bullets/')):
@@ -235,7 +242,7 @@ def validate_jar(base, patched, classes):
         for n in helpers:
             data = z.read(n); assert data[:4] == b'\xca\xfe\xba\xbe' and int.from_bytes(data[6:8], 'big') == 52, n
         assert not any('metro_duplet_bridge' in n for n in names)
-        assert b'metro1' in z.read('com/modularwarfare/ModularWarfare.class')
+        assert b'metro2' in z.read('com/modularwarfare/ModularWarfare.class')
         return {'changedClasses': sorted(changed), 'helperClasses': sorted(helpers), 'compileFacadesDistributed': False}
 
 
@@ -266,13 +273,13 @@ def build(args):
     jar_report = validate_jar(args.mwf_jar, patched, helper_classes)
     pack = args.output_dir / PACK_NAME
     pack_report = patch_pack(args.pack, pack, patched, args.work)
-    report = {'version': '1.0.0', 'baseJarSha256': BASE_JAR_SHA, 'basePackSha256': BASE_PACK_SHA,
+    report = {'version': '1.1.0', 'baseJarSha256': BASE_JAR_SHA, 'basePackSha256': BASE_PACK_SHA,
               'jar': {'name': JAR_NAME, 'bytes': patched.stat().st_size, 'sha256': sha(patched.read_bytes()), **jar_report},
               'pack': {'name': PACK_NAME, 'bytes': pack.stat().st_size, 'sha256': sha(pack.read_bytes()), **pack_report},
               'isolatedTests': testlog.strip(), 'patchVerification': patchlog.strip(),
               'minecraftRuntimeTested': False, 'forgeLaunchTested': False, 'multiplayerTested': False}
-    (args.output_dir / 'MWF_Mechanics_v1_report.json').write_bytes(js(report))
-    (args.output_dir / 'MWF_Mechanics_v1_README_RU.txt').write_text(README, encoding='utf-8')
+    (args.output_dir / 'MWF_Mechanics_v2_report.json').write_bytes(js(report))
+    (args.output_dir / 'MWF_Mechanics_v2_README_RU.txt').write_text(README, encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return report
 
