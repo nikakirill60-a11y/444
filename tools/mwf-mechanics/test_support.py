@@ -25,6 +25,7 @@ public class NBTTagCompound extends NBTBase {
  public void setTag(String k,NBTBase v){values.put(k,v);}public NBTTagCompound getCompoundTag(String k){Object v=values.get(k);return v instanceof NBTTagCompound?(NBTTagCompound)v:new NBTTagCompound();}
  public boolean hasKey(String k){return values.containsKey(k);}public void removeTag(String k){values.remove(k);}
  public boolean func_74764_b(String k){return hasKey(k);}public NBTTagCompound func_74775_l(String k){return getCompoundTag(k);}
+ public void func_74782_a(String k,NBTBase value){setTag(k,value);}
  public int func_74762_e(String k){return getInteger(k);}public void func_74768_a(String k,int v){setInteger(k,v);}
  public NBTBase func_74781_a(String k){Object v=values.get(k);return v instanceof NBTBase?(NBTBase)v:null;}
  public java.util.Set<String> getKeySet(){return values.keySet();}
