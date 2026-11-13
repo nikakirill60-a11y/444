@@ -173,6 +173,51 @@ public final class MechanicsTest {
             ServerTickHandler.reloadEnhancedTask.clear();
         }
     }
+    static void nativeAmmoAndCodecTests() throws Exception {
+        // These ItemGun methods are copied from the selected closed JAR by ASM before this JVM starts.
+        // Test-backend declarations throw AssertionError unless the genuine methods were installed.
+        for(int capacity:new int[]{2,4})for(boolean ghost:new boolean[]{false,true}) {
+            Player p=player("metro_duplet",0);ItemStack gun=p.getHeldItemMainhand();loaded(gun,capacity);
+            if(capacity==4)attach(gun,"metro_duplet_extra_barrels");
+            ItemStack mag=new ItemStack(new com.modularwarfare.common.guns.ItemAmmo());mag.tag=new NBTTagCompound();mag.tag.setInteger("ammocount",99);
+            if(ghost)gun.tag.setTag("ammo",mag.writeToNBT(new NBTTagCompound()));
+            check(!ItemGun.hasAmmoLoaded(gun),"Duplet never selects stale detachable-magazine NBT");
+            equal(ItemGun.getAmmoCount(gun),capacity,"native initial loaded counter "+capacity);
+            ((Type)((ItemGun)gun.item).type).numBullets=8;
+            for(int remaining=capacity;remaining>0;remaining--) {
+                check(MechanicsHooks.beforeShot(p,new Packet("metro_duplet",17)),"server logical shot accepted "+remaining);
+                ItemGun.consumeShot(gun);
+                equal(ItemGun.getAmmoCount(gun),remaining-1,"native debit one round "+remaining);
+                for(int pellet=0;pellet<8;pellet++)check(MechanicsHooks.beforeHit(p,new Packet("metro_duplet",17)),"pellet authorized without extra debit");
+                equal(gun.tag.getInteger("ammocount"),remaining-1,"eight pellets still cost one shell");
+                p.world.tick+=8;
+            }
+            check(!ItemGun.hasNextShot(gun),"native empty weapon cannot fire");
+            check(!MechanicsHooks.beforeShot(p,new Packet("metro_duplet",17)),"server rejects third/fifth shot");
+            equal(gun.tag.getInteger("ammocount"),0,"empty remains zero after refused shot");
+            if(ghost)equal(gun.tag.getCompoundTag("ammo").getCompoundTag("tag").getInteger("ammocount"),99,"unused legacy magazine not spent or duplicated");
+            Object type=((ItemGun)gun.item).type;
+            equal(MechanicsHooks.initialAmmoCount(type,gun),0,"new Duplet starts empty, independent of capacity");
+            equal(MechanicsHooks.capacity(type,gun),capacity,"empty initialization does not change reload capacity");
+        }
+        Player normal=player("metro_ak",0);ItemStack magazine=new ItemStack(new com.modularwarfare.common.guns.ItemAmmo());
+        magazine.tag=new NBTTagCompound();magazine.tag.setInteger("ammocount",7);
+        normal.getHeldItemMainhand().tag.setTag("ammo",magazine.writeToNBT(new NBTTagCompound()));
+        check(ItemGun.hasAmmoLoaded(normal.getHeldItemMainhand()),"other guns still use detachable magazines");
+        equal(ItemGun.getAmmoCount(normal.getHeldItemMainhand()),7,"native magazine counter unchanged");
+        ItemGun.consumeShot(normal.getHeldItemMainhand());equal(ItemGun.getAmmoCount(normal.getHeldItemMainhand()),6,"other gun spends native magazine ammo");
+        equal(MechanicsHooks.initialAmmoCount(((ItemGun)normal.getHeldItemMainhand().item).type,normal.getHeldItemMainhand()),2,"unrelated default initialization preserved");
+        for(int slot:new int[]{0,8,9,255}) {
+            io.netty.buffer.ByteBuf wire=new io.netty.buffer.ByteBuf();
+            new PacketMetroPump(slot).encodeInto(null,wire);
+            PacketMetroPump decoded=new PacketMetroPump();decoded.decodeInto(null,wire);
+            equal(((Number)MechanicsHooks.field(decoded,"slot")).intValue(),slot,"unsigned one-byte packet round trip "+slot);
+            Player p=player("metro_tihar",0);
+            if(slot==8){p.inventory.slots[8]=p.inventory.slots[0];p.inventory.slots[0]=ItemStack.EMPTY;p.inventory.currentItem=8;}
+            decoded.handleServerSide(p);
+            equal(MechanicsHooks.energy(p.getHeldItemMainhand()),slot<=8?20:0,"decoded pump validates selected hotbar slot "+slot);
+        }
+    }
     static void skinTests() {
         com.modularwarfare.common.guns.SkinType first=new com.modularwarfare.common.guns.SkinType();first.skinAsset="original";
         com.modularwarfare.common.guns.SkinType second=new com.modularwarfare.common.guns.SkinType();second.skinAsset="alternate";
@@ -209,7 +254,7 @@ public final class MechanicsTest {
         equal(MechanicsHooks.energy(client.getHeldItemMainhand()),92,"server native ammo consumption cannot double-spend pressure");
     }
     public static void main(String[] args) throws Exception {
-        pumpTests();capacityTests();transactions();loadedTransactions();skinTests();leakAndRail();
+        pumpTests();capacityTests();transactions();loadedTransactions();skinTests();leakAndRail();nativeAmmoAndCodecTests();
         System.out.println("MECHANICS_TESTS_OK "+checks+" isolated assertions; NOT a Minecraft runtime test");
     }
 }

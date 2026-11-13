@@ -39,7 +39,7 @@ public final class MechanicsHooks {
             if ("CLIENT".equals(String.valueOf(call(handler,"getSide"))))
                 call(Class.forName("ru.metrocraft.mwf.MechanicsClient"),"install");
             installed=true;
-            LOG.info("Metro mechanics 1.1: integrated pressure/energy, dynamic Duplet capacity and server shot authorization");
+            LOG.info("Metro mechanics 1.2: integrated pressure/energy, dynamic Duplet capacity and server shot authorization");
         } catch(Exception e) { throw new IllegalStateException("Metro mechanics initialization failed",e); }
     }
     private static State state(Object player) throws Exception {
@@ -82,6 +82,18 @@ public final class MechanicsHooks {
             if (!"metro_duplet".equals(String.valueOf(field(gunType,"internalName"))))return base;
             return Integer.valueOf(MechanicsRules.capacity("metro_duplet",attachment(stack,"metro_duplet_extra_barrels"),2));
         } catch(Exception e) { throw new IllegalStateException("Cannot resolve per-stack ammunition capacity",e); }
+    }
+    /** A Duplet uses loose rounds even if an old ItemStack still carries an "ammo" magazine tag. */
+    public static boolean isDuplet(Object stack) {
+        try {return "metro_duplet".equals(id(stack));}
+        catch(Exception e) {throw new IllegalStateException("Cannot identify Duplet ammunition storage",e);}
+    }
+    /** Called only at the native first-NBT/defaultBullet autofill site, not at reload/capacity reads. */
+    public static Integer initialAmmoCount(Object gunType,Object stack) {
+        try {
+            if("metro_duplet".equals(String.valueOf(field(gunType,"internalName"))))return Integer.valueOf(0);
+            return capacity(gunType,stack);
+        } catch(Exception e) {throw new IllegalStateException("Cannot initialize gun ammunition",e);}
     }
     /** Gate the enhanced logical-shot packet before the native ammo consumption/sound path. */
     public static boolean beforeShot(Object player,Object packet) {

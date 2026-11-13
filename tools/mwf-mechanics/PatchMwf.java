@@ -63,6 +63,13 @@ public final class PatchMwf implements Opcodes {
                 inject.add(new FrameNode(F_SAME,0,null,0,null));method.instructions.insert(inject);
                 count("allowLegacy");changed=true;
             }
+            if(cls.name.equals("com/modularwarfare/common/guns/ItemGun")&&method.name.equals("hasAmmoLoaded")) {
+                InsnList inject=new InsnList();LabelNode nativePath=new LabelNode();
+                inject.add(new VarInsnNode(ALOAD,0));inject.add(hook("isDuplet","(Ljava/lang/Object;)Z"));
+                inject.add(new JumpInsnNode(IFEQ,nativePath));inject.add(new InsnNode(ICONST_0));inject.add(new InsnNode(IRETURN));
+                inject.add(nativePath);inject.add(new FrameNode(F_SAME,0,null,0,null));
+                method.instructions.insert(inject);count("dupletLooseAmmo");changed=true;
+            }
             for(AbstractInsnNode ins:method.instructions.toArray()) {
                 if(ins.getOpcode()==AALOAD) {
                     // The crash at GuiGunModify:1457 is modelSkins[skinId] with stale skinId=1
@@ -88,9 +95,12 @@ public final class PatchMwf implements Opcodes {
                     if(f.getOpcode()==GETFIELD&&f.owner.equals(GUN)&&f.name.equals("internalAmmoStorage")) {
                         // BASIC animations have no stack parameter and are not used by the Metro pack.
                         if(cls.name.equals("com/modularwarfare/client/fpp/basic/animations/AnimStateMachine"))continue;
-                        InsnList replace=stackForCapacity(cls,method);
-                        replace.add(hook("capacity","(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;"));
-                        method.instructions.insertBefore(ins,replace);method.instructions.remove(ins);count("capacity");changed=true;
+                        boolean initial=cls.name.equals("com/modularwarfare/common/guns/ItemGun")&&method.name.equals("func_77663_a");
+                        InsnList replace;
+                        if(initial) {replace=new InsnList();replace.add(new VarInsnNode(ALOAD,7));} // actual held stack, not arbitrary inventory-tick argument
+                        else replace=stackForCapacity(cls,method);
+                        replace.add(hook(initial?"initialAmmoCount":"capacity","(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;"));
+                        method.instructions.insertBefore(ins,replace);method.instructions.remove(ins);count(initial?"initialAmmoCount":"capacity");changed=true;
                     } else if(hit&&f.getOpcode()==GETFIELD&&f.owner.equals(GUN)
                         &&(f.name.equals("gunDamage")||f.name.equals("gunDamageHeadshotBonus"))) {
                         InsnList inject=new InsnList();inject.add(new VarInsnNode(ALOAD,0));
@@ -116,10 +126,10 @@ public final class PatchMwf implements Opcodes {
             }
         }
         if(cls.name.equals("com/modularwarfare/ModularWarfare")) {
-            for(FieldNode f:cls.fields)if(f.name.equals("MOD_VERSION"))f.value="2024.2.4.6f-metro2";
+            for(FieldNode f:cls.fields)if(f.name.equals("MOD_VERSION"))f.value="2024.2.4.6f-metro3";
             for(AnnotationNode a:cls.visibleAnnotations)if(a.desc.equals("Lnet/minecraftforge/fml/common/Mod;")) {
-                for(int i=0;i<a.values.size();i+=2)if(a.values.get(i).equals("version"))a.values.set(i+1,"2024.2.4.6f-metro2");
-                a.values.add("acceptableRemoteVersions");a.values.add("[2024.2.4.6f-metro2]");
+                for(int i=0;i<a.values.size();i+=2)if(a.values.get(i).equals("version"))a.values.set(i+1,"2024.2.4.6f-metro3");
+                a.values.add("acceptableRemoteVersions");a.values.add("[2024.2.4.6f-metro3]");
             }
             changed=true;
         }
@@ -135,8 +145,39 @@ public final class PatchMwf implements Opcodes {
     static String sha(byte[] bytes)throws Exception {
         StringBuilder s=new StringBuilder();for(byte b:MessageDigest.getInstance("SHA-256").digest(bytes))s.append(String.format("%02x",b&255));return s.toString();
     }
+    static void nativeAmmoTests(Path source,Path testClasses)throws Exception {
+        // Execute the actual four static MWF ammo methods in an isolated API facade, not a handwritten substitute.
+        ClassNode nativeGun=new ClassNode(ASM8);
+        try(ZipFile zip=new ZipFile(source.toFile())) {
+            new ClassReader(patch(zip.getInputStream(zip.getEntry("com/modularwarfare/common/guns/ItemGun.class")).readAllBytes())).accept(nativeGun,0);
+        }
+        Path backend=testClasses.resolve("com/modularwarfare/common/guns/ItemGun.class");
+        ClassNode target=new ClassNode(ASM8);new ClassReader(Files.readAllBytes(backend)).accept(target,0);
+        Set<String> methods=Set.of("getAmmoCount","hasNextShot","hasAmmoLoaded","consumeShot");
+        target.methods.removeIf(m->methods.contains(m.name));int copied=0;
+        for(MethodNode m:nativeGun.methods)if(methods.contains(m.name)) {target.methods.add(m);copied++;}
+        if(copied!=4)throw new IllegalStateException("Expected four native MWF ammunition methods");
+        ClassWriter writer=new ClassWriter(ClassWriter.COMPUTE_MAXS);target.accept(writer);Files.write(backend,writer.toByteArray());
+        System.out.println("NATIVE_AMMO_METHODS_READY "+copied+" exact selected-JAR methods with production hooks");
+    }
+    static void checkPacketABI(Path helpers)throws Exception {
+        ClassNode packet=new ClassNode(ASM8);
+        new ClassReader(Files.readAllBytes(helpers.resolve("ru/metrocraft/mwf/PacketMetroPump.class"))).accept(packet,0);
+        int reads=0,writes=0;
+        for(MethodNode m:packet.methods)for(AbstractInsnNode ins:m.instructions.toArray())if(ins instanceof MethodInsnNode) {
+            MethodInsnNode call=(MethodInsnNode)ins;
+            if(!call.owner.equals("io/netty/buffer/ByteBuf"))continue;
+            if(call.name.equals("readByte")&&call.desc.equals("()B"))reads++;
+            else if(call.name.equals("writeByte")&&call.desc.equals("(I)Lio/netty/buffer/ByteBuf;"))writes++;
+            else throw new IllegalStateException("Unexpected Netty pump codec ABI: "+call.name+call.desc);
+        }
+        if(reads!=1||writes!=1)throw new IllegalStateException("Pump codec must have one byte read/write");
+        count("packetCodecABI");
+    }
     public static void main(String[] args)throws Exception {
+        if(args[0].equals("--native-ammo-tests")) {nativeAmmoTests(Paths.get(args[1]),Paths.get(args[2]));return;}
         Path source=Paths.get(args[0]),destination=Paths.get(args[1]),helpers=Paths.get(args[2]);
+        checkPacketABI(helpers);
         if(source.toAbsolutePath().equals(destination.toAbsolutePath()))throw new IllegalArgumentException("Never overwrite the original JAR");
         if(!BASE.equals(sha(Files.readAllBytes(source))))throw new IllegalArgumentException("Not the selected closed MWF JAR");
         // Keep the original manifest-first order and explicit directory entries as well as files.
@@ -152,7 +193,8 @@ public final class PatchMwf implements Opcodes {
                 if(files.put(n,data)!=null)throw new IllegalStateException("Duplicate original entry "+n);
             }
         }
-        if(edits.getOrDefault("capacity",0)!=15||edits.getOrDefault("beforeShot",0)!=1||edits.getOrDefault("beforeHit",0)!=1
+        if(edits.getOrDefault("capacity",0)!=14
+            ||edits.getOrDefault("initialAmmoCount",0)!=1||edits.getOrDefault("dupletLooseAmmo",0)!=1||edits.getOrDefault("packetCodecABI",0)!=1||edits.getOrDefault("beforeShot",0)!=1||edits.getOrDefault("beforeHit",0)!=1
             ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=5
             ||edits.getOrDefault("afterConsume",0)!=1||edits.getOrDefault("allowLegacy",0)!=1
             ||edits.getOrDefault("crashGuiSkin",0)!=2||edits.getOrDefault("safeSkin",0)<2)throw new IllegalStateException("Unexpected hook counts: "+edits);
@@ -163,7 +205,7 @@ public final class PatchMwf implements Opcodes {
                 if(files.put(name,Files.readAllBytes(p))!=null)throw new IllegalStateException("Helper already present: "+name);
             }
         }
-        files.put("metro-mechanics-build.txt",("Metro mechanics 1.1\nBase SHA-256: "+BASE+"\nHooks: "+edits+"\nNot Minecraft runtime validated.\n").getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        files.put("metro-mechanics-build.txt",("Metro mechanics 1.2\nBase SHA-256: "+BASE+"\nHooks: "+edits+"\nNot Minecraft runtime validated.\n").getBytes(java.nio.charset.StandardCharsets.UTF_8));
         Files.createDirectories(destination.getParent());
         try(ZipOutputStream zip=new ZipOutputStream(Files.newOutputStream(destination))) {
             for(var entry:files.entrySet()) {ZipEntry e=new ZipEntry(entry.getKey());e.setTime(0);zip.putNextEntry(e);zip.write(entry.getValue());zip.closeEntry();}

@@ -10,6 +10,7 @@ public class Item { public final String id; public final int limit;
  public Item(){this("test:unknown",64);} public Item(String id,int limit){this.id=id;this.limit=limit;registry.put(id,this);}
  public net.minecraft.util.ResourceLocation getRegistryName(){return new net.minecraft.util.ResourceLocation(id);} }
 ''',
+'net/minecraft/item/ItemAir.java': 'package net.minecraft.item; public class ItemAir extends Item {}',
 'net/minecraft/util/ResourceLocation.java': '''package net.minecraft.util; public class ResourceLocation {
  private final String value;public ResourceLocation(String s){value=s;} public String toString(){return value;} }
 ''',
@@ -23,6 +24,9 @@ public class NBTTagCompound extends NBTBase {
  public void setString(String k,String v){values.put(k,v);}public String getString(String k){Object v=values.get(k);return v instanceof String?(String)v:"";}
  public void setTag(String k,NBTBase v){values.put(k,v);}public NBTTagCompound getCompoundTag(String k){Object v=values.get(k);return v instanceof NBTTagCompound?(NBTTagCompound)v:new NBTTagCompound();}
  public boolean hasKey(String k){return values.containsKey(k);}public void removeTag(String k){values.remove(k);}
+ public boolean func_74764_b(String k){return hasKey(k);}public NBTTagCompound func_74775_l(String k){return getCompoundTag(k);}
+ public int func_74762_e(String k){return getInteger(k);}public void func_74768_a(String k,int v){setInteger(k,v);}
+ public NBTBase func_74781_a(String k){Object v=values.get(k);return v instanceof NBTBase?(NBTBase)v:null;}
  public java.util.Set<String> getKeySet(){return values.keySet();}
  public NBTTagCompound copy(){NBTTagCompound n=new NBTTagCompound();for(String k:values.keySet()){Object v=values.get(k);n.values.put(k,v instanceof NBTTagCompound?((NBTTagCompound)v).copy():v);}return n;}
  public boolean equals(Object n){return n instanceof NBTTagCompound&&values.equals(((NBTTagCompound)n).values);}public int hashCode(){return values.hashCode();}
@@ -35,6 +39,9 @@ public class ItemStack {
  public boolean isEmpty(){return item==null||count<=0;}public Item getItem(){return item;}public int getCount(){return count;}public void setCount(int n){count=n;}
  public int getMaxStackSize(){return item==null?64:item.limit;}public NBTTagCompound getTagCompound(){return tag;}public void setTagCompound(NBTTagCompound n){tag=n;}
  public ItemStack copy(){ItemStack s=new ItemStack(item,count);s.tag=tag==null?null:tag.copy();return s;}
+ public boolean func_190926_b(){return isEmpty();}public boolean func_77942_o(){return tag!=null;}
+ public Item func_77973_b(){return getItem();}public NBTTagCompound func_77978_p(){return tag;}
+ public NBTTagCompound func_77955_b(NBTTagCompound n){return writeToNBT(n);}
  public NBTTagCompound writeToNBT(NBTTagCompound n){n.setString("id",item==null?"":item.id);n.setByte("Count",(byte)count);if(tag!=null)n.setTag("tag",tag.copy());return n;}
 }''',
 'net/minecraft/entity/player/EntityPlayer.java': 'package net.minecraft.entity.player; public class EntityPlayer {}',
@@ -63,17 +70,23 @@ public class PlayerEvent extends net.minecraftforge.fml.common.eventhandler.Even
 public class RenderGameOverlayEvent extends net.minecraftforge.fml.common.eventhandler.Event {
  public enum ElementType {ALL}public ElementType getType(){return ElementType.ALL;}public static class Post extends RenderGameOverlayEvent {}}
 ''',
-'io/netty/buffer/ByteBuf.java': '''package io.netty.buffer; public class ByteBuf {private int value;public ByteBuf writeByte(int n){value=n&255;return this;}public int readUnsignedByte(){return value;}}''',
+'io/netty/buffer/ByteBuf.java': '''package io.netty.buffer; public class ByteBuf {private int value;public ByteBuf writeByte(int n){value=n&255;return this;}public byte readByte(){return(byte)value;}public short readUnsignedByte(){return(short)value;}}''',
 'io/netty/channel/ChannelHandlerContext.java': 'package io.netty.channel; public interface ChannelHandlerContext {}',
 }
 
 # Test-only replacements for reflective backend calls; production compiles against the real MWF JAR.
 TEST_BACKEND = {
+'com/modularwarfare/common/guns/AmmoType.java': 'package com.modularwarfare.common.guns; public class AmmoType {public int magazineCount=1;}',
+'com/modularwarfare/common/guns/ItemAmmo.java': '''package com.modularwarfare.common.guns; public class ItemAmmo extends net.minecraft.item.Item {
+ public AmmoType type=new AmmoType();public ItemAmmo(){super("modularwarfare:test_magazine",1);}}''',
 'com/modularwarfare/common/guns/ItemBullet.java': '''package com.modularwarfare.common.guns;
 public class ItemBullet extends net.minecraft.item.Item {public ItemBullet(String id){super(id,64);}}''',
 'com/modularwarfare/common/guns/ItemGun.java': '''package com.modularwarfare.common.guns;
 public class ItemGun extends net.minecraft.item.Item {public Object type;public ItemGun(String name,Object type){super("modularwarfare:"+name,1);this.type=type;}
- public static boolean hasNextShot(net.minecraft.item.ItemStack stack){return stack.tag!=null&&stack.tag.getInteger("ammocount")>0;}}
+ public static boolean hasNextShot(net.minecraft.item.ItemStack stack){throw new AssertionError("Inject real native ammo methods first");}
+ public static boolean hasAmmoLoaded(net.minecraft.item.ItemStack stack){throw new AssertionError("Inject real native ammo methods first");}
+ public static int getAmmoCount(net.minecraft.item.ItemStack stack){throw new AssertionError("Inject real native ammo methods first");}
+ public static void consumeShot(net.minecraft.item.ItemStack stack){throw new AssertionError("Inject real native ammo methods first");}}
 ''',
 'com/modularwarfare/common/handler/ServerTickHandler.java': '''package com.modularwarfare.common.handler;public class ServerTickHandler {
  public static java.util.Map<Object,Object> playerReloadCooldown=new java.util.HashMap<Object,Object>();

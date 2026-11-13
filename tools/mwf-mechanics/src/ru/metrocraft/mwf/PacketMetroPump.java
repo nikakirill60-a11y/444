@@ -12,7 +12,7 @@ public final class PacketMetroPump extends PacketBase {
     public PacketMetroPump() { this.slot=255; }
     public PacketMetroPump(int slot) { this.slot=slot; }
     @Override public void encodeInto(ChannelHandlerContext context,ByteBuf data) {data.writeByte(slot);}
-    @Override public void decodeInto(ChannelHandlerContext context,ByteBuf data) {slot=data.readUnsignedByte();}
+    @Override public void decodeInto(ChannelHandlerContext context,ByteBuf data) {slot=data.readByte()&0xff;}
     @Override public void handleServerSide(EntityPlayerMP player) {
         // MWF drains receivedPacketsServer from its server-tick handler, not Netty's thread.
         if(slot>=0&&slot<=8)MechanicsHooks.pump(player,slot);
