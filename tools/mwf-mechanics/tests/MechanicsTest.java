@@ -218,6 +218,65 @@ public final class MechanicsTest {
             equal(MechanicsHooks.energy(p.getHeldItemMainhand()),slot<=8?20:0,"decoded pump validates selected hotbar slot "+slot);
         }
     }
+    public static final class ReloadTask {
+        public final ItemStack reloadGun;
+        ReloadTask(ItemStack gun){reloadGun=gun;}
+    }
+    static void reloadLifecycleTests() throws Exception {
+        // Exact native EnhancedStop retains reloadEnhancedTask after a successful ammo transfer.
+        // This fixture reproduces that postcondition; it is NOT a full Minecraft reload test.
+        for(int capacity:new int[]{2,4}) {
+            Player p=player("metro_duplet",0);ItemStack gun=p.getHeldItemMainhand();
+            if(capacity==4)attach(gun,"metro_duplet_extra_barrels");
+            for(int repeat=0;repeat<2;repeat++) {
+            loaded(gun,0);ReloadTask task=new ReloadTask(gun);
+            ServerTickHandler.reloadEnhancedTask.put(p.uuid,task);
+            ServerTickHandler.playerReloadCooldown.put(p.uuid,60);
+            Object captured=MechanicsHooks.reloadTask(p);check(captured==task,"capture scoped native reload task");
+            check(!MechanicsHooks.beforeShot(p,new Packet("metro_duplet",1)),"cannot shoot while native reload active");
+            loaded(gun,capacity); // native commit; the native handler deliberately leaves the map entry behind
+            check(!MechanicsHooks.beforeShot(p,new Packet("metro_duplet",1)),"old bug reproduced: committed gun still blocked by task");
+            MechanicsHooks.finishReload(p,captured);
+            check(!ServerTickHandler.reloadEnhancedTask.containsKey(p.uuid),"native stop exit retires completed task");
+            check(!MechanicsHooks.beforeShot(p,new Packet("metro_duplet",1)),"completion cannot bypass native cooldown");
+            ServerTickHandler.playerReloadCooldown.remove(p.uuid);p.world.tick+=60;
+            for(int i=capacity;i>0;i--) {
+                check(MechanicsHooks.clientCanFire(true,p),"loaded Duplet client gate permits real shot");
+                check(MechanicsHooks.beforeShot(p,new Packet("metro_duplet",1)),"post-reload shot no longer refused/resynchronized");
+                ItemGun.consumeShot(gun);equal(ItemGun.getAmmoCount(gun),i-1,"post-reload native shot decrements ammo");
+                check(MechanicsHooks.beforeHit(p,new Packet("metro_duplet",1)),"post-reload pellet authorized");
+                p.world.tick+=8;
+            }
+            check(!MechanicsHooks.clientCanFire(true,p),"client cannot animate empty Duplet as real shot");
+            check(!MechanicsHooks.beforeShot(p,new Packet("metro_duplet",1)),"server rejects shot after 2/4 post-reload rounds");
+            equal(ItemGun.getAmmoCount(gun),0,"refusal resync now sends zero, not full ammo");
+            }
+        }
+        for(String id:new String[]{"metro_tihar","metro_helsing","metro_railgun"}) {
+            Player p=player(id,0);ReloadTask task=new ReloadTask(p.getHeldItemMainhand());
+            ServerTickHandler.reloadEnhancedTask.put(p.uuid,task);
+            Object captured=MechanicsHooks.reloadTask(p);
+            new PacketMetroPump(0).handleServerSide(p);
+            equal(MechanicsHooks.energy(p.getHeldItemMainhand()),0,"pump rejected during actual pending reload "+id);
+            MechanicsHooks.finishReload(p,captured);
+            new PacketMetroPump(0).handleServerSide(p);
+            equal(MechanicsHooks.energy(p.getHeldItemMainhand()),20,"pump works after completed magazine reload "+id);
+            p.world.tick+=10;new PacketMetroPump(0).handleServerSide(p);
+            equal(MechanicsHooks.energy(p.getHeldItemMainhand()),40,"holding pump continues increasing pressure "+id);
+        }
+        Player p=player("metro_duplet",0);ReloadTask old=new ReloadTask(p.getHeldItemMainhand()),fresh=new ReloadTask(p.getHeldItemMainhand());
+        ServerTickHandler.reloadEnhancedTask.put(p.uuid,old);Object captured=MechanicsHooks.reloadTask(p);
+        ServerTickHandler.reloadEnhancedTask.put(p.uuid,fresh);MechanicsHooks.finishReload(p,captured);
+        check(ServerTickHandler.reloadEnhancedTask.get(p.uuid)==fresh,"late completion cannot remove newer reload");
+        ServerTickHandler.reloadEnhancedTask.remove(p.uuid);MechanicsHooks.finishReload(p,captured);
+        check(!ServerTickHandler.reloadEnhancedTask.containsKey(p.uuid),"completion is idempotent after native cancellation");
+        Player other=player("metro_ak",0);ReloadTask unrelated=new ReloadTask(other.getHeldItemMainhand());
+        ServerTickHandler.reloadEnhancedTask.put(other.uuid,unrelated);
+        check(MechanicsHooks.reloadTask(other)==null,"non-Metro reload excluded from lifecycle patch");
+        MechanicsHooks.finishReload(other,null);
+        check(ServerTickHandler.reloadEnhancedTask.get(other.uuid)==unrelated,"unrelated native task preserved");
+        ServerTickHandler.reloadEnhancedTask.clear();ServerTickHandler.playerReloadCooldown.clear();
+    }
     static void skinTests() {
         com.modularwarfare.common.guns.SkinType first=new com.modularwarfare.common.guns.SkinType();first.skinAsset="original";
         com.modularwarfare.common.guns.SkinType second=new com.modularwarfare.common.guns.SkinType();second.skinAsset="alternate";
@@ -254,7 +313,7 @@ public final class MechanicsTest {
         equal(MechanicsHooks.energy(client.getHeldItemMainhand()),92,"server native ammo consumption cannot double-spend pressure");
     }
     public static void main(String[] args) throws Exception {
-        pumpTests();capacityTests();transactions();loadedTransactions();skinTests();leakAndRail();nativeAmmoAndCodecTests();
+        pumpTests();capacityTests();transactions();loadedTransactions();skinTests();leakAndRail();nativeAmmoAndCodecTests();reloadLifecycleTests();
         System.out.println("MECHANICS_TESTS_OK "+checks+" isolated assertions; NOT a Minecraft runtime test");
     }
 }

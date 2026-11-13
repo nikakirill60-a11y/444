@@ -50,8 +50,31 @@ public final class PatchMwf implements Opcodes {
         method.instructions.insert(inject);count(hook);
     }
     static byte[] patch(byte[] bytes) {
-        ClassNode cls=new ClassNode(ASM8);new ClassReader(bytes).accept(cls,0);boolean changed=false;
+        ClassNode cls=new ClassNode(ASM8);ClassReader reader=new ClassReader(bytes);
+        reader.accept(cls,reader.getClassName().equals("com/modularwarfare/common/network/PacketGunReloadEnhancedStop")?ClassReader.EXPAND_FRAMES:0);
+        boolean changed=false;
         for(MethodNode method:cls.methods) {
+            if(cls.name.equals("com/modularwarfare/common/network/PacketGunReloadEnhancedStop")&&method.name.equals("handleServerSide")) {
+                // Keep the native task alive for validation/transfer; release the captured task only on completion.
+                int taskLocal=method.maxLocals++;InsnList entry=new InsnList();
+                entry.add(new VarInsnNode(ALOAD,1));entry.add(hook("reloadTask","(Ljava/lang/Object;)Ljava/lang/Object;"));
+                entry.add(new VarInsnNode(ASTORE,taskLocal));method.instructions.insert(entry);
+                // Extend existing stack-map locals for the additional initialized reference on every branch.
+                // Expand frames before this transform (ClassReader.EXPAND_FRAMES), preserving original types.
+                for(AbstractInsnNode ins:method.instructions.toArray()) {
+                    if(ins instanceof FrameNode) {
+                        FrameNode frame=(FrameNode)ins;
+                        while(frame.local.size()<taskLocal)frame.local.add(TOP);
+                        frame.local.add("java/lang/Object");
+                    }
+                    if(ins.getOpcode()==RETURN) {
+                        InsnList exit=new InsnList();exit.add(new VarInsnNode(ALOAD,1));exit.add(new VarInsnNode(ALOAD,taskLocal));
+                        exit.add(hook("finishReload","(Ljava/lang/Object;Ljava/lang/Object;)V"));
+                        method.instructions.insertBefore(ins,exit);count("finishReload");
+                    }
+                }
+                count("reloadTask");changed=true;
+            }
             boolean shot=cls.name.equals("com/modularwarfare/common/network/PacketExpShot$1")&&method.name.equals("run");
             boolean hit=cls.name.equals("com/modularwarfare/common/network/PacketExpGunFire$1")&&method.name.equals("run");
             if(shot||hit) {gate(cls,method,shot?"beforeShot":"beforeHit");changed=true;}
@@ -126,10 +149,10 @@ public final class PatchMwf implements Opcodes {
             }
         }
         if(cls.name.equals("com/modularwarfare/ModularWarfare")) {
-            for(FieldNode f:cls.fields)if(f.name.equals("MOD_VERSION"))f.value="2024.2.4.6f-metro3";
+            for(FieldNode f:cls.fields)if(f.name.equals("MOD_VERSION"))f.value="2024.2.4.6f-metro4";
             for(AnnotationNode a:cls.visibleAnnotations)if(a.desc.equals("Lnet/minecraftforge/fml/common/Mod;")) {
-                for(int i=0;i<a.values.size();i+=2)if(a.values.get(i).equals("version"))a.values.set(i+1,"2024.2.4.6f-metro3");
-                a.values.add("acceptableRemoteVersions");a.values.add("[2024.2.4.6f-metro3]");
+                for(int i=0;i<a.values.size();i+=2)if(a.values.get(i).equals("version"))a.values.set(i+1,"2024.2.4.6f-metro4");
+                a.values.add("acceptableRemoteVersions");a.values.add("[2024.2.4.6f-metro4]");
             }
             changed=true;
         }
@@ -193,7 +216,8 @@ public final class PatchMwf implements Opcodes {
                 if(files.put(n,data)!=null)throw new IllegalStateException("Duplicate original entry "+n);
             }
         }
-        if(edits.getOrDefault("capacity",0)!=14
+        if(edits.getOrDefault("reloadTask",0)!=1||edits.getOrDefault("finishReload",0)!=3
+            ||edits.getOrDefault("capacity",0)!=14
             ||edits.getOrDefault("initialAmmoCount",0)!=1||edits.getOrDefault("dupletLooseAmmo",0)!=1||edits.getOrDefault("packetCodecABI",0)!=1||edits.getOrDefault("beforeShot",0)!=1||edits.getOrDefault("beforeHit",0)!=1
             ||edits.getOrDefault("damage",0)!=3||edits.getOrDefault("install",0)!=1||edits.getOrDefault("clientCanFire",0)!=5
             ||edits.getOrDefault("afterConsume",0)!=1||edits.getOrDefault("allowLegacy",0)!=1
@@ -205,7 +229,7 @@ public final class PatchMwf implements Opcodes {
                 if(files.put(name,Files.readAllBytes(p))!=null)throw new IllegalStateException("Helper already present: "+name);
             }
         }
-        files.put("metro-mechanics-build.txt",("Metro mechanics 1.2\nBase SHA-256: "+BASE+"\nHooks: "+edits+"\nNot Minecraft runtime validated.\n").getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        files.put("metro-mechanics-build.txt",("Metro mechanics 1.3\nBase SHA-256: "+BASE+"\nHooks: "+edits+"\nNot Minecraft runtime validated.\n").getBytes(java.nio.charset.StandardCharsets.UTF_8));
         Files.createDirectories(destination.getParent());
         try(ZipOutputStream zip=new ZipOutputStream(Files.newOutputStream(destination))) {
             for(var entry:files.entrySet()) {ZipEntry e=new ZipEntry(entry.getKey());e.setTime(0);zip.putNextEntry(e);zip.write(entry.getValue());zip.closeEntry();}

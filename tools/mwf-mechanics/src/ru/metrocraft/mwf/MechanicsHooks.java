@@ -39,7 +39,7 @@ public final class MechanicsHooks {
             if ("CLIENT".equals(String.valueOf(call(handler,"getSide"))))
                 call(Class.forName("ru.metrocraft.mwf.MechanicsClient"),"install");
             installed=true;
-            LOG.info("Metro mechanics 1.2: integrated pressure/energy, dynamic Duplet capacity and server shot authorization");
+            LOG.info("Metro mechanics 1.3: integrated pressure/energy, dynamic Duplet capacity and server shot authorization");
         } catch(Exception e) { throw new IllegalStateException("Metro mechanics initialization failed",e); }
     }
     private static State state(Object player) throws Exception {
@@ -71,6 +71,25 @@ public final class MechanicsHooks {
         Class<?> h=Class.forName("com.modularwarfare.common.handler.ServerTickHandler");
         return ((Map<?,?>)field(h,"playerReloadCooldown")).containsKey(uuid)
             || ((Map<?,?>)field(h,"reloadEnhancedTask")).containsKey(uuid);
+    }
+    /** Native EnhancedStop leaves its task in the map after success. Capture only our task.
+     * The task must remain available throughout native reload validation and ammo transfer. */
+    public static Object reloadTask(Object player) {
+        try {
+            Object uuid=call(player,"getUniqueID|func_110124_au");
+            Object task=((Map<?,?>)field(Class.forName("com.modularwarfare.common.handler.ServerTickHandler"),"reloadEnhancedTask")).get(uuid);
+            return task!=null&&scoped(id(field(task,"reloadGun")))?task:null;
+        } catch(Exception e) {throw new IllegalStateException("Cannot capture enhanced reload task",e);}
+    }
+    /** Called on normal exits of the real stop handler, AFTER it has committed/synchronized ammo.
+     * Compare identity so a newly scheduled reload cannot be accidentally cleared. */
+    public static void finishReload(Object player,Object completed) {
+        if(completed==null)return;
+        try {
+            Object uuid=call(player,"getUniqueID|func_110124_au");
+            Map<?,?> tasks=(Map<?,?>)field(Class.forName("com.modularwarfare.common.handler.ServerTickHandler"),"reloadEnhancedTask");
+            if(tasks.get(uuid)==completed)tasks.remove(uuid);
+        } catch(Exception e) {throw new IllegalStateException("Cannot finish enhanced reload task",e);}
     }
     static boolean alive(Object player) throws Exception {
         return Boolean.TRUE.equals(call(player,"isEntityAlive|func_70089_S"))
@@ -162,6 +181,9 @@ public final class MechanicsHooks {
         if(!nativeAllowed)return false;
         try {
             Object stack=held(player); String id=id(stack);
+            if(!scoped(id))return true;
+            // Do not let an ALLOW event or an animation/controller path show shots from an empty Duplet.
+            if(!Boolean.TRUE.equals(call(Class.forName("com.modularwarfare.common.guns.ItemGun"),"hasNextShot",stack)))return false;
             if(!MechanicsRules.energyGun(id))return true;
             return energy(stack)>=MechanicsRules.cost(id)
                 && !Boolean.TRUE.equals(call(Class.forName("ru.metrocraft.mwf.MechanicsClient"),"blocksFire"));
