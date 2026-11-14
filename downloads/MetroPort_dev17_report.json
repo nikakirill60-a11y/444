@@ -1,0 +1,32 @@
+{
+  "version": "1.13.0-dev.17",
+  "source_commit": "3f8c6c7b3577eef5e7eb7951ff544d46e1f7d2fc",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43619858999",
+  "jar": "metrocraft-port-1.12.2-1.13.0-dev.17.jar",
+  "bytes": 49503198,
+  "sha256": "567fe52ad5f8b5363cdbaae898960bb849d62612febca314a805ba9f8e0a639d",
+  "zip_crc": "PASS",
+  "junit": {
+    "tests": 410,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_junit_suites": {
+    "ru.metrocraft.port.mechanics.FilterItemTest": 8,
+    "ru.metrocraft.port.mechanics.FilterRulesTest": 6,
+    "ru.metrocraft.port.mechanics.FilterStatusTest": 4
+  },
+  "included": [
+    "60-tick completion-only filter replacement",
+    "server-owned dosimeter filter countdown",
+    "one low-filter alert per episode; BlackRazid watch remains time-only"
+  ],
+  "not_included": [
+    "donor weapons",
+    "decoded donor models/audio",
+    "remaining selected categories"
+  ],
+  "minecraft_gameplay_verified": false,
+  "installation": "Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged."
+}
