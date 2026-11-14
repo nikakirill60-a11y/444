@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.16", acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.17", acceptedMinecraftVersions = "[1.12.2]")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -84,6 +84,7 @@ public final class MetroPort {
         NETWORK.registerMessage(ru.metrocraft.port.blackrazid.survival.SurvivalPacket.Handler.class,ru.metrocraft.port.blackrazid.survival.SurvivalPacket.class,10,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.blackrazid.survival.LampPacket.Handler.class,ru.metrocraft.port.blackrazid.survival.LampPacket.class,11,Side.SERVER);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.ExtraEquipmentSyncPacket.Handler.class,ru.metrocraft.port.inventory.ExtraEquipmentSyncPacket.class,12,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.mechanics.FilterStatusPacket.Handler.class,ru.metrocraft.port.mechanics.FilterStatusPacket.class,13,Side.CLIENT);
         // IDs 0/3/8 belonged to retired firearms and are not reused.
         // IDs 5/6 belonged to the removed inventory comparator; never reuse them.
         NETWORK.registerMessage(ru.metrocraft.port.inventory.WatchSyncPacket.Handler.class,ru.metrocraft.port.inventory.WatchSyncPacket.class,7,Side.CLIENT);

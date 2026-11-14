@@ -1,0 +1,334 @@
+CLASS null/lIjijlilIlIIIiIiIlIIIIlIijljllij
+SUPER java/lang/Object
+
+METHOD <init>(Lnull/IijIjjillljIIIiiiIilIljilIiIIIii;)V
+00000 aload_0
+00001 invokespecial java/lang/Object.<init>()V
+00004 aload_0
+00005 new org/lwjgl/util/vector/Vector3f
+00008 dup
+00009 invokespecial org/lwjgl/util/vector/Vector3f.<init>()V
+00012 putfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.ljIillIiijijlIIijlilliljllijljlILorg/lwjgl/util/vector/Vector3f;
+00015 aload_0
+00016 aload_1
+00017 putfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.IjiIliIlIllillljIIIiIjiljlIljlIlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00020 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iIIiiiIiiIlIjiiIIIjIIiijlijiljij;Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)V
+00000 return
+
+METHOD jjlliijIIIiIjIjiiIjijjIjIljjiiII(Lnull/iIIiiiIiiIlIjiiIIIjIIiijlijiljij;Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)V
+00000 aload_1
+00001 aload_0
+00002 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.IjiIliIlIllillljIIIiIjiljlIljlIlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00005 invokevirtual null/iIIiiiIiiIlIjiiIIIjIIiijlijiljij.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/IijIjjillljIIIiiiIilIljilIiIIIii;)V
+00008 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)V
+00000 return
+
+METHOD jjlliijIIIiIjIjiiIjijjIjIljjiiII(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)V
+00000 return
+
+METHOD jIIlljIIIjijjlljiIiIiljjjiIIlIIl(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)V
+00000 return
+
+METHOD ljIillIiijijlIIijlilliljllijljlI(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)Z
+00000 aload_1
+00001 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jiiliIIIljilIljijjIjijilIilIijllZ
+00004 ifeq 5
+00007 iconst_0
+00008 ireturn
+00009 getstatic null/IiIjljijIjjillijiljIlIjIIjiiIIjI.jjlliijIIIiIjIjiiIjijjIjIljjiiIIZ
+00012 ifeq 17
+00015 aload_1
+00016 invokevirtual null/llIjIlllliiiIiililjjjIjiIijijiiI.ljIillIiijijlIIijlilliljllijljlI()Z
+00019 ifne 35
+00022 aload_1
+00023 iconst_1
+00024 invokevirtual null/llIjIlllliiiIiililjjjIjiIijijiiI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(Z)V
+00027 iconst_1
+00028 ireturn
+00029 getstatic null/IijjiiliijilIiiIijIIlliijIjIIlIl.IlijlIlilIIjlilIlliljjiIljjlIjIiZ
+00032 ifeq 20
+00035 aload_1
+00036 invokevirtual null/llIjIlllliiiIiililjjjIjiIijijiiI.ljIillIiijijlIIijlilliljllijljlI()Z
+00039 ifne 5
+00042 iconst_1
+00043 ireturn
+00044 aload_1
+00045 iconst_0
+00046 invokevirtual null/llIjIlllliiiIiililjjjIjiIijijiiI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(Z)V
+00049 goto 5
+00052 iconst_1
+00053 ireturn
+00054 iconst_0
+00055 ireturn
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/jIilillliIjillijIiIjllIlljiijllj;Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;)V
+00000 aload_3
+00001 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00004 ifne 4
+00007 return
+00008 invokestatic null/ilIllilIjjlIijlIiiiijlljiIiiIiil.jljljllijIIIjIjllljiIilliljijiIl()Lnull/ilIllilIjjlIijlIiiiijlljiIiiIiil;
+00011 astore 4
+00013 new org/lwjgl/util/vector/Vector3f
+00016 dup
+00017 aload_2
+00018 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jjlliijIIIiIjIjiiIjijjIjIljjiiIILorg/lwjgl/util/vector/Vector3f;
+00021 getfield org/lwjgl/util/vector/Vector3f.xF
+00024 aload_2
+00025 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jjlliijIIIiIjIjiiIjijjIjIljjiiIILorg/lwjgl/util/vector/Vector3f;
+00028 getfield org/lwjgl/util/vector/Vector3f.yF
+00031 aload_2
+00032 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jjlliijIIIiIjIjiiIjijjIjIljjiiIILorg/lwjgl/util/vector/Vector3f;
+00035 getfield org/lwjgl/util/vector/Vector3f.zF
+00038 invokespecial org/lwjgl/util/vector/Vector3f.<init>(FFF)V
+00041 astore 5
+00043 aload_2
+00044 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IijlijiijIIIlIiIjIiljllilllijIjILnull/jjjjIiijiiIlljllilIjliijlijIIIiI$IjiIliIlIllillljIIIiIjiljlIljlIl;
+00047 getstatic null/jjjjIiijiiIlljllilIjliijlijIIIiI$IjiIliIlIllillljIIIiIjiljlIljlIl.jjlliijIIIiIjIjiiIjijjIjIljjiiIILnull/jjjjIiijiiIlljllilIjliijlijIIIiI$IjiIliIlIllillljIIIiIjiljlIljlIl;
+00050 if_acmpeq 13
+00053 aload_2
+00054 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IijlijiijIIIlIiIjIiljllilllijIjILnull/jjjjIiijiiIlljllilIjliijlijIIIiI$IjiIliIlIllillljIIIiIjiljlIljlIl;
+00057 getstatic null/jjjjIiijiiIlljllilIjliijlijIIIiI$IjiIliIlIllillljIIIiIjiljlIljlIl.jIIlljIIIjijjlljiIiIiljjjiIIlIIlLnull/jjjjIiijiiIlljllilIjliijlijIIIiI$IjiIliIlIllillljIIIiIjiljlIljlIl;
+00060 if_acmpne 67
+00063 new org/lwjgl/util/vector/Vector3f
+00066 dup
+00067 ldc 0.5
+00069 aload_2
+00070 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jljiIijIIIIIIliijijjiIjIjiIljjjlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00073 getfield null/IijIjjillljIIIiiiIilIljilIiIIIii.IjiiIIlliljlIIIijIjjlIijiIlIlIllLorg/lwjgl/util/vector/Vector3f;
+00076 getfield org/lwjgl/util/vector/Vector3f.xF
+00079 fadd
+00080 ldc 0.5
+00082 aload_2
+00083 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jljiIijIIIIIIliijijjiIjIjiIljjjlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00086 getfield null/IijIjjillljIIIiiiIilIljilIiIIIii.IjiiIIlliljlIIIijIjjlIijiIlIlIllLorg/lwjgl/util/vector/Vector3f;
+00089 getfield org/lwjgl/util/vector/Vector3f.yF
+00092 fadd
+00093 ldc 0.5
+00095 aload_2
+00096 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jljiIijIIIIIIliijijjiIjIjiIljjjlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00099 getfield null/IijIjjillljIIIiiiIilIljilIiIIIii.IjiiIIlliljlIIIijIjjlIijiIlIlIllLorg/lwjgl/util/vector/Vector3f;
+00102 getfield org/lwjgl/util/vector/Vector3f.zF
+00105 fadd
+00106 invokespecial org/lwjgl/util/vector/Vector3f.<init>(FFF)V
+00109 astore 5
+00111 aload 5
+00113 aload_2
+00114 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IjiIliIlIllillljIIIiIjiljlIljlIlLorg/lwjgl/util/vector/Vector3f;
+00117 getfield org/lwjgl/util/vector/Vector3f.yF
+00120 f2d
+00121 invokestatic java/lang/Math.toRadians(D)D
+00124 invokestatic null/jIjijIiIiililljjjiIljilliIijlliI.IjiIliIlIllillljIIIiIjiljlIljlIl(Lorg/lwjgl/util/vector/Vector3f;D)V
+00127 new org/lwjgl/util/vector/Vector3f
+00130 dup
+00131 aload_2
+00132 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IlijjliljjllIjiIIjliIIjIiiIlijjlLnull/iljlIillijIljjIjjIilIIljljljjllj;
+00135 getfield null/iljlIillijIljjIjjIilIIljljljjllj.jllljljIlillIllilljijijjiIiijlliI
+00138 i2f
+00139 aload 5
+00141 getfield org/lwjgl/util/vector/Vector3f.xF
+00144 fadd
+00145 aload_2
+00146 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IlijjliljjllIjiIIjliIIjIiiIlijjlLnull/iljlIillijIljjIjjIilIIljljljjllj;
+00149 getfield null/iljlIillijIljjIjjIilIIljljljjllj.iIljIIilliiiIIjljjjlIjlIilIllIIlI
+00152 i2f
+00153 aload 5
+00155 getfield org/lwjgl/util/vector/Vector3f.yF
+00158 fadd
+00159 aload_2
+00160 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IlijjliljjllIjiIIjliIIjIiiIlijjlLnull/iljlIillijIljjIjjIilIIljljljjllj;
+00163 getfield null/iljlIillijIljjIjjIilIIljljljjllj.lljjjiiIlIlijjlIlIijljiIjIIjiljII
+00166 i2f
+00167 aload 5
+00169 getfield org/lwjgl/util/vector/Vector3f.zF
+00172 fadd
+00173 invokespecial org/lwjgl/util/vector/Vector3f.<init>(FFF)V
+00176 astore 6
+00178 aload 4
+00180 getfield null/ilIllilIjjlIijlIiiiijlljiIiiIiil.llliljiIlliIjijiijlijljiiiijjlijLnull/jljIIjljIlIlljlllljilllIlilllljI;
+00183 aload_1
+00184 invokevirtual null/jljIIjljIlIlljlllljilllIlilllljI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(Lnull/jjiiIjIIilIjIIjlliijiilljjiljlil;)Z
+00187 ifeq 36
+00190 aload_0
+00191 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.ljIillIiijijlIIijlilliljllijljlILorg/lwjgl/util/vector/Vector3f;
+00194 invokevirtual org/lwjgl/util/vector/Vector3f.length()F
+00197 fconst_0
+00198 fcmpl
+00199 ifeq 15
+00202 aload_0
+00203 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.ljIillIiijijlIIijlilliljllijljlILorg/lwjgl/util/vector/Vector3f;
+00206 aload 6
+00208 invokevirtual org/lwjgl/util/vector/Vector3f.equals(Ljava/lang/Object;)Z
+00211 ifne 12
+00214 aload 4
+00216 getfield null/ilIllilIjjlIijlIiiiijlljiIiiIiil.llliljiIlliIjijiijlijljiiiijjlijLnull/jljIIjljIlIlljlllljilllIlilllljI;
+00219 aload_1
+00220 invokevirtual null/jljIIjljIlIlljlllljilllIlilllljI.jjlliijIIIiIjIjiiIjijjIjIljjiiII(Lnull/jjiiIjIIilIjIIjlliijiilljjiljlil;)V
+00223 aload_1
+00224 fconst_1
+00225 invokevirtual null/jIilillliIjillijIiIjllIlljiijllj.ljIillIiijijlIIijlilliljllijljlI(F)V
+00228 aload_1
+00229 fconst_1
+00230 invokevirtual null/jIilillliIjillijIiIjllIlljiijllj.jljiIijIIIIIIliijijjiIjIjiIljjjl(F)V
+00233 aload_1
+00234 aload 6
+00236 getfield org/lwjgl/util/vector/Vector3f.xF
+00239 invokevirtual null/jIilillliIjillijIiIjllIlljiijllj.IjiIliIlIllillljIIIiIjiljlIljlIl(F)V
+00242 aload_1
+00243 aload 6
+00245 getfield org/lwjgl/util/vector/Vector3f.yF
+00248 invokevirtual null/jIilillliIjillijIiIjllIlljiijllj.jjlliijIIIiIjIjiiIjijjIjIljjiiII(F)V
+00251 aload_1
+00252 aload 6
+00254 getfield org/lwjgl/util/vector/Vector3f.zF
+00257 invokevirtual null/jIilillliIjillijIiIjllIlljiijllj.jjlliijIIIiIjIjiiIjijjIjIljjiiII(F)V
+00260 aload_0
+00261 aload 6
+00263 putfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.ljIillIiijijlIIijlilliljllijljlILorg/lwjgl/util/vector/Vector3f;
+00266 aload 4
+00268 getfield null/ilIllilIjjlIijlIiiiijlljiIiiIiil.llliljiIlliIjijiijlijljiiiijjlijLnull/jljIIjljIlIlljlllljilllIlilllljI;
+00271 aload_1
+00272 invokevirtual null/jljIIjljIlIlljlllljilllIlilllljI.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/jjiiIjIIilIjIIjlliijiilljjiljlil;)V
+00275 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lorg/lwjgl/util/vector/Vector3f;Lorg/lwjgl/util/vector/Vector3f;)Lnull/iIIijIiiiiIlIIjjIjlIjliijIIjIill;
+00000 aload_0
+00001 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.IjiIliIlIllillljIIIiIjiljlIljlIlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00004 getfield null/IijIjjillljIIIiiiIilIljilIiIIIii.IljIIIIlljIljjjIlIjlijIllIiIIjjiLnull/iIIiiiIiiIlIjiiIIIjIIiijlijiljij;
+00007 aload_1
+00008 aload_2
+00009 invokevirtual null/iIIiiiIiiIlIjiiIIIjIIiijlijiljij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(Lorg/lwjgl/util/vector/Vector3f;Lorg/lwjgl/util/vector/Vector3f;)Lnull/iIIijIiiiiIlIIjjIjlIjliijIIjIill;
+00012 areturn
+
+METHOD jljiIijIIIIIIliijijjiIjIjiIljjjl(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)Lnull/iIIijIiiiiIlIIjjIjlIjliijIIjIill;
+00000 aload_1
+00001 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IljIIIIlljIljjjIlIjlijIllIiIIjjiLnull/iIIijIiiiiIlIIjjIjlIjliijIIjIill;
+00004 ifnonnull 22
+00007 aload_1
+00008 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jljiIijIIIIIIliijijjiIjIjiIljjjlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00011 getfield null/IijIjjillljIIIiiiIilIljilIiIIIii.jiIiIIjjilIIiijIjllllilIIIliIiIlLnull/lIjijlilIlIIIiIiIlIIIIlIijljllij;
+00014 aload_1
+00015 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IjiIliIlIllillljIIIiIjiljlIljlIlLorg/lwjgl/util/vector/Vector3f;
+00018 aload_1
+00019 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jIIlljIIIjijjlljiIiIiljjjiIIlIIlLorg/lwjgl/util/vector/Vector3f;
+00022 invokevirtual null/lIjijlilIlIIIiIiIlIIIIlIijljllij.IjiIliIlIllillljIIIiIjiljlIljlIl(Lorg/lwjgl/util/vector/Vector3f;Lorg/lwjgl/util/vector/Vector3f;)Lnull/iIIijIiiiiIlIIjjIjlIjliijIIjIill;
+00025 areturn
+00026 aload_1
+00027 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IljIIIIlljIljjjIlIjlijIllIiIIjjiLnull/iIIijIiiiiIlIIjjIjlIjliijIIjIill;
+00030 areturn
+
+METHOD IlijjliljjllIjiIIjliIIjIiiIlijjl(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;)V
+00000 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/llIjIlllliiiIiililjjjIjiIijijiiI;I)V
+00000 aload_1
+00001 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IlijjliljjllIjiIIjliIIjIiiIlijjlLnull/iljlIillijIljjIjjIilIIljljljjllj;
+00004 invokevirtual null/iljlIillijIljjIjjIilIIljljljjllj.jiiijIiiljIIjlIIilIjiIjllIlIjlll()Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;
+00007 astore_3
+00008 aload_1
+00009 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jiiliIIIljilIljijjIjijilIilIijllZ
+00012 ifne 194
+00015 aload_1
+00016 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IlijjliljjllIjiIIjliIIjIiiIlijjlLnull/iljlIillijIljjIjjIilIIljljljjllj;
+00019 astore 4
+00021 aload_1
+00022 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.IIiIIljjiiijIliIljjIiiijjjiilliiZ
+00025 ifne 25
+00028 aload_3
+00029 aload 4
+00031 getfield null/iljlIillijIljjIjjIilIIljljljjllj.jllljljIlillIllilljijijjiIiijlliI
+00034 aload 4
+00036 getfield null/iljlIillijIljjIjjIilIIljljljjllj.iIljIIilliiiIIjljjjlIjlIilIllIIlI
+00039 aload 4
+00041 getfield null/iljlIillijIljjIjjIilIIljljljjllj.lljjjiiIlIlijjlIlIijljiIjIIjiljII
+00044 invokevirtual null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijlIlilIIjlilIlliljjiIljjlIjIi(III)Z
+00047 ifeq 77
+00050 aload_1
+00051 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jiIiIIjjilIIiijIjllllilIIIliIiIlLorg/lwjgl/util/vector/Vector3f;
+00054 ifnonnull 18
+00057 aload_1
+00058 new org/lwjgl/util/vector/Vector3f
+00061 dup
+00062 aload_0
+00063 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jIIlljIIIjijjlljiIiIiljjjiIIlIIlLorg/lwjgl/util/vector/Vector3f;
+00066 invokespecial org/lwjgl/util/vector/Vector3f.<init>(Lorg/lwjgl/util/vector/ReadableVector3f;)V
+00069 putfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jiIiIIjjilIIiijIjllllilIIIliIiIlLorg/lwjgl/util/vector/Vector3f;
+00072 aload_1
+00073 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iijljjIIlljIIjliljiilIjiiIiilIIlLorg/lwjgl/util/vector/Vector3f;
+00076 aload_3
+00077 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00080 ifeq 13
+00083 aload_0
+00084 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiIILorg/lwjgl/util/vector/Vector3f;
+00087 getfield org/lwjgl/util/vector/Vector3f.xF
+00090 goto 10
+00093 aload_0
+00094 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jIIlljIIIjijjlljiIiIiljjjiIIlIIlLorg/lwjgl/util/vector/Vector3f;
+00097 getfield org/lwjgl/util/vector/Vector3f.xF
+00100 putfield org/lwjgl/util/vector/Vector3f.xF
+00103 aload_1
+00104 iload_2
+00105 newarray 4
+00107 putfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI[Z
+00110 aload_1
+00111 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI[Z
+00114 aload_3
+00115 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00118 invokestatic java/util/Arrays.fill([ZZ)V
+00121 goto 82
+00124 aload_1
+00125 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jiIiIIjjilIIiijIjllllilIIIliIiIlLorg/lwjgl/util/vector/Vector3f;
+00128 ifnonnull 18
+00131 aload_1
+00132 new org/lwjgl/util/vector/Vector3f
+00135 dup
+00136 aload_0
+00137 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiIILorg/lwjgl/util/vector/Vector3f;
+00140 invokespecial org/lwjgl/util/vector/Vector3f.<init>(Lorg/lwjgl/util/vector/ReadableVector3f;)V
+00143 putfield null/llIjIlllliiiIiililjjjIjiIijijiiI.jiIiIIjjilIIiijIjllllilIIIliIiIlLorg/lwjgl/util/vector/Vector3f;
+00146 aload_1
+00147 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iijljjIIlljIIjliljiilIjiiIiilIIlLorg/lwjgl/util/vector/Vector3f;
+00150 aload_3
+00151 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00154 ifeq 13
+00157 aload_0
+00158 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jIIlljIIIjijjlljiIiIiljjjiIIlIIlLorg/lwjgl/util/vector/Vector3f;
+00161 getfield org/lwjgl/util/vector/Vector3f.xF
+00164 goto 10
+00167 aload_0
+00168 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiIILorg/lwjgl/util/vector/Vector3f;
+00171 getfield org/lwjgl/util/vector/Vector3f.xF
+00174 putfield org/lwjgl/util/vector/Vector3f.xF
+00177 aload_1
+00178 iload_2
+00179 newarray 4
+00181 putfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI[Z
+00184 aload_1
+00185 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI[Z
+00188 aload_3
+00189 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00192 ifne 7
+00195 iconst_1
+00196 goto 4
+00199 iconst_0
+00200 invokestatic java/util/Arrays.fill([ZZ)V
+00203 goto 18
+00206 aload_1
+00207 iload_2
+00208 newarray 4
+00210 putfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI[Z
+00213 aload_1
+00214 getfield null/llIjIlllliiiIiililjjjIjiIijijiiI.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI[Z
+00217 iconst_0
+00218 invokestatic java/util/Arrays.fill([ZZ)V
+00221 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl()Z
+00000 aload_0
+00001 getfield null/lIjijlilIlIIIiIiIlIIIIlIijljllij.IjiIliIlIllillljIIIiIjiljlIljlIlLnull/IijIjjillljIIIiiiIilIljilIiIIIii;
+00004 getfield null/IijIjjillljIIIiiiIilIljilIiIIIii.IljIIIIlljIljjjIlIjlijIllIiIIjjiLnull/iIIiiiIiiIlIjiiIIIjIIiijlijiljij;
+00007 getfield null/iIIiiiIiiIlIjiiIIIjIIiijlijiljij.illljjjIIIIijjiIjjljljIIljijIIIjZ
+00010 ireturn

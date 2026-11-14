@@ -10,7 +10,7 @@
     "metroport.mcmod.medkit.uses": "Шприцы: %s/5",
     "metroport.mcmod.medkit.help": "Удерживайте ПКМ 2 секунды: лечение; перерыв 5 секунд",
     "metroport.mcmod.medkit.empty": "Аптечка пуста",
-    "metroport.mcmod.filter.help": "ПКМ с надетым противогазом: установить фильтр на 5 минут",
+    "metroport.mcmod.filter.help": "Удерживайте ПКМ 3 секунды с надетой маской: фильтр на 5 минут",
     "metroport.mcmod.material.help": "Материал MCMOD",
     "metroport.mcmod.currency.help": "Валюта Metro; автоматический обмен не добавлен",
     "metroport.patch.attach": "ПКМ: нашить на надетую броню или нагрудник в другой руке",
@@ -26,7 +26,7 @@
     "metroport.watch.radiation": "Радиация: %s",
     "metroport.watch.safe": "нет",
     "metroport.watch.danger": "опасно",
-    "metroport.watch.help": "Отдельный слот в инвентаре Metro. Время мира и радиация зоны.",
+    "metroport.watch.help": "Слот часов Metro. Время, радиация и запас фильтра; сигнал при остатке до минуты.",
     "metroport.respawn.saved": "Точка возрождения сохранена.",
     "key.metroport.mods": "Модификации оружия MCMOD",
     "key.metroport.pump": "Накачать / зарядить пневматическое оружие",
@@ -47,7 +47,8 @@
     "metroport.mcmod.mods.refund": "Возврат: %s металла / %s химии",
     "metroport.mcmod.mods.price": "Цена: %s металла / %s химии",
     "metroport.mcmod.mods.success": "Оружие модифицировано",
-    "metroport.mcmod.mods.failed": "Недостаточно ресурсов / места или модуль несовместим"
+    "metroport.mcmod.mods.failed": "Недостаточно ресурсов / места или модуль несовместим",
+    "metroport.watch.filter": "Фильтр: %s"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -60,7 +61,7 @@
     "metroport.mcmod.medkit.uses": "Syringes: %s/5",
     "metroport.mcmod.medkit.help": "Hold right click for 2 seconds to heal; 5-second interval",
     "metroport.mcmod.medkit.empty": "Empty medkit",
-    "metroport.mcmod.filter.help": "Right click while wearing a gas mask: install a 5-minute filter",
+    "metroport.mcmod.filter.help": "Hold right click for 3 seconds with a worn mask: five-minute filter",
     "metroport.mcmod.material.help": "MCMOD material",
     "metroport.mcmod.currency.help": "Metro currency; automatic exchange is not implemented",
     "metroport.patch.attach": "Right click: attach to worn chest armor or chest armor in the other hand",
@@ -76,7 +77,7 @@
     "metroport.watch.radiation": "Radiation: %s",
     "metroport.watch.safe": "none",
     "metroport.watch.danger": "danger",
-    "metroport.watch.help": "Dedicated Metro inventory slot. World time and ambient radiation.",
+    "metroport.watch.help": "Metro watch slot. Time, radiation and filter reserve; alerts at one minute remaining.",
     "metroport.respawn.saved": "Respawn point saved.",
     "key.metroport.mods": "MCMOD gun modifications",
     "key.metroport.pump": "Pump / charge pneumatic gun",
@@ -97,6 +98,7 @@
     "metroport.mcmod.mods.refund": "Refund: %s metal / %s chemicals",
     "metroport.mcmod.mods.price": "Cost: %s metal / %s chemicals",
     "metroport.mcmod.mods.success": "Gun modified",
-    "metroport.mcmod.mods.failed": "Not enough resources / space, or incompatible module"
+    "metroport.mcmod.mods.failed": "Not enough resources / space, or incompatible module",
+    "metroport.watch.filter": "Filter: %s"
   }
 }

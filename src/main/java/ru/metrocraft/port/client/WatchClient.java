@@ -29,14 +29,17 @@ public final class WatchClient implements LayerRenderer<AbstractClientPlayer> {
     @SubscribeEvent public static void hud(RenderGameOverlayEvent.Post event){
         Minecraft mc=Minecraft.getMinecraft();
         if(event.getType()!=RenderGameOverlayEvent.ElementType.ALL || mc.player==null || mc.gameSettings.hideGUI || mc.player.isSpectator())return;
-        ItemStack watch=WatchEquipment.get(mc.player);
-        if(watch.isEmpty() && WatchEquipment.accepts(mc.player.getHeldItemMainhand()))watch=mc.player.getHeldItemMainhand();
-        if(watch.isEmpty() && WatchEquipment.accepts(mc.player.getHeldItemOffhand()))watch=mc.player.getHeldItemOffhand();
+        ItemStack watch=FilterWatchClient.displayedWatch(mc.player);
         if(watch.isEmpty())return;
         boolean timeOnly=watch.getItem() instanceof ru.metrocraft.port.blackrazid.BlackrazidWatchItem;
         int y=event.getResolution().getScaledHeight()-64;boolean danger=WatchEquipment.reading(mc.player)>0;
         mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.watch.time",WatchItem.time(mc.world.getWorldTime())),8,y,0xDAE9CE);
         if(!timeOnly)mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.watch.radiation",I18n.format(danger?"metroport.watch.danger":"metroport.watch.safe")),8,y+11,danger?0xFF6655:0x9AC87B);
+        if(!timeOnly && FilterWatchClient.ready() && FilterWatchClient.remaining()>=0){
+            int left=FilterWatchClient.remaining();
+            mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.watch.filter",ru.metrocraft.port.mechanics.FilterRules.time(left)),8,y+22,
+                    ru.metrocraft.port.mechanics.FilterRules.low(left)?0xFF6655:0x9AC87B);
+        }
     }
     @Override public void doRenderLayer(AbstractClientPlayer player,float swing,float amount,float partial,float age,float yaw,float pitch,float scale){
         if(WatchEquipment.get(player).isEmpty() || player.isInvisible() || player.isSpectator())return;

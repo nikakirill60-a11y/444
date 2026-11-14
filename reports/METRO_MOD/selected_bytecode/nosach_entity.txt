@@ -1,0 +1,202 @@
+CLASS null/IIIjIiIIjIiiiliIijjIIIlliIliljlj
+SUPER null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil
+
+METHOD <init>(Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;)V
+00000 aload_0
+00001 aload_1
+00002 invokespecial null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil.<init>(Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;)V
+00005 aload_0
+00006 ldc 0.949999988079071
+00008 ldc 1.2999999523162842
+00010 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiIliIlIllillljIIIiIjiljlIljlIl(FF)V
+00013 ldc 1.25
+00015 fstore_2
+00016 aload_0
+00017 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.llliljiIlliIjijiijlijljiiiijjlij()Lnull/IljIIlIilIIjjlIjlIjlijjjlIijiIII;
+00020 iconst_0
+00021 invokevirtual null/IljIIlIilIIjjlIjlIjlijjjlIijiIII.IjiIliIlIllillljIIIiIjiljlIljlIl(Z)V
+00024 aload_0
+00025 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiiIIlliljlIIIijIjjlIijiIlIlIllLnull/lIjijIjIijIIllIjjjIlIijijliIIlIl;
+00028 iconst_2
+00029 new null/IIlliliIijlllilIIlljIllliIllliII
+00032 dup
+00033 aload_0
+00034 ldc null/jijlIIlijilIlIliIlllliiiilljillj
+00036 fload_2
+00037 f2d
+00038 iconst_0
+00039 invokespecial null/IIlliliIijlllilIIlljIllliIllliII.<init>(Lnull/llljijjliIIjljllIiIiIjllllIIjIjl;Ljava/lang/Class;DZ)V
+00042 invokevirtual null/lIjijIjIijIIllIjjjIlIijijliIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl(ILnull/iiljjjIiliIjIjilIliiilIljIijljlj;)V
+00045 aload_0
+00046 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiiIIlliljlIIIijIjjlIijiIlIlIllLnull/lIjijIjIijIIllIjjjIlIijijliIIlIl;
+00049 iconst_4
+00050 new null/IIljiIiiIlijijlIIjIjIiiIjlIiliiI
+00053 dup
+00054 aload_0
+00055 invokespecial null/IIljiIiiIlijijlIIjIjIiiIjlIiliiI.<init>(Lnull/IijljjIijIljIiIjjjijjijIijlIIiII;)V
+00058 invokevirtual null/lIjijIjIijIIllIjjjIlIijijliIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl(ILnull/iiljjjIiliIjIjilIliiilIljIijljlj;)V
+00061 aload_0
+00062 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiiIIlliljlIIIijIjjlIijiIlIlIllLnull/lIjijIjIijIIllIjjjIlIijijliIIlIl;
+00065 iconst_5
+00066 new null/jijliIIlliIjIjijlIjIIlljiiillijj
+00069 dup
+00070 aload_0
+00071 fload_2
+00072 fconst_2
+00073 fdiv
+00074 f2d
+00075 invokespecial null/jijliIIlliIjIjijlIjIIlljiiillijj.<init>(Lnull/llljijjliIIjljllIiIiIjllllIIjIjl;D)V
+00078 invokevirtual null/lIjijIjIijIIllIjjjIlIijijliIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl(ILnull/iiljjjIiliIjIjilIliiilIljIijljlj;)V
+00081 aload_0
+00082 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiiIIlliljlIIIijIjjlIijiIlIlIllLnull/lIjijIjIijIIllIjjjIlIijijliIIlIl;
+00085 bipush 6
+00087 new null/IlijiIilIIlIIIIIliiljiljIiIiijjl
+00090 dup
+00091 aload_0
+00092 ldc null/jijlIIlijilIlIliIlllliiiilljillj
+00094 ldc 8.0
+00096 invokespecial null/IlijiIilIIlIIIIIliiljiljIiIiijjl.<init>(Lnull/IijljjIijIljIiIjjjijjijIijlIIiII;Ljava/lang/Class;F)V
+00099 invokevirtual null/lIjijIjIijIIllIjjjIlIijijliIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl(ILnull/iiljjjIiliIjIjilIliiilIljIijljlj;)V
+00102 aload_0
+00103 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IijlijiijIIIlIiIjIiljllilllijIjILnull/lIjijIjIijIIllIjjjIlIijijliIIlIl;
+00106 iconst_1
+00107 new null/IjIiljjiiiIiiiIiijIljIIjjjjiilii
+00110 dup
+00111 aload_0
+00112 iconst_1
+00113 invokespecial null/IjIiljjiiiIiiiIiijIljIIjjjjiilii.<init>(Lnull/llljijjliIIjljllIiIiIjllllIIjIjl;Z)V
+00116 invokevirtual null/lIjijIjIijIIllIjjjIlIijijliIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl(ILnull/iiljjjIiliIjIjilIliiilIljIijljlj;)V
+00119 aload_0
+00120 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IijlijiijIIIlIiIjIiljllilllijIjILnull/lIjijIjIijIIllIjjjIlIijijliIIlIl;
+00123 iconst_2
+00124 new null/lljlijjjiiIlIijIjIljIiljljIjiIii
+00127 dup
+00128 aload_0
+00129 ldc null/jijlIIlijilIlIliIlllliiiilljillj
+00131 iconst_0
+00132 iconst_0
+00133 invokespecial null/lljlijjjiiIlIijIjIljIiljljIjiIii.<init>(Lnull/llljijjliIIjljllIiIiIjllllIIjIjl;Ljava/lang/Class;IZ)V
+00136 invokevirtual null/lIjijIjIijIIllIjjjIlIijijliIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl(ILnull/iiljjjIiliIjIjilIliiilIljIijljlj;)V
+00139 return
+
+METHOD jjlliijIIIiIjIjiiIjijjIjIljjiiII()V
+00000 aload_0
+00001 invokespecial null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil.jjlliijIIIiIjIjiiIjijjIjIljjiiII()V
+00004 aload_0
+00005 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.jllljljIlillIllilljijijjiIiijlliLnull/IIIllljIjjIliiiliilljjIjijjIiIjI;
+00008 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00011 ifeq 19
+00014 aload_0
+00015 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.iIjlIiIiiiijiIlIIiljIillIIjlljIjLnull/iIljlijiIIIIjjIlIiIijjjliljliIIi;
+00018 bipush 31
+00020 iconst_0
+00021 invokestatic java/lang/Integer.valueOf(I)Ljava/lang/Integer;
+00024 invokevirtual null/iIljlijiIIIIjjIlIiIijjjliljliIIi.IjiIliIlIllillljIIIiIjiljlIljlIl(ILjava/lang/Object;)V
+00027 goto 27
+00030 aload_0
+00031 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.iIjlIiIiiiijiIlIIiljIillIIjlljIjLnull/iIljlijiIIIIjjIlIiIijjjliljliIIi;
+00034 bipush 31
+00036 aload_0
+00037 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.jllljljIlillIllilljijijjiIiijlliLnull/IIIllljIjjIliiiliilljjIjijjIiIjI;
+00040 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijlIlilIIjlilIlliljjiIljjlIjIiLjava/util/Random;
+00043 bipush 6
+00045 invokevirtual java/util/Random.nextInt(I)I
+00048 invokestatic java/lang/Integer.valueOf(I)Ljava/lang/Integer;
+00051 invokevirtual null/iIljlijiIIIIjjIlIiIijjjliljliIIi.IjiIliIlIllillljIIIiIjiljlIljlIl(ILjava/lang/Object;)V
+00054 return
+
+METHOD jIIiljiljIiljjljIiljiIljIjIIjIjl()Z
+00000 iconst_1
+00001 ireturn
+
+METHOD jiiijIiiljIIjlIIilIjiIjllIlIjlll()I
+00000 sipush 320
+00003 ireturn
+
+METHOD s_()V
+00000 aload_0
+00001 invokespecial null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil.s_()V
+00004 aload_0
+00005 getstatic null/IlliIjIiijliiiIijjlijjjlIIliilli.IjiIliIlIllillljIIIiIjiljlIljlIlLnull/iilliliIilIijiIjIljjjijiiIIiiIlj;
+00008 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iilliliIilIijiIjIljjjijiiIIiiIlj;)Lnull/liilIljlIjjjiIilljIIiiIIjllllIlI;
+00011 ldc2_w 14.0
+00014 invokeinterface null/liilIljlIjjjiIilljIIiiIIjllllIlI.IjiIliIlIllillljIIIiIjiljlIljlIl(D)V 3 0
+00019 aload_0
+00020 getstatic null/IlliIjIiijliiiIijjlijjjlIIliilli.ljIillIiijijlIIijlilliljllijljlILnull/iilliliIilIijiIjIljjjijiiIIiiIlj;
+00023 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iilliliIilIijiIjIljjjijiiIIiiIlj;)Lnull/liilIljlIjjjiIilljIIiiIIjllllIlI;
+00026 ldc2_w 0.4000000059604645
+00029 invokeinterface null/liilIljlIjjjiIilljIIiiIIjllllIlI.IjiIliIlIllillljIIIiIjiljlIljlIl(D)V 3 0
+00034 aload_0
+00035 getstatic null/IlliIjIiijliiiIijjlijjjlIIliilli.jjlliijIIIiIjIjiiIjijjIjIljjiiIILnull/iilliliIilIijiIjIljjjijiiIIiiIlj;
+00038 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iilliliIilIijiIjIljjjijiiIIiiIlj;)Lnull/liilIljlIjjjiIilljIIiiIIjllllIlI;
+00041 ldc2_w 40.0
+00044 invokeinterface null/liilIljlIjjjiIilljIIiiIIjllllIlI.IjiIliIlIllillljIIIiIjiljlIljlIl(D)V 3 0
+00049 aload_0
+00050 getstatic null/IlliIjIiijliiiIijjlijjjlIIliilli.jljiIijIIIIIIliijijjiIjIjiIljjjlLnull/iilliliIilIijiIjIljjjijiiIIiiIlj;
+00053 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iilliliIilIijiIjIljjjijiiIIiiIlj;)Lnull/liilIljlIjjjiIilljIIiiIIjllllIlI;
+00056 ldc2_w 4.0
+00059 invokeinterface null/liilIljlIjjjiIilljIIiiIIjllllIlI.IjiIliIlIllillljIIIiIjiljlIljlIl(D)V 3 0
+00064 return
+
+METHOD IiIjIjIjijjlIIIjIIjiIjIjiljIjiij()Ljava/lang/String;
+00000 aload_0
+00001 invokevirtual null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.iijIijlilIiijiIijilijIjIljljlIij()Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;
+00004 ifnull 6
+00007 ldc 'metro2033server:entity.mob.nosach.nosach_voice'
+00009 areturn
+00010 ldc 'metro2033server:entity.mob.nosach.nosach_alive'
+00012 areturn
+
+METHOD IIijIjIjjIjiiIjlljlliiliiIlliiIi()Ljava/lang/String;
+00000 aload_0
+00001 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.jllljljIlillIllilljijijjiIiijlliLnull/IIIllljIjjIliiiliilljjIjijjIiIjI;
+00004 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijlIlilIIjlilIlliljjiIljjlIjIiLjava/util/Random;
+00007 iconst_3
+00008 invokevirtual java/util/Random.nextInt(I)I
+00011 istore_1
+00012 iload_1
+00013 ifne 6
+00016 ldc 'metro2033server:entity.mob.nosach.nosach_hit'
+00018 areturn
+00019 ldc 'prodnik_sasat'
+00021 areturn
+
+METHOD IIIIjljillljiiIllilllliljlljjlIi()Ljava/lang/String;
+00000 ldc 'metro2033server:entity.mob.nosach.nosach_death'
+00002 areturn
+
+METHOD jijIiiiIjjjIiiIilillIlIilIIjIjji()Z
+00000 iconst_0
+00001 ireturn
+
+METHOD jililllIijijIIiiIiliIjjjlilljjII()V
+00000 aload_0
+00001 invokespecial null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil.jililllIijijIIiiIiliIjjjlilljjII()V
+00004 return
+
+METHOD jjlliijIIIiIjIjiiIjijjIjIljjiiII(Lnull/iljjIjillIlijIiijiijiIljljIjllIj;)V
+00000 aload_0
+00001 aload_1
+00002 invokespecial null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil.jjlliijIIIiIjIjiiIjijjIjIljjiiII(Lnull/iljjIjillIlijIiijiijiIljljIjllIj;)V
+00005 aload_1
+00006 ldc 'kikimoraType'
+00008 aload_0
+00009 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.iIjlIiIiiiijiIlIIiljIillIIjlljIjLnull/iIljlijiIIIIjjIlIiIijjjliljliIIi;
+00012 bipush 31
+00014 invokevirtual null/iIljlijiIIIIjjIlIiIijjjliljliIIi.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(I)I
+00017 invokevirtual null/iljjIjillIlijIiijiijiIljljIjllIj.IjiIliIlIllillljIIIiIjiljlIljlIl(Ljava/lang/String;I)V
+00020 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iljjIjillIlijIiijiijiIljljIjllIj;)V
+00000 aload_0
+00001 aload_1
+00002 invokespecial null/jjIiIiiljIIIjIjIlIijjIIlijjjiiil.IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/iljjIjillIlijIiijiijiIljljIjllIj;)V
+00005 aload_0
+00006 getfield null/IIIjIiIIjIiiiliIijjIIIlliIliljlj.iIjlIiIiiiijiIlIIiljIillIIjlljIjLnull/iIljlijiIIIIjjIlIiIijjjliljliIIi;
+00009 bipush 31
+00011 aload_1
+00012 ldc 'kikimoraType'
+00014 invokevirtual null/iljjIjillIlijIiijiijiIljljIjllIj.IlijjliljjllIjiIIjliIIjIiiIlijjl(Ljava/lang/String;)I
+00017 invokestatic java/lang/Integer.valueOf(I)Ljava/lang/Integer;
+00020 invokevirtual null/iIljlijiIIIIjjIlIiIijjjliljliIIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII(ILjava/lang/Object;)V
+00023 return

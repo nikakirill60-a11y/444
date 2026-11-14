@@ -1,0 +1,87 @@
+CLASS null/IjIjIIIijIjlljljIljiljjiliilIlll
+SUPER null/IjllllIljljijijiIliIijjiIjiiIlij
+
+METHOD <init>()V
+00000 aload_0
+00001 iconst_1
+00002 ldc 'flyashka'
+00004 getstatic null/iIIiiIIiljijlllljiljiIlilllIlliI.IlijjliljjllIjiIIjliIIjIiiIlijjlLnull/ijIiiIlilIiIlliiliIijjIIlijIIjIl;
+00007 invokespecial null/IjllllIljljijijiIliIijjiIjiiIlij.<init>(ILjava/lang/String;Lnull/ijIiiIlilIiIlliiliIijjIIlijIIjIl;)V
+00010 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;)Lnull/jiilIIijIlijIjIjililliijlIlIljiI;
+00000 aload_1
+00001 areturn
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/IllIIiililIiljiljiIiliijiIllillj;IZ)V
+00000 aload_3
+00001 instanceof null/jijlIIlijilIlIliIlllliiiilljillj
+00004 ifeq 38
+00007 aload_3
+00008 checkcast null/jijlIIlijilIlIliIlllliiiilljillj
+00011 getfield null/jijlIIlijilIlIliIlllliiiilljillj.lijjjlIiiIllIiljjiijjjIIjIiiilIjLnull/IIljIIIljiljIiijjjliijiIiIljijiI;
+00014 invokevirtual null/IIljIIIljiljIiijjjliijiIiIljijiI.IijlijiijIIIlIiIjIiljllilllijIjI()Lnull/jiilIIijIlijIjIjililliijlIlIljiI;
+00017 aload_1
+00018 if_acmpne 24
+00021 aload_3
+00022 checkcast null/jijlIIlijilIlIliIlllliiiilljillj
+00025 astore 6
+00027 aload 6
+00029 invokestatic null/jiiIIiIjiIijjjlillijlIIlllilljjI.ljIillIiijijlIIijlilliljllijljlI(Lnull/jijlIIlijilIlIliIlllliiiilljillj;)Lnull/jiiIIiIjiIijjjlillijlIIlllilljjI;
+00032 astore 7
+00034 aload_2
+00035 getfield null/IIIllljIjjIliiiliilljjIjijjIiIjI.IlijIjliliIjIlljIIIlIllIljllIIiiZ
+00038 ifne 4
+00041 return
+00042 return
+
+METHOD IjiIliIlIllillljIIIiIjiljlIljlIl(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Ljava/util/List;Z)V
+00000 aload_3
+00001 new java/lang/StringBuilder
+00004 dup
+00005 invokespecial java/lang/StringBuilder.<init>()V
+00008 getstatic null/ijliIjIiljlIIjlljijjjiijIlIIIjIl.IjiiIIlliljlIIIijIjjlIijiIlIlIllLnull/ijliIjIiljlIIjlljijjjiijIlIIIjIl;
+00011 invokevirtual java/lang/StringBuilder.append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+00014 ldc 'Восстанавливает жажду'
+00016 invokevirtual java/lang/StringBuilder.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+00019 invokevirtual java/lang/StringBuilder.toString()Ljava/lang/String;
+00022 invokeinterface java/util/List.add(Ljava/lang/Object;)Z 2 0
+00027 pop
+00028 bipush 42
+00030 invokestatic org/lwjgl/input/Keyboard.isKeyDown(I)Z
+00033 ifne 50
+00036 aload_3
+00037 new java/lang/StringBuilder
+00040 dup
+00041 invokespecial java/lang/StringBuilder.<init>()V
+00044 ldc '<Нажмите '
+00046 invokevirtual java/lang/StringBuilder.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+00049 getstatic null/ijliIjIiljlIIjlljijjjiijIlIIIjIl.IilljjjjjjiIjiIjIijjjjijIIIijjliLnull/ijliIjIiljlIIjlljijjjiijIlIIIjIl;
+00052 invokevirtual java/lang/StringBuilder.append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+00055 ldc 'Shift'
+00057 invokevirtual java/lang/StringBuilder.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+00060 getstatic null/ijliIjIiljlIIjlljijjjiijIlIIIjIl.IjiiIIlliljlIIIijIjjlIijiIlIlIllLnull/ijliIjIiljlIIjlljijjjiijIlIIIjIl;
+00063 invokevirtual java/lang/StringBuilder.append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+00066 ldc '>'
+00068 invokevirtual java/lang/StringBuilder.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+00071 invokevirtual java/lang/StringBuilder.toString()Ljava/lang/String;
+00074 invokeinterface java/util/List.add(Ljava/lang/Object;)Z 2 0
+00079 pop
+00080 goto 38
+00083 aload_3
+00084 new java/lang/StringBuilder
+00087 dup
+00088 invokespecial java/lang/StringBuilder.<init>()V
+00091 ldc 'Глотков осталось: '
+00093 invokevirtual java/lang/StringBuilder.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+00096 bipush 10
+00098 aload_0
+00099 aload_1
+00100 ldc 'water'
+00102 invokevirtual null/IjIjIIIijIjlljljIljiljjiliilIlll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)I
+00105 iadd
+00106 invokevirtual java/lang/StringBuilder.append(I)Ljava/lang/StringBuilder;
+00109 invokevirtual java/lang/StringBuilder.toString()Ljava/lang/String;
+00112 invokeinterface java/util/List.add(Ljava/lang/Object;)Z 2 0
+00117 pop
+00118 return
