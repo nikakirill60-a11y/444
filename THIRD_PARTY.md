@@ -96,3 +96,7 @@ standalone 3D attachment items. Other weapons' mesh/animation ports remain pendi
 renderer OBJ dependency inventory is in `docs/blackrazid-weapon-mesh-gaps.json`.
 Camera fitting and bounded tick-driven animations are explicit adaptations, not claims of exact migration
 of the legacy frame-dependent animation code. Original authorship and redistribution caveats remain unchanged.
+
+## METRO_MOD resource recovery (dev20)
+
+User-supplied `Metro2033Content.jar` (SHA256 `318cdcf0a48f076571300e4f8336651c702601cd9beafbc0a72cf028d29af9ab`) was decoded offline using the envelope reader recovered by static analysis of the supplied client. Original PNG/OGG/GLSL bytes and paths are preserved in `downloads/METRO_MOD_Content_decoded.zip`; a complete per-file provenance manifest is in `reports/METRO_MOD/content_decoded_manifest.json`. The four selected food/water icons are copied byte-for-byte into the mod. GLSL headers attribute Minecraft Metro 2033 Server / metro2033server.ru and Krogenit where present; those headers are retained unchanged. No general redistribution licence was established. Decoding does not transfer copyright or grant new redistribution/commercial-use rights. The recovered archive is source material for the user's requested migration, not an installable replacement mod/resource pack. No donor Java is executed or bundled. MWF and customized packv4 are not modified.

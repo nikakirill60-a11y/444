@@ -53,7 +53,7 @@
     "metroport.nvg.state": "ПНВ: %s",
     "metroport.metromod.food": "Удерживайте ПКМ, чтобы поесть.",
     "metroport.metromod.water": "Удерживайте ПКМ: +30 воды, не больше 100.",
-    "metroport.metromod.provisional_icon": "Временная иконка Minecraft; оригинальная графика ещё не перенесена."
+    "metroport.metromod.original_icon": "Оригинальная иконка METRO_MOD."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -109,6 +109,6 @@
     "metroport.nvg.state": "NVG: %s",
     "metroport.metromod.food": "Hold right click to eat.",
     "metroport.metromod.water": "Hold right click: +30 water, capped at 100.",
-    "metroport.metromod.provisional_icon": "Provisional Minecraft icon; original artwork not yet imported."
+    "metroport.metromod.original_icon": "Original METRO_MOD icon."
   }
 }

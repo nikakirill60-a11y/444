@@ -1,2 +1,5 @@
 # Asset generators and their deterministic reproduction tests.
 Pillow==13.0.0
+# Offline METRO_MOD resource decoding and complete Vorbis validation.
+pycryptodome==3.23.0
+soundfile==0.13.1

@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.*;
 import ru.metrocraft.port.blackrazid.survival.*;
 import java.util.List;
 
-/** Native active-hand use: server-owned, completion-only; icons are explicitly provisional vanilla assets. */
+/** Native active-hand use: server-owned, completion-only; icons are byte-identical decoded donor assets. */
 public final class MetroFoodItem extends ItemFood {
     public static final int USE_TICKS=32;
     public final MetroConsumables.Profile profile;
@@ -55,6 +55,6 @@ public final class MetroFoodItem extends ItemFood {
     @Override @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack,World world,List<String> lines,ITooltipFlag flag){
         lines.add(I18n.translateToLocal("metroport.metromod."+(profile.water?"water":"food")));
-        lines.add(I18n.translateToLocal("metroport.metromod.provisional_icon"));
+        lines.add(I18n.translateToLocal("metroport.metromod.original_icon"));
     }
 }

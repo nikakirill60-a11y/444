@@ -13,17 +13,18 @@ class MetroConsumablesTest(unittest.TestCase):
         self.assertEqual(4,len({r['id'] for r in rows}))
         proof=json.loads((ROOT/'reports/METRO_MOD/dev18_consumables_evidence.json').read_text())
         self.assertTrue({r['sourceId'] for r in rows}.issubset({r['item'] for r in proof['constructor_evidence']}))
-    def test_temporary_icons_explicit_and_models_present(self):
+    def test_original_icons_and_models_present(self):
         for row in json.loads((A/'metromod_consumables.json').read_text()):
             model=json.loads((A/'models/item'/f"{row['id']}.json").read_text())
             self.assertEqual('minecraft:item/generated',model['parent'])
             self.assertEqual(row['icon'],model['textures']['layer0'])
-            self.assertIn('provisional',row['visualStatus'])
+            self.assertEqual('original decoded METRO_MOD icon',row['visualStatus'])
+            self.assertEqual(__import__('hashlib').sha256((A/'textures/metromod/items'/f"{row['sourceId']}.png").read_bytes()).hexdigest(),row['iconSha256'])
     def test_localization_once_and_generator_retains_it(self):
         for locale in ['ru_ru','en_us']:
             keys=[l.split('=',1)[0] for l in (A/'lang'/f'{locale}.lang').read_text().splitlines() if '=' in l]
             for row in json.loads((A/'metromod_consumables.json').read_text()):self.assertEqual(1,keys.count('item.metroport.'+row['id']+'.name'))
-            self.assertEqual(1,keys.count('metroport.metromod.provisional_icon'))
+            self.assertEqual(1,keys.count('metroport.metromod.original_icon'))
         source=(ROOT/'tools/mcmod_languages.py').read_text();self.assertIn("'metromod_consumables.json'",source)
     def test_subscriber_registers_in_existing_things_and_model_registry(self):
         src=(ROOT/'src/main/java/ru/metrocraft/port/metromod/MetroConsumables.java').read_text()
