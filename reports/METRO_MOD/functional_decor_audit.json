@@ -929,9 +929,9 @@
         "null/jililjllIIllIijIljlliiiljllIijjj"
       ],
       "direct_model_references": [
-        "_add1.m2033model",
-        "_add2.m2033model",
-        "door/d6_gate_platform_.m2033model"
+        "door/d6_gate_platform_.m2033model",
+        "door/d6_gate_platform_add1.m2033model",
+        "door/d6_gate_platform_add2.m2033model"
       ],
       "runtime_ported": false
     },
@@ -1889,9 +1889,9 @@
         "null/jililjllIIllIijIljlliiiljllIijjj"
       ],
       "direct_model_references": [
-        "_add1.m2033model",
-        "_add2.m2033model",
-        "structure/gates_01.m2033model"
+        "structure/gates_01.m2033model",
+        "structure/gates_01_add1.m2033model",
+        "structure/gates_01_add2.m2033model"
       ],
       "runtime_ported": false
     },
@@ -2701,8 +2701,6 @@
     }
   ],
   "model_references": [
-    "_add1.m2033model",
-    "_add2.m2033model",
     "arsenal/ammo_box.m2033model",
     "arsenal/armorset_soldier_01.m2033model",
     "arsenal/armorset_soldier_02.m2033model",
@@ -2780,6 +2778,8 @@
     "door/biblio_door_hall_razlom_right.m2033model",
     "door/biblio_door_razlom.m2033model",
     "door/d6_gate_platform_.m2033model",
+    "door/d6_gate_platform_add1.m2033model",
+    "door/d6_gate_platform_add2.m2033model",
     "door/door_2_left.m2033model",
     "door/door_2_right.m2033model",
     "door/door_d06_l02_01.m2033model",
@@ -2897,6 +2897,8 @@
     "structure/d6_door_02_add1.m2033model",
     "structure/d6_lift_bolshoy.m2033model",
     "structure/gates_01.m2033model",
+    "structure/gates_01_add1.m2033model",
+    "structure/gates_01_add2.m2033model",
     "structure/hydro_wheel.m2033model",
     "structure/l13_reshetka_skin.m2033model",
     "structure/l13_vent.m2033model",
@@ -2982,7 +2984,7 @@
     "Type tags and client handlers are not verified server behaviour.",
     "None+handler means a custom behaviour, not proof of an inventory/electricity system.",
     "References are not extracted geometry. Model-internal textures/materials/animations remain unresolved.",
-    "Generic dynamically constructed model paths, if any, are not resolved by string collection.",
+    "Two known constructor-appended door model pairs are resolved; other dynamic paths, if any, remain unaudited.",
     "Existing six MetroPort gates have separate legacy assets; they are not these nine donor gates."
   ]
 }

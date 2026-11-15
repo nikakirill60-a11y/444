@@ -35,7 +35,7 @@ class FunctionalDecorTest(unittest.TestCase):
     def test_collector_generation_is_reproducible_and_exactly_scoped(self):
         self.assertEqual(G.generate(R),(ROOT/'downloads/collect_metromod_decor.py').read_text())
         expected={p for e in R['entries'] if e['kind'] in G.KINDS for p in e['direct_model_references']}
-        self.assertEqual(expected,set(C.MODEL_REFERENCES));self.assertEqual(190,len(expected))
+        self.assertEqual(expected,set(C.MODEL_REFERENCES));self.assertEqual(192,len(expected))
         self.assertFalse(any('/weapon/' in p or p.startswith(('cars/','veh/','military_veh/','drezina/')) for p in expected))
     def test_counts_are_catalogue_evidence_not_runtime_completion(self):
         self.assertEqual(2397,R['registered_models']);self.assertEqual(188,len(R['entries']));self.assertFalse(R['runtime_port_implemented'])
@@ -46,11 +46,13 @@ class FunctionalDecorTest(unittest.TestCase):
         for i in range(1,10):self.assertIn(f'germo/germo{i}.m2033model',refs)
         levers=[e for e in R['entries'] if e['kind']=='Lever'];self.assertEqual(6,len(levers))
         for e in levers:self.assertIn(e['model'],refs)
+        self.assertNotIn('_add1.m2033model',refs);self.assertNotIn('_add2.m2033model',refs)
+        for p in ['door/d6_gate_platform_add1.m2033model','door/d6_gate_platform_add2.m2033model','structure/gates_01_add1.m2033model','structure/gates_01_add2.m2033model']:self.assertIn(p,refs)
     def test_copies_only_selected_models_and_preserves_bytes(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);src=root/'models.jar';ref=C.MODEL_REFERENCES[0]
             with zipfile.ZipFile(src,'w') as z:z.writestr('assets/source/'+ref,b'original');z.writestr('loginpass.txt',b'PRIVATE');z.writestr('weapon/a.m2033model',b'NO')
-            r=C.collect(src,root/'out');self.assertEqual(1,r['matched']);self.assertEqual(189,len(r['missing']))
+            r=C.collect(src,root/'out');self.assertEqual(1,r['matched']);self.assertEqual(191,len(r['missing']))
             record=r['files'][0];self.assertEqual(hashlib.sha256(b'original').hexdigest(),record['sha256'])
             with zipfile.ZipFile(root/'out'/record['part']) as z:self.assertEqual(['assets/source/'+ref],z.namelist())
     def test_ambiguous_suffixes_are_refused(self):
@@ -62,7 +64,7 @@ class FunctionalDecorTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);src=root/'none.jar'
             with zipfile.ZipFile(src,'w') as z:z.writestr('unrelated',b'no')
-            r=C.collect(src,root/'out');self.assertEqual(0,r['matched']);self.assertEqual(190,len(r['missing']));self.assertEqual([],r['parts'])
+            r=C.collect(src,root/'out');self.assertEqual(0,r['matched']);self.assertEqual(192,len(r['missing']));self.assertEqual([],r['parts'])
     def test_existing_output_is_not_overwritten(self):
         with tempfile.TemporaryDirectory() as d:
             with self.assertRaises(FileExistsError):C.collect(Path(d)/'irrelevant.jar',Path(d))

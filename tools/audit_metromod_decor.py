@@ -139,7 +139,15 @@ def audit(path):
                 if behavior(cls):
                     classes.append(cls)
                     cf=read_class(archive,cls)
-                    models.update(c.string.value for c in cf.constants.find(type_=String) if c.string.value.endswith('.m2033model'))
+                    literals={c.string.value for c in cf.constants.find(type_=String) if c.string.value.endswith('.m2033model')}
+                    if cls=='null/jililjllIIllIijIljlliiiljllIijjj':
+                        # Constructor appends suffix literals to the supplied base.
+                        # They were NOT independent missing files in the first collector.
+                        prefix=component['args'][1]
+                        if not isinstance(prefix,str) or not prefix or prefix.startswith('/') or '..' in prefix.split('/'):
+                            raise ValueError('Unresolved dynamic door model prefix')
+                        literals={prefix+suffix for suffix in literals}
+                    models.update(literals)
             return classes,models
         interactive=[]
         for entry in entries:
@@ -157,7 +165,7 @@ def audit(path):
             'limits':['Type tags and client handlers are not verified server behaviour.',
                       'None+handler means a custom behaviour, not proof of an inventory/electricity system.',
                       'References are not extracted geometry. Model-internal textures/materials/animations remain unresolved.',
-                      'Generic dynamically constructed model paths, if any, are not resolved by string collection.',
+                      'Two known constructor-appended door model pairs are resolved; other dynamic paths, if any, remain unaudited.',
                       'Existing six MetroPort gates have separate legacy assets; they are not these nine donor gates.']}
 
 

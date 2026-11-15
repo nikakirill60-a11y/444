@@ -12,7 +12,7 @@ Python 3, no dependencies. Pass a LOCAL Metro2033Models.jar:
 
 Creates NEW metro_decor_parts folder, ZIP parts <=90 MiB and SHA256 inventory.
 Selects the 112 catalogued Germo/Lever/Door/Light/Inventory entries and their
-190 direct model references. Does not execute Java, download a server, install
+192 direct model references. Does not execute Java, download a server, install
 a mod, collect vehicles/weapons or infer missing textures inside model files.
 Original encrypted bytes, if present, are retained. NOT a playable decor port.
 """
