@@ -17,8 +17,9 @@ public class GateCollisionTest {
         List<AxisAlignedBB> result = new ArrayList<>(); tile.addCollision(p,new AxisAlignedBB(p),result); return result;
     }
     @Test public void liftGateFreesThePassageButRetainsTheHeader() {
+        for(GateType type:new GateType[]{GateType.MAIN,GateType.OPEN,GateType.RIGHT})
         for (EnumFacing facing : new EnumFacing[]{EnumFacing.SOUTH,EnumFacing.WEST,EnumFacing.NORTH,EnumFacing.EAST}) {
-            GateTile closed = tile(GateType.MAIN,0,facing), open = tile(GateType.MAIN,1,facing);
+            GateTile closed = tile(type,0,facing), open = tile(type,1,facing);
             assertFalse(cell(closed,0,1,0).isEmpty()); assertTrue(cell(open,0,1,0).isEmpty());
             assertFalse(cell(open,0,3,0).isEmpty()); assertFalse(cell(open,0,5,0).isEmpty());
             assertTrue(cell(closed,0,5,0).isEmpty());
@@ -37,8 +38,10 @@ public class GateCollisionTest {
         assertNotNull(closed.rayTrace(cell,start,end)); assertNull(open.rayTrace(cell,start,end));
     }
     @Test public void collisionIsClippedToTheQueriedCell() {
-        GateTile tile = tile(GateType.LEFT,.5F,EnumFacing.EAST);
-        for (int w=-3;w<=3;w++) for(int d=-1;d<=5;d++) for(int y=0;y<4;y++) {
+        for(GateType type:GateType.values()) for(EnumFacing facing:new EnumFacing[]{EnumFacing.SOUTH,EnumFacing.WEST,EnumFacing.NORTH,EnumFacing.EAST})
+        for(float value:new float[]{0,.25F,.5F,.75F,1}) {
+        GateTile tile = tile(type,value,facing);
+        for (int w=-3;w<=3;w++) for(int d=-1;d<=5;d++) for(int y=0;y<8;y++) {
             BlockPos pos = tile.getPos().offset(tile.facing.rotateYCCW(),w).up(y).offset(tile.facing,d);
             AxisAlignedBB bounds = new AxisAlignedBB(pos);
             for (AxisAlignedBB shape : cell(tile,w,y,d)) {
@@ -46,6 +49,7 @@ public class GateCollisionTest {
                 assertTrue(shape.minY>=bounds.minY && shape.maxY<=bounds.maxY);
                 assertTrue(shape.minZ>=bounds.minZ && shape.maxZ<=bounds.maxZ);
             }
+        }
         }
     }
 }

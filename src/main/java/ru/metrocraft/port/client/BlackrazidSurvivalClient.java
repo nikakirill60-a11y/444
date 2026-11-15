@@ -22,16 +22,18 @@ public final class BlackrazidSurvivalClient {
     private static float water=100,energy=0;
     private static boolean lamp,ready;
     private static WorldClient world;
+    private static net.minecraft.entity.player.EntityPlayer owner;
+    private static int statusAge;
     private static final Map<BlockPos,int[]> previous=new LinkedHashMap<>();
     private BlackrazidSurvivalClient(){}
     public static float energyPercent(){return energy;}
     public static void initialize(){ClientRegistry.registerKeyBinding(LAMP);}
     public static void receive(int dimension,int entity,float w,float e,boolean on){
-        Minecraft mc=Minecraft.getMinecraft();WorldClient expected=mc.world;
+        Minecraft mc=Minecraft.getMinecraft();WorldClient expected=mc.world;net.minecraft.entity.player.EntityPlayer expectedOwner=mc.player;
         mc.addScheduledTask(()->{
-            if(expected==null || mc.world!=expected || mc.player==null || mc.player.dimension!=dimension || mc.player.getEntityId()!=entity)return;
-            if(world!=expected){clearLight();world=expected;}
-            water=SurvivalState.percent(w,100);energy=SurvivalState.percent(e,0);lamp=on && energy>0;ready=true;
+            if(expected==null || expectedOwner==null || mc.world!=expected || mc.player!=expectedOwner || mc.player.dimension!=dimension || mc.player.getEntityId()!=entity)return;
+            if(world!=expected || owner!=expectedOwner){clearLight();world=expected;owner=expectedOwner;}
+            water=SurvivalState.percent(w,100);energy=SurvivalState.percent(e,0);lamp=on && energy>0;ready=true;statusAge=0;
         });
     }
     @SubscribeEvent public static void key(InputEvent.KeyInputEvent event){
@@ -51,7 +53,9 @@ public final class BlackrazidSurvivalClient {
     }
     @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event){
         if(event.phase!=TickEvent.Phase.END)return;Minecraft mc=Minecraft.getMinecraft();
-        if(mc.world!=world){clearLight();world=mc.world;ready=false;lamp=false;water=100;energy=0;}
+        if(mc.world!=world || owner!=mc.player){clearLight();world=mc.world;owner=mc.player;ready=false;lamp=false;water=100;energy=0;statusAge=0;}
+        if(!mc.isGamePaused() && statusAge<61)statusAge++;
+        if(statusAge>60){ready=false;lamp=false;}
         if(world==null || mc.player==null || !mc.player.isEntityAlive() || !ready || !lamp || !SurvivalSystem.hasLamp(mc.player) || mc.player.isSpectator()){
             clearLight();return;
         }
@@ -69,13 +73,13 @@ public final class BlackrazidSurvivalClient {
         }
     }
     @SubscribeEvent public static void unload(net.minecraftforge.event.world.WorldEvent.Unload event){
-        if(event.getWorld()==world){clearLight();world=null;ready=false;lamp=false;}
+        if(event.getWorld()==world){clearLight();world=null;owner=null;ready=false;lamp=false;}
     }
     @SubscribeEvent public static void hud(RenderGameOverlayEvent.Post event){
         Minecraft mc=Minecraft.getMinecraft();if(event.getType()!=RenderGameOverlayEvent.ElementType.ALL || mc.player==null || !ready || mc.gameSettings.hideGUI || mc.player.isSpectator())return;
         if(mc.player.capabilities.isCreativeMode && !SurvivalSystem.hasLamp(mc.player) && !(mc.player.getHeldItemMainhand().getItem() instanceof SurvivalItem))return;
         int y=event.getResolution().getScaledHeight()-92;
         mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.blackrazid.water",(int)Math.ceil(water)),8,y,water<=15?0xFF6655:0x80CFFF);
-        mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.blackrazid.energy",(int)Math.ceil(energy),I18n.format(lamp?"metroport.blackrazid.on":"metroport.blackrazid.off")),8,y+11,0xE5D792);
+        mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.blackrazid.energy",(int)Math.ceil(energy),I18n.format(lamp?"metroport.blackrazid.on":"metroport.blackrazid.off")),8,y+11,energy<=15?0xFF6655:0xE5D792);
     }
 }

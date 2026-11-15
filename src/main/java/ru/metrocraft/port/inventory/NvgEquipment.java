@@ -109,7 +109,7 @@ public final class NvgEquipment {
         if(owned && current!=null && !ownEffect(current)) {
             owned=false;player.getEntityData().removeTag(VISION);
         }
-        if(!get(player).isEmpty() && !player.isSpectator()) {
+        if(NvgControl.active(player)) {
             if(refreshVision(owned,current)) {
                 player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION,220,0,false,false));
                 player.getEntityData().setBoolean(VISION,true);

@@ -48,7 +48,9 @@
     "metroport.mcmod.mods.price": "Цена: %s металла / %s химии",
     "metroport.mcmod.mods.success": "Оружие модифицировано",
     "metroport.mcmod.mods.failed": "Недостаточно ресурсов / места или модуль несовместим",
-    "metroport.watch.filter": "Фильтр: %s"
+    "metroport.watch.filter": "Фильтр: %s",
+    "key.metroport.nvg_toggle": "Включить/выключить ПНВ",
+    "metroport.nvg.state": "ПНВ: %s"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -99,6 +101,8 @@
     "metroport.mcmod.mods.price": "Cost: %s metal / %s chemicals",
     "metroport.mcmod.mods.success": "Gun modified",
     "metroport.mcmod.mods.failed": "Not enough resources / space, or incompatible module",
-    "metroport.watch.filter": "Filter: %s"
+    "metroport.watch.filter": "Filter: %s",
+    "key.metroport.nvg_toggle": "Toggle night vision",
+    "metroport.nvg.state": "NVG: %s"
   }
 }

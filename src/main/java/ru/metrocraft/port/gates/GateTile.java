@@ -49,7 +49,7 @@ public final class GateTile extends TileEntity implements ITickable {
                 }
                 if (cell.equals(pos)) continue;
                 TileEntity part = world.getTileEntity(cell);
-                if (!(part instanceof GatePartTile) || !owner.equals(((GatePartTile) part).owner)) {
+                if (!(part instanceof GatePartTile) || (!owner.equals(((GatePartTile) part).owner) || !pos.equals(((GatePartTile) part).origin))) {
                     world.destroyBlock(pos, true); return;
                 }
                 signal |= world.isBlockPowered(cell);
@@ -170,7 +170,8 @@ public final class GateTile extends TileEntity implements ITickable {
         owner = tag.hasUniqueId("Owner") ? tag.getUniqueId("Owner") : null;
         try { type = GateType.valueOf(tag.getString("Type")); } catch (IllegalArgumentException e) { type = GateType.MAIN; }
         facing = GateBlock.horizontal(tag.getInteger("Facing"));
-        previous = progress = MathHelper.clamp(tag.getFloat("Progress"), 0, 1);
+        float savedProgress = tag.getFloat("Progress");
+        previous = progress = Float.isNaN(savedProgress) || Float.isInfinite(savedProgress) ? 0 : MathHelper.clamp(savedProgress, 0, 1);
         // Ignore legacy Manual/Target. Server rechecks the entire loaded structure BEFORE moving.
         powered = tag.getBoolean("Powered"); target = redstoneTarget(powered);
         blocked = tag.getBoolean("Blocked"); ready = tag.getBoolean("Ready");

@@ -23,7 +23,7 @@ public final class ToolItem extends ContentItem {
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
         if (world.isRemote) return new ActionResult<>(EnumActionResult.SUCCESS, stack);
-        if (player.isSpectator() || player.getCooldownTracker().hasCooldown(this)) {
+        if (!player.isEntityAlive() || player.isSpectator() || player.getCooldownTracker().hasCooldown(this)) {
             return new ActionResult<>(EnumActionResult.FAIL, stack);
         }
         boolean used = false;

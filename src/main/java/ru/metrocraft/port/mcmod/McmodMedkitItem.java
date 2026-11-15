@@ -50,7 +50,7 @@ public final class McmodMedkitItem extends Item {
     @Override public EnumAction getItemUseAction(ItemStack stack) { return EnumAction.NONE; }
     @Override public ItemStack onItemUseFinish(ItemStack stack,World world,EntityLivingBase user) {
         // Native active-hand completion only. Releasing/switching/dying never consumes a charge.
-        if(!world.isRemote && user instanceof EntityPlayer) {
+        if(!world.isRemote && user instanceof EntityPlayer && !stack.isEmpty() && stack.getItem()==this) {
             EntityPlayer player=(EntityPlayer)user;
             if(canUse(stack,player.getHealth(),player.getMaxHealth(),player.isSpectator())) {
                 player.setHealth(player.getMaxHealth());

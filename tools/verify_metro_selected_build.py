@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.17 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.18 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import json
 import sys
@@ -7,8 +7,12 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.17'
+VERSION = '1.13.0-dev.18'
 REQUIRED = [
+    'ru/metrocraft/port/inventory/NvgControl.class',
+    'ru/metrocraft/port/inventory/NvgTogglePacket.class',
+    'ru/metrocraft/port/inventory/NvgStatePacket.class',
+    'ru/metrocraft/port/client/NvgEffects.class',
     'ru/metrocraft/port/FilterItem.class',
     'ru/metrocraft/port/client/FilterWatchClient.class',
     'ru/metrocraft/port/mechanics/FilterRules.class',
@@ -32,6 +36,14 @@ def verify(jar, results, source, run_url):
                 if s.attrib['name'].startswith('ru.metrocraft.port.mechanics.Filter')}
     if sum(selected.values()) != 18:
         raise ValueError('Expected all 18 new mask/watch tests: ' + repr(selected))
+    expected = {'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
+                'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
+                'ru.metrocraft.port.gates.GateMotionTest': 6}
+    counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
+    for name, count in expected.items():
+        if counts.get(name) != count:
+            raise ValueError('Missing regression suite: ' + name)
+    selected.update({name: counts[name] for name in expected})
     with zipfile.ZipFile(jar) as archive:
         if archive.testzip():
             raise ValueError('Corrupt JAR')
@@ -46,9 +58,12 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['60-tick completion-only filter replacement', 'server-owned dosimeter filter countdown',
-                         'one low-filter alert per episode; BlackRazid watch remains time-only'],
-            'not_included': ['donor weapons', 'decoded donor models/audio', 'remaining selected categories'],
+            'included': ['server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance',
+                         'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
+                         'six-gate server motion/collision regression coverage; part origin and finite progress validation',
+                         'dev17 filters/watches retained unchanged'],
+            'not_included': ['donor weapons', 'decoded donor models/audio/shaders', 'new donor foods/medicines',
+                             'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}
 

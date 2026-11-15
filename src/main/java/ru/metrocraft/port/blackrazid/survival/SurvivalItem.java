@@ -32,7 +32,7 @@ public final class SurvivalItem extends Item {
     @Override public EnumAction getItemUseAction(ItemStack stack){return type==Type.FLASK?EnumAction.DRINK:EnumAction.BOW;}
     @Override public int getMaxItemUseDuration(ItemStack stack){return type==Type.FLASK?40:72000;}
     @Override public ItemStack onItemUseFinish(ItemStack stack,World world,EntityLivingBase entity){
-        if(type!=Type.FLASK || world.isRemote || !(entity instanceof EntityPlayer) || sips(stack)<=0)return stack;
+        if(type!=Type.FLASK || world.isRemote || !(entity instanceof EntityPlayer) || stack.isEmpty() || stack.getItem()!=this || sips(stack)<=0)return stack;
         EntityPlayer p=(EntityPlayer)entity;if(!p.isEntityAlive() || p.isSpectator())return stack;
         SurvivalState s=SurvivalSystem.get(p);if(s.drink()){
             if(!p.capabilities.isCreativeMode)sips(stack,sips(stack)-1);SurvivalSystem.save(p,s);SurvivalSystem.sync(p);
@@ -40,8 +40,9 @@ public final class SurvivalItem extends Item {
         }return stack;
     }
     @Override public void onUsingTick(ItemStack stack,EntityLivingBase entity,int count){
-        if(type!=Type.POWER || entity.world.isRemote || !(entity instanceof EntityPlayer))return;
+        if(type!=Type.POWER || entity.world.isRemote || !(entity instanceof EntityPlayer) || stack.isEmpty() || stack.getItem()!=this)return;
         EntityPlayer p=(EntityPlayer)entity;if(!p.isEntityAlive() || p.isSpectator() || !SurvivalSystem.hasLamp(p)){p.stopActiveHand();return;}
+        if(count<0 || count>=getMaxItemUseDuration(stack))return;
         int elapsed=getMaxItemUseDuration(stack)-count;if(elapsed<=0 || elapsed%15!=0)return;
         SurvivalState s=SurvivalSystem.get(p);if(s.charge()){
             SurvivalSystem.save(p,s);SurvivalSystem.sync(p);
