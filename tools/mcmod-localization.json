@@ -53,7 +53,8 @@
     "metroport.nvg.state": "ПНВ: %s",
     "metroport.metromod.food": "Удерживайте ПКМ, чтобы поесть.",
     "metroport.metromod.water": "Удерживайте ПКМ: +30 воды, не больше 100.",
-    "metroport.metromod.original_icon": "Оригинальная иконка METRO_MOD."
+    "metroport.metromod.original_icon": "Оригинальная иконка METRO_MOD.",
+    "metroport.metromod.material": "Медицинский материал. Самостоятельное лечение не подтверждено кодом донора."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -109,6 +110,7 @@
     "metroport.nvg.state": "NVG: %s",
     "metroport.metromod.food": "Hold right click to eat.",
     "metroport.metromod.water": "Hold right click: +30 water, capped at 100.",
-    "metroport.metromod.original_icon": "Original METRO_MOD icon."
+    "metroport.metromod.original_icon": "Original METRO_MOD icon.",
+    "metroport.metromod.material": "Medical material. Standalone healing is not confirmed by donor code."
   }
 }

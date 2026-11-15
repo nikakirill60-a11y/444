@@ -1,0 +1,110 @@
+{
+  "source": "client.jar",
+  "sha256": "66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc",
+  "classes_scanned": 4857,
+  "items": {
+    "bint": {
+      "field": "IIIjjlliijjillIjllIjjijjIIIljiil",
+      "constructor": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+      "stack_size": 8,
+      "registration_string_offset": 2812,
+      "external_field_references": []
+    },
+    "shpric": {
+      "field": "lIiljIjjiiilIlljiIIIiliijlIlIlll",
+      "constructor": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+      "stack_size": 24,
+      "registration_string_offset": 2847,
+      "external_field_references": []
+    },
+    "medspirt": {
+      "field": "IijlliIliIiljjjiIjIIlIiIjIijjjji",
+      "constructor": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+      "stack_size": 8,
+      "registration_string_offset": 3902,
+      "external_field_references": []
+    }
+  },
+  "base_class": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+  "base_class_sha256": "fb33551f71a140cd841797096de76d0bbb6864f32971787ee1ff0f68bb9b3ef5",
+  "base_methods": [
+    {
+      "name": "<init>",
+      "descriptor": "(ILjava/lang/String;Lnull/ijIiiIlilIiIlliiliIijjIIlijIIjIl;)V"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "([Ljava/lang/String;)Lnull/IjllllIljljijijiIliIijjiIjiiIlij;"
+    },
+    {
+      "name": "iIljIIilliiiIIjljjjlIjlIilIllIIl",
+      "descriptor": "()Lnull/IjllllIljljijijiIliIijjiIjiiIlij;"
+    },
+    {
+      "name": "lljjjiiIlIlijjlIlIijljiIjIIjiljI",
+      "descriptor": "()Lnull/IjllllIljljijijiIliIijjiIjiiIlij;"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/IjjIIljIljjjiIjIIIilliIjjIIjiIIj;)V"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)Z"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;IIILnull/jijlIIlijilIlIliIlllliiiilljillj;)Z"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;)Z"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Lnull/IllIIiililIiljiljiIiliijiIllillj;)Z"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jlIIiljjljllljjIIiiijliljiijIili;Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)Z"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jlIIiljjljllljjIIiiijliljiijIili;)F"
+    },
+    {
+      "name": "jIIlljIIIjijjlljiIiIiljjjiIIlIIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)V"
+    },
+    {
+      "name": "jjlliijIIIiIjIjiiIjijjIjIljjiiII",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)F"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;F)V"
+    },
+    {
+      "name": "jIIlljIIIjijjlljiIiIiljjjiIIlIIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)I"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;I)V"
+    },
+    {
+      "name": "ljIillIiijijlIIijlilliljllijljlI",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)Z"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;Z)V"
+    },
+    {
+      "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+      "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Ljava/util/List;Z)V"
+    }
+  ],
+  "conclusion": "No standalone healing handler confirmed; import only as materials, not healing consumables.",
+  "limits": "Static client audit only. External server plugins/scripts and generic numeric-ID logic are not proven absent."
+}

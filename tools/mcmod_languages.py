@@ -6,7 +6,7 @@ ASSETS=ROOT/'src/main/resources/assets/metroport'
 
 def lines_for(locale):
     lines=[]
-    for catalog in ['mcmod_armor.json','mcmod_items.json','faction_patches.json','mcmod_decor.json','mcmod_guns.json','mcmod_firearms.json','mcmod_support.json','metromod_consumables.json']:
+    for catalog in ['mcmod_armor.json','mcmod_items.json','faction_patches.json','mcmod_decor.json','mcmod_guns.json','mcmod_firearms.json','mcmod_support.json','metromod_consumables.json','metromod_medical_materials.json']:
         path=ASSETS/catalog
         if path.exists():
             data=json.loads(path.read_text())

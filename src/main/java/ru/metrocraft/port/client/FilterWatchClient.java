@@ -2,7 +2,6 @@ package ru.metrocraft.port.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
@@ -23,6 +22,7 @@ public final class FilterWatchClient {
     private static FilterAlarm alarm = new FilterAlarm();
     private static int ticks = -1, age;
     private static boolean ready;
+    private static int alarmIndex;
     private FilterWatchClient() {}
     private static void reset(World next, EntityPlayer player) {
         world = next; owner = player; ready = false; ticks = -1; age = 0; alarm = new FilterAlarm();
@@ -58,8 +58,8 @@ public final class FilterWatchClient {
         if (age < 61) age++;
         if (!ready() || !mc.player.isEntityAlive() || mc.player.isSpectator()) return;
         if (alarm.update(ticks, detector(displayedWatch(mc.player)))) {
-            // Temporary vanilla alert, not falsely advertised as decoded donor audio.
-            mc.player.playSound(SoundEvents.BLOCK_NOTE_PLING, .35F, 1F);
+            net.minecraft.util.SoundEvent sound=MetroPort.SOUNDS.get(ru.metrocraft.port.metromod.MetroAudio.alarm(alarmIndex++));
+            if(sound!=null)mc.player.playSound(sound,.35F,1F);
         }
     }
 }

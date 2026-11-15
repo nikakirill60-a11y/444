@@ -1,0 +1,29 @@
+[
+  {
+    "id": "metromod_bint",
+    "sourceId": "bint",
+    "stackSize": 8,
+    "nameRu": "Бинт",
+    "nameEn": "Bandage",
+    "kind": "material",
+    "healingEffect": null
+  },
+  {
+    "id": "metromod_shpric",
+    "sourceId": "shpric",
+    "stackSize": 24,
+    "nameRu": "Шприц",
+    "nameEn": "Syringe",
+    "kind": "material",
+    "healingEffect": null
+  },
+  {
+    "id": "metromod_medspirt",
+    "sourceId": "medspirt",
+    "stackSize": 8,
+    "nameRu": "Медицинский спирт",
+    "nameEn": "Medical alcohol",
+    "kind": "material",
+    "healingEffect": null
+  }
+]

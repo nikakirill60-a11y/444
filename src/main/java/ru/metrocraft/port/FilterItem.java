@@ -51,6 +51,8 @@ public class FilterItem extends Item {
         if (!player.capabilities.isCreativeMode) stack.shrink(1);
         player.inventory.markDirty();
         player.inventoryContainer.detectAndSendChanges();
+        net.minecraft.util.SoundEvent sound=MetroPort.SOUNDS.get("metromod_filter");
+        if(sound!=null)world.playSound(null,player.posX,player.posY,player.posZ,sound,SoundCategory.PLAYERS,1,1);
         return stack;
     }
 }

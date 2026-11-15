@@ -133,6 +133,8 @@ def main():
     for path in sorted((ASSETS/'sounds').glob('blackrazid_*.ogg')):
         sounds[path.stem]={'sounds':['metroport:'+path.stem]}
     if (ASSETS/'mcmod_support.json').exists():sounds['mcmod_medkit_use_heavy']={'sounds':['metroport:mcmod_medkit_use_heavy']}
+    for path in sorted((ASSETS/'sounds').glob('metromod_*.ogg')):
+        sounds[path.stem]={'sounds':['metroport:'+path.stem]}
     sounds['germo'] = {'sounds': ['metroport:germo']}
     write_json(ASSETS / 'sounds.json', dict(sorted(sounds.items())))
     translations = {

@@ -1,0 +1,86 @@
+[
+  {
+    "source": "assets/metro2033server/sounds/items/flyashka.ogg",
+    "target": "sounds/metromod_flask.ogg",
+    "sha256": "131cfda1a1998c517c28d28d28367b3dd09c5aa91eceed53450267570e383059",
+    "bytes": 39273
+  },
+  {
+    "source": "assets/metro2033server/sounds/items/med.ogg",
+    "target": "sounds/metromod_medkit.ogg",
+    "sha256": "cd928fece132f9a16b00be27c2debd22179848298921ebe564d94b3e920acb73",
+    "bytes": 20955
+  },
+  {
+    "source": "assets/metro2033server/sounds/mask/change_filter.vba.ogg",
+    "target": "sounds/metromod_filter.ogg",
+    "sha256": "0de8c2896495e09c1834c425acec742fdc2f10fd021da300528976fbe93b5d54",
+    "bytes": 28474
+  },
+  {
+    "source": "assets/metro2033server/sounds/watch/watch_timer_alarm_1.vba.ogg",
+    "target": "sounds/metromod_watch_alarm_1.ogg",
+    "sha256": "5839c57823efe8b5acbac6f8b5f69745316fd27ce5702d37554d24a0708db010",
+    "bytes": 11894
+  },
+  {
+    "source": "assets/metro2033server/sounds/watch/watch_timer_alarm_2.vba.ogg",
+    "target": "sounds/metromod_watch_alarm_2.ogg",
+    "sha256": "d5a9bb5d8de090641d032036479d5c1a299f47fc7a26c20a624d4e760cbc4362",
+    "bytes": 13822
+  },
+  {
+    "source": "assets/metro2033server/sounds/watch/watch_timer_alarm_3.vba.ogg",
+    "target": "sounds/metromod_watch_alarm_3.ogg",
+    "sha256": "abeb51a4fae75b33dedcdbbfde8c35783218cdb8e54bb14ab0d4327375f8234d",
+    "bytes": 5869
+  },
+  {
+    "source": "assets/metro2033server/sounds/germo/right_open.ogg",
+    "target": "sounds/metromod_gate_open.ogg",
+    "sha256": "a90fc082508ec960c47567d319dcafc2ba7ab0b4bd08a7c0762cda89d44484b5",
+    "bytes": 149387
+  },
+  {
+    "source": "assets/metro2033server/sounds/germo/right_close.ogg",
+    "target": "sounds/metromod_gate_close.ogg",
+    "sha256": "7f4f3e3e6317a1e5a9c63df5e83ec864ca84b7a50ffcc3b0cb8f4d5759e67f52",
+    "bytes": 94706
+  },
+  {
+    "source": "assets/metro2033server/textures/ui/mask/ui_maska_d.1024c.png",
+    "target": "textures/metromod/ui/mask_clean.png",
+    "sha256": "787a5078ce0b0ea4fb1461acf8ae063be4c534352a695df7a8e3f0a7942ba95b",
+    "bytes": 541568
+  },
+  {
+    "source": "assets/metro2033server/textures/ui/google_tex.png",
+    "target": "textures/metromod/ui/nvg_goggles.png",
+    "sha256": "339f3f0328828f21f6fb6e6ea4cc29b6f643562cd760dae55f5f453996d34802",
+    "bytes": 66822
+  },
+  {
+    "source": "assets/metro2033server/textures/ui/noise_tex.png",
+    "target": "textures/metromod/ui/nvg_noise.png",
+    "sha256": "7095a8dacbc18078ef84c8080b50798b2a0342cd13772379681a4a7a05efcb25",
+    "bytes": 219110
+  },
+  {
+    "source": "assets/metro2033server/textures/items/512/bint.png",
+    "target": "textures/metromod/items/bint.png",
+    "sha256": "f93f9ad50040e9358a2df314c0c34d36e16d677b3d36a9346e2bd7e3d2da2610",
+    "bytes": 1681
+  },
+  {
+    "source": "assets/metro2033server/textures/items/512/shpric.png",
+    "target": "textures/metromod/items/shpric.png",
+    "sha256": "a9d5f5577d6122bbb55ee35d277a1806620cc44819c040a6d47a4cedd24be897",
+    "bytes": 726
+  },
+  {
+    "source": "assets/metro2033server/textures/items/512/medspirt.png",
+    "target": "textures/metromod/items/medspirt.png",
+    "sha256": "c930c0c0c50066a0044560e1215f2fd0fd97ec9dab3444cd06d5753dba1b2914",
+    "bytes": 1359
+  }
+]

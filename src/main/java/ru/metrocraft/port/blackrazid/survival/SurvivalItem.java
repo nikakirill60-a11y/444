@@ -36,7 +36,7 @@ public final class SurvivalItem extends Item {
         EntityPlayer p=(EntityPlayer)entity;if(!p.isEntityAlive() || p.isSpectator())return stack;
         SurvivalState s=SurvivalSystem.get(p);if(s.drink()){
             if(!p.capabilities.isCreativeMode)sips(stack,sips(stack)-1);SurvivalSystem.save(p,s);SurvivalSystem.sync(p);
-            world.playSound(null,p.posX,p.posY,p.posZ,ru.metrocraft.port.MetroPort.SOUNDS.get("blackrazid_flyashka"),SoundCategory.PLAYERS,1,1);
+            world.playSound(null,p.posX,p.posY,p.posZ,ru.metrocraft.port.metromod.MetroAudio.get("metromod_flask","blackrazid_flyashka"),SoundCategory.PLAYERS,1,1);
         }return stack;
     }
     @Override public void onUsingTick(ItemStack stack,EntityLivingBase entity,int count){

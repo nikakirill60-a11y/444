@@ -21,7 +21,7 @@ import ru.metrocraft.port.inventory.NvgEquipment;
 import ru.metrocraft.port.inventory.NvgTogglePacket;
 import java.io.File;
 
-/** Rebuilt optional tint, not the donor's undecoded shader. Never changes gamma or loads a global shader. */
+/** Server-owned NVG display state. Original texture overlays are drawn separately behind the HUD. */
 @Mod.EventBusSubscriber(modid=MetroPort.ID,value=Side.CLIENT)
 public final class NvgEffects {
     private static final KeyBinding TOGGLE=new KeyBinding("key.metroport.nvg_toggle",Keyboard.KEY_N,"key.categories.metroport");
@@ -35,6 +35,7 @@ public final class NvgEffects {
         Minecraft mc=Minecraft.getMinecraft();
         Configuration config=new Configuration(new File(new File(mc.gameDir,"config"),"metroport-visuals.cfg"));
         config.load();tint=config.getBoolean("nvgTint","client",true,"Subtle NVG tint only. Does not replace shaders, textures or hand poses.");
+        MetroOverlays.configure(config,tint);
         if(config.hasChanged())config.save();
     }
     public static void receive(int dimension,int id,boolean on){
@@ -54,16 +55,16 @@ public final class NvgEffects {
         if(world!=mc.world || owner!=mc.player){world=mc.world;owner=mc.player;active=false;ready=false;age=0;}
         if(!mc.isGamePaused() && age<61)age++;
     }
+    public static boolean visualActive(){
+        Minecraft mc=Minecraft.getMinecraft();
+        return active && ready && age<=60 && world==mc.world && owner==mc.player && mc.player!=null
+                && mc.player.isEntityAlive() && !mc.player.isSpectator() && !NvgEquipment.get(mc.player).isEmpty();
+    }
     @SubscribeEvent public static void overlay(RenderGameOverlayEvent.Post event){
         Minecraft mc=Minecraft.getMinecraft();
         if(event.getType()!=RenderGameOverlayEvent.ElementType.ALL || mc.player==null || !mc.player.isEntityAlive()
                 || mc.player.isSpectator() || mc.gameSettings.hideGUI || !ready || age>60
                 || world!=mc.world || owner!=mc.player || NvgEquipment.get(mc.player).isEmpty())return;
-        if(active && tint){
-            GlStateManager.pushMatrix();
-            try{Gui.drawRect(0,0,event.getResolution().getScaledWidth(),event.getResolution().getScaledHeight(),0x1430C060);}
-            finally{GlStateManager.color(1,1,1,1);GlStateManager.popMatrix();}
-        }
         String state=I18n.format(active?"metroport.blackrazid.on":"metroport.blackrazid.off");
         mc.fontRenderer.drawStringWithShadow(I18n.format("metroport.nvg.state",state),8,event.getResolution().getScaledHeight()-106,0x90DA90);
     }

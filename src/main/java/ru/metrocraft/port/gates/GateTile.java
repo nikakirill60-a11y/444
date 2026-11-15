@@ -20,6 +20,7 @@ public final class GateTile extends TileEntity implements ITickable {
     private boolean powered, blocked;
     public boolean ready, removing;
     private int ticks;
+    private int soundDirection;
     private boolean structureLoaded;
 
     public void configure(UUID owner, GateType type, EnumFacing facing) {
@@ -31,8 +32,7 @@ public final class GateTile extends TileEntity implements ITickable {
     private void setTarget(float next) {
         if (next == target) return;
         target = next; markDirty();
-        net.minecraft.util.SoundEvent sound = ru.metrocraft.port.MetroPort.SOUNDS.get("germo");
-        if (sound != null) world.playSound(null, pos, sound, SoundCategory.BLOCKS, .4F, 1);
+
     }
     @Override public void update() {
         previous = progress;
@@ -68,9 +68,19 @@ public final class GateTile extends TileEntity implements ITickable {
             if (stop != blocked) { blocked = stop; sync(); }
         }
         if (!blocked && next != progress) {
+            if(!world.isRemote){
+                int direction=next>progress?1:-1;
+                if(direction!=soundDirection){
+                    net.minecraft.util.SoundEvent sound=ru.metrocraft.port.metromod.MetroAudio.get(
+                            ru.metrocraft.port.metromod.MetroAudio.gate(direction>0),"germo");
+                    if(sound!=null)world.playSound(null,pos,sound,SoundCategory.BLOCKS,.4F,1);
+                    soundDirection=direction;
+                }
+            }
             progress = MathHelper.clamp(next, 0, 1);
             if (!world.isRemote) { markDirty(); if (ticks % 4 == 0 || progress == target) sync(); }
         }
+        if(progress==target)soundDirection=0;
     }
     /** Prevent the moving leaf crushing players/mobs, in either direction. */
     public boolean blockedAt(float value) {

@@ -70,4 +70,40 @@ public class GateMotionTest {
             NBTTagCompound tag=new NBTTagCompound();tag.setFloat("Progress",value);GateTile tile=new GateTile();tile.readFromNBT(tag);assertEquals(0,tile.progress,0);
         }
     }
+    private net.minecraft.util.SoundEvent installSound(String id){
+        net.minecraft.util.SoundEvent event=new net.minecraft.util.SoundEvent(new net.minecraft.util.ResourceLocation("metroport",id));
+        ru.metrocraft.port.MetroPort.SOUNDS.put(id,event);return event;
+    }
+    @Test public void gateOpenSoundPlaysOnceAndClosingUsesDistinctEvent(){
+        java.util.Map<String,net.minecraft.util.SoundEvent> old=new java.util.LinkedHashMap<>(ru.metrocraft.port.MetroPort.SOUNDS);
+        try{
+            net.minecraft.util.SoundEvent open=installSound("metromod_gate_open"),close=installSound("metromod_gate_close");
+            GateTile tile=gate(GateType.RIGHT,EnumFacing.SOUTH);when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
+            for(int i=0;i<20;i++)tile.update();
+            verify(tile.getWorld(),times(1)).playSound(isNull(),eq(tile.getPos()),same(open),eq(net.minecraft.util.SoundCategory.BLOCKS),eq(.4F),eq(1F));
+            when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(false);tile.update();
+            verify(tile.getWorld(),times(1)).playSound(isNull(),eq(tile.getPos()),same(close),eq(net.minecraft.util.SoundCategory.BLOCKS),eq(.4F),eq(1F));
+        }finally{ru.metrocraft.port.MetroPort.SOUNDS.clear();ru.metrocraft.port.MetroPort.SOUNDS.putAll(old);}
+    }
+    @Test public void blockedGateDoesNotPlayMovementSoundUntilItActuallyMoves(){
+        java.util.Map<String,net.minecraft.util.SoundEvent> old=new java.util.LinkedHashMap<>(ru.metrocraft.port.MetroPort.SOUNDS);
+        try{
+            net.minecraft.util.SoundEvent open=installSound("metromod_gate_open");GateTile tile=gate(GateType.MAIN,EnumFacing.SOUTH);
+            EntityLivingBase mob=mock(EntityLivingBase.class);when(mob.isEntityAlive()).thenReturn(true);
+            when(tile.getWorld().getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.<Entity>singletonList(mob));
+            when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);tile.update();
+            verify(tile.getWorld(),never()).playSound(isNull(),eq(tile.getPos()),same(open),any(net.minecraft.util.SoundCategory.class),anyFloat(),anyFloat());
+            when(mob.isEntityAlive()).thenReturn(false);tile.update();
+            verify(tile.getWorld(),times(1)).playSound(isNull(),eq(tile.getPos()),same(open),any(net.minecraft.util.SoundCategory.class),anyFloat(),anyFloat());
+        }finally{ru.metrocraft.port.MetroPort.SOUNDS.clear();ru.metrocraft.port.MetroPort.SOUNDS.putAll(old);}
+    }
+    @Test public void unloadingTheStructureDoesNotStartGateAudio(){
+        java.util.Map<String,net.minecraft.util.SoundEvent> old=new java.util.LinkedHashMap<>(ru.metrocraft.port.MetroPort.SOUNDS);
+        try{
+            net.minecraft.util.SoundEvent open=installSound("metromod_gate_open");GateTile tile=gate(GateType.MAIN,EnumFacing.SOUTH);
+            when(tile.getWorld().isBlockLoaded(any(BlockPos.class))).thenReturn(false);when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
+            tile.update();verify(tile.getWorld(),never()).playSound(isNull(),eq(tile.getPos()),same(open),any(net.minecraft.util.SoundCategory.class),anyFloat(),anyFloat());
+        }finally{ru.metrocraft.port.MetroPort.SOUNDS.clear();ru.metrocraft.port.MetroPort.SOUNDS.putAll(old);}
+    }
+
 }

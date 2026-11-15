@@ -21,6 +21,12 @@ public final class MetroConsumables {
         public String id(){return "metromod_"+sourceId;}
     }
     @SubscribeEvent public static void register(RegistryEvent.Register<Item> event){
+        String[] materials={"bint","shpric","medspirt"};int[] sizes={8,24,8};
+        for(int i=0;i<materials.length;i++){
+            String id="metromod_"+materials[i];Item material=new MedicalMaterialItem(sizes[i])
+                    .setRegistryName(MetroPort.ID,id).setTranslationKey(MetroPort.ID+"."+id).setCreativeTab(MetroPort.THINGS);
+            event.getRegistry().register(material);MetroPort.ITEMS.put(id,material);
+        }
         for(Profile profile:Profile.values()){
             Item item=new MetroFoodItem(profile).setRegistryName(MetroPort.ID,profile.id())
                     .setTranslationKey(MetroPort.ID+"."+profile.id()).setCreativeTab(MetroPort.THINGS);

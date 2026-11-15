@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.20 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.21 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import json
 import sys
@@ -7,8 +7,12 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.20'
+VERSION = '1.13.0-dev.21'
 REQUIRED = [
+    'ru/metrocraft/port/metromod/MetroAudio.class',
+    'ru/metrocraft/port/metromod/MedicalMaterialItem.class',
+    'ru/metrocraft/port/metromod/OverlayRules.class',
+    'ru/metrocraft/port/client/MetroOverlays.class',
     'ru/metrocraft/port/metromod/MetroConsumables.class',
     'ru/metrocraft/port/metromod/MetroFoodItem.class',
     'ru/metrocraft/port/inventory/NvgControl.class',
@@ -38,9 +42,10 @@ def verify(jar, results, source, run_url):
                 if s.attrib['name'].startswith('ru.metrocraft.port.mechanics.Filter')}
     if sum(selected.values()) != 18:
         raise ValueError('Expected all 18 new mask/watch tests: ' + repr(selected))
-    expected = {'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
+    expected = {'ru.metrocraft.port.metromod.MetroSelectionTest': 10,
+                'ru.metrocraft.port.blackrazid.MetroSoundUseTest': 4, 'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
                 'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
-                'ru.metrocraft.port.gates.GateMotionTest': 6}
+                'ru.metrocraft.port.gates.GateMotionTest': 9}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
     for name, count in expected.items():
         if counts.get(name) != count:
@@ -66,19 +71,28 @@ def verify(jar, results, source, run_url):
                 raise ValueError('Provisional icon retained')
         if len(json.loads(archive.read('assets/metroport/metromod_consumables.json'))) != 4:
             raise ValueError('Wrong consumables catalogue')
+        for row in json.loads(archive.read('assets/metroport/metromod_selected_sources.json')):
+            target = 'assets/metroport/' + row['target']
+            if target not in names or hashlib.sha256(archive.read(target)).hexdigest() != row['sha256']:
+                raise ValueError('Selected donor resource missing or modified: ' + target)
+        materials = json.loads(archive.read('assets/metroport/metromod_medical_materials.json'))
+        if len(materials) != 3 or any(row['healingEffect'] is not None for row in materials):
+            raise ValueError('Invalid medical material catalogue')
         for locale in ['ru_ru', 'en_us']:
             if 'metroport.watch.filter=' not in archive.read('assets/metroport/lang/' + locale + '.lang').decode('utf-8'):
                 raise ValueError('Missing filter HUD localization')
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['three donor-profile foods and bottled water; stack limit 8; completion-only server use',
+            'included': ['8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
+                         'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
+                         '3 medical materials with original icons and donor stack limits; no invented healing', 'three donor-profile foods and bottled water; stack limit 8; completion-only server use',
                          'four byte-identical decoded original METRO_MOD icons; creative catalogue integration',
                          'server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance',
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filters/watches retained unchanged'],
-            'not_included': ['donor weapons', 'donor 3D models; extracted sounds and GLSL are supplied separately, not enabled in the mod', 'new donor medicines',
+            'not_included': ['donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}

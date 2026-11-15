@@ -609,6 +609,46 @@
       "metroport:mcmod_wpn_shootgun_shoot"
     ]
   },
+  "metromod_filter": {
+    "sounds": [
+      "metroport:metromod_filter"
+    ]
+  },
+  "metromod_flask": {
+    "sounds": [
+      "metroport:metromod_flask"
+    ]
+  },
+  "metromod_gate_close": {
+    "sounds": [
+      "metroport:metromod_gate_close"
+    ]
+  },
+  "metromod_gate_open": {
+    "sounds": [
+      "metroport:metromod_gate_open"
+    ]
+  },
+  "metromod_medkit": {
+    "sounds": [
+      "metroport:metromod_medkit"
+    ]
+  },
+  "metromod_watch_alarm_1": {
+    "sounds": [
+      "metroport:metromod_watch_alarm_1"
+    ]
+  },
+  "metromod_watch_alarm_2": {
+    "sounds": [
+      "metroport:metromod_watch_alarm_2"
+    ]
+  },
+  "metromod_watch_alarm_3": {
+    "sounds": [
+      "metroport:metromod_watch_alarm_3"
+    ]
+  },
   "mgreload": {
     "sounds": [
       "metroport:mgreload"
