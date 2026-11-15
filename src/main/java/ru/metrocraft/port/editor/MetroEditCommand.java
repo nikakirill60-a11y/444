@@ -24,7 +24,7 @@ import java.util.*;
 public final class MetroEditCommand extends CommandBase {
     private static final Map<UUID,State> sessions=new HashMap<>();
     private static final class State {
-        final WorldServer world;final EditSession session=new EditSession();long next;
+        final WorldServer world;final EditSession session=new EditSession();long next,previewDeadline;
         State(WorldServer world){this.world=world;}
     }
     public static void clear(){sessions.clear();}
@@ -33,7 +33,7 @@ public final class MetroEditCommand extends CommandBase {
     @SubscribeEvent public static void respawn(PlayerEvent.PlayerRespawnEvent event){sessions.remove(event.player.getUniqueID());}
     @Override public String getName(){return "metroedit";}
     @Override public int getRequiredPermissionLevel(){return 2;}
-    @Override public String getUsage(ICommandSender s){return "/metroedit pos1|pos2 [x y z] / copy / paste [x y z] / rotate 90|180|270 / undo / save <name> / load <name> / status / reset";}
+    @Override public String getUsage(ICommandSender s){return "/metroedit pos1|pos2 [x y z] / copy / paste [x y z] / outline / preview [x y z] / confirm / cancel / rotate 90|180|270 / mirror x|z / undo / save <name> / load <name> / status / reset";}
     private static void require(boolean condition,String message){if(!condition)throw new IllegalArgumentException(message);}
     private static void location(MinecraftServer server,EntityPlayerMP p,BlockPos pos){
         WorldServer w=p.getServerWorld();
@@ -47,10 +47,12 @@ public final class MetroEditCommand extends CommandBase {
         WorldServer world=player.getServerWorld();
         return new EditSession.Access(){
             public Blueprint.Spec read(BlockPos pos){
+                require(player.getServerWorld()==world,"World changed during edit");
                 location(server,player,pos);require(world.getTileEntity(pos)==null,"Tile entities are not supported");
                 return EditorBlocks.encode(world.getBlockState(pos));
             }
             public void authorize(BlockPos pos,Blueprint.Spec before,Blueprint.Spec after){
+                require(player.getServerWorld()==world,"World changed during edit");
                 location(server,player,pos);IBlockState old=EditorBlocks.decode(before),next=EditorBlocks.decode(after);
                 if(old.equals(next))return;
                 if(!before.air() && MinecraftForge.EVENT_BUS.post(new BlockEvent.BreakEvent(world,pos,old,player)))throw new IllegalArgumentException("Break protection denied this edit");
@@ -67,6 +69,9 @@ public final class MetroEditCommand extends CommandBase {
                 if(!world.getBlockState(pos).equals(next))throw new IllegalStateException("Block write rejected");
             }
         };
+    }
+    private static void hide(EntityPlayerMP player){
+        MetroPort.NETWORK.sendTo(EditorPreviewPacket.clear(player.dimension,player.getEntityId()),player);
     }
     @Override public void execute(MinecraftServer server,ICommandSender sender,String[] args)throws CommandException{
         EntityPlayerMP p=getCommandSenderAsPlayer(sender);
@@ -91,6 +96,33 @@ public final class MetroEditCommand extends CommandBase {
                     BlockPos pos=args.length==4?parseBlockPos(p,args,1,false):p.getPosition();
                     result="Изменено блоков: "+session.paste(access,pos)+". Воздух пропущен.";break;
                 }
+                case "outline":{
+                    require(args.length==1,"Use outline");EditSession.Box box=session.selection();
+                    location(server,p,box.origin);location(server,p,box.origin.add(box.width-1,box.height-1,box.depth-1));
+                    session.cancelPreview();state.previewDeadline=0;
+                    MetroPort.NETWORK.sendTo(new EditorPreviewPacket(p.dimension,p.getEntityId(),1,box,Collections.emptyList()),p);
+                    result="Выделение показано голубой рамкой на 10 секунд.";break;
+                }
+                case "preview":{
+                    require(args.length==1 || args.length==4,"Use preview [x y z]");
+                    session.cancelPreview();state.previewDeadline=0;hide(p);
+                    BlockPos pos=args.length==4?parseBlockPos(p,args,1,false):p.getPosition();
+                    Blueprint b=session.clipboard();location(server,p,pos);location(server,p,pos.add(b.width-1,b.height-1,b.depth-1));
+                    EditSession.Preview preview=session.preview(access,pos);state.previewDeadline=PreviewRules.deadline(System.nanoTime());
+                    MetroPort.NETWORK.sendTo(new EditorPreviewPacket(p.dimension,p.getEntityId(),2,preview.box,preview.changed),p);
+                    result="Предпросмотр: "+preview.changed.size()+" изменений. Показано до 256 ячеек и общий габарит. /metroedit confirm в течение 10 секунд.";break;
+                }
+                case "confirm":{
+                    require(args.length==1,"Use confirm");
+                    if(!PreviewRules.alive(System.nanoTime(),state.previewDeadline)){session.cancelPreview();hide(p);throw new IllegalStateException("Preview expired; create a new preview");}
+                    result="Подтверждено изменений: "+session.confirm(access)+". Координаты зафиксированы предпросмотром.";state.previewDeadline=0;break;
+                }
+                case "cancel":require(args.length==1,"Use cancel");session.cancelPreview();state.previewDeadline=0;result="Предпросмотр отменён. Буфер и undo сохранены.";break;
+                case "mirror":{
+                    require(args.length==2 && (args[1].equals("x") || args[1].equals("z")),"Use mirror x|z");
+                    session.clipboard(session.clipboard().mirror(args[1].equals("x"),(spec,xAxis)->EditorBlocks.encode(EditorBlocks.decode(spec).withMirror(xAxis?Mirror.FRONT_BACK:Mirror.LEFT_RIGHT))));
+                    result="Буфер отражён по оси "+args[1]+".";break;
+                }
                 case "undo":require(args.length==1,"Use undo");result="Отменено блоков: "+session.undo(access);break;
                 case "rotate":{
                     require(args.length==2,"Use rotate 90|180|270");int degrees=parseInt(args[1]);require(degrees==90 || degrees==180 || degrees==270,"Use 90, 180 or 270");
@@ -114,11 +146,15 @@ public final class MetroEditCommand extends CommandBase {
                 default:throw new IllegalArgumentException(getUsage(sender));
             }
         }catch(IOException|IllegalArgumentException|IllegalStateException failure){throw new CommandException("MetroEdit: "+failure.getMessage());}
+        if(Arrays.asList("pos1","pos2","copy","paste","confirm","cancel","rotate","mirror","undo","load","reset").contains(args[0])){
+            session.cancelPreview();state.previewDeadline=0;hide(p);
+        }
         sender.sendMessage(new TextComponentString("MetroEdit: "+result));
     }
     @Override public List<String> getTabCompletions(MinecraftServer s,ICommandSender p,String[] a,BlockPos pos){
-        if(a.length==1)return getListOfStringsMatchingLastWord(a,"pos1","pos2","copy","paste","rotate","undo","save","load","status","reset");
+        if(a.length==1)return getListOfStringsMatchingLastWord(a,"pos1","pos2","copy","paste","outline","preview","confirm","cancel","rotate","mirror","undo","save","load","status","reset");
         if(a.length==2 && a[0].equals("rotate"))return getListOfStringsMatchingLastWord(a,"90","180","270");
+        if(a.length==2 && a[0].equals("mirror"))return getListOfStringsMatchingLastWord(a,"x","z");
         return Collections.emptyList();
     }
 }

@@ -120,3 +120,8 @@ The bounded ordinary-block editor and visual configuration UI are new compatibil
 implementations, not recovered donor MetroEdit/NPC/region code. They do not claim
 support for donor `.m2033` blueprints, model meshes, UV editing or unknown textures.
 No new donor runtime classes, weapon packs or copyrighted geometry were added.
+
+
+Dev23 adds new bounded wireframe selection/placement previews, pinned confirmation,
+and native block-state mirroring. These are compatibility tools, not the donor
+model editor, proprietary model geometry, a region-protection replacement or a server downloader.

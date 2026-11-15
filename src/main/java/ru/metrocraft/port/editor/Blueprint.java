@@ -49,4 +49,14 @@ public final class Blueprint {
         }
         return new Blueprint(w,height,d,result);
     }
+    /** Flip across the clipboard's X or Z axis; also transform native block orientation. */
+    public Blueprint mirror(boolean xAxis,java.util.function.BiFunction<Spec,Boolean,Spec> mirrorer){
+        Spec[] result=new Spec[size()];
+        for(int y=0;y<height;y++)for(int z=0;z<depth;z++)for(int x=0;x<width;x++){
+            int nx=xAxis?width-1-x:x,nz=xAxis?z:depth-1-z;
+            result[(y*depth+nz)*width+nx]=mirrorer.apply(get(x,y,z),xAxis);
+        }
+        return new Blueprint(width,height,depth,result);
+    }
+
 }

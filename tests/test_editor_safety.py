@@ -11,8 +11,11 @@ class EditorSafetyTest(unittest.TestCase):
     def test_no_remote_copy_or_client_imports_in_server_editor(self):
         for p in (J/'editor').glob('*.java'):
             s=p.read_text()
-            for forbidden in ['java.net.','net.minecraft.client.','io.netty.','Runtime.getRuntime','ProcessBuilder','getChunkFromChunkCoords']:
+            for forbidden in ['java.net.','net.minecraft.client.','Runtime.getRuntime','ProcessBuilder','getChunkFromChunkCoords']:
                 self.assertNotIn(forbidden,s,p.name)
+            if p.name=='EditorPreviewPacket.java':
+                self.assertEqual(['import io.netty.buffer.ByteBuf;'],[l for l in s.splitlines() if l.startswith('import io.netty.')])
+            else:self.assertNotIn('io.netty.',s,p.name)
     def test_command_requires_creative_operator_and_loaded_local_area(self):
         s=(J/'editor/MetroEditCommand.java').read_text()
         for guard in ['canUseCommand(2','capabilities.isCreativeMode','world.isBlockLoaded','server.isBlockProtected','world.getTileEntity']:
