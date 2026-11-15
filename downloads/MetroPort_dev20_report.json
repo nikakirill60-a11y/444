@@ -1,0 +1,40 @@
+{
+  "version": "1.13.0-dev.20",
+  "source_commit": "d616af0736cc5501d6725ab7c35bad1b1ee9bb8c",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43691368505",
+  "jar": "metrocraft-port-1.12.2-1.13.0-dev.20.jar",
+  "bytes": 49527065,
+  "sha256": "ef575492477af66b30448da05a6989a9c1dbfccfe3c5fdb047e7b2abed929fc2",
+  "zip_crc": "PASS",
+  "junit": {
+    "tests": 440,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_junit_suites": {
+    "ru.metrocraft.port.mechanics.FilterItemTest": 8,
+    "ru.metrocraft.port.mechanics.FilterRulesTest": 6,
+    "ru.metrocraft.port.mechanics.FilterStatusTest": 4,
+    "ru.metrocraft.port.metromod.MetroFoodTest": 12,
+    "ru.metrocraft.port.blackrazid.NvgControlTest": 7,
+    "ru.metrocraft.port.blackrazid.SurvivalSafetyTest": 5,
+    "ru.metrocraft.port.gates.GateMotionTest": 6
+  },
+  "included": [
+    "three donor-profile foods and bottled water; stack limit 8; completion-only server use",
+    "four byte-identical decoded original METRO_MOD icons; creative catalogue integration",
+    "server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance",
+    "flask/medkit stack validation; generator bounds checks; stale lamp light cleanup",
+    "six-gate server motion/collision regression coverage; part origin and finite progress validation",
+    "dev17 filters/watches retained unchanged"
+  ],
+  "not_included": [
+    "donor weapons",
+    "donor 3D models; extracted sounds and GLSL are supplied separately, not enabled in the mod",
+    "new donor medicines",
+    "replacement Kikimora/Nosach models; existing BlackRazid mobs retained"
+  ],
+  "minecraft_gameplay_verified": false,
+  "installation": "Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged."
+}
