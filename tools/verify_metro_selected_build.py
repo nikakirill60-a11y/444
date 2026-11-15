@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.21 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.22 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import json
 import sys
@@ -7,8 +7,16 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.21'
+VERSION = '1.13.0-dev.22'
 REQUIRED = [
+    'ru/metrocraft/port/editor/Blueprint.class',
+    'ru/metrocraft/port/editor/EditSession.class',
+    'ru/metrocraft/port/editor/BlueprintStore.class',
+    'ru/metrocraft/port/editor/EditorBlocks.class',
+    'ru/metrocraft/port/editor/MetroEditCommand.class',
+    'ru/metrocraft/port/client/MetroGuiFactory.class',
+    'ru/metrocraft/port/client/VisualSettingsScreen.class',
+    'ru/metrocraft/port/metromod/VisualOptions.class',
     'ru/metrocraft/port/metromod/MetroAudio.class',
     'ru/metrocraft/port/metromod/MedicalMaterialItem.class',
     'ru/metrocraft/port/metromod/OverlayRules.class',
@@ -42,7 +50,10 @@ def verify(jar, results, source, run_url):
                 if s.attrib['name'].startswith('ru.metrocraft.port.mechanics.Filter')}
     if sum(selected.values()) != 18:
         raise ValueError('Expected all 18 new mask/watch tests: ' + repr(selected))
-    expected = {'ru.metrocraft.port.metromod.MetroSelectionTest': 10,
+    expected = {'ru.metrocraft.port.editor.EditSessionTest': 24,
+                'ru.metrocraft.port.editor.BlueprintStoreTest': 12,
+                'ru.metrocraft.port.editor.EditorBlocksTest': 8,
+                'ru.metrocraft.port.editor.VisualOptionsTest': 5, 'ru.metrocraft.port.metromod.MetroSelectionTest': 10,
                 'ru.metrocraft.port.blackrazid.MetroSoundUseTest': 4, 'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
                 'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
                 'ru.metrocraft.port.gates.GateMotionTest': 9}
@@ -84,7 +95,8 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
+            'included': ['bounded server-side ordinary-block editor: select/copy/paste/rotate/undo/save/load; creative operator only',
+                         'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
                          '3 medical materials with original icons and donor stack limits; no invented healing', 'three donor-profile foods and bottled water; stack limit 8; completion-only server use',
                          'four byte-identical decoded original METRO_MOD icons; creative catalogue integration',
@@ -92,7 +104,7 @@ def verify(jar, results, source, run_url):
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
-            'not_included': ['donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
+            'not_included': ['full donor MetroEdit model/microblock/region/NPC editing suite', 'donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}

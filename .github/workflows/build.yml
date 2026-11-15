@@ -58,7 +58,7 @@ jobs:
           fi
           exit "$result"
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.21.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.22.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -77,7 +77,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.21.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.22.jar
           if-no-files-found: error
 
       - name: Verify and publish selected systems test build on the same branch
@@ -90,16 +90,16 @@ jobs:
             exit 1
           fi
           mkdir -p downloads
-          cp build/libs/metrocraft-port-1.12.2-1.13.0-dev.21.jar downloads/
-          cp docs/METRO_SELECTED_INSTALL_RU.txt downloads/MetroPort_dev21_README_RU.txt
+          cp build/libs/metrocraft-port-1.12.2-1.13.0-dev.22.jar downloads/
+          cp docs/METRO_SELECTED_INSTALL_RU.txt downloads/MetroPort_dev22_README_RU.txt
           python tools/verify_metro_selected_build.py \
-            downloads/metrocraft-port-1.12.2-1.13.0-dev.21.jar \
+            downloads/metrocraft-port-1.12.2-1.13.0-dev.22.jar \
             build/test-results/test "$GITHUB_SHA" \
             "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
-            downloads/MetroPort_dev21_report.json
+            downloads/MetroPort_dev22_report.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- downloads/metrocraft-port-1.12.2-1.13.0-dev.21.jar downloads/MetroPort_dev21_README_RU.txt downloads/MetroPort_dev21_report.json
+          git add -- downloads/metrocraft-port-1.12.2-1.13.0-dev.22.jar downloads/MetroPort_dev22_README_RU.txt downloads/MetroPort_dev22_report.json
           git diff --cached --check
-          git commit -m 'Publish verified MetroPort audio/overlays/materials test build dev.21 [skip ci]'
+          git commit -m 'Publish verified MetroPort bounded editor and visual settings dev.22 [skip ci]'
           git push origin arena/dcab859f-444

@@ -112,3 +112,11 @@ the recovery/redistribution caveats above still apply. New Java hooks/2D overlay
 are not donor executable classes or the full donor GLSL 330 framebuffer renderer.
 `reports/METRO_MOD/dev21_medicine_audit.json` records static client evidence, not a claim
 that unknown server plugins/scripts cannot supply additional medical behavior.
+
+
+## dev22 construction compatibility tools
+
+The bounded ordinary-block editor and visual configuration UI are new compatibility
+implementations, not recovered donor MetroEdit/NPC/region code. They do not claim
+support for donor `.m2033` blueprints, model meshes, UV editing or unknown textures.
+No new donor runtime classes, weapon packs or copyrighted geometry were added.

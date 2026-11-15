@@ -21,10 +21,13 @@ import java.nio.FloatBuffer;
 public final class MetroOverlays {
     private static final ResourceLocation MASK=texture("mask_clean"),GOGGLES=texture("nvg_goggles"),NOISE=texture("nvg_noise");
     private static boolean masks=true,goggles=true,noise=true,tint=true;
+    private static float maskOpacity=1F,noiseStrength=.035F;
     private MetroOverlays() {}
     private static ResourceLocation texture(String id){return new ResourceLocation(MetroPort.ID,"textures/metromod/ui/"+id+".png");}
     public static void configure(Configuration config,boolean enabledTint){
         tint=enabledTint;
+        maskOpacity=ru.metrocraft.port.metromod.VisualOptions.bounded(config.getFloat("maskOpacity","client",1,0,1,"Mask opacity, client visual only."),1,1);
+        noiseStrength=ru.metrocraft.port.metromod.VisualOptions.bounded(config.getFloat("nvgNoiseStrength","client",.035F,0,.2F,"NVG noise opacity, client visual only."),.035F,.2F);
         masks=config.getBoolean("maskOverlay","client",true,"Original clean mask PNG in first person; no invented damage stages.");
         goggles=config.getBoolean("nvgTextureOverlay","client",true,"Original goggles texture using compatibility blending, not the donor GLSL shader.");
         noise=config.getBoolean("nvgNoise","client",true,"Subtle animated original NVG noise texture; only while NVG is on.");
@@ -64,11 +67,11 @@ public final class MetroOverlays {
                 }
                 if(noise){
                     GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA,GL11.GL_ZERO,GL11.GL_ONE);
-                    GlStateManager.color(.65F,1,.65F,.035F);quad(NOISE,w,h,OverlayRules.noiseU(mc.player.ticksExisted),OverlayRules.noiseV(mc.player.ticksExisted));
+                    GlStateManager.color(.65F,1,.65F,noiseStrength);quad(NOISE,w,h,OverlayRules.noiseU(mc.player.ticksExisted),OverlayRules.noiseV(mc.player.ticksExisted));
                 }
             }
             if(mask){
-                GlStateManager.color(1,1,1,1);GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA,GL11.GL_ZERO,GL11.GL_ONE);
+                GlStateManager.color(1,1,1,maskOpacity);GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA,GL11.GL_ONE_MINUS_SRC_ALPHA,GL11.GL_ZERO,GL11.GL_ONE);
                 quad(MASK,w,h,0,0);
             }
         }finally{
