@@ -1,0 +1,322 @@
+{
+  "source": "METRO_MOD/bin/client.jar",
+  "bytes": 8188088,
+  "sha256": "66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc",
+  "analysis": "static only; donor code not executed",
+  "classes": [
+    {
+      "name": "null/iIIiiIIiljijlllljiljiIlilllIlliI",
+      "sha256": "ad93eaaa38da8a4cc748a706a6ff6e160b9bcd85b0154566a2b4722a92d493b9",
+      "super": "java/lang/Object",
+      "methods": [
+        {
+          "name": "<init>",
+          "descriptor": "()V",
+          "code_bytes": 5
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/iiijIIiIijiIiIIljliijjiIiIlijIIj;)V",
+          "code_bytes": 51
+        },
+        {
+          "name": "ljIillIiijijlIIijlilliljllijljlI",
+          "descriptor": "()V",
+          "code_bytes": 5494
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "()V",
+          "code_bytes": 66
+        },
+        {
+          "name": "jjlliijIIIiIjIjiiIjijjIjIljjiiII",
+          "descriptor": "()V",
+          "code_bytes": 1
+        },
+        {
+          "name": "jIIlljIIIjijjlljiIiIiljjjiIIlIIl",
+          "descriptor": "()V",
+          "code_bytes": 1
+        },
+        {
+          "name": "<clinit>",
+          "descriptor": "()V",
+          "code_bytes": 131
+        }
+      ]
+    },
+    {
+      "name": "null/IiliijjijlIllijIjljlijijjijIillj",
+      "sha256": "4bddc11d36688342af135452742e8c8b8956860c95c2f9d24623a331ce30d9d5",
+      "super": "null/IIIIijlIliiijliiIlIIlljiIIIIjjlj",
+      "methods": [
+        {
+          "name": "<init>",
+          "descriptor": "(ILjava/lang/String;Lnull/ijIiiIlilIiIlliiliIijjIIlijIIjIl;IF)V",
+          "code_bytes": 33
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/IjjIIljIljjjiIjIIIilliIjjIIjiIIj;)V",
+          "code_bytes": 44
+        }
+      ]
+    },
+    {
+      "name": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+      "sha256": "fb33551f71a140cd841797096de76d0bbb6864f32971787ee1ff0f68bb9b3ef5",
+      "super": "null/IIjlIlliijlIlIIIIIiIjlIllIIjiili",
+      "methods": [
+        {
+          "name": "<init>",
+          "descriptor": "(ILjava/lang/String;Lnull/ijIiiIlilIiIlliiliIijjIIlijIIjIl;)V",
+          "code_bytes": 28
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "([Ljava/lang/String;)Lnull/IjllllIljljijijiIliIijjiIjiiIlij;",
+          "code_bytes": 7
+        },
+        {
+          "name": "iIljIIilliiiIIjljjjlIjlIilIllIIl",
+          "descriptor": "()Lnull/IjllllIljljijijiIliIijjiIjiiIlij;",
+          "code_bytes": 7
+        },
+        {
+          "name": "lljjjiiIlIlijjlIlIijljiIjIIjiljI",
+          "descriptor": "()Lnull/IjllllIljljijijiIliIijjiIjiiIlij;",
+          "code_bytes": 7
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/IjjIIljIljjjiIjIIIilliIjjIIjiIIj;)V",
+          "code_bytes": 51
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)Z",
+          "code_bytes": 13
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;IIILnull/jijlIIlijilIlIliIlllliiiilljillj;)Z",
+          "code_bytes": 13
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;Lnull/ljjlIjjjijIIIIIijiIjjjIIjiIIliij;)Z",
+          "code_bytes": 13
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Lnull/IllIIiililIiljiljiIiliijiIllillj;)Z",
+          "code_bytes": 13
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jlIIiljjljllljjIIiiijliljiijIili;Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)Z",
+          "code_bytes": 5
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jlIIiljjljllljjIIiiijliljiijIili;)F",
+          "code_bytes": 13
+        },
+        {
+          "name": "jIIlljIIIjijjlljiIiIiljjjiIIlIIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)V",
+          "code_bytes": 19
+        },
+        {
+          "name": "jjlliijIIIiIjIjiiIjijjIjIljjiiII",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)F",
+          "code_bytes": 14
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;F)V",
+          "code_bytes": 15
+        },
+        {
+          "name": "jIIlljIIIjijjlljiIiIiljjjiIIlIIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)I",
+          "code_bytes": 14
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;I)V",
+          "code_bytes": 15
+        },
+        {
+          "name": "ljIillIiijijlIIijlilliljllijljlI",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;)Z",
+          "code_bytes": 14
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Ljava/lang/String;Z)V",
+          "code_bytes": 15
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Ljava/util/List;Z)V",
+          "code_bytes": 41
+        }
+      ]
+    },
+    {
+      "name": "null/lljjIllljlijIljIlIlIjIjIIIlIjIij",
+      "sha256": "80ff3da533eaf32d543d25b06cf519b1db2d9729971ae7a50865519b5a397c58",
+      "super": "null/IIIIijlIliiijliiIlIIlljiIIIIjjlj",
+      "methods": [
+        {
+          "name": "<init>",
+          "descriptor": "(ILjava/lang/String;Lnull/ijIiiIlilIiIlliiliIijjIIlijIIjIl;I)V",
+          "code_bytes": 37
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/IjjIIljIljjjiIjIIIilliIjjIIjiIIj;)V",
+          "code_bytes": 44
+        },
+        {
+          "name": "jjlliijIIIiIjIjiiIjijjIjIljjiiII",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;)Lnull/jiilIIijIlijIjIjililliijlIlIljiI;",
+          "code_bytes": 46
+        },
+        {
+          "name": "IljIIIIlljIljjjIlIjlijIllIiIIjji",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;)Lnull/IiIljiiiiliIjilljlijjIIjjIIjliIl;",
+          "code_bytes": 4
+        }
+      ]
+    },
+    {
+      "name": "null/ljIjljIIIlIIilIIijjljjliiiiillii",
+      "sha256": "eb0f8539aaac0dfb8caa8999da76655e13ac760358489b349090ad9721480ede",
+      "super": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+      "methods": [
+        {
+          "name": "<init>",
+          "descriptor": "()V",
+          "code_bytes": 11
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;)Lnull/jiilIIijIlijIjIjililliijlIlIljiI;",
+          "code_bytes": 11
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/IllIIiililIiljiljiIiliijiIllillj;IZ)V",
+          "code_bytes": 43
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Ljava/util/List;Z)V",
+          "code_bytes": 118
+        }
+      ]
+    },
+    {
+      "name": "null/IjIjIIIijIjlljljIljiljjiliilIlll",
+      "sha256": "c28d1c4cb0da57302107e0c73aa8a053ced0c70cd5041d3c62db0057a8007fb4",
+      "super": "null/IjllllIljljijijiIliIijjiIjiiIlij",
+      "methods": [
+        {
+          "name": "<init>",
+          "descriptor": "()V",
+          "code_bytes": 11
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;)Lnull/jiilIIijIlijIjIjililliijlIlIljiI;",
+          "code_bytes": 2
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/IIIllljIjjIliiiliilljjIjijjIiIjI;Lnull/IllIIiililIiljiljiIiliijiIllillj;IZ)V",
+          "code_bytes": 43
+        },
+        {
+          "name": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+          "descriptor": "(Lnull/jiilIIijIlijIjIjililliijlIlIljiI;Lnull/jijlIIlijilIlIliIlllliiiilljillj;Ljava/util/List;Z)V",
+          "code_bytes": 119
+        }
+      ]
+    }
+  ],
+  "constructor_evidence": [
+    {
+      "item": "bint",
+      "ldc_offset": 2812,
+      "constructor_arguments": [
+        8,
+        "bint",
+        "creative_tab"
+      ]
+    },
+    {
+      "item": "shpric",
+      "ldc_offset": 2847,
+      "constructor_arguments": [
+        24,
+        "shpric",
+        "creative_tab"
+      ]
+    },
+    {
+      "item": "medspirt",
+      "ldc_offset": 3902,
+      "constructor_arguments": [
+        8,
+        "medspirt",
+        "creative_tab"
+      ]
+    },
+    {
+      "item": "konservi",
+      "ldc_offset": 4418,
+      "constructor_arguments": [
+        8,
+        "konservi",
+        "creative_tab",
+        3,
+        0.3
+      ]
+    },
+    {
+      "item": "galeti",
+      "ldc_offset": 4657,
+      "constructor_arguments": [
+        8,
+        "galeti",
+        "creative_tab",
+        2,
+        0.2
+      ]
+    },
+    {
+      "item": "gribtea",
+      "ldc_offset": 4721,
+      "constructor_arguments": [
+        8,
+        "gribtea",
+        "creative_tab",
+        3,
+        0.35
+      ]
+    },
+    {
+      "item": "waterbottle",
+      "ldc_offset": 5283,
+      "constructor_arguments": [
+        8,
+        "waterbottle",
+        "creative_tab",
+        30
+      ]
+    }
+  ]
+}
