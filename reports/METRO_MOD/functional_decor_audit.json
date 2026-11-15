@@ -1,0 +1,2988 @@
+{
+  "source_sha256": "66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc",
+  "catalogue_class": "null/jiiIjjjliIljllljIIIlijjijljliljj",
+  "method": "IjiIliIlIllillljIIIiIjiljlIljlIl",
+  "descriptor": "(Lnull/iiijIIiIijiIiIIljliijjiIiIlijIIj;)V",
+  "enum_fields": {
+    "IjiIliIlIllillljIIIiIjiljlIljlIl": "None",
+    "jjlliijIIIiIjIjiiIjijjIjIljjiiII": "Germo",
+    "jIIlljIIIjijjlljiIiIiljjjiIIlIIl": "Lever",
+    "ljIillIiijijlIIijlilliljllijljlI": "Light",
+    "jljiIijIIIIIIliijijjiIjIjiIljjjl": "Door",
+    "IlijjliljjllIjiIIjliIIjIiiIlijjl": "Sitting",
+    "IljIIIIlljIljjjIlIjlijIllIiIIjji": "Bed",
+    "IjiiIIlliljlIIIijIjjlIijiIlIlIll": "Animation",
+    "IijlijiijIIIlIiIjIiljllilllijIjI": "Ladder",
+    "IIiIIljjiiijIliIljjIiiijjjiillii": "Inventory"
+  },
+  "registered_models": 2397,
+  "tagged_or_behavior_entries": 188,
+  "kind_counts": {
+    "Animation": 2,
+    "Door": 27,
+    "Germo": 18,
+    "Inventory": 30,
+    "Lever": 6,
+    "Light": 31,
+    "None": 74
+  },
+  "entries": [
+    {
+      "model": "box/box_metal.m2033model",
+      "name_ru": "Коробка металлическая (коробка) ",
+      "kind": "Inventory",
+      "registration_offset": 168,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal.m2033model",
+        "box/box_metal_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal1.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 242,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal1.m2033model",
+        "box/box_metal1_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal2.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 316,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal2.m2033model",
+        "box/box_metal2_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal3.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 411,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal3.m2033model",
+        "box/box_metal3_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal4.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 484,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal4.m2033model",
+        "box/box_metal4_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal5.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 557,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal5.m2033model",
+        "box/box_metal5_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_books.m2033model",
+      "name_ru": "Коробка с книгами (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 799,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "box/box_books.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_books_broken.m2033model",
+      "name_ru": "Коробка с книгами сломанная (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 829,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "box/box_books_broken.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal_4.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 1075,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal_4.m2033model",
+        "box/box_metal_4_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/box_metal_5.m2033model",
+      "name_ru": "Коробка металлическая (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 1148,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/box_metal_5.m2033model",
+        "box/box_metal_5_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/test_instrumentbox_01.m2033model",
+      "name_ru": "Ящик с инструментами (коробка)",
+      "kind": "Inventory",
+      "registration_offset": 1837,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jIlIlIliIilIIljIIIIjlIjjliiIilII"
+      ],
+      "direct_model_references": [
+        "box/test_instrumentbox_01.m2033model",
+        "box/test_instrumentbox_01_cap.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/test_rat_cage.m2033model",
+      "name_ru": "Клетка для крыс (коробка)",
+      "kind": "None",
+      "registration_offset": 1874,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "box/test_rat_cage.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "box/vdnh_kran_box.m2033model",
+      "name_ru": "Ящик грузовой для крана (коробка)",
+      "kind": "None",
+      "registration_offset": 1933,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "box/vdnh_kran_box.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/box_patron.m2033model",
+      "name_ru": "Маленькая коробка с патронами (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2281,
+      "flag": 0,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/box_patron.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/ammo_box.m2033model",
+      "name_ru": "Открытый ящик с оружием и патронами (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2381,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/ammo_box.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/armorset_soldier_01.m2033model",
+      "name_ru": "Набор вооружения (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2600,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/armorset_soldier_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/armorset_soldier_02.m2033model",
+      "name_ru": "Набор вооружения (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2630,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/armorset_soldier_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/box_ak74.m2033model",
+      "name_ru": "Ящик с АК-74 (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2681,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/box_ak74.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/gunparts_01.m2033model",
+      "name_ru": "Запчасти для оружия (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2733,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/gunparts_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/rukzak.m2033model",
+      "name_ru": "Рюкзак (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2808,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/rukzak.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/shotgun_parts.m2033model",
+      "name_ru": "Запчасти для дробовика (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2839,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/shotgun_parts.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "arsenal/wpn_support.m2033model",
+      "name_ru": "Стойка с калашами (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 2885,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "arsenal/wpn_support.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "capacity/container.m2033model",
+      "name_ru": "Контейнер (ёмкость)",
+      "kind": "None",
+      "registration_offset": 3048,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "capacity/container.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "cars/jeep.m2033model",
+      "name_ru": "Джип (авто)",
+      "kind": "None",
+      "registration_offset": 3671,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IijijljllIlIjijjjiIiIijIiIjillli"
+      ],
+      "direct_model_references": [
+        "cars/jeep.m2033model",
+        "cars/jeep_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "columnes/round_column_svetilnik.m2033model",
+      "name_ru": "Колонна светильники (колонна)",
+      "kind": "Light",
+      "registration_offset": 5739,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "columnes/round_column_svetilnik.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "columnes/column_base_zaborchik.m2033model",
+      "name_ru": "Заборчик колонна (колонна)",
+      "kind": "None",
+      "registration_offset": 6085,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "columnes/column_base_zaborchik.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "columnes/column_base_zaborchik_part.m2033model",
+      "name_ru": "Заборчик часть колонна (колонна)",
+      "kind": "None",
+      "registration_offset": 6123,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "columnes/column_base_zaborchik_part.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "constr_metal/grate1_door.m2033model",
+      "name_ru": "Дверь для стены (дверь)",
+      "kind": "Door",
+      "registration_offset": 7374,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "constr_metal/grate1_door.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "constr_metal/l03_zabor_2.m2033model",
+      "name_ru": "Забор из металла (забор)",
+      "kind": "None",
+      "registration_offset": 7499,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "constr_metal/l03_zabor_2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/banka1.m2033model",
+      "name_ru": "Шухер-банка (декор-метро)",
+      "kind": "None",
+      "registration_offset": 9632,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jjililIIijijIIjijjjiIIijIljiliil"
+      ],
+      "direct_model_references": [
+        "decor_metro/banka1.m2033model",
+        "decor_metro/banka1_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/banka2.m2033model",
+      "name_ru": "Шухер-банка (декор-метро)",
+      "kind": "None",
+      "registration_offset": 9698,
+      "flag": 1,
+      "behavior_classes": [
+        "null/IIjIjliIlllljIiIljiiIillIjjlljiI"
+      ],
+      "direct_model_references": [
+        "decor_metro/banka2.m2033model",
+        "decor_metro/banka2_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/fp1.m2033model",
+      "name_ru": "Костёр (свет)",
+      "kind": "None",
+      "registration_offset": 9756,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IjljIjjIlIljilliliIliijlIjiIijil"
+      ],
+      "direct_model_references": [
+        "decor_metro/fp1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/web2.m2033model",
+      "name_ru": "Паутина (органика)",
+      "kind": "None",
+      "registration_offset": 9867,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilljljiIjjljIjiIIllijIilljIjij"
+      ],
+      "direct_model_references": [
+        "decor_metro/web2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "plant/liana_roots.m2033model",
+      "name_ru": "Лианы корни (растение)",
+      "kind": "None",
+      "registration_offset": 11007,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "plant/liana_roots.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "plant/root1.m2033model",
+      "name_ru": "Корни (растение)",
+      "kind": "None",
+      "registration_offset": 11045,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "plant/root1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "drezina/motocikl.m2033model",
+      "name_ru": "Мото (дрезина)",
+      "kind": "None",
+      "registration_offset": 11556,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "drezina/motocikl.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo1.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13413,
+      "flag": 0,
+      "behavior_classes": [
+        "null/ljiIijIiiIjljiiIjIljIljIIlllljIl"
+      ],
+      "direct_model_references": [
+        "germo/germo1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo2.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13493,
+      "flag": 0,
+      "behavior_classes": [
+        "null/lIliliiljIIlijIiIjlIjiIiiIjjiIjI"
+      ],
+      "direct_model_references": [
+        "germo/germo2.m2033model",
+        "germo/germo2_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo3.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13571,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jllIiiIljIIjillIllIjliijjiljIIlI"
+      ],
+      "direct_model_references": [
+        "germo/germo3.m2033model",
+        "germo/germo3_add1.m2033model",
+        "germo/germo3_add2.m2033model",
+        "germo/germo3_add3.m2033model",
+        "germo/germo3_add4.m2033model",
+        "germo/germo3_add5.m2033model",
+        "germo/germo3_add6.m2033model",
+        "germo/germo3_add7.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo4.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13649,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIlIiiIjlIIjiljjjIljjjiilIiljl"
+      ],
+      "direct_model_references": [
+        "germo/germo4.m2033model",
+        "germo/germo4_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo5.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13728,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jiiIlljIjiljiljiljIjjiIlIlIilIll"
+      ],
+      "direct_model_references": [
+        "germo/germo5.m2033model",
+        "germo/germo5_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo6.m2033model",
+      "name_ru": "Ворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13807,
+      "flag": 0,
+      "behavior_classes": [
+        "null/lilliIIlIjlliIilliilIlIijljjilIi"
+      ],
+      "direct_model_references": [
+        "germo/germo6.m2033model",
+        "germo/germo6_add1.m2033model",
+        "germo/germo6_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo7.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13886,
+      "flag": 0,
+      "behavior_classes": [
+        "null/ljjijiliiljIljlliiiIiljiIliIIjIj"
+      ],
+      "direct_model_references": [
+        "germo/germo7.m2033model",
+        "germo/germo7_add1.m2033model",
+        "germo/germo7_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo8.m2033model",
+      "name_ru": "Гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 13965,
+      "flag": 0,
+      "behavior_classes": [
+        "null/llliljiiijjjIljjjIjIiIjljliljjji"
+      ],
+      "direct_model_references": [
+        "germo/germo8.m2033model",
+        "germo/germo8_add1.m2033model",
+        "germo/germo8_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "items/baggage/rukzak.m2033model",
+      "name_ru": "Рюкзак (багаж)",
+      "kind": "Inventory",
+      "registration_offset": 14016,
+      "flag": 0,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "items/baggage/rukzak.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/fonar_01.m2033model",
+      "name_ru": "Фонарь (свет)",
+      "kind": "Light",
+      "registration_offset": 15896,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/fonar_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/karbid_lamp_01.m2033model",
+      "name_ru": "Карбидная лампа (свет)",
+      "kind": "Light",
+      "registration_offset": 15960,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIijljillljjIjlIiIllIjlIlIjIliiI"
+      ],
+      "direct_model_references": [
+        "decor_metro/karbid_lamp_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/karbid_lamp_02.m2033model",
+      "name_ru": "Карбидная лампа (свет)",
+      "kind": "Light",
+      "registration_offset": 16003,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIijljillljjIjlIiIllIjlIlIjIliiI"
+      ],
+      "direct_model_references": [
+        "decor_metro/karbid_lamp_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/l07_vorota.m2033model",
+      "name_ru": "Ворота (тунн-декор) (дверь)",
+      "kind": "Germo",
+      "registration_offset": 16116,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jiIilIjjiIIjiliIiijiljjjlliilIIi"
+      ],
+      "direct_model_references": [
+        "decor_metro/l07_vorota.m2033model",
+        "decor_metro/l07_vorota_add1.m2033model",
+        "decor_metro/l07_vorota_add2.m2033model",
+        "decor_metro/l07_vorota_add3.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_abajur_2.m2033model",
+      "name_ru": "Лампа абажур (свет)",
+      "kind": "Light",
+      "registration_offset": 16163,
+      "flag": 1,
+      "behavior_classes": [
+        "null/ijiiiijljiiiiiljijIiIjjIjljlIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_abajur_2.m2033model",
+        "decor_metro/lamp_abajur_2_add.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_halogen_1.m2033model",
+      "name_ru": "Галогеновая лампа (свет)",
+      "kind": "Light",
+      "registration_offset": 16227,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_halogen_1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_industrt01_01.m2033model",
+      "name_ru": "Индастриал лампа (свет)",
+      "kind": "Light",
+      "registration_offset": 16269,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_industrt01_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_kerosinka_06_nice.m2033model",
+      "name_ru": "Керосинка (свет)",
+      "kind": "Light",
+      "registration_offset": 16311,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_kerosinka_06_nice.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_kerosinka_07_nice.m2033model",
+      "name_ru": "Керосинка (свет)",
+      "kind": "Light",
+      "registration_offset": 16353,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_kerosinka_07_nice.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_na_stenu_01.m2033model",
+      "name_ru": "Настенная лампа (свет)",
+      "kind": "Light",
+      "registration_offset": 16407,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_na_stenu_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_nastolny_01.m2033model",
+      "name_ru": "Настольная лампа (свет)",
+      "kind": "Light",
+      "registration_offset": 16469,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlIliiiIIjjIiIillllIljilIIiljjji"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_nastolny_01.m2033model",
+        "decor_metro/lamp_nastolny_01_add1.m2033model",
+        "decor_metro/lamp_nastolny_01_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_projector_no_lp.m2033model",
+      "name_ru": "Прожектор (свет)",
+      "kind": "Light",
+      "registration_offset": 16531,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jiiljIjliillllIjjjiIlIliiijiIiil"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_projector_no_lp.m2033model",
+        "decor_metro/lamp_projector_no_lp_add.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lamp_small.m2033model",
+      "name_ru": "Маленькая лампочка (свет)",
+      "kind": "Light",
+      "registration_offset": 16608,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiIlIIllilljliIliIjijiijiiIIjjlj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lamp_small.m2033model",
+        "decor_metro/lamp_small_add.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/lampa.m2033model",
+      "name_ru": "Лампа бункер (свет)",
+      "kind": "Light",
+      "registration_offset": 16681,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/lampa.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/web_big34_new.m2033model",
+      "name_ru": "Паутина (органика)",
+      "kind": "None",
+      "registration_offset": 17216,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilljljiIjjljIjiIIllijIilljIjij"
+      ],
+      "direct_model_references": [
+        "decor_metro/web_big34_new.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/web_big34_strong.m2033model",
+      "name_ru": "Паутина (органика)",
+      "kind": "None",
+      "registration_offset": 17252,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilljljiIjjljIjiIIllijIilljIjij"
+      ],
+      "direct_model_references": [
+        "decor_metro/web_big34_strong.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/wpn_proj_01.m2033model",
+      "name_ru": "Прожектор (свет)",
+      "kind": "Light",
+      "registration_offset": 17311,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/wpn_proj_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "decor_metro/wpn_proj_02.m2033model",
+      "name_ru": "Прожектор (свет)",
+      "kind": "Light",
+      "registration_offset": 17370,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "decor_metro/wpn_proj_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/d6_gate_platform_.m2033model",
+      "name_ru": "Двери на платформе Д6 (дверь)",
+      "kind": "Door",
+      "registration_offset": 18108,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jililjllIIllIijIljlliiiljllIijjj"
+      ],
+      "direct_model_references": [
+        "_add1.m2033model",
+        "_add2.m2033model",
+        "door/d6_gate_platform_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/door_d06_l02_01.m2033model",
+      "name_ru": "Гермо Д6 (гермо)",
+      "kind": "Germo",
+      "registration_offset": 18187,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jiljllljlIljijIIlIjiiIlllliiijll"
+      ],
+      "direct_model_references": [
+        "door/door_d06_l02_01.m2033model",
+        "door/door_d06_l02_01_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/door_hran.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18279,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/door_hran.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/door_l00_hospital.m2033model",
+      "name_ru": "Дверь Д6 (дверь)",
+      "kind": "Door",
+      "registration_offset": 18322,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IiijjiIjIlllIIIjiIjllilIljIjjlII"
+      ],
+      "direct_model_references": [
+        "door/door_l00_hospital.m2033model",
+        "door/door_l00_hospital_add1.m2033model",
+        "door/door_l00_hospital_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l04_gate02_.m2033model",
+      "name_ru": "Ворота (дверь)",
+      "kind": "Germo",
+      "registration_offset": 18487,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IIiIjiliIjjjllljiiljiIlIllIIilii"
+      ],
+      "direct_model_references": [
+        "door/l04_gate02_.m2033model",
+        "door/l04_gate02_add1.m2033model",
+        "door/l04_gate02_add2.m2033model",
+        "door/l04_gate02_add3.m2033model",
+        "door/l04_gate02_add4.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l04_t_zatvor.m2033model",
+      "name_ru": "Затвор (гермо)",
+      "kind": "Germo",
+      "registration_offset": 18566,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IjlljljiiiIljiIlIliljiijiliIlIil"
+      ],
+      "direct_model_references": [
+        "door/l04_t_zatvor.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l13_vorota_test.m2033model",
+      "name_ru": "Ворота (дверь)",
+      "kind": "Germo",
+      "registration_offset": 18636,
+      "flag": 0,
+      "behavior_classes": [
+        "null/ljjjljillIIIljiIilIIilllljiilIjl"
+      ],
+      "direct_model_references": [
+        "door/l13_vorota_test.m2033model",
+        "door/l13_vorota_test_add1.m2033model",
+        "door/l13_vorota_test_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l17_door_closed.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18684,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii"
+      ],
+      "direct_model_references": [
+        "door/l17_door_closed.m2033model",
+        "door/l17_door_closed_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l17_door_gate.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18726,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jIjiIliiIljIlIlIIIjlljjliIjIIIij"
+      ],
+      "direct_model_references": [
+        "door/l17_door_gate.m2033model",
+        "door/l17_door_gate_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l21_clap_door.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18768,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jIjlIijiIIiIjiilIjjiIjIijjjIjiII"
+      ],
+      "direct_model_references": [
+        "door/l21_clap_door.m2033model",
+        "door/l21_clap_door_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l21_level_doors02.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18836,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii"
+      ],
+      "direct_model_references": [
+        "door/l21_level_doors02.m2033model",
+        "door/l21_level_doors02_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l21_level_doors03.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18883,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii"
+      ],
+      "direct_model_references": [
+        "door/l21_level_doors03.m2033model",
+        "door/l21_level_doors03_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/l21_level_doors04.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 18925,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/l21_level_doors04.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/ostankino_door.m2033model",
+      "name_ru": "Дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 19054,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/ostankino_door.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/vorota.m2033model",
+      "name_ru": "Ворота (тунн-декор) (дверь)",
+      "kind": "Germo",
+      "registration_offset": 19146,
+      "flag": 0,
+      "behavior_classes": [
+        "null/lIiljIiljlllllIiIIljjjlljljIjiil"
+      ],
+      "direct_model_references": [
+        "door/vorota.m2033model",
+        "door/vorota_add2.m2033model",
+        "door/vorota_add3.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "electro/l03_props_hydro_wheel_engine.m2033model",
+      "name_ru": "Гидравлический двигатель (устр-ва)",
+      "kind": "None",
+      "registration_offset": 21399,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "electro/l03_props_hydro_wheel_engine.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "electro/props_rubilnik_01.m2033model",
+      "name_ru": "Рубильник (электрощит)",
+      "kind": "Lever",
+      "registration_offset": 22003,
+      "flag": 1,
+      "behavior_classes": [
+        "null/IIijIIiIIliijlIiIIiiIiljjlIIiIii"
+      ],
+      "direct_model_references": [
+        "electro/props_rubilnik_01.m2033model",
+        "electro/props_rubilnik_01_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "electro/rubilnik_4.m2033model",
+      "name_ru": "Рубильник (электрощит)",
+      "kind": "Lever",
+      "registration_offset": 22373,
+      "flag": 1,
+      "behavior_classes": [
+        "null/IjjiIillIIIIIijiIIiIIIiljljijjil"
+      ],
+      "direct_model_references": [
+        "electro/rubilnik_4.m2033model",
+        "electro/rubilnik_4_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "fence/kalitka_01.m2033model",
+      "name_ru": "Деревянная калитка мыльная долгих лет скрипа (дверь) (забор)",
+      "kind": "Door",
+      "registration_offset": 23536,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii"
+      ],
+      "direct_model_references": [
+        "fence/kalitka_01.m2033model",
+        "fence/kalitka_01_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "fence/ograda_02.m2033model",
+      "name_ru": "Ограда (забор)",
+      "kind": "None",
+      "registration_offset": 23814,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "fence/ograda_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "fireplace/barrel_01.m2033model",
+      "name_ru": "Костёр в бочке (свет)",
+      "kind": "Light",
+      "registration_offset": 24318,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "fireplace/barrel_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "fireplace/candle_church01.m2033model",
+      "name_ru": "Свечка (свет)",
+      "kind": "Light",
+      "registration_offset": 24376,
+      "flag": 1,
+      "behavior_classes": [
+        "null/IijIlllljilIIlIiiIiijjjlijijiiil"
+      ],
+      "direct_model_references": [
+        "fireplace/candle_church01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "fireplace/candle_church02.m2033model",
+      "name_ru": "Свечка (свет)",
+      "kind": "Light",
+      "registration_offset": 24434,
+      "flag": 1,
+      "behavior_classes": [
+        "null/IijIlllljilIIlIiiIiijjjlijijiiil"
+      ],
+      "direct_model_references": [
+        "fireplace/candle_church02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "fireplace/fireplace_01.m2033model",
+      "name_ru": "Костёр (свет)",
+      "kind": "Light",
+      "registration_offset": 24465,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "fireplace/fireplace_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "germo/germo9.m2033model",
+      "name_ru": "Широкие гермоворота (гермо)",
+      "kind": "Germo",
+      "registration_offset": 30584,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jiIjjljIjijljjIliIlilljljjllIill"
+      ],
+      "direct_model_references": [
+        "germo/germo9.m2033model",
+        "germo/germo9_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "house/small_door.m2033model",
+      "name_ru": "Малая дверь (дверь)",
+      "kind": "Door",
+      "registration_offset": 31847,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "house/small_door.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "items/ball_crystal.m2033model",
+      "name_ru": "Хрустальный шар (предметы)",
+      "kind": "None",
+      "registration_offset": 33143,
+      "flag": 1,
+      "behavior_classes": [
+        "null/llIljliIliiillijijlijijjIjIjlllI"
+      ],
+      "direct_model_references": [
+        "items/ball_crystal.m2033model",
+        "items/ball_crystal_add1.m2033model",
+        "items/ball_crystal_add2.m2033model",
+        "items/ball_crystal_add3.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "items/cyan_light_stick.m2033model",
+      "name_ru": "Берюзовая световая палочка (свет)",
+      "kind": "Light",
+      "registration_offset": 33757,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "items/cyan_light_stick.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "items/green_light_stick.m2033model",
+      "name_ru": "Зеленая световая палочка (свет)",
+      "kind": "Light",
+      "registration_offset": 33909,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "items/green_light_stick.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "items/filter.m2033model",
+      "name_ru": "Фильтр (арсенал) (предметы)",
+      "kind": "Inventory",
+      "registration_offset": 35420,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "items/filter.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_bend_01.m2033model",
+      "name_ru": "Изгибающиеся корни (растение)",
+      "kind": "None",
+      "registration_offset": 35783,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_bend_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_bend_02.m2033model",
+      "name_ru": "Изгибающиеся корни (растение)",
+      "kind": "None",
+      "registration_offset": 35821,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_bend_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_bend_03.m2033model",
+      "name_ru": "Изгибающиеся корни (растение)",
+      "kind": "None",
+      "registration_offset": 35859,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_bend_03.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_bend_04.m2033model",
+      "name_ru": "Изгибающиеся корни (растение)",
+      "kind": "None",
+      "registration_offset": 35897,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_bend_04.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_big_01.m2033model",
+      "name_ru": "Большие корни (растение)",
+      "kind": "None",
+      "registration_offset": 35957,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_big_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_big_02.m2033model",
+      "name_ru": "Большие корни (растение)",
+      "kind": "None",
+      "registration_offset": 35995,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_big_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_big_03.m2033model",
+      "name_ru": "Большие корни (растение)",
+      "kind": "None",
+      "registration_offset": 36033,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_big_03.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_small.m2033model",
+      "name_ru": "Маленькие корни (растение)",
+      "kind": "None",
+      "registration_offset": 36070,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_small.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/korni_small_01.m2033model",
+      "name_ru": "Маленькие корни (растение)",
+      "kind": "None",
+      "registration_offset": 36107,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/korni_small_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/l18_grot_root.m2033model",
+      "name_ru": "Корни (растение)",
+      "kind": "None",
+      "registration_offset": 36145,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/l18_grot_root.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/l18_grot_root_bar.m2033model",
+      "name_ru": "Корни (растение)",
+      "kind": "None",
+      "registration_offset": 36183,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/l18_grot_root_bar.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "korni/web_root_01.m2033model",
+      "name_ru": "Корни (растение)",
+      "kind": "None",
+      "registration_offset": 36220,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "korni/web_root_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/kerosinka_02.m2033model",
+      "name_ru": "Керосинка (свет)",
+      "kind": "Light",
+      "registration_offset": 36299,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIiIlIIilIijIilIiIjiililIjlljllI"
+      ],
+      "direct_model_references": [
+        "lamp/kerosinka_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/kerosinka_03.m2033model",
+      "name_ru": "Керосинка (свет)",
+      "kind": "Light",
+      "registration_offset": 36357,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIiIlIIilIijIilIiIjiililIjlljllI"
+      ],
+      "direct_model_references": [
+        "lamp/kerosinka_03.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/kerosinka_05.m2033model",
+      "name_ru": "Керосинка (свет)",
+      "kind": "Light",
+      "registration_offset": 36415,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIiIlIIilIijIilIiIjiililIjlljllI"
+      ],
+      "direct_model_references": [
+        "lamp/kerosinka_05.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/l04_lampion01.m2033model",
+      "name_ru": "Лампион (свет)",
+      "kind": "Light",
+      "registration_offset": 36473,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIiIlIIilIijIilIiIjiililIjlljllI"
+      ],
+      "direct_model_references": [
+        "lamp/l04_lampion01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/l04_lampion02.m2033model",
+      "name_ru": "Лампион (свет)",
+      "kind": "Light",
+      "registration_offset": 36531,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lIiIlIIilIijIilIiIjiililIjlljllI"
+      ],
+      "direct_model_references": [
+        "lamp/l04_lampion02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/light_tripple1.m2033model",
+      "name_ru": "Освещение из 9 ламп (свет)",
+      "kind": "Light",
+      "registration_offset": 36741,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lijiIlijliijjjjijIIijjijIIjllilj"
+      ],
+      "direct_model_references": [
+        "lamp/light_tripple1.m2033model",
+        "lamp/light_tripple1_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "lamp/svetilnik.m2033model",
+      "name_ru": "Светильник (свет)",
+      "kind": "Light",
+      "registration_offset": 36827,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "lamp/svetilnik.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "military_veh/veh_mi24a.m2033model",
+      "name_ru": "МИ 24 А (техника)",
+      "kind": "None",
+      "registration_offset": 37342,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IjiiiIlIiIIlIililjjliljjiijIjIij"
+      ],
+      "direct_model_references": [
+        "military_veh/veh_mi24a.m2033model",
+        "military_veh/veh_mi24a_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "parom/ubl_ammo_01.m2033model",
+      "name_ru": "Патроны для ублюдка (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 38104,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "parom/ubl_ammo_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "parom/ubl_ammo_02.m2033model",
+      "name_ru": "Патроны для ублюдка (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 38135,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "parom/ubl_ammo_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "patron/ammo_01.m2033model",
+      "name_ru": "Обойма патронов (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 38188,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "patron/ammo_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "patron/mnogo_ammo_01.m2033model",
+      "name_ru": "Магазин патронов (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 38241,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "patron/mnogo_ammo_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "patron/wpn_7_62_ammo.m2033model",
+      "name_ru": "Обойма 7.62 (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 38272,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "patron/wpn_7_62_ammo.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "patron/wpn_14_5x5_ammo.m2033model",
+      "name_ru": "Обойма 14.5x5 (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 38303,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "patron/wpn_14_5x5_ammo.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "props_library/wood_door.m2033model",
+      "name_ru": "Дверь библиотека (дверь)",
+      "kind": "Door",
+      "registration_offset": 39116,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "props_library/wood_door.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/biblio_door_chit_zal_left.m2033model",
+      "name_ru": "Левая дверь библиотека читательский зал (дверь)",
+      "kind": "Door",
+      "registration_offset": 39168,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/biblio_door_chit_zal_left.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/biblio_door_chit_zal_right.m2033model",
+      "name_ru": "Правая дверь библиотека читательский зал (дверь)",
+      "kind": "Door",
+      "registration_offset": 39221,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/biblio_door_chit_zal_right.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/biblio_door_hall_razlom_left.m2033model",
+      "name_ru": "Левая дверь библиотека холл разлом (дверь)",
+      "kind": "Door",
+      "registration_offset": 39273,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/biblio_door_hall_razlom_left.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/biblio_door_hall_razlom_right.m2033model",
+      "name_ru": "Правая дверь библиотека холл разлом (дверь)",
+      "kind": "Door",
+      "registration_offset": 39326,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/biblio_door_hall_razlom_right.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/biblio_door_razlom.m2033model",
+      "name_ru": "Дверь библиотека разлом (дверь)",
+      "kind": "Door",
+      "registration_offset": 39378,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/biblio_door_razlom.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/door_2_left.m2033model",
+      "name_ru": "Левая дверь библиотека (дверь)",
+      "kind": "Door",
+      "registration_offset": 39430,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/door_2_left.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "door/door_2_right.m2033model",
+      "name_ru": "Правая дверь библиотека (дверь)",
+      "kind": "Door",
+      "registration_offset": 39483,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "door/door_2_right.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "station_props/l28_church_armory.m2033model",
+      "name_ru": "Задвижные пластины (мет-изделия)",
+      "kind": "None",
+      "registration_offset": 47109,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "station_props/l28_church_armory.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "station_props/lightbox.m2033model",
+      "name_ru": "Станционный указатель (декор-метро) (свет)",
+      "kind": "Light",
+      "registration_offset": 47155,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "station_props/lightbox.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/d6_door_02.m2033model",
+      "name_ru": "Дверь металлическая (дверь)",
+      "kind": "Door",
+      "registration_offset": 50685,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii"
+      ],
+      "direct_model_references": [
+        "structure/d6_door_02.m2033model",
+        "structure/d6_door_02_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/d6_lift_bolshoy.m2033model",
+      "name_ru": "Лифт (устр-ва)",
+      "kind": "None",
+      "registration_offset": 50745,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "structure/d6_lift_bolshoy.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/gates_01.m2033model",
+      "name_ru": "Ворота Д6 (дверь)",
+      "kind": "Door",
+      "registration_offset": 50920,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jililjllIIllIijIljlliiiljllIijjj"
+      ],
+      "direct_model_references": [
+        "_add1.m2033model",
+        "_add2.m2033model",
+        "structure/gates_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/hydro_wheel.m2033model",
+      "name_ru": "Водяное колесо (устр-ва)",
+      "kind": "Animation",
+      "registration_offset": 50998,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jjjIljjjIlIIjliijlIiIjlilljIiili"
+      ],
+      "direct_model_references": [
+        "structure/hydro_wheel.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/l13_reshetka_skin.m2033model",
+      "name_ru": "Решетка (дверь)",
+      "kind": "Door",
+      "registration_offset": 51287,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iiiIIlilijlllijjljIIiIjiIijIjjll"
+      ],
+      "direct_model_references": [
+        "structure/l13_reshetka_skin.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/l13_vent.m2033model",
+      "name_ru": "Вентиляция пропеллер большой (вентиляция)",
+      "kind": "Animation",
+      "registration_offset": 51330,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jjjlIjllljjjiIIljiilIiijljllijIj"
+      ],
+      "direct_model_references": [
+        "structure/l13_vent.m2033model",
+        "structure/l13_vent_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/l19_polis_door.m2033model",
+      "name_ru": "Дверь полис (дверь)",
+      "kind": "Door",
+      "registration_offset": 51419,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IIIllijilijIjlIllIIjijIjIjiljIjj"
+      ],
+      "direct_model_references": [
+        "structure/l19_polis_door.m2033model",
+        "structure/l19_polis_door_add1.m2033model",
+        "structure/l19_polis_door_add2.m2033model",
+        "structure/l19_polis_door_add3.m2033model",
+        "structure/l19_polis_door_add4.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/mls_vorota_l06.m2033model",
+      "name_ru": "Ворота (дверь)",
+      "kind": "Germo",
+      "registration_offset": 51600,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iijljliIIiiIjlIiijIillIIijillIiI"
+      ],
+      "direct_model_references": [
+        "structure/mls_vorota_l06.m2033model",
+        "structure/mls_vorota_l06_add1.m2033model",
+        "structure/mls_vorota_l06_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/perila_d6.m2033model",
+      "name_ru": "Перила Д6 (поручни)",
+      "kind": "None",
+      "registration_offset": 51724,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "structure/perila_d6.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/reshetka_02.m2033model",
+      "name_ru": "Решетка (дверь)",
+      "kind": "Door",
+      "registration_offset": 51901,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii"
+      ],
+      "direct_model_references": [
+        "structure/reshetka_02.m2033model",
+        "structure/reshetka_02_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/rubilnik_01.m2033model",
+      "name_ru": "Рубильник (электрощит)",
+      "kind": "Lever",
+      "registration_offset": 51969,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlijIijljjljijiiiliIjIjIlIIIjlii"
+      ],
+      "direct_model_references": [
+        "structure/rubilnik_01.m2033model",
+        "structure/rubilnik_01_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/rubilnik_02.m2033model",
+      "name_ru": "Рубильник (электрощит)",
+      "kind": "Lever",
+      "registration_offset": 52022,
+      "flag": 1,
+      "behavior_classes": [
+        "null/lljiljljjllliIIjIlIIljljIliiiIjl"
+      ],
+      "direct_model_references": [
+        "structure/rubilnik_02.m2033model",
+        "structure/rubilnik_02_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/rubilnik_lift.m2033model",
+      "name_ru": "Рубильник (электрощит)",
+      "kind": "Lever",
+      "registration_offset": 52064,
+      "flag": 1,
+      "behavior_classes": [
+        "null/IIliilljjlijjiIIlIIiIjjlljlilill"
+      ],
+      "direct_model_references": [
+        "structure/rubilnik_lift.m2033model",
+        "structure/rubilnik_lift_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/shitovaya_01.m2033model",
+      "name_ru": "Щитовая (электрощит)",
+      "kind": "Lever",
+      "registration_offset": 52173,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iIIjiijjiIiijjiiiijjlIlillIiljlj"
+      ],
+      "direct_model_references": [
+        "structure/shitovaya_01.m2033model",
+        "structure/shitovaya_01_add1.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/vorota_l03.m2033model",
+      "name_ru": "Ворота (дверь)",
+      "kind": "Door",
+      "registration_offset": 52455,
+      "flag": 0,
+      "behavior_classes": [
+        "null/jiiIIjlIilIiilljjiiljjjIIjijjill"
+      ],
+      "direct_model_references": [
+        "structure/vorota_l03.m2033model",
+        "structure/vorota_l03_add1.m2033model",
+        "structure/vorota_l03_add2.m2033model",
+        "structure/vorota_l03_add3.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/vorota_resh_tower.m2033model",
+      "name_ru": "Решетчатые ворота (дверь)",
+      "kind": "Germo",
+      "registration_offset": 52556,
+      "flag": 0,
+      "behavior_classes": [
+        "null/ilIljijIlIljIijllIIIjiljIijjIlIj"
+      ],
+      "direct_model_references": [
+        "structure/vorota_resh_tower.m2033model",
+        "structure/vorota_resh_tower_add1.m2033model",
+        "structure/vorota_resh_tower_add2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "structure/zatvor_01.m2033model",
+      "name_ru": "Гермозатвор (гермо)",
+      "kind": "Germo",
+      "registration_offset": 52701,
+      "flag": 0,
+      "behavior_classes": [
+        "null/iIlIiIliliIiiiljijIlllIjljIljlll"
+      ],
+      "direct_model_references": [
+        "structure/zatvor_01.m2033model",
+        "structure/zatvor_01_add1.m2033model",
+        "structure/zatvor_01_add2.m2033model",
+        "structure/zatvor_01_add3.m2033model",
+        "structure/zatvor_01_add4.m2033model",
+        "structure/zatvor_01_add5.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/big_bush_01.m2033model",
+      "name_ru": "Куст большой (дерево)",
+      "kind": "None",
+      "registration_offset": 53852,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/big_bush_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/big_bush_01_new2_wind.m2033model",
+      "name_ru": "Куст большой (дерево)",
+      "kind": "None",
+      "registration_offset": 53890,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/big_bush_01_new2_wind.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/big_bush_03.m2033model",
+      "name_ru": "Куст большой (дерево)",
+      "kind": "None",
+      "registration_offset": 53928,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/big_bush_03.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/big_tree_l10_swamp.m2033model",
+      "name_ru": "Дерево большое (дерево)",
+      "kind": "None",
+      "registration_offset": 53966,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/big_tree_l10_swamp.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/derevo_01.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 54048,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/derevo_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/small_bush_01.m2033model",
+      "name_ru": "Куст маленький (дерево)",
+      "kind": "None",
+      "registration_offset": 55185,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/small_bush_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/small_bush_02.m2033model",
+      "name_ru": "Куст маленький (дерево)",
+      "kind": "None",
+      "registration_offset": 55222,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/small_bush_02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/topol_01.m2033model",
+      "name_ru": "Тополь (дерево)",
+      "kind": "None",
+      "registration_offset": 55260,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/topol_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_01.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55298,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_01big.m2033model",
+      "name_ru": "Дерево большое (дерево)",
+      "kind": "None",
+      "registration_offset": 55336,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_01big.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_03.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55418,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_03.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_03big.m2033model",
+      "name_ru": "Дерево большое (дерево)",
+      "kind": "None",
+      "registration_offset": 55456,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_03big.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_04.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55494,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_04.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_14.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55662,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_14.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_15.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55698,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_15.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_16.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55734,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_16.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_17.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55772,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_17.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_18.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 55810,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_18.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_branch06.m2033model",
+      "name_ru": "Дерево росток (дерево)",
+      "kind": "None",
+      "registration_offset": 55848,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_branch06.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_sprig04.m2033model",
+      "name_ru": "Дерево росток (дерево)",
+      "kind": "None",
+      "registration_offset": 55886,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_sprig04.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk03_.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 55946,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk03_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk05_.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56006,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk05_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk05_85.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56044,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk05_85.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk05_120.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56082,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk05_120.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk06_.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56142,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk06_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk08_.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56180,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk08_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk09_.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56218,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk09_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_trunk10_.m2033model",
+      "name_ru": "Дерево хобот (дерево)",
+      "kind": "None",
+      "registration_offset": 56256,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_trunk10_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_v02_.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 56316,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_v02_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_garden_v11_.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 56354,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_garden_v11_.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_t01.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 56458,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_t01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_t02.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 56496,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_t02.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/tree_thin.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 56532,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/tree_thin.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tree/trees_04.m2033model",
+      "name_ru": "Дерево (дерево)",
+      "kind": "None",
+      "registration_offset": 56680,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilIjIliijjlIjjIliliiijjjlIijlI"
+      ],
+      "direct_model_references": [
+        "tree/trees_04.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "tunnel_props/tonnels_props_lamp_germ_01.m2033model",
+      "name_ru": "Гермозатвор лампа (тунн-декор) (свет)",
+      "kind": "Light",
+      "registration_offset": 57614,
+      "flag": 1,
+      "behavior_classes": [
+        "null/iiiijIjiijIijllliliIjijlIIlIIllj"
+      ],
+      "direct_model_references": [
+        "tunnel_props/tonnels_props_lamp_germ_01.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "veh/t80_base.m2033model",
+      "name_ru": "Т80 (техника)",
+      "kind": "None",
+      "registration_offset": 59179,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IjIjliIIjlliIIjliijiIlIIljjIIIil"
+      ],
+      "direct_model_references": [
+        "veh/t80_base.m2033model",
+        "veh/t80_turret.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "veh/t80_base_damaged.m2033model",
+      "name_ru": "Т80 поврежденный (техника)",
+      "kind": "None",
+      "registration_offset": 59215,
+      "flag": 0,
+      "behavior_classes": [
+        "null/IjIjliIIjlliIIjliijiIlIIljjIIIil"
+      ],
+      "direct_model_references": [
+        "veh/t80_base_damaged.m2033model",
+        "veh/t80_turret.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "web/web_big34_bend.m2033model",
+      "name_ru": "Паутина большая (органика)",
+      "kind": "None",
+      "registration_offset": 59416,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilljljiIjjljIjiIIllijIilljIjij"
+      ],
+      "direct_model_references": [
+        "web/web_big34_bend.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "web/web_big34_corner_small.m2033model",
+      "name_ru": "Паутина угол (органика)",
+      "kind": "None",
+      "registration_offset": 59463,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilljljiIjjljIjiIIllijIilljIjij"
+      ],
+      "direct_model_references": [
+        "web/web_big34_corner_small.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "web/web_big34_corner2.m2033model",
+      "name_ru": "Паутина угол (органика)",
+      "kind": "None",
+      "registration_offset": 59499,
+      "flag": 1,
+      "behavior_classes": [
+        "null/jlilljljiIjjljIjiIIllijIilljIjij"
+      ],
+      "direct_model_references": [
+        "web/web_big34_corner2.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "wpn/predohranitel_bomb_sticky.m2033model",
+      "name_ru": "Бомба шипы (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 60344,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "wpn/predohranitel_bomb_sticky.m2033model"
+      ],
+      "runtime_ported": false
+    },
+    {
+      "model": "wpn/wpn_bomb_predohranitel.m2033model",
+      "name_ru": "Бомба (арсенал)",
+      "kind": "Inventory",
+      "registration_offset": 60441,
+      "flag": 1,
+      "behavior_classes": [],
+      "direct_model_references": [
+        "wpn/wpn_bomb_predohranitel.m2033model"
+      ],
+      "runtime_ported": false
+    }
+  ],
+  "model_references": [
+    "_add1.m2033model",
+    "_add2.m2033model",
+    "arsenal/ammo_box.m2033model",
+    "arsenal/armorset_soldier_01.m2033model",
+    "arsenal/armorset_soldier_02.m2033model",
+    "arsenal/box_ak74.m2033model",
+    "arsenal/box_patron.m2033model",
+    "arsenal/gunparts_01.m2033model",
+    "arsenal/rukzak.m2033model",
+    "arsenal/shotgun_parts.m2033model",
+    "arsenal/wpn_support.m2033model",
+    "box/box_books.m2033model",
+    "box/box_books_broken.m2033model",
+    "box/box_metal.m2033model",
+    "box/box_metal1.m2033model",
+    "box/box_metal1_cap.m2033model",
+    "box/box_metal2.m2033model",
+    "box/box_metal2_cap.m2033model",
+    "box/box_metal3.m2033model",
+    "box/box_metal3_cap.m2033model",
+    "box/box_metal4.m2033model",
+    "box/box_metal4_cap.m2033model",
+    "box/box_metal5.m2033model",
+    "box/box_metal5_cap.m2033model",
+    "box/box_metal_4.m2033model",
+    "box/box_metal_4_cap.m2033model",
+    "box/box_metal_5.m2033model",
+    "box/box_metal_5_cap.m2033model",
+    "box/box_metal_cap.m2033model",
+    "box/test_instrumentbox_01.m2033model",
+    "box/test_instrumentbox_01_cap.m2033model",
+    "box/test_rat_cage.m2033model",
+    "box/vdnh_kran_box.m2033model",
+    "capacity/container.m2033model",
+    "cars/jeep.m2033model",
+    "cars/jeep_add1.m2033model",
+    "columnes/column_base_zaborchik.m2033model",
+    "columnes/column_base_zaborchik_part.m2033model",
+    "columnes/round_column_svetilnik.m2033model",
+    "constr_metal/grate1_door.m2033model",
+    "constr_metal/l03_zabor_2.m2033model",
+    "decor_metro/banka1.m2033model",
+    "decor_metro/banka1_add1.m2033model",
+    "decor_metro/banka2.m2033model",
+    "decor_metro/banka2_add1.m2033model",
+    "decor_metro/fonar_01.m2033model",
+    "decor_metro/fp1.m2033model",
+    "decor_metro/karbid_lamp_01.m2033model",
+    "decor_metro/karbid_lamp_02.m2033model",
+    "decor_metro/l07_vorota.m2033model",
+    "decor_metro/l07_vorota_add1.m2033model",
+    "decor_metro/l07_vorota_add2.m2033model",
+    "decor_metro/l07_vorota_add3.m2033model",
+    "decor_metro/lamp_abajur_2.m2033model",
+    "decor_metro/lamp_abajur_2_add.m2033model",
+    "decor_metro/lamp_halogen_1.m2033model",
+    "decor_metro/lamp_industrt01_01.m2033model",
+    "decor_metro/lamp_kerosinka_06_nice.m2033model",
+    "decor_metro/lamp_kerosinka_07_nice.m2033model",
+    "decor_metro/lamp_na_stenu_01.m2033model",
+    "decor_metro/lamp_nastolny_01.m2033model",
+    "decor_metro/lamp_nastolny_01_add1.m2033model",
+    "decor_metro/lamp_nastolny_01_add2.m2033model",
+    "decor_metro/lamp_projector_no_lp.m2033model",
+    "decor_metro/lamp_projector_no_lp_add.m2033model",
+    "decor_metro/lamp_small.m2033model",
+    "decor_metro/lamp_small_add.m2033model",
+    "decor_metro/lampa.m2033model",
+    "decor_metro/web2.m2033model",
+    "decor_metro/web_big34_new.m2033model",
+    "decor_metro/web_big34_strong.m2033model",
+    "decor_metro/wpn_proj_01.m2033model",
+    "decor_metro/wpn_proj_02.m2033model",
+    "door/biblio_door_chit_zal_left.m2033model",
+    "door/biblio_door_chit_zal_right.m2033model",
+    "door/biblio_door_hall_razlom_left.m2033model",
+    "door/biblio_door_hall_razlom_right.m2033model",
+    "door/biblio_door_razlom.m2033model",
+    "door/d6_gate_platform_.m2033model",
+    "door/door_2_left.m2033model",
+    "door/door_2_right.m2033model",
+    "door/door_d06_l02_01.m2033model",
+    "door/door_d06_l02_01_add1.m2033model",
+    "door/door_hran.m2033model",
+    "door/door_l00_hospital.m2033model",
+    "door/door_l00_hospital_add1.m2033model",
+    "door/door_l00_hospital_add2.m2033model",
+    "door/l04_gate02_.m2033model",
+    "door/l04_gate02_add1.m2033model",
+    "door/l04_gate02_add2.m2033model",
+    "door/l04_gate02_add3.m2033model",
+    "door/l04_gate02_add4.m2033model",
+    "door/l04_t_zatvor.m2033model",
+    "door/l13_vorota_test.m2033model",
+    "door/l13_vorota_test_add1.m2033model",
+    "door/l13_vorota_test_add2.m2033model",
+    "door/l17_door_closed.m2033model",
+    "door/l17_door_closed_add1.m2033model",
+    "door/l17_door_gate.m2033model",
+    "door/l17_door_gate_add1.m2033model",
+    "door/l21_clap_door.m2033model",
+    "door/l21_clap_door_add1.m2033model",
+    "door/l21_level_doors02.m2033model",
+    "door/l21_level_doors02_add1.m2033model",
+    "door/l21_level_doors03.m2033model",
+    "door/l21_level_doors03_add1.m2033model",
+    "door/l21_level_doors04.m2033model",
+    "door/ostankino_door.m2033model",
+    "door/vorota.m2033model",
+    "door/vorota_add2.m2033model",
+    "door/vorota_add3.m2033model",
+    "drezina/motocikl.m2033model",
+    "electro/l03_props_hydro_wheel_engine.m2033model",
+    "electro/props_rubilnik_01.m2033model",
+    "electro/props_rubilnik_01_add1.m2033model",
+    "electro/rubilnik_4.m2033model",
+    "electro/rubilnik_4_add1.m2033model",
+    "fence/kalitka_01.m2033model",
+    "fence/kalitka_01_add1.m2033model",
+    "fence/ograda_02.m2033model",
+    "fireplace/barrel_01.m2033model",
+    "fireplace/candle_church01.m2033model",
+    "fireplace/candle_church02.m2033model",
+    "fireplace/fireplace_01.m2033model",
+    "germo/germo1.m2033model",
+    "germo/germo2.m2033model",
+    "germo/germo2_add1.m2033model",
+    "germo/germo3.m2033model",
+    "germo/germo3_add1.m2033model",
+    "germo/germo3_add2.m2033model",
+    "germo/germo3_add3.m2033model",
+    "germo/germo3_add4.m2033model",
+    "germo/germo3_add5.m2033model",
+    "germo/germo3_add6.m2033model",
+    "germo/germo3_add7.m2033model",
+    "germo/germo4.m2033model",
+    "germo/germo4_add1.m2033model",
+    "germo/germo5.m2033model",
+    "germo/germo5_add1.m2033model",
+    "germo/germo6.m2033model",
+    "germo/germo6_add1.m2033model",
+    "germo/germo6_add2.m2033model",
+    "germo/germo7.m2033model",
+    "germo/germo7_add1.m2033model",
+    "germo/germo7_add2.m2033model",
+    "germo/germo8.m2033model",
+    "germo/germo8_add1.m2033model",
+    "germo/germo8_add2.m2033model",
+    "germo/germo9.m2033model",
+    "germo/germo9_add1.m2033model",
+    "house/small_door.m2033model",
+    "items/baggage/rukzak.m2033model",
+    "items/ball_crystal.m2033model",
+    "items/ball_crystal_add1.m2033model",
+    "items/ball_crystal_add2.m2033model",
+    "items/ball_crystal_add3.m2033model",
+    "items/cyan_light_stick.m2033model",
+    "items/filter.m2033model",
+    "items/green_light_stick.m2033model",
+    "korni/korni_bend_01.m2033model",
+    "korni/korni_bend_02.m2033model",
+    "korni/korni_bend_03.m2033model",
+    "korni/korni_bend_04.m2033model",
+    "korni/korni_big_01.m2033model",
+    "korni/korni_big_02.m2033model",
+    "korni/korni_big_03.m2033model",
+    "korni/korni_small.m2033model",
+    "korni/korni_small_01.m2033model",
+    "korni/l18_grot_root.m2033model",
+    "korni/l18_grot_root_bar.m2033model",
+    "korni/web_root_01.m2033model",
+    "lamp/kerosinka_02.m2033model",
+    "lamp/kerosinka_03.m2033model",
+    "lamp/kerosinka_05.m2033model",
+    "lamp/l04_lampion01.m2033model",
+    "lamp/l04_lampion02.m2033model",
+    "lamp/light_tripple1.m2033model",
+    "lamp/light_tripple1_add1.m2033model",
+    "lamp/svetilnik.m2033model",
+    "military_veh/veh_mi24a.m2033model",
+    "military_veh/veh_mi24a_add1.m2033model",
+    "parom/ubl_ammo_01.m2033model",
+    "parom/ubl_ammo_02.m2033model",
+    "patron/ammo_01.m2033model",
+    "patron/mnogo_ammo_01.m2033model",
+    "patron/wpn_14_5x5_ammo.m2033model",
+    "patron/wpn_7_62_ammo.m2033model",
+    "plant/liana_roots.m2033model",
+    "plant/root1.m2033model",
+    "props_library/wood_door.m2033model",
+    "station_props/l28_church_armory.m2033model",
+    "station_props/lightbox.m2033model",
+    "structure/d6_door_02.m2033model",
+    "structure/d6_door_02_add1.m2033model",
+    "structure/d6_lift_bolshoy.m2033model",
+    "structure/gates_01.m2033model",
+    "structure/hydro_wheel.m2033model",
+    "structure/l13_reshetka_skin.m2033model",
+    "structure/l13_vent.m2033model",
+    "structure/l13_vent_add1.m2033model",
+    "structure/l19_polis_door.m2033model",
+    "structure/l19_polis_door_add1.m2033model",
+    "structure/l19_polis_door_add2.m2033model",
+    "structure/l19_polis_door_add3.m2033model",
+    "structure/l19_polis_door_add4.m2033model",
+    "structure/mls_vorota_l06.m2033model",
+    "structure/mls_vorota_l06_add1.m2033model",
+    "structure/mls_vorota_l06_add2.m2033model",
+    "structure/perila_d6.m2033model",
+    "structure/reshetka_02.m2033model",
+    "structure/reshetka_02_add1.m2033model",
+    "structure/rubilnik_01.m2033model",
+    "structure/rubilnik_01_add1.m2033model",
+    "structure/rubilnik_02.m2033model",
+    "structure/rubilnik_02_add1.m2033model",
+    "structure/rubilnik_lift.m2033model",
+    "structure/rubilnik_lift_add1.m2033model",
+    "structure/shitovaya_01.m2033model",
+    "structure/shitovaya_01_add1.m2033model",
+    "structure/vorota_l03.m2033model",
+    "structure/vorota_l03_add1.m2033model",
+    "structure/vorota_l03_add2.m2033model",
+    "structure/vorota_l03_add3.m2033model",
+    "structure/vorota_resh_tower.m2033model",
+    "structure/vorota_resh_tower_add1.m2033model",
+    "structure/vorota_resh_tower_add2.m2033model",
+    "structure/zatvor_01.m2033model",
+    "structure/zatvor_01_add1.m2033model",
+    "structure/zatvor_01_add2.m2033model",
+    "structure/zatvor_01_add3.m2033model",
+    "structure/zatvor_01_add4.m2033model",
+    "structure/zatvor_01_add5.m2033model",
+    "tree/big_bush_01.m2033model",
+    "tree/big_bush_01_new2_wind.m2033model",
+    "tree/big_bush_03.m2033model",
+    "tree/big_tree_l10_swamp.m2033model",
+    "tree/derevo_01.m2033model",
+    "tree/small_bush_01.m2033model",
+    "tree/small_bush_02.m2033model",
+    "tree/topol_01.m2033model",
+    "tree/tree_01.m2033model",
+    "tree/tree_01big.m2033model",
+    "tree/tree_03.m2033model",
+    "tree/tree_03big.m2033model",
+    "tree/tree_04.m2033model",
+    "tree/tree_14.m2033model",
+    "tree/tree_15.m2033model",
+    "tree/tree_16.m2033model",
+    "tree/tree_17.m2033model",
+    "tree/tree_18.m2033model",
+    "tree/tree_garden_branch06.m2033model",
+    "tree/tree_garden_sprig04.m2033model",
+    "tree/tree_garden_trunk03_.m2033model",
+    "tree/tree_garden_trunk05_.m2033model",
+    "tree/tree_garden_trunk05_120.m2033model",
+    "tree/tree_garden_trunk05_85.m2033model",
+    "tree/tree_garden_trunk06_.m2033model",
+    "tree/tree_garden_trunk08_.m2033model",
+    "tree/tree_garden_trunk09_.m2033model",
+    "tree/tree_garden_trunk10_.m2033model",
+    "tree/tree_garden_v02_.m2033model",
+    "tree/tree_garden_v11_.m2033model",
+    "tree/tree_t01.m2033model",
+    "tree/tree_t02.m2033model",
+    "tree/tree_thin.m2033model",
+    "tree/trees_04.m2033model",
+    "tunnel_props/tonnels_props_lamp_germ_01.m2033model",
+    "veh/t80_base.m2033model",
+    "veh/t80_base_damaged.m2033model",
+    "veh/t80_turret.m2033model",
+    "web/web_big34_bend.m2033model",
+    "web/web_big34_corner2.m2033model",
+    "web/web_big34_corner_small.m2033model",
+    "wpn/predohranitel_bomb_sticky.m2033model",
+    "wpn/wpn_bomb_predohranitel.m2033model"
+  ],
+  "runtime_port_implemented": false,
+  "limits": [
+    "Type tags and client handlers are not verified server behaviour.",
+    "None+handler means a custom behaviour, not proof of an inventory/electricity system.",
+    "References are not extracted geometry. Model-internal textures/materials/animations remain unresolved.",
+    "Generic dynamically constructed model paths, if any, are not resolved by string collection.",
+    "Existing six MetroPort gates have separate legacy assets; they are not these nine donor gates."
+  ]
+}
