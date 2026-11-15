@@ -20,6 +20,16 @@ public class MetroSoundUseTest {
     @After public void restore(){MetroPort.SOUNDS.clear();MetroPort.SOUNDS.putAll(saved);}
     private SoundEvent sound(String id){SoundEvent s=new SoundEvent(new ResourceLocation("metroport",id));MetroPort.SOUNDS.put(id,s);return s;}
     private void played(EntityPlayer p,SoundEvent sound){verify(p.world).playSound(isNull(),eq(0D),eq(0D),eq(0D),same(sound),eq(SoundCategory.PLAYERS),eq(1F),eq(1F));}
+    // getHealth/getMaxHealth are final in 1.12.2; supply their real dependencies,
+    // rather than asking Mockito 2 to stub final methods on an uninitialized entity.
+    private void health(EntityPlayer p,float value)throws Exception{
+        net.minecraft.network.datasync.EntityDataManager data=mock(net.minecraft.network.datasync.EntityDataManager.class);
+        when(data.get(any(net.minecraft.network.datasync.DataParameter.class))).thenReturn(value);
+        java.lang.reflect.Field field=net.minecraft.entity.Entity.class.getDeclaredField("dataManager");field.setAccessible(true);field.set(p,data);
+        net.minecraft.entity.ai.attributes.IAttributeInstance max=mock(net.minecraft.entity.ai.attributes.IAttributeInstance.class);
+        when(max.getAttributeValue()).thenReturn(20D);
+        when(p.getEntityAttribute(net.minecraft.entity.SharedMonsterAttributes.MAX_HEALTH)).thenReturn(max);
+    }
     @Test public void flaskOriginalSoundOccursOnlyOnSuccessfulServerCompletion()throws Exception{
         EntityPlayer p=NativeWeaponsTest.player(false);SurvivalState s=new SurvivalState();s.water=10;SurvivalSystem.save(p,s);
         SurvivalItem item=new SurvivalItem(SurvivalItem.Type.FLASK);ItemStack stack=new ItemStack(item);SoundEvent audio=sound("metromod_flask");
@@ -27,7 +37,7 @@ public class MetroSoundUseTest {
         item.onItemUseFinish(stack,p.world,p);played(p,audio);assertEquals(9,SurvivalItem.sips(stack));
     }
     @Test public void medkitOriginalSoundRetains40TicksFiveUsesAndExistingHealing()throws Exception{
-        EntityPlayer p=NativeWeaponsTest.player(false);when(p.getHealth()).thenReturn(5F);when(p.getMaxHealth()).thenReturn(20F);
+        EntityPlayer p=NativeWeaponsTest.player(false);health(p,5F);
         McmodMedkitItem item=new McmodMedkitItem();ItemStack stack=new ItemStack(item);SoundEvent audio=sound("metromod_medkit");
         assertEquals(40,item.getMaxItemUseDuration(stack));item.onItemUseFinish(stack,p.world,p);
         played(p,audio);verify(p).setHealth(20F);assertEquals(4,McmodMedkitItem.remaining(stack));
@@ -43,7 +53,7 @@ public class MetroSoundUseTest {
     @Test public void fullFlaskAndDeadMedkitUserProduceNoSound()throws Exception{
         EntityPlayer p=NativeWeaponsTest.player(false);sound("metromod_flask");sound("metromod_medkit");
         SurvivalItem flask=new SurvivalItem(SurvivalItem.Type.FLASK);flask.onItemUseFinish(new ItemStack(flask),p.world,p);
-        when(p.getHealth()).thenReturn(0F);McmodMedkitItem medkit=new McmodMedkitItem();medkit.onItemUseFinish(new ItemStack(medkit),p.world,p);
+        health(p,0F);McmodMedkitItem medkit=new McmodMedkitItem();medkit.onItemUseFinish(new ItemStack(medkit),p.world,p);
         verify(p.world,never()).playSound(any(),anyDouble(),anyDouble(),anyDouble(),any(),any(),anyFloat(),anyFloat());
     }
 }

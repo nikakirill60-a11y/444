@@ -91,7 +91,7 @@ def verify(jar, results, source, run_url):
                          'server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance',
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
-                         'dev17 filters/watches retained unchanged'],
+                         'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
             'not_included': ['donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
