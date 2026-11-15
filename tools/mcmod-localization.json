@@ -50,7 +50,10 @@
     "metroport.mcmod.mods.failed": "Недостаточно ресурсов / места или модуль несовместим",
     "metroport.watch.filter": "Фильтр: %s",
     "key.metroport.nvg_toggle": "Включить/выключить ПНВ",
-    "metroport.nvg.state": "ПНВ: %s"
+    "metroport.nvg.state": "ПНВ: %s",
+    "metroport.metromod.food": "Удерживайте ПКМ, чтобы поесть.",
+    "metroport.metromod.water": "Удерживайте ПКМ: +30 воды, не больше 100.",
+    "metroport.metromod.provisional_icon": "Временная иконка Minecraft; оригинальная графика ещё не перенесена."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -103,6 +106,9 @@
     "metroport.mcmod.mods.failed": "Not enough resources / space, or incompatible module",
     "metroport.watch.filter": "Filter: %s",
     "key.metroport.nvg_toggle": "Toggle night vision",
-    "metroport.nvg.state": "NVG: %s"
+    "metroport.nvg.state": "NVG: %s",
+    "metroport.metromod.food": "Hold right click to eat.",
+    "metroport.metromod.water": "Hold right click: +30 water, capped at 100.",
+    "metroport.metromod.provisional_icon": "Provisional Minecraft icon; original artwork not yet imported."
   }
 }

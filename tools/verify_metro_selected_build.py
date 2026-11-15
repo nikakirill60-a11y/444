@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.18 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.19 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import json
 import sys
@@ -7,8 +7,10 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.18'
+VERSION = '1.13.0-dev.19'
 REQUIRED = [
+    'ru/metrocraft/port/metromod/MetroConsumables.class',
+    'ru/metrocraft/port/metromod/MetroFoodItem.class',
     'ru/metrocraft/port/inventory/NvgControl.class',
     'ru/metrocraft/port/inventory/NvgTogglePacket.class',
     'ru/metrocraft/port/inventory/NvgStatePacket.class',
@@ -36,7 +38,7 @@ def verify(jar, results, source, run_url):
                 if s.attrib['name'].startswith('ru.metrocraft.port.mechanics.Filter')}
     if sum(selected.values()) != 18:
         raise ValueError('Expected all 18 new mask/watch tests: ' + repr(selected))
-    expected = {'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
+    expected = {'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
                 'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
                 'ru.metrocraft.port.gates.GateMotionTest': 6}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
@@ -52,17 +54,25 @@ def verify(jar, results, source, run_url):
             raise ValueError('Required implementation missing: ' + repr(set(REQUIRED) - names))
         if ('Implementation-Version: ' + VERSION) not in archive.read('META-INF/MANIFEST.MF').decode():
             raise ValueError('Wrong manifest version')
+        for item in ['konservi', 'galeti', 'gribtea', 'waterbottle']:
+            path = 'assets/metroport/models/item/metromod_' + item + '.json'
+            if path not in names:
+                raise ValueError('Missing food model: ' + item)
+        if len(json.loads(archive.read('assets/metroport/metromod_consumables.json'))) != 4:
+            raise ValueError('Wrong consumables catalogue')
         for locale in ['ru_ru', 'en_us']:
             if 'metroport.watch.filter=' not in archive.read('assets/metroport/lang/' + locale + '.lang').decode('utf-8'):
                 raise ValueError('Missing filter HUD localization')
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance',
+            'included': ['three donor-profile foods and bottled water; stack limit 8; completion-only server use',
+                         'explicit provisional vanilla icons; creative catalogue integration',
+                         'server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance',
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filters/watches retained unchanged'],
-            'not_included': ['donor weapons', 'decoded donor models/audio/shaders', 'new donor foods/medicines',
+            'not_included': ['donor weapons', 'decoded donor models/audio/shaders', 'new donor medicines',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}
