@@ -1,0 +1,37 @@
+{
+  "version": "1.13.0-dev.18",
+  "source_commit": "fc3c3189b944a821e84400eaf73579c0df219c8e",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43689227728",
+  "jar": "metrocraft-port-1.12.2-1.13.0-dev.18.jar",
+  "bytes": 49512628,
+  "sha256": "976256b6f043053f82b516a50d938645f2835e26cc737e6887d0f812f3766b01",
+  "zip_crc": "PASS",
+  "junit": {
+    "tests": 428,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_junit_suites": {
+    "ru.metrocraft.port.mechanics.FilterItemTest": 8,
+    "ru.metrocraft.port.mechanics.FilterRulesTest": 6,
+    "ru.metrocraft.port.mechanics.FilterStatusTest": 4,
+    "ru.metrocraft.port.blackrazid.NvgControlTest": 7,
+    "ru.metrocraft.port.blackrazid.SurvivalSafetyTest": 5,
+    "ru.metrocraft.port.gates.GateMotionTest": 6
+  },
+  "included": [
+    "server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance",
+    "flask/medkit stack validation; generator bounds checks; stale lamp light cleanup",
+    "six-gate server motion/collision regression coverage; part origin and finite progress validation",
+    "dev17 filters/watches retained unchanged"
+  ],
+  "not_included": [
+    "donor weapons",
+    "decoded donor models/audio/shaders",
+    "new donor foods/medicines",
+    "replacement Kikimora/Nosach models; existing BlackRazid mobs retained"
+  ],
+  "minecraft_gameplay_verified": false,
+  "installation": "Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged."
+}
