@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.23", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
+@Mod(modid = MetroPort.ID, name = "MetroCraft Port", version = "1.13.0-dev.24", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -87,7 +87,7 @@ public final class MetroPort {
         NETWORK.registerMessage(ru.metrocraft.port.mechanics.FilterStatusPacket.Handler.class,ru.metrocraft.port.mechanics.FilterStatusPacket.class,13,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgTogglePacket.Handler.class,ru.metrocraft.port.inventory.NvgTogglePacket.class,14,Side.SERVER);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgStatePacket.Handler.class,ru.metrocraft.port.inventory.NvgStatePacket.class,15,Side.CLIENT);
-        NETWORK.registerMessage(ru.metrocraft.port.editor.EditorPreviewPacket.Handler.class,ru.metrocraft.port.editor.EditorPreviewPacket.class,16,Side.CLIENT);
+        // Packet ID 16 retired with MetroEdit; do not reuse.
         // IDs 0/3/8 belonged to retired firearms and are not reused.
         // IDs 5/6 belonged to the removed inventory comparator; never reuse them.
         NETWORK.registerMessage(ru.metrocraft.port.inventory.WatchSyncPacket.Handler.class,ru.metrocraft.port.inventory.WatchSyncPacket.class,7,Side.CLIENT);
@@ -109,11 +109,7 @@ public final class MetroPort {
     @Mod.EventHandler
     public void serverStarting(net.minecraftforge.fml.common.event.FMLServerStartingEvent event) {
         event.registerServerCommand(new ru.metrocraft.port.mechanics.GiveNoDrop());
-        ru.metrocraft.port.editor.MetroEditCommand.clear();
-        event.registerServerCommand(new ru.metrocraft.port.editor.MetroEditCommand());
     }
-    @Mod.EventHandler
-    public void serverStopped(net.minecraftforge.fml.common.event.FMLServerStoppedEvent event) { ru.metrocraft.port.editor.MetroEditCommand.clear(); }
     @Mod.EventHandler
     public void init(net.minecraftforge.fml.common.event.FMLInitializationEvent event) { PROXY.init(); }
 

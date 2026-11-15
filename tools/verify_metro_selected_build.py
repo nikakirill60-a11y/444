@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.23 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.24 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import json
 import sys
@@ -7,16 +7,8 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.23'
+VERSION = '1.13.0-dev.24'
 REQUIRED = [
-    'ru/metrocraft/port/editor/EditorPreviewPacket.class',
-    'ru/metrocraft/port/editor/PreviewRules.class',
-    'ru/metrocraft/port/client/EditorPreviewRenderer.class',
-    'ru/metrocraft/port/editor/Blueprint.class',
-    'ru/metrocraft/port/editor/EditSession.class',
-    'ru/metrocraft/port/editor/BlueprintStore.class',
-    'ru/metrocraft/port/editor/EditorBlocks.class',
-    'ru/metrocraft/port/editor/MetroEditCommand.class',
     'ru/metrocraft/port/client/MetroGuiFactory.class',
     'ru/metrocraft/port/client/VisualSettingsScreen.class',
     'ru/metrocraft/port/metromod/VisualOptions.class',
@@ -53,13 +45,7 @@ def verify(jar, results, source, run_url):
                 if s.attrib['name'].startswith('ru.metrocraft.port.mechanics.Filter')}
     if sum(selected.values()) != 18:
         raise ValueError('Expected all 18 new mask/watch tests: ' + repr(selected))
-    expected = {'ru.metrocraft.port.editor.PreviewSessionTest': 20,
-                'ru.metrocraft.port.editor.EditorPreviewPacketTest': 12,
-                'ru.metrocraft.port.editor.PreviewRulesTest': 6,
-                'ru.metrocraft.port.editor.EditorPermissionTest': 5, 'ru.metrocraft.port.editor.EditSessionTest': 24,
-                'ru.metrocraft.port.editor.BlueprintStoreTest': 12,
-                'ru.metrocraft.port.editor.EditorBlocksTest': 8,
-                'ru.metrocraft.port.editor.VisualOptionsTest': 5, 'ru.metrocraft.port.metromod.MetroSelectionTest': 10,
+    expected = {'ru.metrocraft.port.metromod.VisualOptionsTest': 5, 'ru.metrocraft.port.metromod.MetroSelectionTest': 10,
                 'ru.metrocraft.port.blackrazid.MetroSoundUseTest': 4, 'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
                 'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
                 'ru.metrocraft.port.gates.GateMotionTest': 9}
@@ -72,6 +58,8 @@ def verify(jar, results, source, run_url):
         if archive.testzip():
             raise ValueError('Corrupt JAR')
         names = set(archive.namelist())
+        if any(n.startswith('ru/metrocraft/port/editor/') or n.startswith('ru/metrocraft/port/client/EditorPreviewRenderer') for n in names):
+            raise ValueError('Removed MetroEdit classes remain in JAR')
         if set(REQUIRED) - names:
             raise ValueError('Required implementation missing: ' + repr(set(REQUIRED) - names))
         if ('Implementation-Version: ' + VERSION) not in archive.read('META-INF/MANIFEST.MF').decode():
@@ -101,8 +89,7 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['owner-only depth-tested selection/preview wireframes, pinned confirmation with conflict checks and 10-second expiry',
-                         'clipboard X/Z mirroring with native block-state transformation', 'bounded server-side ordinary-block editor: select/copy/paste/rotate/undo/save/load; creative operator only',
+            'included': ['MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
                          '3 medical materials with original icons and donor stack limits; no invented healing', 'three donor-profile foods and bottled water; stack limit 8; completion-only server use',
@@ -111,7 +98,7 @@ def verify(jar, results, source, run_url):
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
-            'not_included': ['full donor MetroEdit model/microblock/region/NPC editing suite', 'donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
+            'not_included': ['MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}

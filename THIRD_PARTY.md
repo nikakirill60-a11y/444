@@ -125,3 +125,7 @@ No new donor runtime classes, weapon packs or copyrighted geometry were added.
 Dev23 adds new bounded wireframe selection/placement previews, pinned confirmation,
 and native block-state mirroring. These are compatibility tools, not the donor
 model editor, proprietary model geometry, a region-protection replacement or a server downloader.
+
+
+Dev24: MetroEdit compatibility implementation and preview renderer removed at user request.
+Earlier dev22/dev23 descriptions above are historical; visual settings remain.

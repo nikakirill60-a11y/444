@@ -1,4 +1,4 @@
-package ru.metrocraft.port.editor;
+package ru.metrocraft.port.metromod;
 import ru.metrocraft.port.metromod.VisualOptions;
 import org.junit.Test;
 import static org.junit.Assert.*;
