@@ -64,7 +64,11 @@ public class DonorDoorCollisionTest {
         BlockPos center=new BlockPos(start.x,start.y,(bounds.minZ+bounds.maxZ)/2);
         assertNotNull(root.rayTrace(center,start,end));assertTrue(root.collisionBoxes().isEmpty());
     }
-    @Test public void buildingInOpenDoorDoesNotDeleteControllerAndPreventsClosing(){
+    @Test public void buildingInOpenDoorDoesNotDeleteControllerAndPreventsClosing() throws Exception {
+        // Forge World.mayPlace creates a real BlockSnapshot; a mocked World
+        // skips the constructor that normally supplies its dimension provider.
+        java.lang.reflect.Field provider=World.class.getField("provider");provider.setAccessible(true);
+        provider.set(grid.world,mock(net.minecraft.world.WorldProvider.class));
         assertTrue(root.activate(player()));
         BlockPos cell=root.occupied().stream().filter(p->!p.equals(root.getPos())).findFirst().get();
         assertTrue(OriginalGates.PART.isReplaceable(grid.world,cell));

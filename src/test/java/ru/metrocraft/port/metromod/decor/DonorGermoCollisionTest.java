@@ -85,7 +85,14 @@ public class DonorGermoCollisionTest {
             List<BlockPos> released=new ArrayList<>(root.occupied());released.removeAll(wanted);
             if(released.size()>1) {
                 Set<BlockPos> before=new HashSet<>(grid.states.keySet());NBTTagCompound saved=root.getUpdateTag().getCompoundTag("DonorGermo");
-                when(grid.world.setBlockToAir(released.get(1))).thenReturn(false);root.update();
+                // doAnswer is essential here: when(mock.mutator(...)) executes
+                // the existing mutable-world Answer DURING stubbing.
+                final int[] releases={0};
+                doAnswer(invocation->{
+                    if(++releases[0]==2)return false;
+                    BlockPos cell=invocation.getArgument(0);grid.states.remove(cell);grid.tiles.remove(cell);return true;
+                }).when(grid.world).setBlockToAir(any(BlockPos.class));
+                root.update();assertEquals("must actually fail after the first successful release",2,releases[0]);
                 assertEquals(before,grid.states.keySet());assertEquals(saved,root.getUpdateTag().getCompoundTag("DonorGermo"));tested=true;break;
             }
             root.update();
