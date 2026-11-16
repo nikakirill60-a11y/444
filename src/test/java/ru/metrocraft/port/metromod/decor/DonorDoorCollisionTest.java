@@ -74,7 +74,9 @@ public class DonorDoorCollisionTest {
         assertTrue(OriginalGates.PART.isReplaceable(grid.world,cell));
         // Exercise vanilla World's placement gate, not only our replaceable getter.
         doCallRealMethod().when(grid.world).mayPlace(eq(Blocks.STONE),eq(cell),eq(false),eq(EnumFacing.UP),isNull());
-        when(grid.world.checkNoEntityCollision(any(AxisAlignedBB.class),isNull())).thenReturn(true);
+        // Forge patches mayPlace to call the one-argument overload so the
+        // placer is not incorrectly excluded from collision checks.
+        when(grid.world.checkNoEntityCollision(any(AxisAlignedBB.class))).thenReturn(true);
         assertTrue(grid.world.mayPlace(Blocks.STONE,cell,false,EnumFacing.UP,null));
         OriginalGates.PART.breakBlock(grid.world,cell,OriginalGates.PART.getDefaultState());
         grid.states.put(cell,Blocks.STONE.getDefaultState());grid.tiles.remove(cell);

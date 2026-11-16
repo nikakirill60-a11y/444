@@ -205,7 +205,7 @@ def generate(client, decompiled):
     report=dict(client_sha256=SHA,class_sha256=hashes,fernflower_version='npm fernflower@1.1.0',
                 decompiled_sha256=decomp_hashes,profiles=rows,profile_count=len(rows),
                 generated_java_sha256=sha(output.encode()),runtime_connected=True,
-                coordinate_adapter_verified='Pure affine round-trip tested; Forge World/Entity suite pending',minecraft_gameplay_verified=False,
+                coordinate_adapter_verified=False,coordinate_adapter_math_verified=True,minecraft_gameplay_verified=False,
                 coordinate_adapter='Block-mode renderer factory selects ilijlljlIIjjIIlIIjjIiIiilijIIIil: T(state) R(y,x,z) T(catalogue offset) S(catalogue scale * instance scale), no implicit .5. Canonical map translation=0/scale=1; invert catalogue transform on rounded grid cubes, then apply MinETRO unit ground/offset/facing.',
                 adaptations=['server branch only','sound callback omitted','world writes replaced by ordered Sink callbacks'],
                 caveats=['Sink must enforce air-only placement and UUID-safe removal',

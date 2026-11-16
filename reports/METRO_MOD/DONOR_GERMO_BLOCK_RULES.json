@@ -537,7 +537,8 @@
   "profile_count": 17,
   "generated_java_sha256": "60d38542127b4c4cf34ff192277311bd45ff97af968e2f9f265385b81cad73b7",
   "runtime_connected": true,
-  "coordinate_adapter_verified": "Pure affine round-trip tested; Forge World/Entity suite pending",
+  "coordinate_adapter_verified": false,
+  "coordinate_adapter_math_verified": true,
   "minecraft_gameplay_verified": false,
   "coordinate_adapter": "Block-mode renderer factory selects ilijlljlIIjjIIlIIjjIiIiilijIIIil: T(state) R(y,x,z) T(catalogue offset) S(catalogue scale * instance scale), no implicit .5. Canonical map translation=0/scale=1; invert catalogue transform on rounded grid cubes, then apply MinETRO unit ground/offset/facing.",
   "adaptations": [
