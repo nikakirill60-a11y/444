@@ -21,8 +21,23 @@ import static org.mockito.Mockito.*;
  * This is an engine integration test, NOT an OpenGL or full Minecraft-client run.
  */
 public class OriginalWorldCollisionTest {
-    @BeforeClass public static void boot() {Bootstrap.register();OriginalGates.initialize();MinecraftForge.EVENT_BUS.register(OriginalDecorCollisions.class);}
-    @AfterClass public static void cleanup() {MinecraftForge.EVENT_BUS.unregister(OriginalDecorCollisions.class);}
+    private static int busId;
+    private static net.minecraftforge.fml.common.eventhandler.ListenerList listeners;
+    private static final net.minecraftforge.fml.common.eventhandler.IEventListener collisionListener=event->{
+        if(event instanceof net.minecraftforge.event.world.GetCollisionBoxesEvent)
+            OriginalDecorCollisions.gather((net.minecraftforge.event.world.GetCollisionBoxesEvent)event);
+    };
+    @BeforeClass public static void boot() throws Exception {
+        Bootstrap.register();OriginalGates.initialize();
+        // Plain JUnit does not run Forge's EventSubscriptionTransformer, which adds
+        // the event's default constructor and ListenerList override. Register the
+        // typed listener explicitly; World still posts the real Forge event.
+        java.lang.reflect.Field id=net.minecraftforge.fml.common.eventhandler.EventBus.class.getDeclaredField("busID");id.setAccessible(true);
+        busId=id.getInt(MinecraftForge.EVENT_BUS);
+        listeners=new net.minecraftforge.event.world.GetCollisionBoxesEvent(null,null,null,new ArrayList<>()).getListenerList();
+        listeners.register(busId,net.minecraftforge.fml.common.eventhandler.EventPriority.NORMAL,collisionListener);
+    }
+    @AfterClass public static void cleanup() {if(listeners!=null)listeners.unregister(busId,collisionListener);}
     private static class Walker extends Entity {
         Walker(World world) {super(null);this.world=world;setSize(.6F,1.8F);stepHeight=0;}
         @Override protected void entityInit() {}
@@ -127,7 +142,7 @@ public class OriginalWorldCollisionTest {
         scene.root.onLoad();assertTrue(scene.walk(false).collidedHorizontally);scene.root.invalidate();assertFalse(scene.walk(false).collidedHorizontally);
     }
     @Test public void boundsAndPathPassabilityUseGeometryInsteadOfAlwaysPassableOrFullCube() throws Exception {
-        Scene scene=new Scene(gate(),EnumFacing.SOUTH,true,true);BlockPos panel=scene.root.getPos().up();
+        Scene scene=new Scene(gate(),EnumFacing.SOUTH,true,false);BlockPos panel=scene.root.getPos().up();
         assertNotNull(OriginalGates.PART.getCollisionBoundingBox(OriginalGates.PART.getDefaultState(),scene.grid.world,panel));
         assertFalse(OriginalGates.PART.isPassable(scene.grid.world,panel));
         scene.root.progress=1;
