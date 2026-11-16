@@ -48,14 +48,16 @@ class Cache:
             try:
                 result = subprocess.run([
                     'curl', '--silent', '--show-error', '--location', '--proto', '=https',
-                    '--retry', '2', '--retry-delay', '2', '--connect-timeout', '10', '--max-time', '40',
+                    '--retry', '2', '--retry-delay', '2', '--retry-max-time', '120',
+                    '--connect-timeout', '10', '--max-time', '40',
                     '--output', str(partial), '--write-out', '%{http_code}', ORIGIN + path,
                 ], capture_output=True, text=True, timeout=145)
                 status = int(result.stdout) if result.stdout.isdigit() else 502
                 if result.returncode or status != 200:
                     if status == 404:
                         self.missing.add(path)
-                    print('Forge upstream', status, path, result.stderr[-400:], flush=True)
+                    message=(str(status)+' '+path+' '+result.stderr[-400:]).replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+                    print('::warning title=Official Forge Maven download::'+message, flush=True)
                     return (404 if status == 404 else 502), None
                 partial.replace(target)
                 return 200, target

@@ -9,7 +9,7 @@ if (mirror) {
         def replaceTransport = { repository ->
             if (repository instanceof org.gradle.api.artifacts.repositories.MavenArtifactRepository &&
                     repository.url.host == 'maven.minecraftforge.net') {
-                repository.url = uri(mirror)
+                repository.url = project.uri(mirror)
             }
         }
         project.buildscript.repositories.all(replaceTransport)

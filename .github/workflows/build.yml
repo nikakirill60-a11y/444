@@ -53,7 +53,7 @@ jobs:
           MINETRO_FORGE_MAVEN_PROXY: http://127.0.0.1:18765/
         run: |
           set +e
-          ./gradlew --init-script tools/forge_ci.init.gradle --no-daemon build > build-output.log 2>&1
+          ./gradlew --init-script tools/forge_ci.init.gradle -Dorg.gradle.internal.http.socketTimeout=180000 -Dorg.gradle.internal.http.connectionTimeout=10000 --no-daemon build > build-output.log 2>&1
           result=$?
           cat build-output.log
           if [ "$result" -ne 0 ]; then
