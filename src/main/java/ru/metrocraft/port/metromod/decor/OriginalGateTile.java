@@ -97,8 +97,18 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     public boolean blockedBetween(float from,float to) {
         List<AxisAlignedBB> before=profile.boxes(pos,facing,from,true),after=profile.boxes(pos,facing,to,true);
         List<AxisAlignedBB> swept=new ArrayList<>();AxisAlignedBB bounds=null;
+        // At an internal pose boundary a rotating corner can exceed BOTH tick
+        // endpoints. Include those extrema as well as the endpoints; matrices
+        // interpolate linearly inside each segment, so this bounds every corner.
+        List<List<AxisAlignedBB>> internal=new ArrayList<>();
+        if(profile.parts[0].frames!=null) {
+            float lo=Math.min(from,to)*64,hi=Math.max(from,to)*64;
+            for(int frame=(int)Math.floor(lo)+1;frame<hi;frame++)internal.add(profile.boxes(pos,facing,frame/64F,true));
+        }
         for(int i=0;i<before.size();i++) {
-            AxisAlignedBB box=before.get(i).union(after.get(i));swept.add(box);bounds=bounds==null?box:bounds.union(box);
+            AxisAlignedBB box=before.get(i).union(after.get(i));
+            for(List<AxisAlignedBB> pose:internal)box=box.union(pose.get(i));
+            swept.add(box);bounds=bounds==null?box:bounds.union(box);
         }
         if(bounds==null)return false;
         for(Entity entity:world.getEntitiesWithinAABBExcludingEntity(null,bounds)) {

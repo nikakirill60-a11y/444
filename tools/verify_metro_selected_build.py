@@ -57,7 +57,7 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.gates.GateMotionTest': 9,
                 'ru.metrocraft.port.metromod.decor.OriginalGateTest': 14,
                 'ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest': 6,
-                'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 10}
+                'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 11}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
     for name, count in expected.items():
         if counts.get(name) != count:

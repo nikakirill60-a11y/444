@@ -88,4 +88,16 @@ public class OriginalInteractiveTest {
         OriginalGateTile t=tile("Lever");EntityPlayer p=player();when(p.isSpectator()).thenReturn(true);assertFalse(t.activate(p));assertEquals(0,t.output());
         p=player();when(t.getWorld().isBlockModifiable(p,t.getPos())).thenReturn(false);assertFalse(t.activate(p));assertEquals(0,t.output());
     }
+    @Test public void tickSweepIncludesInternalPoseExtremum() {
+        OriginalGateTile t=tile("Door");OriginalGateProfile p=new OriginalGateProfile();p.ground=0;
+        OriginalGateProfile.Part part=new OriginalGateProfile.Part();part.move=new double[]{0,0,0};part.moving=true;
+        part.boxes=new double[][]{{0,0,0,.1,1,.1}};part.frames=new double[65][];
+        for(int i=0;i<65;i++)part.frames[i]=new double[]{1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1};
+        part.frames[32][3]=1;p.parts=new OriginalGateProfile.Part[]{part};t.profile=p;
+        net.minecraft.entity.EntityLivingBase entity=mock(net.minecraft.entity.EntityLivingBase.class);
+        when(entity.isEntityAlive()).thenReturn(true);when(entity.getEntityBoundingBox()).thenReturn(new AxisAlignedBB(1.53,64,.52,1.56,65,.55));
+        when(t.getWorld().getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.singletonList(entity));
+        assertTrue(t.blockedBetween(31.8F/64,32.2F/64));
+    }
+
 }
