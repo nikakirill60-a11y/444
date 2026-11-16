@@ -95,9 +95,16 @@ def decode_envelope(data):
 def material_text(data):
     # Plain MTL is accepted for synthetic fixtures/unmodified exports. The donor
     # .m2033gl4 uses the same 16-byte-key AES envelope as .m2033model.
-    if not data.lstrip().startswith((b'#',b'newmtl')):data=decode_envelope(data)
-    try:return data.decode('utf-8-sig')
-    except UnicodeDecodeError:return data.decode('cp1251')
+    # An encrypted key can itself start with '#': sniffing that byte first
+    # misclassified two real donor files. Prefer a validated AES envelope.
+    try:data=decode_envelope(data)
+    except ValueError:
+        if not data.lstrip().startswith((b'#',b'newmtl')):raise
+    try:text=data.decode('utf-8-sig')
+    except UnicodeDecodeError:text=data.decode('cp1251')
+    if any(ord(c)<32 and c not in '\r\n\t' for c in text):
+        raise ValueError('Control byte in material text')
+    return text
 
 
 def texture_roots(text):
