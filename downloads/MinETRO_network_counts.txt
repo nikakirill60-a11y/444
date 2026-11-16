@@ -1,0 +1,5 @@
+cells=90261
+schematic=175x29x176
+rails=1024
+stations=4
+surface=24
