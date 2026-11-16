@@ -89,6 +89,13 @@ public class OriginalWorldCollisionTest {
             for(EnumFacing facing:EnumFacing.Plane.HORIZONTAL)for(boolean client:new boolean[]{false,true}) {
                 Scene scene=new Scene(p,facing,client,client);
                 for(boolean reverse:new boolean[]{false,true})assertTrue(p.id+" facing="+facing+" client="+client+" reverse="+reverse,scene.walk(reverse).collidedHorizontally);
+                // Packet/save state: activation removes physics even before the
+                // first animation frame; progress alone never opens collision.
+                NBTTagCompound state=scene.root.writeToNBT(new NBTTagCompound());
+                state.setBoolean("Manual",true);state.setFloat("Progress",0);scene.root.readFromNBT(state);
+                for(boolean reverse:new boolean[]{false,true})assertFalse(p.id+" activated "+facing+" client="+client,scene.walk(reverse).collidedHorizontally);
+                state.setBoolean("Manual",false);state.setFloat("Progress",1);scene.root.readFromNBT(state);
+                assertTrue(p.id+" inactive but animX still open",scene.walk(false).collidedHorizontally);
             }
         }
         assertEquals(27,count);
