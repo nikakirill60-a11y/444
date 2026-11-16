@@ -1,0 +1,53 @@
+{
+  "version": "1.13.0-dev.25",
+  "source_commit": "1a0519255fdf98ce8957e95ab8e46b535524539d",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43828483612",
+  "jar": "metrocraft-port-1.12.2-1.13.0-dev.25.jar",
+  "bytes": 53539137,
+  "sha256": "33eb0668df109e15ab16015bcfb81a704fa4d55f919fea4826b152af44de5e32",
+  "zip_crc": "PASS",
+  "junit": {
+    "tests": 482,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_junit_suites": {
+    "ru.metrocraft.port.mechanics.FilterItemTest": 8,
+    "ru.metrocraft.port.mechanics.FilterRulesTest": 6,
+    "ru.metrocraft.port.mechanics.FilterStatusTest": 4,
+    "ru.metrocraft.port.metromod.VisualOptionsTest": 5,
+    "ru.metrocraft.port.metromod.MetroSelectionTest": 10,
+    "ru.metrocraft.port.blackrazid.MetroSoundUseTest": 4,
+    "ru.metrocraft.port.metromod.MetroFoodTest": 12,
+    "ru.metrocraft.port.blackrazid.NvgControlTest": 7,
+    "ru.metrocraft.port.blackrazid.SurvivalSafetyTest": 5,
+    "ru.metrocraft.port.gates.GateMotionTest": 9,
+    "ru.metrocraft.port.metromod.decor.OriginalGateTest": 14,
+    "ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest": 6
+  },
+  "included": [
+    "MinETRO display name; saved-world namespace metroport unchanged",
+    "six original METRO_MOD gates germo1/2/4/5/6/9: separate IDs, native multi-material meshes, moving collision, redstone, saved state and item rendering",
+    "MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained",
+    "client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength",
+    "8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close",
+    "original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable",
+    "3 medical materials with original icons and donor stack limits; no invented healing",
+    "three donor-profile foods and bottled water; stack limit 8; completion-only server use",
+    "four byte-identical decoded original METRO_MOD icons; creative catalogue integration",
+    "server-owned N-key NVG toggle; optional rebuilt tint, no battery rebalance",
+    "flask/medkit stack validation; generator bounds checks; stale lamp light cleanup",
+    "six-gate server motion/collision regression coverage; part origin and finite progress validation",
+    "dev17 filter/watch mechanics retained; original completion/alarm audio adapted"
+  ],
+  "not_included": [
+    "MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite",
+    "donor weapons",
+    "remaining donor decor models and the full GLSL 330 framebuffer pipeline",
+    "unconfirmed healing/bleeding effects",
+    "replacement Kikimora/Nosach models; existing BlackRazid mobs retained"
+  ],
+  "minecraft_gameplay_verified": false,
+  "installation": "Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged."
+}
