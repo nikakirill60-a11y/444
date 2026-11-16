@@ -35,7 +35,10 @@
     "differential_bytecode_cases": 2448,
     "standalone_assertions": 4904,
     "local_compilation": "PASS: ECJ target 1.8 + JRE17 (not the Forge project)",
-    "forge_java8_ci_check": "pending",
-    "report": "GERMO_BLOCK_RULES_RU.md"
+    "forge_java8_ci_check": "PASS: standalone javac Java 8 step (not the Forge build)",
+    "report": "GERMO_BLOCK_RULES_RU.md",
+    "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43928176897",
+    "ci_full_forge_build": "in_progress_at_recording",
+    "current_source_python_tests": 307
   }
 }

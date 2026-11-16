@@ -54,6 +54,12 @@ Java-модуль и standalone-проверка локально скомпил
 самостоятельная компиляция через **javac Java 8 до запуска ForgeGradle**: сбой
 Forge Maven теперь не должен скрывать результат проверки этого модуля.
 
+CI [43928176897](https://github.com/nikakirill60-a11y/444/actions/runs/43928176897):
+этапы `Validate imported content` (**307 Python**) и `Compile and verify donor
+Germo rules independently of Forge` (**javac Java 8 + standalone**) успешно
+завершились. Полная Forge-сборка на момент записи ещё выполнялась; её успех
+этим не заявляется.
+
 Воспроизведение после статической декомпиляции:
 
 ```sh
