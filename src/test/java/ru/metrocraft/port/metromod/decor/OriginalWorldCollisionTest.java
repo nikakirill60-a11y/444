@@ -100,6 +100,17 @@ public class OriginalWorldCollisionTest {
         }
         assertEquals(27,count);
     }
+    @Test public void all17GermoStopRealEntityMoveBothSidesEveryFacingWithDelayedProxyPackets() throws Exception {
+        int count=0;
+        for(OriginalGateProfile profile:OriginalGateProfile.all())if(profile.is("Germo")) {
+            count++;
+            for(EnumFacing facing:EnumFacing.Plane.HORIZONTAL)for(boolean client:new boolean[]{false,true}) {
+                Scene scene=new Scene(profile,facing,client,client);
+                for(boolean reverse:new boolean[]{false,true})assertTrue(profile.id+" facing="+facing+" client="+client+" reverse="+reverse,scene.walk(reverse).collidedHorizontally);
+            }
+        }
+        assertEquals(17,count);
+    }
     @Test public void worldQueryWorksEvenWithEntireProxyBlockUpdateDelayed() throws Exception {
         Scene scene=new Scene(gate(),EnumFacing.WEST,true,true);
         for(BlockPos p:new ArrayList<>(scene.grid.states.keySet()))if(!p.equals(scene.root.getPos())) {scene.grid.states.remove(p);scene.grid.tiles.remove(p);}

@@ -71,7 +71,7 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest': 7,
                 'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 11,
                 'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10,
-                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 11,
+                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 12,
                 'ru.metrocraft.port.metromod.decor.DonorDoorCollisionTest': 11,
                 'ru.metrocraft.port.metromod.decor.DonorGermoCollisionTest': 9,
                 'ru.metrocraft.port.structures.MetroNetworkPlanTest': 8,

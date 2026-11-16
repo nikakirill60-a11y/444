@@ -69,3 +69,12 @@ class ForgeMavenProxyTest(unittest.TestCase):
         self.assertIn("details.useVersion(ext.get('MCP_VERSION').toString())",script)
         self.assertNotIn('20200226',script)
         self.assertNotIn('transitive = false',script)
+
+    def test_synthetic_minecraft_coordinates_are_left_to_forgegradle(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache=Cache(directory)
+            with patch('tools.forge_maven_proxy.subprocess.run') as run:
+                for side in ['client','server','joined']:
+                    path='net/minecraft/'+side+'/1.12.2-20200226.224830/'+side+'-1.12.2-20200226.224830.pom'
+                    self.assertEqual((404,None),cache.get(path))
+                run.assert_not_called()
