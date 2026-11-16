@@ -1,23 +1,24 @@
 {
-  "implementation_commit": "ca09aa5e4d9486bef8c4956ca7438644a29ef7d9",
-  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43924978159",
+  "implementation_commit": "00e5c3a449dae361ba55e266cb141c9f3390f6b1",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43928176897",
   "python": {
-    "tests": 299,
+    "tests": 307,
     "failures": 0,
     "errors": 0
   },
-  "forge_build": "BLOCKED_DEPENDENCY_DOWNLOAD_BEFORE_COMPILATION",
+  "forge_build": "BLOCKED_DEPENDENCY_RESOLUTION_BEFORE_FORGE_COMPILATION",
   "forge_userdev_universal_sources_downloaded_and_sha1_verified": true,
   "remaining_download_failures": [
-    "net.minecraftforge:forge:1.12.2-14.23.5.2860:universal — both official endpoints failed; ForgeGradle: Invalid patcher dependency, could not resolve universal: null"
+    "net.minecraftforge:legacydev:0.2.3.1 POM: official Maven 502, legacy endpoint 404; proxy returned 502",
+    "net.minecraft:client:1.12.2: ForgeGradle dependency resolution attempted to parse cached client.jar as POM: Content is not allowed in prolog",
+    "mergetool and Scala artifacts skipped after the earlier dependency-resolution errors"
   ],
-  "new_java_engine_tests_executed": false,
   "dev30_jar_published": false,
   "minecraft_gameplay_verified": false,
   "door_profiles_implemented": 27,
   "original_germo_block_mode_implemented": false,
   "status": "PARTIAL_SOURCE_IMPLEMENTATION_NOT_A_VERIFIED_GAMEPLAY_FIX",
-  "previous_ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43918095385",
+  "previous_ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43924978159",
   "ci_transport": {
     "enabled_only_in_ci": true,
     "official_origins": [
@@ -38,7 +39,8 @@
     "forge_java8_ci_check": "PASS: standalone javac Java 8 step (not the Forge build)",
     "report": "GERMO_BLOCK_RULES_RU.md",
     "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43928176897",
-    "ci_full_forge_build": "in_progress_at_recording",
+    "ci_full_forge_build": "FAIL: dependency resolution before Forge compilation/JUnit; standalone Java 8 check PASS",
     "current_source_python_tests": 307
-  }
+  },
+  "forge_java_engine_tests_executed": false
 }

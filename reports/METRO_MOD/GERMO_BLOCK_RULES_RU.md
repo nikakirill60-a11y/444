@@ -57,8 +57,11 @@ Forge Maven теперь не должен скрывать результат �
 CI [43928176897](https://github.com/nikakirill60-a11y/444/actions/runs/43928176897):
 этапы `Validate imported content` (**307 Python**) и `Compile and verify donor
 Germo rules independently of Forge` (**javac Java 8 + standalone**) успешно
-завершились. Полная Forge-сборка на момент записи ещё выполнялась; её успех
-этим не заявляется.
+завершились. Полная Forge-сборка затем **FAIL до компиляции**: `legacydev:0.2.3.1`
+не разрешился (502/404 официальных endpoints); для `net.minecraft:client:1.12.2`
+ForgeGradle пытался читать кешированный `client.jar` как POM (`Content is not
+allowed in prolog`). JUnit / публикация не запускались. Кеш зависимостей снова
+сохранён. Это отдельный результат от успешной standalone-проверки Java 8.
 
 Воспроизведение после статической декомпиляции:
 

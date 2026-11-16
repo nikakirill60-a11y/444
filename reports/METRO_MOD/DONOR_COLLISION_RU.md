@@ -101,3 +101,8 @@ CI [43924978159](https://github.com/nikakirill60-a11y/444/actions/runs/439249781
 в отдельный Java-модуль. 2448 сравнений с независимым анализатором байткода PASS.
 **Модуль ещё не подключён к игровому World**; подробности и оставшиеся шаги —
 [GERMO_BLOCK_RULES_RU.md](GERMO_BLOCK_RULES_RU.md). Нового JAR пока нет.
+
+Последний CI [43928176897](https://github.com/nikakirill60-a11y/444/actions/runs/43928176897):
+307 Python PASS, отдельные Germo javac Java 8 / сравнения с байткодом PASS.
+Forge-сборка снова остановилась на разрешении зависимостей, теперь legacydev
+и обработке client.jar/POM; до компиляции игрового кода/JUnit не дошла.
