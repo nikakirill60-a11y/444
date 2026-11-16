@@ -60,3 +60,12 @@ class ForgeMavenProxyTest(unittest.TestCase):
             with patch('tools.forge_maven_proxy.subprocess.run',side_effect=download):
                 status,path=cache.get('a.jar');self.assertEqual(200,status)
                 self.assertEqual(b'official artifact',path.read_bytes())
+
+    def test_client_pom_workaround_reuses_forge_selected_mcp_without_pinning(self):
+        script=(Path(__file__).resolve().parents[1]/'tools/forge_ci.init.gradle').read_text()
+        self.assertIn("details.requested.group == 'net.minecraft'",script)
+        self.assertIn("details.requested.name == 'client'",script)
+        self.assertIn("details.requested.version == ext.get('MC_VERSION')",script)
+        self.assertIn("details.useVersion(ext.get('MCP_VERSION').toString())",script)
+        self.assertNotIn('20200226',script)
+        self.assertNotIn('transitive = false',script)

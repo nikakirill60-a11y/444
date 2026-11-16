@@ -16,3 +16,26 @@ if (mirror) {
         project.repositories.all(replaceTransport)
     }
 }
+
+// FG3's legacy UserDev buildExtraDataFiles requests client:<MC_VERSION>:extra.
+// MCPRepo needs the *MCP config* version for its POM; when the bare MC-version
+// config is unavailable it falls through to MinecraftRepo, which returns a JAR
+// for a POM request (see FG_3.0 MinecraftRepo.findFile). Reuse the exact MCP
+// config already selected by this Forge dependency, never a guessed/new version.
+if (mirror) {
+    allprojects { project ->
+        project.configurations.all { configuration ->
+            configuration.resolutionStrategy.eachDependency { details ->
+                def ext = project.extensions.extraProperties
+                if (details.requested.group == 'net.minecraft' &&
+                        details.requested.name == 'client' &&
+                        ext.has('MC_VERSION') && ext.has('MCP_VERSION') &&
+                        details.requested.version == ext.get('MC_VERSION') &&
+                        ext.get('MCP_VERSION') != ext.get('MC_VERSION')) {
+                    details.useVersion(ext.get('MCP_VERSION').toString())
+                    details.because('Use Forge-selected MCP config POM, not MinecraftRepo raw JAR as XML')
+                }
+            }
+        }
+    }
+}
