@@ -1,10 +1,10 @@
 {
   "version": "1.13.0-dev.26",
-  "source_commit": "418049d9f7fcc4690efcac67002aae27b2ebc7a6",
-  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43830911371",
+  "source_commit": "2e6d065a7b26ad0afd51d64cc27fc4f9580507fe",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43831951636",
   "jar": "metrocraft-port-1.12.2-1.13.0-dev.26.jar",
-  "bytes": 84559680,
-  "sha256": "dfcf97fa1ae02a3a21a1c0f432eb9e86e28b51372e63a82d2ad2cda62eee0136",
+  "bytes": 87171369,
+  "sha256": "1b96a38d9bba2a62f3a3521c1e3a77a50b6101a5480ac6bbf2839f201a64dc0a",
   "zip_crc": "PASS",
   "junit": {
     "tests": 493,
@@ -29,7 +29,7 @@
   },
   "included": [
     "MinETRO display name; saved-world namespace metroport unchanged",
-    "78 of 112 tagged functional decor entries: 14 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 34 blocked entries explicitly excluded",
+    "81 of 112 tagged functional decor entries: 17 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 31 blocked entries explicitly excluded",
     "MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained",
     "client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength",
     "8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close",
@@ -45,7 +45,7 @@
   "not_included": [
     "MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite",
     "donor weapons",
-    "30 Inventory profiles: unconfirmed server behavior; germo7/germo8/l07_vorota: unresolved donor control vectors; mls_vorota_l06: missing add2; full donor GLSL pipeline",
+    "30 Inventory profiles: unconfirmed server behavior; mls_vorota_l06: missing add2; full donor GLSL pipeline",
     "unconfirmed healing/bleeding effects",
     "replacement Kikimora/Nosach models; existing BlackRazid mobs retained"
   ],
