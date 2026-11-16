@@ -1,4 +1,4 @@
-# MetroCraft Port — Forge 1.12.2
+# MinETRO — Forge 1.12.2
 
 Самостоятельный мод `metroport` для **Minecraft 1.12.2**, Forge **14.23.5.2860**, **Java 8**.
 Старые JAR и Flan’s Mod 1.7.10 не нужны.
