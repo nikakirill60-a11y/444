@@ -41,7 +41,9 @@ class Cache:
         # A CDN 502 for a nonexistent synthetic POM must not prevent Gradle
         # from reaching that later in-process repository. Keep this narrowly
         # scoped: never turn a genuine Forge artifact's transient error into 404.
-        if re.match(r'^net/minecraft/(client|server|joined)/', path):
+        # The vanilla 1.12 audio codecs and historical oshi 1.1 are likewise
+        # provided by the libraries.minecraft.net repo installed by UserDev.
+        if re.match(r'^net/minecraft/(client|server|joined)/', path) or path.startswith(('com/paulscode/', 'oshi-project/oshi-core/1.1/')):
             return 404, None
         with self.guard:
             lock = self.locks.setdefault(path, threading.Lock())

@@ -78,3 +78,11 @@ class ForgeMavenProxyTest(unittest.TestCase):
                     path='net/minecraft/'+side+'/1.12.2-20200226.224830/'+side+'-1.12.2-20200226.224830.pom'
                     self.assertEqual((404,None),cache.get(path))
                 run.assert_not_called()
+
+    def test_mojang_only_legacy_audio_and_oshi_skip_forge_cdn(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache=Cache(directory)
+            with patch('tools.forge_maven_proxy.subprocess.run') as run:
+                for path in ['com/paulscode/codecjorbis/20101023/codecjorbis-20101023.pom', 'com/paulscode/codecwav/20101023/codecwav-20101023.jar','oshi-project/oshi-core/1.1/oshi-core-1.1.jar']:
+                    self.assertEqual((404,None),cache.get(path))
+                run.assert_not_called()
