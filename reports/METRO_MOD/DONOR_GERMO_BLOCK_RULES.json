@@ -1,0 +1,548 @@
+{
+  "client_sha256": "66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc",
+  "class_sha256": {
+    "null/liIjIjijllIIiIilIiIllIiiljjIiili.class": "a1572869a2a6afbab860a99b16e8201269cb0793d1add8bb679678a201b2721c",
+    "null/llIjIlllliiiIiililjjjIjiIijijiiI.class": "f13c4ef0dc5ba133e989ddbbbe262397fbc10a01b2fd54422d7f6022b1420bba",
+    "null/lIjijlilIlIIIiIiIlIIIIlIijljllij.class": "ce2202c27006077f60ba760c5817fce47dcffe7d7efe303260e34c644da7d0f7",
+    "null/IijIjjillljIIIiiiIilIljilIiIIIii.class": "bfe97ab8fbab19f2e37762de4bd1c2e11f0aa594428f2aa34704946fda01da69",
+    "null/llliilIIjjliIijlilljIliiljIliIjl.class": "140e23526e1658eb733fb8f952d53695cda447c97bd53ef123f8bc2615b1ab98",
+    "null/jlIIiljjljllljjIIiiijliljiijIili.class": "831749a850d8779b49c39746ade267fcfadad4ab2097f12bff55685e83de001f",
+    "null/jIiiIlljjiIliijjiiIlljIjiiiIIlIj.class": "9fb05bacccc27ba760d5c7f1c6888a7ed9855949aefaf54270d0ce432240bb13",
+    "null/jlIjiliIjjiIiillillilijjjjiIljjI.class": "e821f4784a221108bce46b0eb1044ec80cbe4839d7e53e6ba8ea969b656df1e5",
+    "null/jIjijIiIiililljjjiIljilliIijlliI.class": "28f11936b984b1ddf589933993b2976fa8a41e2f9bb809e42140da28d66c1f62",
+    "null/llIljIIjljlIilIilIjijlIjllIjijII.class": "7475e263a55fc1414c2058b0ccbba1e57b2ed04e7b0bd8f058b0ec32500a2714",
+    "null/ljiIijIiiIjljiiIjIljIljIIlllljIl.class": "4722e111a17a36418122c20362fce3a0429acf53d51500652e2f93b68e7ac767",
+    "null/iIjjiIlllIIIIjIIlllijijIjIiiijiI.class": "bb40e1af5f07ae9fc726359d0976508edcf2dcf18dd40947c4fa4b3c6ba88683",
+    "null/lIliliiljIIlijIiIjlIjiIiiIjjiIjI.class": "b68445b23a9783dde960a895f76d0a9a53ee3f982c020edb74a44d858d61f85a",
+    "null/lIiIIlIIlIIjjIiljilijiillljlillI.class": "f0ba96693ec4fa53a91d16f0e425da4e9ffb6316a5598a807f02339fa3b22b3c",
+    "null/jllIiiIljIIjillIllIjliijjiljIIlI.class": "674c4721150a46d5b43c93b085089c22232fc416ddeded620bfb60d126430802",
+    "null/liIIjjiiljIIllllIiijliIIjIIiIlij.class": "bb25898a360c8f5bd2048346fc8ee822bb12ed5149466e9f13c1caf802df995c",
+    "null/iiiIlIiiIjlIIjiljjjIljjjiilIiljl.class": "c18ca9fb9d62caf499a419bfa6eb0e4984c157128cefe966b2d1fd1e7b44ecf4",
+    "null/jjijijijjIIIIlIlljiIiIillljIijjI.class": "a091ca65b02cc447f1a583f73c69c0fd651f9e98e641b29b213733e7794d2305",
+    "null/jiiIlljIjiljiljiljIjjiIlIlIilIll.class": "2ca517220c3dce6e1c7682fde0a6b1071d919374ca6efcc70cee5d4104e9e95d",
+    "null/ijIjlilIliIjilijIlIIIjlIjjIlijIj.class": "72adc8ddffd382905e4ad19aa89426607d58d60856337835ee4ac6a64761416d",
+    "null/lilliIIlIjlliIilliilIlIijljjilIi.class": "d88c5fce0b3be4e4c12b167a6b86f0b3166099bcf8cb56112459a12102c79d6e",
+    "null/lIljIilliljlijIllIjilIjjjlIIijll.class": "322ae462ba52004791fecb51b8b78b087886e618d39555023920bb3536ab636e",
+    "null/ljjijiliiljIljlliiiIiljiIliIIjIj.class": "b5aeeb6cf3824ceeeea2fd71743305e920f3b68c8602ff185fafa0de050b7f43",
+    "null/IilIilliIiIIlijiiiIIllllljiIIiil.class": "c9a47552cacf00baeace458c7d1795e145fe3cdd24c290799c2484224206d998",
+    "null/llliljiiijjjIljjjIjIiIjljliljjji.class": "787a1de905fcdc4181312eeb0081c6a39af666511b2a0ada0144c5b840be61e6",
+    "null/iIIiiljIIIjiIjiiiiIilljIIlIIIjll.class": "8658f1e4fa2b5493d7211306a8b1ed88c6d2354160c0faf6164a5f961f935be7",
+    "null/jiIilIjjiIIjiliIiijiljjjlliilIIi.class": "9e7c1fd9f1a844fe3bd674e347a0af476b9cd8239d9ac2e929b19daa4bb494eb",
+    "null/IlIIiIjiIjlIiljlIjiljIiIlijijjjI.class": "93563a02103749fadfa9582c5a05021f9c977af1d81a4e2909b50aaa32902f97",
+    "null/jiljllljlIljijIIlIjiiIlllliiijll.class": "81bc7e9e33c708dfa174df49652c6c8c82de600a2e978142d3bf90dd8bfbeee4",
+    "null/IIljlljjlIjillIIjIlIliIjIijIiiil.class": "cfbe139616421c6190514f5841c83d1d630cb9883d633dcd25fb670b6ca0f98a",
+    "null/IIiIjiliIjjjllljiiljiIlIllIIilii.class": "b6c4d832df4b885c9c1c37838b9d15aa6010ed7ffacd205dab1035628d6c7a73",
+    "null/lIjIlIjIIliljIlIjlIIllllljijiIii.class": "680aa76bea1a27acdf99cab6a546ccd18caa876f38ac859ce0f9246ffa9a8c34",
+    "null/IjlljljiiiIljiIlIliljiijiliIlIil.class": "c48a54763d904b0a91a71743325f34e279c36d0f13fe3d8bedcb088e40fe2b83",
+    "null/IillijljlIiiiIjiIlIjliIIjijIIjjl.class": "82a41054d8dc8c7268eeff7d9f555929ea9bcfbafdab6558728defc37effe7cd",
+    "null/ljjjljillIIIljiIilIIilllljiilIjl.class": "4ff513153746c2de0064536942b667a446d4eb64019ae6aa669d2b004d8a3396",
+    "null/IjijIiilllljIIlIlIiijjIlilljjjII.class": "c9a37a74a207d4138d134fb1ac48efaaee3ecc1e2bde2027e7406aa6f4723928",
+    "null/lIiljIiljlllllIiIIljjjlljljIjiil.class": "9a6429671e250196fe31a4eae7adebad45e5f938f93932bd70c0ec944dfc0890",
+    "null/jljIiillijjjlIjjIllllljIjiiiiljI.class": "1748038ed8a8aff34bf918597a1cedcf15bdd73b0c24ff404901d726dcb39dae",
+    "null/jiIjjljIjijljjIliIlilljljjllIill.class": "fc6b7ae638d02df39a2c2a63568acad8aebff3f3c1e579d8408fe49541e44005",
+    "null/jIlllliiliilIjljjIiljIijljIIlill.class": "7f54af76de4bb2c08d89fee62d76c993587365bf2074faba36404c4bf91b1d01",
+    "null/ilIljijIlIljIijllIIIjiljIijjIlIj.class": "815424ba4d2be41ffdc75fd765766d62ef82ee5cbcac3f977e4879c665c4c046",
+    "null/jiljijiijIilijjlilIijjIIiillllji.class": "2f241a3606aaf2669d19944ce1b12098791510c83b5655e9b76c61f316e2e886",
+    "null/iIlIiIliliIiiiljijIlllIjljIljlll.class": "8d6f12d016e954ac2d52cb2aa97dff68f2ded4dd223f4ef683769d90b608ef40"
+  },
+  "fernflower_version": "npm fernflower@1.1.0",
+  "decompiled_sha256": {
+    "null/liIjIjijllIIiIilIiIllIiiljjIiili.java": "74efd8912ad631cb8a1186209adcbbca8e23bddf0c8cfe2ca144cc6becd54327",
+    "null/llIjIlllliiiIiililjjjIjiIijijiiI.java": "5a0104065a374fa94dd28f19ec943b813eb496134d1d3911290fa70c1e3a89cb",
+    "null/lIjijlilIlIIIiIiIlIIIIlIijljllij.java": "cfb9b0146203bc01d7c5d1e22605f0e950c7d6a50f65c5161f6100c70959eff7",
+    "null/IijIjjillljIIIiiiIilIljilIiIIIii.java": "be9167a9189292ee7e2f4dbea6720fd958ef324c6c70bdf028c5f51ccf960e5c",
+    "null/llliilIIjjliIijlilljIliiljIliIjl.java": "4edace2d71e705c1edbd4842896d24cf6b629a7e5e6bb51351199bf587cdff0f",
+    "null/jlIIiljjljllljjIIiiijliljiijIili.java": "cc353e46dfec2ac777d553525cc46c96c99595cd93131a70e34e829949db0cb5",
+    "null/jIiiIlljjiIliijjiiIlljIjiiiIIlIj.java": "0fdae8496ccbcf0ba217c42666ad14ab182d299f23ad59a667612cc7a6e01364",
+    "null/jlIjiliIjjiIiillillilijjjjiIljjI.java": "e9e6f267a8d275cda9cca9e7f516d5f50d788a07a0aa361c5720997d020432fc",
+    "null/jIjijIiIiililljjjiIljilliIijlliI.java": "5c54d9b78bd629c9cc0cd7eb2bdf0a03d36c405eafa21d3fd431b95c199560b4",
+    "null/llIljIIjljlIilIilIjijlIjllIjijII.java": "1ea531e259a595b3d4c486be46bd51e045bf6cb8b1dee53f13ed31f439972dc4",
+    "null/ljiIijIiiIjljiiIjIljIljIIlllljIl.java": "95eca7307cc8b2500335dbd49b692bcdad0485a0fc0149d672f400fb4855d943",
+    "null/iIjjiIlllIIIIjIIlllijijIjIiiijiI.java": "a6ec14aa7a7466a23b60a9ca8f13b0c0d42e8d4968f1e51dcf5725877049c07e",
+    "null/lIliliiljIIlijIiIjlIjiIiiIjjiIjI.java": "eaa9bd3cdcb1337cc117ea0e726784d701a35be27d51ad722a80206d3679627d",
+    "null/lIiIIlIIlIIjjIiljilijiillljlillI.java": "39292a499f6abb143e29ea200b5a95e3924b94405398e3eff09e543036e25d17",
+    "null/jllIiiIljIIjillIllIjliijjiljIIlI.java": "5df3494caff2e30692a217a56699e28c2aba3822955496048fd3aaae3dca3be1",
+    "null/liIIjjiiljIIllllIiijliIIjIIiIlij.java": "95aba15b6a9de43ff842debf6791d93bb5b3593c8aceef63cca75b7e54fe0509",
+    "null/iiiIlIiiIjlIIjiljjjIljjjiilIiljl.java": "96f16ca775183e626721300efe69bf82d932462f44f6180bbe04db75dfecada2",
+    "null/jjijijijjIIIIlIlljiIiIillljIijjI.java": "77f483fe50433dc2a980cd60ef72d3430556c36df56e0166d0f30497836e55b9",
+    "null/jiiIlljIjiljiljiljIjjiIlIlIilIll.java": "e11d0f7a50d1dc8fc9119ff3296fcb0cd0660d317e6091a49bcbcb604556a842",
+    "null/ijIjlilIliIjilijIlIIIjlIjjIlijIj.java": "0a98cd018aa6ff03b04b462580d7c6f1ad243283d4f254a073cd5c6f451002af",
+    "null/lilliIIlIjlliIilliilIlIijljjilIi.java": "b99dfda009a115357ae65b5d70080e27eceeaf84c7ffde9fedb0dbe0674c7f2b",
+    "null/lIljIilliljlijIllIjilIjjjlIIijll.java": "06da73345356f5048d1cafd0de2929682565432553bc82a89e9526c4bb24e8a3",
+    "null/ljjijiliiljIljlliiiIiljiIliIIjIj.java": "c6bba44cb5ddc9fbb7b9e00876f16fa75cf88ead1fac9d00356a4d95fdb68496",
+    "null/IilIilliIiIIlijiiiIIllllljiIIiil.java": "7e08d12aa8e984334f3d042ebffbddeb4a7974c7599466f6c02035ad08d4a793",
+    "null/llliljiiijjjIljjjIjIiIjljliljjji.java": "f555146277e2c3b7fc22a23d98c621521e2c6edb8de66a9b1d7eeb27861b7609",
+    "null/iIIiiljIIIjiIjiiiiIilljIIlIIIjll.java": "946fdbe03807cd1961a2ce97fb5518441899a42db2b48da0335f0794ebcba163",
+    "null/jiIilIjjiIIjiliIiijiljjjlliilIIi.java": "0f4a18c96d92120d450610126ff61c31c0c1adfc8153b3768fcecad5dad0bbe1",
+    "null/IlIIiIjiIjlIiljlIjiljIiIlijijjjI.java": "93583a06cdb958a87b68e9604f1830b401e775b613bd1f2fd1749d6b8a733cf5",
+    "null/jiljllljlIljijIIlIjiiIlllliiijll.java": "4c70aa98fe2880c7b7d47ea25c633de8da983bd402282fee6111ade7d14b0c02",
+    "null/IIljlljjlIjillIIjIlIliIjIijIiiil.java": "afad4cb7d44699733258b3ee88d859f77ff6e8790a3c5820748cb24aca9ef88f",
+    "null/IIiIjiliIjjjllljiiljiIlIllIIilii.java": "2bb2e02d1054e93097e1c9038480cbd63875d36d52e35afd93aa5e6e0aa8c18f",
+    "null/lIjIlIjIIliljIlIjlIIllllljijiIii.java": "4003bc902d5faaf03b456cdd5077d4de47c64dfec904d8efebcf9945d72c4e25",
+    "null/IjlljljiiiIljiIlIliljiijiliIlIil.java": "d2fc20b090d5d47108998afc0ae8ec353207652139762d12dcee55e3521c377f",
+    "null/IillijljlIiiiIjiIlIjliIIjijIIjjl.java": "8b67340539c5eb27b354de2f346de9705252ab00c9e09c09fac7c1650aa6fe7d",
+    "null/ljjjljillIIIljiIilIIilllljiilIjl.java": "83a05b6f79d668845c10ec8bcfa1e904d7ac9fc6f98bf0e1aa7c4cb6d1a8a73c",
+    "null/IjijIiilllljIIlIlIiijjIlilljjjII.java": "4291d49dc68fb20ae6fcc319056d6b8047dbad253e970286624fbe2583ccd3d8",
+    "null/lIiljIiljlllllIiIIljjjlljljIjiil.java": "b950bc581cad929e3573421269bf62d9c6f5937af7aa5e964a3bd381f55a34b5",
+    "null/jljIiillijjjlIjjIllllljIjiiiiljI.java": "75f046c26b68fdd7423ef1e8a39b0c727769d459e8d6a054d2ab16a406e96644",
+    "null/jiIjjljIjijljjIliIlilljljjllIill.java": "5c922aa814426f9b0b012c0747c7e6b38d0fb9d4d7bb7666e507dae8285fc388",
+    "null/jIlllliiliilIjljjIiljIijljIIlill.java": "03872f4eff5233a7445ebcd0147bd3cd789b03d1f72eb8cbc83a043d042ec036",
+    "null/ilIljijIlIljIijllIIIjiljIijjIlIj.java": "a37757b08349e5aee380e6f46e69f86c11338cfb0c2d11b9fe698950fddfedc0",
+    "null/jiljijiijIilijjlilIijjIIiillllji.java": "ad41ce01ce3a6e717c33ccffe8f8e33b52b5023dfaf907bdb7ed79335e149572",
+    "null/iIlIiIliliIiiiljijIlllIjljIljlll.java": "1383f5ed840369cdaf91ece972c5cfb3cbf5314a74cf8678b847d28c0f31ead3"
+  },
+  "profiles": [
+    {
+      "id": "metromod_germo_1",
+      "source": "germo/germo1.m2033model",
+      "behavior": "null/ljiIijIiiIjljiiIjIljIljIIlllljIl",
+      "component": "null/llIljIIjljlIilIilIjijlIjllIjijII",
+      "generated_class": "Rule1",
+      "segments": 3,
+      "open": "-3.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.IjiIliIlIllillljIIIiIjiljlIljlIl"
+        },
+        0.30000001192092896,
+        [
+          3.990000009536743,
+          -0.75,
+          0
+        ],
+        [
+          1.0099999904632568,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_2",
+      "source": "germo/germo2.m2033model",
+      "behavior": "null/lIliliiljIIlijIiIjlIjiIiiIjjiIjI",
+      "component": "null/iIjjiIlllIIIIjIIlllijijIjIiiijiI",
+      "generated_class": "Rule2",
+      "segments": 4,
+      "open": "-3.76F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.IjiIliIlIllillljIIIiIjiljlIljlIl"
+        },
+        0.30000001192092896,
+        [
+          5.010000228881836,
+          -0.5699999928474426,
+          -0.0
+        ],
+        [
+          1.0800000429153442,
+          1.1200000047683716,
+          0.8399999737739563
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_3",
+      "source": "germo/germo3.m2033model",
+      "behavior": "null/jllIiiIljIIjillIllIjliijjiljIIlI",
+      "component": "null/lIiIIlIIlIIjjIiljilijiillljlillI",
+      "generated_class": "Rule3",
+      "segments": 3,
+      "open": "-1.75F, -0.25F, 0.0F",
+      "closed": "0.0F, 0.25F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.30000001192092896,
+        [
+          3.995000123977661,
+          -0.5,
+          0
+        ],
+        [
+          1.159999966621399,
+          1.149999976158142,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_4",
+      "source": "germo/germo4.m2033model",
+      "behavior": "null/iiiIlIiiIjlIIjiljjjIljjjiilIiljl",
+      "component": "null/liIIjjiiljIIllllIiijliIIjIIiIlij",
+      "generated_class": "Rule4",
+      "segments": 4,
+      "open": "-2.4F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.30000001192092896,
+        [
+          4.0,
+          -0.5,
+          -0.0
+        ],
+        [
+          1,
+          0.8700000047683716,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_5",
+      "source": "germo/germo5.m2033model",
+      "behavior": "null/jiiIlljIjiljiljiljIjjiIlIlIilIll",
+      "component": "null/jjijijijjIIIIlIlljiIiIillljIijjI",
+      "generated_class": "Rule5",
+      "segments": 3,
+      "open": "-2.6F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.30000001192092896,
+        [
+          4.489999771118164,
+          -0.5,
+          -0.0
+        ],
+        [
+          1.1100000143051147,
+          1.100000023841858,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_6",
+      "source": "germo/germo6.m2033model",
+      "behavior": "null/lilliIIlIjlliIilliilIlIijljjilIi",
+      "component": "null/ijIjlilIliIjilijIlIIIjlIjjIlijIj",
+      "generated_class": "Rule6",
+      "segments": 4,
+      "open": "-3.3F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.22499999403953552,
+        [
+          5.0,
+          -0.5,
+          -0.0
+        ],
+        [
+          0.9750000238418579,
+          0.8999999761581421,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_7",
+      "source": "germo/germo7.m2033model",
+      "behavior": "null/ljjijiliiljIljlliiiIiljiIliIIjIj",
+      "component": "null/lIljIilliljlijIllIjilIjjjlIIijll",
+      "generated_class": "Rule7",
+      "segments": 18,
+      "open": "-9.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.30000001192092896,
+        [
+          -0.4749999940395355,
+          -0.5600000023841858,
+          -1.1699999570846558
+        ],
+        [
+          1,
+          1.0360000133514404,
+          1.0399999618530273
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_8",
+      "source": "germo/germo8.m2033model",
+      "behavior": "null/llliljiiijjjIljjjIjIiIjljliljjji",
+      "component": "null/IilIilliIiIIlijiiiIIllllljiIIiil",
+      "generated_class": "Rule8",
+      "segments": 18,
+      "open": "-9.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.30000001192092896,
+        [
+          -0.4749999940395355,
+          -0.5600000023841858,
+          1.1299999952316284
+        ],
+        [
+          1,
+          1.0360000133514404,
+          1.0399999618530273
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_decor_metro_l07_vorota",
+      "source": "decor_metro/l07_vorota.m2033model",
+      "behavior": "null/jiIilIjjiIIjiliIiijiljjjlliilIIi",
+      "component": "null/iIIiiljIIIjiIjiiiiIilljIIlIIIjll",
+      "generated_class": "Rule9",
+      "segments": 16,
+      "open": "-80.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.20000000298023224,
+        [
+          -3.700000047683716,
+          -0.49000000953674316,
+          -3.3499999046325684
+        ],
+        {
+          "static": "null/IijIjjillljIIIiiiIilIljilIiIIIii.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        }
+      ]
+    },
+    {
+      "id": "metromod_germo_door_door_d06_l02_01",
+      "source": "door/door_d06_l02_01.m2033model",
+      "behavior": "null/jiljllljlIljijIIlIjiiIlllliiijll",
+      "component": "null/IlIIiIjiIjlIiljlIjiljIiIlijijjjI",
+      "generated_class": "Rule10",
+      "segments": 3,
+      "open": "-2.6F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.25,
+        [
+          4.0,
+          -0.5,
+          -0.03999999910593033
+        ],
+        [
+          0.9300000071525574,
+          1.0199999809265137,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_door_l04_gate02_",
+      "source": "door/l04_gate02_.m2033model",
+      "behavior": "null/IIiIjiliIjjjllljiiljiIlIllIIilii",
+      "component": "null/IIljlljjlIjillIIjIlIliIjIijIiiil",
+      "generated_class": "Rule11",
+      "segments": 18,
+      "open": "-85.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.4000000059604645,
+        [
+          5.0,
+          1.5199999809265137,
+          -0.0
+        ],
+        [
+          0.9599999785423279,
+          1.0800000429153442,
+          0.9700000286102295
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_door_l04_t_zatvor",
+      "source": "door/l04_t_zatvor.m2033model",
+      "behavior": "null/IjlljljiiiIljiIlIliljiijiliIlIil",
+      "component": "null/lIjIlIjIIliljIlIjlIIllllljijiIii",
+      "generated_class": "Rule12",
+      "segments": 7,
+      "open": "-7.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.25,
+        [
+          4.5,
+          -0.5,
+          -0.0
+        ],
+        [
+          1.0199999809265137,
+          0.9350000023841858,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_door_l13_vorota_test",
+      "source": "door/l13_vorota_test.m2033model",
+      "behavior": "null/ljjjljillIIIljiIilIIilllljiilIjl",
+      "component": "null/IillijljlIiiiIjiIlIjliIIjijIIjjl",
+      "generated_class": "Rule13",
+      "segments": 17,
+      "open": "-80.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.75,
+        [
+          3.5,
+          -0.44999998807907104,
+          -0.0
+        ],
+        {
+          "static": "null/IijIjjillljIIIiiiIilIljilIiIIIii.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        }
+      ]
+    },
+    {
+      "id": "metromod_germo_door_vorota",
+      "source": "door/vorota.m2033model",
+      "behavior": "null/lIiljIiljlllllIiIIljjjlljljIjiil",
+      "component": "null/IjijIiilllljIIlIlIiijjIlilljjjII",
+      "generated_class": "Rule14",
+      "segments": 17,
+      "open": "-80.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.25,
+        [
+          -0.30000001192092896,
+          -0.5400000214576721,
+          -4.099999904632568
+        ],
+        {
+          "static": "null/IijIjjillljIIIiiiIilIljilIiIIIii.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        }
+      ]
+    },
+    {
+      "id": "metromod_germo_9",
+      "source": "germo/germo9.m2033model",
+      "behavior": "null/jiIjjljIjijljjIliIlilljljjllIill",
+      "component": "null/jljIiillijjjlIjjIllllljIjiiiiljI",
+      "generated_class": "Rule15",
+      "segments": 8,
+      "open": "-7.15F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.25,
+        [
+          8.979999542236328,
+          -0.5,
+          -0.0
+        ],
+        [
+          1.0269999504089355,
+          1.0199999809265137,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_structure_vorota_resh_tower",
+      "source": "structure/vorota_resh_tower.m2033model",
+      "behavior": "null/ilIljijIlIljIijllIIIjiljIijjIlIj",
+      "component": "null/jIlllliiliilIjljjIiljIijljIIlill",
+      "generated_class": "Rule16",
+      "segments": 17,
+      "open": "-80.0F, 0.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.4000000059604645,
+        [
+          4.0,
+          -0.5,
+          -0.0
+        ],
+        [
+          0.9700000286102295,
+          0.9599999785423279,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "metromod_germo_structure_zatvor_01",
+      "source": "structure/zatvor_01.m2033model",
+      "behavior": "null/iIlIiIliliIiiiljijIlllIjljIljlll",
+      "component": "null/jiljijiijIilijjlilIijjIIiillllji",
+      "generated_class": "Rule17",
+      "segments": 8,
+      "open": "1.0F, 1.0F, 0.0F",
+      "closed": "0.0F, 0.0F, 0.0F",
+      "catalogue_args": [
+        {
+          "static": "null/jjjjIiijiiIlljllilIjliijlijIIIiI$jjlliijIIIiIjIjiiIjijjIjIljjiiII.jjlliijIIIiIjIjiiIjijjIjIljjiiII"
+        },
+        0.25,
+        [
+          1.5,
+          -0.5,
+          -4.0
+        ],
+        [
+          1,
+          0.9300000071525574,
+          0.949999988079071
+        ]
+      ]
+    }
+  ],
+  "profile_count": 17,
+  "generated_java_sha256": "123707ab2de30f0ed38724f74617d01f1c4df61dda6d6f0292fc170b696bc76f",
+  "runtime_connected": false,
+  "coordinate_adapter_verified": false,
+  "minecraft_gameplay_verified": false,
+  "adaptations": [
+    "server branch only",
+    "sound callback omitted",
+    "world writes replaced by ordered Sink callbacks"
+  ],
+  "caveats": [
+    "Sink must enforce air-only placement and UUID-safe removal",
+    "Initial world blocks are map state, not supplied by client.jar",
+    "Lifecycle initializes only animation.x; do not invent y initialization",
+    "History and segment flags must persist; reversals are not a function of progress alone"
+  ]
+}

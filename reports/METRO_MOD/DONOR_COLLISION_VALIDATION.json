@@ -28,6 +28,14 @@
     "dependency_cache_retained_after_failure": true,
     "versions_or_coordinates_changed": false
   },
-  "donor_client_available_in_current_workspace": false,
-  "donor_client_access_blocker": "Google Drive is disabled in this conversation; enable it to re-read the already provided client.jar. No new upload required."
+  "donor_client_available_in_current_workspace": true,
+  "germo_isolated_java_module": {
+    "profiles": 17,
+    "runtime_connected": false,
+    "differential_bytecode_cases": 2448,
+    "standalone_assertions": 4904,
+    "local_compilation": "PASS: ECJ target 1.8 + JRE17 (not the Forge project)",
+    "forge_java8_ci_check": "pending",
+    "report": "GERMO_BLOCK_RULES_RU.md"
+  }
 }

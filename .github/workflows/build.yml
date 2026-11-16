@@ -32,6 +32,15 @@ jobs:
         with:
           distribution: temurin
           java-version: '8'
+      - name: Compile and verify donor Germo rules independently of Forge
+        shell: bash
+        run: |
+          mkdir -p .cache/germo-check
+          javac -source 8 -target 8 -d .cache/germo-check \
+            src/main/java/ru/metrocraft/port/metromod/decor/DonorGermoBlockRules.java \
+            src/test/java/ru/metrocraft/port/metromod/decor/DonorGermoStandaloneCheck.java
+          java -cp .cache/germo-check ru.metrocraft.port.metromod.decor.DonorGermoStandaloneCheck \
+            src/test/resources/metromod_germo_callbacks.tsv
       - uses: actions/cache/restore@v4
         id: forge-cache
         with:
