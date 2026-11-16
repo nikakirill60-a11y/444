@@ -144,6 +144,20 @@ public final class ClientEvents {
     }
 
     @SubscribeEvent
+    public static void originalGateModels(net.minecraftforge.client.event.ModelBakeEvent event) {
+        for (ru.metrocraft.port.metromod.decor.OriginalGateBlock block : ru.metrocraft.port.metromod.decor.OriginalGates.BLOCKS.values()) {
+            Item item = Item.getItemFromBlock(block);
+            ModelResourceLocation location = new ModelResourceLocation(item.getRegistryName(), "inventory");
+            net.minecraft.client.renderer.block.model.IBakedModel icon = event.getModelRegistry().getObject(location);
+            if (icon != null) {
+                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.gates.OriginalGateItemRenderer.INSTANCE);
+                event.getModelRegistry().putObject(location,
+                        new ru.metrocraft.port.client.LegacyItemModel(block.profile.id, false, icon, false));
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void patchTooltip(net.minecraftforge.event.entity.player.ItemTooltipEvent event) {
         net.minecraft.item.ItemStack patch=ru.metrocraft.port.patches.FactionPatches.get(event.getItemStack());
         if(!patch.isEmpty())event.getToolTip().add(net.minecraft.client.resources.I18n.format("metroport.patch.equipped",patch.getDisplayName()));

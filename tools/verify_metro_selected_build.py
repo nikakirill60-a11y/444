@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""Verify the dev.24 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.25 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
+import gzip
 import json
 import sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.24'
+VERSION = '1.13.0-dev.25'
 REQUIRED = [
+    'ru/metrocraft/port/metromod/decor/OriginalGateTile.class',
+    'ru/metrocraft/port/metromod/decor/OriginalGateProfile.class',
+    'ru/metrocraft/port/metromod/decor/OriginalGateItem.class',
+    'ru/metrocraft/port/client/gates/OriginalGateRenderer.class',
+    'ru/metrocraft/port/client/gates/OriginalGateItemRenderer.class',
     'ru/metrocraft/port/client/MetroGuiFactory.class',
     'ru/metrocraft/port/client/VisualSettingsScreen.class',
     'ru/metrocraft/port/metromod/VisualOptions.class',
@@ -48,7 +54,8 @@ def verify(jar, results, source, run_url):
     expected = {'ru.metrocraft.port.metromod.VisualOptionsTest': 5, 'ru.metrocraft.port.metromod.MetroSelectionTest': 10,
                 'ru.metrocraft.port.blackrazid.MetroSoundUseTest': 4, 'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
                 'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
-                'ru.metrocraft.port.gates.GateMotionTest': 9}
+                'ru.metrocraft.port.gates.GateMotionTest': 9,
+                'ru.metrocraft.port.metromod.decor.OriginalGateTest': 14}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
     for name, count in expected.items():
         if counts.get(name) != count:
@@ -64,6 +71,19 @@ def verify(jar, results, source, run_url):
             raise ValueError('Required implementation missing: ' + repr(set(REQUIRED) - names))
         if ('Implementation-Version: ' + VERSION) not in archive.read('META-INF/MANIFEST.MF').decode():
             raise ValueError('Wrong manifest version')
+        if json.loads(archive.read('mcmod.info'))[0]['name'] != 'MinETRO':
+            raise ValueError('Requested MinETRO branding missing')
+        profiles = json.loads(archive.read('assets/metroport/metromod_gates.json'))
+        if {p['id'] for p in profiles} != {'metromod_germo_'+str(n) for n in [1,2,4,5,6,9]}:
+            raise ValueError('Wrong original gate catalogue')
+        for profile in profiles:
+            for part in profile['parts']:
+                model = 'assets/' + part['mesh'].replace(':','/',1)
+                if not gzip.decompress(archive.read(model)).strip():
+                    raise ValueError('Missing original gate mesh: '+model)
+                for texture in part['materials'].values():
+                    if not archive.read('assets/'+texture.replace(':','/',1)).startswith(b'\x89PNG'):
+                        raise ValueError('Missing original gate texture')
         for item in ['konservi', 'galeti', 'gribtea', 'waterbottle']:
             path = 'assets/metroport/models/item/metromod_' + item + '.json'
             if path not in names:
@@ -89,7 +109,8 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
+            'included': ['MinETRO display name; saved-world namespace metroport unchanged',
+                         'six original METRO_MOD gates germo1/2/4/5/6/9: separate IDs, native multi-material meshes, moving collision, redstone, saved state and item rendering','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
                          '3 medical materials with original icons and donor stack limits; no invented healing', 'three donor-profile foods and bottled water; stack limit 8; completion-only server use',
@@ -98,7 +119,7 @@ def verify(jar, results, source, run_url):
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
-            'not_included': ['MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', 'donor 3D models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
+            'not_included': ['MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', 'remaining donor decor models and the full GLSL 330 framebuffer pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}

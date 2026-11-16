@@ -62,7 +62,13 @@
     "metroport.visual.tint": "Зелёный оттенок ПНВ",
     "metroport.visual.opacity": "Непрозрачность маски",
     "metroport.visual.strength": "Интенсивность шума",
-    "metroport.visual.defaults": "Сброс"
+    "metroport.visual.defaults": "Сброс",
+    "tile.metroport.metromod_germo_1.name": "Гермоворота METRO_MOD 1",
+    "tile.metroport.metromod_germo_2.name": "Гермоворота METRO_MOD 2",
+    "tile.metroport.metromod_germo_4.name": "Гермоворота METRO_MOD 4",
+    "tile.metroport.metromod_germo_5.name": "Гермоворота METRO_MOD 5",
+    "tile.metroport.metromod_germo_6.name": "Гермоворота METRO_MOD 6",
+    "tile.metroport.metromod_germo_9.name": "Гермоворота METRO_MOD 9"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -127,6 +133,12 @@
     "metroport.visual.tint": "NVG green tint",
     "metroport.visual.opacity": "Mask opacity",
     "metroport.visual.strength": "Noise strength",
-    "metroport.visual.defaults": "Defaults"
+    "metroport.visual.defaults": "Defaults",
+    "tile.metroport.metromod_germo_1.name": "METRO_MOD hermetic gate 1",
+    "tile.metroport.metromod_germo_2.name": "METRO_MOD hermetic gate 2",
+    "tile.metroport.metromod_germo_4.name": "METRO_MOD hermetic gate 4",
+    "tile.metroport.metromod_germo_5.name": "METRO_MOD hermetic gate 5",
+    "tile.metroport.metromod_germo_6.name": "METRO_MOD hermetic gate 6",
+    "tile.metroport.metromod_germo_9.name": "METRO_MOD hermetic gate 9"
   }
 }

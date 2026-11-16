@@ -1,0 +1,49 @@
+{
+  "source_files": {
+    "assets/metro2033server/models/obj/germo/germo1.m2033model": "81e69eba69c15a6abd28a6c4515634777c1bda84101f782a12d2ca7e162db518",
+    "assets/metro2033server/models/obj/germo/germo1.m2033gl4": "b69156792ac8918ede62fcfa2c22eaead855e148ccacb8022b3dc41c692d45ff",
+    "assets/metro2033server/textures/obj/metal34_balka_02.512.m2033texture": "40ac5f1373ad2e922ee91170bdee59ea17724cdf457d23a4b9fdf1d67a48bf04",
+    "assets/metro2033server/textures/obj/metal_trub_tonnel.512.m2033texture": "c37fe2c4a2b0da1c7fad2f2d9c89370a9618a14fc47052f0e6337154b2ec565e",
+    "assets/metro2033server/models/obj/germo/germo2.m2033model": "81d35c1f1581b5d46040ce6faeb507c404acea424541ffd3442a6eda448e3d1c",
+    "assets/metro2033server/models/obj/germo/germo2.m2033gl4": "7c673c587e9ae022b90de2c5cadfd067d9766c4388c9ab9262e4adfd22548695",
+    "assets/metro2033server/textures/obj/metal_germo.512.m2033texture": "f5e07015729463c5f6449829919eeed9a2e2836f93cf1f78a78ed252f9764803",
+    "assets/metro2033server/models/obj/germo/germo2_add1.m2033model": "ce455ecc943bfce052712eb9dc605edb05b554aa2d529d979da30323e819996d",
+    "assets/metro2033server/models/obj/germo/germo2_add1.m2033gl4": "9d06641d63f0e791e98ba1102b8b5c7c01f53ab8094afd789fd428b319ece8cd",
+    "assets/metro2033server/models/obj/germo/germo4.m2033model": "c5e2c16b1d90c567bb87d9eb19fcc02fdc87d109f6f6d364695e0aa8177324cd",
+    "assets/metro2033server/models/obj/germo/germo4.m2033gl4": "e2c125e2cf9cca4b5f1aecebdc3ce4777b4786b9c694e31abdf6cd12ea32f617",
+    "assets/metro2033server/textures/obj/props34_germovorota_intro.512.m2033texture": "56f87237e8c73948bb76c9254a33b7125ce09e8a5e5a4c4c0387c9474cddc50e",
+    "assets/metro2033server/models/obj/germo/germo4_add1.m2033model": "588cfb35bc25bd244ec54f619c63cb447d8c2a391fc3aa71752fe1c4e1fa9a96",
+    "assets/metro2033server/models/obj/germo/germo4_add1.m2033gl4": "7589a277dc5ef09db3768044dbd1f3599a82c103970ea43c62df5948cff3f294",
+    "assets/metro2033server/models/obj/germo/germo5.m2033model": "36d2134d9f52768de6f836f2e0da8a0214d0ee9a376640636a2eab3168011d8a",
+    "assets/metro2033server/models/obj/germo/germo5.m2033gl4": "1e2d21bb7590bccd3eb1ff59edc0187d02291ea63f5af9b2d575ca9e1d85c816",
+    "assets/metro2033server/models/obj/germo/germo5_add1.m2033model": "af1d798a00cae61c9b45a5452a018df2e5caf755e4788bcd90e018f4792e2df7",
+    "assets/metro2033server/models/obj/germo/germo5_add1.m2033gl4": "2dea9b989e0b5241411cd7b5a6119db625a28b955ed9937acfecc3ebbfd4759d",
+    "assets/metro2033server/models/obj/germo/germo6.m2033model": "dfe09c2ec9ecb293b1dedc4d7a176caf1daa7be47230fc7fee51735ab98d0929",
+    "assets/metro2033server/models/obj/germo/germo6.m2033gl4": "72671052f2d74b86800dc5e5dbdae68e89e404baabf77ea177e4bb029d561a3c",
+    "assets/metro2033server/textures/obj/props34_vorota.512.m2033texture": "94a8f88fc903b6a3ff7c12bfb13926a9a9fdf4cb4cf8d5d4bf6eb19e68438e2b",
+    "assets/metro2033server/models/obj/germo/germo6_add1.m2033model": "827282f9ef3a86683d9975dc4d5d93c3c1138fe29d0593e334ccef7b32e4e78c",
+    "assets/metro2033server/models/obj/germo/germo6_add1.m2033gl4": "6569eb8ae5e53ddecac024b4536e0a71d4c87060509d7770e841b0b01aee820d",
+    "assets/metro2033server/models/obj/germo/germo6_add2.m2033model": "8ee602e18b42cd325f58a34054fab52f236c7221c6f782822754137e7e578ec7",
+    "assets/metro2033server/models/obj/germo/germo6_add2.m2033gl4": "8ed79ec41ebfc84f2e1db8bacd3c03fe22c4fe1951bbd97cb0eb1a4081b52826",
+    "assets/metro2033server/models/obj/germo/germo9.m2033model": "9ae8719324f3b8d582303b44251064e3f4d94c563c7cf11e6440a79da257b320",
+    "assets/metro2033server/models/obj/germo/germo9.m2033gl4": "620a99e5c6ef4d293672d66fea2939212ca370958e8bd9bf321c6e38cdb7ac32",
+    "assets/metro2033server/models/obj/germo/germo9_add1.m2033model": "ad14833f3af1c46220639017ac88034fe5d40f6f423803a21e6f26a2369e66fc",
+    "assets/metro2033server/models/obj/germo/germo9_add1.m2033gl4": "1b49344068ac098364b6891bbceaacf3e8b795c5ca70875e8c4396f26889860e"
+  },
+  "profiles": [
+    "metromod_germo_1",
+    "metromod_germo_2",
+    "metromod_germo_4",
+    "metromod_germo_5",
+    "metromod_germo_6",
+    "metromod_germo_9"
+  ],
+  "collision": "conservative triangle/AABB surface voxelization at 0.25 blocks, merged cuboids",
+  "animation": "original translational endpoints; Forge tick-rate adapter 0.015 normalized per tick",
+  "remaining_germo_models": [
+    3,
+    7,
+    8
+  ],
+  "all_functional_decor_ported": false
+}
