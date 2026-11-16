@@ -32,28 +32,28 @@ jobs:
         with:
           distribution: temurin
           java-version: '8'
-      - name: Fetch official Forge artifacts with retrying modern TLS client
+      - uses: actions/cache/restore@v4
+        id: forge-cache
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            .cache/forge-maven
+          key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: minetro-forge1122-${{ runner.os }}-
+      - name: Start official Forge Maven transport cache
         shell: bash
         run: |
-          set -euo pipefail
-          # FG3's legacy Java downloader can silently return null after a CDN
-          # connection reset. Populate its documented Maven cache via curl,
-          # validating each archive against the official SHA1 sidecar first.
-          directory="$HOME/.gradle/caches/forge_gradle/maven_downloader/net/minecraftforge/forge/1.12.2-14.23.5.2860"
-          mkdir -p "$directory"
-          for classifier in userdev3 universal sources; do
-            name="forge-1.12.2-14.23.5.2860-$classifier.jar"
-            url="https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/$name"
-            curl --fail --location --retry 4 --retry-all-errors --retry-delay 3 --connect-timeout 20 --max-time 120 "$url" -o "$directory/$name"
-            expected=$(curl --fail --location --retry 4 --retry-all-errors --retry-delay 3 --connect-timeout 20 --max-time 120 "$url.sha1")
-            printf '%s  %s\n' "$expected" "$directory/$name" | sha1sum --check --strict
-            unzip -tq "$directory/$name"
-          done
+          mkdir -p .cache
+          python -u tools/forge_maven_proxy.py --cache .cache/forge-maven > .cache/forge-maven-proxy.log 2>&1 &
+          echo "$!" > .cache/forge-maven-proxy.pid
       - name: Build and reobfuscate for Forge
         shell: bash
+        env:
+          MINETRO_FORGE_MAVEN_PROXY: http://127.0.0.1:18765/
         run: |
           set +e
-          ./gradlew --no-daemon build > build-output.log 2>&1
+          ./gradlew --init-script tools/forge_ci.init.gradle --no-daemon build > build-output.log 2>&1
           result=$?
           cat build-output.log
           if [ "$result" -ne 0 ]; then
@@ -74,6 +74,19 @@ jobs:
           PY
           fi
           exit "$result"
+      - name: Stop dependency helper and show download diagnostics
+        if: always()
+        run: |
+          if [ -f .cache/forge-maven-proxy.pid ]; then kill "$(cat .cache/forge-maven-proxy.pid)" || true; fi
+          if [ -f .cache/forge-maven-proxy.log ]; then tail -80 .cache/forge-maven-proxy.log; fi
+      - uses: actions/cache/save@v4
+        if: always() && steps.forge-cache.outcome == 'success'
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            .cache/forge-maven
+          key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
         run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.30.jar
       - name: Report JUnit results

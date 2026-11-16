@@ -1,0 +1,18 @@
+// Opt-in CI transport adapter only. Coordinates, versions, official upstream,
+// checksums and the normal developer build remain unchanged.
+def mirror = System.getenv('MINETRO_FORGE_MAVEN_PROXY')
+if (mirror) {
+    if (mirror != 'http://127.0.0.1:18765/') {
+        throw new GradleException('Unexpected Forge Maven CI proxy')
+    }
+    allprojects { project ->
+        def replaceTransport = { repository ->
+            if (repository instanceof org.gradle.api.artifacts.repositories.MavenArtifactRepository &&
+                    repository.url.host == 'maven.minecraftforge.net') {
+                repository.url = uri(mirror)
+            }
+        }
+        project.buildscript.repositories.all(replaceTransport)
+        project.repositories.all(replaceTransport)
+    }
+}

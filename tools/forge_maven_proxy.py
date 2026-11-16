@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+"""CI-only loopback cache for the official Forge Maven, using retrying curl TLS.
+
+FG3/Gradle4's old Java HTTP client repeatedly times out against the Forge CDN.
+No replacement artifacts or third-party mirrors: every cache miss goes to the
+same official HTTPS origin. Does not run as part of the Minecraft mod.
+"""
+import argparse
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+import re
+import subprocess
+import threading
+from urllib.parse import unquote, urlsplit
+
+ORIGIN = 'https://maven.minecraftforge.net/'
+
+
+def safe_path(request):
+    parsed = urlsplit(request)
+    path = unquote(parsed.path).lstrip('/')
+    if parsed.scheme or parsed.netloc or parsed.query or parsed.fragment or not path:
+        raise ValueError('Invalid Maven request')
+    if not re.fullmatch(r'[A-Za-z0-9_.+/@-]+', path) or any(p in ('', '.', '..') for p in path.split('/')):
+        raise ValueError('Invalid Maven path')
+    return path
+
+
+class Cache:
+    def __init__(self, directory):
+        self.directory = Path(directory).resolve()
+        self.directory.mkdir(parents=True, exist_ok=True)
+        self.guard = threading.Lock()
+        self.locks = {}
+        self.missing = set()
+
+    def get(self, path):
+        with self.guard:
+            lock = self.locks.setdefault(path, threading.Lock())
+        with lock:
+            target = self.directory / path
+            if target.is_file():
+                return 200, target
+            if path in self.missing:
+                return 404, None
+            target.parent.mkdir(parents=True, exist_ok=True)
+            partial = target.with_name(target.name + '.partial')
+            try:
+                result = subprocess.run([
+                    'curl', '--silent', '--show-error', '--location', '--proto', '=https',
+                    '--retry', '2', '--retry-delay', '2', '--connect-timeout', '10', '--max-time', '40',
+                    '--output', str(partial), '--write-out', '%{http_code}', ORIGIN + path,
+                ], capture_output=True, text=True, timeout=145)
+                status = int(result.stdout) if result.stdout.isdigit() else 502
+                if result.returncode or status != 200:
+                    if status == 404:
+                        self.missing.add(path)
+                    print('Forge upstream', status, path, result.stderr[-400:], flush=True)
+                    return (404 if status == 404 else 502), None
+                partial.replace(target)
+                return 200, target
+            except (OSError, subprocess.TimeoutExpired):
+                return 502, None
+            finally:
+                partial.unlink(missing_ok=True)
+
+
+def handler(cache):
+    class Handler(BaseHTTPRequestHandler):
+        def do_HEAD(self):
+            self.respond(False)
+
+        def do_GET(self):
+            self.respond(True)
+
+        def respond(self, body):
+            try:
+                path = safe_path(self.path)
+            except ValueError:
+                self.send_error(400)
+                return
+            code, file = cache.get(path)
+            self.send_response(code)
+            self.send_header('Content-Length', str(file.stat().st_size if file else 0))
+            self.end_headers()
+            if body and file:
+                try:
+                    with file.open('rb') as source:
+                        while chunk := source.read(1024 * 256):
+                            self.wfile.write(chunk)
+                except (BrokenPipeError, ConnectionResetError):
+                    pass
+
+        def log_message(self, *args):
+            pass
+    return Handler
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--cache', required=True)
+    parser.add_argument('--port', default=18765, type=int)
+    args = parser.parse_args()
+    # Loopback is intentional: CI build dependency helper, NOT a browser preview.
+    server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(Cache(args.cache)))
+    print('Official Forge Maven CI cache listening on', server.server_address, flush=True)
+    server.serve_forever()
+
+
+if __name__ == '__main__':
+    main()

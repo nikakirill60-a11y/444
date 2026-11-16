@@ -9,6 +9,8 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
     }
 }
+// Put Central before repositories installed by the legacy Forge plugin, too.
+repositories { mavenCentral() }
 apply plugin: 'net.minecraftforge.gradle'
 
 version = '1.13.0-dev.30'
@@ -23,8 +25,6 @@ minecraft {
         server { workingDirectory project.file('run') }
     }
 }
-
-repositories { mavenCentral() }
 
 dependencies {
     testImplementation 'junit:junit:4.13.2'
