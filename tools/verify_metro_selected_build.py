@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.28 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.29 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import gzip
 import json
@@ -8,8 +8,12 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.28'
+VERSION = '1.13.0-dev.29'
 REQUIRED = [
+    'ru/metrocraft/port/structures/MetroNetworkCommand.class',
+    'ru/metrocraft/port/structures/MetroNetworkPlan.class',
+    'ru/metrocraft/port/structures/MetroNetworkJob.class',
+    'ru/metrocraft/port/structures/MetroNetworkBackup.class',
     'ru/metrocraft/port/metromod/decor/OriginalDecorCollisions.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateTile.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateProfile.class',
@@ -60,7 +64,10 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest': 7,
                 'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 11,
                 'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10,
-                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 11}
+                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 11,
+                'ru.metrocraft.port.structures.MetroNetworkPlanTest': 8,
+                'ru.metrocraft.port.structures.MetroNetworkJobTest': 12,
+                'ru.metrocraft.port.structures.MetroNetworkCommandTest': 4}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
     for name, count in expected.items():
         if counts.get(name) != count:
@@ -119,7 +126,8 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['MinETRO display name; saved-world namespace metroport unchanged',
+            'included': ['dev29: new four-station vanilla metro ring; two connected rail loops, pedestrian bridges, service rooms, surface ladder vestibule; operator preview/confirm command with durable conservative undo; standalone schematic',
+                         'MinETRO display name; saved-world namespace metroport unchanged',
                          'dev28 collision fix: current occupied proxy cells only, solid moving panels, block-safe motion, migration of full-prism reservations, mesh-derived wall lever offsets and clicked-face orientation',
                          '81 of 112 tagged functional decor entries: 17 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 31 blocked entries explicitly excluded','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',

@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.28", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
+@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.29", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -109,7 +109,13 @@ public final class MetroPort {
 
     @Mod.EventHandler
     public void serverStarting(net.minecraftforge.fml.common.event.FMLServerStartingEvent event) {
+        ru.metrocraft.port.structures.MetroNetworkCommand.reset();
         event.registerServerCommand(new ru.metrocraft.port.mechanics.GiveNoDrop());
+        event.registerServerCommand(new ru.metrocraft.port.structures.MetroNetworkCommand());
+    }
+    @Mod.EventHandler
+    public void serverStopped(net.minecraftforge.fml.common.event.FMLServerStoppedEvent event) {
+        ru.metrocraft.port.structures.MetroNetworkCommand.reset();
     }
     @Mod.EventHandler
     public void init(net.minecraftforge.fml.common.event.FMLInitializationEvent event) { PROXY.init(); }
