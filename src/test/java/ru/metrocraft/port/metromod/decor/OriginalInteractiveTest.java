@@ -39,7 +39,7 @@ public class OriginalInteractiveTest {
     @Test public void exactCoverageAndNoDuplicateSavedIds() {
         Map<String,Integer> counts=new HashMap<>();Set<String> ids=new HashSet<>();
         for(OriginalGateProfile p:OriginalGateProfile.all()) {assertTrue(ids.add(p.id));counts.put(p.kind,counts.getOrDefault(p.kind,0)+1);}
-        assertEquals(78,ids.size());assertEquals(Integer.valueOf(14),counts.get("Germo"));assertEquals(Integer.valueOf(27),counts.get("Door"));
+        assertEquals(81,ids.size());assertEquals(Integer.valueOf(17),counts.get("Germo"));assertEquals(Integer.valueOf(27),counts.get("Door"));
         assertEquals(Integer.valueOf(6),counts.get("Lever"));assertEquals(Integer.valueOf(31),counts.get("Light"));assertNull(counts.get("Inventory"));
     }
     @Test public void allFootprintsBoundedInEveryFacing() {

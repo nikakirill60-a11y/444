@@ -74,7 +74,7 @@ def run(client,models,finish):
                 low=min(transform(frame,[b[x+3 if mask&(1<<x) else x] for x in range(3)])[1]
                         for p in parts for frame in p['frames'] for b in p['boxes'] for mask in range(8))
                 ident='metromod_'+e['kind'].lower()+'_'+model.removesuffix('.m2033model').replace('/','_')
-                if model=='germo/germo3.m2033model':ident='metromod_germo_3'
+                if re.fullmatch(r'germo/germo[378]\.m2033model',model):ident='metromod_germo_'+re.search(r'germo([378])\.',model)[1]
                 profile={'id':ident,'source':model.removesuffix('.m2033model'),'name_ru':e['name_ru'].strip(),
                          'kind':e['kind'],'step':.015,'ground':round(-low,9),'parts':parts}
                 profiles.append(profile);row.update(status='ported',id=ident,parts=len(parts))
@@ -90,6 +90,7 @@ def run(client,models,finish):
             if path.is_file() and path.relative_to(RES).as_posix() not in used:path.unlink()
     for directory in ['models/item','blockstates']:
         for path in (RES/directory).glob('metromod_inventory_*.json'):path.unlink()
+        for path in (RES/directory).glob('metromod_germo_germo_germo*.json'):path.unlink()
         stale=RES/directory/'metromod_germo_structure_mls_vorota_l06.json'
         if stale.exists():stale.unlink()
     js(Path('metromod_interactive.json'),profiles)

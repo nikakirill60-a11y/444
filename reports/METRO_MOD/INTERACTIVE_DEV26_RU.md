@@ -1,9 +1,9 @@
 # MinETRO dev26 — оригинальный интерактивный декор
 
-Расширение dev25: **72 новых объекта**, вместе с шестью прежними оригинальными
-воротами — **78 из 112** записей выбранного функционального каталога:
-14 ворот, 27 дверей, 6 рубильников, 31 источник света.
-**Не весь перенос завершён:** 34 записи намеренно не зарегистрированы (ниже).
+Расширение dev25: **75 новых объекта**, вместе с шестью прежними оригинальными
+воротами — **81 из 112** записей выбранного функционального каталога:
+17 ворот, 27 дверей, 6 рубильников, 31 источник света.
+**Не весь перенос завершён:** 31 запись намеренно не зарегистрированы (ниже).
 
 ## Работа в Forge 1.12.2
 
@@ -34,8 +34,10 @@
 серверных слотов, их размер или правила подбора. Поэтому эти объекты не превращены
 в самодельные сундуки, не возвращены оружие/боеприпасы, не заявлен их перенос.
 
-Для germo7/germo8/l07_vorota не восстановлены управляющие векторы, которые
-исходный клиент получает вне render-конструктора. Не подставлены угаданные числа.
+Для germo7/germo8/l07_vorota управляющие векторы найдены в отдельном lifecycle-
+методе инициализации: окончания -9/-9/-80 и закрытые нулевые векторы.
+Ограниченный парсер проверяет точную форму literal-vector инициализаторов;
+последующий вызов мира/редстоуна не исполняется. Теперь все три включены.
 Для mls_vorota_l06 отсутствует add2; даже доступный двухдетальный preview не объявлен
 полностью перенесённой моделью. Дополнительно для wpn_14_5x5_ammo отсутствует diffuse
 wpn_dshk, но весь Inventory уже исключён из-за неподтверждённой серверной функции.
@@ -47,7 +49,7 @@ MWF, packv4, пользовательские руки, маски/ПНВ и и�
 ## Проверка и ограничения
 
 Добавлены 11 JUnit-проверок поведения адаптеров, коллизии вращения и сохранения,
-9 Python-проверок геометрии/ресурсов/матриц/полноты каталога. Старые проверки сохранены.
+10 Python-проверок геометрии/ресурсов/матриц/полноты каталога. Старые проверки сохранены.
 CI и ZIP-проверка сборки обязательны перед публикацией. **Запуск в Minecraft,
 OpenGL, реальный сервер и визуальная проверка не выполнены.** Тесты с mock-world
 не означают, что игровой прогон уже состоялся.
@@ -89,13 +91,13 @@ render-методов, без JVM, вызовов OpenGL, сети или зап
 26. `germo/germo4.m2033model` — Germo: **работает с dev25**; `metroport:metromod_germo_4`.
 27. `germo/germo5.m2033model` — Germo: **работает с dev25**; `metroport:metromod_germo_5`.
 28. `germo/germo6.m2033model` — Germo: **работает с dev25**; `metroport:metromod_germo_6`.
-29. `germo/germo7.m2033model` — Germo: **НЕ перенесено**. Причина: Uninitialized field null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiII on null/ljjijiliiljIljlliiiIiljiIliIIjIj.
-30. `germo/germo8.m2033model` — Germo: **НЕ перенесено**. Причина: Uninitialized field null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiII on null/llliljiiijjjIljjjIjIiIjljliljjji.
+29. `germo/germo7.m2033model` — Germo: **добавлено dev26**; `metroport:metromod_germo_7`.
+30. `germo/germo8.m2033model` — Germo: **добавлено dev26**; `metroport:metromod_germo_8`.
 31. `items/baggage/rukzak.m2033model` — Inventory: **НЕ перенесено**. Причина: Client Inventory tag does not establish server storage slots or pickup rules; no invented container.
 32. `decor_metro/fonar_01.m2033model` — Light: **добавлено dev26**; `metroport:metromod_light_decor_metro_fonar_01`.
 33. `decor_metro/karbid_lamp_01.m2033model` — Light: **добавлено dev26**; `metroport:metromod_light_decor_metro_karbid_lamp_01`.
 34. `decor_metro/karbid_lamp_02.m2033model` — Light: **добавлено dev26**; `metroport:metromod_light_decor_metro_karbid_lamp_02`.
-35. `decor_metro/l07_vorota.m2033model` — Germo: **НЕ перенесено**. Причина: Uninitialized field null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiII on null/jiIilIjjiIIjiliIiijiljjjlliilIIi.
+35. `decor_metro/l07_vorota.m2033model` — Germo: **добавлено dev26**; `metroport:metromod_germo_decor_metro_l07_vorota`.
 36. `decor_metro/lamp_abajur_2.m2033model` — Light: **добавлено dev26**; `metroport:metromod_light_decor_metro_lamp_abajur_2`.
 37. `decor_metro/lamp_halogen_1.m2033model` — Light: **добавлено dev26**; `metroport:metromod_light_decor_metro_lamp_halogen_1`.
 38. `decor_metro/lamp_industrt01_01.m2033model` — Light: **добавлено dev26**; `metroport:metromod_light_decor_metro_lamp_industrt01_01`.

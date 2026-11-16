@@ -15,6 +15,9 @@ import java.util.zip.GZIPInputStream;
 /** Original multi-material meshes. Each submesh has its own material, never one guessed atlas. */
 public final class OriginalGateRenderer extends TileEntitySpecialRenderer<OriginalGateTile> {
     private static final Map<String,Map<String,Integer>> LISTS=new HashMap<>();
+    // All draws run on the render thread; avoid a direct/native allocation for
+    // every part of every visible lamp/door on every frame.
+    private static final java.nio.FloatBuffer MATRIX=org.lwjgl.BufferUtils.createFloatBuffer(16);
     public static void reload() {
         for(Map<String,Integer> mesh:LISTS.values())for(int list:mesh.values())GLAllocation.deleteDisplayLists(list);
         LISTS.clear();
@@ -43,9 +46,9 @@ public final class OriginalGateRenderer extends TileEntitySpecialRenderer<Origin
                 GlStateManager.pushMatrix();
                 try {
                     double[] matrix=part.matrix(progress);
-                    java.nio.FloatBuffer buffer=org.lwjgl.BufferUtils.createFloatBuffer(16);
-                    for(int col=0;col<4;col++)for(int row=0;row<4;row++)buffer.put((float)matrix[row*4+col]);
-                    buffer.flip();GlStateManager.multMatrix(buffer);
+                    MATRIX.clear();
+                    for(int col=0;col<4;col++)for(int row=0;row<4;row++)MATRIX.put((float)matrix[row*4+col]);
+                    MATRIX.flip();GlStateManager.multMatrix(MATRIX);
                     for(Map.Entry<String,Integer> group:mesh(part.mesh).entrySet()) {
                         String texture=part.materials.get(group.getKey());
                         if(texture==null)throw new IllegalStateException("Missing original gate material "+group.getKey());

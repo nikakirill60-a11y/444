@@ -79,7 +79,7 @@ def verify(jar, results, source, run_url):
         if {p['id'] for p in profiles} != {'metromod_germo_'+str(n) for n in [1,2,4,5,6,9]}:
             raise ValueError('Wrong original gate catalogue')
         interactive=json.loads(archive.read('assets/metroport/metromod_interactive.json'))
-        if len(interactive)!=72 or len({p['id'] for p in interactive})!=72:raise ValueError('Wrong interactive catalogue')
+        if len(interactive)!=75 or len({p['id'] for p in interactive})!=75:raise ValueError('Wrong interactive catalogue')
         profiles+=interactive
         for profile in profiles:
             for part in profile['parts']:
@@ -115,7 +115,7 @@ def verify(jar, results, source, run_url):
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
             'included': ['MinETRO display name; saved-world namespace metroport unchanged',
-                         '78 of 112 tagged functional decor entries: 14 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 34 blocked entries explicitly excluded','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
+                         '81 of 112 tagged functional decor entries: 17 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 31 blocked entries explicitly excluded','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
                          '3 medical materials with original icons and donor stack limits; no invented healing', 'three donor-profile foods and bottled water; stack limit 8; completion-only server use',
@@ -124,7 +124,7 @@ def verify(jar, results, source, run_url):
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
-            'not_included': ['MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', '30 Inventory profiles: unconfirmed server behavior; germo7/germo8/l07_vorota: unresolved donor control vectors; mls_vorota_l06: missing add2; full donor GLSL pipeline', 'unconfirmed healing/bleeding effects',
+            'not_included': ['MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', '30 Inventory profiles: unconfirmed server behavior; mls_vorota_l06: missing add2; full donor GLSL pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}

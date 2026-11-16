@@ -137,9 +137,39 @@ class PoseReader:
         if len(candidates)!=1:raise ValueError('Ambiguous behavior constructor')
         self.call(component['class'],'<init>',candidates[0].descriptor.value,behavior,args)
         return behavior
+    def initialize_vectors(self,behavior):
+        # These three donor behaviors initialize endpoints in the lifecycle hook,
+        # not in their constructors. Read ONLY its exact literal-vector pattern;
+        # do not invoke its later world/redstone initialization call.
+        names={'null/ljjijiliiljIljlliiiIiljiIliIIjIj','null/llliljiiijjjIljjjIjIiIjljliljjji','null/jiIilIjjiIIjiliIiijiljjjlliilIIi'}
+        if behavior['class'] not in names:return
+        cf=self.cf(behavior['class'])
+        method=next(m for m in cf.methods if m.name.value=='IjiIliIlIllillljIIIiIjiljlIljlIl' and m.descriptor.value=='(L'+STATE+';)V')
+        ins=list(method.code.disassemble())
+        if len(ins)!=25 or [i.mnemonic for i in ins[:4]]!=['aload_1','getfield','ifnull','return'] or ins[2].pos+ins[2].operands[0].value!=ins[4].pos:
+            raise ValueError('Unrecognized lifecycle guard')
+        if [i.mnemonic for i in ins[20:]]!=['aload_0','aload_1','bipush','invokevirtual','return']:
+            raise ValueError('Unrecognized lifecycle tail')
+        for offset,field_name in [(4,'jjlliijIIIiIjIjiiIjijjIjIljjiiII'),(12,'jIIlljIIIjijjlljiIiIiljjjiIIlIIl')]:
+            chunk=ins[offset:offset+8]
+            if [i.mnemonic for i in chunk[:3]]!=['aload_0','new','dup'] or [i.mnemonic for i in chunk[6:]]!=['invokespecial','putfield']:
+                raise ValueError('Unrecognized vector initialization')
+            new=cf.constants[chunk[1].operands[0].value];ctor=cf.constants[chunk[6].operands[0].value];field=cf.constants[chunk[7].operands[0].value]
+            if new.name.value!=VECTOR or ctor.class_.name.value!=VECTOR or ctor.name_and_type.name.value!='<init>' or ctor.name_and_type.descriptor.value!='(FFF)V':raise ValueError('Not a literal vector constructor')
+            if field.class_.name.value!=behavior['class'] or field.name_and_type.name.value!=field_name or field.name_and_type.descriptor.value!='L'+VECTOR+';':raise ValueError('Unexpected vector target')
+            values=[]
+            for i in chunk[3:6]:
+                if i.mnemonic.startswith('fconst_'):values.append(float(i.mnemonic.split('_')[1]))
+                elif i.mnemonic=='ldc':
+                    value=cf.constants[i.operands[0].value].value
+                    if not isinstance(value,(float,int)) or not math.isfinite(value):raise ValueError('Non-scalar endpoint')
+                    values.append(value)
+                else:raise ValueError('Nonliteral endpoint')
+            behavior['fields'][field.class_.name.value+'.'+field_name]=vec(*values)
     def pose(self,component,model,t):
         self.matrix=IDENTITY[:];self.matrices=[];self.draws=[]
         behavior=self.construct(component,model)
+        self.initialize_vectors(behavior)
         state=obj(STATE);state['fields'][STATE+'.jiiliIIIljilIljijjIjijilIilIijll']=True
         state['fields'][STATE+'.iijljjIIlljIIjliljiilIjiiIiilIIl']=vec(t,t,t)
         state['fields'][STATE+'.IIiIIljjiiijIliIljjIiiijjjiillii']=bool(t)

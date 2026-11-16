@@ -11,9 +11,9 @@ COVERAGE=json.loads((ROOT/'reports/METRO_MOD/interactive_coverage.json').read_te
 
 class OriginalInteractiveTest(unittest.TestCase):
     def test_complete_accounting_including_blockers_not_silent_success(self):
-        self.assertEqual(112,COVERAGE['total']);self.assertEqual(78,COVERAGE['ported']);self.assertEqual(34,COVERAGE['blocked']);self.assertFalse(COVERAGE['all_functional_decor_ported'])
-        self.assertEqual(72,len(PROFILES));self.assertEqual(72,len({p['id'] for p in PROFILES}))
-        self.assertEqual({'Germo':8,'Door':27,'Lever':6,'Light':31},dict(collections.Counter(p['kind'] for p in PROFILES)))
+        self.assertEqual(112,COVERAGE['total']);self.assertEqual(81,COVERAGE['ported']);self.assertEqual(31,COVERAGE['blocked']);self.assertFalse(COVERAGE['all_functional_decor_ported'])
+        self.assertEqual(75,len(PROFILES));self.assertEqual(75,len({p['id'] for p in PROFILES}))
+        self.assertEqual({'Germo':11,'Door':27,'Lever':6,'Light':31},dict(collections.Counter(p['kind'] for p in PROFILES)))
         self.assertEqual({p['id'] for p in PROFILES},{r['id'] for r in COVERAGE['entries'] if r['status']=='ported'})
         self.assertTrue(all(r.get('reason') for r in COVERAGE['entries'] if r['status']=='blocked'))
     def test_mesh_material_texture_and_block_dependency_closure(self):
@@ -66,6 +66,14 @@ class OriginalInteractiveTest(unittest.TestCase):
         for path,data in before.items():
             self.assertEqual(data,path.read_bytes())
             for p in PROFILES:self.assertEqual(1,path.read_text().count('tile.metroport.'+p['id']+'.name='))
+    def test_lifecycle_endpoint_gates_are_present_and_animated(self):
+        indexed={p['source']:p for p in PROFILES}
+        for source,count in [('germo/germo7',3),('germo/germo8',3),('decor_metro/l07_vorota',4)]:
+            profile=indexed[source];self.assertEqual(count,len(profile['parts']))
+            self.assertTrue(any(part['moving'] for part in profile['parts']))
+        # Authored germo7 initial yaw -1.25 degrees plus endpoint -9 * 10.
+        leaf=indexed['germo/germo7']['parts'][1]
+        self.assertAlmostEqual(math.cos(math.radians(-91.25)),leaf['frames'][-1][0],places=7)
     def test_source_wiring_uses_same_matrix_for_render_and_collision(self):
         java=ROOT/'src/main/java/ru/metrocraft/port'
         self.assertIn('part.matrix(progress)',(java/'client/gates/OriginalGateRenderer.java').read_text())
