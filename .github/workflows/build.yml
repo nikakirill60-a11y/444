@@ -32,6 +32,23 @@ jobs:
         with:
           distribution: temurin
           java-version: '8'
+      - name: Fetch official Forge artifacts with retrying modern TLS client
+        shell: bash
+        run: |
+          set -euo pipefail
+          # FG3's legacy Java downloader can silently return null after a CDN
+          # connection reset. Populate its documented Maven cache via curl,
+          # validating each archive against the official SHA1 sidecar first.
+          directory="$HOME/.gradle/caches/forge_gradle/maven_downloader/net/minecraftforge/forge/1.12.2-14.23.5.2860"
+          mkdir -p "$directory"
+          for classifier in userdev3 universal sources; do
+            name="forge-1.12.2-14.23.5.2860-$classifier.jar"
+            url="https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/$name"
+            curl --fail --location --retry 4 --retry-all-errors --retry-delay 3 --connect-timeout 20 --max-time 120 "$url" -o "$directory/$name"
+            expected=$(curl --fail --location --retry 4 --retry-all-errors --retry-delay 3 --connect-timeout 20 --max-time 120 "$url.sha1")
+            printf '%s  %s\n' "$expected" "$directory/$name" | sha1sum --check --strict
+            unzip -tq "$directory/$name"
+          done
       - name: Build and reobfuscate for Forge
         shell: bash
         run: |
