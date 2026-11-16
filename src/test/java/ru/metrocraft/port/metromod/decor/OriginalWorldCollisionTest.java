@@ -61,6 +61,7 @@ public class OriginalWorldCollisionTest {
             }
         }
         AxisAlignedBB leaf() {
+            if(root.profile.donorDoor!=null)return root.doorBounds();
             return root.profile.boxes(root.getPos(),root.facing,0,true).stream().max(Comparator.comparingDouble(b->(b.maxX-b.minX)*(b.maxY-b.minY)+(b.maxZ-b.minZ)*(b.maxY-b.minY))).get();
         }
         Walker walk(boolean reverse) {

@@ -18,6 +18,7 @@ public final class OriginalGateProfile {
     public double ground;
     public double[] offset={0,0,0};
     public Part[] parts;
+    public DonorDoorCollision donorDoor;
     public static final class Part {
         public String mesh;
         public Map<String,String> materials;
@@ -61,6 +62,8 @@ public final class OriginalGateProfile {
                     if(fix.has("solid_parts"))for(Map.Entry<String,JsonElement> entry:fix.getAsJsonObject("solid_parts").entrySet())
                         p.parts[Integer.parseInt(entry.getKey())].boxes=new Gson().fromJson(entry.getValue(),double[][].class);
                 }
+                p.donorDoor=DonorDoorCollision.get(p.id);
+                if(p.is("Door") != (p.donorDoor!=null))throw new IOException("Missing/unexpected donor Door collision rule");
                 for(Part part:p.parts) {
                     if(part.move.length!=3 || part.boxes.length==0)throw new IOException("Invalid gate part");
                     if(part.frames!=null) {
@@ -121,12 +124,13 @@ public final class OriginalGateProfile {
         // Every pose extremum, not just endpoints: rotating leaves may swing outside both.
         int count=parts[0].frames==null?1:64;
         for(int i=0;i<=count;i++)for(AxisAlignedBB box:boxes(BlockPos.ORIGIN,facing,(float)i/count,false))result=result==null?box:result.union(box);
+        if(donorDoor!=null)result=result.union(donorDoor.bounds(this,BlockPos.ORIGIN,facing,null));
         localBounds.put(facing,result);return result.offset(pos);
     }
     /** Only cells touched NOW are blocks. Empty aperture/swing pocket stays air. */
     public List<BlockPos> occupied(BlockPos pos,EnumFacing facing,float progress) {
         LinkedHashSet<BlockPos> cells=new LinkedHashSet<>();cells.add(pos.toImmutable());
-        for(AxisAlignedBB box:boxes(pos,facing,progress,false)) {
+        for(AxisAlignedBB box:donorDoor==null?boxes(pos,facing,progress,false):Collections.singletonList(donorDoor.bounds(this,pos,facing,null))) {
             for(int x=MathHelper.floor(box.minX+1e-7);x<Math.ceil(box.maxX-1e-7);x++)
                 for(int y=MathHelper.floor(box.minY+1e-7);y<Math.ceil(box.maxY-1e-7);y++)
                     for(int z=MathHelper.floor(box.minZ+1e-7);z<Math.ceil(box.maxZ-1e-7);z++)cells.add(new BlockPos(x,y,z));

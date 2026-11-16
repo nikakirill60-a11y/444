@@ -20,12 +20,15 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     public boolean ready, removing, updatingParts;
     private boolean layoutReady;
     private boolean powered, blocked, manual;
+    private double[] customDoorBounds;
+    private static final String[] AABB_KEYS={"aabb_minx","aabb_miny","aabb_minz","aabb_maxx","aabb_maxy","aabb_maxz"};
     public boolean enabled() { return ready && (manual || powered); }
     public int output() { return ready && profile.is("Lever") && manual?15:0; }
     public boolean activate(net.minecraft.entity.player.EntityPlayer player) {
         if(!ready || removing || profile.is("Germo") || player.isSpectator())return false;
         if(world.isRemote)return true;
         if(!world.isBlockModifiable(player,pos) || !player.canPlayerEdit(pos,EnumFacing.UP,player.getHeldItemMainhand()))return false;
+        if(profile.donorDoor!=null && manual && !powered && !canCloseDoor())return false;
         manual=!manual;markDirty();sync();notifyFunctionalChange();
         return true;
     }
@@ -42,7 +45,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     private float cachedProgress=-1;
 
     public void configure(UUID id,OriginalGateProfile type,EnumFacing direction) {
-        owner=id;profile=type;facing=direction;progress=previous=0;
+        owner=id;profile=type;facing=direction;progress=previous=0;customDoorBounds=null;
         powered=blocked=manual=ready=removing=false;layoutReady=true;invalidateGeometry();markDirty();OriginalDecorCollisions.track(this);
     }
     @Override public void onLoad() { super.onLoad();OriginalDecorCollisions.track(this); }
@@ -68,11 +71,14 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         Set<BlockPos> keep=new HashSet<>(wanted);
         for(BlockPos cell:wanted) {
             if(!world.isBlockLoaded(cell) || cell.getY()<0 || cell.getY()>=world.getHeight() || !world.getWorldBorder().contains(cell))return false;
-            if(!cell.equals(pos) && !owns(cell) && !world.isAirBlock(cell))return false;
+            if(profile.donorDoor==null && !cell.equals(pos) && !owns(cell) && !world.isAirBlock(cell))return false;
         }
         List<BlockPos> added=new ArrayList<>();updatingParts=true;
         try {
             for(BlockPos cell:wanted)if(!cell.equals(pos) && !owns(cell)) {
+                // Door proxies serve selection only. Never overwrite a real block
+                // built while the door was activated, or adopt another UUID.
+                if(profile.donorDoor!=null && !world.isAirBlock(cell))continue;
                 if(!world.setBlockState(cell,OriginalGates.PART.getDefaultState(),2)) {
                     for(BlockPos undo:added)if(owns(undo))world.setBlockToAir(undo);
                     return false;
@@ -109,7 +115,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
             List<BlockPos> current=occupied();
             for(BlockPos cell:current) {
                 if(!world.isBlockLoaded(cell)) {blocked=true;soundDirection=0;sync();return;}
-                if(layoutReady && !cell.equals(pos) && !owns(cell)) {world.destroyBlock(pos,true);return;}
+                if(profile.donorDoor==null && layoutReady && !cell.equals(pos) && !owns(cell)) {world.destroyBlock(pos,true);return;}
             }
             if(!layoutReady) {
                 if(!fitParts(progress)) {blocked=true;sync();return;}
@@ -117,6 +123,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
             }
             boolean signal=false;
             for(BlockPos cell:current)if(!profile.is("Lever"))signal |= world.isBlockPowered(cell);
+            if(profile.donorDoor!=null && !signal && powered && !manual && !canCloseDoor())signal=true;
             if(signal!=powered) {powered=signal;markDirty();sync();if(profile.is("Light"))notifyFunctionalChange();}
         }
         float target=(manual || powered)?1:0;
@@ -142,6 +149,9 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     }
     /** One broad-phase entity query; exact conservative moving boxes, including the tick's sweep. */
     public boolean blockedBetween(float from,float to) {
+        // Original Door collision depends on activation, NOT the animated leaf.
+        // Cosmetic swings must not be stopped by walls or invisible render bounds.
+        if(profile.donorDoor!=null)return false;
         List<AxisAlignedBB> before=profile.boxes(pos,facing,from,true),after=profile.boxes(pos,facing,to,true);
         List<AxisAlignedBB> swept=new ArrayList<>();AxisAlignedBB bounds=null;
         // At an internal pose boundary a rotating corner can exceed BOTH tick
@@ -190,7 +200,30 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
                     && pos.equals(((OriginalGatePartTile)tile).origin))world.setBlockToAir(cell);
         }
     }
+    public AxisAlignedBB doorBounds() {
+        return profile.donorDoor.bounds(profile,pos,facing,customDoorBounds);
+    }
+    /** Safety adapter for closing into an existing block/player. It is intentionally
+     * separate from the donor AABB rule; never push/delete foreign world blocks.
+     */
+    private boolean canCloseDoor() {
+        AxisAlignedBB bounds=doorBounds();
+        for(BlockPos cell:BlockPos.getAllInBox(new BlockPos(bounds.minX+1e-7,bounds.minY+1e-7,bounds.minZ+1e-7),
+                new BlockPos(bounds.maxX-1e-7,bounds.maxY-1e-7,bounds.maxZ-1e-7))) {
+            if(!world.isBlockLoaded(cell))return false;
+            if(owns(cell))continue;
+            List<AxisAlignedBB> hits=new ArrayList<>();
+            world.getBlockState(cell).addCollisionBoxToList(world,cell,bounds,hits,null,false);
+            if(!hits.isEmpty())return false;
+        }
+        for(Entity entity:world.getEntitiesWithinAABBExcludingEntity(null,bounds))
+            if(entity.isEntityAlive() && !entity.noClip && !(entity instanceof net.minecraft.entity.player.EntityPlayer
+                    && ((net.minecraft.entity.player.EntityPlayer)entity).isSpectator())
+                    && entity.getEntityBoundingBox().intersects(bounds))return false;
+        return true;
+    }
     public List<AxisAlignedBB> collisionBoxes() {
+        if(profile.donorDoor!=null)return enabled()?Collections.emptyList():Collections.singletonList(doorBounds());
         if(cachedBoxes==null || cachedProgress!=progress) {
             cachedBoxes=profile.boxes(pos,facing,progress,false);cachedProgress=progress;
         }
@@ -205,7 +238,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     public RayTraceResult rayTrace(BlockPos cell,Vec3d start,Vec3d end) {
         RayTraceResult closest=null;double distance=Double.POSITIVE_INFINITY;
         AxisAlignedBB cellBox=new AxisAlignedBB(cell);
-        for(AxisAlignedBB box:collisionBoxes())if(box.intersects(cellBox)) {
+        for(AxisAlignedBB box:profile.donorDoor==null?collisionBoxes():Collections.singletonList(doorBounds()))if(box.intersects(cellBox)) {
             RayTraceResult hit=box.intersect(cellBox).calculateIntercept(start,end);
             if(hit!=null && hit.hitVec.squareDistanceTo(start)<distance) {
                 distance=hit.hitVec.squareDistanceTo(start);closest=new RayTraceResult(hit.hitVec,hit.sideHit,cell);
@@ -213,12 +246,16 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         }
         return closest;
     }
-    @Override public AxisAlignedBB getRenderBoundingBox() { return profile.bounds(pos,facing); }
+    @Override public AxisAlignedBB getRenderBoundingBox() {
+        AxisAlignedBB bounds=profile.bounds(pos,facing);
+        return profile.donorDoor==null?bounds:bounds.union(doorBounds());
+    }
     @Override public double getMaxRenderDistanceSquared() { return 16384; }
     @Override public NBTTagCompound writeToNBT(NBTTagCompound tag) {
         super.writeToNBT(tag);if(owner!=null)tag.setUniqueId("Owner",owner);
         tag.setString("Profile",profile.id);tag.setInteger("Facing",facing.getHorizontalIndex());
-        tag.setFloat("Progress",OriginalGateProfile.clamp(progress));tag.setBoolean("Ready",ready);tag.setInteger("LayoutVersion",layoutReady?2:0);
+        tag.setFloat("Progress",OriginalGateProfile.clamp(progress));tag.setBoolean("Ready",ready);tag.setInteger("LayoutVersion",layoutReady?(profile.donorDoor==null?2:3):0);
+        if(customDoorBounds!=null)for(int i=0;i<6;i++)tag.setDouble(AABB_KEYS[i],customDoorBounds[i]);
         tag.setBoolean("Manual",manual);
         tag.setBoolean("Powered",powered);tag.setBoolean("Blocked",blocked);return tag;
     }
@@ -230,7 +267,13 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         previous=progress=OriginalGateProfile.clamp(tag.getFloat("Progress"));
         ready=tag.getBoolean("Ready");powered=tag.getBoolean("Powered");blocked=tag.getBoolean("Blocked");
         manual=tag.getBoolean("Manual");
-        layoutReady=tag.getInteger("LayoutVersion")>=2;needsPartSync=true;removing=false;invalidateGeometry();OriginalDecorCollisions.track(this);
+        customDoorBounds=null;
+        if(profile.donorDoor!=null && tag.hasKey(AABB_KEYS[0],99)) {
+            double[] candidate=new double[6];boolean complete=true;
+            for(int i=0;i<6;i++){complete &= tag.hasKey(AABB_KEYS[i],99);candidate[i]=tag.getDouble(AABB_KEYS[i]);}
+            if(complete && DonorDoorCollision.valid(candidate))customDoorBounds=candidate;
+        }
+        layoutReady=tag.getInteger("LayoutVersion")>=(profile.donorDoor==null?2:3);needsPartSync=true;removing=false;invalidateGeometry();OriginalDecorCollisions.track(this);
     }
     @Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }
     @Override public SPacketUpdateTileEntity getUpdatePacket() { return new SPacketUpdateTileEntity(pos,0,getUpdateTag()); }

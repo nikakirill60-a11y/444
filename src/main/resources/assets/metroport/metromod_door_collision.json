@@ -1,0 +1,571 @@
+{
+  "metromod_door_constr_metal_grate1_door": {
+    "models": [
+      [
+        -0.01600000075995922,
+        -0.0,
+        -0.09700000286102295,
+        1.2400000095367432,
+        2.4000000953674316,
+        0.01759999990463257
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "constr_metal/grate1_door.m2033model"
+  },
+  "metromod_door_door_d6_gate_platform_": {
+    "models": [
+      [
+        -0.15000000596046448,
+        0.0,
+        -2.2471001148223877,
+        0.15000000596046448,
+        2.0632998943328857,
+        2.238800048828125
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/jililjllIIllIijIljlliiiljllIijjj",
+    "source": "door/d6_gate_platform_.m2033model"
+  },
+  "metromod_door_door_door_hran": {
+    "models": [
+      [
+        0.012600000016391277,
+        0.0,
+        -0.17499999701976776,
+        1.6230000257492065,
+        2.865000009536743,
+        0.17499999701976776
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/door_hran.m2033model"
+  },
+  "metromod_door_door_door_l00_hospital": {
+    "models": [
+      [
+        0.00279999990016222,
+        0.03200000151991844,
+        -0.08619999885559082,
+        1.5707000494003296,
+        2.9925999641418457,
+        0.08380000293254852
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/IiijjiIjIlllIIIjiIjllilIljIjjlII",
+    "source": "door/door_l00_hospital.m2033model"
+  },
+  "metromod_door_door_l17_door_closed": {
+    "models": [
+      [
+        -0.10209999978542328,
+        -0.014800000004470348,
+        -1.795799970626831,
+        0.07519999891519547,
+        3.4600000381469727,
+        0.11559999734163284
+      ],
+      [
+        -0.0925000011920929,
+        -0.013799999840557575,
+        -1.7009999752044678,
+        0.10209999978542328,
+        3.394700050354004,
+        0.02459999918937683
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii",
+    "source": "door/l17_door_closed.m2033model"
+  },
+  "metromod_door_door_l17_door_gate": {
+    "models": [
+      [
+        -0.10209999978542328,
+        -0.023600000888109207,
+        -1.8115999698638916,
+        0.07519999891519547,
+        3.3403000831604004,
+        0.0997999981045723
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/jIjiIliiIljIlIlIIIjlljjliIjIIIij",
+    "source": "door/l17_door_gate.m2033model"
+  },
+  "metromod_door_door_l21_clap_door": {
+    "models": [
+      [
+        0.01209999993443489,
+        0.18019999563694,
+        -0.011300000362098217,
+        0.050999999046325684,
+        2.3519999980926514,
+        -0.0012000000569969416
+      ],
+      [
+        -0.9646000266075134,
+        0.0,
+        -0.04910000041127205,
+        0.01759999990463257,
+        2.6424999237060547,
+        0.11270000040531158
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/jIjlIijiIIiIjiilIjjiIjIijjjIjiII",
+    "source": "door/l21_clap_door.m2033model"
+  },
+  "metromod_door_door_l21_level_doors02": {
+    "models": [
+      [
+        -1.278499960899353,
+        -0.008200000040233135,
+        -0.08219999819993973,
+        0.020500000566244125,
+        2.395699977874756,
+        0.12120000272989273
+      ],
+      [
+        -1.2444000244140625,
+        -0.002300000051036477,
+        -0.12120000272989273,
+        -0.012500000186264515,
+        2.3645999431610107,
+        0.10890000313520432
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii",
+    "source": "door/l21_level_doors02.m2033model"
+  },
+  "metromod_door_door_l21_level_doors03": {
+    "models": [
+      [
+        -1.2711000442504883,
+        -0.008200000040233135,
+        -0.08470000326633453,
+        0.027899999171495438,
+        2.395699977874756,
+        0.11879999935626984
+      ],
+      [
+        -1.232800006866455,
+        0.00989999994635582,
+        -0.11879999935626984,
+        -0.0032999999821186066,
+        2.3736000061035156,
+        0.05590000003576279
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii",
+    "source": "door/l21_level_doors03.m2033model"
+  },
+  "metromod_door_door_l21_level_doors04": {
+    "models": [
+      [
+        -1.0532000064849854,
+        -0.000699999975040555,
+        -0.12849999964237213,
+        -0.002899999963119626,
+        2.3454999923706055,
+        0.10649999976158142
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/l21_level_doors04.m2033model"
+  },
+  "metromod_door_door_ostankino_door": {
+    "models": [
+      [
+        0.0,
+        0.0,
+        -0.1534000039100647,
+        1.392199993133545,
+        2.3954999446868896,
+        0.1534000039100647
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/ostankino_door.m2033model"
+  },
+  "metromod_door_fence_kalitka_01": {
+    "models": [
+      [
+        -0.1574999988079071,
+        -0.00039999998989515007,
+        -0.058800000697374344,
+        1.2730000019073486,
+        1.3279000520706177,
+        0.050700001418590546
+      ],
+      [
+        0.005400000140070915,
+        0.16210000216960907,
+        -0.09600000083446503,
+        1.1151000261306763,
+        1.274999976158142,
+        0.04820000007748604
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii",
+    "source": "fence/kalitka_01.m2033model"
+  },
+  "metromod_door_house_small_door": {
+    "models": [
+      [
+        0.0019000000320374966,
+        0.0003000000142492354,
+        -0.0,
+        1.0123000144958496,
+        1.4910999536514282,
+        0.02979999966919422
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "house/small_door.m2033model"
+  },
+  "metromod_door_props_library_wood_door": {
+    "models": [
+      [
+        -0.08460000157356262,
+        9.999999747378752e-05,
+        -0.016200000420212746,
+        0.046300001442432404,
+        2.827199935913086,
+        1.5118000507354736
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "props_library/wood_door.m2033model"
+  },
+  "metromod_door_door_biblio_door_chit_zal_left": {
+    "models": [
+      [
+        -1.5377919673919678,
+        0.008465000428259373,
+        -0.24452699720859528,
+        0.017323000356554985,
+        6.113964080810547,
+        0.07315000146627426
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/biblio_door_chit_zal_left.m2033model"
+  },
+  "metromod_door_door_biblio_door_chit_zal_right": {
+    "models": [
+      [
+        -0.01665399968624115,
+        0.008465000428259373,
+        -0.24366100132465363,
+        1.5050359964370728,
+        6.113964080810547,
+        0.07397600263357162
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/biblio_door_chit_zal_right.m2033model"
+  },
+  "metromod_door_door_biblio_door_hall_razlom_left": {
+    "models": [
+      [
+        -0.02055099979043007,
+        0.0,
+        -0.08834599703550339,
+        1.070628046989441,
+        4.295936107635498,
+        0.014213000424206257
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/biblio_door_hall_razlom_left.m2033model"
+  },
+  "metromod_door_door_biblio_door_hall_razlom_right": {
+    "models": [
+      [
+        -1.0781869888305664,
+        0.0,
+        -0.09377899765968323,
+        0.014449000358581543,
+        4.295581817626953,
+        0.012875000014901161
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/biblio_door_hall_razlom_right.m2033model"
+  },
+  "metromod_door_door_biblio_door_razlom": {
+    "models": [
+      [
+        -0.21751900017261505,
+        0.0,
+        -1.6137759685516357,
+        0.1379919946193695,
+        2.8360180854797363,
+        0.02555200085043907
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/biblio_door_razlom.m2033model"
+  },
+  "metromod_door_door_door_2_left": {
+    "models": [
+      [
+        -0.016259999945759773,
+        0.0018500000005587935,
+        -0.01535400003194809,
+        1.070863962173462,
+        4.289715766906738,
+        0.10413400083780289
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/door_2_left.m2033model"
+  },
+  "metromod_door_door_door_2_right": {
+    "models": [
+      [
+        -1.0704699754714966,
+        0.0018500000005587935,
+        -0.015433000400662422,
+        0.015196999534964561,
+        4.289715766906738,
+        0.10476399958133698
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "door/door_2_right.m2033model"
+  },
+  "metromod_door_structure_d6_door_02": {
+    "models": [
+      [
+        -0.043699998408555984,
+        -0.847100019454956,
+        -0.3801000118255615,
+        0.024299999698996544,
+        0.8587999939918518,
+        0.03310000151395798
+      ],
+      [
+        -0.24040000140666962,
+        -1.2467000484466553,
+        0.02539999969303608,
+        0.11069999635219574,
+        1.2462999820709229,
+        1.639299988746643
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii",
+    "source": "structure/d6_door_02.m2033model"
+  },
+  "metromod_door_structure_gates_01": {
+    "models": [
+      [
+        -0.16030000150203705,
+        -0.00039999998989515007,
+        -2.251800060272217,
+        0.1606999933719635,
+        2.071000099182129,
+        2.251499891281128
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/jililjllIIllIijIljlliiiljllIijjj",
+    "source": "structure/gates_01.m2033model"
+  },
+  "metromod_door_structure_l13_reshetka_skin": {
+    "models": [
+      [
+        -0.009399999864399433,
+        -0.0010999999940395355,
+        -0.10260000079870224,
+        2.031399965286255,
+        2.1092000007629395,
+        0.10220000147819519
+      ]
+    ],
+    "grow": [
+      0,
+      0,
+      0
+    ],
+    "behavior": "null/iiiIIlilijlllijjljIIiIjiIijIjjll",
+    "source": "structure/l13_reshetka_skin.m2033model"
+  },
+  "metromod_door_structure_l19_polis_door": {
+    "models": [
+      [
+        -1.5456000566482544,
+        -0.010300000198185444,
+        -0.051100000739097595,
+        1.5460000038146973,
+        2.712899923324585,
+        0.06620000302791595
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/IIIllijilijIjlIllIIjijIjIjiljIjj",
+    "source": "structure/l19_polis_door.m2033model"
+  },
+  "metromod_door_structure_reshetka_02": {
+    "models": [
+      [
+        -0.07500000298023224,
+        0.0,
+        -1.7444000244140625,
+        0.07540000230073929,
+        4.668000221252441,
+        0.11620000004768372
+      ],
+      [
+        -0.05400000140070915,
+        0.2750000059604645,
+        -1.2091000080108643,
+        0.008100000210106373,
+        2.528700113296509,
+        0.01590000092983246
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/iIIlIiIjIlIiiiiIjjIiiIijjjlIIIii",
+    "source": "structure/reshetka_02.m2033model"
+  },
+  "metromod_door_structure_vorota_l03": {
+    "models": [
+      [
+        -2.279400110244751,
+        0.019099999219179153,
+        -0.6341999769210815,
+        2.0892999172210693,
+        3.18530011177063,
+        0.05400000140070915
+      ]
+    ],
+    "grow": [
+      1,
+      0,
+      1
+    ],
+    "behavior": "null/jiiIIjlIilIiilljjiiljjjIIjijjill",
+    "source": "structure/vorota_l03.m2033model"
+  }
+}

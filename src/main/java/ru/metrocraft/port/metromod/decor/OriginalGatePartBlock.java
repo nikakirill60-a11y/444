@@ -64,12 +64,12 @@ public final class OriginalGatePartBlock extends Block {
     @Override public boolean isReplaceable(IBlockAccess world,BlockPos pos) {
         if(!(world instanceof World))return false;
         OriginalGateTile root=OriginalGates.controller((World)world,pos);
-        return root!=null && !root.occupied().contains(pos);
+        return root!=null && (root.profile.donorDoor!=null?root.enabled():!root.occupied().contains(pos));
     }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);
         // Only the controller drops an item. Parts never multiply gate drops.
-        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null && tile.ready && !tile.removing && !tile.updatingParts && tile.occupied().contains(pos)) world.destroyBlock(tile.getPos(), true);
+        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null && tile.ready && !tile.removing && !tile.updatingParts && tile.occupied().contains(pos) && (tile.profile.donorDoor==null || !tile.enabled())) world.destroyBlock(tile.getPos(), true);
         super.breakBlock(world, pos, state);
     }
 }

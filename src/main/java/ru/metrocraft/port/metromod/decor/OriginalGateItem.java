@@ -34,7 +34,8 @@ public final class OriginalGateItem extends ItemBlock {
             }
         }
         // No building a closed gate through another player/mob.
-        for (net.minecraft.util.math.AxisAlignedBB box : gate.profile.boxes(origin, facing, 0, false))
+        for (net.minecraft.util.math.AxisAlignedBB box : gate.profile.donorDoor==null?gate.profile.boxes(origin, facing, 0, false)
+                :java.util.Collections.singletonList(gate.profile.donorDoor.bounds(gate.profile,origin,facing,null)))
             if (!world.checkNoEntityCollision(box)) return EnumActionResult.FAIL;
         if (world.isRemote) return EnumActionResult.SUCCESS;
         UUID owner = UUID.randomUUID();
