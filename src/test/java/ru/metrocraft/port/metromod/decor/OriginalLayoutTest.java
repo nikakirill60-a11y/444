@@ -23,7 +23,7 @@ public class OriginalLayoutTest {
         root.configure(UUID.randomUUID(),OriginalGateProfile.get("metromod_germo_1"),EnumFacing.SOUTH);root.setWorld(mock(World.class));root.ready=true;
         grid=new OriginalDecorTestWorld(root);
     }
-    private void open() {when(grid.world.isBlockPowered(root.getPos())).thenReturn(true);for(int i=0;i<70;i++)root.update();assertEquals(1,root.progress,0);}
+    private void open() {when(grid.world.isBlockPowered(root.getPos())).thenReturn(true);for(int i=0;i<650;i++)root.update();assertEquals(1,root.progress,0);}
     @Test public void onlyCurrentGeometryNotTheWholeSwingPocketIsOccupied() {
         assertTrue(root.occupied().size()<root.footprint().size());
         for(BlockPos cell:root.footprint())if(!root.occupied().contains(cell))assertTrue(grid.world.isAirBlock(cell));
@@ -31,13 +31,13 @@ public class OriginalLayoutTest {
     @Test public void openingReleasesApertureForRealBuildingBlocks() {
         BlockPos aperture=root.getPos().up();assertFalse(grid.world.isAirBlock(aperture));open();assertTrue(grid.world.isAirBlock(aperture));
         grid.states.put(aperture,Blocks.STONE.getDefaultState());when(grid.world.isBlockPowered(root.getPos())).thenReturn(false);
-        for(int i=0;i<100;i++)root.update();assertTrue(root.progress>0);assertEquals(Blocks.STONE,grid.states.get(aperture).getBlock());
-        grid.states.remove(aperture);for(int i=0;i<100;i++)root.update();assertEquals(0,root.progress,0);
+        for(int i=0;i<650;i++)root.update();assertTrue(root.progress>0);assertEquals(Blocks.STONE,grid.states.get(aperture).getBlock());
+        grid.states.remove(aperture);for(int i=0;i<650;i++)root.update();assertEquals(0,root.progress,0);
     }
-    @Test public void aBlockInTheFuturePocketStopsMotionWithoutBeingDeleted() {
+    @Test public void renderPocketDoesNotReserveInvisibleModelCollision() {
         BlockPos obstacle=root.getPos().up(5);assertTrue(root.footprint().contains(obstacle));assertFalse(root.occupied().contains(obstacle));
         grid.states.put(obstacle,Blocks.STONE.getDefaultState());when(grid.world.isBlockPowered(root.getPos())).thenReturn(true);
-        for(int i=0;i<100;i++)root.update();assertTrue(root.progress<1);assertEquals(Blocks.STONE,grid.states.get(obstacle).getBlock());
+        for(int i=0;i<650;i++)root.update();assertEquals(1,root.progress,0);assertEquals(Blocks.STONE,grid.states.get(obstacle).getBlock());
         assertSame(root,grid.tiles.get(root.getPos()));verify(grid.world,never()).destroyBlock(root.getPos(),true);
     }
     @Test public void closedPanelHasNoWalkableSurfaceHoles() {
@@ -54,9 +54,9 @@ public class OriginalLayoutTest {
         verify(grid.world,never()).destroyBlock(root.getPos(),true);
     }
     @Test public void failedNewProxyInstallationRollsBackWithoutReleasingOldCells() {
-        Set<BlockPos> before=new HashSet<>(grid.states.keySet());List<BlockPos> added=root.profile.occupied(root.getPos(),root.facing,1);added.removeAll(before);
+        open();Set<BlockPos> before=new HashSet<>(grid.states.keySet());List<BlockPos> added=root.profile.occupied(root.getPos(),root.facing,0);added.removeAll(before);
         assertTrue(added.size()>2);when(grid.world.setBlockState(eq(added.get(2)),eq(OriginalGates.PART.getDefaultState()),anyInt())).thenReturn(false);
-        assertFalse(root.fitParts(1));assertEquals(before,grid.states.keySet());assertEquals(0,root.progress,0);
+        assertFalse(root.fitParts(0));assertEquals(before,grid.states.keySet());assertEquals(1,root.progress,0);
     }
     @Test public void legacyFullPrismMigratesWithoutRemovingPlayerBlocks() {
         BlockPos future=root.getPos().up(5);BlockPos foreign=root.getPos().east(2).up(5);
@@ -66,13 +66,13 @@ public class OriginalLayoutTest {
         }
         grid.tiles.remove(foreign);grid.states.put(foreign,Blocks.STONE.getDefaultState());
         NBTTagCompound old=root.writeToNBT(new NBTTagCompound());old.removeTag("LayoutVersion");root.readFromNBT(old);root.update();
-        assertTrue(grid.world.isAirBlock(future));assertEquals(Blocks.STONE,grid.states.get(foreign).getBlock());assertEquals(2,root.writeToNBT(new NBTTagCompound()).getInteger("LayoutVersion"));
+        assertTrue(grid.world.isAirBlock(future));assertEquals(Blocks.STONE,grid.states.get(foreign).getBlock());assertEquals(4,root.writeToNBT(new NBTTagCompound()).getInteger("LayoutVersion"));
         verify(grid.world,never()).destroyBlock(root.getPos(),true);
     }
     @Test public void unloadedDestinationPausesWithoutCreatingOrDeletingBlocks() {
-        BlockPos future=root.profile.occupied(root.getPos(),root.facing,1).stream().filter(p->!root.occupied().contains(p)).findFirst().get();
+        open();BlockPos future=root.profile.occupied(root.getPos(),root.facing,0).stream().filter(p->!root.occupied().contains(p)).findFirst().get();
         when(grid.world.isBlockLoaded(future)).thenReturn(false);Set<BlockPos> before=new HashSet<>(grid.states.keySet());
-        assertFalse(root.fitParts(1));assertEquals(before,grid.states.keySet());
+        assertFalse(root.fitParts(0));assertEquals(before,grid.states.keySet());
     }
     @Test public void eachLeverFollowsClickedWallFaceNotPlayerYaw() {
         for(OriginalGateProfile profile:OriginalGateProfile.all())if(profile.is("Lever"))for(EnumFacing face:EnumFacing.Plane.HORIZONTAL) {

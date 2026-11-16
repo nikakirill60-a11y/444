@@ -1,3 +1,7 @@
+> Текущий этап: **17 Germo подключены в исходниках к World-адаптеру**.
+> См. [GERMO_WORLD_ADAPTER_RU.md](GERMO_WORLD_ADAPTER_RU.md).
+> Forge-сборка/JUnit и gameplay ещё требуют проверки; ниже — история этапов.
+
 # Коллизии из client.jar: состояние переноса
 
 Донор: `client.jar`, SHA256 `66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc`.

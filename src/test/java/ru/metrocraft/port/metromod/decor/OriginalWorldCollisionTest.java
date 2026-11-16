@@ -62,7 +62,7 @@ public class OriginalWorldCollisionTest {
         }
         AxisAlignedBB leaf() {
             if(root.profile.donorDoor!=null)return root.doorBounds();
-            return root.profile.boxes(root.getPos(),root.facing,0,true).stream().max(Comparator.comparingDouble(b->(b.maxX-b.minX)*(b.maxY-b.minY)+(b.maxZ-b.minZ)*(b.maxY-b.minY))).get();
+            return root.profile.initialPhysics(root.getPos(),root.facing,0).stream().max(Comparator.comparingDouble(b->(b.maxX-b.minX)*(b.maxY-b.minY)+(b.maxZ-b.minZ)*(b.maxY-b.minY))).get();
         }
         Walker walk(boolean reverse) {
             AxisAlignedBB leaf=leaf();boolean alongX=leaf.maxX-leaf.minX<leaf.maxZ-leaf.minZ;
@@ -106,7 +106,7 @@ public class OriginalWorldCollisionTest {
         assertTrue(scene.walk(false).collidedHorizontally);
     }
     @Test public void openedApertureReallyAllowsEntityMoveAndStonePlacement() throws Exception {
-        Scene scene=new Scene(gate(),EnumFacing.SOUTH,false,false);scene.root.progress=1;assertTrue(scene.root.fitParts(1));
+        Scene scene=new Scene(gate(),EnumFacing.SOUTH,false,false);OriginalDecorTestWorld.pose(scene.root,1);assertTrue(scene.root.fitParts(1));
         assertFalse(scene.walk(false).collidedHorizontally);
         BlockPos aperture=scene.root.getPos().up();assertTrue(scene.grid.world.isAirBlock(aperture));
         scene.grid.states.put(aperture,Blocks.STONE.getDefaultState());
@@ -114,7 +114,7 @@ public class OriginalWorldCollisionTest {
     }
     @Test public void serverAndClientWithSamePositionAndUuidDoNotShareProgress() throws Exception {
         Scene server=new Scene(gate(),EnumFacing.SOUTH,false,false),client=new Scene(gate(),EnumFacing.SOUTH,true,true);
-        client.root.owner=server.root.owner;client.root.progress=1;
+        client.root.owner=server.root.owner;OriginalDecorTestWorld.pose(client.root,1);
         assertTrue(server.walk(false).collidedHorizontally);assertFalse(client.walk(false).collidedHorizontally);
     }
     @Test public void loadedPendingProxyCanResolveOnlyItsActualController() throws Exception {
@@ -153,7 +153,7 @@ public class OriginalWorldCollisionTest {
         Scene scene=new Scene(gate(),EnumFacing.SOUTH,true,false);BlockPos panel=scene.root.getPos().up();
         assertNotNull(OriginalGates.PART.getCollisionBoundingBox(OriginalGates.PART.getDefaultState(),scene.grid.world,panel));
         assertFalse(OriginalGates.PART.isPassable(scene.grid.world,panel));
-        scene.root.progress=1;
+        OriginalDecorTestWorld.pose(scene.root,1);
         assertNull(OriginalGates.PART.getCollisionBoundingBox(OriginalGates.PART.getDefaultState(),scene.grid.world,panel));assertTrue(OriginalGates.PART.isReplaceable(scene.grid.world,panel));
         OriginalGates.PART.breakBlock(scene.grid.world,panel,OriginalGates.PART.getDefaultState());verify(scene.grid.world,never()).destroyBlock(scene.root.getPos(),true);
     }

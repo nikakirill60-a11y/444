@@ -38,8 +38,13 @@ jobs:
           mkdir -p .cache/germo-check
           javac -source 8 -target 8 -d .cache/germo-check \
             src/main/java/ru/metrocraft/port/metromod/decor/DonorGermoBlockRules.java \
+            src/main/java/ru/metrocraft/port/metromod/decor/DonorGermoMotion.java \
+            src/main/java/ru/metrocraft/port/metromod/decor/DonorGermoCoordinates.java \
+            src/test/java/ru/metrocraft/port/metromod/decor/DonorGermoMotionCheck.java \
             src/test/java/ru/metrocraft/port/metromod/decor/DonorGermoStandaloneCheck.java
           java -cp .cache/germo-check ru.metrocraft.port.metromod.decor.DonorGermoStandaloneCheck \
+            src/test/resources/metromod_germo_callbacks.tsv
+          java -cp .cache/germo-check ru.metrocraft.port.metromod.decor.DonorGermoMotionCheck \
             src/test/resources/metromod_germo_callbacks.tsv
       - uses: actions/cache/restore@v4
         id: forge-cache

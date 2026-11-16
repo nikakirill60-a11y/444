@@ -11,6 +11,12 @@ import static org.mockito.Mockito.*;
 
 /** Mutable proxy-block world: movement must actually add/release cells in tests. */
 final class OriginalDecorTestWorld {
+    /** Explicit legacy migration fixture. Setting cosmetic progress alone must
+     * never be able to replace a current donor collision snapshot. */
+    static void pose(OriginalGateTile root,float progress) {
+        net.minecraft.nbt.NBTTagCompound tag=root.writeToNBT(new net.minecraft.nbt.NBTTagCompound());
+        tag.removeTag("DonorGermo");tag.setInteger("LayoutVersion",0);tag.setFloat("Progress",progress);root.readFromNBT(tag);
+    }
     final Map<BlockPos,TileEntity> tiles=new HashMap<>();
     final Map<BlockPos,IBlockState> states=new HashMap<>();
     final World world;

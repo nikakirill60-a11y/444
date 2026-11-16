@@ -19,6 +19,7 @@ public final class OriginalGateProfile {
     public double[] offset={0,0,0};
     public Part[] parts;
     public DonorDoorCollision donorDoor;
+    public DonorGermoCollision donorGermo;
     public static final class Part {
         public String mesh;
         public Map<String,String> materials;
@@ -63,6 +64,8 @@ public final class OriginalGateProfile {
                         p.parts[Integer.parseInt(entry.getKey())].boxes=new Gson().fromJson(entry.getValue(),double[][].class);
                 }
                 p.donorDoor=DonorDoorCollision.get(p.id);
+                p.donorGermo=DonorGermoCollision.get(p.id);
+                if(p.is("Germo") != (p.donorGermo!=null))throw new IOException("Missing/unexpected donor Germo rule");
                 if(p.is("Door") != (p.donorDoor!=null))throw new IOException("Missing/unexpected donor Door collision rule");
                 for(Part part:p.parts) {
                     if(part.move.length!=3 || part.boxes.length==0)throw new IOException("Invalid gate part");
@@ -125,12 +128,17 @@ public final class OriginalGateProfile {
         int count=parts[0].frames==null?1:64;
         for(int i=0;i<=count;i++)for(AxisAlignedBB box:boxes(BlockPos.ORIGIN,facing,(float)i/count,false))result=result==null?box:result.union(box);
         if(donorDoor!=null)result=result.union(donorDoor.bounds(this,BlockPos.ORIGIN,facing,null));
+        if(donorGermo!=null)for(float value:new float[]{0,1})for(AxisAlignedBB b:initialPhysics(BlockPos.ORIGIN,facing,value))result=result.union(b);
         localBounds.put(facing,result);return result.offset(pos);
+    }
+    public List<AxisAlignedBB> initialPhysics(BlockPos pos,EnumFacing facing,float progress) {
+        if(donorGermo!=null)return donorGermo.boxes(this,donorGermo.seed(id,facing,clamp(progress)),pos,facing);
+        return donorDoor==null?boxes(pos,facing,progress,false):Collections.singletonList(donorDoor.bounds(this,pos,facing,null));
     }
     /** Only cells touched NOW are blocks. Empty aperture/swing pocket stays air. */
     public List<BlockPos> occupied(BlockPos pos,EnumFacing facing,float progress) {
         LinkedHashSet<BlockPos> cells=new LinkedHashSet<>();cells.add(pos.toImmutable());
-        for(AxisAlignedBB box:donorDoor==null?boxes(pos,facing,progress,false):Collections.singletonList(donorDoor.bounds(this,pos,facing,null))) {
+        for(AxisAlignedBB box:initialPhysics(pos,facing,progress)) {
             for(int x=MathHelper.floor(box.minX+1e-7);x<Math.ceil(box.maxX-1e-7);x++)
                 for(int y=MathHelper.floor(box.minY+1e-7);y<Math.ceil(box.maxY-1e-7);y++)
                     for(int z=MathHelper.floor(box.minZ+1e-7);z<Math.ceil(box.maxZ-1e-7);z++)cells.add(new BlockPos(x,y,z));

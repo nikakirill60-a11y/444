@@ -2,6 +2,9 @@
   "client_sha256": "66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc",
   "class_sha256": {
     "null/liIjIjijllIIiIilIiIllIiiljjIiili.class": "a1572869a2a6afbab860a99b16e8201269cb0793d1add8bb679678a201b2721c",
+    "null/iIllIijlIIiijIiIjIliiIlIilIjjlij.class": "203baa2a3014149b14270420b7879b15a84edcbcaa908901ef19bcbd434907f7",
+    "null/ilijlljlIIjjIIlIIjjIiIiilijIIIil.class": "ad653865630afa4d0d52148b7cabdf1cbcf58724d950775deccfa9c9815e4fa1",
+    "null/iIllIijlIIiijIiIjIliiIlIilIjjlij$1.class": "852be20f689e83abc393e9dfad4674e3f39b6427354005ea9c5fcac8f540f3d1",
     "null/llIjIlllliiiIiililjjjIjiIijijiiI.class": "f13c4ef0dc5ba133e989ddbbbe262397fbc10a01b2fd54422d7f6022b1420bba",
     "null/lIjijlilIlIIIiIiIlIIIIlIijljllij.class": "ce2202c27006077f60ba760c5817fce47dcffe7d7efe303260e34c644da7d0f7",
     "null/IijIjjillljIIIiiiIilIljilIiIIIii.class": "bfe97ab8fbab19f2e37762de4bd1c2e11f0aa594428f2aa34704946fda01da69",
@@ -48,6 +51,8 @@
   "fernflower_version": "npm fernflower@1.1.0",
   "decompiled_sha256": {
     "null/liIjIjijllIIiIilIiIllIiiljjIiili.java": "74efd8912ad631cb8a1186209adcbbca8e23bddf0c8cfe2ca144cc6becd54327",
+    "null/iIllIijlIIiijIiIjIliiIlIilIjjlij.java": "7189f657ac34f126c85010a5f43cfadc0f75dd40967994d64a7f6dbd8db5867e",
+    "null/ilijlljlIIjjIIlIIjjIiIiilijIIIil.java": "6cf078df10f2dc1b854598a158a2c8bf4e7bc48a37d76ee26c57cd88180486d0",
     "null/llIjIlllliiiIiililjjjIjiIijijiiI.java": "5a0104065a374fa94dd28f19ec943b813eb496134d1d3911290fa70c1e3a89cb",
     "null/lIjijlilIlIIIiIiIlIIIIlIijljllij.java": "cfb9b0146203bc01d7c5d1e22605f0e950c7d6a50f65c5161f6100c70959eff7",
     "null/IijIjjillljIIIiiiIilIljilIiIIIii.java": "be9167a9189292ee7e2f4dbea6720fd958ef324c6c70bdf028c5f51ccf960e5c",
@@ -530,10 +535,11 @@
     }
   ],
   "profile_count": 17,
-  "generated_java_sha256": "123707ab2de30f0ed38724f74617d01f1c4df61dda6d6f0292fc170b696bc76f",
-  "runtime_connected": false,
-  "coordinate_adapter_verified": false,
+  "generated_java_sha256": "60d38542127b4c4cf34ff192277311bd45ff97af968e2f9f265385b81cad73b7",
+  "runtime_connected": true,
+  "coordinate_adapter_verified": "Pure affine round-trip tested; Forge World/Entity suite pending",
   "minecraft_gameplay_verified": false,
+  "coordinate_adapter": "Block-mode renderer factory selects ilijlljlIIjjIIlIIjjIiIiilijIIIil: T(state) R(y,x,z) T(catalogue offset) S(catalogue scale * instance scale), no implicit .5. Canonical map translation=0/scale=1; invert catalogue transform on rounded grid cubes, then apply MinETRO unit ground/offset/facing.",
   "adaptations": [
     "server branch only",
     "sound callback omitted",

@@ -39,9 +39,9 @@ public class OriginalGateTest {
         for(OriginalGateProfile p:originalSix())for(EnumFacing f:EnumFacing.Plane.HORIZONTAL) {
             OriginalGateTile tile=gate(p,f);tile.update();assertEquals(0,tile.progress,0);
             when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
-            for(int i=0;i<70;i++)tile.update();assertEquals(1,tile.progress,0);
+            for(int i=0;i<650;i++)tile.update();assertEquals(1,tile.progress,0);
             when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(false);
-            for(int i=0;i<70;i++)tile.update();assertEquals(0,tile.progress,0);
+            for(int i=0;i<650;i++)tile.update();assertEquals(0,tile.progress,0);
         }
     }
     @Test public void powerOnPartWorksButUnloadedPartPausesMotion() {
@@ -50,23 +50,24 @@ public class OriginalGateTest {
         when(tile.getWorld().isBlockLoaded(cell)).thenReturn(false);tile.update();assertEquals(0,tile.progress,0);
         when(tile.getWorld().isBlockLoaded(cell)).thenReturn(true);tile.update();assertTrue(tile.progress>0);
     }
-    @Test public void foreignOrWrongOriginPartDestroysOnlyController() {
+    @Test public void foreignOrWrongOriginPartPausesWithoutDestroyingController() {
         OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_4"),EnumFacing.SOUTH);
         BlockPos cell=tile.occupied().get(1);OriginalGatePartTile foreign=new OriginalGatePartTile();
         foreign.configure(tile.getPos().east(30),tile.owner);when(tile.getWorld().getTileEntity(cell)).thenReturn(foreign);
-        tile.update();verify(tile.getWorld()).destroyBlock(tile.getPos(),true);assertEquals(0,tile.progress,0);
+        tile.update();verify(tile.getWorld(),never()).destroyBlock(tile.getPos(),true);assertEquals(0,tile.progress,0);
     }
-    @Test public void livingEntitiesBlockSweptLeafButNotNoClipOrDeadEntities() {
+    @Test public void livingEntitiesBlockNewDonorCellsButNotNoClipOrDeadEntities() {
         OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_5"),EnumFacing.SOUTH);
-        tile.progress=.5F;assertTrue(tile.fitParts(tile.progress));when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
+        OriginalDecorTestWorld.pose(tile,1);assertTrue(tile.fitParts(1));when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(false);
         EntityLivingBase mob=mock(EntityLivingBase.class);when(mob.isEntityAlive()).thenReturn(true);
         when(mob.getEntityBoundingBox()).thenReturn(tile.profile.bounds(tile.getPos(),tile.facing));
         when(tile.getWorld().getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.<Entity>singletonList(mob));
-        tile.update();assertEquals(.5F,tile.progress,0);mob.noClip=true;tile.update();assertTrue(tile.progress>.5F);
-        mob.noClip=false;when(mob.isEntityAlive()).thenReturn(false);float before=tile.progress;tile.update();assertTrue(tile.progress>before);
+        for(int i=0;i<650;i++)tile.update();assertTrue(tile.progress>0);float stopped=tile.progress;
+        mob.noClip=true;for(int i=0;i<20;i++)tile.update();assertTrue(tile.progress<stopped);
+        mob.noClip=false;when(mob.isEntityAlive()).thenReturn(false);float before=tile.progress;tile.update();assertTrue(tile.progress<before);
     }
     @Test public void emptyReservedAirDoesNotBecomeAnInvisibleWall() {
-        OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_5"),EnumFacing.SOUTH);tile.progress=1;
+        OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_5"),EnumFacing.SOUTH);OriginalDecorTestWorld.pose(tile,1);
         List<AxisAlignedBB> boxes=new ArrayList<>();BlockPos middle=tile.getPos().up();
         tile.addCollision(middle,new AxisAlignedBB(middle),boxes);assertTrue(boxes.isEmpty());
         assertNull(tile.rayTrace(middle,new Vec3d(.5,65.5,-2),new Vec3d(.5,65.5,2)));
@@ -89,10 +90,10 @@ public class OriginalGateTest {
         }
     }
     @Test public void saveAndNetworkTagsRetainProgressIdentityAndFacing() {
-        OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_6"),EnumFacing.EAST);tile.progress=.42F;
+        OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_6"),EnumFacing.EAST);when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);for(int i=0;i<25;i++)tile.update();
         OriginalGateTile restored=new OriginalGateTile();restored.readFromNBT(tile.getUpdateTag());
         assertSame(tile.profile,restored.profile);assertEquals(tile.owner,restored.owner);assertEquals(tile.facing,restored.facing);
-        assertEquals(.42F,restored.progress,0);assertTrue(restored.ready);
+        assertEquals(tile.progress,restored.progress,0);assertEquals(tile.getUpdateTag().getCompoundTag("DonorGermo"),restored.getUpdateTag().getCompoundTag("DonorGermo"));assertTrue(restored.ready);
     }
     @Test public void invalidSavedDataCannotProduceNaNBoundsOrUnknownProfiles() {
         for(float bad:new float[]{Float.NaN,Float.POSITIVE_INFINITY,Float.NEGATIVE_INFINITY}) {

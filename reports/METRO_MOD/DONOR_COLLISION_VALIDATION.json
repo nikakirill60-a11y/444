@@ -16,8 +16,8 @@
   "dev30_jar_published": false,
   "minecraft_gameplay_verified": false,
   "door_profiles_implemented": 27,
-  "original_germo_block_mode_implemented": false,
-  "status": "PARTIAL_SOURCE_IMPLEMENTATION_NOT_A_VERIFIED_GAMEPLAY_FIX",
+  "original_germo_block_mode_implemented": true,
+  "status": "DOOR_AND_GERMO_SOURCE_CONNECTED_FORGE_VALIDATION_PENDING",
   "previous_ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43924978159",
   "ci_transport": {
     "enabled_only_in_ci": true,
@@ -32,7 +32,7 @@
   "donor_client_available_in_current_workspace": true,
   "germo_isolated_java_module": {
     "profiles": 17,
-    "runtime_connected": false,
+    "runtime_connected": true,
     "differential_bytecode_cases": 2448,
     "standalone_assertions": 4904,
     "local_compilation": "PASS: ECJ target 1.8 + JRE17 (not the Forge project)",
@@ -42,5 +42,16 @@
     "ci_full_forge_build": "FAIL: dependency resolution before Forge compilation/JUnit; standalone Java 8 check PASS",
     "current_source_python_tests": 307
   },
-  "forge_java_engine_tests_executed": false
+  "forge_java_engine_tests_executed": false,
+  "germo_world_adapter": {
+    "source_connected": true,
+    "profiles": 17,
+    "layout_version": 4,
+    "snapshot_version": 1,
+    "local_python_tests": 309,
+    "standalone_motion_assertions": 268484,
+    "forge_compilation_and_world_tests": "PENDING_NEW_CI",
+    "minecraft_gameplay_verified": false,
+    "report": "GERMO_WORLD_ADAPTER_RU.md"
+  }
 }

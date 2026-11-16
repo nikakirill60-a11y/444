@@ -18,6 +18,11 @@ REQUIRED = [
     'ru/metrocraft/port/metromod/decor/OriginalGateTile.class',
     'ru/metrocraft/port/metromod/decor/DonorDoorCollision.class',
     'assets/metroport/metromod_door_collision.json',
+    'assets/metroport/metromod_germo_collision.json',
+    'ru/metrocraft/port/metromod/decor/DonorGermoBlockRules.class',
+    'ru/metrocraft/port/metromod/decor/DonorGermoMotion.class',
+    'ru/metrocraft/port/metromod/decor/DonorGermoCoordinates.class',
+    'ru/metrocraft/port/metromod/decor/DonorGermoCollision.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateProfile.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateItem.class',
     'ru/metrocraft/port/client/gates/OriginalGateRenderer.class',
@@ -68,6 +73,7 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10,
                 'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 11,
                 'ru.metrocraft.port.metromod.decor.DonorDoorCollisionTest': 11,
+                'ru.metrocraft.port.metromod.decor.DonorGermoCollisionTest': 9,
                 'ru.metrocraft.port.structures.MetroNetworkPlanTest': 8,
                 'ru.metrocraft.port.structures.MetroNetworkJobTest': 12,
                 'ru.metrocraft.port.structures.MetroNetworkCommandTest': 4}
@@ -96,6 +102,9 @@ def verify(jar, results, source, run_url):
         donor=json.loads(archive.read('assets/metroport/metromod_door_collision.json'))
         if set(donor)!={p['id'] for p in interactive if p['kind']=='Door'} or len(donor)!=27:
             raise ValueError('Incomplete donor Door collision catalogue')
+        germo=json.loads(archive.read('assets/metroport/metromod_germo_collision.json'))
+        expected_germo={p['id'] for p in profiles+interactive if p.get('kind','Germo')=='Germo'}
+        if set(germo)!=expected_germo or len(germo)!=17:raise ValueError('Incomplete donor Germo collision catalogue')
         layout=json.loads(archive.read('assets/metroport/metromod_layout.json'))
         if len(layout)!=50 or sum('offset' in row for row in layout.values())!=6:raise ValueError('Missing wall/solid panel layout')
         profiles+=interactive
@@ -132,10 +141,10 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['dev30: donor model-mode collision contract for 27 Doors; activation-based collision suppression, replaceable open selection proxies; custom local AABB NBT; original Germo block-mode NOT yet ported',
+            'included': ['dev30: donor model-mode collision contract for 27 Doors; activation-based collision suppression, replaceable open selection proxies; custom local AABB NBT; 17 Germo use donor stateful block callbacks with transactional motion, NBT/packet snapshots and UUID-safe proxy migration',
                          'dev29: new four-station vanilla metro ring; two connected rail loops, pedestrian bridges, service rooms, surface ladder vestibule; operator preview/confirm command with durable conservative undo; standalone schematic',
                          'MinETRO display name; saved-world namespace metroport unchanged',
-                         'Previous approximate collision implementation retained for Germo/Lever/Light only; wall lever offsets and clicked-face orientation retained',
+                         'Previous approximate collision implementation retained for Lever/Light only; wall lever offsets and clicked-face orientation retained',
                          '81 of 112 tagged functional decor entries: 17 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 31 blocked entries explicitly excluded','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
@@ -145,7 +154,7 @@ def verify(jar, results, source, run_url):
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
-            'not_included': ['Original Germo block-mode collisions (17 Germo retain previous implementation); map-specific Door custom AABBs/transforms unavailable', 'MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', '30 Inventory profiles: unconfirmed server behavior; mls_vorota_l06: missing add2; full donor GLSL pipeline', 'unconfirmed healing/bleeding effects',
+            'not_included': ['Original server map state and per-instance transforms; map-specific Door custom AABBs/transforms unavailable', 'MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', '30 Inventory profiles: unconfirmed server behavior; mls_vorota_l06: missing add2; full donor GLSL pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}

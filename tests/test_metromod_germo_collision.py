@@ -24,7 +24,7 @@ class GermoCollisionTests(unittest.TestCase):
                 self.assertEqual(64,len(report['class_sha256'][p[field]+'.class']))
                 self.assertEqual(64,len(report['decompiled_sha256'][p[field]+'.java']))
         self.assertEqual(hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),report['generated_java_sha256'])
-        self.assertFalse(report['runtime_connected'])
+        self.assertTrue(report['runtime_connected'])
         self.assertFalse(report['minecraft_gameplay_verified'])
 
     def test_bytecode_fixture_coverage(self):
@@ -64,3 +64,22 @@ class GermoCollisionTests(unittest.TestCase):
     def test_ci_checks_engine_before_forge_dependency_resolution(self):
         workflow=(ROOT/'.github/workflows/build.yml').read_text()
         self.assertLess(workflow.index('DonorGermoStandaloneCheck'),workflow.index('Build and reobfuscate for Forge'))
+
+    def test_runtime_metadata_is_catalogue_not_voxel_data(self):
+        report=json.loads(REPORT.read_text())
+        metadata=json.loads((ROOT/'src/main/resources/assets/metroport/metromod_germo_collision.json').read_text())
+        self.assertEqual(17,len(metadata))
+        for row in report['profiles']:
+            args=row['catalogue_args'];entry=metadata[row['id']]
+            self.assertEqual(args[2],entry['offset'])
+            self.assertEqual(args[3] if isinstance(args[3],list) else [1,1,1],entry['scale'])
+            self.assertEqual({'offset','scale'},set(entry))
+
+    def test_runtime_path_uses_snapshot_not_render_voxels(self):
+        source=(ROOT/'src/main/java/ru/metrocraft/port/metromod/decor/OriginalGateTile.java').read_text()
+        self.assertIn('if(profile.donorGermo!=null) {updateGermo();return;}',source)
+        self.assertIn('DonorGermoCollision.save(germo())',source)
+        self.assertIn('DonorGermoCollision.restore(profile.id,facing',source)
+        self.assertIn('DonorGermoMotion candidate=current.next(signal);',source)
+        self.assertLess(source.index('boolean stop=!canFitGermo'),source.index('germo=candidate;'))
+        self.assertIn('profile.donorGermo.boxes(profile,germo(),pos,facing)',source)
