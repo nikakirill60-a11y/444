@@ -1,3 +1,7 @@
+> **Итог:** dev30 опубликован, CI 43936209801 PASS: 560 JUnit и 312 Python.
+> 17 Germo и 27 Door используют перенесённые исходные правила. Gameplay не проверен.
+> Точные результаты и SHA256 — [GERMO_WORLD_ADAPTER_RU.md](GERMO_WORLD_ADAPTER_RU.md).
+
 > Текущий этап: **17 Germo подключены в исходниках к World-адаптеру**.
 > См. [GERMO_WORLD_ADAPTER_RU.md](GERMO_WORLD_ADAPTER_RU.md).
 > Forge-сборка/JUnit и gameplay ещё требуют проверки; ниже — история этапов.

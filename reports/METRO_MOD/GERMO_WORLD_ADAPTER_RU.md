@@ -1,5 +1,24 @@
 # Germo: подключение исходных callback к игровому миру
 
+## Итог — dev30 опубликован
+
+**CI [43936209801](https://github.com/nikakirill60-a11y/444/actions/runs/43936209801): PASS.**
+Полная Forge-компиляция/reobfuscation, **560 JUnit / 0 failures / 0 errors / 0 skipped**,
+**312 Python PASS**, standalone Java8 проверки PASS, ZIP/JAR/catalogue проверки PASS.
+Публикация `6c7c40c`; исходники сборки `7def969b09f2be58404b0881ba6bedc75cc02de5`.
+
+JAR: `downloads/metrocraft-port-1.12.2-1.13.0-dev.30.jar`, **87 273 675 байт**.
+SHA256: `61174c1ead8673057f41deb6e880b0718d92170746dd6944cdc11131e580ef06`.
+Проверены локальный ZIP CRC/SHA256 и совпадение blob SHA/размера с GitHub Contents API.
+
+Все 17 Germo × 4 facing × client/server × оба направления прошли реальные
+World.getCollisionBoxes/Entity.move engine tests, в том числе при задержке proxy
+packets. Проверки 27 Door, stone-safe закрытия, rollback, NBT и packet snapshots
+также прошли. Это не запуск живого клиента: gameplay и точная покадровая TESR
+визуализация многоосевых створок остаются **не подтверждены**.
+
+Ниже история внедрения/сборок; пометки «pending» относятся к тем прошлым попыткам.
+
 ## Изменения исходников
 
 Для всех **17 Germo** `OriginalGateTile` теперь использует `DonorGermoMotion`,

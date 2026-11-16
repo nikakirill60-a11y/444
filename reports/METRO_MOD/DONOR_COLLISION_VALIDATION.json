@@ -1,23 +1,19 @@
 {
-  "implementation_commit": "00e5c3a449dae361ba55e266cb141c9f3390f6b1",
-  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43928176897",
+  "implementation_commit": "7def969b09f2be58404b0881ba6bedc75cc02de5",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43936209801",
   "python": {
-    "tests": 307,
+    "tests": 312,
     "failures": 0,
     "errors": 0
   },
-  "forge_build": "BLOCKED_DEPENDENCY_RESOLUTION_BEFORE_FORGE_COMPILATION",
+  "forge_build": "PASS",
   "forge_userdev_universal_sources_downloaded_and_sha1_verified": true,
-  "remaining_download_failures": [
-    "net.minecraftforge:legacydev:0.2.3.1 POM: official Maven 502, legacy endpoint 404; proxy returned 502",
-    "net.minecraft:client:1.12.2: ForgeGradle dependency resolution attempted to parse cached client.jar as POM: Content is not allowed in prolog",
-    "mergetool and Scala artifacts skipped after the earlier dependency-resolution errors"
-  ],
-  "dev30_jar_published": false,
+  "remaining_download_failures": [],
+  "dev30_jar_published": true,
   "minecraft_gameplay_verified": false,
   "door_profiles_implemented": 27,
   "original_germo_block_mode_implemented": true,
-  "status": "DOOR_AND_GERMO_SOURCE_CONNECTED_FORGE_VALIDATION_PENDING",
+  "status": "DOOR_AND_GERMO_ENGINE_TESTED_JAR_PUBLISHED_GAMEPLAY_UNVERIFIED",
   "previous_ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43924978159",
   "ci_transport": {
     "enabled_only_in_ci": true,
@@ -27,7 +23,8 @@
     ],
     "bounded_retries": true,
     "dependency_cache_retained_after_failure": true,
-    "versions_or_coordinates_changed": false
+    "selected_forge_minecraft_mcp_versions_changed": false,
+    "minecraft_client_metadata_coordinate_uses_forge_selected_mcp_version": true
   },
   "donor_client_available_in_current_workspace": true,
   "germo_isolated_java_module": {
@@ -38,20 +35,32 @@
     "local_compilation": "PASS: ECJ target 1.8 + JRE17 (not the Forge project)",
     "forge_java8_ci_check": "PASS: standalone javac Java 8 step (not the Forge build)",
     "report": "GERMO_BLOCK_RULES_RU.md",
-    "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43928176897",
-    "ci_full_forge_build": "FAIL: dependency resolution before Forge compilation/JUnit; standalone Java 8 check PASS",
-    "current_source_python_tests": 307
+    "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/43936209801",
+    "ci_full_forge_build": "PASS: build/reobfuscation, 560 JUnit tests, JAR validation/publication",
+    "current_source_python_tests": 312
   },
-  "forge_java_engine_tests_executed": false,
+  "forge_java_engine_tests_executed": true,
   "germo_world_adapter": {
     "source_connected": true,
     "profiles": 17,
     "layout_version": 4,
     "snapshot_version": 1,
-    "local_python_tests": 309,
+    "local_python_tests": 312,
     "standalone_motion_assertions": 268484,
-    "forge_compilation_and_world_tests": "PENDING_NEW_CI",
+    "forge_compilation_and_world_tests": "PASS: all 9 Germo adapter tests and 12 World collision tests, including Entity.move for 17 Germo and 27 Doors",
     "minecraft_gameplay_verified": false,
     "report": "GERMO_WORLD_ADAPTER_RU.md"
-  }
+  },
+  "junit": {
+    "tests": 560,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "jar": {
+    "jar": "metrocraft-port-1.12.2-1.13.0-dev.30.jar",
+    "bytes": 87273675,
+    "sha256": "61174c1ead8673057f41deb6e880b0718d92170746dd6944cdc11131e580ef06"
+  },
+  "publication_commit": "6c7c40c61442b03fc47b9210ad5fd0ace5680c1f"
 }
