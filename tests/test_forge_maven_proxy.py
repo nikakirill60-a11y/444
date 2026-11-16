@@ -3,10 +3,13 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from tools.forge_maven_proxy import Cache, safe_path, ORIGIN
+from tools.forge_maven_proxy import Cache, safe_path, ORIGIN, ORIGINS
 
 
 class ForgeMavenProxyTest(unittest.TestCase):
+    def setUp(self):
+        output=patch('builtins.print');output.start();self.addCleanup(output.stop)
+
     def test_only_relative_safe_maven_paths(self):
         self.assertEqual('net/minecraftforge/forge/1.0/forge-1.0.pom.sha1',safe_path('/net/minecraftforge/forge/1.0/forge-1.0.pom.sha1'))
         for path in ['/../secret','/%2e%2e/secret','/a//b','/a/%252e%252e/b','https://evil.test/x','//evil.test/a','/a?q=1','/a#b','/a\\b']:
@@ -29,10 +32,10 @@ class ForgeMavenProxyTest(unittest.TestCase):
             cache=Cache(directory)
             with patch('tools.forge_maven_proxy.subprocess.run',return_value=subprocess.CompletedProcess([],0,'404','')) as run:
                 self.assertEqual((404,None),cache.get('missing.pom'));self.assertEqual((404,None),cache.get('missing.pom'))
-                self.assertEqual(1,run.call_count)
+                self.assertEqual(len(ORIGINS),run.call_count)
             with patch('tools.forge_maven_proxy.subprocess.run',return_value=subprocess.CompletedProcess([],28,'000','timeout')) as run:
                 self.assertEqual((502,None),cache.get('retry.pom'));self.assertEqual((502,None),cache.get('retry.pom'))
-                self.assertEqual(2,run.call_count)
+                self.assertEqual(2*len(ORIGINS),run.call_count)
             self.assertFalse((Path(directory)/'retry.pom').exists())
 
     def test_truncated_failed_download_is_never_reused(self):
@@ -45,3 +48,15 @@ class ForgeMavenProxyTest(unittest.TestCase):
                 self.assertEqual((502,None),cache.get('a.jar'))
             self.assertFalse(list(Path(directory).rglob('*.partial')))
             self.assertFalse((Path(directory)/'a.jar').exists())
+
+    def test_official_legacy_endpoint_can_recover_a_cdn_404(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache=Cache(directory)
+            def download(args,**kwargs):
+                if args[-1]==ORIGIN+'a.jar':return subprocess.CompletedProcess(args,0,'404','')
+                self.assertEqual(ORIGINS[1]+'a.jar',args[-1])
+                Path(args[args.index('--output')+1]).write_bytes(b'official artifact')
+                return subprocess.CompletedProcess(args,0,'200','')
+            with patch('tools.forge_maven_proxy.subprocess.run',side_effect=download):
+                status,path=cache.get('a.jar');self.assertEqual(200,status)
+                self.assertEqual(b'official artifact',path.read_bytes())

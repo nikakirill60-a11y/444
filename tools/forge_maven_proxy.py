@@ -14,6 +14,8 @@ import threading
 from urllib.parse import unquote, urlsplit
 
 ORIGIN = 'https://maven.minecraftforge.net/'
+# Both are official Forge distribution endpoints, not third-party mirrors.
+ORIGINS = (ORIGIN, 'https://files.minecraftforge.net/maven/')
 
 
 def safe_path(request):
@@ -45,24 +47,32 @@ class Cache:
                 return 404, None
             target.parent.mkdir(parents=True, exist_ok=True)
             partial = target.with_name(target.name + '.partial')
+            statuses = []
             try:
-                result = subprocess.run([
-                    'curl', '--silent', '--show-error', '--location', '--proto', '=https',
-                    '--retry', '2', '--retry-delay', '2', '--retry-max-time', '120',
-                    '--connect-timeout', '10', '--max-time', '40',
-                    '--output', str(partial), '--write-out', '%{http_code}', ORIGIN + path,
-                ], capture_output=True, text=True, timeout=145)
-                status = int(result.stdout) if result.stdout.isdigit() else 502
-                if result.returncode or status != 200:
-                    if status == 404:
-                        self.missing.add(path)
-                    message=(str(status)+' '+path+' '+result.stderr[-400:]).replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-                    print('::warning title=Official Forge Maven download::'+message, flush=True)
-                    return (404 if status == 404 else 502), None
-                partial.replace(target)
-                return 200, target
-            except (OSError, subprocess.TimeoutExpired):
-                return 502, None
+                for origin in ORIGINS:
+                    try:
+                        result = subprocess.run([
+                            'curl', '--silent', '--show-error', '--location', '--proto', '=https',
+                            '--retry', '1', '--retry-delay', '2', '--retry-max-time', '50',
+                            '--connect-timeout', '10', '--max-time', '25',
+                            '--output', str(partial), '--write-out', '%{http_code}', origin + path,
+                        ], capture_output=True, text=True, timeout=70)
+                        status = int(result.stdout) if result.stdout.isdigit() else 502
+                        if result.returncode == 0 and status == 200:
+                            partial.replace(target)
+                            return 200, target
+                        statuses.append(status if result.returncode == 0 else 502)
+                    except (OSError, subprocess.TimeoutExpired):
+                        statuses.append(502)
+                    partial.unlink(missing_ok=True)
+                missing = all(status == 404 for status in statuses)
+                if missing:
+                    self.missing.add(path)
+                # 404 is normal during Maven repository probing. Only transient
+                # failures deserve warnings; never cache those as "missing".
+                if not missing:
+                    print('::warning title=Official Forge Maven download::'+str(statuses)+' '+path, flush=True)
+                return (404 if missing else 502), None
             finally:
                 partial.unlink(missing_ok=True)
 
