@@ -36,9 +36,12 @@ public class OriginalGateBlock extends Block {
     @Override public TileEntity createTileEntity(World world, IBlockState state) { return new OriginalGateTile(); }
     @Override public boolean isOpaqueCube(IBlockState state) { return false; }
     @Override public boolean isFullCube(IBlockState state) { return false; }
-    @Override public boolean isPassable(IBlockAccess world, BlockPos pos) { return true; }
+    @Override public boolean isPassable(IBlockAccess world, BlockPos pos) { return world instanceof World?OriginalDecorCollisions.localCollision((World)world,pos)==null:false; }
     @Override public BlockRenderLayer getRenderLayer() { return BlockRenderLayer.CUTOUT; }
     @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.ENTITYBLOCK_ANIMATED; }
+    @Override @Nullable public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) {
+        return world instanceof World?OriginalDecorCollisions.localCollision((World)world,pos):NULL_AABB;
+    }
     @Override public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB query,
                                                 List<AxisAlignedBB> list, @Nullable Entity entity, boolean actual) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);

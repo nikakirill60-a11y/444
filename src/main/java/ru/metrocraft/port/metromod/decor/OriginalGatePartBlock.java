@@ -23,7 +23,7 @@ public final class OriginalGatePartBlock extends Block {
     @Override public TileEntity createTileEntity(World world, IBlockState state) { return new OriginalGatePartTile(); }
     @Override public boolean isOpaqueCube(IBlockState state) { return false; }
     @Override public boolean isFullCube(IBlockState state) { return false; }
-    @Override public boolean isPassable(IBlockAccess world, BlockPos pos) { return true; }
+    @Override public boolean isPassable(IBlockAccess world, BlockPos pos) { return world instanceof World?OriginalDecorCollisions.localCollision((World)world,pos)==null:false; }
     @Override public EnumBlockRenderType getRenderType(IBlockState state) { return EnumBlockRenderType.INVISIBLE; }
     @Override public net.minecraft.block.material.EnumPushReaction getPushReaction(IBlockState state) { return net.minecraft.block.material.EnumPushReaction.BLOCK; }
     @Override public int quantityDropped(Random random) { return 0; }
@@ -31,6 +31,9 @@ public final class OriginalGatePartBlock extends Block {
     @Override public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);
         return tile == null ? ItemStack.EMPTY : new ItemStack(tile.getBlockType());
+    }
+    @Override @Nullable public AxisAlignedBB getCollisionBoundingBox(IBlockState state,IBlockAccess world,BlockPos pos) {
+        return world instanceof World?OriginalDecorCollisions.localCollision((World)world,pos):NULL_AABB;
     }
     @Override public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB query,
                                                List<AxisAlignedBB> list, @Nullable Entity entity, boolean actual) {
@@ -58,10 +61,15 @@ public final class OriginalGatePartBlock extends Block {
     @Override public int getLightValue(IBlockState state,IBlockAccess world,BlockPos pos) {
         OriginalGateTile tile=root(world,pos);return tile!=null && tile.profile.is("Light") && tile.enabled()?15:0;
     }
+    @Override public boolean isReplaceable(IBlockAccess world,BlockPos pos) {
+        if(!(world instanceof World))return false;
+        OriginalGateTile root=OriginalGates.controller((World)world,pos);
+        return root!=null && !root.occupied().contains(pos);
+    }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);
         // Only the controller drops an item. Parts never multiply gate drops.
-        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null && tile.ready && !tile.removing && !tile.updatingParts) world.destroyBlock(tile.getPos(), true);
+        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null && tile.ready && !tile.removing && !tile.updatingParts && tile.occupied().contains(pos)) world.destroyBlock(tile.getPos(), true);
         super.breakBlock(world, pos, state);
     }
 }

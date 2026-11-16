@@ -39,7 +39,11 @@ public final class OriginalGates {
         if(!world.isBlockLoaded(pos))return null;
         TileEntity tile=world.getTileEntity(pos);
         if(tile instanceof OriginalGateTile)return (OriginalGateTile)tile;
-        return tile instanceof OriginalGatePartTile?((OriginalGatePartTile)tile).controller():null;
+        if(tile instanceof OriginalGatePartTile) {
+            OriginalGateTile root=((OriginalGatePartTile)tile).controller();
+            if(root!=null)return root;
+        }
+        return OriginalDecorCollisions.pendingController(world,pos);
     }
     @SubscribeEvent public static void cleanup(net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent event) {
         World world=event.world;

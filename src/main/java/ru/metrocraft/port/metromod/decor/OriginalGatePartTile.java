@@ -11,7 +11,12 @@ import java.util.UUID;
 public final class OriginalGatePartTile extends TileEntity {
     public BlockPos origin = BlockPos.ORIGIN;
     public UUID owner;
-    public void configure(BlockPos pos, UUID owner) { this.origin = pos.toImmutable(); this.owner = owner; markDirty(); }
+    public void configure(BlockPos pos, UUID owner) { this.origin = pos.toImmutable(); this.owner = owner; markDirty(); sync(); }
+    public void sync() {
+        if(world==null || world.isRemote || world.captureBlockSnapshots)return;
+        net.minecraft.block.state.IBlockState state=world.getBlockState(getPos());
+        world.notifyBlockUpdate(getPos(),state,state,2);
+    }
     public OriginalGateTile controller() {
         if (world == null || owner == null || !world.isBlockLoaded(origin)) return null;
         TileEntity tile = world.getTileEntity(origin);

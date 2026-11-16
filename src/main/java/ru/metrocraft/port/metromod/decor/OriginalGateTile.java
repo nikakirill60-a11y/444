@@ -36,20 +36,25 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         }
     }
     private int ticks, soundDirection;
+    private boolean needsPartSync=true;
     private List<BlockPos> cells;
     private List<AxisAlignedBB> cachedBoxes;
     private float cachedProgress=-1;
 
     public void configure(UUID id,OriginalGateProfile type,EnumFacing direction) {
         owner=id;profile=type;facing=direction;progress=previous=0;
-        powered=blocked=manual=ready=removing=false;layoutReady=true;invalidateGeometry();markDirty();
+        powered=blocked=manual=ready=removing=false;layoutReady=true;invalidateGeometry();markDirty();OriginalDecorCollisions.track(this);
     }
+    @Override public void onLoad() { super.onLoad();OriginalDecorCollisions.track(this); }
+    @Override public void invalidate() { OriginalDecorCollisions.untrack(this);super.invalidate(); }
+    @Override public void onChunkUnload() { OriginalDecorCollisions.untrack(this);super.onChunkUnload(); }
     private void invalidateGeometry() { cells=null;cachedBoxes=null;cachedProgress=-1; }
     public List<BlockPos> footprint() {
         if(cells==null)cells=profile.footprint(pos,facing);return cells;
     }
     public List<BlockPos> occupied() { return profile.occupied(pos,facing,progress); }
     private boolean owns(BlockPos cell) {
+        if(owner==null)return false;
         if(cell.equals(pos))return true;
         net.minecraft.tileentity.TileEntity tile=world.getTileEntity(cell);
         return tile instanceof OriginalGatePartTile && owner.equals(((OriginalGatePartTile)tile).owner) && pos.equals(((OriginalGatePartTile)tile).origin);
@@ -94,6 +99,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         if(!ready || removing || owner==null)return;
         ++ticks;
         if(!world.isRemote) {
+            if(needsPartSync && !world.captureBlockSnapshots) {syncStructure();needsPartSync=false;}
             // The block registry, not arbitrary NBT, chooses the profile.
             if(getBlockType() instanceof OriginalGateBlock && profile!=((OriginalGateBlock)getBlockType()).profile) {
                 profile=((OriginalGateBlock)getBlockType()).profile;invalidateGeometry();
@@ -169,6 +175,12 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     }
     public boolean blockedAt(float value) { return blockedBetween(value,value); }
     public void sync() { IBlockState state=world.getBlockState(pos);world.notifyBlockUpdate(pos,state,state,2); }
+    public void syncStructure() {
+        if(world==null || world.isRemote || world.captureBlockSnapshots)return;
+        sync();for(BlockPos cell:occupied())if(!cell.equals(pos) && world.isBlockLoaded(cell) && owns(cell)) {
+            ((OriginalGatePartTile)world.getTileEntity(cell)).sync();
+        }
+    }
     public void removeParts() {
         if(removing || owner==null)return;removing=true;
         for(BlockPos cell:footprint()) {
@@ -218,7 +230,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         previous=progress=OriginalGateProfile.clamp(tag.getFloat("Progress"));
         ready=tag.getBoolean("Ready");powered=tag.getBoolean("Powered");blocked=tag.getBoolean("Blocked");
         manual=tag.getBoolean("Manual");
-        layoutReady=tag.getInteger("LayoutVersion")>=2;removing=false;invalidateGeometry();
+        layoutReady=tag.getInteger("LayoutVersion")>=2;needsPartSync=true;removing=false;invalidateGeometry();OriginalDecorCollisions.track(this);
     }
     @Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }
     @Override public SPacketUpdateTileEntity getUpdatePacket() { return new SPacketUpdateTileEntity(pos,0,getUpdateTag()); }

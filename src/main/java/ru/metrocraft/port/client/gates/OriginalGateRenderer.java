@@ -60,6 +60,7 @@ public final class OriginalGateRenderer extends TileEntitySpecialRenderer<Origin
         } finally {GlStateManager.popMatrix();}
     }
     @Override public void render(OriginalGateTile tile,double x,double y,double z,float partial,int destroyStage,float alpha) {
+        if(!tile.ready || tile.owner==null)return;
         GlStateManager.pushMatrix();GlStateManager.disableCull();GlStateManager.enableRescaleNormal();
         try {
             GlStateManager.translate(x+.5,y,z+.5);GlStateManager.rotate(-tile.facing.getHorizontalAngle(),0,1,0);

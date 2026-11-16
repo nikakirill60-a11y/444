@@ -56,7 +56,7 @@ public final class OriginalGateItem extends ItemBlock {
             OriginalGateTile tile = (OriginalGateTile) world.getTileEntity(origin);
             if (tile.blockedAt(tile.progress)) return EnumActionResult.FAIL;
             tile.ready = true; tile.markDirty();
-            if (!world.captureBlockSnapshots) tile.sync();
+            if (!world.captureBlockSnapshots) tile.syncStructure();
             installed = true;
         } finally {
             // Roll back OUR cells only. Never clear or replace someone else's block.

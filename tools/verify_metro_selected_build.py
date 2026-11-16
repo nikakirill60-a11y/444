@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.27 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.28 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import gzip
 import json
@@ -8,8 +8,9 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.27'
+VERSION = '1.13.0-dev.28'
 REQUIRED = [
+    'ru/metrocraft/port/metromod/decor/OriginalDecorCollisions.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateTile.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateProfile.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateItem.class',
@@ -58,7 +59,8 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.metromod.decor.OriginalGateTest': 14,
                 'ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest': 7,
                 'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 11,
-                'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10}
+                'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10,
+                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 11}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
     for name, count in expected.items():
         if counts.get(name) != count:
@@ -118,7 +120,7 @@ def verify(jar, results, source, run_url):
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
             'included': ['MinETRO display name; saved-world namespace metroport unchanged',
-                         'dev27 collision fix: current occupied proxy cells only, solid moving panels, block-safe motion, migration of full-prism reservations, mesh-derived wall lever offsets and clicked-face orientation',
+                         'dev28 collision fix: current occupied proxy cells only, solid moving panels, block-safe motion, migration of full-prism reservations, mesh-derived wall lever offsets and clicked-face orientation',
                          '81 of 112 tagged functional decor entries: 17 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 31 blocked entries explicitly excluded','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
