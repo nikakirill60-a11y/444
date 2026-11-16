@@ -41,7 +41,7 @@ public final class OriginalGateRenderer extends TileEntitySpecialRenderer<Origin
     public static void draw(OriginalGateProfile profile,float progress) {
         GlStateManager.pushMatrix();
         try {
-            GlStateManager.translate(0,profile.ground,0);
+            GlStateManager.translate(profile.offset[0],profile.ground+profile.offset[1],profile.offset[2]);
             for(OriginalGateProfile.Part part:profile.parts) {
                 GlStateManager.pushMatrix();
                 try {

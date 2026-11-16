@@ -22,14 +22,8 @@ public class OriginalInteractiveTest {
     private OriginalGateTile tile(String kind) {
         OriginalGateTile t=new OriginalGateTile();t.setPos(new BlockPos(0,64,0));t.configure(UUID.randomUUID(),profile(kind),EnumFacing.SOUTH);t.ready=true;
         World world=mock(World.class);t.setWorld(world);
-        when(world.getBlockState(any(BlockPos.class))).thenReturn(Blocks.STONE.getDefaultState());
-        when(world.isBlockLoaded(any(BlockPos.class))).thenReturn(true);
+        new OriginalDecorTestWorld(t);
         when(world.isBlockModifiable(any(EntityPlayer.class),any(BlockPos.class))).thenReturn(true);
-        when(world.getTileEntity(t.getPos())).thenReturn(t);
-        when(world.getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.emptyList());
-        for(BlockPos cell:t.footprint())if(!cell.equals(t.getPos())) {
-            OriginalGatePartTile part=new OriginalGatePartTile();part.configure(t.getPos(),t.owner);when(world.getTileEntity(cell)).thenReturn(part);
-        }
         return t;
     }
     private EntityPlayer player() {

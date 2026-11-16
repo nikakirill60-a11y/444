@@ -20,12 +20,7 @@ public class OriginalGateTest {
     private OriginalGateTile gate(OriginalGateProfile profile,EnumFacing facing) {
         World world=mock(World.class);OriginalGateTile tile=new OriginalGateTile();tile.setPos(new BlockPos(0,64,0));
         tile.configure(UUID.randomUUID(),profile,facing);tile.ready=true;tile.setWorld(world);
-        when(world.getBlockState(any(BlockPos.class))).thenReturn(net.minecraft.init.Blocks.STONE.getDefaultState());
-        when(world.isBlockLoaded(any(BlockPos.class))).thenReturn(true);
-        when(world.getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.emptyList());
-        for(BlockPos cell:tile.footprint())if(!cell.equals(tile.getPos())) {
-            OriginalGatePartTile part=new OriginalGatePartTile();part.configure(tile.getPos(),tile.owner);when(world.getTileEntity(cell)).thenReturn(part);
-        }
+        new OriginalDecorTestWorld(tile);
         return tile;
     }
     @Test public void sixOriginalProfilesNotTheOldGateIds() {
@@ -51,19 +46,19 @@ public class OriginalGateTest {
     }
     @Test public void powerOnPartWorksButUnloadedPartPausesMotion() {
         OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_9"),EnumFacing.NORTH);
-        BlockPos cell=tile.footprint().get(1);when(tile.getWorld().isBlockPowered(cell)).thenReturn(true);
+        BlockPos cell=tile.occupied().get(1);when(tile.getWorld().isBlockPowered(cell)).thenReturn(true);
         when(tile.getWorld().isBlockLoaded(cell)).thenReturn(false);tile.update();assertEquals(0,tile.progress,0);
         when(tile.getWorld().isBlockLoaded(cell)).thenReturn(true);tile.update();assertTrue(tile.progress>0);
     }
     @Test public void foreignOrWrongOriginPartDestroysOnlyController() {
         OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_4"),EnumFacing.SOUTH);
-        BlockPos cell=tile.footprint().get(1);OriginalGatePartTile foreign=new OriginalGatePartTile();
+        BlockPos cell=tile.occupied().get(1);OriginalGatePartTile foreign=new OriginalGatePartTile();
         foreign.configure(tile.getPos().east(30),tile.owner);when(tile.getWorld().getTileEntity(cell)).thenReturn(foreign);
         tile.update();verify(tile.getWorld()).destroyBlock(tile.getPos(),true);assertEquals(0,tile.progress,0);
     }
     @Test public void livingEntitiesBlockSweptLeafButNotNoClipOrDeadEntities() {
         OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_5"),EnumFacing.SOUTH);
-        tile.progress=.5F;when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
+        tile.progress=.5F;assertTrue(tile.fitParts(tile.progress));when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
         EntityLivingBase mob=mock(EntityLivingBase.class);when(mob.isEntityAlive()).thenReturn(true);
         when(mob.getEntityBoundingBox()).thenReturn(tile.profile.bounds(tile.getPos(),tile.facing));
         when(tile.getWorld().getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.<Entity>singletonList(mob));
@@ -107,7 +102,7 @@ public class OriginalGateTest {
     }
     @Test public void removalOnlyTouchesOwnedPartsWithMatchingOrigin() {
         OriginalGateTile tile=gate(OriginalGateProfile.get("metromod_germo_1"),EnumFacing.SOUTH);
-        BlockPos foreignCell=tile.footprint().get(1);OriginalGatePartTile foreign=new OriginalGatePartTile();foreign.configure(tile.getPos().east(20),tile.owner);
+        BlockPos foreignCell=tile.occupied().get(1);OriginalGatePartTile foreign=new OriginalGatePartTile();foreign.configure(tile.getPos().east(20),tile.owner);
         when(tile.getWorld().getTileEntity(foreignCell)).thenReturn(foreign);tile.removeParts();
         verify(tile.getWorld(),never()).setBlockToAir(foreignCell);assertTrue(tile.removing);
     }

@@ -18,10 +18,12 @@ public final class OriginalGateItem extends ItemBlock {
     @Override public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos clicked, EnumHand hand,
                                                EnumFacing face, float hitX, float hitY, float hitZ) {
         BlockPos origin = world.getBlockState(clicked).getBlock().isReplaceable(world, clicked) ? clicked : clicked.offset(face);
-        EnumFacing facing = player.getHorizontalFacing().getOpposite();
+        // A wall switch faces OUT of the clicked wall, independent of player yaw.
+        if(gate.profile.is("Lever") && (face.getAxis().isVertical() || !world.getBlockState(clicked).isSideSolid(world,clicked,face)))return EnumActionResult.FAIL;
+        EnumFacing facing = gate.profile.is("Lever")?face:player.getHorizontalFacing().getOpposite();
         ItemStack stack = player.getHeldItem(hand);
         if (stack.isEmpty() || player.isSpectator() || world.restoringBlockSnapshots) return EnumActionResult.FAIL;
-        List<BlockPos> footprint = gate.profile.footprint(origin, facing);
+        List<BlockPos> footprint = gate.profile.occupied(origin, facing, 0);
         for (BlockPos pos : footprint) {
             if (!world.isBlockLoaded(pos) || pos.getY() < 0 || pos.getY() >= world.getHeight()
                     || !world.getWorldBorder().contains(pos) || !world.isAirBlock(pos)

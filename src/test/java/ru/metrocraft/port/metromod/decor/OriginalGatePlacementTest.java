@@ -78,4 +78,10 @@ public class OriginalGatePlacementTest {
         remote.setBoolean(world,false);when(world.isBlockLoaded(any(BlockPos.class))).thenReturn(false);
         assertEquals(EnumActionResult.FAIL,place());assertEquals(0,writes);assertEquals(1,stack.getCount());
     }
+    @Test public void solidBlockInUnusedFuturePocketDoesNotPreventPlacement() {
+        BlockPos pocket=new BlockPos(0,69,0);states.put(pocket,Blocks.STONE.getDefaultState());
+        assertEquals(EnumActionResult.SUCCESS,place());assertEquals(Blocks.STONE,states.get(pocket).getBlock());assertTrue(stack.isEmpty());
+        OriginalGateTile root=(OriginalGateTile)tiles.get(new BlockPos(0,64,0));assertTrue(root.ready);assertFalse(root.occupied().contains(pocket));
+    }
+
 }

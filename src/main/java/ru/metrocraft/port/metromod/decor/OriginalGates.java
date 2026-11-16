@@ -46,7 +46,10 @@ public final class OriginalGates {
         if(event.phase!=net.minecraftforge.fml.common.gameevent.TickEvent.Phase.END || world.isRemote || world.getTotalWorldTime()%100!=0)return;
         for(TileEntity tile:new ArrayList<>(world.loadedTileEntityList))if(tile instanceof OriginalGatePartTile) {
             OriginalGatePartTile part=(OriginalGatePartTile)tile;
-            if(world.isBlockLoaded(part.origin) && part.controller()==null && world.getTileEntity(part.getPos())==part)world.setBlockToAir(part.getPos());
+            if(world.isBlockLoaded(part.origin) && world.getTileEntity(part.getPos())==part) {
+                OriginalGateTile root=part.controller();
+                if(root==null)world.setBlockToAir(part.getPos());else root.releaseUnusedPart(part.getPos());
+            }
         }
     }
 }
