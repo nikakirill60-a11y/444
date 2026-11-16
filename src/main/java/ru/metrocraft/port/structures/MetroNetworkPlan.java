@@ -127,7 +127,7 @@ public final class MetroNetworkPlan {
             put(s,17,5,z,Kind.BAR);put(s,19,5,z,Kind.BAR);
         }
         // Station name and route signage, wall directly behind each sign.
-        sign(s,0,4,-10,"MinETRO",s.name,"Кольцевая линия","Переход: восток");
+        sign(s,4,4,-10,"MinETRO",s.name,"Кольцевая линия","Переход: восток");
         sign(s,-12,4,-10,"Следующая:",STATIONS.get((s.rotation+1)%4).name,"Два пути","Выход: Северная");
         serviceRoom(s);
     }
@@ -167,7 +167,7 @@ public final class MetroNetworkPlan {
         }
         // Surface vestibule surrounds the shaft; no unsupported/sign-only entry.
         for(int x=12;x<=20;x++)for(int z=-24;z<=-16;z++)for(int y=surface;y<=surface+4;y++) {
-            boolean shaft=x>=15 && x<=17 && z>=-21 && z<=-19;
+            boolean shaft=x==16 && z==-21;
             if(y==surface && shaft)continue;
             Kind k=y==surface || y==surface+4 || x==12 || x==20 || z==-24 || z==-16?Kind.BRICK:Kind.AIR;
             if((x==12 || x==20) && z>=-22 && z<=-18 && y==surface+2)k=Kind.GLASS;

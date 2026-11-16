@@ -71,7 +71,7 @@ public class MetroNetworkPlanTest {
             for(int z:new int[]{-7,0,7})for(int i=0;i<3;i++)assertTrue(plan.cells().get(s.at(14+i,2+i,z)).name().startsWith("STAIR"));
             for(int y=2;y<=4;y++)assertEquals(MetroNetworkPlan.Kind.AIR,plan.cells().get(s.at(12,y,-11)));
             assertEquals(MetroNetworkPlan.Kind.BRICK,plan.cells().get(s.at(12,1,-11)));
-            assertEquals(s.name,plan.signs().get(s.at(0,4,-10))[1]);
+            assertEquals(s.name,plan.signs().get(s.at(4,4,-10))[1]);
         }
     }
     @Test public void entranceLadderIsContinuousAndBackedFromRoomToSurface() {
@@ -79,6 +79,8 @@ public class MetroNetworkPlanTest {
         for(int y=2;y<=26;y++) {assertEquals(MetroNetworkPlan.Kind.LADDER,plan.cells().get(n.at(16,y,-21)));assertEquals(MetroNetworkPlan.Kind.BRICK,plan.cells().get(n.at(16,y,-22)));}
         assertEquals(MetroNetworkPlan.Kind.AIR,plan.cells().get(plan.entrance()));assertEquals(MetroNetworkPlan.Kind.AIR,plan.cells().get(plan.entrance().up()));
         assertEquals(MetroNetworkPlan.Kind.BRICK,plan.cells().get(plan.entrance().down()));
+        assertEquals(MetroNetworkPlan.Kind.BRICK,plan.cells().get(n.at(15,24,-21))); // step off ladder, not a 3x3 fall shaft
+        assertEquals(MetroNetworkPlan.Kind.AIR,plan.cells().get(n.at(15,25,-21)));
     }
     @Test public void allWallSignsHaveBackingAndFourLines() {
         for(Map.Entry<BlockPos,String[]> e:plan.signs().entrySet()) {
