@@ -1,5 +1,20 @@
 # dev31: установка на пол и удаляемая коллизия
 
+## Результат
+
+**dev31 опубликован.** CI [43942904665](https://github.com/nikakirill60-a11y/444/actions/runs/43942904665)
+PASS: Forge build/reobfuscation, **572 JUnit / 0 failures / 0 errors / 0 skipped**,
+**314 Python PASS**, standalone Java8 donor checks PASS, JAR verification PASS.
+Все 11 новых cut/floor/harvest тестов и World Entity.move через вырез прошли.
+
+Исходники: `ee3171a`; публикация `e7c328dc759e5083b8095836a43427de21f1d15f`.
+`downloads/metrocraft-port-1.12.2-1.13.0-dev.31.jar`, 87 279 076 байт.
+SHA256: `9968e3ff1f88bdea19cb17e79c0f4f20dfb3241aef4aeac411380f317c526fa3`.
+Локально повторно проверены ZIP CRC, SHA256, версия и присутствие 44 ground entries /
+OriginalCollisionCuts.class. Размер и Git blob SHA совпали с GitHub Contents API.
+
+Запуск живого Minecraft-клиента не выполнялся. Ниже — детали реализации.
+
 По запросу пользователя:
 1. 44 Door/Germo, в том числе обычные ворота/решётки, стоят на полу.
    Генератор `tools/ground_metromod_doors.py` берёт точные вершины OBJ всех частей
