@@ -18,7 +18,22 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
     public EnumFacing facing=EnumFacing.SOUTH;
     public float progress, previous;
     public boolean ready, removing;
-    private boolean powered, blocked;
+    private boolean powered, blocked, manual;
+    public boolean enabled() { return ready && (manual || powered); }
+    public int output() { return ready && profile.is("Lever") && manual?15:0; }
+    public boolean activate(net.minecraft.entity.player.EntityPlayer player) {
+        if(!ready || removing || profile.is("Germo") || player.isSpectator())return false;
+        if(world.isRemote)return true;
+        if(!world.isBlockModifiable(player,pos) || !player.canPlayerEdit(pos,EnumFacing.UP,player.getHeldItemMainhand()))return false;
+        manual=!manual;markDirty();sync();notifyFunctionalChange();
+        return true;
+    }
+    private void notifyFunctionalChange() {
+        for(BlockPos cell:footprint()) {
+            world.notifyNeighborsOfStateChange(cell,world.getBlockState(cell).getBlock(),false);
+            if(profile.is("Light"))world.checkLight(cell);
+        }
+    }
     private int ticks, soundDirection;
     private List<BlockPos> cells;
     private List<AxisAlignedBB> cachedBoxes;
@@ -26,7 +41,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
 
     public void configure(UUID id,OriginalGateProfile type,EnumFacing direction) {
         owner=id;profile=type;facing=direction;progress=previous=0;
-        powered=blocked=ready=removing=false;invalidateGeometry();markDirty();
+        powered=blocked=manual=ready=removing=false;invalidateGeometry();markDirty();
     }
     private void invalidateGeometry() { cells=null;cachedBoxes=null;cachedProgress=-1; }
     public List<BlockPos> footprint() {
@@ -53,20 +68,20 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
                         world.destroyBlock(pos,true);return;
                     }
                 }
-                signal |= world.isBlockPowered(cell);
+                if(!profile.is("Lever"))signal |= world.isBlockPowered(cell);
             }
-            if(signal!=powered) {powered=signal;markDirty();sync();}
+            if(signal!=powered) {powered=signal;markDirty();sync();if(profile.is("Light"))notifyFunctionalChange();}
         }
-        float target=powered?1:0;
+        float target=(manual || powered)?1:0;
         float next=progress+Math.signum(target-progress)*Math.min(profile.step,Math.abs(target-progress));
         if(!world.isRemote) {
-            boolean stop=next!=progress && blockedBetween(progress,next);
+            boolean stop=!profile.is("Light") && !profile.is("Lever") && next!=progress && blockedBetween(progress,next);
             if(stop!=blocked){blocked=stop;markDirty();sync();}
         }
         if(!blocked && next!=progress) {
             if(!world.isRemote) {
                 int direction=next>progress?1:-1;
-                if(direction!=soundDirection) {
+                if(direction!=soundDirection && profile.is("Germo")) {
                     net.minecraft.util.SoundEvent sound=ru.metrocraft.port.metromod.MetroAudio.get(
                             ru.metrocraft.port.metromod.MetroAudio.gate(direction>0),"germo");
                     if(sound!=null)world.playSound(null,pos,sound,SoundCategory.BLOCKS,.4F,1);
@@ -133,6 +148,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         super.writeToNBT(tag);if(owner!=null)tag.setUniqueId("Owner",owner);
         tag.setString("Profile",profile.id);tag.setInteger("Facing",facing.getHorizontalIndex());
         tag.setFloat("Progress",OriginalGateProfile.clamp(progress));tag.setBoolean("Ready",ready);
+        tag.setBoolean("Manual",manual);
         tag.setBoolean("Powered",powered);tag.setBoolean("Blocked",blocked);return tag;
     }
     @Override public void readFromNBT(NBTTagCompound tag) {
@@ -142,6 +158,7 @@ public final class OriginalGateTile extends TileEntity implements ITickable {
         facing=OriginalGateBlock.horizontal(tag.getInteger("Facing"));
         previous=progress=OriginalGateProfile.clamp(tag.getFloat("Progress"));
         ready=tag.getBoolean("Ready");powered=tag.getBoolean("Powered");blocked=tag.getBoolean("Blocked");
+        manual=tag.getBoolean("Manual");
         removing=false;invalidateGeometry();
     }
     @Override public NBTTagCompound getUpdateTag() { return writeToNBT(new NBTTagCompound()); }

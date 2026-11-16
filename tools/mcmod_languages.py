@@ -15,6 +15,11 @@ def lines_for(locale):
                 lines.append(prefix+'.metroport.'+entry['id']+'.name='+entry['nameRu' if locale=='ru_ru' else 'nameEn'])
     shared=json.loads((ROOT/'tools/mcmod-localization.json').read_text())
     lines += [key+'='+value for key,value in shared[locale].items()]
+    interactive=ASSETS/'metromod_interactive.json'
+    if interactive.exists():
+        for entry in json.loads(interactive.read_text()):
+            name=entry['name_ru'] if locale=='ru_ru' else entry['source'].replace('_',' ')
+            lines.append('tile.metroport.'+entry['id']+'.name='+name+' [METRO_MOD]')
     blackrazid=ASSETS/'blackrazid_equipment.json'
     if blackrazid.exists():
         for entry in json.loads(blackrazid.read_text()):

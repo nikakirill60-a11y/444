@@ -50,12 +50,22 @@ public class OriginalGateBlock extends Block {
     }
     @Override public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
                                               EnumHand hand, EnumFacing side, float x, float y, float z) {
-        // Redstone is the sole control. Let vanilla place levers/buttons against the structure.
-        return false;
+        OriginalGateTile tile=OriginalGates.controller(world,pos);return tile!=null && tile.activate(player);
+    }
+    @Override public boolean canProvidePower(IBlockState state) { return profile.is("Lever"); }
+    @Override public int getWeakPower(IBlockState state,IBlockAccess world,BlockPos pos,EnumFacing side) {
+        TileEntity tile=world.getTileEntity(pos);return tile instanceof OriginalGateTile?((OriginalGateTile)tile).output():0;
+    }
+    @Override public int getStrongPower(IBlockState state,IBlockAccess world,BlockPos pos,EnumFacing side) { return getWeakPower(state,world,pos,side); }
+    @Override public int getLightValue(IBlockState state,IBlockAccess world,BlockPos pos) {
+        TileEntity tile=world.getTileEntity(pos);return profile.is("Light") && tile instanceof OriginalGateTile && ((OriginalGateTile)tile).enabled()?15:0;
     }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);
-        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null) tile.removeParts();
+        if (!world.isRemote && !world.restoringBlockSnapshots && tile != null) {
+            tile.removeParts();
+            if(profile.is("Lever"))world.notifyNeighborsOfStateChange(pos,this,false);
+        }
         super.breakBlock(world, pos, state);
     }
     @Override public net.minecraft.block.material.EnumPushReaction getPushReaction(IBlockState state) { return net.minecraft.block.material.EnumPushReaction.BLOCK; }

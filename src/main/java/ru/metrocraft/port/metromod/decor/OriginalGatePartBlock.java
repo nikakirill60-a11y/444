@@ -46,6 +46,18 @@ public final class OriginalGatePartBlock extends Block {
         if (tile == null) return false;
         return tile.getBlockType().onBlockActivated(world, tile.getPos(), world.getBlockState(tile.getPos()), player, hand, side, x, y, z);
     }
+    @Override public boolean canProvidePower(IBlockState state) { return true; }
+    private OriginalGateTile root(IBlockAccess world,BlockPos pos) {
+        TileEntity part=world.getTileEntity(pos);
+        return part instanceof OriginalGatePartTile?((OriginalGatePartTile)part).controller():null;
+    }
+    @Override public int getWeakPower(IBlockState state,IBlockAccess world,BlockPos pos,EnumFacing side) {
+        OriginalGateTile tile=root(world,pos);return tile==null?0:tile.output();
+    }
+    @Override public int getStrongPower(IBlockState state,IBlockAccess world,BlockPos pos,EnumFacing side) { return getWeakPower(state,world,pos,side); }
+    @Override public int getLightValue(IBlockState state,IBlockAccess world,BlockPos pos) {
+        OriginalGateTile tile=root(world,pos);return tile!=null && tile.profile.is("Light") && tile.enabled()?15:0;
+    }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);
         // Only the controller drops an item. Parts never multiply gate drops.

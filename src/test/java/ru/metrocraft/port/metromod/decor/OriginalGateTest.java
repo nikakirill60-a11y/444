@@ -14,6 +14,9 @@ import static org.mockito.Mockito.*;
 /** Executes real motion, profiles, collision and save code; not an OpenGL/gameplay test. */
 public class OriginalGateTest {
     @BeforeClass public static void boot() { Bootstrap.register(); OriginalGates.initialize(); }
+    private Collection<OriginalGateProfile> originalSix() {
+        List<OriginalGateProfile> result=new ArrayList<>();for(int n:new int[]{1,2,4,5,6,9})result.add(OriginalGateProfile.get("metromod_germo_"+n));return result;
+    }
     private OriginalGateTile gate(OriginalGateProfile profile,EnumFacing facing) {
         World world=mock(World.class);OriginalGateTile tile=new OriginalGateTile();tile.setPos(new BlockPos(0,64,0));
         tile.configure(UUID.randomUUID(),profile,facing);tile.ready=true;tile.setWorld(world);
@@ -26,8 +29,8 @@ public class OriginalGateTest {
         return tile;
     }
     @Test public void sixOriginalProfilesNotTheOldGateIds() {
-        assertEquals(6,OriginalGateProfile.all().size());
-        for(OriginalGateProfile p:OriginalGateProfile.all()) {
+        assertEquals(6,originalSix().size());
+        for(OriginalGateProfile p:originalSix()) {
             assertTrue(p.id.startsWith("metromod_germo_"));assertTrue(p.source.startsWith("germo/"));
             for(OriginalGateProfile.Part part:p.parts) {assertTrue(part.mesh.endsWith(".obj.gz"));assertFalse(part.materials.isEmpty());}
         }
@@ -38,7 +41,7 @@ public class OriginalGateTest {
         assertEquals(7.15,c.parts[0].move[0],0);assertEquals(-7.15,c.parts[1].move[0],0);
     }
     @Test public void redstoneOpensAndClosesAllSixInEveryFacing() {
-        for(OriginalGateProfile p:OriginalGateProfile.all())for(EnumFacing f:EnumFacing.Plane.HORIZONTAL) {
+        for(OriginalGateProfile p:originalSix())for(EnumFacing f:EnumFacing.Plane.HORIZONTAL) {
             OriginalGateTile tile=gate(p,f);tile.update();assertEquals(0,tile.progress,0);
             when(tile.getWorld().isBlockPowered(tile.getPos())).thenReturn(true);
             for(int i=0;i<70;i++)tile.update();assertEquals(1,tile.progress,0);
@@ -74,7 +77,7 @@ public class OriginalGateTest {
         assertNull(tile.rayTrace(middle,new Vec3d(.5,65.5,-2),new Vec3d(.5,65.5,2)));
     }
     @Test public void footprintContainsEveryMovingBoxAtIntermediateStates() {
-        for(OriginalGateProfile p:OriginalGateProfile.all())for(EnumFacing f:EnumFacing.Plane.HORIZONTAL) {
+        for(OriginalGateProfile p:originalSix())for(EnumFacing f:EnumFacing.Plane.HORIZONTAL) {
             BlockPos origin=new BlockPos(-15,64,15);Set<BlockPos> cells=new HashSet<>(p.footprint(origin,f));
             assertTrue(cells.contains(origin));assertTrue(cells.size()<4096);
             for(float t:new float[]{0,.25F,.5F,.75F,1})for(AxisAlignedBB b:p.boxes(origin,f,t,false)) {

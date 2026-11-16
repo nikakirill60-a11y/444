@@ -10,6 +10,8 @@ import java.util.*;
 /** Shared geometry/animation contract: dedicated server never loads a renderer or an OBJ. */
 public final class OriginalGateProfile {
     public String id, source, name_ru;
+    public String kind="Germo";
+    public boolean is(String value) { return value.equals(kind); }
     public float step;
     public double ground;
     public Part[] parts;
@@ -18,6 +20,15 @@ public final class OriginalGateProfile {
         public Map<String,String> materials;
         public double[] move;
         public double[][] boxes;
+        public double[][] frames;
+        public boolean moving;
+        public double[] matrix(float progress) {
+            if(frames==null)return new double[]{1,0,0,move[0]*progress,0,1,0,move[1]*progress,0,0,1,move[2]*progress,0,0,0,1};
+            double frame=clamp(progress)*(frames.length-1);int a=(int)frame,b=Math.min(a+1,frames.length-1);
+            double[] result=new double[16];for(int i=0;i<16;i++)result[i]=frames[a][i]+(frames[b][i]-frames[a][i])*(frame-a);
+            return result;
+        }
+        public boolean moves() { return frames==null?move[0]!=0 || move[1]!=0 || move[2]!=0:moving; }
     }
     private static final Map<String,OriginalGateProfile> ALL = load();
     public static Collection<OriginalGateProfile> all() { return ALL.values(); }
@@ -25,13 +36,25 @@ public final class OriginalGateProfile {
     private static Map<String,OriginalGateProfile> load() {
         try (InputStream in=OriginalGateProfile.class.getResourceAsStream("/assets/metroport/metromod_gates.json")) {
             if(in==null)throw new IOException("Missing original gate profiles");
-            OriginalGateProfile[] profiles=new Gson().fromJson(new InputStreamReader(in,StandardCharsets.UTF_8),OriginalGateProfile[].class);
+            List<OriginalGateProfile> profiles=new ArrayList<>(Arrays.asList(new Gson().fromJson(new InputStreamReader(in,StandardCharsets.UTF_8),OriginalGateProfile[].class)));
+            try(InputStream extra=OriginalGateProfile.class.getResourceAsStream("/assets/metroport/metromod_interactive.json")) {
+                if(extra==null)throw new IOException("Missing interactive profiles");
+                profiles.addAll(Arrays.asList(new Gson().fromJson(new InputStreamReader(extra,StandardCharsets.UTF_8),OriginalGateProfile[].class)));
+            }
             Map<String,OriginalGateProfile> result=new LinkedHashMap<>();
             for(OriginalGateProfile p:profiles) {
-                if(!p.id.matches("metromod_germo_[124569]") || result.put(p.id,p)!=null || p.parts.length==0
-                        || !Double.isFinite(p.ground) || !(p.step>0 && p.step<=.02F))throw new IOException("Invalid gate profile");
+                if(!p.id.matches("metromod_(germo|door|lever|light)_[a-z0-9_]+") || result.put(p.id,p)!=null || p.parts.length==0
+                        || !Arrays.asList("Germo","Door","Lever","Light").contains(p.kind) || !Double.isFinite(p.ground) || !(p.step>0 && p.step<=.02F))throw new IOException("Invalid gate profile");
                 for(Part part:p.parts) {
                     if(part.move.length!=3 || part.boxes.length==0)throw new IOException("Invalid gate part");
+                    if(part.frames!=null) {
+                        if(part.frames.length!=65)throw new IOException("Invalid frame count");
+                        for(double[] frame:part.frames) {
+                            if(frame.length!=16)throw new IOException("Invalid pose matrix");
+                            for(double v:frame)if(!Double.isFinite(v) || Math.abs(v)>128)throw new IOException("Invalid pose");
+                            if(frame[12]!=0 || frame[13]!=0 || frame[14]!=0 || frame[15]!=1)throw new IOException("Non-affine pose");
+                        }
+                    }
                     for(double v:part.move)if(!Double.isFinite(v))throw new IOException("Invalid movement");
                     for(double[] b:part.boxes) {
                         if(b.length!=6)throw new IOException("Invalid collision box");
@@ -56,16 +79,30 @@ public final class OriginalGateProfile {
         List<AxisAlignedBB> out=new ArrayList<>();
         double t=clamp(progress);
         for(Part part:parts) {
-            if(movingOnly && part.move[0]==0 && part.move[1]==0 && part.move[2]==0)continue;
-            for(double[] b:part.boxes)out.add(worldBox(pos,facing,new double[]{b[0]+part.move[0]*t,b[1]+ground+part.move[1]*t,
-                    b[2]+part.move[2]*t,b[3]+part.move[0]*t,b[4]+ground+part.move[1]*t,b[5]+part.move[2]*t}));
+            if(movingOnly && !part.moves())continue;
+            double[] m=part.matrix((float)t);
+            for(double[] b:part.boxes) {
+                double[] box={Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY,
+                        Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY};
+                for(int mask=0;mask<8;mask++)for(int axis=0;axis<3;axis++) {
+                    double value=m[axis*4+3]+(axis==1?ground:0);
+                    for(int k=0;k<3;k++)value+=m[axis*4+k]*b[k+((mask&(1<<k))!=0?3:0)];
+                    box[axis]=Math.min(box[axis],value);box[axis+3]=Math.max(box[axis+3],value);
+                }
+                out.add(worldBox(pos,facing,box));
+            }
         }
         return out;
     }
-    public AxisAlignedBB bounds(BlockPos pos,EnumFacing facing) {
+    private final Map<EnumFacing,AxisAlignedBB> localBounds=new EnumMap<>(EnumFacing.class);
+    public synchronized AxisAlignedBB bounds(BlockPos pos,EnumFacing facing) {
+        AxisAlignedBB cached=localBounds.get(facing);
+        if(cached!=null)return cached.offset(pos);
         AxisAlignedBB result=null;
-        for(float progress:new float[]{0,1})for(AxisAlignedBB box:boxes(pos,facing,progress,false))result=result==null?box:result.union(box);
-        return result;
+        // Every pose extremum, not just endpoints: rotating leaves may swing outside both.
+        int count=parts[0].frames==null?1:64;
+        for(int i=0;i<=count;i++)for(AxisAlignedBB box:boxes(BlockPos.ORIGIN,facing,(float)i/count,false))result=result==null?box:result.union(box);
+        localBounds.put(facing,result);return result.offset(pos);
     }
     /** Includes the complete movement pocket and controller, never edits outside this set. */
     public List<BlockPos> footprint(BlockPos pos,EnumFacing facing) {

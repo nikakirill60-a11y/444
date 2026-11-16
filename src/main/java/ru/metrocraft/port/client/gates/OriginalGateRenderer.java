@@ -42,7 +42,10 @@ public final class OriginalGateRenderer extends TileEntitySpecialRenderer<Origin
             for(OriginalGateProfile.Part part:profile.parts) {
                 GlStateManager.pushMatrix();
                 try {
-                    GlStateManager.translate(part.move[0]*progress,part.move[1]*progress,part.move[2]*progress);
+                    double[] matrix=part.matrix(progress);
+                    java.nio.FloatBuffer buffer=org.lwjgl.BufferUtils.createFloatBuffer(16);
+                    for(int col=0;col<4;col++)for(int row=0;row<4;row++)buffer.put((float)matrix[row*4+col]);
+                    buffer.flip();GlStateManager.multMatrix(buffer);
                     for(Map.Entry<String,Integer> group:mesh(part.mesh).entrySet()) {
                         String texture=part.materials.get(group.getKey());
                         if(texture==null)throw new IllegalStateException("Missing original gate material "+group.getKey());

@@ -1,0 +1,752 @@
+{
+  "total": 112,
+  "ported": 78,
+  "blocked": 34,
+  "all_functional_decor_ported": false,
+  "entries": [
+    {
+      "model": "box/box_metal.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal1.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal2.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal3.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal4.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal5.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_books.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_books_broken.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal_4.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/box_metal_5.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "box/test_instrumentbox_01.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/box_patron.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/ammo_box.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/armorset_soldier_01.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/armorset_soldier_02.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/box_ak74.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/gunparts_01.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/rukzak.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/shotgun_parts.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "arsenal/wpn_support.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "columnes/round_column_svetilnik.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_columnes_round_column_svetilnik",
+      "parts": 1
+    },
+    {
+      "model": "constr_metal/grate1_door.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_constr_metal_grate1_door",
+      "parts": 1
+    },
+    {
+      "model": "germo/germo1.m2033model",
+      "kind": "Germo",
+      "status": "dev25",
+      "id": "metromod_germo_1"
+    },
+    {
+      "model": "germo/germo2.m2033model",
+      "kind": "Germo",
+      "status": "dev25",
+      "id": "metromod_germo_2"
+    },
+    {
+      "model": "germo/germo3.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_3",
+      "parts": 9
+    },
+    {
+      "model": "germo/germo4.m2033model",
+      "kind": "Germo",
+      "status": "dev25",
+      "id": "metromod_germo_4"
+    },
+    {
+      "model": "germo/germo5.m2033model",
+      "kind": "Germo",
+      "status": "dev25",
+      "id": "metromod_germo_5"
+    },
+    {
+      "model": "germo/germo6.m2033model",
+      "kind": "Germo",
+      "status": "dev25",
+      "id": "metromod_germo_6"
+    },
+    {
+      "model": "germo/germo7.m2033model",
+      "kind": "Germo",
+      "status": "blocked",
+      "reason": "Uninitialized field null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiII on null/ljjijiliiljIljlliiiIiljiIliIIjIj"
+    },
+    {
+      "model": "germo/germo8.m2033model",
+      "kind": "Germo",
+      "status": "blocked",
+      "reason": "Uninitialized field null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiII on null/llliljiiijjjIljjjIjIiIjljliljjji"
+    },
+    {
+      "model": "items/baggage/rukzak.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "decor_metro/fonar_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_fonar_01",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/karbid_lamp_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_karbid_lamp_01",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/karbid_lamp_02.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_karbid_lamp_02",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/l07_vorota.m2033model",
+      "kind": "Germo",
+      "status": "blocked",
+      "reason": "Uninitialized field null/lIjijlilIlIIIiIiIlIIIIlIijljllij.jjlliijIIIiIjIjiiIjijjIjIljjiiII on null/jiIilIjjiIIjiliIiijiljjjlliilIIi"
+    },
+    {
+      "model": "decor_metro/lamp_abajur_2.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_abajur_2",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_halogen_1.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_halogen_1",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_industrt01_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_industrt01_01",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_kerosinka_06_nice.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_kerosinka_06_nice",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_kerosinka_07_nice.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_kerosinka_07_nice",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_na_stenu_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_na_stenu_01",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_nastolny_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_nastolny_01",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_projector_no_lp.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_projector_no_lp",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lamp_small.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lamp_small",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/lampa.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_lampa",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/wpn_proj_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_wpn_proj_01",
+      "parts": 1
+    },
+    {
+      "model": "decor_metro/wpn_proj_02.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_decor_metro_wpn_proj_02",
+      "parts": 1
+    },
+    {
+      "model": "door/d6_gate_platform_.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_d6_gate_platform_",
+      "parts": 3
+    },
+    {
+      "model": "door/door_d06_l02_01.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_door_door_d06_l02_01",
+      "parts": 2
+    },
+    {
+      "model": "door/door_hran.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_door_hran",
+      "parts": 1
+    },
+    {
+      "model": "door/door_l00_hospital.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_door_l00_hospital",
+      "parts": 3
+    },
+    {
+      "model": "door/l04_gate02_.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_door_l04_gate02_",
+      "parts": 5
+    },
+    {
+      "model": "door/l04_t_zatvor.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_door_l04_t_zatvor",
+      "parts": 1
+    },
+    {
+      "model": "door/l13_vorota_test.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_door_l13_vorota_test",
+      "parts": 3
+    },
+    {
+      "model": "door/l17_door_closed.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_l17_door_closed",
+      "parts": 2
+    },
+    {
+      "model": "door/l17_door_gate.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_l17_door_gate",
+      "parts": 2
+    },
+    {
+      "model": "door/l21_clap_door.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_l21_clap_door",
+      "parts": 2
+    },
+    {
+      "model": "door/l21_level_doors02.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_l21_level_doors02",
+      "parts": 2
+    },
+    {
+      "model": "door/l21_level_doors03.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_l21_level_doors03",
+      "parts": 2
+    },
+    {
+      "model": "door/l21_level_doors04.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_l21_level_doors04",
+      "parts": 1
+    },
+    {
+      "model": "door/ostankino_door.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_ostankino_door",
+      "parts": 1
+    },
+    {
+      "model": "door/vorota.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_door_vorota",
+      "parts": 3
+    },
+    {
+      "model": "electro/props_rubilnik_01.m2033model",
+      "kind": "Lever",
+      "status": "ported",
+      "id": "metromod_lever_electro_props_rubilnik_01",
+      "parts": 2
+    },
+    {
+      "model": "electro/rubilnik_4.m2033model",
+      "kind": "Lever",
+      "status": "ported",
+      "id": "metromod_lever_electro_rubilnik_4",
+      "parts": 2
+    },
+    {
+      "model": "fence/kalitka_01.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_fence_kalitka_01",
+      "parts": 2
+    },
+    {
+      "model": "fireplace/barrel_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_fireplace_barrel_01",
+      "parts": 1
+    },
+    {
+      "model": "fireplace/candle_church01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_fireplace_candle_church01",
+      "parts": 1
+    },
+    {
+      "model": "fireplace/candle_church02.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_fireplace_candle_church02",
+      "parts": 1
+    },
+    {
+      "model": "fireplace/fireplace_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_fireplace_fireplace_01",
+      "parts": 1
+    },
+    {
+      "model": "germo/germo9.m2033model",
+      "kind": "Germo",
+      "status": "dev25",
+      "id": "metromod_germo_9"
+    },
+    {
+      "model": "house/small_door.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_house_small_door",
+      "parts": 1
+    },
+    {
+      "model": "items/cyan_light_stick.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_items_cyan_light_stick",
+      "parts": 1
+    },
+    {
+      "model": "items/green_light_stick.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_items_green_light_stick",
+      "parts": 1
+    },
+    {
+      "model": "items/filter.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "lamp/kerosinka_02.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_kerosinka_02",
+      "parts": 1
+    },
+    {
+      "model": "lamp/kerosinka_03.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_kerosinka_03",
+      "parts": 1
+    },
+    {
+      "model": "lamp/kerosinka_05.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_kerosinka_05",
+      "parts": 1
+    },
+    {
+      "model": "lamp/l04_lampion01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_l04_lampion01",
+      "parts": 1
+    },
+    {
+      "model": "lamp/l04_lampion02.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_l04_lampion02",
+      "parts": 1
+    },
+    {
+      "model": "lamp/light_tripple1.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_light_tripple1",
+      "parts": 1
+    },
+    {
+      "model": "lamp/svetilnik.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_lamp_svetilnik",
+      "parts": 1
+    },
+    {
+      "model": "parom/ubl_ammo_01.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "parom/ubl_ammo_02.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "patron/ammo_01.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "patron/mnogo_ammo_01.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "patron/wpn_7_62_ammo.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "patron/wpn_14_5x5_ammo.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "props_library/wood_door.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_props_library_wood_door",
+      "parts": 1
+    },
+    {
+      "model": "door/biblio_door_chit_zal_left.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_biblio_door_chit_zal_left",
+      "parts": 1
+    },
+    {
+      "model": "door/biblio_door_chit_zal_right.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_biblio_door_chit_zal_right",
+      "parts": 1
+    },
+    {
+      "model": "door/biblio_door_hall_razlom_left.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_biblio_door_hall_razlom_left",
+      "parts": 1
+    },
+    {
+      "model": "door/biblio_door_hall_razlom_right.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_biblio_door_hall_razlom_right",
+      "parts": 1
+    },
+    {
+      "model": "door/biblio_door_razlom.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_biblio_door_razlom",
+      "parts": 1
+    },
+    {
+      "model": "door/door_2_left.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_door_2_left",
+      "parts": 1
+    },
+    {
+      "model": "door/door_2_right.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_door_door_2_right",
+      "parts": 1
+    },
+    {
+      "model": "station_props/lightbox.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_station_props_lightbox",
+      "parts": 1
+    },
+    {
+      "model": "structure/d6_door_02.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_structure_d6_door_02",
+      "parts": 2
+    },
+    {
+      "model": "structure/gates_01.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_structure_gates_01",
+      "parts": 3
+    },
+    {
+      "model": "structure/l13_reshetka_skin.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_structure_l13_reshetka_skin",
+      "parts": 1
+    },
+    {
+      "model": "structure/l19_polis_door.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_structure_l19_polis_door",
+      "parts": 3
+    },
+    {
+      "model": "structure/mls_vorota_l06.m2033model",
+      "kind": "Germo",
+      "status": "blocked",
+      "reason": "Required donor dependency structure/mls_vorota_l06_add2.m2033model is missing; partial preview is not a complete port"
+    },
+    {
+      "model": "structure/reshetka_02.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_structure_reshetka_02",
+      "parts": 2
+    },
+    {
+      "model": "structure/rubilnik_01.m2033model",
+      "kind": "Lever",
+      "status": "ported",
+      "id": "metromod_lever_structure_rubilnik_01",
+      "parts": 2
+    },
+    {
+      "model": "structure/rubilnik_02.m2033model",
+      "kind": "Lever",
+      "status": "ported",
+      "id": "metromod_lever_structure_rubilnik_02",
+      "parts": 2
+    },
+    {
+      "model": "structure/rubilnik_lift.m2033model",
+      "kind": "Lever",
+      "status": "ported",
+      "id": "metromod_lever_structure_rubilnik_lift",
+      "parts": 2
+    },
+    {
+      "model": "structure/shitovaya_01.m2033model",
+      "kind": "Lever",
+      "status": "ported",
+      "id": "metromod_lever_structure_shitovaya_01",
+      "parts": 7
+    },
+    {
+      "model": "structure/vorota_l03.m2033model",
+      "kind": "Door",
+      "status": "ported",
+      "id": "metromod_door_structure_vorota_l03",
+      "parts": 4
+    },
+    {
+      "model": "structure/vorota_resh_tower.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_structure_vorota_resh_tower",
+      "parts": 3
+    },
+    {
+      "model": "structure/zatvor_01.m2033model",
+      "kind": "Germo",
+      "status": "ported",
+      "id": "metromod_germo_structure_zatvor_01",
+      "parts": 6
+    },
+    {
+      "model": "tunnel_props/tonnels_props_lamp_germ_01.m2033model",
+      "kind": "Light",
+      "status": "ported",
+      "id": "metromod_light_tunnel_props_tonnels_props_lamp_germ_01",
+      "parts": 1
+    },
+    {
+      "model": "wpn/predohranitel_bomb_sticky.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    },
+    {
+      "model": "wpn/wpn_bomb_predohranitel.m2033model",
+      "kind": "Inventory",
+      "status": "blocked",
+      "reason": "Client Inventory tag does not establish server storage slots or pickup rules; no invented container"
+    }
+  ]
+}
