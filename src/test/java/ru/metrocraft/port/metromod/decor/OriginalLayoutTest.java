@@ -19,8 +19,8 @@ public class OriginalLayoutTest {
     private OriginalGateTile root;
     private OriginalDecorTestWorld grid;
     @Before public void setup() {
-        root=new OriginalGateTile();root.setPos(new BlockPos(0,64,0));root.setWorld(mock(World.class));
-        root.configure(UUID.randomUUID(),OriginalGateProfile.get("metromod_germo_1"),EnumFacing.SOUTH);root.ready=true;
+        root=new OriginalGateTile();root.setPos(new BlockPos(0,64,0));
+        root.configure(UUID.randomUUID(),OriginalGateProfile.get("metromod_germo_1"),EnumFacing.SOUTH);root.setWorld(mock(World.class));root.ready=true;
         grid=new OriginalDecorTestWorld(root);
     }
     private void open() {when(grid.world.isBlockPowered(root.getPos())).thenReturn(true);for(int i=0;i<70;i++)root.update();assertEquals(1,root.progress,0);}
