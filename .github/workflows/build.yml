@@ -102,7 +102,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.30.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.31.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -121,7 +121,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.30.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.31.jar
           if-no-files-found: error
 
       - name: Verify and publish selected systems test build on the same branch
@@ -134,19 +134,19 @@ jobs:
             exit 1
           fi
           mkdir -p downloads
-          cp build/libs/metrocraft-port-1.12.2-1.13.0-dev.30.jar downloads/
-          cp docs/METRO_SELECTED_INSTALL_RU.txt downloads/MetroPort_dev30_README_RU.txt
+          cp build/libs/metrocraft-port-1.12.2-1.13.0-dev.31.jar downloads/
+          cp docs/METRO_SELECTED_INSTALL_RU.txt downloads/MetroPort_dev31_README_RU.txt
           cp build/structures/MinETRO_ring_4stations_1.12.2.schematic downloads/
           cp build/structures/network-counts.txt downloads/MinETRO_network_counts.txt
           test -s downloads/MinETRO_ring_4stations_1.12.2.schematic
           python tools/verify_metro_selected_build.py \
-            downloads/metrocraft-port-1.12.2-1.13.0-dev.30.jar \
+            downloads/metrocraft-port-1.12.2-1.13.0-dev.31.jar \
             build/test-results/test "$GITHUB_SHA" \
             "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
-            downloads/MetroPort_dev30_report.json
+            downloads/MetroPort_dev31_report.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- downloads/metrocraft-port-1.12.2-1.13.0-dev.30.jar downloads/MetroPort_dev30_README_RU.txt downloads/MetroPort_dev30_report.json downloads/MinETRO_ring_4stations_1.12.2.schematic downloads/MinETRO_network_counts.txt
+          git add -- downloads/metrocraft-port-1.12.2-1.13.0-dev.31.jar downloads/MetroPort_dev31_README_RU.txt downloads/MetroPort_dev31_report.json downloads/MinETRO_ring_4stations_1.12.2.schematic downloads/MinETRO_network_counts.txt
           git diff --cached --check
-          git commit -m 'Publish MinETRO donor Door collision stage dev.30 [skip ci]'
+          git commit -m 'Publish MinETRO donor Door collision stage dev.31 [skip ci]'
           git push origin arena/dcab859f-444

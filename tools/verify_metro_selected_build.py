@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.30 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.31 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import gzip
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.30'
+VERSION = '1.13.0-dev.31'
 REQUIRED = [
     'ru/metrocraft/port/structures/MetroNetworkCommand.class',
     'ru/metrocraft/port/structures/MetroNetworkPlan.class',
@@ -23,6 +23,8 @@ REQUIRED = [
     'ru/metrocraft/port/metromod/decor/DonorGermoMotion.class',
     'ru/metrocraft/port/metromod/decor/DonorGermoCoordinates.class',
     'ru/metrocraft/port/metromod/decor/DonorGermoCollision.class',
+    'ru/metrocraft/port/metromod/decor/OriginalCollisionCuts.class',
+    'assets/metroport/metromod_ground.json',
     'ru/metrocraft/port/metromod/decor/OriginalGateProfile.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateItem.class',
     'ru/metrocraft/port/client/gates/OriginalGateRenderer.class',
@@ -71,9 +73,10 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest': 7,
                 'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 11,
                 'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10,
-                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 12,
+                'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 13,
                 'ru.metrocraft.port.metromod.decor.DonorDoorCollisionTest': 11,
                 'ru.metrocraft.port.metromod.decor.DonorGermoCollisionTest': 9,
+                'ru.metrocraft.port.metromod.decor.OriginalCollisionCutsTest': 11,
                 'ru.metrocraft.port.structures.MetroNetworkPlanTest': 8,
                 'ru.metrocraft.port.structures.MetroNetworkJobTest': 12,
                 'ru.metrocraft.port.structures.MetroNetworkCommandTest': 4}
@@ -105,6 +108,8 @@ def verify(jar, results, source, run_url):
         germo=json.loads(archive.read('assets/metroport/metromod_germo_collision.json'))
         expected_germo={p['id'] for p in profiles+interactive if p.get('kind','Germo')=='Germo'}
         if set(germo)!=expected_germo or len(germo)!=17:raise ValueError('Incomplete donor Germo collision catalogue')
+        ground=json.loads(archive.read('assets/metroport/metromod_ground.json'))
+        if len(ground)!=44 or set(ground)!=set(donor)|set(germo):raise ValueError('Incomplete grounded door catalogue')
         layout=json.loads(archive.read('assets/metroport/metromod_layout.json'))
         if len(layout)!=50 or sum('offset' in row for row in layout.values())!=6:raise ValueError('Missing wall/solid panel layout')
         profiles+=interactive
@@ -141,7 +146,8 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['dev30: donor model-mode collision contract for 27 Doors; activation-based collision suppression, replaceable open selection proxies; custom local AABB NBT; 17 Germo use donor stateful block callbacks with transactional motion, NBT/packet snapshots and UUID-safe proxy migration',
+            'included': ['dev31: all 44 Door/Germo meshes grounded from exact closed-pose vertices; player-removable collision cells persisted and synchronized without deleting the controller or recreating cuts during animation',
+                         'dev30: donor model-mode collision contract for 27 Doors; activation-based collision suppression, replaceable open selection proxies; custom local AABB NBT; 17 Germo use donor stateful block callbacks with transactional motion, NBT/packet snapshots and UUID-safe proxy migration',
                          'dev29: new four-station vanilla metro ring; two connected rail loops, pedestrian bridges, service rooms, surface ladder vestibule; operator preview/confirm command with durable conservative undo; standalone schematic',
                          'MinETRO display name; saved-world namespace metroport unchanged',
                          'Previous approximate collision implementation retained for Lever/Light only; wall lever offsets and clicked-face orientation retained',

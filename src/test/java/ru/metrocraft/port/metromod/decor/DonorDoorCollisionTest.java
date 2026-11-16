@@ -42,7 +42,7 @@ public class DonorDoorCollisionTest {
     @Test public void closedPhysicsDoesNotFollowAnimXOrSurfaceVoxels(){
         AxisAlignedBB expected=root.doorBounds();
         for(float progress:new float[]{0,.01F,.5F,1}){
-            root.progress=progress;assertEquals(Collections.singletonList(expected),root.collisionBoxes());
+            root.progress=progress;assertEquals(OriginalGateProfile.floorBoxes(Collections.singletonList(expected),root.getPos()),root.collisionBoxes());
         }
         assertEquals(1,root.collisionBoxes().size());
     }
@@ -93,7 +93,7 @@ public class DonorDoorCollisionTest {
         NBTTagCompound tag=root.writeToNBT(new NBTTagCompound());tag.setInteger("LayoutVersion",2);
         root.readFromNBT(tag);root.update();
         assertTrue(grid.world.isAirBlock(old));assertEquals(Blocks.STONE,grid.world.getBlockState(foreign).getBlock());
-        assertEquals(3,root.writeToNBT(new NBTTagCompound()).getInteger("LayoutVersion"));
+        assertEquals(5,root.writeToNBT(new NBTTagCompound()).getInteger("LayoutVersion"));
     }
     @Test public void customAabbKeysRoundTripAndOverrideRatherThanExpand(){
         NBTTagCompound tag=root.writeToNBT(new NBTTagCompound());

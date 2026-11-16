@@ -111,6 +111,14 @@ public class OriginalWorldCollisionTest {
         }
         assertEquals(17,count);
     }
+    @Test public void removingExtraCollisionCellsReallyLetsEntityMoveThroughTheHole() throws Exception {
+        Scene scene=new Scene(gate(),EnumFacing.SOUTH,false,false);assertTrue(scene.walk(false).collidedHorizontally);
+        for(BlockPos cell:new ArrayList<>(scene.root.occupied()))if(!cell.equals(scene.root.getPos())) {
+            assertTrue(scene.root.cutCollision(cell));scene.grid.states.remove(cell);scene.grid.tiles.remove(cell);
+        }
+        assertFalse(scene.walk(false).collidedHorizontally);assertFalse(scene.walk(true).collidedHorizontally);
+        assertSame(scene.root,scene.grid.tiles.get(scene.root.getPos()));
+    }
     @Test public void worldQueryWorksEvenWithEntireProxyBlockUpdateDelayed() throws Exception {
         Scene scene=new Scene(gate(),EnumFacing.WEST,true,true);
         for(BlockPos p:new ArrayList<>(scene.grid.states.keySet()))if(!p.equals(scene.root.getPos())) {scene.grid.states.remove(p);scene.grid.tiles.remove(p);}

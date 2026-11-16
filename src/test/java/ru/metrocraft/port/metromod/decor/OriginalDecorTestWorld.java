@@ -34,7 +34,8 @@ final class OriginalDecorTestWorld {
         when(world.isAirBlock(any(BlockPos.class))).thenAnswer(i->!states.containsKey(i.getArgument(0)));
         when(world.getEntitiesWithinAABBExcludingEntity(isNull(),any(AxisAlignedBB.class))).thenReturn(Collections.emptyList());
         when(world.setBlockState(any(BlockPos.class),any(IBlockState.class),anyInt())).thenAnswer(i->{
-            BlockPos p=((BlockPos)i.getArgument(0)).toImmutable();IBlockState state=i.getArgument(1);states.put(p,state);
+            BlockPos p=((BlockPos)i.getArgument(0)).toImmutable();IBlockState state=i.getArgument(1);
+            if(state.getBlock()==Blocks.AIR){states.remove(p);tiles.remove(p);return true;}states.put(p,state);
             TileEntity te=state.getBlock().createTileEntity(world,state);
             if(te!=null){te.setWorld(world);te.setPos(p);tiles.put(p,te);}else tiles.remove(p);return true;
         });

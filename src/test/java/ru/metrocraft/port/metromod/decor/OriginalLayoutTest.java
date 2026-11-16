@@ -66,7 +66,7 @@ public class OriginalLayoutTest {
         }
         grid.tiles.remove(foreign);grid.states.put(foreign,Blocks.STONE.getDefaultState());
         NBTTagCompound old=root.writeToNBT(new NBTTagCompound());old.removeTag("LayoutVersion");root.readFromNBT(old);root.update();
-        assertTrue(grid.world.isAirBlock(future));assertEquals(Blocks.STONE,grid.states.get(foreign).getBlock());assertEquals(4,root.writeToNBT(new NBTTagCompound()).getInteger("LayoutVersion"));
+        assertTrue(grid.world.isAirBlock(future));assertEquals(Blocks.STONE,grid.states.get(foreign).getBlock());assertEquals(5,root.writeToNBT(new NBTTagCompound()).getInteger("LayoutVersion"));
         verify(grid.world,never()).destroyBlock(root.getPos(),true);
     }
     @Test public void unloadedDestinationPausesWithoutCreatingOrDeletingBlocks() {

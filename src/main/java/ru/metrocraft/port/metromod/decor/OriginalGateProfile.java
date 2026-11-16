@@ -16,6 +16,7 @@ public final class OriginalGateProfile {
     public boolean is(String value) { return value.equals(kind); }
     public float step;
     public double ground;
+    private double legacyGround;
     public double[] offset={0,0,0};
     public Part[] parts;
     public DonorDoorCollision donorDoor;
@@ -51,6 +52,12 @@ public final class OriginalGateProfile {
                 if(fix==null)throw new IOException("Missing collision layout");
                 layout=new Gson().fromJson(new InputStreamReader(fix,StandardCharsets.UTF_8),JsonObject.class);
             }
+            Map<String,Double> groundFix;
+            try(InputStream fix=OriginalGateProfile.class.getResourceAsStream("/assets/metroport/metromod_ground.json")) {
+                if(fix==null)throw new IOException("Missing grounded door layout");
+                groundFix=new Gson().fromJson(new InputStreamReader(fix,StandardCharsets.UTF_8),new com.google.gson.reflect.TypeToken<Map<String,Double>>(){}.getType());
+                if(groundFix.size()!=44)throw new IOException("Incomplete grounded door layout");
+            }
             Map<String,OriginalGateProfile> result=new LinkedHashMap<>();
             for(OriginalGateProfile p:profiles) {
                 if(!p.id.matches("metromod_(germo|door|lever|light)_[a-z0-9_]+") || result.put(p.id,p)!=null || p.parts.length==0
@@ -62,6 +69,12 @@ public final class OriginalGateProfile {
                     for(double v:p.offset)if(!Double.isFinite(v) || Math.abs(v)>8)throw new IOException("Invalid layout offset");
                     if(fix.has("solid_parts"))for(Map.Entry<String,JsonElement> entry:fix.getAsJsonObject("solid_parts").entrySet())
                         p.parts[Integer.parseInt(entry.getKey())].boxes=new Gson().fromJson(entry.getValue(),double[][].class);
+                }
+                p.legacyGround=p.ground;
+                if(p.is("Door") || p.is("Germo")) {
+                    Double fixed=groundFix.get(p.id);
+                    if(fixed==null || !Double.isFinite(fixed) || Math.abs(fixed)>32)throw new IOException("Invalid grounded door layout");
+                    p.ground=fixed;
                 }
                 p.donorDoor=DonorDoorCollision.get(p.id);
                 p.donorGermo=DonorGermoCollision.get(p.id);
@@ -132,8 +145,14 @@ public final class OriginalGateProfile {
         localBounds.put(facing,result);return result.offset(pos);
     }
     public List<AxisAlignedBB> initialPhysics(BlockPos pos,EnumFacing facing,float progress) {
-        if(donorGermo!=null)return donorGermo.boxes(this,donorGermo.seed(id,facing,clamp(progress)),pos,facing);
-        return donorDoor==null?boxes(pos,facing,progress,false):Collections.singletonList(donorDoor.bounds(this,pos,facing,null));
+        if(donorGermo!=null)return floorBoxes(donorGermo.boxes(this,donorGermo.seed(id,facing,clamp(progress)),pos,facing),pos);
+        return donorDoor==null?boxes(pos,facing,progress,false):floorBoxes(Collections.singletonList(donorDoor.bounds(this,pos,facing,null)),pos);
+    }
+    /** Grounding must never reserve the supporting floor due to donor padding. */
+    public static List<AxisAlignedBB> floorBoxes(List<AxisAlignedBB> boxes,BlockPos origin) {
+        List<AxisAlignedBB> result=new ArrayList<>();
+        for(AxisAlignedBB b:boxes)if(b.maxY>origin.getY()+1e-9)result.add(new AxisAlignedBB(b.minX,Math.max(origin.getY(),b.minY),b.minZ,b.maxX,b.maxY,b.maxZ));
+        return result;
     }
     /** Only cells touched NOW are blocks. Empty aperture/swing pocket stays air. */
     public List<BlockPos> occupied(BlockPos pos,EnumFacing facing,float progress) {
@@ -149,6 +168,7 @@ public final class OriginalGateProfile {
     /** Includes the complete movement pocket and controller, never edits outside this set. */
     public List<BlockPos> footprint(BlockPos pos,EnumFacing facing) {
         AxisAlignedBB box=bounds(pos,facing);
+        if(is("Door") || is("Germo"))box=box.union(box.offset(0,legacyGround-ground,0));
         List<BlockPos> result=new ArrayList<>(); result.add(pos.toImmutable());
         for(int x=MathHelper.floor(box.minX);x<Math.ceil(box.maxX);x++)
             for(int y=MathHelper.floor(box.minY);y<Math.ceil(box.maxY);y++)

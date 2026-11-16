@@ -113,6 +113,6 @@ public class DonorGermoCollisionTest {
     }
     @Test public void corruptSnapshotFallsBackToBoundedMigrationNotNaNPhysics() {
         NBTTagCompound tag=root.getUpdateTag();tag.getCompoundTag("DonorGermo").setFloat("X",Float.NaN);root.readFromNBT(tag);
-        assertEquals(0,root.getUpdateTag().getInteger("LayoutVersion"));assertFalse(root.collisionBoxes().isEmpty());root.update();assertEquals(4,root.getUpdateTag().getInteger("LayoutVersion"));
+        assertEquals(0,root.getUpdateTag().getInteger("LayoutVersion"));assertFalse(root.collisionBoxes().isEmpty());root.update();assertEquals(5,root.getUpdateTag().getInteger("LayoutVersion"));
     }
 }

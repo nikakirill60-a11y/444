@@ -66,6 +66,16 @@ public final class OriginalGatePartBlock extends Block {
         OriginalGateTile root=OriginalGates.controller((World)world,pos);
         return root!=null && (root.profile.donorDoor!=null?root.enabled():!root.occupied().contains(pos));
     }
+    @Override public boolean removedByPlayer(IBlockState state,World world,BlockPos pos,EntityPlayer player,boolean willHarvest) {
+        OriginalGateTile tile=OriginalGates.controller(world,pos);
+        if(tile!=null && (tile.profile.is("Door") || tile.profile.is("Germo"))) {
+            if(!world.isBlockModifiable(player,pos) || !player.canPlayerEdit(pos,EnumFacing.UP,player.getHeldItemMainhand()))return false;
+            if(!world.isRemote && !tile.cutCollision(pos))return false;
+        }
+        boolean removed=super.removedByPlayer(state,world,pos,player,willHarvest);
+        if(!removed && !world.isRemote && tile!=null)tile.undoCollisionCut(pos);
+        return removed;
+    }
     @Override public void breakBlock(World world, BlockPos pos, IBlockState state) {
         OriginalGateTile tile = OriginalGates.controller(world, pos);
         // Only the controller drops an item. Parts never multiply gate drops.
