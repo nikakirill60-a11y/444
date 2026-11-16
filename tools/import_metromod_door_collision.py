@@ -31,7 +31,8 @@ RULES = {
 }
 CORE = ['llIjIlllliiiIiililjjjIjiIijijiiI', 'lIjijlilIlIIIiIiIlIIIIlIijljllij',
         'ijijjIlllljIIjijjjlljIIljiiliiiI', 'iIIijIiiiiIlIIjjIjlIjliijIIjIill',
-        'jjjjIiijiiIlljllilIjliijlijIIIiI', 'IijIjjillljIIIiiiIilIljilIiIIIii']
+        'jjjjIiijiiIlljllilIjliijlijIIIiI', 'IijIjjillljIIIiiiIilIljilIiIIIii',
+        'IiIijilijjIjiiliilIljljlilljjIII']
 
 def sha(data): return hashlib.sha256(data).hexdigest()
 def f32(v): return struct.unpack('!f', struct.pack('!f', v))[0]

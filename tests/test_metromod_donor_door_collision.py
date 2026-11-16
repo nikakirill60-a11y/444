@@ -28,4 +28,4 @@ class DonorDoorCollisionTest(unittest.TestCase):
         self.assertFalse(report['map_specific_custom_aabbs_available'])
         self.assertFalse(report['germo_block_mode_ported'])
         self.assertFalse(report['minecraft_gameplay_verified'])
-        self.assertEqual(14,len(report['class_sha256']))
+        self.assertEqual(15,len(report['class_sha256']))

@@ -1,7 +1,9 @@
 buildscript {
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
+        // Resolve ordinary Gradle dependencies from Central first. A Forge Maven
+        // reset must not poison resolution of unrelated parent POMs.
         mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net' }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
@@ -9,7 +11,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.13.0-dev.29'
+version = '1.13.0-dev.30'
 group = 'ru.metrocraft'
 archivesBaseName = 'metrocraft-port-1.12.2'
 sourceCompatibility = targetCompatibility = '1.8'

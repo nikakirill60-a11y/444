@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the dev.29 JAR/JUnit reports before publishing the small non-weapon increment."""
+"""Verify the dev.30 JAR/JUnit reports before publishing the small non-weapon increment."""
 import hashlib
 import gzip
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = '1.13.0-dev.29'
+VERSION = '1.13.0-dev.30'
 REQUIRED = [
     'ru/metrocraft/port/structures/MetroNetworkCommand.class',
     'ru/metrocraft/port/structures/MetroNetworkPlan.class',
@@ -16,6 +16,8 @@ REQUIRED = [
     'ru/metrocraft/port/structures/MetroNetworkBackup.class',
     'ru/metrocraft/port/metromod/decor/OriginalDecorCollisions.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateTile.class',
+    'ru/metrocraft/port/metromod/decor/DonorDoorCollision.class',
+    'assets/metroport/metromod_door_collision.json',
     'ru/metrocraft/port/metromod/decor/OriginalGateProfile.class',
     'ru/metrocraft/port/metromod/decor/OriginalGateItem.class',
     'ru/metrocraft/port/client/gates/OriginalGateRenderer.class',
@@ -65,6 +67,7 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.metromod.decor.OriginalInteractiveTest': 11,
                 'ru.metrocraft.port.metromod.decor.OriginalLayoutTest': 10,
                 'ru.metrocraft.port.metromod.decor.OriginalWorldCollisionTest': 11,
+                'ru.metrocraft.port.metromod.decor.DonorDoorCollisionTest': 11,
                 'ru.metrocraft.port.structures.MetroNetworkPlanTest': 8,
                 'ru.metrocraft.port.structures.MetroNetworkJobTest': 12,
                 'ru.metrocraft.port.structures.MetroNetworkCommandTest': 4}
@@ -90,6 +93,9 @@ def verify(jar, results, source, run_url):
             raise ValueError('Wrong original gate catalogue')
         interactive=json.loads(archive.read('assets/metroport/metromod_interactive.json'))
         if len(interactive)!=75 or len({p['id'] for p in interactive})!=75:raise ValueError('Wrong interactive catalogue')
+        donor=json.loads(archive.read('assets/metroport/metromod_door_collision.json'))
+        if set(donor)!={p['id'] for p in interactive if p['kind']=='Door'} or len(donor)!=27:
+            raise ValueError('Incomplete donor Door collision catalogue')
         layout=json.loads(archive.read('assets/metroport/metromod_layout.json'))
         if len(layout)!=50 or sum('offset' in row for row in layout.values())!=6:raise ValueError('Missing wall/solid panel layout')
         profiles+=interactive
@@ -126,9 +132,10 @@ def verify(jar, results, source, run_url):
     return {'version': VERSION, 'source_commit': source, 'ci_run_url': run_url,
             'jar': jar.name, 'bytes': jar.stat().st_size, 'sha256': hashlib.sha256(jar.read_bytes()).hexdigest(),
             'zip_crc': 'PASS', 'junit': totals, 'new_junit_suites': selected,
-            'included': ['dev29: new four-station vanilla metro ring; two connected rail loops, pedestrian bridges, service rooms, surface ladder vestibule; operator preview/confirm command with durable conservative undo; standalone schematic',
+            'included': ['dev30: donor model-mode collision contract for 27 Doors; activation-based collision suppression, replaceable open selection proxies; custom local AABB NBT; original Germo block-mode NOT yet ported',
+                         'dev29: new four-station vanilla metro ring; two connected rail loops, pedestrian bridges, service rooms, surface ladder vestibule; operator preview/confirm command with durable conservative undo; standalone schematic',
                          'MinETRO display name; saved-world namespace metroport unchanged',
-                         'dev28 collision fix: current occupied proxy cells only, solid moving panels, block-safe motion, migration of full-prism reservations, mesh-derived wall lever offsets and clicked-face orientation',
+                         'Previous approximate collision implementation retained for Germo/Lever/Light only; wall lever offsets and clicked-face orientation retained',
                          '81 of 112 tagged functional decor entries: 17 gates, 27 doors, 6 levers, 31 lights; native meshes; Forge behavior adapters; 31 blocked entries explicitly excluded','MetroEdit removed: command, blueprint storage, packet16 and preview rendering; visual settings retained',
                          'client visual options GUI in Forge Mods list with live apply, mask opacity and noise strength', '8 original audio events: flask/medkit/filter/3 watch alarms/gate open-close',
                          'original clean mask and NVG goggles/noise texture compatibility overlays; individually configurable',
@@ -138,7 +145,7 @@ def verify(jar, results, source, run_url):
                          'flask/medkit stack validation; generator bounds checks; stale lamp light cleanup',
                          'six-gate server motion/collision regression coverage; part origin and finite progress validation',
                          'dev17 filter/watch mechanics retained; original completion/alarm audio adapted'],
-            'not_included': ['MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', '30 Inventory profiles: unconfirmed server behavior; mls_vorota_l06: missing add2; full donor GLSL pipeline', 'unconfirmed healing/bleeding effects',
+            'not_included': ['Original Germo block-mode collisions (17 Germo retain previous implementation); map-specific Door custom AABBs/transforms unavailable', 'MetroEdit (removed at user request); full donor model/microblock/region/NPC editing suite', 'donor weapons', '30 Inventory profiles: unconfirmed server behavior; mls_vorota_l06: missing add2; full donor GLSL pipeline', 'unconfirmed healing/bleeding effects',
                              'replacement Kikimora/Nosach models; existing BlackRazid mobs retained'],
             'minecraft_gameplay_verified': False,
             'installation': 'Replace only MetroPort JAR on client and server together. Keep MWF metro4 and customized packv4 unchanged.'}
