@@ -55,7 +55,8 @@ def verify(jar, results, source, run_url):
                 'ru.metrocraft.port.blackrazid.MetroSoundUseTest': 4, 'ru.metrocraft.port.metromod.MetroFoodTest': 12, 'ru.metrocraft.port.blackrazid.NvgControlTest': 7,
                 'ru.metrocraft.port.blackrazid.SurvivalSafetyTest': 5,
                 'ru.metrocraft.port.gates.GateMotionTest': 9,
-                'ru.metrocraft.port.metromod.decor.OriginalGateTest': 14}
+                'ru.metrocraft.port.metromod.decor.OriginalGateTest': 14,
+                'ru.metrocraft.port.metromod.decor.OriginalGatePlacementTest': 6}
     counts = {s.attrib['name']: int(s.attrib['tests']) for s in suites}
     for name, count in expected.items():
         if counts.get(name) != count:

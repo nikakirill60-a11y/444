@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 /** Executes real motion, profiles, collision and save code; not an OpenGL/gameplay test. */
 public class OriginalGateTest {
-    @BeforeClass public static void boot() { Bootstrap.register(); }
+    @BeforeClass public static void boot() { Bootstrap.register(); OriginalGates.initialize(); }
     private OriginalGateTile gate(OriginalGateProfile profile,EnumFacing facing) {
         World world=mock(World.class);OriginalGateTile tile=new OriginalGateTile();tile.setPos(new BlockPos(0,64,0));
         tile.configure(UUID.randomUUID(),profile,facing);tile.ready=true;tile.setWorld(world);
