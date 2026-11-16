@@ -105,7 +105,17 @@ public class MetroNetworkPlanTest {
             for(int line=0;line<4;line++)tag.setString("Text"+(line+1),ITextComponent.Serializer.componentToJson(new TextComponentString(e.getValue()[line])));tiles.appendTag(tag);
         }
         root.setTag("TileEntities",tiles);Path path=Paths.get("build/structures/MinETRO_ring_4stations_1.12.2.schematic");Files.createDirectories(path.getParent());
-        try(OutputStream out=Files.newOutputStream(path)) {CompressedStreamTools.writeCompressed(root,out);}
+        // WorldEdit's Alpha reader requires the ROOT NAME "Schematic". Minecraft's
+        // writeCompressed writes an empty root name, which is valid NBT but not
+        // an importable classic schematic. Preserve payload, supply named header.
+        ByteArrayOutputStream raw=new ByteArrayOutputStream();CompressedStreamTools.write(root,new DataOutputStream(raw));
+        byte[] encoded=raw.toByteArray();assertEquals(10,encoded[0]);assertEquals(0,encoded[1]);assertEquals(0,encoded[2]);
+        try(DataOutputStream out=new DataOutputStream(new java.util.zip.GZIPOutputStream(Files.newOutputStream(path)))) {
+            out.writeByte(10);out.writeUTF("Schematic");out.write(encoded,3,encoded.length-3);
+        }
+        try(DataInputStream header=new DataInputStream(new java.util.zip.GZIPInputStream(Files.newInputStream(path)))) {
+            assertEquals(10,header.readUnsignedByte());assertEquals("Schematic",header.readUTF());
+        }
         NBTTagCompound read;try(InputStream in=Files.newInputStream(path)) {read=CompressedStreamTools.readCompressed(in);}
         assertArrayEquals(blocks,read.getByteArray("Blocks"));assertArrayEquals(data,read.getByteArray("Data"));assertEquals(plan.signs().size(),read.getTagList("TileEntities",10).tagCount());
         Files.write(Paths.get("build/structures/network-counts.txt"),Arrays.asList("cells="+plan.cells().size(),"schematic="+w+"x"+h+"x"+l,"rails=1024","stations=4","surface=24"),java.nio.charset.StandardCharsets.UTF_8);
