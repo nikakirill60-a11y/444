@@ -17,7 +17,7 @@ internal static class Program
                 catch(Exception){MessageBox.Show("Локальные данные релиза повреждены. После входа лаунчер проверит GitHub Releases. Установленные сборки и миры не изменены.","MinETRO");}
             }
             // Smoke runs use only a mock transport, never a production user or a bypass in the normal app.
-            AccountPage? page=smoke?new AccountPage(new("https://ui-smoke.supabase.co","sb_publishable_ui_smoke"),new SmokeAccounts()):null;
+            AccountPage? page=smoke?new AccountPage(new("https://ui-smoke.supabase.co","sb_publishable_ui_smoke",false),new SmokeAccounts()):null;
             using var form=new MainForm(manifest,page,!smoke);
             if(!smoke){Application.Run(form);return 0;}
             int code=1;

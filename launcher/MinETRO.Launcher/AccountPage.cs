@@ -92,7 +92,7 @@ internal sealed class AccountPage : Panel
         bool profile=Authenticated;
         heading.Text=gateMode ? "Добро пожаловать" : "Твой профиль";
         skinTab.Visible=!gateMode;
-        loginTab.Visible=registerTab.Visible=recoveryTab.Visible=!profile;
+        loginTab.Visible=registerTab.Visible=!profile; recoveryTab.Visible=!profile && config.EmailCodesEnabled;
         authBox.Visible=!profile; profileBox.Visible=profile && !gateMode;
         profileNickRow.Visible=profile;profileActions.Visible=profile;
         loginTab.Selected=mode=="login";registerTab.Selected=mode is "register" or "confirm";recoveryTab.Selected=mode is "recovery" or "reset";
@@ -100,9 +100,10 @@ internal sealed class AccountPage : Panel
         foreach(var tab in new[]{loginTab,registerTab,recoveryTab,skinTab}) tab.Invalidate();
         emailRow.Visible=mode!="reset"; nickRow.Visible=mode=="register";
         passwordRow.Visible=mode is "login" or "register" or "reset"; repeatRow.Visible=mode is "register" or "reset";
-        codeRow.Visible=mode is "confirm" or "recovery"; sendCode.Visible=mode is "confirm" or "recovery";
+        codeRow.Visible=config.EmailCodesEnabled && mode is ("confirm" or "recovery"); sendCode.Visible=mode is "confirm" or "recovery";
         sendCode.Text=mode=="confirm"?"Отправить снова":"Отправить код"; confirmEmail.Visible=mode is "register" or "login";
-        submit.Text=mode switch {"register"=>"Создать аккаунт","confirm"=>"Подтвердить почту","recovery"=>"Подтвердить код","reset"=>"Сохранить пароль",_=>"Войти"};
+        confirmEmail.Text=config.EmailCodesEnabled?"У меня есть код":"Письмо с подтверждением";
+        submit.Text=mode switch {"register"=>"Создать аккаунт","confirm"=>config.EmailCodesEnabled?"Подтвердить почту":"Я подтвердил почту","recovery"=>"Подтвердить код","reset"=>"Сохранить пароль",_=>"Войти"};
         foreach(var c in operations) c.Enabled=!busy;
         foreach(var c in new Control[]{submit,sendCode,saveNick,reload,logout,uploadSkin}) c.Enabled=!busy && config.Enabled && (c==submit || c==sendCode || profile);
         chooseSkin.Enabled=!busy && profile; model.Enabled=!busy && profile;
@@ -117,6 +118,7 @@ internal sealed class AccountPage : Panel
             case "register":
                 await service.SignUp(email.Text,password.Text,nickname.Text.Trim(),ct);SetMode("confirm");result.Text="Проверь почту: открой ссылку подтверждения, затем выбери «Вход». Если письмо содержит код, введи его здесь.";break;
             case "confirm":
+                if(!config.EmailCodesEnabled){SetMode("login");result.Text="Войди с паролем после подтверждения ссылки из письма.";break;}
                 await service.VerifyCode(email.Text,code.Text,false,ct);password.Clear();code.Clear();await LoadProfile(ct);result.Text="Почта подтверждена. Добро пожаловать в MinETRO.";break;
             case "recovery":
                 await service.VerifyCode(email.Text,code.Text,true,ct);SetMode("reset");result.Text="Код принят. Задай новый пароль.";break;
@@ -178,7 +180,7 @@ internal sealed class AccountPage : Panel
         SkinPreview.SmokeTest();
         if(!config.Enabled && (submit.Enabled || uploadSkin.Enabled)) throw new InvalidOperationException("Unconfigured accounts must not pretend to register/upload.");
         SetMode("register");if(!nickRow.Visible || !repeatRow.Visible)throw new InvalidOperationException("Registration fields missing.");
-        SetMode("recovery");if(!codeRow.Visible)throw new InvalidOperationException("Recovery code field missing.");SetMode("login");
+        if(config.EmailCodesEnabled){SetMode("recovery");if(!codeRow.Visible)throw new InvalidOperationException("Recovery code field missing.");}SetMode("login");
     }
     protected override void Dispose(bool disposing) { if(disposing) {lifetime.Cancel();service.Dispose();lifetime.Dispose();}base.Dispose(disposing); }
 }

@@ -27,7 +27,7 @@ internal sealed class MainForm : Form
     public static string SettingsDirectory=>Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"MinETRO-Test-Launcher");
     private readonly string settings=Path.Combine(SettingsDirectory,"folder.txt");
     private bool HasAccess=>accountPage.Authenticated;
-    [DllImport("user32.dll")] private static extern bool ReleaseCapture();
+    [DllImport("user32.dll")] private static extern bool ReleaseSaveScreenshot();
     [DllImport("user32.dll")] private static extern nint SendMessage(nint hWnd,int msg,nint wParam,nint lParam);
     public MainForm(PackManifest initial,AccountPage? accounts=null,bool checkUpdates=true)
     {
@@ -63,7 +63,7 @@ internal sealed class MainForm : Form
         FormClosing+=(_,e)=>{if(busy){e.Cancel=true;cancellation?.Cancel();Status("Отменяем операцию. После завершения можно закрыть окно.");}};
         initialized=true;UpdateManifest();ShowPage("auth");
     }
-    private void DragWindow(object? sender,MouseEventArgs e){if(e.Button==MouseButtons.Left){ReleaseCapture();SendMessage(Handle,0xA1,2,0);}}
+    private void DragWindow(object? sender,MouseEventArgs e){if(e.Button==MouseButtons.Left){ReleaseSaveScreenshot();SendMessage(Handle,0xA1,2,0);}}
     private static Label Label(string text,float size,Color color,bool bold=false)=>new(){Text=text,Font=new Font("Segoe UI",size,bold?FontStyle.Bold:FontStyle.Regular),ForeColor=color,AutoSize=true,MaximumSize=new Size(650,0),BackColor=Color.Transparent};
     private static TableLayoutPanel Stack()=>new(){AutoSize=true,Dock=DockStyle.Top,ColumnCount=1,Padding=new Padding(0,0,0,24),BackColor=Ui.Bg};
     private void BuildSettings()
@@ -139,14 +139,14 @@ internal sealed class MainForm : Form
         Application.DoEvents();ShowPage("home");
         if(currentPage!="auth"||home.Visible||sidebar.Visible||mainAction.Enabled||open.Enabled)throw new InvalidOperationException("Launcher must remain locked before login.");
         bool executed=false;await Run(_=>{executed=true;return Task.CompletedTask;});if(executed)throw new InvalidOperationException("Locked actions executed.");
-        accountPage.SmokeTest();accountPage.ShowRegistration();Capture(screenshot);
+        accountPage.SmokeTest();accountPage.ShowRegistration();SaveScreenshot(screenshot);
         await accountPage.SmokeSignIn();if(!HasAccess||currentPage!="home")throw new InvalidOperationException("Valid profile must unlock launcher.");
-        RefreshButtons();Capture(screenshot==null?null:Path.ChangeExtension(screenshot,".home.png"));
-        ShowPage("settings");Capture(screenshot==null?null:Path.ChangeExtension(screenshot,".settings.png"));
-        ShowPage("profile");Capture(screenshot==null?null:Path.ChangeExtension(screenshot,".profile.png"));
-        accountPage.ShowSkin();Capture(screenshot==null?null:Path.ChangeExtension(screenshot,".skin.png"));
+        RefreshButtons();SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".home.png"));
+        ShowPage("settings");SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".settings.png"));
+        ShowPage("profile");SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".profile.png"));
+        accountPage.ShowSkin();SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".skin.png"));
         await accountPage.SmokeSignOut();if(HasAccess||currentPage!="auth"||home.Visible||open.Enabled)throw new InvalidOperationException("Logout must lock all launcher actions.");
     }
-    private void Capture(string? path){if(path==null)return;Application.DoEvents();Arrange();Refresh();using var bitmap=new Bitmap(Width,Height);DrawToBitmap(bitmap,new Rectangle(0,0,Width,Height));bitmap.Save(path,System.Drawing.Imaging.ImageFormat.Png);}
+    private void SaveScreenshot(string? path){if(path==null)return;Application.DoEvents();Arrange();Refresh();using var bitmap=new Bitmap(Width,Height);DrawToBitmap(bitmap,new Rectangle(0,0,Width,Height));bitmap.Save(path,System.Drawing.Imaging.ImageFormat.Png);}
     protected override void Dispose(bool disposing){if(disposing){http.Dispose();cancellation?.Dispose();Icon?.Dispose();}base.Dispose(disposing);}
 }

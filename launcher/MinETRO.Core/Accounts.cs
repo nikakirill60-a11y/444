@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace MinETRO.Core;
 
 // Only a public anon/publishable key belongs in a desktop application. Never a service role key.
-public sealed record AccountsConfig(string Url = "", string PublicKey = "")
+public sealed record AccountsConfig(string Url = "", string PublicKey = "", bool EmailCodesEnabled = false)
 {
     public bool Enabled => !string.IsNullOrWhiteSpace(Url) && !string.IsNullOrWhiteSpace(PublicKey);
     public static AccountsConfig Load(string path)
