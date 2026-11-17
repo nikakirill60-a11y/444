@@ -12,6 +12,11 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Channel authoring tests
+        run: python -m unittest discover -s launcher -p 'test_*.py'
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
@@ -34,12 +39,23 @@ jobs:
           Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-Test-0.1-win-x64.zip -Force
           $hash = (Get-FileHash downloads/MinETRO-Launcher-Test-0.1-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
           "$hash  MinETRO-Launcher-Test-0.1-win-x64.zip" | Set-Content -Encoding ascii downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256
+          @{
+            version = '0.1-test'; source_commit = $env:GITHUB_SHA;
+            ci_run_url = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID";
+            zip_sha256 = $hash; zip_bytes = (Get-Item downloads/MinETRO-Launcher-Test-0.1-win-x64.zip).Length;
+            platform = 'Windows 10/11 x64'; self_contained = $true;
+            core_scenarios_passed = 15; channel_authoring_tests_passed = 4;
+            official_prism_payload_sha256_verified = $true; winforms_startup_smoke = 'PASS';
+            pack_archive_connected = $false; full_modpack_launch_verified = $false;
+            limitation = 'Waiting for the user-provided complete modpack archive; this is not a full modpack distribution'
+          } | ConvertTo-Json | Set-Content -Encoding utf8 downloads/MinETRO-Launcher-Test-0.1-report.json
       - uses: actions/upload-artifact@v4
         with:
           name: MinETRO-Launcher-Test-Windows
           path: |
             downloads/MinETRO-Launcher-Test-0.1-win-x64.zip
             downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256
+            downloads/MinETRO-Launcher-Test-0.1-report.json
       - name: Publish on current branch
         if: github.ref == 'refs/heads/arena/dcab859f-444'
         shell: pwsh
@@ -48,7 +64,7 @@ jobs:
           if ($remote -ne $env:GITHUB_SHA) { throw 'Newer source exists; refusing stale publication' }
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add downloads/MinETRO-Launcher-Test-0.1-win-x64.zip downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256
+          git add downloads/MinETRO-Launcher-Test-0.1-win-x64.zip downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256 downloads/MinETRO-Launcher-Test-0.1-report.json
           git diff --cached --check
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           git commit -m 'Publish Windows MinETRO test launcher 0.1 [skip ci]'

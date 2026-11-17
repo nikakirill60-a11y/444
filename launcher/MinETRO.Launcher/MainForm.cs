@@ -12,13 +12,14 @@ public sealed class MainForm : Form
     private readonly Label state = new() { AutoSize = true, MaximumSize = new Size(690, 0), ForeColor = Color.FromArgb(215, 223, 225) };
     private readonly Label packInfo = new() { AutoSize = true };
     private readonly ProgressBar bar = new() { Dock = DockStyle.Fill, Height = 12 };
-    private readonly Button install = new() { Text = "УСТАНОВИТЬ / ПРОВЕРИТЬ", AutoSize = true };
-    private readonly Button play = new() { Text = "ИГРАТЬ", AutoSize = true };
-    private readonly Button cancel = new() { Text = "Отмена", AutoSize = true, Enabled = false };
+    private readonly LauncherButton install = new() { Text = "УСТАНОВИТЬ / ПРОВЕРИТЬ", AutoSize = true };
+    private readonly LauncherButton play = new() { Text = "ИГРАТЬ", AutoSize = true };
+    private readonly LauncherButton cancel = new() { Text = "Отмена", AutoSize = true, Enabled = false };
     private readonly List<Control> busyControls = [];
     private CancellationTokenSource? cancellation;
     private bool busy;
-    private readonly string settings = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MinETRO-Test-Launcher", "folder.txt");
+    public static string SettingsDirectory => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MinETRO-Test-Launcher");
+    private readonly string settings = Path.Combine(SettingsDirectory, "folder.txt");
     public MainForm(PackManifest initial)
     {
         manifest = initial; Text = "MinETRO Launcher · TEST 0.1";
@@ -30,20 +31,20 @@ public sealed class MainForm : Form
         layout.Controls.Add(new Label { Text = "ТЕСТОВЫЙ КАНАЛ   /   WINDOWS x64", AutoSize = true, ForeColor = Color.Silver, Margin = new Padding(0, 0, 0, 16) });
         layout.Controls.Add(packInfo);
         layout.Controls.Add(new Label { Text = "Папка лаунчера и сборок · не выбирай свою рабочую .minecraft", AutoSize = true, Margin = new Padding(0, 14, 0, 5) });
-        var choose = new Button { Text = "Папка…", AutoSize = true }; choose.Click += (_, _) => ChooseFolder();
+        var choose = new LauncherButton { Text = "Папка…", AutoSize = true }; choose.Click += (_, _) => ChooseFolder();
         layout.Controls.Add(Row(folder, choose));
         layout.Controls.Add(new Label { Text = "Канал сборки · только доверенный манифест", AutoSize = true, Margin = new Padding(0, 14, 0, 5) });
-        var load = new Button { Text = "Подключить", AutoSize = true }; load.Click += async (_, _) => await Run(LoadManifest);
-        var browse = new Button { Text = "JSON…", AutoSize = true }; browse.Click += (_, _) => { using var d = new OpenFileDialog { Filter = "Манифест MinETRO|*.json" }; if (d.ShowDialog() == DialogResult.OK) source.Text = d.FileName; };
+        var load = new LauncherButton { Text = "Подключить", AutoSize = true }; load.Click += async (_, _) => await Run(LoadManifest);
+        var browse = new LauncherButton { Text = "JSON…", AutoSize = true }; browse.Click += (_, _) => { using var d = new OpenFileDialog { Filter = "Манифест MinETRO|*.json" }; if (d.ShowDialog() == DialogResult.OK) source.Text = d.FileName; };
         layout.Controls.Add(Row(source, browse, load));
         var ram = new FlowLayoutPanel { AutoSize = true, Dock = DockStyle.Fill, Margin = new Padding(0, 15, 0, 10) };
-        ram.Controls.Add(new Label { Text = "ОЗУ, МБ", AutoSize = true, Padding = new Padding(0, 4, 10, 0) }); ram.Controls.Add(memory);
+        ram.Controls.Add(new Label { Text = "ОЗУ при установке, МБ", AutoSize = true, Padding = new Padding(0, 4, 10, 0) }); ram.Controls.Add(memory);
         ram.Controls.Add(new Label { Text = "  Java 8 x64 выбирается в Prism", AutoSize = true, Padding = new Padding(0, 4, 0, 0) }); layout.Controls.Add(ram);
         var actions = new FlowLayoutPanel { AutoSize = true, Dock = DockStyle.Fill, WrapContents = false };
         actions.Controls.Add(install); actions.Controls.Add(play); actions.Controls.Add(cancel); layout.Controls.Add(actions);
-        var engine = new Button { Text = "Подготовить Prism / войти в Microsoft", AutoSize = true };
+        var engine = new LauncherButton { Text = "Подготовить Prism / войти в Microsoft", AutoSize = true };
         engine.Click += async (_, _) => await Run(async ct => { var service = Service(); await service.PrepareEngine(manifest, Progress(), ct); ct.ThrowIfCancellationRequested(); Process.Start(service.StartInfo(manifest, false)); Status("Prism открыт. Добавь учётную запись Microsoft в его окне."); });
-        var open = new Button { Text = "Открыть папку", AutoSize = true };
+        var open = new LauncherButton { Text = "Открыть папку", AutoSize = true };
         open.Click += (_, _) => { Directory.CreateDirectory(folder.Text); Process.Start(new ProcessStartInfo("explorer.exe") { ArgumentList = { Path.GetFullPath(folder.Text) }, UseShellExecute = true }); };
         var extra = new FlowLayoutPanel { AutoSize = true, Dock = DockStyle.Fill }; extra.Controls.Add(engine); extra.Controls.Add(open); layout.Controls.Add(extra);
         layout.Controls.Add(bar); layout.Controls.Add(state);
@@ -93,6 +94,7 @@ public sealed class MainForm : Form
     {
         var incoming = PackManifest.Parse(await new Transfer(http).ReadManifest(source.Text.Trim(), ct));
         if (MessageBox.Show($"Подключить «{incoming.Name}», версия {incoming.Version}?\nАрхив содержит моды — Java-код. SHA256 проверяет целостность, но не безопасность незнакомых модов.", "Доверие к источнику", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+        await new ChannelStore(SettingsDirectory).Save(incoming, ct);
         manifest = incoming; UpdateManifest();
     }
     private async Task Run(Func<CancellationToken, Task> action)

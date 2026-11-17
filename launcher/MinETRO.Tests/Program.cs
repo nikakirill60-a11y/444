@@ -97,6 +97,14 @@ await Test("missing archive cannot install and cannot claim ready", async () => 
     var m=PackManifest.Parse(File.ReadAllText(args[0])); using var http=new HttpClient(new Fake(_ => throw new Exception("No network expected"))); var service=new Installer(Path.Combine(scratch,"empty"),new Transfer(http));
     await Reject(() => service.Install(m,4096,null,default)); await Reject(() => service.Verify(m,default));
 });
+await Test("confirmed channel survives restart; failed save retains previous snapshot", async () => {
+    var zip=Zip("persist",("mods/one.jar","one"),("mods/two.jar","two")); var m=Manifest(zip);
+    var store=new ChannelStore(Path.Combine(scratch,"preferences")); await store.Save(m,default);
+    CheckTrue(new ChannelStore(Path.Combine(scratch,"preferences")).Load(m).InstanceId==m.InstanceId);
+    using var cancel=new CancellationTokenSource(); cancel.Cancel();
+    await Reject(() => store.Save(m with { Version="test-02" },cancel.Token));
+    CheckTrue(store.Load(m).Version==m.Version);
+});
 if (args.Contains("--verify-prism")) await Test("official pinned Prism download / SHA256 / archive layout", async () => {
     var m=PackManifest.Parse(File.ReadAllText(args[0])); using var http=Transfer.CreateClient();
     using var timeout=new CancellationTokenSource(TimeSpan.FromMinutes(5));
