@@ -8,8 +8,8 @@ permissions:
   contents: write
 jobs:
   build:
-    # Launcher-only commits have their own Windows workflow.
-    if: ${{ !contains(github.event.head_commit.message, '[launcher-test]') }}
+    # Launcher-only commits and release-note repairs do not rebuild the mod.
+    if: ${{ !contains(github.event.head_commit.message, '[launcher-test]') && !contains(github.event.head_commit.message, '[publish menu-docs]') }}
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v5
@@ -148,7 +148,7 @@ jobs:
           python -m tools.verify_metromod_menu_build \
             build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar build/test-results/test "$GITHUB_SHA" \
             "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" downloads/MetroPort_dev33_report.json
-          cp docs/METRO_MENU_DEV32_RU.txt downloads/MetroPort_dev33_README_RU.txt
+          cp docs/METRO_MENU_DEV33_RU.txt downloads/MetroPort_dev33_README_RU.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add downloads/MetroPort_dev33_report.json downloads/MetroPort_dev33_README_RU.txt
@@ -157,6 +157,28 @@ jobs:
           git push origin arena/dcab859f-444
           gh release create minetro-menu-dev33 --target "$GITHUB_SHA" --prerelease \
             --title 'MinETRO dev33 — original 3D menu runtime TEST' \
-            --notes-file docs/METRO_MENU_DEV32_RU.txt \
+            --notes-file docs/METRO_MENU_DEV33_RU.txt \
             build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar \
             downloads/MetroPort_dev33_report.json downloads/MetroPort_dev33_README_RU.txt
+
+  publish-menu-docs:
+    if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish menu-docs]')
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /docs/METRO_MENU_DEV33_RU.txt
+            /downloads/MetroPort_dev33_README_RU.txt
+            /downloads/MetroPort_dev33_report.json
+      - name: Update only dev33 release instructions, retain verified JAR and report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cmp docs/METRO_MENU_DEV33_RU.txt downloads/MetroPort_dev33_README_RU.txt
+          grep -q '1.13.0-dev.33' docs/METRO_MENU_DEV33_RU.txt
+          grep -q 'F6' docs/METRO_MENU_DEV33_RU.txt
+          gh release edit minetro-menu-dev33 --notes-file docs/METRO_MENU_DEV33_RU.txt
+          gh release upload minetro-menu-dev33 downloads/MetroPort_dev33_README_RU.txt --clobber

@@ -14,3 +14,15 @@ Vercel: проект `minetro-beta`, Root Directory `website`, Framework `Other`
 - `assets/mark.svg` — существующая иконка MinETRO из Windows-лаунчера.
 - На сайте нет регистрации/приёма паролей; аккаунт и скин остаются в лаунчере.
 - Проверки: `python -m unittest discover -s tests -p test_beta_website.py`.
+
+Локальный шрифт Oswald (Cyrillic + Latin) поставляется через
+`@fontsource-variable/oswald`; лицензия SIL OFL 1.1 — `assets/Oswald-LICENSE.txt`.
+Внешние шрифтовые сервисы и аналитика не подключены.
+
+Браузерный smoke-test: установите Playwright во временную папку, затем
+запустите `node tools/test_beta_website_browser.cjs` из корня (NODE_PATH должен
+указывать на установленный node_modules). Можно передать CHROMIUM_EXECUTABLE_PATH
+для своего Chromium и SITE_URL для адреса тестового сайта. Проверяются ширины
+320/390/768/1440, отсутствие горизонтальной прокрутки/ошибок ресурсов, FAQ,
+мобильное меню/Escape и обе ветки Clipboard API с подменой разрешения.
+Эта проверка не подтверждает совместимость сайта со всеми браузерами.

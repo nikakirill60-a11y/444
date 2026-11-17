@@ -84,6 +84,8 @@ class OriginalMenuRuntimeTest(unittest.TestCase):
         workflow=(ROOT/'.github/workflows/build.yml').read_text()
         self.assertIn('python -m tools.verify_metromod_menu_build',workflow)
         self.assertIn('--prerelease',workflow)
+        self.assertIn('cp docs/METRO_MENU_DEV33_RU.txt downloads/MetroPort_dev33_README_RU.txt',workflow)
+        self.assertIn('--notes-file docs/METRO_MENU_DEV33_RU.txt',workflow)
 
     def test_dev33_welcome_is_generated_and_names_minetro(self):
         shared=json.loads((ROOT/'tools/mcmod-localization.json').read_text())
