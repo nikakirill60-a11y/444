@@ -1,0 +1,14 @@
+{
+  "source_client_sha256": "66f5a71817356cfd7397ff5513fcc0baa34f7eac5a530c5d1d15b470d921e8dc",
+  "class_sha256": "9697f61ac304ac1c7421494851b3feb913263e2bc5d8d611d2ba4d1cb604acbd",
+  "reference_sha256": "a6a5c835ffd7277aa57996eff780aed11df1d61bab9e1644296689276f9d0cad",
+  "tool": "@run-slicer/cfr@0.1.8-0.152",
+  "donor_java_executed": false,
+  "reference_only": true,
+  "decompiler_process_exited_cleanly": false,
+  "limitations": [
+    "CFR produced a reference file before the JS process was terminated; not a validated or compiled port.",
+    "Missing external types, decompiler branch/type reconstruction and original bytecode must be checked during adaptation.",
+    "Includes inert original endpoint literals; do not activate old networking/authentication or read donor account files."
+  ]
+}

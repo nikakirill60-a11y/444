@@ -1,0 +1,1887 @@
+{
+  "schema": 1,
+  "source": "original METRO_MOD 1.7.10 3D menu",
+  "models_zip_sha256": "06d7230ffe54a9f5b7943f268ce70060e1106fd3e0b1d9e3fe857d3095f6b123",
+  "materials_zip_sha256": "2448da2ced5ef55d0d4d459c47e84e985e5785d66382ac63c656060a63d83064",
+  "model_count": 35,
+  "texture_count": 97,
+  "models": [
+    {
+      "source_reference": "decor_metro/trub.m2033model",
+      "mesh": "metroport:models/metromod/menu/decor_metro/trub.obj.gz",
+      "materials": {
+        "Material__29": {
+          "diffuse": "metroport:textures/metromod/menu/metal34_props_01.512.png",
+          "normal": "metroport:textures/metromod/menu/metal34_props_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal34_props_01_s.512.png"
+        },
+        "Material__30": {
+          "diffuse": "metroport:textures/metromod/menu/metal_truba8.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_truba8_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_truba8_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -1.3865,
+          -0.7949,
+          -0.4863
+        ],
+        "max": [
+          1.3813,
+          0.5781,
+          0.0466
+        ]
+      },
+      "triangles": 396,
+      "decoded_obj_sha256": "bd93d706cf01acf8eb7cb3599114a59d4cf84b414089a9bd4a1f9c41a4a44f4f"
+    },
+    {
+      "source_reference": "decor_metro/trub90.m2033model",
+      "mesh": "metroport:models/metromod/menu/decor_metro/trub90.obj.gz",
+      "materials": {
+        "Material__31": {
+          "diffuse": "metroport:textures/metromod/menu/metal_truba8.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_truba8_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_truba8_s.512.png"
+        },
+        "Material__32": {
+          "diffuse": "metroport:textures/metromod/menu/metal34_props_01.512.png",
+          "normal": "metroport:textures/metromod/menu/metal34_props_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal34_props_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.9961,
+          -0.7949,
+          -0.4775
+        ],
+        "max": [
+          0.9688,
+          0.5781,
+          0.2214
+        ]
+      },
+      "triangles": 472,
+      "decoded_obj_sha256": "4e6ba4b782cebc8476a6cadd489d6d3dc817db75b9e40e5f4f8a189cf2626f43"
+    },
+    {
+      "source_reference": "decor_metro/web1.m2033model",
+      "mesh": "metroport:models/metromod/menu/decor_metro/web1.obj.gz",
+      "materials": {
+        "Material__49": {
+          "diffuse": "metroport:textures/metromod/menu/tile_pautina_new2.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -5.3809,
+          -3.5752,
+          -2.5526
+        ],
+        "max": [
+          4.9666,
+          -0.0063,
+          2.7481
+        ]
+      },
+      "triangles": 364,
+      "decoded_obj_sha256": "8dacd4e06bc0673df2dd9a25b8872eca7a255c20a7dc7c36a6747a4dad94787b"
+    },
+    {
+      "source_reference": "decor_metro/web2.m2033model",
+      "mesh": "metroport:models/metromod/menu/decor_metro/web2.obj.gz",
+      "materials": {
+        "Material__54": {
+          "diffuse": "metroport:textures/metromod/menu/tile_pautina34_part_2.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -1.989,
+          -4.8868,
+          -1.5221
+        ],
+        "max": [
+          1.9893,
+          0.0,
+          1.5217
+        ]
+      },
+      "triangles": 384,
+      "decoded_obj_sha256": "9471259e59e1a8127fb94cc3fd9e0ae88cad7d345a939d15bf014953d368812c"
+    },
+    {
+      "source_reference": "decor_metro/web3.m2033model",
+      "mesh": "metroport:models/metromod/menu/decor_metro/web3.obj.gz",
+      "materials": {
+        "Material__55": {
+          "diffuse": "metroport:textures/metromod/menu/tile_pautina34.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -1.989,
+          -4.8868,
+          -1.5221
+        ],
+        "max": [
+          1.9893,
+          0.0,
+          1.5217
+        ]
+      },
+      "triangles": 384,
+      "decoded_obj_sha256": "83982a09d880c269aa7f002bff97200ebb89040e31b632d9bf2441d47e6d1970"
+    },
+    {
+      "source_reference": "drezina/regina.m2033model",
+      "mesh": "metroport:models/metromod/menu/drezina/regina.obj.gz",
+      "materials": {
+        "Material__38": {
+          "diffuse": "metroport:textures/metromod/menu/props_setka_rza.512.png",
+          "normal": "metroport:textures/metromod/menu/props_setka_rza_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_setka_rza_s.512.png"
+        },
+        "Material__39": {
+          "diffuse": "metroport:textures/metromod/menu/wm_graffiti_dsc.512.png",
+          "normal": "metroport:textures/metromod/menu/wm_graffiti_dsc_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wm_graffiti_dsc_s.512.png"
+        },
+        "Material__40": {
+          "diffuse": "metroport:textures/metromod/menu/metal_list.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_list_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_list_s.512.png"
+        },
+        "Material__41": {
+          "diffuse": "metroport:textures/metromod/menu/props_engine.512.png",
+          "normal": "metroport:textures/metromod/menu/props_engine_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_engine_s.512.png"
+        },
+        "Material__42": {
+          "diffuse": "metroport:textures/metromod/menu/veh34_regina.512.png",
+          "normal": "metroport:textures/metromod/menu/veh34_regina_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh34_regina_s.512.png"
+        },
+        "Material__43": {
+          "diffuse": "metroport:textures/metromod/menu/props_barrel_orange_new.512.png",
+          "normal": "metroport:textures/metromod/menu/props_barrel_orange_new_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_barrel_orange_new_s.512.png"
+        },
+        "Material__44": {
+          "diffuse": "metroport:textures/metromod/menu/props_t_gas_can.512.png",
+          "normal": "metroport:textures/metromod/menu/props_t_gas_can_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_t_gas_can_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -1.4901,
+          0.2272,
+          -2.857
+        ],
+        "max": [
+          1.4904,
+          2.2989,
+          3.0221
+        ]
+      },
+      "triangles": 14096,
+      "decoded_obj_sha256": "41c5a6af0cab03c453a14a583fd37ca100555fc7849321fc7a78025fc2f07f54"
+    },
+    {
+      "source_reference": "drezina/regina_well.m2033model",
+      "mesh": "metroport:models/metromod/menu/drezina/regina_well.obj.gz",
+      "materials": {
+        "_reginaMaterial__26": {
+          "diffuse": "metroport:textures/metromod/menu/veh34_regina.512.png",
+          "normal": "metroport:textures/metromod/menu/veh34_regina_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh34_regina_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          0.8849,
+          -0.5559,
+          -0.5588
+        ],
+        "max": [
+          1.2937,
+          0.5691,
+          0.5622
+        ]
+      },
+      "triangles": 710,
+      "decoded_obj_sha256": "1950410ab44a573b7d8a457159c8a303befcaf31b770b4983e8b64a9b1c075cc"
+    },
+    {
+      "source_reference": "menu/germo_left.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/germo_left.obj.gz",
+      "materials": {
+        "Material__26": {
+          "diffuse": "metroport:textures/metromod/menu/props34_germovorota_intro.512.png",
+          "normal": "metroport:textures/metromod/menu/props34_germovorota_intro_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props34_germovorota_intro_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -3.7143,
+          -0.0004,
+          -0.4721
+        ],
+        "max": [
+          0.0202,
+          5.8224,
+          0.1908
+        ]
+      },
+      "triangles": 4549,
+      "decoded_obj_sha256": "7a3fa7726c83e0d757db088aa5d8abc290c9d2a687cc90c1395884d1537f1208"
+    },
+    {
+      "source_reference": "menu/germo_right.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/germo_right.obj.gz",
+      "materials": {
+        "Material__25": {
+          "diffuse": "metroport:textures/metromod/menu/props34_germovorota_intro.512.png",
+          "normal": "metroport:textures/metromod/menu/props34_germovorota_intro_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props34_germovorota_intro_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0199,
+          -0.0004,
+          -0.4721
+        ],
+        "max": [
+          3.7147,
+          5.8224,
+          0.1908
+        ]
+      },
+      "triangles": 4565,
+      "decoded_obj_sha256": "26bc4560bf29550f559113532e382ace16521c5e994f77e79e97946a4d179864"
+    },
+    {
+      "source_reference": "menu/part1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part1.obj.gz",
+      "materials": {
+        "Material__30": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_monik.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_monik_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_monik_s.512.png"
+        },
+        "Material__31": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_02_1.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_02_1_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_02_1_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.2276,
+          0.0518,
+          -0.0658
+        ],
+        "max": [
+          0.2537,
+          0.4346,
+          0.211
+        ]
+      },
+      "triangles": 3971,
+      "decoded_obj_sha256": "f42ec199653094aa1b8c6922038ea5755a2033b21bef78c6d2bd53369e90088d"
+    },
+    {
+      "source_reference": "menu/part2.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part2.obj.gz",
+      "materials": {
+        "Material__35": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_04.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_04_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_04_s.512.png"
+        },
+        "Material__36": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_03.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_03_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_03_s.512.png"
+        },
+        "Material__37": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_monik.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_monik_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_monik_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0934,
+          -0.1342,
+          -0.0118
+        ],
+        "max": [
+          0.0956,
+          0.146,
+          0.0129
+        ]
+      },
+      "triangles": 655,
+      "decoded_obj_sha256": "61bbd1799de46d9fd224932e417218c8d6b7483289721645ccb6615cc605bcd6"
+    },
+    {
+      "source_reference": "menu/part3.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part3.obj.gz",
+      "materials": {
+        "Material__27": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_03.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_03_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_03_s.512.png"
+        },
+        "Material__29": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        },
+        "Material__34": {
+          "diffuse": "metroport:textures/metromod/menu/ui_maska_d_8.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0772,
+          -0.0004,
+          -0.1103
+        ],
+        "max": [
+          0.0827,
+          0.2849,
+          0.0849
+        ]
+      },
+      "triangles": 509,
+      "decoded_obj_sha256": "e61dc639c57790334c906fcf0cf6c7087c9239f3ac648abc81816cb59fd18ce0"
+    },
+    {
+      "source_reference": "menu/part3_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part3_1.obj.gz",
+      "materials": {
+        "_part3Material__39": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_03.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_03_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_03_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.004,
+          0.0006,
+          -0.1074
+        ],
+        "max": [
+          0.0049,
+          0.0436,
+          -0.1074
+        ]
+      },
+      "triangles": 2,
+      "decoded_obj_sha256": "fb6053343e83717f387415c146b00a85f4ac6d19a8d5a16ae562f2194b557215"
+    },
+    {
+      "source_reference": "menu/part4.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part4.obj.gz",
+      "materials": {
+        "Material__41": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.403,
+          -0.0735,
+          -0.0625
+        ],
+        "max": [
+          0.3632,
+          0.0989,
+          0.0217
+        ]
+      },
+      "triangles": 248,
+      "decoded_obj_sha256": "5dad7c695fd0c162d5aeb2cd8c10c8f90f5a3b417de90f82ea6c930d4bb8d32c"
+    },
+    {
+      "source_reference": "menu/part5.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part5.obj.gz",
+      "materials": {
+        "_part5Material__42": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.7452,
+          -0.0614,
+          0.0066
+        ],
+        "max": [
+          0.118,
+          0.0717,
+          0.0364
+        ]
+      },
+      "triangles": 32,
+      "decoded_obj_sha256": "180cc9f573661dbd5bc8e3bd0584fe14fa7ae486d62d2c07fd1fdaac3d51e488"
+    },
+    {
+      "source_reference": "menu/part5_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part5_1.obj.gz",
+      "materials": {
+        "_part5Material__42": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0344,
+          -0.0341,
+          -0.0151
+        ],
+        "max": [
+          0.0348,
+          0.0339,
+          0.014
+        ]
+      },
+      "triangles": 90,
+      "decoded_obj_sha256": "459ef78cbe011dd22bae7b84541bc8365db65516667599f2ea18d88ae7237bbb"
+    },
+    {
+      "source_reference": "menu/part6.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part6.obj.gz",
+      "materials": {
+        "_part6Material__43": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.1007,
+          -0.0559,
+          -0.0066
+        ],
+        "max": [
+          0.1077,
+          0.0625,
+          0.0158
+        ]
+      },
+      "triangles": 200,
+      "decoded_obj_sha256": "5a441d0ff154c131421ce0a531924bfa6050e6f10a90a7c39acd396a1ec5f509"
+    },
+    {
+      "source_reference": "menu/part6_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part6_1.obj.gz",
+      "materials": {
+        "_part6Material__43": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.007,
+          -0.007,
+          -0.0259
+        ],
+        "max": [
+          0.007,
+          0.007,
+          0.0031
+        ]
+      },
+      "triangles": 120,
+      "decoded_obj_sha256": "16ba9e5dfde96c70752ed9de3329028c4d68ac3307bce79242214328b7a489d0"
+    },
+    {
+      "source_reference": "menu/part7.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part7.obj.gz",
+      "materials": {
+        "_part7Material__44": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0942,
+          -0.1015,
+          -0.0055
+        ],
+        "max": [
+          0.1135,
+          0.0732,
+          0.0136
+        ]
+      },
+      "triangles": 98,
+      "decoded_obj_sha256": "dcf14ca92facb276c1e0bbc70d6d21e601d0bf1133ed196c97317d4e5c34e1d8"
+    },
+    {
+      "source_reference": "menu/part7_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part7_1.obj.gz",
+      "materials": {
+        "_part7Material__44": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0341,
+          -0.0338,
+          -0.0279
+        ],
+        "max": [
+          0.0343,
+          0.0339,
+          -0.0055
+        ]
+      },
+      "triangles": 64,
+      "decoded_obj_sha256": "f40627ac46601438049bc880acb63eaf9ab2deb5c5afd1b0f53406aabecf4578"
+    },
+    {
+      "source_reference": "menu/part8.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part8.obj.gz",
+      "materials": {
+        "Material__25": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.0875,
+          -0.0555,
+          -0.0228
+        ],
+        "max": [
+          0.1059,
+          0.0588,
+          0.0136
+        ]
+      },
+      "triangles": 32,
+      "decoded_obj_sha256": "64761cf2f3a70bf10ea11742a6d62cfc8b5b077b50d727b2761ef5c4cf6f27ab"
+    },
+    {
+      "source_reference": "menu/part8_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part8_1.obj.gz",
+      "materials": {
+        "Material__27": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          0.0188,
+          0.0324,
+          -0.0313
+        ],
+        "max": [
+          0.0401,
+          0.0533,
+          -0.021
+        ]
+      },
+      "triangles": 52,
+      "decoded_obj_sha256": "7714f93c079ddb526390b7ef87900ece7246270b57f1233bc5bd95cca30cb8dd"
+    },
+    {
+      "source_reference": "menu/part8_2.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part8_2.obj.gz",
+      "materials": {
+        "Material__26": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          0.0195,
+          0.0,
+          -0.0313
+        ],
+        "max": [
+          0.0408,
+          0.021,
+          -0.021
+        ]
+      },
+      "triangles": 52,
+      "decoded_obj_sha256": "ccf78ba81dc969e27fbb4f199a44920e594d0e60220473691766053d4da46a86"
+    },
+    {
+      "source_reference": "menu/part9.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part9.obj.gz",
+      "materials": {
+        "_part9Material__46": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.4713,
+          -0.0798,
+          -0.0967
+        ],
+        "max": [
+          0.4647,
+          0.0853,
+          0.0121
+        ]
+      },
+      "triangles": 344,
+      "decoded_obj_sha256": "6c05ad524cd14c8653fa8790901079f31ee641930205838ad8ee1ed897a392e0"
+    },
+    {
+      "source_reference": "menu/part9_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/part9_1.obj.gz",
+      "materials": {
+        "_part9Material__46": {
+          "diffuse": "metroport:textures/metromod/menu/ui_menu_01.512.png",
+          "normal": "metroport:textures/metromod/menu/ui_menu_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/ui_menu_01_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.1606,
+          -0.0184,
+          -0.1605
+        ],
+        "max": [
+          0.1608,
+          0.1066,
+          0.1609
+        ]
+      },
+      "triangles": 350,
+      "decoded_obj_sha256": "91c1267d129cdd32115d9bd15376342bb6fcaed74e98dfea9ff67373edcc999e"
+    },
+    {
+      "source_reference": "menu/tun.m2033model",
+      "mesh": "metroport:models/metromod/menu/menu/tun.obj.gz",
+      "materials": {
+        "_tunMaterial__25": {
+          "diffuse": "metroport:textures/metromod/menu/floor_tunnel_pod.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_tunnel_pod_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_tunnel_pod_s.512.png"
+        },
+        "_tun_tunMaterial__43": {
+          "diffuse": "metroport:textures/metromod/menu/metal_08_mokriy.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_08_mokriy_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_08_mokriy_s.512.png"
+        },
+        "_tun_tunMaterial__48": {
+          "diffuse": "metroport:textures/metromod/menu/wall34_tunnel_sekcii_big.512.png",
+          "normal": "metroport:textures/metromod/menu/wall34_tunnel_sekcii_big_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wall34_tunnel_sekcii_big_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -10.6813,
+          -4.3831,
+          -9.0787
+        ],
+        "max": [
+          10.6801,
+          4.3827,
+          8.9912
+        ]
+      },
+      "triangles": 5493,
+      "decoded_obj_sha256": "cf09e97b840e86385872a501f48e38244598ed2940b706aa0f0672f89e6b52c6"
+    },
+    {
+      "source_reference": "plant/root1.m2033model",
+      "mesh": "metroport:models/metromod/menu/plant/root1.obj.gz",
+      "materials": {
+        "Material__56": {
+          "diffuse": "metroport:textures/metromod/menu/wm34_polzuchee.512.png",
+          "normal": "metroport:textures/metromod/menu/wm34_polzuchee_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wm34_polzuchee_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -1.322,
+          -7.37,
+          -2.0922
+        ],
+        "max": [
+          0.3938,
+          -0.1041,
+          2.0442
+        ]
+      },
+      "triangles": 16,
+      "decoded_obj_sha256": "c7f337542708373a15ebcc852af8440b52d7ff39f07179f60cd2b2b9922b880b"
+    },
+    {
+      "source_reference": "plant/root2.m2033model",
+      "mesh": "metroport:models/metromod/menu/plant/root2.obj.gz",
+      "materials": {
+        "_korni1Material__48": {
+          "diffuse": "metroport:textures/metromod/menu/wood_korni.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_korni_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_korni_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -0.5274,
+          -0.3916,
+          -0.3139
+        ],
+        "max": [
+          0.5335,
+          0.5147,
+          0.2541
+        ]
+      },
+      "triangles": 330,
+      "decoded_obj_sha256": "dc77c5ceaf8f09b994d174a615cb4de47e51367112c85ef0a66004231bbffb30"
+    },
+    {
+      "source_reference": "tunnels/rails.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/rails.obj.gz",
+      "materials": {
+        "Material__39": {
+          "diffuse": "metroport:textures/metromod/menu/wood_shpala_01.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_shpala_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_shpala_01_s.512.png"
+        },
+        "Material__40": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rai.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rai_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rai_s.512.png"
+        },
+        "Material__41": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rail_bolt.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rail_bolt_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rail_bolt_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -1.5313,
+          -0.0904,
+          -0.8967
+        ],
+        "max": [
+          2.1926,
+          0.3217,
+          1.0761
+        ]
+      },
+      "triangles": 168,
+      "decoded_obj_sha256": "e7a4dceb072d99f6cd7bdd0f4fd6d6f17bc657a580358fb715e7d9a922bdc494"
+    },
+    {
+      "source_reference": "tunnels/tunnel1.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/tunnel1.obj.gz",
+      "materials": {
+        "_tunnel1Material__25": {
+          "diffuse": "metroport:textures/metromod/menu/concrete_tile_07.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete_tile_07_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete_tile_07_s.512.png"
+        },
+        "_tunnel1Material__26": {
+          "diffuse": "metroport:textures/metromod/menu/metal_trub_tonnel.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_trub_tonnel_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_trub_tonnel_s.512.png"
+        },
+        "_tunnel1Material__27": {
+          "diffuse": "metroport:textures/metromod/menu/floor_tunnel_pod.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_tunnel_pod_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_tunnel_pod_s.512.png"
+        },
+        "_tunnel1Material__28": {
+          "diffuse": "metroport:textures/metromod/menu/wood_shpala_01.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_shpala_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_shpala_01_s.512.png"
+        },
+        "_tunnel1Material__29": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rail_bolt.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rail_bolt_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rail_bolt_s.512.png"
+        },
+        "_tunnel1Material__30": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rai.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rai_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rai_s.512.png"
+        },
+        "_tunnel1Material__31": {
+          "diffuse": "metroport:textures/metromod/menu/grnd_glina_01.512.png",
+          "normal": "metroport:textures/metromod/menu/grnd_glina_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/grnd_glina_01_s.512.png"
+        },
+        "_tunnel1Material__32": {
+          "diffuse": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_s.512.png"
+        },
+        "_tunnel1Material__33": {
+          "diffuse": "metroport:textures/metromod/menu/metal_corr_dsc.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_corr_dsc_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_corr_dsc_s.512.png"
+        },
+        "_tunnel1Material__34": {
+          "diffuse": "metroport:textures/metromod/menu/props_akkumulator.512.png",
+          "normal": "metroport:textures/metromod/menu/props_akkumulator_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_akkumulator_s.512.png"
+        },
+        "_tunnel1Material__35": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel1Material__36": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -4.8765,
+          -0.0904,
+          -10.0499
+        ],
+        "max": [
+          4.8746,
+          8.4232,
+          10.0386
+        ]
+      },
+      "triangles": 10894,
+      "decoded_obj_sha256": "1ccdfdb3b50938591b7e8bf1032462c019039125c321bc8d785632dacba74086"
+    },
+    {
+      "source_reference": "tunnels/tunnel2.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/tunnel2.obj.gz",
+      "materials": {
+        "_tunnel2Material__39": {
+          "diffuse": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_s.512.png"
+        },
+        "_tunnel2Material__41": {
+          "diffuse": "metroport:textures/metromod/menu/metal_trub_tonnel.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_trub_tonnel_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_trub_tonnel_s.512.png"
+        },
+        "_tunnel2Material__42": {
+          "diffuse": "metroport:textures/metromod/menu/floor_tunnel_pod.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_tunnel_pod_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_tunnel_pod_s.512.png"
+        },
+        "_tunnel2Material__43": {
+          "diffuse": "metroport:textures/metromod/menu/wood_shpala_01.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_shpala_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_shpala_01_s.512.png"
+        },
+        "_tunnel2Material__44": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rail_bolt.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rail_bolt_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rail_bolt_s.512.png"
+        },
+        "_tunnel2Material__45": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rai.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rai_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rai_s.512.png"
+        },
+        "_tunnel2Material__46": {
+          "diffuse": "metroport:textures/metromod/menu/metal_corr_dsc.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_corr_dsc_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_corr_dsc_s.512.png"
+        },
+        "_tunnel2Material__47": {
+          "diffuse": "metroport:textures/metromod/menu/concrete_tile_07.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete_tile_07_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete_tile_07_s.512.png"
+        },
+        "_tunnel2Material__48": {
+          "diffuse": "metroport:textures/metromod/menu/props_akkumulator.512.png",
+          "normal": "metroport:textures/metromod/menu/props_akkumulator_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_akkumulator_s.512.png"
+        },
+        "_tunnel2Material__49": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel2Material__50": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -4.8776,
+          -0.0904,
+          -10.039
+        ],
+        "max": [
+          4.5717,
+          8.4232,
+          10.0396
+        ]
+      },
+      "triangles": 14888,
+      "decoded_obj_sha256": "07f68c53ebc55a97f8293639611157972704d2555862baa5cad37744c0083e27"
+    },
+    {
+      "source_reference": "tunnels/tunnel3.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/tunnel3.obj.gz",
+      "materials": {
+        "_tunnel3Material__25": {
+          "diffuse": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_s.512.png"
+        },
+        "_tunnel3Material__26": {
+          "diffuse": "metroport:textures/metromod/menu/floor_tunnel_pod.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_tunnel_pod_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_tunnel_pod_s.512.png"
+        },
+        "_tunnel3Material__27": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel3Material__28": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel3Material__29": {
+          "diffuse": "metroport:textures/metromod/menu/metal_corr_dsc.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_corr_dsc_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_corr_dsc_s.512.png"
+        },
+        "_tunnel3Material__30": {
+          "diffuse": "metroport:textures/metromod/menu/metal_trub_tonnel.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_trub_tonnel_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_trub_tonnel_s.512.png"
+        },
+        "_tunnel3Material__31": {
+          "diffuse": "metroport:textures/metromod/menu/wood_shpala_01.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_shpala_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_shpala_01_s.512.png"
+        },
+        "_tunnel3Material__32": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rai.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rai_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rai_s.512.png"
+        },
+        "_tunnel3Material__33": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rail_bolt.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rail_bolt_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rail_bolt_s.512.png"
+        },
+        "_tunnel3Material__34": {
+          "diffuse": "metroport:textures/metromod/menu/props_akkumulator.512.png",
+          "normal": "metroport:textures/metromod/menu/props_akkumulator_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_akkumulator_s.512.png"
+        },
+        "_tunnel3Material__35": {
+          "diffuse": "metroport:textures/metromod/menu/concrete_tile_07.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete_tile_07_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete_tile_07_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -4.8776,
+          -0.0904,
+          -10.039
+        ],
+        "max": [
+          4.5717,
+          8.4232,
+          10.0396
+        ]
+      },
+      "triangles": 14996,
+      "decoded_obj_sha256": "a221e480e645c7c183870afe2b8017f730903d0971b080e000ea8b9e5483d34b"
+    },
+    {
+      "source_reference": "tunnels/tunnel4.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/tunnel4.obj.gz",
+      "materials": {
+        "_tunnel4Material__42": {
+          "diffuse": "metroport:textures/metromod/menu/floor_tunnel_pod.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_tunnel_pod_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_tunnel_pod_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__86": {
+          "diffuse": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__87": {
+          "diffuse": "metroport:textures/metromod/menu/concrete_tile_07.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete_tile_07_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete_tile_07_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__90": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__91": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__92": {
+          "diffuse": "metroport:textures/metromod/menu/metal_corr_dsc.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_corr_dsc_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_corr_dsc_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__93": {
+          "diffuse": "metroport:textures/metromod/menu/wood_shpala_01.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_shpala_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_shpala_01_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__94": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rail_bolt.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rail_bolt_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rail_bolt_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__95": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rai.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rai_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rai_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__96": {
+          "diffuse": "metroport:textures/metromod/menu/metal_trub_tonnel.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_trub_tonnel_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_trub_tonnel_s.512.png"
+        },
+        "_tunnel4_tunnel4Material__97": {
+          "diffuse": "metroport:textures/metromod/menu/props_akkumulator.512.png",
+          "normal": "metroport:textures/metromod/menu/props_akkumulator_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_akkumulator_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -4.8772,
+          -0.0904,
+          -10.039
+        ],
+        "max": [
+          4.5717,
+          8.4228,
+          10.0396
+        ]
+      },
+      "triangles": 12422,
+      "decoded_obj_sha256": "4acbba4019a1de0c0bdd221027b5e1a12e36a0b565b6d4b4716149554f005302"
+    },
+    {
+      "source_reference": "tunnels/tunnel5.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/tunnel5.obj.gz",
+      "materials": {
+        "_tunnel5Material__43": {
+          "diffuse": "metroport:textures/metromod/menu/metal_corr_dsc.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_corr_dsc_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_corr_dsc_s.512.png"
+        },
+        "_tunnel5Material__44": {
+          "diffuse": "metroport:textures/metromod/menu/concrete_tile_07.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete_tile_07_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete_tile_07_s.512.png"
+        },
+        "_tunnel5Material__45": {
+          "diffuse": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao.512.png",
+          "normal": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_n.512.png",
+          "specular": "metroport:textures/metromod/menu/concrete34_opalubka_tunnel_ao_s.512.png"
+        },
+        "_tunnel5Material__46": {
+          "diffuse": "metroport:textures/metromod/menu/floor_tunnel_pod.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_tunnel_pod_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_tunnel_pod_s.512.png"
+        },
+        "_tunnel5Material__47": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel5Material__48": {
+          "diffuse": "metroport:textures/metromod/menu/floor_concrete_blocks.512.png",
+          "normal": "metroport:textures/metromod/menu/floor_concrete_blocks_n.512.png",
+          "specular": "metroport:textures/metromod/menu/floor_concrete_blocks_s.512.png"
+        },
+        "_tunnel5Material__49": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rai.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rai_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rai_s.512.png"
+        },
+        "_tunnel5Material__50": {
+          "diffuse": "metroport:textures/metromod/menu/veh_rail_bolt.512.png",
+          "normal": "metroport:textures/metromod/menu/veh_rail_bolt_n.512.png",
+          "specular": "metroport:textures/metromod/menu/veh_rail_bolt_s.512.png"
+        },
+        "_tunnel5Material__51": {
+          "diffuse": "metroport:textures/metromod/menu/wood_shpala_01.512.png",
+          "normal": "metroport:textures/metromod/menu/wood_shpala_01_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wood_shpala_01_s.512.png"
+        },
+        "_tunnel5Material__52": {
+          "diffuse": "metroport:textures/metromod/menu/metal_trub_tonnel.512.png",
+          "normal": "metroport:textures/metromod/menu/metal_trub_tonnel_n.512.png",
+          "specular": "metroport:textures/metromod/menu/metal_trub_tonnel_s.512.png"
+        },
+        "_tunnel5Material__53": {
+          "diffuse": "metroport:textures/metromod/menu/props_akkumulator.512.png",
+          "normal": "metroport:textures/metromod/menu/props_akkumulator_n.512.png",
+          "specular": "metroport:textures/metromod/menu/props_akkumulator_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -4.8776,
+          -0.0904,
+          -9.9158
+        ],
+        "max": [
+          4.5717,
+          8.4232,
+          10.1628
+        ]
+      },
+      "triangles": 14208,
+      "decoded_obj_sha256": "6f6a60a45a24514793016ef4e96c46e557d4bcc1a9eb970852a61fd71c350d45"
+    },
+    {
+      "source_reference": "tunnels/tunnel_betonnew_1.m2033model",
+      "mesh": "metroport:models/metromod/menu/tunnels/tunnel_betonnew_1.obj.gz",
+      "materials": {
+        "Material__29": {
+          "diffuse": "metroport:textures/metromod/menu/wpn_sekach.512.png",
+          "normal": "metroport:textures/metromod/menu/wpn_sekach_n.512.png",
+          "specular": "metroport:textures/metromod/menu/wpn_sekach_s.512.png"
+        }
+      },
+      "bounds": {
+        "min": [
+          -4.6989,
+          -0.1831,
+          -2.7331
+        ],
+        "max": [
+          4.8118,
+          8.5827,
+          2.6702
+        ]
+      },
+      "triangles": 3637,
+      "decoded_obj_sha256": "9a4211939d4a110bc2b1fffb74173bea1d139dde45e1eb1b299ac8a6050d9997"
+    }
+  ],
+  "assets": [
+    {
+      "path": "models/metromod/menu/decor_metro/trub.obj.gz",
+      "bytes": 11958,
+      "sha256": "ce75e5a67e356a697c1db3b92a1fc56509b6a490477fd37a7963dc36f86b1575"
+    },
+    {
+      "path": "models/metromod/menu/decor_metro/trub90.obj.gz",
+      "bytes": 15018,
+      "sha256": "99f439626acea759023a7ab85fcad83185026d04dcff305f345d040b99f1b39f"
+    },
+    {
+      "path": "models/metromod/menu/decor_metro/web1.obj.gz",
+      "bytes": 14045,
+      "sha256": "acad300fb1759f9dde5933b2826501702e9bfab7c41bc9c71cde1bb4a16d2518"
+    },
+    {
+      "path": "models/metromod/menu/decor_metro/web2.obj.gz",
+      "bytes": 10391,
+      "sha256": "6f6d14193cd94036d95d4611bed0a535a10ae1779a4779de54d318935d906255"
+    },
+    {
+      "path": "models/metromod/menu/decor_metro/web3.obj.gz",
+      "bytes": 9494,
+      "sha256": "55e088ee055480b65c89cc5f9e5998c64225d43f465c4b6484350205e12e5e15"
+    },
+    {
+      "path": "models/metromod/menu/drezina/regina.obj.gz",
+      "bytes": 429553,
+      "sha256": "7f847e49707c50a283986a73394d2b4fb3b926246cac7e61bb10e160f4a4e1ed"
+    },
+    {
+      "path": "models/metromod/menu/drezina/regina_well.obj.gz",
+      "bytes": 18967,
+      "sha256": "7d2d455e88828ff02891b86d21b5edbe1e834c7b3f03fa16a86c6c47efd9a2b1"
+    },
+    {
+      "path": "models/metromod/menu/menu/germo_left.obj.gz",
+      "bytes": 115557,
+      "sha256": "6819876fec2c8225488c604ad4155f56b658c1f8be6dc399c27af89ca15ed33a"
+    },
+    {
+      "path": "models/metromod/menu/menu/germo_right.obj.gz",
+      "bytes": 115925,
+      "sha256": "c79db00a2dbe79151afb7c6921b966089797245fd3034800fde9fba82ecbbe8a"
+    },
+    {
+      "path": "models/metromod/menu/menu/part1.obj.gz",
+      "bytes": 105954,
+      "sha256": "43b1f7b96f07491f8d0f4406709007c5faa2979364dbfab605a4e8594eb84615"
+    },
+    {
+      "path": "models/metromod/menu/menu/part2.obj.gz",
+      "bytes": 18530,
+      "sha256": "9e0b491c63f2ae8961fce564b3823b57c6ab0823a11f32c410a230a58e6bb12f"
+    },
+    {
+      "path": "models/metromod/menu/menu/part3.obj.gz",
+      "bytes": 13855,
+      "sha256": "a889135aa09946fecd0f5bb56c5ba33e40a1b3228d692ee8ca4ee6e13698d41d"
+    },
+    {
+      "path": "models/metromod/menu/menu/part3_1.obj.gz",
+      "bytes": 322,
+      "sha256": "6314e279f073e8eda3a438d8e4685ea798d05eea24dfce2800060daa102c4f71"
+    },
+    {
+      "path": "models/metromod/menu/menu/part4.obj.gz",
+      "bytes": 6658,
+      "sha256": "1f78865fd9fa1d214c83d366534d25091189933f3fe58b80c16df6b607969c1b"
+    },
+    {
+      "path": "models/metromod/menu/menu/part5.obj.gz",
+      "bytes": 1095,
+      "sha256": "bc9e66e19a3485e750f78175c54c70d1f87ad40b991fbd01b826660d7929e79b"
+    },
+    {
+      "path": "models/metromod/menu/menu/part5_1.obj.gz",
+      "bytes": 2683,
+      "sha256": "687baa2886046115848603418aa3584f9d1fe3a3caa479ea3db2121984bbfcff"
+    },
+    {
+      "path": "models/metromod/menu/menu/part6.obj.gz",
+      "bytes": 6163,
+      "sha256": "ca00817c3c04066822c26f28f52d5c35c3ef6bcb560ff8772449ef7b16b07ec0"
+    },
+    {
+      "path": "models/metromod/menu/menu/part6_1.obj.gz",
+      "bytes": 3630,
+      "sha256": "55759ed54ee850c64e7ee3fd6236b00bbce9cc1ac61e09243e772ae7a6333f83"
+    },
+    {
+      "path": "models/metromod/menu/menu/part7.obj.gz",
+      "bytes": 3421,
+      "sha256": "6b4a508f921d0e59164766ae2a69a0d00a015ec0e4cbad1ecd37a1c4d718bf45"
+    },
+    {
+      "path": "models/metromod/menu/menu/part7_1.obj.gz",
+      "bytes": 2579,
+      "sha256": "6c97e6b4b63a9cdd50cf668673e31e946d7dafaef4a3441a2a0ab4c7a4934c6b"
+    },
+    {
+      "path": "models/metromod/menu/menu/part8.obj.gz",
+      "bytes": 1152,
+      "sha256": "6ad5f7562d8613b829d535bb10d794e8a96b79b937868eede08e7933c9a707fc"
+    },
+    {
+      "path": "models/metromod/menu/menu/part8_1.obj.gz",
+      "bytes": 1448,
+      "sha256": "8e4754fc3c69b44cf29f65715facdc0369a271d2c6d902a3485eca5075a0aa84"
+    },
+    {
+      "path": "models/metromod/menu/menu/part8_2.obj.gz",
+      "bytes": 1482,
+      "sha256": "061f84fa118c5f2c6c98a4c4aeb154ea7bf5fb14c554a8f2e1cda6abc832dada"
+    },
+    {
+      "path": "models/metromod/menu/menu/part9.obj.gz",
+      "bytes": 9367,
+      "sha256": "88b777c7edb017d61ef66129b9d80e36d8def4e39e7507999a5e17412f6926e6"
+    },
+    {
+      "path": "models/metromod/menu/menu/part9_1.obj.gz",
+      "bytes": 8810,
+      "sha256": "b1d9a39c9001e0d717d2bb37e5707ffec840ae08464f69ce33f568ce3ec0f661"
+    },
+    {
+      "path": "models/metromod/menu/menu/tun.obj.gz",
+      "bytes": 157167,
+      "sha256": "fb836f0d447540213ea4ed1416f202f2b5431c90a42df7ea32c64003133f258d"
+    },
+    {
+      "path": "models/metromod/menu/plant/root1.obj.gz",
+      "bytes": 742,
+      "sha256": "4c1596387a82c2d65f496fc821113c54fea8f9bf03b0942e2e0ecc2f6845e76f"
+    },
+    {
+      "path": "models/metromod/menu/plant/root2.obj.gz",
+      "bytes": 11213,
+      "sha256": "3c98e352acabf8d11456152b511cf6e9800bb58cc9a4d62cb75bf7f7e499c506"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/rails.obj.gz",
+      "bytes": 5127,
+      "sha256": "1f421bdbacce5b4ae9f8a21a14ab69ce9e9e7d45330b6315840e2f3062b9ffff"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/tunnel1.obj.gz",
+      "bytes": 331989,
+      "sha256": "e3310c40baaa4bb38050d697801abe103b796d28f73811615164071169d1f35e"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/tunnel2.obj.gz",
+      "bytes": 467751,
+      "sha256": "57a6d2807dd7658db2f8dd56a39b3b015a0dbfa040039e031c59ec453fcda862"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/tunnel3.obj.gz",
+      "bytes": 432327,
+      "sha256": "d85f0febc7e7e41caa543e76b7be31284d10e40be084334f41f6f02d34e6cf5e"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/tunnel4.obj.gz",
+      "bytes": 370885,
+      "sha256": "afde427c45f20c331d7f98cfb5d3e7cddd0b68d4cb0dc47954005bd5fcbf4946"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/tunnel5.obj.gz",
+      "bytes": 452292,
+      "sha256": "4abc23aa63a443209e9581bd1d7d3d4f9fd099d44ef901c6f71b4fb01e2fa986"
+    },
+    {
+      "path": "models/metromod/menu/tunnels/tunnel_betonnew_1.obj.gz",
+      "bytes": 108360,
+      "sha256": "7ae4fa8e563074f83a1e464ffaaaf17de72085ad577f8fc7ddd56a80421f6c73"
+    },
+    {
+      "path": "textures/metromod/menu/concrete34_opalubka_tunnel_ao.512.png",
+      "bytes": 263598,
+      "sha256": "204e89ec21e8f114a4665d84c5725276a9d64add166a2fc72ca42244690dc419"
+    },
+    {
+      "path": "textures/metromod/menu/concrete34_opalubka_tunnel_ao_n.512.png",
+      "bytes": 382893,
+      "sha256": "5f7b4818072406d60dd5142e9200ac61768e3f72b16615d0696be6e7033eda2a"
+    },
+    {
+      "path": "textures/metromod/menu/concrete34_opalubka_tunnel_ao_s.512.png",
+      "bytes": 317755,
+      "sha256": "e17c6d6dfcbbdebe30698912111e96ddc4a5f339de54e84c908f6f3e0047bc7c"
+    },
+    {
+      "path": "textures/metromod/menu/concrete_tile_07.512.png",
+      "bytes": 458596,
+      "sha256": "6b51dd4d0892215ccda25fc7124b623f03081e62ce2b7cedfa2610e6c1f7fb84"
+    },
+    {
+      "path": "textures/metromod/menu/concrete_tile_07_n.512.png",
+      "bytes": 371922,
+      "sha256": "014dccaa1260d4cfbd1fc4fddb17723e76f5bdeb87dcdc3bd2010392d10a4c0a"
+    },
+    {
+      "path": "textures/metromod/menu/concrete_tile_07_s.512.png",
+      "bytes": 158996,
+      "sha256": "39438e0923dd3fb3c0703b4871018f1c2fdb55758dfa4088fe3cacc6986d9f88"
+    },
+    {
+      "path": "textures/metromod/menu/floor_concrete_blocks.512.png",
+      "bytes": 507068,
+      "sha256": "078456d7c079b2adfc0b4a92b8d3e572be77cabe22ed99630a4e970278ec4dcc"
+    },
+    {
+      "path": "textures/metromod/menu/floor_concrete_blocks_n.512.png",
+      "bytes": 263855,
+      "sha256": "b174d64e1099a379ef3c6caa46caf3a225c53f761f9895b4ee32fa432e037a02"
+    },
+    {
+      "path": "textures/metromod/menu/floor_concrete_blocks_s.512.png",
+      "bytes": 150877,
+      "sha256": "a687005e21ee72a2614a4d7a70734cbb79e932a15a16a2c59ef676d29570ce88"
+    },
+    {
+      "path": "textures/metromod/menu/floor_tunnel_pod.512.png",
+      "bytes": 458029,
+      "sha256": "d02404e9f28ecb3e80e0bc4e0b3abec7a9ae225e61be83ae59ebb58d92dff8b4"
+    },
+    {
+      "path": "textures/metromod/menu/floor_tunnel_pod_n.512.png",
+      "bytes": 418573,
+      "sha256": "0a2b3d55d720aefff605af5c050c4510634c6cf11d852f8d269544da9d946b43"
+    },
+    {
+      "path": "textures/metromod/menu/floor_tunnel_pod_s.512.png",
+      "bytes": 174480,
+      "sha256": "6e62e9a43f1af451ff4788fc39678b1dfa2fa8fe274fe236d7ed0cc4e1cb0fd9"
+    },
+    {
+      "path": "textures/metromod/menu/grnd_glina_01.512.png",
+      "bytes": 335578,
+      "sha256": "94a1182ae0a57e62dec3777e1307679a42fd97e9ea1663e3ed271befd20756e8"
+    },
+    {
+      "path": "textures/metromod/menu/grnd_glina_01_n.512.png",
+      "bytes": 472269,
+      "sha256": "7bc3d868c78d1988c179d57899f64c400a8aac2f3ffc9908d78f9136a3fd6a2e"
+    },
+    {
+      "path": "textures/metromod/menu/grnd_glina_01_s.512.png",
+      "bytes": 174538,
+      "sha256": "b211de4106bf3894e4c0d460761dc756def6a01026554f075bef017af0f4d5d9"
+    },
+    {
+      "path": "textures/metromod/menu/metal34_props_01.512.png",
+      "bytes": 411782,
+      "sha256": "a256d9303f3948ba14e14a7034ba616870c9e1afa8a84af459d441bb5f869626"
+    },
+    {
+      "path": "textures/metromod/menu/metal34_props_01_n.512.png",
+      "bytes": 253893,
+      "sha256": "d495eba503b6559d0517a3bfae05d832043364c5008adf9e8c0ce47572d70dcd"
+    },
+    {
+      "path": "textures/metromod/menu/metal34_props_01_s.512.png",
+      "bytes": 320322,
+      "sha256": "aa271360331ec5a7252aec699c1218ecc341670be563ae99ea299e3eb0b64cfc"
+    },
+    {
+      "path": "textures/metromod/menu/metal_08_mokriy.512.png",
+      "bytes": 498917,
+      "sha256": "4ddb41f5572527adf7e72ecafe50659996b03e9af1da966e34a09a5b337a5a42"
+    },
+    {
+      "path": "textures/metromod/menu/metal_08_mokriy_n.512.png",
+      "bytes": 490469,
+      "sha256": "aba47c811bb6a2c747e6be358142c760911d0cf3673ad8f6b796a67c30aeb014"
+    },
+    {
+      "path": "textures/metromod/menu/metal_08_mokriy_s.512.png",
+      "bytes": 343125,
+      "sha256": "e421bbec8f781e98131900b9bcde05ecb0cafd79f920290ac4e5aea31ac72876"
+    },
+    {
+      "path": "textures/metromod/menu/metal_corr_dsc.512.png",
+      "bytes": 473354,
+      "sha256": "c142a9168e59b866ccee3dbc21cdd3978d9fd76cc18b09e5e05426e9d2dd743d"
+    },
+    {
+      "path": "textures/metromod/menu/metal_corr_dsc_n.512.png",
+      "bytes": 565232,
+      "sha256": "f6eaae07f5b9989dd85b0c7ae96bf33fa99bdfa8d754e27e59f39583dc04eba2"
+    },
+    {
+      "path": "textures/metromod/menu/metal_corr_dsc_s.512.png",
+      "bytes": 210133,
+      "sha256": "c62c58f3da2bbd07437be51f5f5cc0a8d37e34e1afc1b1c9c460042b2c045998"
+    },
+    {
+      "path": "textures/metromod/menu/metal_list.512.png",
+      "bytes": 403836,
+      "sha256": "0c7a04fecae62a13a4780e4385ed28790e31ade58cd5679a215f93ed3d63a009"
+    },
+    {
+      "path": "textures/metromod/menu/metal_list_n.512.png",
+      "bytes": 256868,
+      "sha256": "009c39f2f8b7d3cfd39f3fed3882d26d3af532ea129021e40ef825cb6daf5bce"
+    },
+    {
+      "path": "textures/metromod/menu/metal_list_s.512.png",
+      "bytes": 351397,
+      "sha256": "823c8f1e9323fd53efecfa462ef7a834a6e8e36c2f1c040147677c84f6ea2862"
+    },
+    {
+      "path": "textures/metromod/menu/metal_trub_tonnel.512.png",
+      "bytes": 397324,
+      "sha256": "6fcf6a1bee0d2569dd4f6b1d4662e46be6ffcccec1ddd44103909916f0b512d3"
+    },
+    {
+      "path": "textures/metromod/menu/metal_trub_tonnel_n.512.png",
+      "bytes": 259794,
+      "sha256": "337df9e89738c183bee89e24d03e8126e47064327cd873ce326c06033567589a"
+    },
+    {
+      "path": "textures/metromod/menu/metal_trub_tonnel_s.512.png",
+      "bytes": 247705,
+      "sha256": "9e01ab91c70587c223c5865afae186fdadc674bf96b97ec9cacd26455d0a4da8"
+    },
+    {
+      "path": "textures/metromod/menu/metal_truba8.512.png",
+      "bytes": 409355,
+      "sha256": "d89d9c359613e588a456534f9c5ae2671e2a7bb990c53a4fccebecbc3e5b6632"
+    },
+    {
+      "path": "textures/metromod/menu/metal_truba8_n.512.png",
+      "bytes": 296379,
+      "sha256": "736514325dd0041af8fddaa2670a36cf4c246b1b1f51c74863d6b0851a8aa25f"
+    },
+    {
+      "path": "textures/metromod/menu/metal_truba8_s.512.png",
+      "bytes": 236474,
+      "sha256": "ca28dcbc3ec12e8172f1be3c1954990c5c2c7b3918a9511c18a592e158c5bf3b"
+    },
+    {
+      "path": "textures/metromod/menu/props34_germovorota_intro.512.png",
+      "bytes": 432549,
+      "sha256": "f1269f03889110494879913eadc579d8698d99abef47518f3dd91d78728e32b2"
+    },
+    {
+      "path": "textures/metromod/menu/props34_germovorota_intro_n.512.png",
+      "bytes": 274648,
+      "sha256": "64509f1fd13e8cde0a06b409596b822884cdf051247c664fad6cac2d99159f39"
+    },
+    {
+      "path": "textures/metromod/menu/props34_germovorota_intro_s.512.png",
+      "bytes": 362116,
+      "sha256": "396170f8e006c42eb021d5c5b99a2b583db60aa11f00a460af7e5608f5073189"
+    },
+    {
+      "path": "textures/metromod/menu/props_akkumulator.512.png",
+      "bytes": 434963,
+      "sha256": "cb9a70d1edbce3c4e7a66ae756d654025cc18bfda5675eebbe6a05e64e04e44c"
+    },
+    {
+      "path": "textures/metromod/menu/props_akkumulator_n.512.png",
+      "bytes": 398798,
+      "sha256": "b6bca40c7ebe93f204742af11c3f7b37db6eaca8ace82af8f908a9b18551bb85"
+    },
+    {
+      "path": "textures/metromod/menu/props_akkumulator_s.512.png",
+      "bytes": 210073,
+      "sha256": "716c92b7c3503c1fc7244a3c83965c852199f7577aacc7b308168469ff590758"
+    },
+    {
+      "path": "textures/metromod/menu/props_barrel_orange_new.512.png",
+      "bytes": 414064,
+      "sha256": "5343fe0744bb78b16958c20065fae3cd9c85b4f83544118134bc52552ca74b48"
+    },
+    {
+      "path": "textures/metromod/menu/props_barrel_orange_new_n.512.png",
+      "bytes": 225797,
+      "sha256": "ce7f9f8c06d62f8969c89784413761b4505935d87eee10a63d98b48833bd0614"
+    },
+    {
+      "path": "textures/metromod/menu/props_barrel_orange_new_s.512.png",
+      "bytes": 323610,
+      "sha256": "3fe4d4d9cd72bf7183fb8f42eaa123283a6c5abf4820bc21ba217c644f69aecb"
+    },
+    {
+      "path": "textures/metromod/menu/props_engine.512.png",
+      "bytes": 410776,
+      "sha256": "cf0082c46fe13a0fddad73c2dbd4e9aa3bb1b2f9a677d24972069303e5508033"
+    },
+    {
+      "path": "textures/metromod/menu/props_engine_n.512.png",
+      "bytes": 294933,
+      "sha256": "514d97deeb67f565b4d8b55f0f9f8b42ad11a430b5316fd659f63f19bee03b3c"
+    },
+    {
+      "path": "textures/metromod/menu/props_engine_s.512.png",
+      "bytes": 351845,
+      "sha256": "3e638d1b40e4717e909ecede6e2e31692c5d8475c693060eeb2a2e34fe64c24a"
+    },
+    {
+      "path": "textures/metromod/menu/props_setka_rza.512.png",
+      "bytes": 128859,
+      "sha256": "c025a3a6aa07a6b8c749f2b8b00416d0a76565c14591ec6c2ad0dc26b1983c2b"
+    },
+    {
+      "path": "textures/metromod/menu/props_setka_rza_n.512.png",
+      "bytes": 185720,
+      "sha256": "a5f19e049cd0d3a61e5066771d27dbf2ce7bdae4e3e9fed3d4a7a720c9747f57"
+    },
+    {
+      "path": "textures/metromod/menu/props_setka_rza_s.512.png",
+      "bytes": 101614,
+      "sha256": "7b26abf8b2486bfd0b9560723db94b6f59545c6b857c58e1d9fa002f2ec1f6ee"
+    },
+    {
+      "path": "textures/metromod/menu/props_t_gas_can.512.png",
+      "bytes": 343902,
+      "sha256": "57908f806e0bbd8211b6c8e3cfaeb444dd8f415da87cd8b43a2aebf7565c666b"
+    },
+    {
+      "path": "textures/metromod/menu/props_t_gas_can_n.512.png",
+      "bytes": 173364,
+      "sha256": "5bc5832674c63ed83c9a2e0818f0148989474761c89024c2856534cf515643b9"
+    },
+    {
+      "path": "textures/metromod/menu/props_t_gas_can_s.512.png",
+      "bytes": 139333,
+      "sha256": "dfb9fb0bacca9169ba2c68602758adea18539ee3b713aecb46f9c613914316b3"
+    },
+    {
+      "path": "textures/metromod/menu/tile_pautina34.512.png",
+      "bytes": 255941,
+      "sha256": "2ae480f6436b4895ee3ccdfb56e783131afb588fe7cea4bc70e33d13de67dae5"
+    },
+    {
+      "path": "textures/metromod/menu/tile_pautina34_part_2.512.png",
+      "bytes": 116496,
+      "sha256": "e215408fd9f910c349bea8f6057019ed5bdc15f6210e94791d318e42cfdc8b47"
+    },
+    {
+      "path": "textures/metromod/menu/tile_pautina_new2.512.png",
+      "bytes": 643145,
+      "sha256": "52a0e2be209ce33273956f4da27765c9a36151d367d4e5d0f135eada7e6b342c"
+    },
+    {
+      "path": "textures/metromod/menu/ui_maska_d_8.512.png",
+      "bytes": 83678,
+      "sha256": "77c66bca627c786983ae4aead49babd6cbdcac84ae393b0d9f6a5eecdf533ae8"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_01.512.png",
+      "bytes": 380499,
+      "sha256": "0508b88f5346b1f169bd8989f4cf32e99d3bba57d3bc34b30ea6eb70b7f53e8c"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_01_n.512.png",
+      "bytes": 262967,
+      "sha256": "7fe015526e03fe7c35ee942738c78c1767203a1600614ebf81529d93c528c8c6"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_01_s.512.png",
+      "bytes": 254153,
+      "sha256": "769d9097a04698ab6afb8f602fecedb0168f25d1d343f234fb88d49d382354c0"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_02_1.512.png",
+      "bytes": 430452,
+      "sha256": "d977642028b03361c9df96ea14c82860ddf78c846cf52308debc32ca35f94b59"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_02_1_n.512.png",
+      "bytes": 247112,
+      "sha256": "555b0110bceb765c7093a148f5033d37400b1c9e8e415d9200c453db6e0ed723"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_02_1_s.512.png",
+      "bytes": 296167,
+      "sha256": "fbe0cd315392039028a2a65f4854550bfa97b2f71b794833a436411171f374ff"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_03.512.png",
+      "bytes": 432530,
+      "sha256": "138cf1e8217dd26d0b11fd6995ad9b543b674126c14eabfe96378fd70142a10e"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_03_n.512.png",
+      "bytes": 292088,
+      "sha256": "1fb1e5f9a1f130fc07d2a29652e37aa26226e61197f7576fc239af4ad94204e4"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_03_s.512.png",
+      "bytes": 226381,
+      "sha256": "ee793addc3a0aa3268d1edd7df04c696b5f8134a88f22fe98976598ae9ca2030"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_04.512.png",
+      "bytes": 415376,
+      "sha256": "c9dbbd23cf04353ed9b3c0c21e065a3248e04bc02d620a978b67dcef65de6dc0"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_04_n.512.png",
+      "bytes": 471460,
+      "sha256": "d797d3fac2d78bb303973913948f539dce568fb487fcb578a4c1041641ef0b81"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_04_s.512.png",
+      "bytes": 297739,
+      "sha256": "d86b88dd50d727dfe43d4de5ac1b9938af57de59945a49f25ce57a12116d2e7d"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_monik.512.png",
+      "bytes": 390345,
+      "sha256": "f1316d7b074dc5d63d9753fa4f733416d85f606173bb4ef38515223d27399c7f"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_monik_n.512.png",
+      "bytes": 193829,
+      "sha256": "54e0a0fe317d5373a3252bcf4deea38955a9490a371052903e11d137e0e499dd"
+    },
+    {
+      "path": "textures/metromod/menu/ui_menu_monik_s.512.png",
+      "bytes": 111176,
+      "sha256": "1c0df4d62a6f8281c9a03296570739d2b67c2d8cc2871d75a6d1c6ad97410f66"
+    },
+    {
+      "path": "textures/metromod/menu/veh34_regina.512.png",
+      "bytes": 447832,
+      "sha256": "0d381f3cb207a2f295fe2082974fc8ebf9c343fa6be4914017839830a12c8a81"
+    },
+    {
+      "path": "textures/metromod/menu/veh34_regina_n.512.png",
+      "bytes": 270683,
+      "sha256": "f32c3a83dd5cb3fcbe03f18ca52326d03c5f15c3d38bab35c5e33c26020a9e10"
+    },
+    {
+      "path": "textures/metromod/menu/veh34_regina_s.512.png",
+      "bytes": 388645,
+      "sha256": "6e2032c341eb26315dde1c181e97947e293661db289673746671087aeade2fd7"
+    },
+    {
+      "path": "textures/metromod/menu/veh_rai.512.png",
+      "bytes": 288467,
+      "sha256": "25b5679ee8dec73729d1fd6c2d2810fc859e9b7a67e2e37e5fc88e2c9a412d55"
+    },
+    {
+      "path": "textures/metromod/menu/veh_rai_n.512.png",
+      "bytes": 162282,
+      "sha256": "c07dfb02010b7964b2ff33b71d61460bd12777ab32fc1dae64802d7a49ad6992"
+    },
+    {
+      "path": "textures/metromod/menu/veh_rai_s.512.png",
+      "bytes": 128642,
+      "sha256": "a91cf33ce99d74a8454fe609f50cc890dd35690ef10467fa95410f916a650b7f"
+    },
+    {
+      "path": "textures/metromod/menu/veh_rail_bolt.512.png",
+      "bytes": 325587,
+      "sha256": "b76e697f23e940f17e24b3b66d939ecb847924114ced7e5121d3f37aa9be687e"
+    },
+    {
+      "path": "textures/metromod/menu/veh_rail_bolt_n.512.png",
+      "bytes": 366614,
+      "sha256": "ec60f01de083f02514abaa5f68d33aa21100d2fb6f5d0536543a0296a282cf44"
+    },
+    {
+      "path": "textures/metromod/menu/veh_rail_bolt_s.512.png",
+      "bytes": 238160,
+      "sha256": "a1d002ec6c7c0c8f08c87f0c5d13c7a6cdfc93bce0c82064c44d81feaf6bd988"
+    },
+    {
+      "path": "textures/metromod/menu/wall34_tunnel_sekcii_big.512.png",
+      "bytes": 480140,
+      "sha256": "4b8c646967d75d2d3507d2798d1e40647f50f24de59fd3d13c5e8de9af6b5eb8"
+    },
+    {
+      "path": "textures/metromod/menu/wall34_tunnel_sekcii_big_n.512.png",
+      "bytes": 353175,
+      "sha256": "0bbd6c03a8d44a01439a72908f973f7e78d465ba8db74339064b8f0671bbd332"
+    },
+    {
+      "path": "textures/metromod/menu/wall34_tunnel_sekcii_big_s.512.png",
+      "bytes": 80956,
+      "sha256": "b3b8ce4a0e2bc7b8ae9e63f8a2f5bc7291751819ddc85e9bc1f5e0eede1888c2"
+    },
+    {
+      "path": "textures/metromod/menu/wm34_polzuchee.512.png",
+      "bytes": 266340,
+      "sha256": "55bdbb4245be90c4a5f1e44a2325de2060cd5b828d9307d25326b51811447af6"
+    },
+    {
+      "path": "textures/metromod/menu/wm34_polzuchee_n.512.png",
+      "bytes": 305359,
+      "sha256": "764fb658f51743e719368bf557ef1f766058b6e2611c2ae197f292ea64b91c5e"
+    },
+    {
+      "path": "textures/metromod/menu/wm34_polzuchee_s.512.png",
+      "bytes": 108307,
+      "sha256": "c9900a5bfb6f64c5120f361c434f276d4116e4350fa6fcd3d60438bdc97b1818"
+    },
+    {
+      "path": "textures/metromod/menu/wm_graffiti_dsc.512.png",
+      "bytes": 274735,
+      "sha256": "e2970a8d290ec158dd0065cd98ce15cfe865a9303a5d768729cf26d89d357a9d"
+    },
+    {
+      "path": "textures/metromod/menu/wm_graffiti_dsc_n.512.png",
+      "bytes": 271463,
+      "sha256": "10dcadb0810d73e8c13d970bcd6ba03888cd10431743b7794e5b6740db44d42c"
+    },
+    {
+      "path": "textures/metromod/menu/wm_graffiti_dsc_s.512.png",
+      "bytes": 145656,
+      "sha256": "96244afb02bd85944f04d9d998bbfe8707a4d02e292372ff8a4000750ef44b4d"
+    },
+    {
+      "path": "textures/metromod/menu/wood_korni.512.png",
+      "bytes": 214215,
+      "sha256": "7f366cbf5db89947184a1bc3993cb253d27cd3927fee89b1c12b654fecb410b3"
+    },
+    {
+      "path": "textures/metromod/menu/wood_korni_n.512.png",
+      "bytes": 283883,
+      "sha256": "b3d1f9528ac7fb575960b0d76e11c142debb2f7b953edb4ffd17e0b9f1edca32"
+    },
+    {
+      "path": "textures/metromod/menu/wood_korni_s.512.png",
+      "bytes": 147145,
+      "sha256": "4944a09b65ddaecb178e9c7ff601862034ff2f96b44028838f8254517678d60c"
+    },
+    {
+      "path": "textures/metromod/menu/wood_shpala_01.512.png",
+      "bytes": 416535,
+      "sha256": "6e5f07b1e886dde686327f6263d4b214235650dbdbebd32ae9962cc03205f65a"
+    },
+    {
+      "path": "textures/metromod/menu/wood_shpala_01_n.512.png",
+      "bytes": 355999,
+      "sha256": "2b1871b925e39dace6ef7ec6aeca97878c1f09848aca8706b8774f12d1cce082"
+    },
+    {
+      "path": "textures/metromod/menu/wood_shpala_01_s.512.png",
+      "bytes": 133633,
+      "sha256": "2d5358f0ee24aa99f08ac6adb638dc6a8814a0a97f66489ccfa3fc79dfb77ae3"
+    },
+    {
+      "path": "textures/metromod/menu/wpn_sekach.512.png",
+      "bytes": 472228,
+      "sha256": "01819ab2ec29d8d5e6a7c4a171df912650736bf79fda789a69c67b8062b36482"
+    },
+    {
+      "path": "textures/metromod/menu/wpn_sekach_n.512.png",
+      "bytes": 353208,
+      "sha256": "7538f408c984006b4e9ea2615106e5e7bc11c6c6e40bd1746e86cc60b0947b6f"
+    },
+    {
+      "path": "textures/metromod/menu/wpn_sekach_s.512.png",
+      "bytes": 293440,
+      "sha256": "3e9e57b5e3548251befd5b8d499bffb1b3f63b24fb18b7831657d841ef41ecff"
+    }
+  ],
+  "gui_implemented": false,
+  "in_game_verified": false,
+  "notes": [
+    "Original OBJ bytes inside deterministic gzip, without UV or geometry edits.",
+    "All collected diffuse/normal/specular/emission textures retained as decoded PNG.",
+    "Material channel availability is not a claim of donor shader parity.",
+    "No main-menu replacement or automatic audio/network activity enabled."
+  ]
+}

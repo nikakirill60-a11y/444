@@ -1,0 +1,1627 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  java.awt.Desktop
+ *  java.io.File
+ *  java.lang.Exception
+ *  java.lang.Math
+ *  java.lang.Object
+ *  java.lang.String
+ *  java.lang.System
+ *  java.net.URL
+ *  java.nio.FloatBuffer
+ *  java.util.Random
+ *  null.IIiljlIiljIljlIjjijljjljlIjIllII
+ *  null.IIjliIllliljiIliiiIlljjIIlIjIIij
+ *  null.IiIIjlliiliiIjljllijilIllIjIljii
+ *  null.IiIijjjjjlilIjIiIljljiIijjijjIjj
+ *  null.IiiIIIjiIjlljiliIlllIijlilijjIjj$IjiIliIlIllillljIIIiIjiljlIljlIl
+ *  null.IiiijIijjllIjjIjlliliIjIiiiiIlIi
+ *  null.IijjiiliijilIiiIijIIlliijIjIIlIl
+ *  null.IijjiilijIIljlIIilIijjiiiljliIll
+ *  null.IiliIjiliijIIlIliIjlljiiiIlIijji
+ *  null.IjliIjIljliijiiIijjlIIiIjlljliij
+ *  null.IlIljlljjIjIjljIijililIIiljjiIlj
+ *  null.IlilliijlIliIliljiliIjiliIiijjjj
+ *  null.iIIiiiIiiIlIjiiIIIjIIiijlijiljij
+ *  null.iIiIIillIlIlljIIjiIIjjllliIIiilj
+ *  null.iiIIjjliIIillljliiiiijljliljjljl
+ *  null.iilIljjljijIiIIliiiIjjIjiIiiiijI
+ *  null.ijjIlIlljIlIililjIIiIIIlllljIjli
+ *  null.ijliIjIiljlIIjlljijjjiijIlIIIjIl
+ *  null.ijliilIIIijIIlIIIIlijIjlIIlIIIIj
+ *  null.ilIIlijjiIjjjllilIlIjlIjlijIlljI
+ *  null.ilIllilIjjlIijlIiiiijlljiIiiIiil
+ *  null.ililiijjIiIijljllIjiljlIjilijiiI
+ *  null.jIilillliIjillijIiIjllIlljiijllj
+ *  null.jiiiIIIIIIjllljIiljIjiIljIllIljI
+ *  null.jilIjjjjjjIiIllIjiIIjjjllIlljjlj
+ *  null.jjiiIjIIilIjIIjlliijiilljjiljlil
+ *  null.jjjjiiiiIIjjIIljiiiiiillIIjIlIIj
+ *  null.jjlIjjIIijIliijIIjlIjiiiIiiijiii
+ *  null.jlIjjjlijililllijjIjjiIIjillIIlI
+ *  null.jlllliijIlljIIIiijljIjiIljjljjlj
+ *  null.lIliijljIiIIIljIljIlliljiIjIiIIl
+ *  null.lijIilIIllIiiiIIjjillijjiiliijij
+ *  null.lijiljjlIIjljlliillljjliiIiIIijl
+ *  null.ljljjliIiiiijjiiIIIjjIjljijIjIIi
+ *  null.lljiiilIllIlIjllljjliijiiiiiliIl
+ *  null.lljlIIIIljiiljIijlljlliijlIlIjii
+ *  null.lllijjIIilIijjjjIiliijijlilijjji
+ *  org.lwjgl.input.Keyboard
+ *  org.lwjgl.input.Mouse
+ *  org.lwjgl.opengl.Display
+ *  org.lwjgl.opengl.GL11
+ *  org.lwjgl.util.glu.GLU
+ *  org.lwjgl.util.vector.Vector3f
+ *  org.lwjgl.util.vector.Vector4f
+ */
+package null;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.net.URL;
+import java.nio.FloatBuffer;
+import java.util.Random;
+import null.IIiljlIiljIljlIjjijljjljlIjIllII;
+import null.IIjliIllliljiIliiiIlljjIIlIjIIij;
+import null.IiIIjlliiliiIjljllijilIllIjIljii;
+import null.IiIijjjjjlilIjIiIljljiIijjijjIjj;
+import null.IiiIIIjiIjlljiliIlllIijlilijjIjj;
+import null.IiiijIijjllIjjIjlliliIjIiiiiIlIi;
+import null.IijjiiliijilIiiIijIIlliijIjIIlIl;
+import null.IijjiilijIIljlIIilIijjiiiljliIll;
+import null.IiliIjiliijIIlIliIjlljiiiIlIijji;
+import null.IjliIjIljliijiiIijjlIIiIjlljliij;
+import null.IlIljlljjIjIjljIijililIIiljjiIlj;
+import null.IlilliijlIliIliljiliIjiliIiijjjj;
+import null.iIIiiiIiiIlIjiiIIIjIIiijlijiljij;
+import null.iIiIIillIlIlljIIjiIIjjllliIIiilj;
+import null.iiIIjjliIIillljliiiiijljliljjljl;
+import null.iilIljjljijIiIIliiiIjjIjiIiiiijI;
+import null.ijjIlIlljIlIililjIIiIIIlllljIjli;
+import null.ijliIjIiljlIIjlljijjjiijIlIIIjIl;
+import null.ijliilIIIijIIlIIIIlijIjlIIlIIIIj;
+import null.ilIIlijjiIjjjllilIlIjlIjlijIlljI;
+import null.ilIllilIjjlIijlIiiiijlljiIiiIiil;
+import null.ililiijjIiIijljllIjiljlIjilijiiI;
+import null.jIilillliIjillijIiIjllIlljiijllj;
+import null.jiiiIIIIIIjllljIiljIjiIljIllIljI;
+import null.jilIjjjjjjIiIllIjiIIjjjllIlljjlj;
+import null.jjiiIjIIilIjIIjlliijiilljjiljlil;
+import null.jjjjiiiiIIjjIIljiiiiiillIIjIlIIj;
+import null.jjlIjjIIijIliijIIjlIjiiiIiiijiii;
+import null.jlIjjjlijililllijjIjjiIIjillIIlI;
+import null.jlllliijIlljIIIiijljIjiIljjljjlj;
+import null.lIliijljIiIIIljIljIlliljiIjIiIIl;
+import null.lijIilIIllIiiiIIjjillijjiiliijij;
+import null.lijiljjlIIjljlliillljjliiIiIIijl;
+import null.ljljjliIiiiijjiiIIIjjIjljijIjIIi;
+import null.lljiiilIllIlIjllljjliijiiiiiliIl;
+import null.lljlIIIIljiiljIijlljlliijlIlIjii;
+import null.lllijjIIilIijjjjIiliijijlilijjji;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.glu.GLU;
+import org.lwjgl.util.vector.Vector3f;
+import org.lwjgl.util.vector.Vector4f;
+
+public class iilIjliijlIIjilillIjjjlIliIjijiI
+extends lijiljjlIIjljlliillljjliiIiIIijl {
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jIiIljlIjIjliljilljIiiiiIIiiijli = new IjliIjIljliijiiIijjlIIiIjlljliij("drezina/regina.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IliIijjiljIlllijlIIiijijjjjijjll = new IjliIjIljliijiiIijjlIIiIjlljliij("drezina/regina_well.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IljjiIIjilijjljlIljilIIjiijiijII = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij liIjjjjljIIlilllIjiIillijiIliIll = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part2.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij iijIijlilIiijiIijilijIjIljljlIij = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part3.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jIIiliIilljIjjIliljjiIlllIllIIil = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part3_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jiiijIiiljIIjlIIilIjiIjllIlIjlll = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part4.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jIilljiijjjjIiiilljIliIilIjllijj = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part5.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IijiIIljlIlIIlIjililllllliIIiiji = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part5_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jllijjijIljIlIjjjliiIiiijjliijIi = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part6.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jililllIijijIIiiIiliIjjjlilljjII = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part6_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IIlijiIIiIiiIjllIjiiijijiIjiliIi = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part7.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij liliIiillllljljijIlilljlijllilij = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part7_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IlljllIljiijiIllIiillijiIIIiIjji = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part8.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij iljjijliijiilijIiliiijiIijiljlil = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part8_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij lIIiljjIjjIjliIIIiIIiIlilijijIlj = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part8_2.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij ljIiIiIlIiliiiIjjIIjIjillIIIIill = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part9.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jllllIiIiliillIIIlilijIjjlijllil = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/part9_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IIiIIliIIIIiilIllIIllllIllIIiijl = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/tunnel_betonnew_1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij ijiijIIijIIjijIilIjjliIlljiijjII = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/tun.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jjIliljIlljljljllijjIIjIjilIliij = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/tunnel1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IIlijjljiIilijIijlilIjIilijjliij = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/tunnel2.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij iIljIljjIliIIIjiiiijIjjIjIjijllI = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/tunnel3.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jIIillIjIlliIljljiIjjjiijiilIill = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/tunnel4.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij iilIiIijijIlIjljjijIIllIilljiiil = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/tunnel5.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jliIijllIliliiljljjjIiIlIIIijlii = new IjliIjIljliijiiIijjlIIiIjlljliij("tunnels/rails.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij ljjiiIjIiliIIilliliIjijjlIIiIljl = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/germo_left.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IjjjIiIillijjIlIIIjililIjIjjIlji = new IjliIjIljliijiiIijjlIIiIjlljliij("menu/germo_right.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IijIlijlIIjlilliilliijIiIIIljjij = new IjliIjIljliijiiIijjlIIiIjlljliij("decor_metro/web1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij lijjIjIIiiIljiIililjiIijjiijjjji = new IjliIjIljliijiiIijjlIIiIjlljliij("decor_metro/web2.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij iIjlIiIiiiijiIlIIiljIillIIjlljIj = new IjliIjIljliijiiIijjlIIiIjlljliij("decor_metro/web3.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij IIIilIijijijilIjIlIijilljilIiiIl = new IjliIjIljliijiiIijjlIIiIjlljliij("plant/root1.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jjiiilliililliIlIiliIllilijjllii = new IjliIjIljliijiiIijjlIIiIjlljliij("plant/root2.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij jljilIjlIIjjiIlljlijlIjlllllIjjj = new IjliIjIljliijiiIijjlIIiIjlljliij("decor_metro/trub.m2033model", false);
+    private iIIiiiIiiIlIjiiIIIjIIiijlijiljij ijIjiiIlilijljliIIlIijjllljijlll = new IjliIjIljliijiiIijjlIIiIjlljliij("decor_metro/trub90.m2033model", false);
+    public static iiIIjjliIIillljliiiiijljliljjljl IjiIliIlIllillljIIIiIjiljlIljlIl = IlilliijlIliIliljiliIjiliIiijjjj.IjiIliIlIllillljIIIiIjiljlIljlIl((jiiiIIIIIIjllljIiljIjiIljIllIljI)new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:models/obj/primitives/quad.obj"));
+    private IiIijjjjjlilIjIiIljljiIijjijjIjj ilIillIjIililiIIjjiIiiilIjIIjili = new IiIijjjjjlilIjIiIljljiIijjijjIjj();
+    private Vector3f iiljIlIijljjllIiIiIiIIjIjiijjjji = new Vector3f();
+    private Vector3f jiIiIIjjiIIjjjIjlIiljjIiljiiijIl = new Vector3f();
+    private Vector3f iijjiljljiilIjjljjIIiiliiiiIIilI = new Vector3f();
+    private Vector3f jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f();
+    private float IljIIlIjlijlllilijjljiiljjjijjIj;
+    private float jIjIlIIljljllIljIllijIIjillllIlj;
+    private float ijlIjiliIiIIIljiIIjIliIlljIiljji;
+    private float lllllIjIIjljIiijjIjjjjjIlIliIjli;
+    private float iIjijjlllijlIjijjilIillIIijljili;
+    private Vector3f[] lliljIjlIiiIillIijlljIIljjljljli = new Vector3f[5];
+    private Vector3f[] liijjIjIillljjijljjIljIIljlIljIl = new Vector3f[5];
+    private Vector3f[] IIjiIjIijiIIjjjjijiIjiiIjiiIlllj = new Vector3f[5];
+    private Vector3f[] ilIjiljjlIIjjiIilIijIlliiliijiIi = new Vector3f[10];
+    private Vector3f[] IjIjljiiliIillIIIjiiiIjjjjIijIIl = new Vector3f[10];
+    private Random iIiiiliIiijIlililllIlijjIlijIIji = new Random();
+    private int IjjIiIlIjIjIjIlIIljIjijijiIjijIl;
+    private int IjiljlIljIjjjIjjiljIIIIljIjllIll;
+    private int jjIiiIijIIiijjljlIIlljjlIIjijIll;
+    private int jjlIjiilIIjljiIIIljjIllIijljIiii;
+    private int jiljiiIIIillilIiliIljjiilIIijiil;
+    private int jiIIjiIliIiiiIjiillIiIjlijijjjli;
+    private boolean IIjlIijlljijlljIiilijjIiiIiIIIji;
+    private boolean IIIjjlliijjillIjllIjjijjIIIljiil;
+    private boolean lIiljIjjiiilIlljiIIIiliijlIlIlll;
+    private boolean IiIjIjIjijjlIIIjIIjiIjIjiljIjiij;
+    private boolean liljIljIjilljliIjljijjIliijljiij;
+    private boolean jIIiljiljIiljjljIiljiIljIjIIjIjl;
+    private boolean jijIiiiIjjjIiiIilillIlIilIIjIjji;
+    public boolean jjlliijIIIiIjIjiiIjijjIjIljjiiII;
+    public boolean jIIlljIIIjijjlljiIiIiljjjiIIlIIl;
+    private boolean jlliiiiijIiIljjiIjljlIlijjijjIii;
+    private boolean jilljjIilijlljIjIiIlijIiiIIliljl;
+    private boolean liIjjljlIiIIljjjiljlIjjlIjIIlIji;
+    private boolean lIjIjlIjllliiIilljijljlijijjjIjj;
+    private boolean jlIljiiiIjIIjiilljjlIIiiijjjIiij;
+    private boolean IliIlIijIiIilIlIjjjijjjijljiijIl;
+    private boolean IlIiIIIiIjjjljiiilijjiIlIijjiljl;
+    private boolean iiliijliIjililiilIijIIiIjjliIiji;
+    private float ilijlliilIilillIIiIlijIjIjjIiIIl;
+    private float lIIjjiiIIjjIIIljllIljlIjIlIjjlIl;
+    private float lIijIlijIliiIijjjiIlIllljiijIlli;
+    private float ijliIIIlilIijjIiIiiljlliliijjlIl;
+    private float jijIjiliiIljIliIIjIIljjilljiIIji;
+    private float jIlIlijljjliIIilIjIIilIjjIliIIlj;
+    private float jjlIllIjlIljjjjljjIIIlljIljllijI;
+    private float IIljiIIjIllIljljIlIjIiiIjillIiII;
+    private int jljljjjiIilIiiljilillIliiljlIijj;
+    private int IIliiliIililIIijljjlIiiiiIiIIIji;
+    private int lIiIjlIjIiijIllllijlijijIjjiIlil;
+    private int IijlliIliIiljjjiIjIIlIiIjIijjjji;
+    private Vector3f jjlllIllilijIIliliIljljlilljIliI = new Vector3f();
+    private Vector3f jIlijiIIiijjjiijjlIjjIiIllIlljll = new Vector3f();
+    public ijliilIIIijIIlIIIIlijIjlIIlIIIIj ljIillIiijijlIIijlilliljllijljlI;
+    private int iIiillllIjjjiiIiIIiljlIjIjlIlill;
+    public boolean jljiIijIIIIIIliijijjiIjIjiIljjjl;
+    private jIilillliIjillijIiIjllIlljiijllj lllIljijiljiijIlllIIIIjIIllliljj = new jIilillliIjillijIiIjllIlljiijllj(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:menu.menu_railnoise"), 0.3f, 1.0f, 0.0f, 0.0f, 0.0f);
+    private jIilillliIjillijIiIjllIlljiijllj iIijljjjijiliIlIIIjlIililIjiiIjj = new jIilillliIjillijIiIjllIlljiijllj(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:menu.menu_carnoise"), 0.4f, 1.0f, 0.0f, 0.0f, 0.0f);
+    private jIilillliIjillijIiIjllIlljiijllj IIiljllljijjiiijIiiiiIljlljijIIj = new jIilillliIjillijIiIjllIlljiijllj(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:menu.regina_engine_idle"), 0.7f, 1.0f, 0.0f, 0.0f, 0.0f);
+    private jIilillliIjillijIiIjllIlljiijllj IjiIIjliIjIlijjjiIllIiijiljIlilI = new jIilillliIjillijIiIjllIlljiijllj(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:menu.menu_intro_loop"), 1.0f, 1.0f, 0.0f, 0.0f, 0.0f);
+    private jIilillliIjillijIiIjllIlljiijllj llliIIIIliliIllIjIIliilIllIIiiij = new jIilillliIjillijIiIjllIlljiijllj(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:menu.menu_wheel_knock_noise"), 0.5f, 1.0f, 0.0f, 0.0f, 0.0f);
+    private jIilillliIjillijIiIjllIlljiijllj ljliiiiiIjliiiIIIjIjjiiijjjiIlIi = new jIilillliIjillijIiIjllIlljiijllj(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:menu.switch2_light"), 0.25f, 1.0f, 0.0f, 0.0f, 0.0f);
+
+    public void jljiIijIIIIIIliijijjiIjIjiIljjjl() {
+        if (this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij != null) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jjlliijIIIiIjIjiiIjijjIjIljjiiII((jjiiIjIIilIjIIjlliijiilljjiljlil)this.IjiIIjliIjIlijjjiIllIiijiljIlilI);
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jjlliijIIIiIjIjiiIjijjIjIljjiiII((jjiiIjIIilIjIIjlliijiilljjiljlil)this.IIiljllljijjiiijIiiiiIljlljijIIj);
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jjlliijIIIiIjIjiiIjijjIjIljjiiII((jjiiIjIIilIjIIjlliijiilljjiljlil)this.iIijljjjijiliIlIIIjlIililIjiiIjj);
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jjlliijIIIiIjIjiiIjijjIjIljjiiII((jjiiIjIIilIjIIjlliijiilljjiljlil)this.lllIljijiljiijIlllIIIIjIIllliljj);
+        }
+    }
+
+    public iilIjliijlIIjilillIjjjlIliIjijiI(boolean bl) {
+        this.jjlliijIIIiIjIjiiIjijjIjIljjiiII = bl;
+        if (bl) {
+            int n;
+            IiliIjiliijIIlIliIjlljiiiIlIijji.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+            this.IljIIIIlljIljjjIlIjlijIllIiIIjji = lijiljjlIIjljlliillljjliiIiIIijl.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI;
+            this.v_();
+            String[] stringArray = ljljjliIiiiijjiiIIIjjIjljijIjIIi.IjiIliIlIllillljIIIiIjiljlIljlIl();
+            if (stringArray[0] != null && stringArray[1] != null) {
+                this.illljjjIIIIijjiIjjljljIIljijIIIj.IjiIliIlIllillljIIIiIjiljlIljlIl(stringArray[0]);
+                this.iijljjIIlljIIjliljiilIjiiIiilIIl.IjiIliIlIllillljIIIiIjiljlIljlIl(stringArray[1]);
+            }
+            this.lllllIjIIjljIiijjIjjjjjIlIliIjli = -90.0f;
+            this.iiljIlIijljjllIiIiIiIIjIjiijjjji = new Vector3f(0.0f, 0.0f, 15.0f);
+            this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl = new Vector3f(-0.0f, 1.0f, 3.0f);
+            this.IljIIIIlljIljjjIlIjlijIllIiIIjji();
+            for (n = 0; n < this.lliljIjlIiiIillIijlljIIljjljljli.length; ++n) {
+                this.lliljIjlIiiIillIijlljIIljjljljli[n] = new Vector3f();
+                this.liijjIjIillljjijljjIljIIljlIljIl[n] = new Vector3f();
+                this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n] = new Vector3f();
+            }
+            for (n = 0; n < this.ilIjiljjlIIjjiIilIijIlliiliijiIi.length; ++n) {
+                this.ilIjiljjlIIjjiIilIijIlliiliijiIi[n] = new Vector3f();
+            }
+            this.lliljIjlIiiIillIijlljIIljjljljli[0] = new Vector3f(0.0f, 0.0f, 0.0f);
+            this.lliljIjlIiiIillIijlljIIljjljljli[1] = new Vector3f(-20.07f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(5), 0.0f);
+            this.lliljIjlIiiIillIijlljIIljjljljli[2] = new Vector3f(-40.14f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(5), 0.0f);
+            this.lliljIjlIiiIillIijlljIIljjljljli[3] = new Vector3f(-60.21f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(5), 0.0f);
+            this.lliljIjlIiiIillIijlljIIljjljljli[4] = new Vector3f(-80.28f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(5), 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[0] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -20.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[1] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -26.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[2] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -35.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[3] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -42.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[4] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -50.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[5] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -58.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[6] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -66.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[7] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -74.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[8] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -80.0f, 0.0f);
+            this.ilIjiljjlIIjjiIilIijIlliiliijiIi[9] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -90.0f, 0.0f);
+            this.liijjIjIillljjijljjIljIIljlIljIl[0] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -30.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(3));
+            this.liijjIjIillljjijljjIljIIljlIljIl[1] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -45.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(3));
+            this.liijjIjIillljjijljjIljIIljlIljIl[2] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -64.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(3));
+            this.liijjIjIillljjijljjIljIIljlIljIl[3] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -72.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(3));
+            this.liijjIjIillljjijljjIljIIljlIljIl[4] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -80.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(3));
+            this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[0] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -25.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(2));
+            this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[1] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -34.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(2));
+            this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[2] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -47.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(2));
+            this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[3] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -60.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(2));
+            this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[4] = new Vector3f((float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3), -75.0f, (float)this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(2));
+        }
+    }
+
+    public void IljIIIIlljIljjjIlIjlijIllIiIIjji() {
+        GL11.glEnable((int)3042);
+        GL11.glBlendFunc((int)770, (int)771);
+        GL11.glClearColor((float)0.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glShadeModel((int)7425);
+        GL11.glEnable((int)2884);
+        GL11.glCullFace((int)1029);
+        GL11.glEnable((int)2929);
+        GL11.glDepthMask((boolean)true);
+        GL11.glEnable((int)3008);
+        GL11.glEnable((int)2903);
+        GL11.glColorMaterial((int)1028, (int)4608);
+        GL11.glColorMaterial((int)1028, (int)4609);
+        GL11.glColorMaterial((int)1028, (int)4610);
+        GL11.glEnable((int)2896);
+        GL11.glEnable((int)16384);
+        GL11.glEnable((int)16385);
+        GL11.glEnable((int)16386);
+        GL11.glEnable((int)16387);
+        GL11.glEnable((int)16388);
+        GL11.glEnable((int)16389);
+        GL11.glMaterial((int)1028, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.9f, 0.9f, 0.9f, 1.0f}));
+        GL11.glLightModel((int)2899, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.01f, 0.01f, 0.01f, 0.0f}));
+        GL11.glLight((int)16384, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.x, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.y - 2.0f, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.z, 1.0f}));
+        float f = 0.6f;
+        float f2 = 0.6f;
+        float f3 = 1.0f;
+        GL11.glLight((int)16384, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.6f, 0.6f, 1.0f, 1.0f}));
+        GL11.glLight((int)16384, (int)4610, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.6f, 0.6f, 1.0f, 1.0f}));
+        GL11.glLight((int)16384, (int)4614, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{80.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16384, (int)4612, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.x, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.y + 6.0f, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.z + 4.0f, 0.0f}));
+        GL11.glLight((int)16384, (int)4613, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{3.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16388, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.x, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.y - 2.0f, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.z, 1.0f}));
+        GL11.glLight((int)16388, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{f / 2.0f, f2 / 2.0f, f3 / 2.0f, 1.0f}));
+        GL11.glLight((int)16388, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.6f, 0.6f, 1.0f, 1.0f}));
+        GL11.glLight((int)16388, (int)4617, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{30.0f, 1.0f, 1.0f, 0.0f}));
+        GL11.glLight((int)16388, (int)4616, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16388, (int)4615, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16385, (int)4617, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{10.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16385, (int)4616, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16385, (int)4615, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16386, (int)4617, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{30.0f, 1.0f, 1.0f, 0.0f}));
+        GL11.glLight((int)16386, (int)4616, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16386, (int)4615, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16387, (int)4617, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{20.0f, 1.0f, 1.0f, 0.0f}));
+        GL11.glLight((int)16387, (int)4616, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{5.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16387, (int)4615, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        Vector3f vector3f = new Vector3f(-0.455f, 0.355f, 0.65f);
+        GL11.glLight((int)16389, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{-vector3f.x, vector3f.y - 0.14f, vector3f.z, 1.0f}));
+        GL11.glLight((int)16389, (int)4617, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{50.0f, 1.0f, 1.0f, 0.0f}));
+        GL11.glLight((int)16389, (int)4616, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16389, (int)4615, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glEnable((int)2912);
+        GL11.glFogi((int)2917, (int)2048);
+        float f4 = 0.0f;
+        GL11.glFogf((int)2914, (float)0.1f);
+        GL11.glHint((int)3156, (int)4352);
+        GL11.glFog((int)2918, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 0.0f}));
+    }
+
+    private void ijiIijjiiIjjlIjiIijijjljilIjlIIl() {
+        if (!this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.jijijIjjjiljiiIIliIilIliilIIjIij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        }
+        float f = this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.IjiIliIlIllillljIIIiIjiljlIljlIl * 0.6f;
+        float f2 = f * f * f * 8.0f;
+        float f3 = (float)this.ljjlijlIllljjlIIilIIjIjlllIjijli.jijijIjjjiljiiIIliIilIliilIIjIij.IjiIliIlIllillljIIIiIjiljlIljlIl * f2;
+        float f4 = (float)this.ljjlijlIllljjlIIilIIjIjlllIjijli.jijijIjjjiljiiIIliIilIliilIIjIij.jjlliijIIIiIjIjiiIjijjIjIljjiiII * f2;
+        if (this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij) {
+            f3 = 0.0f;
+            f4 = 0.0f;
+        }
+        if (f3 != 0.0f || f4 != 0.0f) {
+            this.jilljjIilijlljIjIiIlijIiiIIliljl = true;
+            this.lIiljIjjiiilIlljiIIIiliijlIlIlll = false;
+        }
+        this.iIjijjlllijlIjijjilIillIIijljili += -f3;
+        this.lllllIjIIjljIiijjIjjjjjIlIliIjli += -f4;
+        if (this.lllllIjIIjljIiijjIjjjjjIlIliIjli > -20.0f) {
+            this.lllllIjIIjljIiijjIjjjjjIlIliIjli = -20.0f;
+        } else if (this.lllllIjIIjljIiijjIjjjjjIlIliIjli < -160.0f) {
+            this.lllllIjIIjljIiijjIjjjjjIlIliIjli = -160.0f;
+        }
+        if (this.iIjijjlllijlIjijjilIillIIijljili > 90.0f) {
+            this.iIjijjlllijlIjijjilIillIIijljili = 90.0f;
+        } else if (this.iIjijjlllijlIjijjilIillIIijljili < -90.0f) {
+            this.iIjijjlllijlIjijjilIillIIijljili = -90.0f;
+        }
+        Mouse.setGrabbed((boolean)true);
+        if (!this.iiliijliIjililiilIijIIiIjjliIiji) {
+            this.IljIIIIlljIljjjIlIjlijIllIiIIjji();
+            this.iiliijliIjililiilIijIIiIjjliIiji = true;
+        }
+        if (this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl > 0) {
+            this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)((float)this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl - 1.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+        }
+    }
+
+    public void IjiIliIlIllillljIIIiIjiljlIljlIl(boolean bl) {
+        this.IljIIIIlljIljjjIlIjlijIllIiIIjji();
+        if (this.IljjiIIjilijjljlIljilIIjiijiijII.IIiIIljjiiijIliIljjIiiijjjiillii && !this.jIIiljiljIiljjljIiljiIljIjIIjIjl) {
+            this.liljIljIjilljliIjljijjIliijljiij = true;
+            if (this.jIIiliIilljIjjIliljjiIlllIllIIil.IIiIIljjiiijIliIljjIiiijjjiillii) {
+                this.jijIiiiIjjjIiiIilillIlIilIIjIjji = true;
+                if (this.jiiijIiiljIIjlIIilIjiIjllIlIjlll.IIiIIljjiiijIliIljjIiiijjjiillii) {
+                    this.jIIiljiljIiljjljIiljiIljIjIIjIjl = true;
+                    this.liIjjljlIiIIljjjiljlIjjlIjIIlIji = true;
+                    this.lIjIjlIjllliiIilljijljlijijjjIjj = true;
+                    this.jlIljiiiIjIIjiilljjlIIiiijjjIiij = true;
+                    this.IliIlIijIiIilIlIjjjijjjijljiijIl = true;
+                }
+            }
+        }
+        if (this.iijjiljljiilIjjljjIIiiliiiiIIilI.x < 0.1f) {
+            this.lllllIjIIjljIiijjIjjjjjIlIliIjli = -90.0f;
+            this.iIjijjlllijlIjijjilIillIIijljili = 0.0f;
+        }
+        if (Display.isActive() && this.iijjiljljiilIjjljjIIiiliiiiIIilI.x > 0.0f && bl && this.IljIIIIlljIljjjIlIjlijIllIiIIjji) {
+            if (!this.IlIiIIIiIjjjljiiilijjiIlIijjiljl) {
+                if (!this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij) {
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.jijijIjjjiljiiIIliIilIliilIIjIij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                }
+                Mouse.setCursorPosition((int)(this.ljjlijlIllljjlIIilIIjIjlllIjijli.IlijjliljjllIjiIIjliIIjIiiIlijjl / 2), (int)(this.ljjlijlIllljjlIIilIIjIjlllIjijli.IljIIIIlljIljjjIlIjlijIllIiIIjji / 2));
+                this.IlIiIIIiIjjjljiiilijjiIlIijjiljl = true;
+            }
+            this.ijiIijjiiIjjlIjiIijijjljilIjlIIl();
+        } else {
+            this.IlIiIIIiIjjjljiiilijjiIlIijjiljl = false;
+            this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(10.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+        }
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x, (float)this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y, (float)this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z);
+        GL11.glRotatef((float)(this.lllllIjIIjljIiijjIjjjjjIlIliIjli - 90.0f), (float)1.0f, (float)0.0f, (float)0.0f);
+        GL11.glRotatef((float)this.iIjijjlllijlIjijjilIillIIijljili, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)this.jjlIllIjlIljjjjljjIIIlljIljllijI, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.IIIjjjljljjiiljlijijjiijjiiIiljI();
+        if (this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl <= 0 && bl) {
+            this.jllljljIlillIllilljijijjiIiijlli();
+        } else {
+            GL11.glDisable((int)16387);
+            this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(100.0f, 0.34f, 0.65f);
+        }
+        if (bl) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli();
+            if (this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl.jjlliijIIIiIjIjiiIjijjIjIljjiiII != null) {
+                this.IjiiIIlliljlIIIijIjjlIijiIlIlIll();
+            } else {
+                if (this.jIjIlIIljljllIljIllijIIjillllIlj > 0.1f && !this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij) {
+                    if (this.jjlIjiilIIjljiIIIljjIllIijljIiii > 0) {
+                        this.jjlIjiilIIjljiIIIljjIllIijljIiii = (int)((float)this.jjlIjiilIIjljiIIIljjIllIijljIiii - 1.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                    } else if (this.jjlIjiilIIjljiIIIljjIllIijljIiii <= 0) {
+                        this.jjlIjiilIIjljiIIIljjIllIijljIiii = (int)(240.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl) + this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(241);
+                        this.jIlIlijljjliIIilIjIIilIjjIliIIlj = (float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(11) - 20) / 100.0f;
+                    }
+                }
+                if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj > 0.0f) {
+                    this.jIlIlijljjliIIilIjIIilIjjIliIIlj -= 0.075f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj < 0.0f) {
+                        this.jIlIlijljjliIIilIjIIilIjjIliIIlj = 0.0f;
+                    }
+                } else if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj < 0.0f) {
+                    this.jIlIlijljjliIIilIjIIilIjjIliIIlj += 0.075f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj > 0.0f) {
+                        this.jIlIlijljjliIIilIjIIilIjjIliIIlj = 0.0f;
+                    }
+                }
+            }
+        }
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glTranslatef((float)-0.0f, (float)-2.6f, (float)0.2f);
+        GL11.glRotatef((float)this.jIlIlijljjliIIilIjIIilIjjIliIIlj, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.ijjlIllililljIIIiIIjIjjlIjIIIlli();
+        this.iIljIIilliiiIIjljjjlIjlIilIllIIl();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)this.iiljIlIijljjllIiIiIiIIjIjiijjjji.x, (float)this.iiljIlIijljjllIiIiIiIIjIjiijjjji.y, (float)this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z);
+        this.lljjjiiIlIlijjlIlIijljiIjIIjiljI();
+        if (this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z > -31.0f) {
+            this.jijijIjjjiljiiIIliIilIliilIIjIij();
+        }
+        this.jljljjiIIIIIiiIjIjiilliiIliIjljI();
+        GL11.glPopMatrix();
+        this.IlijlIlilIIjlilIlliljjiIljjlIjIi();
+        GL11.glPopMatrix();
+    }
+
+    public void IjiiIIlliljlIIIijIjjlIijiIlIlIll() {
+        if (this.jIjIlIIljljllIljIllijIIjillllIlj > 0.1f) {
+            if (this.jjlIjiilIIjljiIIIljjIllIijljIiii > 0) {
+                this.jjlIjiilIIjljiIIIljjIllIijljIiii = (int)((float)this.jjlIjiilIIjljiIIIljjIllIijljIiii - 1.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            } else if (this.jjlIjiilIIjljiIIIljjIllIijljIiii <= 0) {
+                this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.llliIIIIliliIllIjIIliilIllIIiiij);
+                this.jjlIjiilIIjljiIIIljjIllIijljIiii = (int)(240.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl) + this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(241);
+                if (!this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij) {
+                    this.jIlIlijljjliIIilIjIIilIjjIliIIlj = (float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(11) - 20) / 100.0f;
+                }
+            }
+        }
+        if (this.jIjIlIIljljllIljIllijIIjillllIlj > 0.01f && !this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.IIiljllljijjiiijIiiiiIljlljijIIj)) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.IIiljllljijjiiijIiiiiIljlljijIIj);
+        }
+        if (this.jIjIlIIljljllIljIllijIIjillllIlj > 0.14f && !this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.iIijljjjijiliIlIIIjlIililIjiiIjj)) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.iIijljjjijiliIlIIIjlIililIjiiIjj);
+        }
+        if (this.jIjIlIIljljllIljIllijIIjillllIlj > 0.14f && !this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.lllIljijiljiijIlllIIIIjIIllliljj)) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.lllIljijiljiijIlllIIIIjIIllliljj);
+        }
+        if (!this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.IjiIIjliIjIlijjjiIllIiijiljIlilI)) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.IjiIIjliIjIlijjjiIllIiijiljIlilI);
+        }
+        if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj > 0.0f) {
+            this.jIlIlijljjliIIilIjIIilIjjIliIIlj -= 0.075f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj < 0.0f) {
+                this.jIlIlijljjliIIilIjIIilIjjIliIIlj = 0.0f;
+            }
+        } else if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj < 0.0f) {
+            this.jIlIlijljjliIIilIjIIilIjjIliIIlj += 0.075f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            if (this.jIlIlijljjliIIilIjIIilIjjIliIIlj > 0.0f) {
+                this.jIlIlijljjliIIilIjIIilIjjIliIIlj = 0.0f;
+            }
+        }
+    }
+
+    private void IlijlIlilIIjlilIlliljjiIljjlIjIi() {
+        GL11.glPushMatrix();
+        GL11.glDisable((int)2896);
+        GL11.glAlphaFunc((int)516, (float)0.0f);
+        GL11.glDepthMask((boolean)false);
+        GL11.glColor4f((float)this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, (float)(this.iijjiljljiilIjjljjIIiiliiiiIIilI.y / 3.3f), (float)(this.iijjiljljiilIjjljjIIiiliiiiIIilI.x / 5.0f), (float)0.9f);
+        Vector3f vector3f = new Vector3f(-0.455f, 0.355f, 0.65f);
+        GL11.glTranslatef((float)(vector3f.x + 0.003f), (float)(vector3f.y + 2.015f), (float)(vector3f.z - 0.2f));
+        GL11.glRotatef((float)(90.0f + this.lllllIjIIjljIiijjIjjjjjIlIliIjli), (float)1.0f, (float)0.0f, (float)0.0f);
+        GL11.glRotatef((float)this.iIjijjlllijlIjijjilIillIIijljili, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glScalef((float)3.0f, (float)3.0f, (float)1.0f);
+        if (this.jijIiiiIjjjIiiIilillIlIilIIjIjji) {
+            GL11.glBindTexture((int)3553, (int)this.IijlliIliIiljjjiIjIIlIiIjIijjjji);
+            IjiIliIlIllillljIIIiIjiljlIljlIl.jjlliijIIIiIjIjiiIjijjIjIljjiiII();
+        }
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glColor4f((float)this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, (float)(this.iijjiljljiilIjjljjIIiiliiiiIIilI.y / 2.5f), (float)(this.iijjiljljiilIjjljjIIiiliiiiIIilI.x / 5.0f), (float)0.9f);
+        GL11.glTranslatef((float)this.jijIIjiilljIjIiilijiljIliiljIjll.x, (float)(this.jijIIjiilljIjIiilijiljIliiljIjll.y + 1.9f), (float)(this.jijIIjiilljIjIiilijiljIliiljIjll.z - 0.2f));
+        GL11.glRotatef((float)(90.0f + this.lllllIjIIjljIiijjIjjjjjIlIliIjli), (float)1.0f, (float)0.0f, (float)0.0f);
+        GL11.glRotatef((float)this.iIjijjlllijlIjijjilIillIIijljili, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glScalef((float)5.0f, (float)5.0f, (float)1.0f);
+        IjiIliIlIllillljIIIiIjiljlIljlIl.jjlliijIIIiIjIjiiIjijjIjIljjiiII();
+        GL11.glEnable((int)2896);
+        GL11.glAlphaFunc((int)516, (float)0.1f);
+        GL11.glDepthMask((boolean)true);
+        GL11.glPopMatrix();
+    }
+
+    private void IIIjjjljljjiiljlijijjiijjiiIiljI() {
+        if (this.IIjlIijlljijlljIiilijjIiiIiIIIji) {
+            if (this.ijlIjiliIiIIIljiIIjIliIlljIiljji < 1.0f) {
+                this.ijlIjiliIiIIIljiIIjIliIlljIiljji += 0.01f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            } else {
+                this.IIjlIijlljijlljIiilijjIiiIiIIIji = false;
+            }
+        } else if (this.ijlIjiliIiIIIljiIIjIliIlljIiljji > 0.0f) {
+            this.ijlIjiliIiIIIljiIIjIliIlljIiljji -= 0.01f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+        } else {
+            this.IIjlIijlljijlljIiilijjIiiIiIIIji = true;
+        }
+        if (this.IljIIIIlljIljjjIlIjlijIllIiIIjji) {
+            if (this.iijjiljljiilIjjljjIIiiliiiiIIilI.x < 0.6f && this.IIljiIIjIllIljljIlIjIiiIjillIiII > 60.0f) {
+                this.iijjiljljiilIjjljjIIiiliiiiIIilI.x += 0.0075f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                this.iijjiljljiilIjjljjIIiiliiiiIIilI.y += 0.0075f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                this.iijjiljljiilIjjljjIIiiliiiiIIilI.z += 0.012f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                if (this.iijjiljljiilIjjljjIIiiliiiiIIilI.x > 0.6f) {
+                    this.iijjiljljiilIjjljjIIiiliiiiIIilI.x = 0.6f;
+                    this.iijjiljljiilIjjljjIIiiliiiiIIilI.y = 0.6f;
+                    this.iijjiljljiilIjjljjIIiiliiiiIIilI.z = 1.0f;
+                }
+            } else if (this.iijjiljljiilIjjljjIIiiliiiiIIilI.x >= 0.6f && this.IjjjIiIillijjIlIIIjililIjIjjIlji.IIiIIljjiiijIliIljjIiiijjjiillii) {
+                this.jIjIlIIljljllIljIllijIIjillllIlj += 2.5E-4f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                if (this.jIjIlIIljljllIljIllijIIjillllIlj > 0.15f) {
+                    this.jIjIlIIljljllIljIllijIIjillllIlj = 0.15f;
+                }
+            }
+            this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z -= this.jIjIlIIljljllIljIllijIIjillllIlj * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+        }
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(float f, float f2) {
+        GL11.glPushMatrix();
+        this.ljjlijlIllljjlIIilIIjIjlllIjijli.ljIillIiijijlIIijlilliljllijljlI.jjlliijIIIiIjIjiiIjijjIjIljjiiII(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:textures/" + IijjiiliijilIiiIijIIlliijIjIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl + "/ambient/fog.png"));
+        GL11.glTranslatef((float)(f + 0.5f), (float)1.0f, (float)f2);
+        GL11.glScalef((float)70.0f, (float)20.0f, (float)1.0f);
+        GL11.glPopMatrix();
+    }
+
+    private void jljljjiIIIIIiiIjIjiilliiIliIjljI() {
+        int n;
+        for (n = 0; n < this.liijjIjIillljjijljjIljIIljlIljIl.length; ++n) {
+            if (this.liijjIjIillljjijljjIljIIljlIljIl[n].y - this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z > 60.0f) {
+                this.liijjIjIillljjijljjIljIIljlIljIl[n].y -= 100.0f;
+                this.liijjIjIillljjijljjIljIIljlIljIl[n].x = this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3;
+                this.liijjIjIillljjijljjIljIIljlIljIl[n].z = this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(3);
+            }
+            this.jjlliijIIIiIjIjiiIjijjIjIljjiiII(this.liijjIjIillljjijljjIljIIljlIljIl[n].x, -this.liijjIjIillljjijljjIljIIljlIljIl[n].y, Math.round((float)this.liijjIjIillljjijljjIljIIljlIljIl[n].z));
+        }
+        for (n = 0; n < this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj.length; ++n) {
+            if (this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].y - this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z > 60.0f) {
+                this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].y -= 100.0f;
+                this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].x = this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3;
+                this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].z = this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(2);
+            }
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].x, -this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].y, Math.round((float)this.IIjiIjIijiIIjjjjijiIjiiIjiiIlllj[n].z));
+        }
+        GL11.glDisable((int)3042);
+        for (n = 0; n < this.ilIjiljjlIIjjiIilIijIlliiliijiIi.length; ++n) {
+            if (this.ilIjiljjlIIjjiIilIijIlliiliijiIi[n].y - this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z > 60.0f) {
+                this.ilIjiljjlIIjjiIilIijIlliiliijiIi[n].y -= 100.0f;
+                this.ilIjiljjlIIjjiIilIijIlliiliijiIi[n].x = this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(7) - 3;
+            }
+            this.jjlliijIIIiIjIjiiIjijjIjIljjiiII(this.ilIjiljjlIIjjiIilIijIlliiliijiIi[n].x, -this.ilIjiljjlIIjjiIilIijIlliiliijiIi[n].y);
+        }
+        GL11.glEnable((int)3042);
+    }
+
+    private void ljjlijlIllljjlIIilIIjIjlllIjijli() {
+        GL11.glLight((int)16384, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.x, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.y - 2.0f, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.z + 2.0f, 1.0f}));
+        GL11.glLight((int)16384, (int)4614, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{80.0f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16384, (int)4612, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.x, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.y + 6.0f, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.z + 4.0f, 0.0f}));
+        GL11.glLight((int)16384, (int)4613, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{2.5f, 0.0f, 0.0f, 0.0f}));
+        GL11.glLight((int)16388, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.x, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.y - 0.76f, this.jiIiIIjjiIIjjjIjlIiljjIiljiiijIl.z - 2.7f, 1.0f}));
+        GL11.glLight((int)16384, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 1.0f}));
+        float f = 3.0f;
+        GL11.glLight((int)16384, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.iijjiljljiilIjjljjIIiiliiiiIIilI.x * f, this.iijjiljljiilIjjljjIIiiliiiiIIilI.y * f, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z * f, 1.0f}));
+        GL11.glLight((int)16388, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 1.0f}));
+        GL11.glLight((int)16388, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.iijjiljljiilIjjljjIIiiliiiiIIilI.x, this.iijjiljljiilIjjljjIIiiliiiiIIilI.y, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 1.0f}));
+        GL11.glLight((int)16389, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 1.0f}));
+        GL11.glLight((int)16389, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.iijjiljljiilIjjljjIIiiliiiiIIilI.x, this.iijjiljljiilIjjljjIIiiliiiiIIilI.y / 5.0f, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z / 5.0f, 1.0f}));
+        Vector3f vector3f = new Vector3f(-0.47f, 0.05f, 0.65f);
+        GL11.glLight((int)16385, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{vector3f.x, vector3f.y, vector3f.z, 1.0f}));
+        GL11.glLight((int)16385, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 1.0f}));
+        GL11.glLight((int)16385, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.x, 1.0f}));
+        GL11.glLight((int)16386, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{-vector3f.x + 0.03f, vector3f.y - 0.04f, vector3f.z - 0.06f, 1.0f}));
+        GL11.glLight((int)16386, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 1.0f}));
+        GL11.glLight((int)16386, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.x, 1.0f}));
+        GL11.glLight((int)16387, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{-this.jijIIjiilljIjIiilijiljIliiljIjll.x, this.jijIIjiilljIjIiilijiljIliiljIjll.y, this.jijIIjiilljIjIiilijiljIliiljIjll.z, 1.0f}));
+        GL11.glLight((int)16387, (int)4608, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{0.0f, 0.0f, 0.0f, 1.0f}));
+        GL11.glLight((int)16387, (int)4609, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.x / 1.5f, this.iijjiljljiilIjjljjIIiiliiiiIIilI.x / 1.5f, 1.0f}));
+        Vector3f vector3f2 = new Vector3f(-0.455f, 0.355f, 0.65f);
+        GL11.glLight((int)16389, (int)4611, (FloatBuffer)IiiijIijjllIjjIjlliliIjIiiiiIlIi.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float[])new float[]{-vector3f2.x, vector3f2.y - 0.14f, vector3f2.z, 1.0f}));
+    }
+
+    public void jIIlljIIIjijjlljiIiIiljjjiIIlIIl() {
+        super.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        this.IIljiIIjIllIljljIlIjIiiIjillIiII += 1.0f;
+        if (!this.IljIIIIlljIljjjIlIjlijIllIiIIjji) {
+            if (this.illljjjIIIIijjiIjjljljIIljijIIIj != null) {
+                this.illljjjIIIIijjiIjjljljIIljijIIIj.IjiIliIlIllillljIIIiIjiljlIljlIl();
+                this.iijljjIIlljIIjliljiilIjiiIiilIIl.IjiIliIlIllillljIIIiIjiljlIljlIl();
+            }
+        } else if (this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl <= 0) {
+            lllijjIIilIijjjjIiliijijlilijjji lllijjIIilIijjjjIiliijijlilijjji2;
+            if (this.jilljjIilijlljIjIiIlijIiiIIliljl) {
+                if (this.iIjijjlllijlIjijjilIillIIijljili > 15.0f && this.iIjijjlllijlIjijjilIillIIijljili < 32.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli < -56.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli > -68.0f) {
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil != 1) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    }
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 1;
+                } else if (this.iIjijjlllijlIjijjilIillIIijljili < 25.0f && this.iIjijjlllijlIjijjilIillIIijljili > -3.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli > -68.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli < -55.0f) {
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil != 2) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    }
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 2;
+                } else if (this.iIjijjlllijlIjijjilIillIIijljili > -24.0f && this.iIjijjlllijlIjijjilIillIIijljili < -2.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli > -68.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli < -49.0f) {
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil != 3) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    }
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 3;
+                } else if (this.iIjijjlllijlIjijjilIillIIijljili > -47.0f && this.iIjijjlllijlIjijjilIillIIijljili < -20.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli > -70.0f && this.lllllIjIIjljIiijjIjjjjjIlIliIjli < -57.0f) {
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil != 4) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    }
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 4;
+                } else if (this.jilljjIilijlljIjIiIlijIiiIIliljl) {
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 0;
+                }
+                this.jilljjIilijlljIjIiIlijIiiIIliljl = false;
+            }
+            if (Mouse.isButtonDown((int)0) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0 && this.ljIillIiijijlIIijlilliljllijljlI == null) {
+                if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 1) {
+                    try {
+                        lllijjIIilIijjjjIiliijijlilijjji2 = new lllijjIIilIijjjjIiliijijlilijjji("", "play.metro2033server.ru:25565");
+                        jjlIjjIIijIliijIIjlIjiiiIiiijiii.ljIillIiijijlIIijlilliljllijljlI().IlijlIlilIIjlilIlliljjiIljjlIjIi();
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new IiIIjlliiliiIjljllijilIllIjIljii((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli, lllijjIIilIijjjjIiliijijlilijjji2));
+                        Mouse.setGrabbed((boolean)false);
+                        this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                    }
+                    catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                    this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 2) {
+                    try {
+                        Desktop.getDesktop().browse(new URL("https://metro2033server.ru").toURI());
+                    }
+                    catch (Exception exception) {
+                        // empty catch block
+                    }
+                    this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 3) {
+                    this.ljIillIiijijlIIijlilliljllijljlI = new ijliilIIIijIIlIIIIlijIjlIIlIIIIj((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI);
+                    this.ljIillIiijijlIIijlilliljllijljlI.v_();
+                    this.lIiljIjjiiilIlljiIIIiliijlIlIlll = false;
+                    this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij = true;
+                    this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(40.0f, -70.0f, -26.0f);
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 0;
+                    this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 4) {
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.iijljjIIlljIIjliljiilIjiiIiilIIl();
+                    Mouse.setGrabbed((boolean)false);
+                    this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                    this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                }
+            }
+            if (Keyboard.isKeyDown((int)32) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0 && (!this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij || this.ljIillIiijijlIIijlilliljllijljlI != null)) {
+                if (this.ljIillIiijijlIIijlilliljllijljlI == null) {
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    ++this.lIiIjlIjIiijIllllijlijijIjjiIlil;
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil > 4) {
+                        this.lIiIjlIjIiijIllllijlijijIjjiIlil = 1;
+                    }
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 1) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(23.5f, -62.0f, 0.0f);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 2) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(8.0f, -62.0f, 0.0f);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 3) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(-10.0f, -59.0f, 0.0f);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 4) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(-28.0f, -64.0f, 0.0f);
+                    }
+                    this.lIiljIjjiiilIlljiIIIiliijlIlIlll = true;
+                } else {
+                    this.jjlliijIIIiIjIjiiIjijjIjIljjiiII(false);
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                }
+                this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(6.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            } else if (Keyboard.isKeyDown((int)17) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0 && this.ljIillIiijijlIIijlilliljllijljlI != null && this.iIiillllIjjjiiIiIIiljlIjIjlIlill == -1) {
+                this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                this.lIiIjlIjIiijIllllijlijijIjjiIlil -= 2;
+                if (this.lIiIjlIjIiijIllllijlijijIjjiIlil < 0) {
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1;
+                }
+                this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(6.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            } else if (Keyboard.isKeyDown((int)31) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0 && this.ljIillIiijijlIIijlilliljllijljlI != null && this.iIiillllIjjjiiIiIIiljlIjIjlIlill == -1) {
+                this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                this.lIiIjlIjIiijIllllijlijijIjjiIlil += 2;
+                if (this.lIiIjlIjIiijIllllijlijijIjjiIlil > this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size()) {
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = 0;
+                } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil > this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1) {
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1;
+                }
+                this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(6.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            } else if (Keyboard.isKeyDown((int)30) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0 && (!this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij || this.ljIillIiijijlIIijlilliljllijljlI != null)) {
+                if (this.ljIillIiijijlIIijlilliljllijljlI == null) {
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    --this.lIiIjlIjIiijIllllijlijijIjjiIlil;
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil < 1) {
+                        this.lIiIjlIjIiijIllllijlijijIjjiIlil = 4;
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil > 4) {
+                        this.lIiIjlIjIiijIllllijlijijIjjiIlil = 1;
+                    }
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 1) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(23.5f, -62.0f, 0.0f);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 2) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(8.0f, -62.0f, 0.0f);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 3) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(-10.0f, -59.0f, 0.0f);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 4) {
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(-28.0f, -64.0f, 0.0f);
+                    }
+                    this.lIiljIjjiiilIlljiIIIiliijlIlIlll = true;
+                } else {
+                    this.jjlliijIIIiIjIjiiIjijjIjIljjiiII(true);
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                }
+                this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(6.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            } else if ((Keyboard.isKeyDown((int)28) || Keyboard.isKeyDown((int)57)) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0) {
+                if (this.ljIillIiijijlIIijlilliljllijljlI == null) {
+                    this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                    if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 1) {
+                        try {
+                            lllijjIIilIijjjjIiliijijlilijjji2 = new lllijjIIilIijjjjIiliijijlilijjji("", "play.metro2033server.ru:25565");
+                            jjlIjjIIijIliijIIjlIjiiiIiiijiii.ljIillIiijijlIIijlilliljllijljlI().IlijlIlilIIjlilIlliljjiIljjlIjIi();
+                            this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new IiIIjlliiliiIjljllijilIllIjIljii((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli, lllijjIIilIijjjjIiliijijlilijjji2));
+                            Mouse.setGrabbed((boolean)false);
+                            this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                        }
+                        catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                        this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 2) {
+                        try {
+                            Desktop.getDesktop().browse(new URL("https://metro2033server.ru").toURI());
+                        }
+                        catch (Exception exception) {
+                            // empty catch block
+                        }
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 3) {
+                        this.ljIillIiijijlIIijlilliljllijljlI = new ijliilIIIijIIlIIIIlijIjlIIlIIIIj((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI);
+                        this.ljIillIiijijlIIijlilliljllijljlI.v_();
+                        this.lIiljIjjiiilIlljiIIIiliijlIlIlll = false;
+                        this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij = true;
+                        this.jjlllIllilijIIliliIljljlilljIliI = new Vector3f(40.0f, -70.0f, -26.0f);
+                        this.lIiIjlIjIiijIllllijlijijIjjiIlil = 0;
+                    } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 4) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.iijljjIIlljIIjliljiilIjiiIiilIIl();
+                        Mouse.setGrabbed((boolean)false);
+                        this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                    }
+                } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill != -1) {
+                    this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                } else {
+                    this.iIiillllIjjjiiIiIIiljlIjIjlIlill = this.lIiIjlIjIiijIllllijlijijIjjiIlil;
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.llliljiIlliIjijiijlijljiiiijjlij.IjiIliIlIllillljIIIiIjiljlIljlIl((jjiiIjIIilIjIIjlliijiilljjiljlil)this.ljliiiiiIjliiiIIIjIjjiiijjjiIlIi);
+                    if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1) {
+                        this.ljIillIiijijlIIijlilliljllijljlI = null;
+                        this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij = true;
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.jjlliijIIIiIjIjiiIjijjIjIljjiiII();
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                    } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 1) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new ijjIlIlljIlIililjIIiIIIlllljIjli((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI));
+                        Mouse.setGrabbed((boolean)false);
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                        this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                    } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 2) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new ilIIlijjiIjjjllilIlIjlIjlijIlljI((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI));
+                        Mouse.setGrabbed((boolean)false);
+                        this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                        this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                    } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 3) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new lijIilIIllIiiiIIjjillijjiiliijij((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI));
+                        Mouse.setGrabbed((boolean)false);
+                        this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                        this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                    } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 4) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new IIiljlIiljIljlIjjijljjljlIjIllII((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI, this.ljjlijlIllljjlIIilIIjIjlllIjijli.jIIiliIilljIjjIliljjiIlllIllIIil()));
+                        Mouse.setGrabbed((boolean)false);
+                        this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                        this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                    } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 5) {
+                        this.ljjlijlIllljjlIIilIIjIjlllIjijli.IjiIliIlIllillljIIIiIjiljlIljlIl((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)new IijjiilijIIljlIIilIijjiiiljliIll((jjjjiiiiIIjjIIljiiiiiillIIjIlIIj)this, this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI));
+                        Mouse.setGrabbed((boolean)false);
+                        this.jljiIijIIIIIIliijijjiIjIjiIljjjl();
+                        this.IjjIiIlIjIjIjIlIIljIjijijiIjijIl = (int)(30.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                        this.iiliijliIjililiilIijIIiIjjliIiji = false;
+                    } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 6) {
+                        // empty if block
+                    }
+                }
+                this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(20.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            } else if (Keyboard.isKeyDown((int)1) && this.jjIiiIijIIiijjljlIIlljjlIIjijIll <= 0) {
+                if (this.ljIillIiijijlIIijlilliljllijljlI != null) {
+                    if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill != -1) {
+                        this.iIiillllIjjjiiIiIIiljlIjIjlIlill = -1;
+                    } else {
+                        this.ljIillIiijijlIIijlilliljllijljlI = null;
+                        this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij = true;
+                    }
+                }
+                this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)(8.0f / this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+            }
+        }
+    }
+
+    private void jjlliijIIIiIjIjiiIjijjIjIljjiiII(boolean bl) {
+        if (bl) {
+            if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == -1) {
+                --this.lIiIjlIjIiijIllllijlijijIjjiIlil;
+                if (this.lIiIjlIjIiijIllllijlijijIjjiIlil < 0) {
+                    this.lIiIjlIjIiijIllllijlijijIjjiIlil = this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1;
+                }
+            } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 0) {
+                this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.ljllIjiilliIjjIlljjjliiIIljIiIIj -= 5.0f;
+                if (this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.ljllIjiilliIjjIlljjjliiIIljIiIIj < 30.0f) {
+                    this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.ljllIjiilliIjjIlljjjliiIIljIiIIj = 30.0f;
+                }
+                lIliijljIiIIIljIljIlliljiIjIiIIl lIliijljIiIIIljIljIlliljiIjIiIIl2 = (lIliijljIiIIIljIljIlliljiIjIiIIl)this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.get(this.iIiillllIjjjiiIiIIiljlIjIjlIlill);
+                lIliijljIiIIIljIljIlliljiIjIiIIl2.IIIjjjljljjiiljlijijjiijjiiIiljI = this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(IiiIIIjiIjlljiliIlllIijlilijjIjj.IjiIliIlIllillljIIIiIjiljlIljlIl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl);
+            }
+        } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == -1) {
+            ++this.lIiIjlIjIiijIllllijlijijIjjiIlil;
+            if (this.lIiIjlIjIiijIllllijlijijIjjiIlil > this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1) {
+                this.lIiIjlIjIiijIllllijlijijIjjiIlil = 0;
+            }
+        } else if (this.iIiillllIjjjiiIiIIiljlIjIjlIlill == 0) {
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.ljllIjiilliIjjIlljjjliiIIljIiIIj += 5.0f;
+            if (this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.ljllIjiilliIjjIlljjjliiIIljIiIIj > 110.0f) {
+                this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.ljllIjiilliIjjIlljjjliiIIljIiIIj = 110.0f;
+            }
+            lIliijljIiIIIljIljIlliljiIjIiIIl lIliijljIiIIIljIljIlliljiIjIiIIl3 = (lIliijljIiIIIljIljIlliljiIjIiIIl)this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.get(this.iIiillllIjjjiiIiIIiljlIjIjlIlill);
+            lIliijljIiIIIljIljIlliljiIjIiIIl3.IIIjjjljljjiiljlijijjiijjiiIiljI = this.ljjlijlIllljjlIIilIIjIjlllIjijli.lljjjiiIlIlijjlIlIijljiIjIIjiljI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(IiiIIIjiIjlljiliIlllIijlilijjIjj.IjiIliIlIllillljIIIiIjiljlIljlIl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl);
+        }
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(Vector3f vector3f, Vector3f vector3f2) {
+        if (vector3f2 != null) {
+            if (this.ljIillIiijijlIIijlilliljllijljlI != null) {
+                if (Math.abs((float)(this.iIjijjlllijlIjijjilIillIIijljili - vector3f.x)) <= 1.0f && Math.abs((float)(this.lllllIjIIjljIiijjIjjjjjIlIliIjli - vector3f.y)) <= 1.0f && Math.abs((float)(this.jjlIllIjlIljjjjljjIIIlljIljllijI - vector3f.z)) <= 1.0f) {
+                    if (Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x - 0.13f)) <= 0.01f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y - 0.1f)) <= 0.01f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z - 0.6f)) <= 0.01f) {
+                        // empty if block
+                    }
+                } else {
+                    this.iIjijjlllijlIjijjilIillIIijljili -= (this.iIjijjlllijlIjijjilIillIIijljili - vector3f.x) / 10.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    this.lllllIjIIjljIiijjIjjjjjIlIliIjli -= (this.lllllIjIIjljIiijjIjjjjjIlIliIjli - vector3f.y) / 10.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    this.jjlIllIjlIljjjjljjIIIlljIljllijI -= (this.jjlIllIjlIljjjjljjIIIlljIljllijI - vector3f.z) / 10.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (!(Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x - -0.13f)) <= 0.01f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y - 0.1f)) <= 0.01f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z - 0.6f)) <= 0.01f)) {
+                    this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x = this.iIjijjlllijlIjijjilIillIIijljili / -307.0f;
+                    this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y = this.iIjijjlllijlIjijjilIillIIijljili / 400.0f;
+                    this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z = this.iIjijjlllijlIjijjilIillIIijljili / 66.6f;
+                }
+            } else {
+                if (Math.abs((float)(this.iIjijjlllijlIjijjilIillIIijljili - 0.0f)) <= 2.0f && Math.abs((float)(this.lllllIjIIjljIiijjIjjjjjIlIliIjli - -90.0f)) <= 2.0f && Math.abs((float)(this.jjlIllIjlIljjjjljjIIIlljIljllijI - 0.0f)) <= 2.0f) {
+                    if (Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x - 0.0f)) <= 0.03f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y - 0.0f)) <= 0.03f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z - 0.0f)) <= 0.03f) {
+                        this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij = false;
+                    }
+                } else {
+                    this.iIjijjlllijlIjijjilIillIIijljili -= (this.iIjijjlllijlIjijjilIillIIijljili - 0.0f) / 8.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    this.lllllIjIIjljIiijjIjjjjjIlIliIjli -= (this.lllllIjIIjljIiijjIjjjjjIlIliIjli - -90.0f) / 8.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    this.jjlIllIjlIljjjjljjIIIlljIljllijI -= (this.jjlIllIjlIljjjjljjIIIlljIljllijI - 0.0f) / 8.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (!(Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x - 0.0f)) <= 0.01f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y - 0.0f)) <= 0.01f && Math.abs((float)(this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z - 0.0f)) <= 0.01f)) {
+                    this.jIlijiIIiijjjiijjlIjjIiIllIlljll.x = this.iIjijjlllijlIjijjilIillIIijljili / -307.0f;
+                    this.jIlijiIIiijjjiijjlIjjIiIllIlljll.y = this.iIjijjlllijlIjijjilIillIIijljili / 400.0f;
+                    this.jIlijiIIiijjjiijjlIjjIiIllIlljll.z = this.iIjijjlllijlIjijjilIillIIijljili / 66.6f;
+                }
+            }
+        } else if (Math.abs((float)(this.iIjijjlllijlIjijjilIillIIijljili - vector3f.x)) <= 0.5f && Math.abs((float)(this.lllllIjIIjljIiijjIjjjjjIlIliIjli - vector3f.y)) <= 0.5f) {
+            this.lIiljIjjiiilIlljiIIIiliijlIlIlll = false;
+        } else {
+            this.iIjijjlllijlIjijjilIillIIijljili -= (this.iIjijjlllijlIjijjilIillIIijljili - vector3f.x) / 10.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            this.lllllIjIIjljIiijjIjjjjjIlIliIjli -= (this.lllllIjIIjljIiijjIjjjjjIlIliIjli - vector3f.y) / 10.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+        }
+    }
+
+    private void jllljljIlillIllilljijijjiIiijlli() {
+        if (this.lIiljIjjiiilIlljiIIIiliijlIlIlll) {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(this.jjlllIllilijIIliliIljljlilljIliI, null);
+        } else if (this.IiIjIjIjijjlIIIjIIjiIjIjiljIjiij) {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(this.jjlllIllilijIIliliIljljlilljIliI, new Vector3f(-0.13f, 0.01f, 0.6f));
+        }
+        if (this.jjIiiIijIIiijjljlIIlljjlIIjijIll > 0) {
+            this.jjIiiIijIIiijjljlIIlljjlIIjijIll = (int)((float)this.jjIiiIijIIiijjljlIIlljjlIIjijIll - 1.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+        }
+        if (this.ljIillIiijijlIIijlilliljllijljlI == null) {
+            if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 1) {
+                this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(0.32f, 0.34f, 0.65f);
+                GL11.glEnable((int)16387);
+                if (this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl < 135.0f) {
+                    this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl += 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIijIlijIliiIijjjiIlIllljiijIlli > 0.0f) {
+                    this.lIijIlijIliiIijjjiIlIllljiijIlli -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.ijliIIIlilIijjIiIiiljlliliijjlIl > 0.0f) {
+                    this.ijliIIIlilIijjIiIiiljlliliijjlIl -= 9.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.jijIjiliiIljIliIIjIIljjilljiIIji > 0.0f) {
+                    this.jijIjiliiIljIliIIjIIljjilljiIIji -= 0.001f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+            } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 2) {
+                this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(0.033f, 0.352f, 0.65f);
+                GL11.glEnable((int)16387);
+                if (this.lIijIlijIliiIijjjiIlIllljiijIlli < 90.0f) {
+                    this.lIijIlijIliiIijjjiIlIllljiijIlli += 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl > 0.0f) {
+                    this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.ijliIIIlilIijjIiIiiljlliliijjlIl > 0.0f) {
+                    this.ijliIIIlilIijjIiIiiljlliliijjlIl -= 9.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.jijIjiliiIljIliIIjIIljjilljiIIji > 0.0f) {
+                    this.jijIjiliiIljIliIIjIIljjilljiIIji -= 0.001f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+            } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 3) {
+                this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(-0.065f, 0.325f, 0.65f);
+                GL11.glEnable((int)16387);
+                if (this.ijliIIIlilIijjIiIiiljlliliijjlIl < 225.0f) {
+                    this.ijliIIIlilIijjIiIiiljlliliijjlIl += 9.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl > 0.0f) {
+                    this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIijIlijIliiIijjjiIlIllljiijIlli > 0.0f) {
+                    this.lIijIlijIliiIijjjiIlIllljiijIlli -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.jijIjiliiIljIliIIjIIljjilljiIIji > 0.0f) {
+                    this.jijIjiliiIljIliIIjIIljjilljiIIji -= 0.001f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+            } else if (this.lIiIjlIjIiijIllllijlijijIjjiIlil == 4) {
+                GL11.glEnable((int)16387);
+                this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(-0.305f, 0.335f, 0.645f);
+                if (this.jijIjiliiIljIliIIjIIljjilljiIIji < 0.02f) {
+                    this.jijIjiliiIljIliIIjIIljjilljiIIji += 0.001f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl > 0.0f) {
+                    this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIijIlijIliiIijjjiIlIllljiijIlli > 0.0f) {
+                    this.lIijIlijIliiIijjjiIlIllljiijIlli -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.ijliIIIlilIijjIiIiiljlliliijjlIl > 0.0f) {
+                    this.ijliIIIlilIijjIiIiiljlliliijjlIl -= 9.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+            } else {
+                GL11.glDisable((int)16387);
+                this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(100.0f, 0.34f, 0.65f);
+                if (this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl > 0.0f) {
+                    this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.lIijIlijIliiIijjjiIlIllljiijIlli > 0.0f) {
+                    this.lIijIlijIliiIijjjiIlIllljiijIlli -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.ijliIIIlilIijjIiIiiljlliliijjlIl > 0.0f) {
+                    this.ijliIIIlilIijjIiIiiljlliliijjlIl -= 9.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+                if (this.jijIjiliiIljIliIIjIIljjilljiIIji > 0.0f) {
+                    this.jijIjiliiIljIliIIjIIljjilljiIIji -= 0.001f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                }
+            }
+        } else {
+            GL11.glDisable((int)16387);
+            this.jijIIjiilljIjIiilijiljIliiljIjll = new Vector3f(100.0f, 0.34f, 0.65f);
+            if (this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl > 0.0f) {
+                this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            }
+            if (this.lIijIlijIliiIijjjiIlIllljiijIlli > 0.0f) {
+                this.lIijIlijIliiIijjjiIlIllljiijIlli -= 6.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            }
+            if (this.ijliIIIlilIijjIiIiiljlliliijjlIl > 0.0f) {
+                this.ijliIIIlilIijjIiIiiljlliliijjlIl -= 9.0f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            }
+            if (this.jijIjiliiIljIliIIjIIljjilljiIIji > 0.0f) {
+                this.jijIjiliiIljIliIIjIIljjilljiIIji -= 0.001f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+            }
+        }
+    }
+
+    private void iIljIIilliiiIIjljjjlIjlIilIllIIl() {
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)2.4f, (float)-0.35f);
+        GL11.glScalef((float)0.7f, (float)0.7f, (float)0.7f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glRotatef((float)-10.0f, (float)1.0f, (float)0.0f, (float)0.0f);
+        IlIljlljjIjIjljIijililIIiljjiIlj ilIljlljjIjIjljIijililIIiljjiIlj = this.ljjlijlIllljjlIIilIIjIjlllIjijli.ljIillIiijijlIIijlilliljllijljlI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(new jiiiIIIIIIjllljIiljIjiIljIllIljI("skins/" + this.ljjlijlIllljjlIIilIIjIjlllIjijli.jiljlIIiIiIiIjjjijIIiIiIjjIlljii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl()));
+        if (ilIljlljjIjIjljIijililIIiljjiIlj != null) {
+            this.IIliiliIililIIijljjlIiiiiIiIIIji = ilIljlljjIjIjljIijililIIiljjiIlj.IjiIliIlIllillljIIIiIjiljlIljlIl();
+            GL11.glBindTexture((int)3553, (int)this.IIliiliIililIIijljjlIiiiiIiIIIji);
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.IijlijiijIIIlIiIjIiljllilllijIjI.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0625f);
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.IIiIIljjiiijIliIljjIiiijjjiillii.IjiiIIlliljlIIIijIjjlIijiIlIlIll = iilIljjljijIiIIliiiIjjIjiIiiiijI.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float)4.473993f) * 1.0f * this.ijlIjiliIiIIIljiIIjIliIlljIiljji * 0.5f;
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.illljjjIIIIijjiIjjljljIIljijIIIj.IjiiIIlliljlIIIijIjjlIijiIlIlIll = iilIljjljijIiIIliiiIjjIjiIiiiijI.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float)1.3324f) * 2.0f * this.ijlIjiliIiIIIljiIIjIliIlljIiljji * 0.5f;
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.IIiIIljjiiijIliIljjIiiijjjiillii.IIiIIljjiiijIliIljjIiiijjjiillii = iilIljjljijIiIIliiiIjjIjiIiiiijI.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float)4.8070927f) * 2.0f * this.ijlIjiliIiIIIljiIIjIliIlljIiljji * 0.5f;
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.illljjjIIIIijjiIjjljljIIljijIIIj.IIiIIljjiiijIliIljjIiiijjjiillii = iilIljjljijIiIIliiiIjjIjiIiiiijI.jjlliijIIIiIjIjiiIjijjIjIljjiiII((float)1.6654999f) * 2.0f * this.ijlIjiliIiIIIljiIIjIliIlljIiljji * 0.5f;
+            GL11.glPushMatrix();
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.illljjjIIIIijjiIjjljljIIljijIIIj.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0625f);
+            GL11.glPopMatrix();
+            GL11.glPushMatrix();
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.IIiIIljjiiijIliIljjIiiijjjiillii.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0625f);
+            GL11.glPopMatrix();
+            GL11.glRotatef((float)-80.0f, (float)1.0f, (float)0.0f, (float)0.0f);
+            GL11.glTranslatef((float)0.0f, (float)-0.6f, (float)0.78f);
+            GL11.glPushMatrix();
+            GL11.glRotatef((float)6.0f, (float)1.0f, (float)0.0f, (float)0.0f);
+            GL11.glRotatef((float)-15.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+            GL11.glTranslatef((float)-0.175f, (float)-0.0f, (float)0.0f);
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.IilljjjjjjiIjiIjIijjjjijIIIijjli.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0625f);
+            GL11.glPopMatrix();
+            GL11.glPushMatrix();
+            GL11.glRotatef((float)6.0f, (float)1.0f, (float)0.0f, (float)0.0f);
+            GL11.glRotatef((float)15.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+            GL11.glTranslatef((float)0.175f, (float)-0.0f, (float)0.0f);
+            this.ilIillIjIililiIIjjiIiiilIjIIjili.iijljjIIlljIIjliljiilIjiiIiilIIl.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0625f);
+            GL11.glPopMatrix();
+        }
+        GL11.glPopMatrix();
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(float f, float f2, int n) {
+        GL11.glPushMatrix();
+        switch (n) {
+            case 0: {
+                GL11.glTranslatef((float)f, (float)10.0f, (float)f2);
+                GL11.glRotatef((float)90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+                this.IIIilIijijijilIjIlIijilljilIiiIl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 1: {
+                GL11.glTranslatef((float)f, (float)7.0f, (float)f2);
+                GL11.glScalef((float)10.0f, (float)10.0f, (float)10.0f);
+                this.jjiiilliililliIlIiliIllilijjllii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+            }
+        }
+        GL11.glPopMatrix();
+    }
+
+    private void jjlliijIIIiIjIjiiIjijjIjIljjiiII(float f, float f2, int n) {
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)f, (float)8.0f, (float)f2);
+        switch (n) {
+            case 0: {
+                this.IijIlijlIIjlilliilliijIiIIIljjij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 1: {
+                this.lijjIjIIiiIljiIililjiIijjiijjjji.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 2: {
+                this.iIjlIiIiiiijiIlIIiljIillIIjlljIj.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+            }
+        }
+        GL11.glPopMatrix();
+    }
+
+    private void jjlliijIIIiIjIjiiIjijjIjIljjiiII(float f, float f2) {
+        GL11.glPushMatrix();
+        lljiiilIllIlIjllljjliijiiiiiliIl lljiiilIllIlIjllljjliijiiiiiliIl2 = new lljiiilIllIlIjllljjliijiiiiiliIl();
+        float f3 = this.IIljiIIjIllIljljIlIjIiiIjillIiII * -0.007f;
+        GL11.glBindTexture((int)3553, (int)this.jljljjjiIilIiiljilillIliiljlIijj);
+        float f4 = 0.4f;
+        GL11.glTranslatef((float)f, (float)0.5f, (float)f2);
+        GL11.glScalef((float)1.0f, (float)2.5f, (float)1.0f);
+        GL11.glRotatef((float)this.iIjijjlllijlIjijjilIillIIijljili, (float)0.0f, (float)1.0f, (float)0.0f);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0, 3.0, 1.0, 0.0, (double)(1.0f * -f4 + f3));
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl(1.0, 3.0, 1.0, 1.0, (double)(1.0f * -f4 + f3));
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl(1.0, 0.0, 1.0, 1.0, (double)(0.0f * -f4 + f3));
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0, 0.0, 1.0, 0.0, (double)(0.0f * -f4 + f3));
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl();
+        GL11.glPopMatrix();
+    }
+
+    private void lljjjiiIlIlijjlIlIijljiIjIIjiljI() {
+        int n;
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.27f, (float)0.0f, (float)34.4f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        for (n = 0; n < this.lliljIjlIiiIillIijlljIIljjljljli.length; ++n) {
+            GL11.glPushMatrix();
+            GL11.glTranslatef((float)0.0f, (float)0.0f, (float)this.lliljIjlIiiIillIijlljIIljjljljli[n].x);
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(Math.round((float)this.lliljIjlIiiIillIijlljIIljjljljli[n].y));
+            GL11.glPopMatrix();
+        }
+        GL11.glPopMatrix();
+        for (n = 0; n < this.lliljIjlIiiIillIijlljIIljjljljli.length; ++n) {
+            if (!(this.lliljIjlIiiIillIijlljIIljjljljli[n].x - this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z > 60.0f)) continue;
+            this.lliljIjlIiiIillIijlljIIljjljljli[n].x -= 100.0f;
+            this.lliljIjlIiiIillIijlljIIljjljljli[n].y = this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(5);
+        }
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(int n) {
+        switch (n) {
+            case 0: {
+                this.jjIliljIlljljljllijjIIjIjilIliij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 1: {
+                this.IIlijjljiIilijIijlilIjIilijjliij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 2: {
+                this.iIljIljjIliIIIjiiiijIjjIjIjijllI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 3: {
+                this.jIIillIjIlliIljljiIjjjiijiilIill.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+                break;
+            }
+            case 4: {
+                GL11.glScalef((float)1.0f, (float)1.0f, (float)1.014f);
+                this.iilIiIijijIlIjljjijIIllIilljiiil.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+            }
+        }
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)3.2f, (float)1.15f, (float)-11.2f);
+        for (int i = 0; i < 8; ++i) {
+            GL11.glTranslatef((float)0.0f, (float)0.0f, (float)2.6f);
+            GL11.glPushMatrix();
+            GL11.glRotatef((float)90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+            this.jljilIjlIIjjiIlljlijlIjlllllIjjj.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+            GL11.glPopMatrix();
+        }
+        GL11.glPopMatrix();
+    }
+
+    private void jijijIjjjiljiiIIliIilIliilIIjIij() {
+        int n;
+        this.IljIIlIjlijlllilijjljiiljjjijjIj = this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z < 3.5f && this.IljIIIIlljIljjjIlIjlijIllIiIIjji ? (this.IljIIlIjlijlllilijjljiiljjjijjIj += 0.01f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl) : (this.IljIIlIjlijlllilijjljiiljjjijjIj -= 0.01f * this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+        if (this.IljIIlIjlijlllilijjljiiljjjijjIj > 1.0f) {
+            this.IljIIlIjlijlllilijjljiiljjjijjIj = 1.0f;
+        } else if (this.IljIIlIjlijlllilijjljiiljjjijjIj < 0.0f) {
+            this.IljIIlIjlijlllilijjljiiljjjijjIj = 0.0f;
+        }
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.33f, (float)4.18f, (float)14.0f);
+        GL11.glPushMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)2.5f, (float)-35.0f);
+        GL11.glScalef((float)5.0f, (float)5.0f, (float)5.0f);
+        this.jjiiilliililliIlIiliIllilijjllii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-3.2f, (float)-3.2f, (float)-49.0f);
+        for (n = 0; n < 16; ++n) {
+            GL11.glTranslatef((float)0.0f, (float)0.0f, (float)2.6f);
+            GL11.glPushMatrix();
+            GL11.glRotatef((float)-90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+            this.jljilIjlIIjjiIlljlijlIjlllllIjjj.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+            GL11.glPopMatrix();
+        }
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-3.2f, (float)-3.2f, (float)-5.15f);
+        GL11.glRotatef((float)-90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        this.ijIjiiIlilijljliIIlIijjllljijlll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-3.2f, (float)-3.2f, (float)7.0f);
+        GL11.glRotatef((float)90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.ijIjiiIlilijljliIIlIijjllljijlll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-3.2f, (float)-3.2f, (float)9.0f);
+        GL11.glRotatef((float)90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.jljilIjlIIjjiIlljlijlIjlllllIjjj.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-3.0f, (float)4.0f, (float)1.0f);
+        GL11.glRotatef((float)-90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        this.IIIilIijijijilIjIlIijilljilIiiIl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glRotatef((float)90.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        this.ijiijIIijIIjijIilIjjliIlljiijjII.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.05f, (float)-3.9f, (float)0.7f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)(-this.IljIIlIjlijlllilijjljiiljjjijjIj * 2.75f), (float)0.0f, (float)0.0f);
+        this.ljjiiIjIiliIIilliliIjijjlIIiIljl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glTranslatef((float)(this.IljIIlIjlijlllilijjljiiljjjijjIj * 2.75f), (float)0.0f, (float)0.0f);
+        this.IjjjIiIillijjIlIIIjililIjIjjIlji.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glTranslatef((float)-0.9f, (float)-4.17f, (float)11.55f);
+        for (n = 0; n < 32; ++n) {
+            GL11.glTranslatef((float)0.0f, (float)0.0f, (float)-1.82f);
+            this.jliIijllIliliiljljjjIiIlIIIijlii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        }
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glTranslatef((float)-0.35f, (float)-0.01f, (float)-5.96f);
+        for (n = 0; n < 7; ++n) {
+            GL11.glTranslatef((float)0.01f, (float)-0.0f, (float)5.32f);
+            this.IIiIIliIIIIiilIllIIllllIllIIiijl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        }
+        GL11.glPopMatrix();
+    }
+
+    private void ijjlIllililljIIIiIIjIjjlIjIIIlli() {
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.0f, (float)0.14f, (float)0.0f);
+        GL11.glRotatef((float)0.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        this.jIiIljlIjIjliljilljIiiiiIIiiijli.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glTranslatef((float)0.0f, (float)0.63f, (float)1.725f);
+        GL11.glPushMatrix();
+        GL11.glRotatef((float)(-this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z * 50.0f), (float)1.0f, (float)0.0f, (float)0.0f);
+        this.IliIijjiljIlllijlIIiijijjjjijjll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)0.0f, (float)-3.46f);
+        GL11.glRotatef((float)(-this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z * 50.0f), (float)1.0f, (float)0.0f, (float)0.0f);
+        this.IliIijjiljIlllijlIIiijijjjjijjll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glPushMatrix();
+        GL11.glRotatef((float)(this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z * 50.0f), (float)1.0f, (float)0.0f, (float)0.0f);
+        this.IliIijjiljIlllijlIIiijijjjjijjll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)0.0f, (float)3.46f);
+        GL11.glRotatef((float)(this.iiljIlIijljjllIiIiIiIIjIjiijjjji.z * 50.0f), (float)1.0f, (float)0.0f, (float)0.0f);
+        this.IliIijjiljIlllijlIIiijijjjjijjll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glTranslatef((float)0.0f, (float)3.0f, (float)0.0f);
+        GL11.glRotatef((float)30.0f, (float)1.0f, (float)0.0f, (float)0.0f);
+        GL11.glTranslatef((float)0.0f, (float)-1.7f, (float)-0.3f);
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.57f, (float)-0.17f, (float)-0.22f);
+        GL11.glRotatef((float)-60.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glColor3f((float)1.0f, (float)1.0f, (float)1.0f);
+        this.liIjjjjljIIlilllIjiIillijiIliIll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glDisable((int)2896);
+        if (this.liljIljIjilljliIjljijjIliijljiij && this.ljIillIiijijlIIijlilliljllijljlI == null) {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.55f, 0.01f, -0.16f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.serverstatus") + ":", new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 1.0f));
+            if (this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jjlliijIIIiIjIjiiIjijjIjIljjiiII.equals((Object)"online")) {
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.43f, 0.003f, -0.065f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jjlliijIIIiIjIjiiIjijjIjIljjiiII, new Vector4f(0.0f, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 0.0f, 1.0f));
+            } else if (this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jjlliijIIIiIjIjiiIjijjIjIljjiiII.equals((Object)"connecting...")) {
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.44f, 0.005f, -0.065f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jjlliijIIIiIjIjiiIjijjIjIljjiiII, new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 0.0f, 1.0f));
+            } else {
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.43f, 0.003f, -0.065f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jjlliijIIIiIjIjiiIjijjIjIljjiiII, new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 0.0f, 0.0f, 1.0f));
+            }
+            if (this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jjlliijIIIiIjIjiiIjijjIjIljjiiII.equals((Object)"online")) {
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.55f, -0.025f, -0.16f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.players") + ":", new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 1.0f));
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.44f, -0.028f, -0.06f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), "" + this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jIIlljIIIjijjlljiIiIiljjjiIIlIIl + "/" + this.IlijjliljjllIjiIIjliIIjIiiIlijjl.ljIillIiijijlIIijlilliljllijljlI, new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 1.0f));
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.55f, -0.055f, -0.15f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.totalservers") + ":", new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 1.0f));
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.44f, -0.06f, -0.06f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.0025f, 0.0025f, 0.0025f), "" + this.IlijjliljjllIjiIIjliIIjIiiIlijjl.jljiIijIIIIIIliijijjiIjIjiIljjjl, new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, 1.0f));
+            }
+        } else if (this.ljIillIiijijlIIijlilliljllijljlI != null) {
+            this.jljljllijIIIjIjllljiIilliljijiIl();
+        }
+        if (this.jijIiiiIjjjIiiIilillIlIilIIjIjji) {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(-0.55f, -0.08f, -0.24f), new Vector3f(180.0f, -5.0f, 45.0f), new Vector3f(0.0018f, 0.0018f, 0.0018f), "Metro 2033 Client", new Vector4f(0.0f, 0.0f, 0.0f, 1.0f));
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(-0.55f, -0.1f, -0.24f), new Vector3f(180.0f, -5.0f, 45.0f), new Vector3f(0.0014f, 0.0014f, 0.0014f), "R1.0 Build 072", new Vector4f(0.0f, 0.0f, 0.0f, 1.0f));
+            if (this.jIIiljiljIiljjljIiljiIljIjIIjIjl) {
+                String string = "";
+                if (this.jijIIjiilljIjIiilijiljIliiljIjll.x == 0.32f) {
+                    string = jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.multiplayer");
+                } else if (this.jijIIjiilljIjIiilijiljIliiljIjll.x == 0.033f) {
+                    string = jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.site");
+                } else if (this.jijIIjiilljIjIiilijiljIliiljIjll.x == -0.065f) {
+                    string = jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.options");
+                } else if (this.jijIIjiilljIjIiilijiljIliiljIjll.x == -0.305f) {
+                    string = jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.quit");
+                }
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(-0.01f, -0.09f, -0.05f), new Vector3f(180.0f, 0.0f, 0.0f), new Vector3f(0.0030769233f, 0.004f, 0.004f), jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.welcome") + ": " + this.ljjlijlIllljjlIIilIIjIjlllIjijli.jiljlIIiIiIiIjjjijIIiIiIjjIlljii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(), new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z / 1.3f, 0.0f, 1.0f));
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(-0.01f, -0.135f, -0.05f), new Vector3f(180.0f, 0.0f, 0.0f), new Vector3f(0.0034f, 0.0034f, 0.0034f), string, new Vector4f(this.iijjiljljiilIjjljjIIiiliiiiIIilI.z, this.iijjiljljiilIjjljjIIiiliiiiIIilI.z / 1.3f, 0.0f, 1.0f));
+                if (this.liIjjljlIiIIljjjiljlIjjlIjIIlIji) {
+                    this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.295f, -0.278f, 0.01f), new Vector3f(180.0f, 3.0f, 0.0f), new Vector3f(0.0023529413f, 0.0022f, 0.004f), ijliIjIiljlIIjlljijjjiijIlIIIjIl.ijiIijjiiIjjlIjiIijijjljilIjlIIl + jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.multiplayer"), 0);
+                }
+                if (this.lIjIjlIjllliiIilljijljlijijjjIjj) {
+                    this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.085f, -0.265f, -0.0f), new Vector3f(180.0f, -3.0f, 0.0f), new Vector3f(0.0022222223f, 0.0022f, 0.004f), ijliIjIiljlIIjlljijjjiijIlIIIjIl.ijiIijjiiIjjlIjiIijijjljilIjlIIl + jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.site"), 0);
+                }
+                if (this.jlIljiiiIjIIjiilljjlIIiiijjjIiij) {
+                    this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(-0.129f, -0.294f, -0.0f), new Vector3f(180.0f, 1.0f, 0.0f), new Vector3f(0.0032520327f, 0.003f, 0.004f), ijliIjIiljlIIjlljijjjiijIlIIIjIl.ijiIijjiiIjjlIjiIijijjljilIjlIIl + jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.options"), 0);
+                }
+                if (this.IliIlIijIiIilIlIjjjijjjijljiijIl) {
+                    this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(-0.329f, -0.266f, 0.0f), new Vector3f(180.0f, -1.0f, 0.0f), new Vector3f(0.0030769233f, 0.003f, 0.004f), ijliIjIiljlIIjlljijjjiijIlIIIjIl.ijiIijjiiIjjlIjiIijijjljilIjlIIl + jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.quit"), 0);
+                }
+            }
+        }
+        GL11.glEnable((int)2896);
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.52f, (float)-0.36f, (float)-0.1f);
+        GL11.glRotatef((float)45.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        this.IljjiIIjilijjljlIljilIIjiijiijII.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.56f, (float)-0.31f, (float)0.0f);
+        GL11.glRotatef((float)-45.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        this.iijIijlilIiijiIijilijIjIljljlIij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        if (this.IjiljlIljIjjjIjjiljIIIIljIjllIll-- <= 0) {
+            this.IIIjjlliijjillIjllIjjijjIIIljiil = this.iIiiiliIiijIlililllIlijjIlijIIji.nextBoolean();
+            this.IjiljlIljIjjjIjjiljIIIIljIjllIll = 3 + this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(4);
+        }
+        this.ilijlliilIilillIIiIlijIjIjjIiIIl = this.IIIjjlliijjillIjllIjjijjIIIljiil ? (this.ilijlliilIilillIIiIlijIjIjjIiIIl += (0.25f + (float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(11) - 20) / 10.0f) * this.IIIiiiijllIiljiliIjjlIljIiiIiijl) : (this.ilijlliilIilillIIiIlijIjIjjIiIIl -= (0.25f + (float)(this.iIiiiliIiijIlililllIlijjIlijIIji.nextInt(11) - 20) / 10.0f) * this.IIIiiiijllIiljiliIjjlIljIiiIiijl);
+        if (this.ilijlliilIilillIIiIlijIjIjjIiIIl > 45.0f) {
+            this.ilijlliilIilillIIiIlijIjIjjIiIIl = 45.0f;
+        } else if (this.ilijlliilIilillIIiIlijIjIjjIiIIl < -45.0f) {
+            this.ilijlliilIilillIIiIlijIjIjjIiIIl = -45.0f;
+        }
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.002f, (float)0.202f, (float)-0.004f);
+        GL11.glRotatef((float)this.ilijlliilIilillIIiIlijIjIjjIiIIl, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.jIIiliIilljIjjIliljjiIlllIllIIil.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)-0.12f, (float)0.0f);
+        this.jiiijIiiljIIjlIIilIjiIjllIlIjlll.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.3f, (float)-0.25f, (float)0.0f);
+        this.jIilljiijjjjIiiilljIliIilIjllijj.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glTranslatef((float)-0.027f, (float)0.013f, (float)0.0f);
+        GL11.glRotatef((float)this.lIIjjiiIIjjIIIljllIljlIjIlIjjlIl, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.IijiIIljlIlIIlIjililllllliIIiiji.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.08f, (float)-0.25f, (float)0.0f);
+        this.jllijjijIljIlIjjjliiIiiijjliijIi.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glTranslatef((float)0.017f, (float)0.025f, (float)0.0f);
+        GL11.glRotatef((float)(this.lIijIlijIliiIijjjiIlIllljiijIlli - 30.0f), (float)0.0f, (float)1.0f, (float)0.0f);
+        this.jililllIijijIIiiIiliIjjjlilljjII.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.14f, (float)-0.25f, (float)0.0f);
+        this.IIlijiIIiIiiIjllIjiiijijiIjiliIi.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glTranslatef((float)0.008f, (float)0.014f, (float)0.0f);
+        GL11.glRotatef((float)this.ijliIIIlilIijjIiIiiljlliliijjlIl, (float)0.0f, (float)0.0f, (float)1.0f);
+        this.liliIiillllljljijIlilljlijllilij.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.34f, (float)-0.25f, (float)0.0f);
+        this.IlljllIljiijiIllIiillijiIIIiIjji.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)-0.0f, (float)(this.jijIjiliiIljIliIIjIIljjilljiIIji - 0.01f));
+        this.iljjijliijiilijIiliiijiIijiljlil.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.0f, (float)-0.0f, (float)(-this.jijIjiliiIljIliIIjIIljjilljiIIji + 0.01f));
+        this.lIIiljjIjjIjliIIIiIIiIlilijijIlj.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPopMatrix();
+        GL11.glTranslatef((float)0.0f, (float)-0.4f, (float)0.0f);
+        GL11.glColor3f((float)0.4f, (float)0.4f, (float)0.4f);
+        this.ljIiIiIlIiliiiIjjIIjIjillIIIIill.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.4f, (float)-0.0f, (float)0.13f);
+        GL11.glRotatef((float)(-this.IIljiIIjIllIljljIlIjIiiIjillIiII), (float)0.0f, (float)1.0f, (float)0.0f);
+        this.jllllIiIiliillIIIlilijIjjlijllil.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)-0.4f, (float)-0.0f, (float)0.15f);
+        GL11.glRotatef((float)(-this.IIljiIIjIllIljljIlIjIiiIjillIiII + 90.0f), (float)0.0f, (float)1.0f, (float)0.0f);
+        this.jllllIiIiliillIIIlilijIjjlijllil.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        GL11.glPopMatrix();
+        GL11.glPopMatrix();
+        GL11.glPopMatrix();
+    }
+
+    private void jljljllijIIIjIjllljiIilliljijiIl() {
+        for (int i = 0; i < this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1; ++i) {
+            lIliijljIiIIIljIljIlliljiIjIiIIl lIliijljIiIIIljIljIlliljiIjIiIIl2 = (lIliijljIiIIIljIljIlliljiIjIiIIl)this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.get(i);
+            if (i % 2 == 0) {
+                this.IjiIliIlIllillljIIIiIjiljlIljlIl(-0.17f, (float)(-i) / 2.0f / 40.0f + 0.014f, lIliijljIiIIIljIljIlliljiIjIiIIl2.IIIjjjljljjiiljlijijjiijjiiIiljI, i == this.lIiIjlIjIiijIllllijlijijIjjiIlil, i == this.iIiillllIjjjiiIiIIiljlIjIjlIlill ? new Vector4f(0.0f, 1.0f, 0.0f, 1.0f) : new Vector4f(1.0f, 1.0f, 1.0f, 1.0f));
+                continue;
+            }
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(-0.01f, (float)(-i) / 2.0f / 40.0f + 0.0265f, lIliijljIiIIIljIljIlliljiIjIiIIl2.IIIjjjljljjiiljlijijjiijjiiIiljI, i == this.lIiIjlIjIiijIllllijlijijIjjiIlil, i == this.iIiillllIjjjiiIiIIiljlIjIjlIlill ? new Vector4f(0.0f, 1.0f, 0.0f, 1.0f) : new Vector4f(1.0f, 1.0f, 1.0f, 1.0f));
+        }
+        lIliijljIiIIIljIljIlliljiIjIiIIl lIliijljIiIIIljIljIlliljiIjIiIIl3 = (lIliijljIiIIIljIljIlliljiIjIiIIl)this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.get(this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1);
+        this.IjiIliIlIllillljIIIiIjiljlIljlIl(-0.094f, -0.145f, lIliijljIiIIIljIljIlliljiIjIiIIl3.IIIjjjljljjiiljlijijjiijjiiIiljI, this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1 == this.lIiIjlIjIiijIllllijlijijIjjiIlil, this.ljIillIiijijlIIijlilliljllijljlI.lljjjiiIlIlijjlIlIijljiIjIIjiljI.size() - 1 == this.iIiillllIjjjiiIiIIiljlIjIjlIlill ? new Vector4f(0.0f, 1.0f, 0.0f, 1.0f) : new Vector4f(1.0f, 1.0f, 1.0f, 1.0f));
+        this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(0.52f, -0.12f, -0.11f), new Vector3f(180.0f, 0.0f, -45.0f), new Vector3f(0.001f, 0.001f, 0.001f), jlllliijIlljIIIiijljIjiIljjljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl((String)"menu.use"), 0);
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(float f, float f2, String string, boolean bl, Vector4f vector4f) {
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)0.51f, (float)f2, (float)-0.1f);
+        GL11.glRotatef((float)45.0f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GL11.glRotatef((float)180.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glTranslatef((float)f, (float)0.0f, (float)0.0f);
+        float f3 = 0.001f;
+        GL11.glScalef((float)f3, (float)f3, (float)f3);
+        if (bl && vector4f.x == 1.0f) {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(75.0f, 5.0f, 0.0f), new Vector3f(0.0f, 0.0f, 0.0f), new Vector3f(1.0f, 1.0f, 1.0f), string, new Vector4f(1.0f, 0.8f, 0.0f, 1.0f));
+        } else {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(new Vector3f(75.0f, 5.0f, 0.0f), new Vector3f(0.0f, 0.0f, 0.0f), new Vector3f(1.0f, 1.0f, 1.0f), string, vector4f);
+        }
+        GL11.glEnable((int)2896);
+        GL11.glTranslatef((float)0.0f, (float)0.0f, (float)0.1f);
+        this.ljjlijlIllljjlIIilIIjIjlllIjijli.ljIillIiijijlIIijlilliljllijljlI.jjlliijIIIiIjIjiiIjijjIjIljjiiII(lIliijljIiIIIljIljIlliljiIjIiIIl.illljjjIIIIijjiIjjljljIIljijIIIj);
+        int n = 1;
+        if (bl) {
+            n = 2;
+        }
+        this.jjlliijIIIiIjIjiiIjijjIjIljjiiII(0, 0, 0, 46 + n * 20, 75, 20);
+        this.jjlliijIIIiIjIjiiIjijjIjIljjiiII(75, 0, 125, 46 + n * 20, 75, 20);
+        GL11.glDisable((int)2896);
+        GL11.glPopMatrix();
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(Vector3f vector3f, Vector3f vector3f2, Vector3f vector3f3, String string, Vector4f vector4f) {
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)vector3f.x, (float)vector3f.y, (float)vector3f.z);
+        GL11.glScalef((float)vector3f3.x, (float)vector3f3.y, (float)vector3f3.z);
+        GL11.glRotatef((float)vector3f2.x, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glRotatef((float)vector3f2.y, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glRotatef((float)vector3f2.z, (float)0.0f, (float)1.0f, (float)0.0f);
+        lljiiilIllIlIjllljjliijiiiiiliIl lljiiilIllIlIjllljjliijiiiiiliIl2 = lljiiilIllIlIjllljjliijiiiiiliIl.jljljjiIIIIIiiIjIjiilliiIliIjljI;
+        lljiiilIllIlIjllljjliijiiiiiliIl2.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        int n = this.jljljllijIIIjIjllljiIilliljijiIl.IjiIliIlIllillljIIIiIjiljlIljlIl(string) / 2;
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0f, 0.0f, 0.0f, 0.0f);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(-n - 1), -1.0, 0.0);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(-n - 1), 8.0, 0.0);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(n + 1), 8.0, -1.0);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(n + 1), -1.0, 0.0);
+        GL11.glDepthMask((boolean)false);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl();
+        GL11.glDepthMask((boolean)true);
+        this.jljljllijIIIjIjllljiIilliljijiIl.IjiIliIlIllillljIIIiIjiljlIljlIl(string, -this.jljljllijIIIjIjllljiIilliljijiIl.IjiIliIlIllillljIIIiIjiljlIljlIl(string) / 2, 0, vector4f, false);
+        GL11.glPopMatrix();
+    }
+
+    private void IjiIliIlIllillljIIIiIjiljlIljlIl(Vector3f vector3f, Vector3f vector3f2, Vector3f vector3f3, String string, int n) {
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float)vector3f.x, (float)vector3f.y, (float)vector3f.z);
+        GL11.glScalef((float)vector3f3.x, (float)vector3f3.y, (float)vector3f3.z);
+        GL11.glRotatef((float)vector3f2.x, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glRotatef((float)vector3f2.y, (float)0.0f, (float)0.0f, (float)1.0f);
+        GL11.glRotatef((float)vector3f2.z, (float)0.0f, (float)1.0f, (float)0.0f);
+        lljiiilIllIlIjllljjliijiiiiiliIl lljiiilIllIlIjllljjliijiiiiiliIl2 = lljiiilIllIlIjllljjliijiiiiiliIl.jljljjiIIIIIiiIjIjiilliiIliIjljI;
+        lljiiilIllIlIjllljjliijiiiiiliIl2.jIIlljIIIjijjlljiIiIiljjjiIIlIIl();
+        int n2 = this.jljljllijIIIjIjllljiIilliljijiIl.IjiIliIlIllillljIIIiIjiljlIljlIl(string) / 2;
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl(0.0f, 0.0f, 0.0f, 0.0f);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(-n2 - 1), -1.0, 0.0);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(-n2 - 1), 8.0, 0.0);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(n2 + 1), 8.0, -1.0);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl((double)(n2 + 1), -1.0, 0.0);
+        GL11.glDepthMask((boolean)false);
+        lljiiilIllIlIjllljjliijiiiiiliIl2.IjiIliIlIllillljIIIiIjiljlIljlIl();
+        GL11.glDepthMask((boolean)true);
+        this.jljljllijIIIjIjllljiIilliljijiIl.jjlliijIIIiIjIjiiIjijjIjIljjiiII(string, -this.jljljllijIIIjIjllljiIilliljijiIl.IjiIliIlIllillljIIIiIjiljlIljlIl(string) / 2, 0, n);
+        GL11.glPopMatrix();
+    }
+
+    public void IjiIliIlIllillljIIIiIjiljlIljlIl(int n, int n2, float f) {
+        double d;
+        double d2 = d = (double)System.nanoTime() / 1.0E9;
+        this.llliljiIlliIjijiijlijljiiiijjlij = d2 - this.iIllllIliiIiIjljIijIIiiIljIiiIli;
+        this.iIllllIliiIiIjljIijIIiiIljIiiIli = d2;
+        if (!this.jIIlljIIIjijjlljiIiIiljjjiIIlIIl && this.jjlliijIIIiIjIjiiIjijjIjIljjiiII) {
+            ililiijjIiIijljllIjiljlIjilijiiI ililiijjIiIijljllIjiljlIjilijiiI2;
+            String string;
+            IlIljlljjIjIjljIijililIIiljjiIlj ilIljlljjIjIjljIijililIIiljjiIlj = this.ljjlijlIllljjlIIilIIjIjlllIjijli.ljIillIiijijlIIijlilliljllijljlI.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(new jiiiIIIIIIjllljIiljIjiIljIllIljI("skin/" + this.ljjlijlIllljjlIIilIIjIjlllIjijli.jiljlIIiIiIiIjjjijIIiIiIjjIlljii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl() + ".png"));
+            if (ilIljlljjIjIjljIijililIIiljjiIlj == null) {
+                jiiiIIIIIIjllljIiljIjiIljIllIljI jiiiIIIIIIjllljIiljIjiIljIllIljI2;
+                string = "https://metro2033server.ru/launcher_release/MinecraftSkins/" + this.ljjlijlIllljjlIIilIIjIjlllIjijli.jiljlIIiIiIiIjjjijIIiIiIjjIlljii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl() + ".png";
+                ililiijjIiIijljllIjiljlIjilijiiI2 = ilIllilIjjlIijlIiiiijlljiIiiIiil.jljljllijIIIjIjllljiIilliljijiIl().IljjiIIjilijjljlIljilIIjiijiijII();
+                IlIljlljjIjIjljIijililIIiljjiIlj ilIljlljjIjIjljIijililIIiljjiIlj2 = ililiijjIiIijljllIjiljlIjilijiiI2.jIIlljIIIjijjlljiIiIiljjjiIIlIIl(jiiiIIIIIIjllljIiljIjiIljIllIljI2 = new jiiiIIIIIIjllljIiljIjiIljIllIljI("skins/" + this.ljjlijlIllljjlIIilIIjIjlllIjijli.jiljlIIiIiIiIjjjijIIiIiIjjIlljii.jIIlljIIIjijjlljiIiIiljjjiIIlIIl()));
+                if (ilIljlljjIjIjljIijililIIiljjiIlj2 == null) {
+                    ilIljlljjIjIjljIijililIIiljjiIlj2 = new iIiIIillIlIlljIIjiIIjjllliIIiilj((File)null, string, jilIjjjjjjIiIllIjiIIjjjllIlljjlj.IjiIliIlIllillljIIIiIjiljlIljlIl, (jlIjjjlijililllijjIjjiIIjillIIlI)new IIjliIllliljiIliiiIlljjIIlIjIIij());
+                    ililiijjIiIijljllIjiljlIjilijiiI2.IjiIliIlIllillljIIIiIjiljlIljlIl(jiiiIIIIIIjllljIiljIjiIljIllIljI2, ilIljlljjIjIjljIijililIIiljjiIlj2);
+                }
+            }
+            this.jIIlljIIIjijjlljiIiIiljjjiIIlIIl = true;
+            string = new lljlIIIIljiiljIijlljlliijlIlIjii(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:textures/" + IijjiiliijilIiiIijIIlliijIjIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl + "/ambient/tunnel_kapli.png"));
+            ililiijjIiIijljllIjiljlIjilijiiI2 = new lljlIIIIljiiljIijlljlliijlIlIjii(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:textures/" + IijjiiliijilIiiIijIIlliijIjIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl + "/fx/fx_glowlamp_small.png"));
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.ljIillIiijijlIIijlilliljllijljlI.IjiIliIlIllillljIIIiIjiljlIljlIl(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:textures/" + IijjiiliijilIiiIijIIlliijIjIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl + "/ambient/tunnel_kapli.png"), (IlIljlljjIjIjljIijililIIiljjiIlj)string);
+            this.ljjlijlIllljjlIIilIIjIjlllIjijli.ljIillIiijijlIIijlilliljllijljlI.IjiIliIlIllillljIIIiIjiljlIljlIl(new jiiiIIIIIIjllljIiljIjiIljIllIljI("metro2033server:textures/" + IijjiiliijilIiiIijIIlliijIjIIlIl.IjiIliIlIllillljIIIiIjiljlIljlIl + "/fx/fx_glowlamp_small.png"), (IlIljlljjIjIjljIijililIIiljjiIlj)ililiijjIiIijljllIjiljlIjilijiiI2);
+            this.jljljjjiIilIiiljilillIliiljlIijj = string.IjiIliIlIllillljIIIiIjiljlIljlIl();
+            this.IijlliIliIiljjjiIjIIlIiIjIijjjji = ililiijjIiIijljllIjiljlIjilijiiI2.IjiIliIlIllillljIIIiIjiljlIljlIl();
+            this.IljjiIIjilijjljlIljilIIjiijiijII = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IljjiIIjilijjljlIljilIIjiijiijII);
+            this.liIjjjjljIIlilllIjiIillijiIliIll = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.liIjjjjljIIlilllIjiIillijiIliIll);
+            this.iijIijlilIiijiIijilijIjIljljlIij = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.iijIijlilIiijiIijilijIjIljljlIij);
+            this.jIIiliIilljIjjIliljjiIlllIllIIil = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jIIiliIilljIjjIliljjiIlllIllIIil);
+            this.jiiijIiiljIIjlIIilIjiIjllIlIjlll = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jiiijIiiljIIjlIIilIjiIjllIlIjlll);
+            this.jIilljiijjjjIiiilljIliIilIjllijj = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jIilljiijjjjIiiilljIliIilIjllijj);
+            this.IijiIIljlIlIIlIjililllllliIIiiji = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IijiIIljlIlIIlIjililllllliIIiiji);
+            this.jllijjijIljIlIjjjliiIiiijjliijIi = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jllijjijIljIlIjjjliiIiiijjliijIi);
+            this.jililllIijijIIiiIiliIjjjlilljjII = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jililllIijijIIiiIiliIjjjlilljjII);
+            this.IIlijiIIiIiiIjllIjiiijijiIjiliIi = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IIlijiIIiIiiIjllIjiiijijiIjiliIi);
+            this.liliIiillllljljijIlilljlijllilij = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.liliIiillllljljijIlilljlijllilij);
+            this.IlljllIljiijiIllIiillijiIIIiIjji = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IlljllIljiijiIllIiillijiIIIiIjji);
+            this.iljjijliijiilijIiliiijiIijiljlil = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.iljjijliijiilijIiliiijiIijiljlil);
+            this.lIIiljjIjjIjliIIIiIIiIlilijijIlj = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.lIIiljjIjjIjliIIIiIIiIlilijijIlj);
+            this.ljIiIiIlIiliiiIjjIIjIjillIIIIill = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.ljIiIiIlIiliiiIjjIIjIjillIIIIill);
+            this.jllllIiIiliillIIIlilijIjjlijllil = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jllllIiIiliillIIIlilijIjjlijllil);
+            this.IIiIIliIIIIiilIllIIllllIllIIiijl = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IIiIIliIIIIiilIllIIllllIllIIiijl);
+            this.jliIijllIliliiljljjjIiIlIIIijlii = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jliIijllIliliiljljjjIiIlIIIijlii);
+            this.ijIjiiIlilijljliIIlIijjllljijlll = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.ijIjiiIlilijljliIIlIijjllljijlll);
+            this.jljilIjlIIjjiIlljlijlIjlllllIjjj = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jljilIjlIIjjiIlljlijlIjlllllIjjj);
+            this.jIiIljlIjIjliljilljIiiiiIIiiijli = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jIiIljlIjIjliljilljIiiiiIIiiijli);
+            this.IliIijjiljIlllijlIIiijijjjjijjll = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IliIijjiljIlllijlIIiijijjjjijjll);
+            this.ijiijIIijIIjijIilIjjliIlljiijjII = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.ijiijIIijIIjijIilIjjliIlljiijjII);
+            this.ljjiiIjIiliIIilliliIjijjlIIiIljl = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.ljjiiIjIiliIIilliliIjijjlIIiIljl);
+            this.IjjjIiIillijjIlIIIjililIjIjjIlji = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IjjjIiIillijjIlIIIjililIjIjjIlji);
+            this.IijIlijlIIjlilliilliijIiIIIljjij = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IijIlijlIIjlilliilliijIiIIIljjij);
+            this.lijjIjIIiiIljiIililjiIijjiijjjji = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.lijjIjIIiiIljiIililjiIijjiijjjji);
+            this.iIjlIiIiiiijiIlIIiljIillIIjlljIj = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.iIjlIiIiiiijiIlIIiljIillIIjlljIj);
+            this.IIIilIijijijilIjIlIijilljilIiiIl = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IIIilIijijijilIjIlIijilljilIiiIl);
+            this.jjiiilliililliIlIiliIllilijjllii = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jjiiilliililliIlIiliIllilijjllii);
+            this.jjIliljIlljljljllijjIIjIjilIliij = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jjIliljIlljljljllijjIIjIjilIliij);
+            this.IIlijjljiIilijIijlilIjIilijjliij = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.IIlijjljiIilijIijlilIjIilijjliij);
+            this.iIljIljjIliIIIjiiiijIjjIjIjijllI = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.iIljIljjIliIIIjiiiijIjjIjIjijllI);
+            this.jIIillIjIlliIljljiIjjjiijiilIill = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.jIIillIjIlliIljljiIjjjiijiilIill);
+            this.iilIiIijijIlIjljjijIIllIilljiiil = IiliIjiliijIIlIliIjlljiiiIlIijji.IjiIliIlIllillljIIIiIjiljlIljlIl((iIIiiiIiiIlIjiiIIIjIIiijlijiljij)this.iilIiIijijIlIjljjijIIllIilljiiil);
+        }
+        this.IIIiiiijllIiljiliIjjlIljIiiIiijl = (float)this.llliljiIlliIjijiijlijljiiiijjlij * 40.0f;
+        if (this.IIIiiiijllIiljiliIjjlIljIiiIiijl > 10.0f) {
+            this.IIIiiiijllIiljiliIjjlIljIiiIiijl = 0.0f;
+        }
+        this.IIljiIIjIllIljljIlIjIiiIjillIiII += this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+        GL11.glClear((int)16640);
+        GL11.glViewport((int)0, (int)0, (int)this.ljjlijlIllljjlIIilIIjIjlllIjijli.IlijjliljjllIjiIIjliIIjIiiIlijjl, (int)this.ljjlijlIllljjlIIilIIjIjlllIjijli.IljIIIIlljIljjjIlIjlijIllIiIIjji);
+        GL11.glMatrixMode((int)5889);
+        GL11.glLoadIdentity();
+        GLU.gluPerspective((float)70.0f, (float)((float)this.ljjlijlIllljjlIIilIIjIjlllIjijli.IlijjliljjllIjiIIjliIIjIiiIlijjl / (float)this.ljjlijlIllljjlIIilIIjIjlllIjijli.IljIIIIlljIljjjIlIjlijIllIiIIjji), (float)0.1f, (float)100.0f);
+        GL11.glMatrixMode((int)5888);
+        GL11.glLoadIdentity();
+        if (this.jjlliijIIIiIjIjiiIjijjIjIljjiiII) {
+            this.IjiIliIlIllillljIIIiIjiljlIljlIl(true);
+            if (!this.IljIIIIlljIljjjIlIjlijIllIiIIjji) {
+                this.iIiIIljlIIjIIjIiIjIlijiIIIiilIiI();
+                this.illljjjIIIIijjiIjjljljIIljijIIIj.IlijjliljjllIjiIIjliIIjIiiIlijjl();
+                this.iijljjIIlljIIjliljiilIjiiIiilIIl.IljIIIIlljIljjjIlIjlijIllIiIIjji();
+                this.IijlijiijIIIlIiIjIiljllilllijIjI.IjiIliIlIllillljIIIiIjiljlIljlIl(this.ljjlijlIllljjlIIilIIjIjlllIjijli, n, n2);
+                this.IIiIIljjiiijIliIljjIiiijjjiillii.IjiIliIlIllillljIIIiIjiljlIljlIl(this.ljjlijlIllljjlIIilIIjIjlllIjijli, n, n2);
+                if (this.IjiiIIlliljlIIIijIjjlIijiIlIlIll) {
+                    this.jiiliIIIljilIljijjIjijilIilIijll();
+                } else {
+                    this.ijiIijjiiIjjlIjiIijijjljilIjlIIl = 0.0f;
+                    this.IIIjjjljljjiiljlijijjiijjiiIiljI = 0.0f;
+                    this.IlijlIlilIIjlilIlliljjiIljjlIjIi = 0.0f;
+                }
+                if (this.jijljliIijiiijljIliijjiliiilijIl != null) {
+                    if (this.jIjiiIjIIIIijljliIIIijjiiIiiiijj > 0.0f) {
+                        this.jIjiiIjIIIIijljliIIIijjiiIiiiijj -= this.IlijIjliliIjIlljIIIlIllIljllIIii * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    } else {
+                        this.IIiIIljjiiijIliIljjIiiijjjiillii.ljjlijlIllljjlIIilIIjIjlllIjijli = true;
+                        this.jijljliIijiiijljIliijjiliiilijIl = null;
+                    }
+                    this.IjiIliIlIllillljIIIiIjiljlIljlIl(this.jijljliIijiiijljIliijjiliiilijIl, new Vector4f(this.jIjiiIjIIIIijljliIIIijjiiIiiiijj, this.jIjiiIjIIIIijljliIIIijjiiIiiiijj / 4.0f, this.jIjiiIjIIIIijljliIIIijjiiIiiiijj / 4.0f, this.jIjiiIjIIIIijljliIIIijjiiIiiiijj));
+                } else if (this.jjjIijlliiiIIIlIilIillllIjjijlIl != null) {
+                    if (this.jIjiiIjIIIIijljliIIIijjiiIiiiijj > 0.0f) {
+                        this.jIjiiIjIIIIijljliIIIijjiiIiiiijj -= this.IlijIjliliIjIlljIIIlIllIljllIIii * this.IIIiiiijllIiljiliIjjlIljIiiIiijl;
+                    } else {
+                        this.jjjIijlliiiIIIlIilIillllIjjijlIl = null;
+                    }
+                    this.IjiIliIlIllillljIIIiIjiljlIljlIl(this.jjjIijlliiiIIIlIilIillllIjjijlIl, new Vector4f(this.jIjiiIjIIIIijljliIIIijjiiIiiiijj / 4.0f, this.jIjiiIjIIIIijljliIIIijjiiIiiiijj / 4.0f, this.jIjiiIjIIIIijljliIIIijjiiIiiiijj, this.jIjiiIjIIIIijljliIIIijjiiIiiiijj));
+                }
+                GL11.glEnable((int)2896);
+                GL11.glEnable((int)2912);
+            }
+        }
+        GL11.glDisable((int)16385);
+        GL11.glDisable((int)16386);
+        GL11.glDisable((int)16387);
+        GL11.glDisable((int)16388);
+        GL11.glDisable((int)16389);
+        GL11.glDisable((int)2912);
+    }
+}

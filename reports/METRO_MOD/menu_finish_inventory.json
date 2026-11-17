@@ -1,0 +1,1727 @@
+{
+  "sources": [
+    {
+      "name": "Metro2033Models.jar",
+      "bytes": 616729038
+    },
+    {
+      "name": "Metro2033Textures0.jar",
+      "bytes": 1321697649
+    },
+    {
+      "name": "Metro2033Textures1.jar",
+      "bytes": 1247054887
+    },
+    {
+      "name": "Metro2033Textures2.jar",
+      "bytes": 1190115814
+    },
+    {
+      "name": "Metro2033Textures3.jar",
+      "bytes": 407727376
+    },
+    {
+      "name": "Metro2033ConnectedTextures.jar",
+      "bytes": 403726672
+    }
+  ],
+  "original_models_sha256_verified": true,
+  "source_textures_full_hash_computed": false,
+  "requested_texture_size": 512,
+  "files": [
+    {
+      "path": "assets/metro2033server/models/obj/decor_metro/trub.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 752,
+      "sha256": "236f7983013e66d93ad5f0ba0501c0a9b01f3daabcb93c0aec59a94ba8983d93",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/decor_metro/trub90.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 752,
+      "sha256": "f1e2b7cf37bfb24f4525049cf0e553919a1d65d24b15578c4fe6d4cae3f2d099",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/decor_metro/web1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "cbbfadf5e74b4cb94690b7993b9266baeb731c8db7c7c22dfa2c75bc0585590e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/decor_metro/web2.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 448,
+      "sha256": "c1555dac403938ea62923a2edcfa5c8dbf4a897188628e7478c9d47b2e0f87c5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/decor_metro/web3.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "13007aa229c4b394d2963ce1ad24176cafb504ff36647cea1fcfe9ec98d5c241",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/drezina/regina.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 2320,
+      "sha256": "34dc2f62e4759f062ddb3e842f053db82c8ff22d748b4011b34195688352e0c5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/drezina/regina_well.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "32a800caa91c3e7489f58ecc92b51a47fc943e31f35fffd34567edc13223912f",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/germo_left.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 448,
+      "sha256": "dbc7cf5c3d55e55bad6bd38617dd0574b5fef5e23dcfd083e9420395c9264f45",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/germo_right.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 448,
+      "sha256": "39e8ece5cbdbfb97bffc48b538c9285ceabe46f2903ed00d841b242099ab4b55",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 736,
+      "sha256": "db80ac8d3b898486535fcd318af2fc3894f23da04932ce07176e15a510945ef2",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part2.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 1040,
+      "sha256": "10df9e309c13103f3380fcd0745526a9b647b2e8130278ef7a05c5ce4770b4bc",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part3.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 1040,
+      "sha256": "fdee7d50b652a8528d9946784fba2f119b0e7d1f3e4f2bd3ab6c87c86cba6666",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part3_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "6682ddfb9ce6485a9c37828b238a91a682eb1648244633e37010e0f12e9e59ae",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part4.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "3ed6f834d9bf93d7684428467b2cb8b2cd540c9b58152b4c15c2c8bc8872051f",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part5.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "1e7508d9d849c99202ceaa5f45fd696e9e8855d451584b62658f5035575b9b48",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part5_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "6098ef621febcca1feb893e80326535451d254e96fb83a9995962adcaeb54ee7",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part6.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "cab51f05098b7d89bd02b7eaeca5b6966ade3d05e3a5b03cd53fe988901ea3a1",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part6_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "ca9fc01a9e082881c4c3f44034781cc5cb6cc3e16a9092150a787be7bc46cbeb",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part7.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "a569ad30119d3ecf25c022049d9e96a9c03a8262a485e6edc395ee632176afe5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part7_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "06e9bc22b64e9e5520b05a7d3536d6a0361e31cfda794e0f6df5937e6b5f31ae",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part8.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "1d535dca139157a70e5358b335f001da8e0756a953f03bec81f6cf825cac68ed",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part8_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "b7e81cba2291f62cf250ab740136d74548d6dcbc7c197c0aa7844de1d56fe8d7",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part8_2.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "74f4c4e610d385c87f4dcec2151a4531094c9277c62e511228149c80da68cbb4",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part9.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "16d4548d1adfaceb4c47ba9c1dfa3491fb4bb7a7c694cf8192231767e8998aa3",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/part9_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "c48f1ba6d1276a48f84202cace4777f9e29efd67d41f27b64a01664ea23ef4fd",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/menu/tun.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 1104,
+      "sha256": "1064388c6d2729e558c509322873fddfb06b4eb87ceeb8734e3ab6216a4c84c6",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/plant/root1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "0ed265cd33c3cb09552cd198dda54bfc33bbc8ce77352b551a270cc950c0945d",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/plant/root2.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "ec44b85dd18a8c3423980cdc6d866bedfa2a5b20517bbb02bfbddf18387ed1c6",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/rails.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 1040,
+      "sha256": "997bc79b33010b16f3b8dbdd8e3494223df8b6aef209c5c7fc745e301728e28a",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 4016,
+      "sha256": "30b391c98d7cb99902573ed09a93dca863fd453154652fe1dd1e6b23b7f9d88d",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel2.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 3712,
+      "sha256": "6076a21edaf42db7b1e8651ff49fa8b692049ce5a6afa4f64c2fb5dc1aa154c6",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel3.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 3712,
+      "sha256": "80b48b0c6237c6c14464b5f2ad89383d23a9079894684655a853b4417b94cca0",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel4.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 3792,
+      "sha256": "733504ce9eeb1c7d079f1be3fb108ddba602799517c0d8884008f1cd12350cf4",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel5.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 3712,
+      "sha256": "0c255b7ab8e77ca213b94a96e32561048680196f5dcdabd0b497d99c30395d23",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.m2033gl4",
+      "source": "Metro2033Models.jar",
+      "bytes": 432,
+      "sha256": "8632f7742f1a1474e923b5183fcc9eff050fee3590c0c48a94789b1fe6fc626c",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/concrete34_opalubka_tunnel_ao.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "7fa23de04282f121face875eb7866f004ee908553d576817b9026cc2f2a4a10e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/concrete34_opalubka_tunnel_ao_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "4ecfc10e7a3d545036be25e7998e011d93c39f55605fbff036588ff4f04f733f",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/concrete34_opalubka_tunnel_ao_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "481f19dd90877229a5393388788efcd225b714e56fcd956a9fac1951ff9efd9c",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/concrete_tile_07.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "263587d24a59c246eb32a03aab367bb861be04b3eecc9dfb9a3ba17c343185f5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/concrete_tile_07_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "93b349091ad80ce8bbe197c411343839bb9a7e41e79f8bb7bd88172c436d01d0",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/concrete_tile_07_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "dd993fdd8a7baeee45667b677f6bcc63407f8d43ee44f2e17710e257850c86b5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/floor_concrete_blocks.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "bf1ee4e6f617e45eb0b11152eef6e087c912ce42a41c1bf6e077cc07d9b158ff",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/floor_concrete_blocks_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "59b8cc26851641034d3a727e534bc7bb0ca5c7592cd3c2880831d173f1bfde83",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/floor_concrete_blocks_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "dd81263d998eccc1b6e8b40f9ea444dd182ba558f1c17d307da4abd4e76c371f",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/floor_tunnel_pod.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "ac0f359aa8617be249786b457820980c60f6bf1a84e511a68a93f4b2fdd15b9a",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/floor_tunnel_pod_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "5fe0e119ad314f9380b9f43a7344d188d3019755d00add47cb8c0c1a3a429c9b",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/floor_tunnel_pod_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "e7a23593292a1b9849ceeb59d46d147e82e3db89696a5f687aa5ba478a2e57d2",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/grnd_glina_01.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "3b0d5ecca7346ad584e890e19812685d06a2285e0391852e805a36fc65ceb949",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/grnd_glina_01_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "de0fa4c6d98405737c7d43c404621b20b1b097d104307f44259418b943faf18a",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/grnd_glina_01_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "3903d7aab808a82116888f4fdb3cab6149815b6dd78d436b0f73fe843ed33f85",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal34_props_01.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "8c52b24dbb15d8b3deb7892339ef68e0912d11f34c39a9bab8be32d5e34f697c",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal34_props_01_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "34459c460c1c6919d36e60d276cdc3b92cc3f1186cc626d3ad8a7841e9d76bf8",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal34_props_01_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "0b9927640738cf5a4a5357dd4f8c5b8fac0eebd24e30bbbd9fb7d40c18b5f773",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_08_mokriy.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "f3a961fafdec3faa0e68a06444749d5eb4715026fdc7202d90b445198ae0d147",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_08_mokriy_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "deb4c856e75b1fe3071872fbf5e8cc51cbdbc46fed2578aac0130d60cb770f39",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_08_mokriy_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "37855a221c766f48203a61fb22bbe0eaecbd401d524e2761c06c4e0c6545a9ac",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_corr_dsc.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "df533f7146a197c696bc2ad8f946b53d53004b6efab8cc617fa211efeeb02924",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_corr_dsc_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "c7564fe40017f1f4ca5b3e13ab0eb2a14ee636ba18db7b48a18f65114cfb9fac",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_corr_dsc_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "a3da7da1eb4c50aacf18e432aa92dd626311d2321e9f49d3ba8fbd39633c5b3e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_list.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "995b94ea27efcd38237b9a5945d4214f29b742cbb1ef5ebff7891ccc6e9c47c9",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_list_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "a2e68038c8f0b0f294a1fb1f69ae3df3f2297356dafc9ba776259142b5f1ecca",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_list_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "ae2f537c8161906d1f2149278730ec836a3e84d43a10dbdc0a08d0d8c017cceb",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_trub_tonnel.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "c37fe2c4a2b0da1c7fad2f2d9c89370a9618a14fc47052f0e6337154b2ec565e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_trub_tonnel_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "fba19eda1a353a7340919ed6ccb3a659a0d1ad22d4ffdb8392c3625f27417004",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_trub_tonnel_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "8019e553bfe00d4d19b405b4e91d59cf58abda712f6662752749e1f11ddbf0a6",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_truba8.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "6ab50f4c09e145097445c3426b7c1529e9d687e9f4baa5de30f4d235263d1fc1",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_truba8_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "7e05c4635619d700d5298a82df8e14d1aeb47a935f4603eddc870ae8e1e31dc5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/metal_truba8_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "ce49c767a960c31bec8bd836a0b5a5c075224bc53bbf9626ebffde2de0e1b8a9",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props34_germovorota_intro.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "56f87237e8c73948bb76c9254a33b7125ce09e8a5e5a4c4c0387c9474cddc50e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props34_germovorota_intro_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "ecc34a381ae619ca4b0d8f8739b9e3ee2054ac01aca6da90a9a4c7c9791e4a33",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props34_germovorota_intro_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "712f6216391ec227094f47049e0fad265ee4f4b8a694c8b9fa1cab8eef246fab",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_akkumulator.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "500254a703ab64fdbcb1a1165e9bbd8203b1168f09a2a3d61962dfd7505acc77",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_akkumulator_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "164d5c6d7be3e65b15ab6c2caa62299278115479fb28aae206c094a8f3be749f",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_akkumulator_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "edeedfe22de39436ef628078ffcf420c533b90b99a1e4a7ba24bc723beb8db6c",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_barrel_orange_new.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "3c6886223c9e61ba1554ae4e029bb7db52679171d121301e541f31c852fba25d",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_barrel_orange_new_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "28828b3200e75c2d05ecddd1d30bd3bec82423d3afdb74d847893ed4e4d4fa73",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_barrel_orange_new_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "7d507cbca14c0a4f85b1e7a7c1365bc60b845c51511388a05baebc24950fcf84",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_engine.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "4b4c3432d29f5ba04b2be277879440638c094cdbd973de5de8fe3db7474ba25d",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_engine_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "32f3f76966e52f94e8490ac4fb732af050e1131522137aa9f5a001cef71b79a0",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_engine_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "c19723014e528b43b86e703edd38081885a9b6bf824afd9909360bf6b637145e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_setka_rza.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "3f92b71ae3016d499c65cfd0e9ae332a1d51e0e563c1d7590afe6b6997d66182",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_setka_rza_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "6a31e21421441eeb5a216d9da8737610f88fdcf20da5792c5bc825f1a6693046",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_setka_rza_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "8620788aad827f9bf72c99740132e617436fae6882e2406738314c4abc19be64",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_t_gas_can.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "ea08ae52c4518e68d165fdc334770b44d9078adee508d06bcd6d8d050149e519",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_t_gas_can_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "992b5cace45cd9c5fb3f0da014c2ff165f6f3adb79e5c9e75bf0659245e82813",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/props_t_gas_can_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "3fb3c5258fc1f26b0e7de55bab2bc8e7a582090369612ee812ded02044aafc95",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/tile_pautina34.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "0f29b04c3b39e2f49b6334f819c69d1e1b4144943b5be941a454e4a69d3cc2f8",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/tile_pautina34_part_2.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "752d19a5017173208e3e53e0aaa2bcbb18d55aade9add208cb25fa91728d3e87",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/tile_pautina_new2.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "c9f2b60810988c087d9f7350ee35b6418648afcd2db33323352b8770461a9486",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_maska_d_8.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "20a52260bc2e3b46bb904ae9b01ed1ebfea7c8f7a33b767cdf47f860b2419c95",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_01.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "70f534451271f794cfb120ada2141f4435dd8946b17d2d3ba3dfa9e396250e26",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_01_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "66c333e7dc474b5b9777d296dedddba078ba808aabd8b89629ad2f64bd783662",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_01_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "ed518e79b9d367ef7589b91eb3b7b49a6075157db3b25bf879418c65ccf62d70",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_02_1.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "8c5708393d873feea2ff3fb8074844501b612b13ff142549e91a53e00f4722f5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_02_1_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "8db48c5ddcb221c510921dbd49628ecfc33efa4e7c8dd05366f2061a84fa6b25",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_02_1_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "6c980e9b066544886ed8d1dabb54edb1d91cd95dfec8a80284bf1b1fba033099",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_03.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "2a927f3672f41aa7bef17ef6ad73b3e8ba1703efbc65d06b4eb54ffb9626a193",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_03_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "e3a0eb556b8e480d3dd7590ec1fbb2eeec0bd19386420dea9544e498e288e9a0",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_03_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "711e8da1e84a11a1e69987e5da107661c4625ca39bcd4c2a8bd9479450080dfd",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_04.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "171591bb60efbbf1e0ee9357460b7dd2599eaaad3d2c63e4b8f30b83ce2d8d57",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_04_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "1e13622506a0aee1c0cfd247fccb108d318d86e25a0dc0d0716e7273ed814461",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_04_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "5757ddb5e63d0b80370c6ff1177120f1969e25ac8fb20886304c44c44cc02cad",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_monik.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "18ea626b619cc4c544188b5638d90bdcfe6c7a89d68f238128ddde846f93a33f",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_monik_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "d3a060f0efbe30cad659d17ddaea37059572cf3016aa2001d5f6d2e41e224ed8",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/ui_menu_monik_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "710c453c9c1c1d26c0134338310134e7620168232ca978b1294ec06562b25ab4",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh34_regina.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "dbeca691b18bf9b15e12d24ed606de2b03182312a90df901f53f209db91a5fae",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh34_regina_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "048f5ac52f29b09379db857d2abae211710efceb054ef25cbc43cc595d9b4566",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh34_regina_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "1839868839e13300c85ce240e0959b4a1c376aebfb9730bb66b0963c9944bec1",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh_rai.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "cd8dcefab7212392ce65024985e515a715f3d2b79beea96e82595ab08a27913e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh_rai_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "d7faf94175d276918ba2149686030d9d0bf4e96e049db7708fda53f681c09008",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh_rai_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "2dc58fd34cecdf145d6ffc5e147c944d2e7bfe59e937ac02685acbce3c4fa86c",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh_rail_bolt.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "f57128e1274b4a96063143e4a4bbb0111ce89319107845863a91337971d9e8fc",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh_rail_bolt_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "0e07a781c8fbbf31ec6285e7b112835bde8ef6351c214188e0e7d6ddf5026852",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/veh_rail_bolt_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "6137ddef16137c6e82eaab9c603eea8f4550c32d0cb6c7c927f4a78d4ec69ec0",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wall34_tunnel_sekcii_big.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "8c137b8edf22b78e2dc4ec93c13465b7083838370526225e4e289d690fbccc7e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wall34_tunnel_sekcii_big_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "a81884fbda311525b21164dfe63c69496bc2fea0b5861ea349b3d3a864f940ec",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wall34_tunnel_sekcii_big_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "d6023734333a894c90ee2ac6cc05a151df05b42855f9b1acd7531f14a175e10c",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wm34_polzuchee.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "5166c4f68ebcb4db1106e7368619d0ef1aee1daab3a684c14d957e0139ea38c5",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wm34_polzuchee_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "41ebab6cad573f8f787e6d03da599d6d36f787c72e5beb552fb123b619530e2e",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wm34_polzuchee_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "9817a251eedd72fad6550b2660fa8693a6bd732c238f2627907f36ca3339a780",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wm_graffiti_dsc.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "ff5e5baab2d77f674aae9274289088855359fd993c5b71060c3312cd2e16f35d",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wm_graffiti_dsc_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "6e753ff7d6b32a0c5be331cbc6c2d74fe064babbc21a3544dfef0764a9eecf62",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wm_graffiti_dsc_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "20a47d19979418842fbf886c3e677a802db87ecb326ea9b4425407ce1019a7b1",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wood_korni.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "8e43ec63e789789fc58e40db36681184beef0ef7b0b6df9b46ca861f2d2c7136",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wood_korni_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "db0c3ca3753a226dce921d342b43db8ba0af696cc3e108dfbf2241cdf1e72934",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wood_korni_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "a77f8496de632988652c89d158272b85c89e1bdf2678798b79aac0ebd122ddc7",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wood_shpala_01.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "fe543c7ee6c6e6d222c053c7a0528949257bfff2a69626cd8629dea833905610",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wood_shpala_01_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "93badfc62f7568298be5d42b058a30d52c4937c4796d7ccd7597cbb4a0b77f3d",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wood_shpala_01_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "53e15c3b52803caead9cc9bf71ff8d8513669ada88bbaf3d2e95a2acb54602b2",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wpn_sekach.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 349712,
+      "sha256": "fd6a919a13eaa7f223bd5e4315a53088f95a9f10f63123bd5a761513de7d930a",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wpn_sekach_n.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "6de115be972198cd1ccbd926cb84da2fdc5bf63ff12e13b0efbe3c2cd4b2f553",
+      "part": "metro_menu_finish_01.zip"
+    },
+    {
+      "path": "assets/metro2033server/textures/obj/wpn_sekach_s.512.m2033texture",
+      "source": "Metro2033Textures3.jar",
+      "bytes": 174928,
+      "sha256": "e9b7793562609313e11aff59352d6749eda2a1db98a7bd4df38cfb86b6740fa3",
+      "part": "metro_menu_finish_01.zip"
+    }
+  ],
+  "parts": [
+    {
+      "name": "metro_menu_finish_01.zip",
+      "bytes": 18780544,
+      "sha256": "2448da2ced5ef55d0d4d459c47e84e985e5785d66382ac63c656060a63d83064"
+    }
+  ],
+  "material_paths": [
+    "assets/metro2033server/models/obj/decor_metro/trub.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/trub90.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/web1.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/web2.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/web3.m2033gl4",
+    "assets/metro2033server/models/obj/drezina/regina.m2033gl4",
+    "assets/metro2033server/models/obj/drezina/regina_well.m2033gl4",
+    "assets/metro2033server/models/obj/menu/germo_left.m2033gl4",
+    "assets/metro2033server/models/obj/menu/germo_right.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part2.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part3.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part3_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part4.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part5.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part5_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part6.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part6_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part7.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part7_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part8.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part8_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part8_2.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part9.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part9_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/tun.m2033gl4",
+    "assets/metro2033server/models/obj/plant/root1.m2033gl4",
+    "assets/metro2033server/models/obj/plant/root2.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/rails.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel1.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel2.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel3.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel4.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel5.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.m2033gl4"
+  ],
+  "texture_roots": [
+    "concrete34_opalubka_tunnel_ao",
+    "concrete_tile_07",
+    "floor_concrete_blocks",
+    "floor_tunnel_pod",
+    "grnd_glina_01",
+    "metal34_props_01",
+    "metal_08_mokriy",
+    "metal_corr_dsc",
+    "metal_list",
+    "metal_trub_tonnel",
+    "metal_truba8",
+    "props34_germovorota_intro",
+    "props_akkumulator",
+    "props_barrel_orange_new",
+    "props_engine",
+    "props_setka_rza",
+    "props_t_gas_can",
+    "tile_pautina34",
+    "tile_pautina34_part_2",
+    "tile_pautina_new2",
+    "ui_maska_d_8",
+    "ui_menu_01",
+    "ui_menu_02_1",
+    "ui_menu_03",
+    "ui_menu_04",
+    "ui_menu_monik",
+    "veh34_regina",
+    "veh_rai",
+    "veh_rail_bolt",
+    "wall34_tunnel_sekcii_big",
+    "wm34_polzuchee",
+    "wm_graffiti_dsc",
+    "wood_korni",
+    "wood_shpala_01",
+    "wpn_sekach"
+  ],
+  "texture_choices": [
+    {
+      "root": "concrete34_opalubka_tunnel_ao",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/concrete34_opalubka_tunnel_ao.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "concrete34_opalubka_tunnel_ao",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/concrete34_opalubka_tunnel_ao_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "concrete34_opalubka_tunnel_ao",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/concrete34_opalubka_tunnel_ao_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "concrete_tile_07",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/concrete_tile_07.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "concrete_tile_07",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/concrete_tile_07_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "concrete_tile_07",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/concrete_tile_07_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "floor_concrete_blocks",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/floor_concrete_blocks.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "floor_concrete_blocks",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/floor_concrete_blocks_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "floor_concrete_blocks",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/floor_concrete_blocks_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "floor_tunnel_pod",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/floor_tunnel_pod.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "floor_tunnel_pod",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/floor_tunnel_pod_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "floor_tunnel_pod",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/floor_tunnel_pod_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "grnd_glina_01",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/grnd_glina_01.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "grnd_glina_01",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/grnd_glina_01_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "grnd_glina_01",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/grnd_glina_01_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal34_props_01",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal34_props_01.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal34_props_01",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal34_props_01_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal34_props_01",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal34_props_01_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_08_mokriy",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_08_mokriy.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_08_mokriy",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_08_mokriy_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_08_mokriy",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_08_mokriy_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_corr_dsc",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_corr_dsc.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_corr_dsc",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_corr_dsc_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_corr_dsc",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_corr_dsc_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_list",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_list.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_list",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_list_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_list",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_list_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_trub_tonnel",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_trub_tonnel.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_trub_tonnel",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_trub_tonnel_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_trub_tonnel",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_trub_tonnel_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_truba8",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_truba8.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_truba8",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_truba8_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "metal_truba8",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/metal_truba8_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props34_germovorota_intro",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props34_germovorota_intro.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props34_germovorota_intro",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props34_germovorota_intro_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props34_germovorota_intro",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props34_germovorota_intro_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_akkumulator",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_akkumulator.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_akkumulator",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_akkumulator_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_akkumulator",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_akkumulator_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_barrel_orange_new",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_barrel_orange_new.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_barrel_orange_new",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_barrel_orange_new_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_barrel_orange_new",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_barrel_orange_new_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_engine",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_engine.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_engine",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_engine_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_engine",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_engine_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_setka_rza",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_setka_rza.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_setka_rza",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_setka_rza_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_setka_rza",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_setka_rza_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_t_gas_can",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_t_gas_can.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_t_gas_can",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_t_gas_can_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "props_t_gas_can",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/props_t_gas_can_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "tile_pautina34",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/tile_pautina34.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "tile_pautina34_part_2",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/tile_pautina34_part_2.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "tile_pautina_new2",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/tile_pautina_new2.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_maska_d_8",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_maska_d_8.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_01",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_01.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_01",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_01_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_01",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_01_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_02_1",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_02_1.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_02_1",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_02_1_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_02_1",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_02_1_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_03",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_03.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_03",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_03_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_03",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_03_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_04",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_04.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_04",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_04_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_04",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_04_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_monik",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_monik.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_monik",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_monik_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "ui_menu_monik",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/ui_menu_monik_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh34_regina",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh34_regina.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh34_regina",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh34_regina_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh34_regina",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh34_regina_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh_rai",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh_rai.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh_rai",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh_rai_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh_rai",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh_rai_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh_rail_bolt",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh_rail_bolt.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh_rail_bolt",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh_rail_bolt_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "veh_rail_bolt",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/veh_rail_bolt_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wall34_tunnel_sekcii_big",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wall34_tunnel_sekcii_big.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wall34_tunnel_sekcii_big",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wall34_tunnel_sekcii_big_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wall34_tunnel_sekcii_big",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wall34_tunnel_sekcii_big_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wm34_polzuchee",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wm34_polzuchee.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wm34_polzuchee",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wm34_polzuchee_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wm34_polzuchee",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wm34_polzuchee_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wm_graffiti_dsc",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wm_graffiti_dsc.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wm_graffiti_dsc",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wm_graffiti_dsc_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wm_graffiti_dsc",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wm_graffiti_dsc_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wood_korni",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wood_korni.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wood_korni",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wood_korni_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wood_korni",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wood_korni_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wood_shpala_01",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wood_shpala_01.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wood_shpala_01",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wood_shpala_01_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wood_shpala_01",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wood_shpala_01_s.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wpn_sekach",
+      "map": "diffuse",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wpn_sekach.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wpn_sekach",
+      "map": "_n",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wpn_sekach_n.512.m2033texture",
+      "above_requested_size": false
+    },
+    {
+      "root": "wpn_sekach",
+      "map": "_s",
+      "resolution": 512,
+      "path": "assets/metro2033server/textures/obj/wpn_sekach_s.512.m2033texture",
+      "above_requested_size": false
+    }
+  ],
+  "missing_models": [],
+  "missing_materials": [],
+  "material_errors": [],
+  "model_header_errors": [],
+  "missing_diffuse_roots": [],
+  "runtime_port_implemented": false,
+  "complete_pack_verified": false,
+  "status": "original source dependencies only; no installation, no donor execution, no source changes"
+}

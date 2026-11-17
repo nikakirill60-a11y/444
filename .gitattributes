@@ -12,3 +12,7 @@ src/main/resources/assets/metroport/textures/exodus/**/*.png.mcmeta whitespace=c
 tools/blackrazid-reference/assets/weapons/** -text whitespace=-trailing-space
 # Decoded donor GLSL is preserved byte-for-byte for provenance.
 reports/METRO_MOD/decoded_shaders/** -text whitespace=-trailing-space
+
+# Preserve received menu inventory and recovered static reference hashes.
+reports/METRO_MOD/menu_finish_inventory.json -text whitespace=cr-at-eol
+reports/METRO_MOD/menu_reference/scene.java.txt -text whitespace=-trailing-space
