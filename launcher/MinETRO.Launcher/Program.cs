@@ -1,3 +1,5 @@
+using System.Net;
+using System.Text;
 using MinETRO.Core;
 namespace MinETRO.Launcher;
 internal static class Program
@@ -5,18 +7,42 @@ internal static class Program
     [STAThread]
     static int Main(string[] args)
     {
-        ApplicationConfiguration.Initialize();
+        ApplicationConfiguration.Initialize();bool smoke=args.Contains("--self-test");
         try
         {
-            var manifest = PackManifest.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "channel.test.json")));
-            if (!args.Contains("--self-test")) {
-                try { manifest = new ChannelStore(MainForm.SettingsDirectory).Load(manifest); }
-                catch (Exception) { MessageBox.Show("Сохранённый канал повреждён. Подключи доверенный JSON заново. Установленные сборки и миры не изменены.", "MinETRO · канал"); }
+            var manifest=PackManifest.ReleaseDefault;
+            if(!smoke)
+            {
+                try {manifest=new ChannelStore(Path.Combine(MainForm.SettingsDirectory,"github-release")).Load(manifest);}
+                catch(Exception){MessageBox.Show("Локальные данные релиза повреждены. После входа лаунчер проверит GitHub Releases. Установленные сборки и миры не изменены.","MinETRO");}
             }
-            using var form = new MainForm(manifest);
-            if (args.Contains("--self-test")) { form.SmokeTest(args.Length > 1 ? args[1] : null); return 0; }
-            Application.Run(form); return 0;
+            // Smoke runs use only a mock transport, never a production user or a bypass in the normal app.
+            AccountPage? page=smoke?new AccountPage(new("https://ui-smoke.supabase.co","sb_publishable_ui_smoke"),new SmokeAccounts()):null;
+            using var form=new MainForm(manifest,page,!smoke);
+            if(!smoke){Application.Run(form);return 0;}
+            int code=1;
+            form.Shown+=async(_,_)=>
+            {
+                try{await form.SmokeTest(args.Length>1?args[1]:null);code=0;}
+                catch(Exception ex){if(args.Length>1)File.WriteAllText(args[1]+".error.txt",ex.ToString());}
+                finally{form.Close();}
+            };
+            Application.Run(form);return code;
         }
-        catch (Exception ex) { if (!args.Contains("--self-test")) MessageBox.Show(ex.Message, "MinETRO · запуск", MessageBoxButtons.OK, MessageBoxIcon.Error); return 1; }
+        catch(Exception ex){if(!smoke)MessageBox.Show(ex.Message,"MinETRO · запуск");else if(args.Length>1)File.WriteAllText(args[1]+".error.txt",ex.ToString());return 1;}
+    }
+    private sealed class SmokeAccounts : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,CancellationToken ct)
+        {
+            ct.ThrowIfCancellationRequested();string data=request.RequestUri!.AbsolutePath switch
+            {
+                "/auth/v1/token" or "/auth/v1/verify"=>"{\"access_token\":\"ui-smoke-not-real\",\"refresh_token\":\"ui-smoke-refresh-not-real\",\"expires_in\":3600,\"user\":{\"id\":\"11111111-1111-4111-8111-111111111111\"}}",
+                "/rest/v1/profiles"=>"[{\"id\":\"11111111-1111-4111-8111-111111111111\",\"nickname\":\"PreviewPlayer\",\"skin_path\":null,\"skin_model\":\"steve\"}]",
+                "/auth/v1/logout"=>"{}",
+                _=>throw new InvalidOperationException("Unexpected smoke network request")
+            };
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK){Content=new StringContent(data,Encoding.UTF8,"application/json")});
+        }
     }
 }

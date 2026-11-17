@@ -106,6 +106,8 @@ await Test("confirmed channel survives restart; failed save retains previous sna
     CheckTrue(store.Load(m).Version==m.Version);
 });
 await AccountsTests.Run();
+await ReleasesTests.Run();
+if(args.Contains("--verify-accounts"))await ReleasesTests.Live(Path.Combine(Path.GetDirectoryName(args[0])!,"accounts.public.json"));
 
 if (args.Contains("--verify-prism")) await Test("official pinned Prism download / SHA256 / archive layout", async () => {
     var m=PackManifest.Parse(File.ReadAllText(args[0])); using var http=Transfer.CreateClient();

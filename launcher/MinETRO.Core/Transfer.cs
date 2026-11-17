@@ -8,7 +8,7 @@ public sealed class Transfer(HttpClient client)
     public static HttpClient CreateClient()
     {
         var result = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = Timeout.InfiniteTimeSpan };
-        result.DefaultRequestHeaders.UserAgent.ParseAdd("MinETRO-Test-Launcher/0.1"); return result;
+        result.DefaultRequestHeaders.UserAgent.ParseAdd("MinETRO-Launcher/0.4"); return result;
     }
     public static async Task<string> Hash(string file, CancellationToken ct)
     {

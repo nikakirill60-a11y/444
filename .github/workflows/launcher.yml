@@ -34,7 +34,7 @@ jobs:
       - name: Core installer tests
         shell: pwsh
         run: |
-          $output = & dotnet run --project launcher/MinETRO.Tests --configuration Release -- launcher/channel.test.json --verify-prism 2>&1
+          $output = & dotnet run --project launcher/MinETRO.Tests --configuration Release -- launcher/channel.test.json --verify-prism --verify-accounts 2>&1
           $code = $LASTEXITCODE
           $output | ForEach-Object { Write-Host $_ }
           if ($code -ne 0) {
@@ -47,39 +47,47 @@ jobs:
       - name: WinForms startup smoke test
         shell: pwsh
         run: |
-          $p = Start-Process -FilePath launcher/publish/MinETRO-Launcher-Test.exe -ArgumentList @('--self-test', 'launcher/ui-smoke.png') -Wait -PassThru
-          if ($p.ExitCode -ne 0) { throw "Launcher startup smoke failed: $($p.ExitCode)" }
+          $p = Start-Process -FilePath launcher/publish/MinETRO-Launcher.exe -ArgumentList @('--self-test', 'launcher/ui-smoke.png') -Wait -PassThru
+          if ($p.ExitCode -ne 0) {
+            if (Test-Path launcher/ui-smoke.png.error.txt) {
+              $message = (Get-Content launcher/ui-smoke.png.error.txt -Raw).Replace('%','%25').Replace("`r",'%0D').Replace("`n",'%0A')
+              Write-Host "::error title=Windows UI smoke::$message"
+            }
+            throw "Launcher startup smoke failed: $($p.ExitCode)"
+          }
       - name: Package
         shell: pwsh
         run: |
           Copy-Item launcher/README_RU.txt launcher/publish/README_RU.txt
           Copy-Item launcher/ui-smoke.png launcher/publish/PREVIEW.png
+          Copy-Item launcher/ui-smoke.home.png launcher/publish/HOME.png
           Copy-Item launcher/ui-smoke.settings.png launcher/publish/SETTINGS.png
           Copy-Item launcher/ui-smoke.profile.png launcher/publish/PROFILE.png
           Copy-Item launcher/ui-smoke.skin.png launcher/publish/SKIN.png
           Remove-Item launcher/publish/*.pdb -ErrorAction SilentlyContinue
           New-Item downloads -ItemType Directory -Force | Out-Null
-          Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-Test-0.3-win-x64.zip -Force
-          $hash = (Get-FileHash downloads/MinETRO-Launcher-Test-0.3-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
-          "$hash  MinETRO-Launcher-Test-0.3-win-x64.zip" | Set-Content -Encoding ascii downloads/MinETRO-Launcher-Test-0.3-win-x64.sha256
+          Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-0.4-win-x64.zip -Force
+          $hash = (Get-FileHash downloads/MinETRO-Launcher-0.4-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          "$hash  MinETRO-Launcher-0.4-win-x64.zip" | Set-Content -Encoding ascii downloads/MinETRO-Launcher-0.4-win-x64.sha256
           @{
-            version = '0.3-test'; source_commit = $env:GITHUB_SHA;
+            version = '0.4'; source_commit = $env:GITHUB_SHA;
             ci_run_url = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID";
-            zip_sha256 = $hash; zip_bytes = (Get-Item downloads/MinETRO-Launcher-Test-0.3-win-x64.zip).Length;
+            zip_sha256 = $hash; zip_bytes = (Get-Item downloads/MinETRO-Launcher-0.4-win-x64.zip).Length;
             platform = 'Windows 10/11 x64'; self_contained = $true;
             core_scenarios_passed = 15; channel_authoring_tests_passed = 4; account_protocol_scenarios_passed = 12;
-            live_supabase_verified = $false; ingame_skin_verified = $false;
+            live_supabase_public_api_verified = $true; live_supabase_email_login_verified = $false;
+            release_protocol_scenarios_passed = 6; authentication_gate_smoke = $true; home_screenshot_uses_mock_account = $true; ingame_skin_verified = $false;
             official_prism_payload_sha256_verified = $true; winforms_startup_smoke = 'PASS';
             pack_archive_connected = $false; full_modpack_launch_verified = $false;
             limitation = 'Waiting for the user-provided complete modpack archive; this is not a full modpack distribution'
-          } | ConvertTo-Json | Set-Content -Encoding utf8 downloads/MinETRO-Launcher-Test-0.3-report.json
+          } | ConvertTo-Json | Set-Content -Encoding utf8 downloads/MinETRO-Launcher-0.4-report.json
       - uses: actions/upload-artifact@v4
         with:
-          name: MinETRO-Launcher-Test-Windows
+          name: MinETRO-Launcher-Windows
           path: |
-            downloads/MinETRO-Launcher-Test-0.3-win-x64.zip
-            downloads/MinETRO-Launcher-Test-0.3-win-x64.sha256
-            downloads/MinETRO-Launcher-Test-0.3-report.json
+            downloads/MinETRO-Launcher-0.4-win-x64.zip
+            downloads/MinETRO-Launcher-0.4-win-x64.sha256
+            downloads/MinETRO-Launcher-0.4-report.json
       - name: Publish on current branch
         if: github.ref == 'refs/heads/arena/dcab859f-444'
         shell: pwsh
@@ -88,10 +96,10 @@ jobs:
           if ($remote -ne $env:GITHUB_SHA) { throw 'Newer source exists; refusing stale publication' }
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add downloads/MinETRO-Launcher-Test-0.3-win-x64.zip downloads/MinETRO-Launcher-Test-0.3-win-x64.sha256 downloads/MinETRO-Launcher-Test-0.3-report.json
+          git add downloads/MinETRO-Launcher-0.4-win-x64.zip downloads/MinETRO-Launcher-0.4-win-x64.sha256 downloads/MinETRO-Launcher-0.4-report.json
           git diff --cached --check
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          git commit -m 'Publish Windows MinETRO test launcher 0.3 [skip ci]'
+          git commit -m 'Publish Windows MinETRO launcher 0.4 [skip ci]'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           git push origin arena/dcab859f-444
           exit $LASTEXITCODE

@@ -55,6 +55,7 @@ public sealed record PackManifest
         if (Archive != null && !RequiredFiles.Any(f => f.Path.StartsWith("mods/", StringComparison.OrdinalIgnoreCase) && f.Path.EndsWith(".jar", StringComparison.OrdinalIgnoreCase)))
             throw new InvalidDataException("Полная сборка должна содержать проверяемые моды, а не только ссылку на архив.");
     }
+    public static PackManifest ReleaseDefault => new() { Schema=1, Name="MinETRO", Version="awaiting-release", Minecraft="1.12.2", Forge="14.23.5.2860", PrismVersion="11.1.1", Prism=Engine };
     public static DownloadSpec Engine => new("https://github.com/PrismLauncher/PrismLauncher/releases/download/11.1.1/PrismLauncher-Windows-MSVC-Portable-11.1.1.zip", "ab35a770fb06d89d2ccc098079db5db329fb4e68f42b72babd8b095efde3d2d7", 20396629);
     public string InstanceId => Archive == null ? "MinETRO-unconfigured" : "MinETRO-" + Version + "-" + Archive.Sha256[..12].ToLowerInvariant();
 }

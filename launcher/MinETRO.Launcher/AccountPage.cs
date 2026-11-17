@@ -7,6 +7,10 @@ internal sealed class AccountPage : Panel
     private readonly AccountsConfig config;
     private readonly Accounts service;
     private readonly CancellationTokenSource lifetime = new();
+    private Guid? readyId;
+    private bool gateMode = true;
+    public bool Authenticated => service.SignedIn && !service.RecoverySession && readyId == service.UserId;
+    private readonly Label heading = TextLabel("Создай аккаунт", 24, Ui.Text, true);
     private readonly Label notice = TextLabel("", 10, Ui.Amber);
     private readonly Label result = TextLabel("", 10, Ui.Amber);
     private readonly TextBox email = Input(), password = Input(true), repeat = Input(true), nickname = Input(), code = Input(), profileNick = Input();
@@ -24,23 +28,23 @@ internal sealed class AccountPage : Panel
     private string mode = "login";
     private bool busy;
     public event Action<string?>? ProfileChanged;
-    public AccountPage()
+    public AccountPage(AccountsConfig? options = null, HttpMessageHandler? handler = null)
     {
         AutoScroll = true; BackColor = Ui.Bg;
         string error = "";
-        try { config = AccountsConfig.Load(Path.Combine(AppContext.BaseDirectory, "accounts.public.json")); }
+        try { config = options ?? AccountsConfig.Load(Path.Combine(AppContext.BaseDirectory, "accounts.public.json")); config.Validate(); }
         catch (Exception e) when (e is IOException or InvalidDataException or System.Text.Json.JsonException) { config = new(); error = "Конфигурация аккаунтов некорректна. Подключение отключено."; }
-        service = new Accounts(config);
+        service = new Accounts(config, handler);
         var stack = Stack(Ui.Bg, 0); Controls.Add(stack);
-        stack.Controls.Add(TextLabel("Твой профиль", 24, Ui.Text, true));
+        stack.Controls.Add(heading);
         stack.Controls.Add(TextLabel("Аккаунт MinETRO · ник · собственный скин", 10, Ui.Muted));
-        notice.Text = error != "" ? error : config.Enabled ? "Аккаунты MinETRO подключены. Подтверди почту для входа." : "Сервис аккаунтов пока не подключён. Регистрация и вход станут доступны после настройки Supabase.";
+        notice.Text = error != "" ? error : config.Enabled ? "Зарегистрируйся и подтверди почту, чтобы открыть лаунчер." : "Сервис аккаунтов пока не подключён. Регистрация и вход станут доступны после настройки Supabase.";
         notice.Margin = new Padding(0, 14, 0, 12); stack.Controls.Add(notice);
         var tabs = new FlowLayoutPanel { AutoSize = true, Dock = DockStyle.Top, Margin = new Padding(0,0,0,14) };
-        tabs.Controls.AddRange([loginTab, registerTab, recoveryTab, skinTab]); stack.Controls.Add(tabs);
+        tabs.Controls.AddRange([registerTab, loginTab, recoveryTab, skinTab]); stack.Controls.Add(tabs);
         stack.Controls.Add(authBox); stack.Controls.Add(profileBox);
         result.MaximumSize = new Size(650, 0); result.Margin = new Padding(0,12,0,12); result.AccessibleRole = AccessibleRole.StaticText; stack.Controls.Add(result);
-        stack.Controls.Add(TextLabel("MinETRO — отдельный профиль, не замена аккаунту Microsoft.\nСкин пока хранится в профиле: показ в Minecraft и другим игрокам ещё не подключён.\nПароли не сохраняются. После закрытия лаунчера потребуется вход заново.", 9, Ui.Muted));
+        stack.Controls.Add(TextLabel("Пароли не сохраняются. Аккаунт MinETRO открывает лаунчер;\nлицензия Minecraft настраивается отдельно. Скины пока только в профиле.", 9, Ui.Muted));
         var auth = Stack(Ui.Card, 20); authBox.Controls.Add(auth);
         emailRow = Field("Электронная почта", email); nickRow = Field("Ник · 3–16 латинских букв, цифр или _", nickname);
         passwordRow = Field("Пароль · при создании не меньше 12 символов", password); repeatRow = Field("Повтори новый пароль", repeat); codeRow = Field("Код из письма", code);
@@ -69,8 +73,8 @@ internal sealed class AccountPage : Panel
         saveNick.Click += async (_,_) => await Run(async ct => { await service.Rename(profileNick.Text.Trim(),ct); await LoadProfile(ct); result.Text="Ник сохранён."; });
         uploadSkin.Click += async (_,_) => await Run(async ct => { if(selectedSkin == null) throw new AccountException("Сначала выбери PNG-скин."); await service.UploadSkin(selectedSkin,Model,ct); await LoadProfile(ct); result.Text="Скин сохранён в профиле MinETRO. Показ в игре ещё не подключён."; });
         reload.Click += async (_,_) => await Run(LoadProfile);
-        logout.Click += async (_,_) => await Run(async ct => { try { await service.SignOut(ct); } finally { ClearProfile(); SetMode("login"); } result.Text="Выполнен выход."; });
-        SetMode("login");
+        logout.Click += async (_,_) => await Run(async ct => { try { ClearProfile(); await service.SignOut(ct); } finally { ClearProfile(); SetMode("login"); } result.Text="Выполнен выход."; });
+        SetMode("register");
     }
     private string Model => model.SelectedIndex == 1 ? "alex" : "steve";
     private static LauncherButton Button(string text, bool accent=false) => new() { Text=text, Accent=accent, Size=new Size(150,38), Margin=new Padding(0,4,8,4) };
@@ -81,12 +85,15 @@ internal sealed class AccountPage : Panel
     { var p=Stack(Ui.Card,0); p.Margin=new Padding(0,0,0,5);p.Controls.Add(TextLabel(label,9,Ui.Muted));p.Controls.Add(control);return p; }
     private void SetMode(string next)
     {
-        mode=next; password.Clear();repeat.Clear();code.Clear();result.Text=""; Render();
+        mode=next == "skin" && gateMode ? "register" : next; password.Clear();repeat.Clear();code.Clear();result.Text=""; Render();
     }
     private void Render()
     {
-        bool profile=service.SignedIn && !service.RecoverySession;
-        authBox.Visible=!profile && mode!="skin"; profileBox.Visible=profile || mode=="skin";
+        bool profile=Authenticated;
+        heading.Text=gateMode ? "Добро пожаловать" : "Твой профиль";
+        skinTab.Visible=!gateMode;
+        loginTab.Visible=registerTab.Visible=recoveryTab.Visible=!profile;
+        authBox.Visible=!profile; profileBox.Visible=profile && !gateMode;
         profileNickRow.Visible=profile;profileActions.Visible=profile;
         loginTab.Selected=mode=="login";registerTab.Selected=mode is "register" or "confirm";recoveryTab.Selected=mode is "recovery" or "reset";
         skinTab.Selected=mode=="skin";
@@ -98,6 +105,7 @@ internal sealed class AccountPage : Panel
         submit.Text=mode switch {"register"=>"Создать аккаунт","confirm"=>"Подтвердить почту","recovery"=>"Подтвердить код","reset"=>"Сохранить пароль",_=>"Войти"};
         foreach(var c in operations) c.Enabled=!busy;
         foreach(var c in new Control[]{submit,sendCode,saveNick,reload,logout,uploadSkin}) c.Enabled=!busy && config.Enabled && (c==submit || c==sendCode || profile);
+        chooseSkin.Enabled=!busy && profile; model.Enabled=!busy && profile;
         uploadSkin.Enabled=uploadSkin.Enabled && selectedSkin!=null;
         profileNick.Enabled=!busy && profile;
     }
@@ -107,7 +115,7 @@ internal sealed class AccountPage : Panel
         switch(mode)
         {
             case "register":
-                await service.SignUp(email.Text,password.Text,nickname.Text.Trim(),ct);SetMode("confirm");result.Text="Проверь почту: если регистрация доступна, придёт код подтверждения. Введи его здесь.";break;
+                await service.SignUp(email.Text,password.Text,nickname.Text.Trim(),ct);SetMode("confirm");result.Text="Проверь почту: открой ссылку подтверждения, затем выбери «Вход». Если письмо содержит код, введи его здесь.";break;
             case "confirm":
                 await service.VerifyCode(email.Text,code.Text,false,ct);password.Clear();code.Clear();await LoadProfile(ct);result.Text="Почта подтверждена. Добро пожаловать в MinETRO.";break;
             case "recovery":
@@ -124,7 +132,7 @@ internal sealed class AccountPage : Panel
         selectedSkin=null;preview.SetSkin(null);skinState.Text="Скин не загружен";
         var bytes=await service.DownloadSkin(profile,ct);
         if(bytes!=null) { selectedSkin=SkinPreview.Normalize(bytes);preview.SetSkin(selectedSkin);skinState.Text="Скин из твоего профиля"; }
-        ProfileChanged?.Invoke(profile.Nickname);
+        readyId=profile.Id; ProfileChanged?.Invoke(profile.Nickname);
     }
     private void ChooseSkin()
     {
@@ -140,7 +148,7 @@ internal sealed class AccountPage : Panel
         catch(Exception ex) when(ex is IOException or UnauthorizedAccessException) { result.Text=ex.Message; }
         Render();
     }
-    private void ClearProfile() { selectedSkin=null;preview.SetSkin(null);profileNick.Clear();ProfileChanged?.Invoke(null); }
+    private void ClearProfile() { readyId=null; selectedSkin=null;preview.SetSkin(null);profileNick.Clear();ProfileChanged?.Invoke(null); }
     private async Task Run(Func<CancellationToken,Task> action)
     {
         if(busy)return;busy=true;Render();result.Text="Подожди…";
@@ -151,6 +159,18 @@ internal sealed class AccountPage : Panel
         catch(Exception ex) when(ex is HttpRequestException or IOException or System.Text.Json.JsonException) { if(!IsDisposed)result.Text="Не удалось связаться с сервисом аккаунтов. Проверь подключение и настройку Supabase."; }
         finally { busy=false;if(!IsDisposed) {password.Clear();repeat.Clear();if(!service.SignedIn) ClearProfile();Render();} }
     }
+    public void SetGateMode(bool value) { gateMode=value; if(value && mode=="skin") mode="register"; Render(); }
+    public async Task RequireAccess(CancellationToken ct)
+    {
+        if(!Authenticated) throw new AccountException("Сначала войди в аккаунт MinETRO.");
+        try { await service.Profile(ct); ct.ThrowIfCancellationRequested(); }
+        finally { if(!service.SignedIn) {ClearProfile();Render();} }
+        if(!Authenticated) throw new AccountException("Войди заново, чтобы продолжить.");
+    }
+    public async Task SmokeSignIn()
+    { await service.SignIn("ui-smoke@example.test","not-a-real-password",lifetime.Token); await LoadProfile(lifetime.Token);Render(); }
+    public async Task SmokeSignOut()
+    { ClearProfile();try{await service.SignOut(lifetime.Token);}finally{ClearProfile();Render();} }
     public void ShowRegistration() => SetMode("register");
     public void ShowSkin() => SetMode("skin");
     public void SmokeTest()

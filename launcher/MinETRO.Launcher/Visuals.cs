@@ -49,18 +49,20 @@ internal static class Ui
 }
 internal sealed class Sidebar : Panel
 {
+    private readonly Image logo = Image.FromFile(Path.Combine(AppContext.BaseDirectory,"Assets","minetro.png"));
     public Sidebar() { DoubleBuffered = true; BackColor = Ui.Side; }
+    protected override void Dispose(bool disposing) {if(disposing)logo.Dispose();base.Dispose(disposing);}
     protected override void OnPaint(PaintEventArgs e)
     {
         base.OnPaint(e); float s = DeviceDpi / 96f; var g = e.Graphics; Ui.Canvas(g, s); float h = Height / s;
-        Ui.CardBox(g, new(24, 26, 36, 36), Color.FromArgb(46, 38, 29), 10); Ui.Icon(g, "metro", 30, 32, 24, Ui.Amber);
+        g.DrawImage(logo,new RectangleF(24,26,36,36));
         Ui.TextAt(g, "MinETRO", 22, 71, 24, 130, 33, Ui.Text, true);
         Ui.TextAt(g, "ЛАУНЧЕР", 9, 73, 57, 100, 15, Ui.Muted);
         using var line = new Pen(Ui.Line); g.DrawLine(line, 24, 100, 192, 100);
         Ui.TextAt(g, "БИБЛИОТЕКА", 10, 25, 119, 150, 20, Ui.Muted, true);
         g.DrawLine(line, 24, h - 56, 192, h - 56);
         using var dot = new SolidBrush(Ui.Amber); g.FillEllipse(dot, 26, h - 32, 5, 5);
-        Ui.TextAt(g, "TEST 0.3", 10, 39, h - 39, 110, 19, Ui.Muted, true);
+        Ui.TextAt(g, "MINETRO", 10, 39, h - 39, 110, 19, Ui.Muted, true);
         Ui.TextAt(g, "x64", 10, 157, h - 39, 34, 19, Ui.Muted, align: StringAlignment.Far);
     }
 }
@@ -90,7 +92,7 @@ internal sealed class HomeCanvas : Panel
 {
     private readonly Image art;
     public string PackName { get; set; } = "MinETRO";
-    public string VersionName { get; set; } = "Тестовая сборка";
+    public string VersionName { get; set; } = "ожидается релиз";
     public bool HasArchive { get; set; }
     public bool Installed { get; set; }
     public float Fit => Math.Min(1f, Height * 96f / DeviceDpi / 584f);
@@ -117,15 +119,14 @@ internal sealed class HomeCanvas : Panel
         Ui.CardBox(g, new(0, 326, w, 132), Ui.Card, 12, Ui.Line);
         Ui.TextAt(g, "ВЫБРАННАЯ СБОРКА", 9, 22, 342, 290, 16, Ui.Muted, true);
         Ui.TextAt(g, "MinETRO", 25, 21, 364, 145, 33, Ui.Text, true);
-        Ui.CardBox(g, new(156, 371, 43, 20), Color.FromArgb(48, 40, 29), 5);
-        Ui.TextAt(g, "TEST", 9, 160, 371, 35, 20, Ui.Amber, true, align: StringAlignment.Center);
+
         Ui.TextAt(g, "Forge 1.12.2  ·  Java 8 x64  ·  " + VersionName, 11, 23, 404, w - 295, 19, Ui.Muted);
-        Ui.TextAt(g, HasArchive ? (Installed ? "Файлы установлены · готово к проверке и запуску" : "Канал подключён · можно установить сборку") : "Ожидает подключения полного модпака", 10, 23, 429, w - 295, 17, HasArchive ? Ui.Muted : Ui.Amber);
-        Ui.TextAt(g, HasArchive ? (Installed ? "ТВОЙ ЭКЗЕМПЛЯР" : "НОВАЯ УСТАНОВКА") : "ТЕСТОВЫЙ ЛАУНЧЕР", 9, w - 252, 347, 228, 18, Ui.Muted, true, align: StringAlignment.Center);
+        Ui.TextAt(g, HasArchive ? (Installed ? "Файлы установлены · готово к проверке и запуску" : "Релиз доступен · можно установить сборку") : "Ожидается полная сборка в GitHub Releases", 10, 23, 429, w - 295, 17, HasArchive ? Ui.Muted : Ui.Amber);
+        Ui.TextAt(g, HasArchive ? (Installed ? "ТВОЙ ЭКЗЕМПЛЯР" : "НОВАЯ УСТАНОВКА") : "GITHUB RELEASES", 9, w - 252, 347, 228, 18, Ui.Muted, true, align: StringAlignment.Center);
         float cw = (w - 28) / 3;
         Feature(g, 0, cw, "shield", "Проверенные файлы", "SHA256 перед установкой");
         Feature(g, cw + 14, cw, "folder", "Миры в сохранности", "Каждая версия отдельно");
-        Feature(g, (cw + 14) * 2, cw, "key", "Безопасный вход", "Через Prism / Microsoft");
+        Feature(g, (cw + 14) * 2, cw, "key", "Безопасный вход", "Твой аккаунт MinETRO");
     }
     private static void Feature(Graphics g, float x, float w, string icon, string title, string note)
     {
@@ -136,4 +137,24 @@ internal sealed class HomeCanvas : Panel
         Ui.TextAt(g, note, 10, x + 60, 519, w - 71, 25, Ui.Muted, wrap: true);
     }
     protected override void Dispose(bool disposing) { if (disposing) art.Dispose(); base.Dispose(disposing); }
+}
+
+internal sealed class AuthArtwork : Panel
+{
+    private readonly Image art=Image.FromFile(Path.Combine(AppContext.BaseDirectory,"Assets","metro-station.jpg"));
+    private readonly Image logo=Image.FromFile(Path.Combine(AppContext.BaseDirectory,"Assets","minetro.png"));
+    public AuthArtwork(){DoubleBuffered=true;BackColor=Ui.Bg;}
+    protected override void OnPaint(PaintEventArgs e)
+    {
+        base.OnPaint(e);var g=e.Graphics;float s=DeviceDpi/96f;Ui.Canvas(g,s);float w=Width/s,h=Height/s;
+        var r=new RectangleF(0,0,w,h);float zoom=Math.Max(w/art.Width,h/art.Height);
+        g.DrawImage(art,new RectangleF((w-art.Width*zoom)*.65f,0,art.Width*zoom,art.Height*zoom));
+        using var shade=new LinearGradientBrush(r,Color.FromArgb(65,7,12,16),Color.FromArgb(245,7,12,16),90f);g.FillRectangle(shade,r);
+        g.DrawImage(logo,new RectangleF(32,34,64,64));Ui.TextAt(g,"MinETRO",30,32,106,w-64,46,Ui.Text,true);
+        Ui.TextAt(g,"ТВОЙ МИР ПОД ПОВЕРХНОСТЬЮ",10,34,155,w-64,25,Ui.Amber,true);
+        Ui.TextAt(g,"Следующая\nстанция —\nтвоя история.",32,30,h-280,w-60,145,Ui.Text,true,wrap:true);
+        Ui.TextAt(g,"Один аккаунт. Твой ник. Твой скин.",12,34,h-104,w-64,44,Ui.Muted,wrap:true);
+        Ui.TextAt(g,"MINECRAFT 1.12.2  /  MINETRO",9,34,h-40,w-64,22,Ui.Muted,true);
+    }
+    protected override void Dispose(bool disposing){if(disposing){art.Dispose();logo.Dispose();}base.Dispose(disposing);}
 }
