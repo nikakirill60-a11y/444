@@ -28,7 +28,7 @@ internal sealed class AccountPage : Panel
         AutoScroll = true; BackColor = Ui.Bg;
         string error = "";
         try { config = AccountsConfig.Load(Path.Combine(AppContext.BaseDirectory, "accounts.public.json")); }
-        catch (Exception e) when (e is IOException or System.Text.Json.JsonException) { config = new(); error = "Конфигурация аккаунтов некорректна. Подключение отключено."; }
+        catch (Exception e) when (e is IOException or InvalidDataException or System.Text.Json.JsonException) { config = new(); error = "Конфигурация аккаунтов некорректна. Подключение отключено."; }
         service = new Accounts(config);
         var stack = Stack(Ui.Bg, 0); Controls.Add(stack);
         stack.Controls.Add(TextLabel("Твой профиль", 24, Ui.Text, true));
@@ -138,6 +138,7 @@ internal sealed class AccountPage : Panel
     {
         if(busy)return;busy=true;Render();result.Text="Подожди…";
         try { await action(lifetime.Token); }
+        catch(ObjectDisposedException) when(IsDisposed) { }
         catch(OperationCanceledException) { if(!IsDisposed) result.Text="Операция отменена или истекло время ожидания."; }
         catch(AccountException ex) { if(!IsDisposed)result.Text=ex.Message; }
         catch(Exception ex) when(ex is HttpRequestException or IOException or System.Text.Json.JsonException) { if(!IsDisposed)result.Text="Не удалось связаться с сервисом аккаунтов. Проверь подключение и настройку Supabase."; }

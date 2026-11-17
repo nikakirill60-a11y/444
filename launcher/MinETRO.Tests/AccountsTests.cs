@@ -9,7 +9,7 @@ internal static class AccountsTests
     private static readonly AccountsConfig Config = new("https://test-project.supabase.co", "sb_publishable_test_public_only");
     private static string Session(int expires = 3600) => JsonSerializer.Serialize(new { access_token="access-not-a-real-token", refresh_token="refresh-not-a-real-token", expires_in=expires, user=new {id=Id} });
     private static void Assert(bool ok) { if(!ok)throw new Exception("Account assertion failed"); }
-    private static async Task Reject(Func<Task> action) { try { await action(); } catch(IOException) {return;} throw new Exception("Expected account rejection"); }
+    private static async Task Reject(Func<Task> action) { try { await action(); } catch(Exception e) when(e is IOException or InvalidDataException) {return;} throw new Exception("Expected account rejection"); }
     public static async Task Run()
     {
         int count=0;
