@@ -1,0 +1,23 @@
+{
+  "full_modpack_launch_verified": false,
+  "authentication_gate_smoke": true,
+  "winforms_startup_smoke": "PASS",
+  "live_supabase_public_api_verified": true,
+  "ingame_skin_verified": false,
+  "account_protocol_scenarios_passed": 12,
+  "release_protocol_scenarios_passed": 6,
+  "home_screenshot_uses_mock_account": true,
+  "channel_authoring_tests_passed": 4,
+  "pack_archive_connected": false,
+  "self_contained": true,
+  "version": "0.4",
+  "zip_sha256": "9c05dca292fa386e74dfd0246fc7ea8c3ca3e962b5a92a8d0088dea2db047788",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/44077698721",
+  "source_commit": "bab674ea7973c26227491d5b8979952a15bd0f68",
+  "limitation": "Waiting for the user-provided complete modpack archive; this is not a full modpack distribution",
+  "platform": "Windows 10/11 x64",
+  "zip_bytes": 67421955,
+  "core_scenarios_passed": 15,
+  "official_prism_payload_sha256_verified": true,
+  "live_supabase_email_login_verified": false
+}
