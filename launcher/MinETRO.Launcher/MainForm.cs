@@ -27,7 +27,7 @@ internal sealed class MainForm : Form
     public static string SettingsDirectory=>Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"MinETRO-Test-Launcher");
     private readonly string settings=Path.Combine(SettingsDirectory,"folder.txt");
     private bool HasAccess=>accountPage.Authenticated;
-    [DllImport("user32.dll")] private static extern bool ReleaseSaveScreenshot();
+    [DllImport("user32.dll")] private static extern bool ReleaseCapture();
     [DllImport("user32.dll")] private static extern nint SendMessage(nint hWnd,int msg,nint wParam,nint lParam);
     public MainForm(PackManifest initial,AccountPage? accounts=null,bool checkUpdates=true)
     {
@@ -63,7 +63,7 @@ internal sealed class MainForm : Form
         FormClosing+=(_,e)=>{if(busy){e.Cancel=true;cancellation?.Cancel();Status("Отменяем операцию. После завершения можно закрыть окно.");}};
         initialized=true;UpdateManifest();ShowPage("auth");
     }
-    private void DragWindow(object? sender,MouseEventArgs e){if(e.Button==MouseButtons.Left){ReleaseSaveScreenshot();SendMessage(Handle,0xA1,2,0);}}
+    private void DragWindow(object? sender,MouseEventArgs e){if(e.Button==MouseButtons.Left){ReleaseCapture();SendMessage(Handle,0xA1,2,0);}}
     private static Label Label(string text,float size,Color color,bool bold=false)=>new(){Text=text,Font=new Font("Segoe UI",size,bold?FontStyle.Bold:FontStyle.Regular),ForeColor=color,AutoSize=true,MaximumSize=new Size(650,0),BackColor=Color.Transparent};
     private static TableLayoutPanel Stack()=>new(){AutoSize=true,Dock=DockStyle.Top,ColumnCount=1,Padding=new Padding(0,0,0,24),BackColor=Ui.Bg};
     private void BuildSettings()
