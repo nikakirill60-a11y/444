@@ -1,0 +1,324 @@
+{
+  "minecraftTested": false,
+  "basePackSha256": "3eeb9871c846b6c6769affa0dbdf2cdf94ffbaed7417b40b1a1f38bd497aebb5",
+  "baseJarSha256": "5c413c6c28ce80f93715ccbb11f156d825ea0a846e81bc2c8134aa6a9416bf9b",
+  "medved": "Unchanged buckshot, explicitly confirmed by user; no invented pneumatic conversion.",
+  "limitations": [
+    "No live Minecraft/Forge/Java8 test.",
+    "Ashot stock deltas overlay existing reload, not a new reload sequence.",
+    "Velopal original static geometry has no newly invented chamber/reload animation.",
+    "Radiator has no invented cooling/overheat stat; it is an optional barrel-slot geometry item."
+  ],
+  "velopal": {
+    "capacity": 6,
+    "ammo": "metro_12g_buckshot",
+    "pellets": 10,
+    "texture": "wpn34_bigun.png",
+    "textureSha256": "47afb23c2a09768c0e0cde7b32cd4009487fe3e75dd01f40d63a548175c03489",
+    "oldTile": [
+      3588,
+      2052,
+      64,
+      64
+    ],
+    "oldAtlasSize": [
+      4096,
+      4096
+    ],
+    "geometryAndHandPosePreserved": true,
+    "uboinikTextureRestoredFromV7": true
+  },
+  "ashot": {
+    "stock": "metro_mod_ashot_butt",
+    "noStockUnchanged": true,
+    "bothArmsClassicSlim": true
+  },
+  "radiator": {
+    "id": "metro_mod_ubludok_radiator",
+    "slot": "barrel",
+    "defaultInstalled": false,
+    "exclusiveWithSuppressor": true,
+    "oldMeshPreserved": true
+  },
+  "icons": {
+    "metro_abzac": {
+      "sha256": "c069bac0072547a2ecbfa78d973cd516627811359ccbf4a04935ce577776234b",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 5768,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ak": {
+      "sha256": "9472f1b0b0081052382305dc54ac6cfe253c68bf521d9e88d77a324b815b7867",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 6545,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ak2012": {
+      "sha256": "be7775bfb787dfa32c7eef459e9da1222861e6348526c17387a6cb7d482558cc",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 5792,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_akk": {
+      "sha256": "fba509855d60204bf09233231691701f1dd16b2fd8d408ef62a273f99305211f",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 797,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_aksu": {
+      "sha256": "f5b934dd08bf5d940034fcdf83459152027bd5c4575ffb7b7975622fd362552e",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 6455,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ashot": {
+      "sha256": "2f4c1b0da59ae63b0f2a127061667bad73a4939eaa5e398905048144849bb378",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 3348,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_duplet": {
+      "sha256": "37e20e9236984fe5604dd0e09c9389d2976f0d697435d7ecfb76366ac0b9561e",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 5286,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_gatling": {
+      "sha256": "dcecfbdd4ce2e68b3851e04e320f58200d6004bc435a9fcef22875e66a60bca9",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 7947,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_helsing": {
+      "sha256": "a58306617ec95e661632b57440c111c9783a26fa1e54d50ae950a393e019c70e",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 5591,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_medved": {
+      "sha256": "e8f31207e751f8333f82db1f9b01d8da0a7580011920007b8e2869437b9fa22d",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 9351,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ognemet": {
+      "sha256": "4362fe87e38a87c39ff4f4821bfd191b1c314bf171db27e030281803c07dd7e0",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 10132,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ognemet_mini": {
+      "sha256": "9c23abf3f2a3f89a30cf306642dbfa1bd079a709171fc20e9974945023f0f109",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 10108,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_podonok": {
+      "sha256": "5394716b1464d775ed53a5dab9f8807ae55696ee6e3fee28ff9f94fb0c4f5ebd",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 4581,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_preved": {
+      "sha256": "099f332cd279fbd19898c7080a27580f64ac99d1c65649683dc6622e6cabd70a",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 4425,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_railgun": {
+      "sha256": "b6e166bc211a73981753c52d7bbee34f8bdbd705e9aab5c6fdc58b9dfe47caa2",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 10429,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_revolver": {
+      "sha256": "d75443f022aa19c0ab85aad13e6f547f6a5e764b547180bac53547f05641a7cf",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 4812,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_rpk": {
+      "sha256": "3454b05ce099ec6c3bbcdd962e006b028cd3becb1843057ad67a600908fec326",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 6922,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_saiga": {
+      "sha256": "5dc6dc4cb575513c33b3916e969c4806a385ee05da9a81a75785113d604e5291",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 6818,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_tihar": {
+      "sha256": "e5252f5b4b2332d4dd855635ae7ddec13ded223d5002f09a8f504f7ad6a4297b",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 6044,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ubludok": {
+      "sha256": "7a0a8e168bd7b217a38bbbe091b4f9ca480eb6015985df5836d162c60c5550dc",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 5908,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_uboinik": {
+      "sha256": "598068278ae0a8ece63fe0f2dde80180a29103a1a4f600a588150766160e836c",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 6851,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_velopal": {
+      "sha256": "f4ca90df5a26c3a45db8d85c0c6f264aafeeddd8f2e0108f5980b2a3f6b000d4",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 10727,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_ventil": {
+      "sha256": "69d03faf29dc3bee49c1b39286f4d205f44096cbd49a8393678b732a31613a3e",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 7872,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_vsv": {
+      "sha256": "354be9f9df58ac6d308048ef31d91b0c1c899a84efc955b67d8244fb07371a6c",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 4481,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    },
+    "metro_vyhlop": {
+      "sha256": "93a486477436867402e76f25c21078b70b9620932a3e2e7e687cca637804357b",
+      "size": [
+        256,
+        256
+      ],
+      "triangles": 5578,
+      "method": "textured actual rest mesh, no hands/uninstalled modules; supersampled raster"
+    }
+  },
+  "requiresJarSha256": "240cf48fd2265104648de7ec0e3f56865aa4c1aa2ada7547dee0c63c5a50e3ab",
+  "testLog": "MECHANICS_TESTS_OK 385 isolated assertions; NOT a Minecraft runtime test\nMOTION_TESTS_OK 1055 isolated assertions; NOT a live Minecraft test\nASHOT_POSE_TESTS_OK 241 assertions; NOT a live Minecraft test\n",
+  "changedFiles": [
+    "FULL_PACK_MANIFEST.json",
+    "MOTION_UPDATE_MANIFEST.json",
+    "assets/modularwarfare/gltf/guns/metro_ashot.gltf",
+    "assets/modularwarfare/gltf/guns/metro_velopal.gltf",
+    "assets/modularwarfare/lang/en_US.lang",
+    "assets/modularwarfare/lang/en_us.lang",
+    "assets/modularwarfare/lang/ru_RU.lang",
+    "assets/modularwarfare/lang/ru_ru.lang",
+    "assets/modularwarfare/metro_motion.json",
+    "assets/modularwarfare/skins/guns/metro_uboinik.png",
+    "assets/modularwarfare/textures/items/metro_abzac.png",
+    "assets/modularwarfare/textures/items/metro_ak.png",
+    "assets/modularwarfare/textures/items/metro_ak2012.png",
+    "assets/modularwarfare/textures/items/metro_akk.png",
+    "assets/modularwarfare/textures/items/metro_aksu.png",
+    "assets/modularwarfare/textures/items/metro_ashot.png",
+    "assets/modularwarfare/textures/items/metro_duplet.png",
+    "assets/modularwarfare/textures/items/metro_gatling.png",
+    "assets/modularwarfare/textures/items/metro_helsing.png",
+    "assets/modularwarfare/textures/items/metro_medved.png",
+    "assets/modularwarfare/textures/items/metro_ognemet.png",
+    "assets/modularwarfare/textures/items/metro_ognemet_mini.png",
+    "assets/modularwarfare/textures/items/metro_podonok.png",
+    "assets/modularwarfare/textures/items/metro_preved.png",
+    "assets/modularwarfare/textures/items/metro_railgun.png",
+    "assets/modularwarfare/textures/items/metro_revolver.png",
+    "assets/modularwarfare/textures/items/metro_rpk.png",
+    "assets/modularwarfare/textures/items/metro_saiga.png",
+    "assets/modularwarfare/textures/items/metro_tihar.png",
+    "assets/modularwarfare/textures/items/metro_ubludok.png",
+    "assets/modularwarfare/textures/items/metro_uboinik.png",
+    "assets/modularwarfare/textures/items/metro_velopal.png",
+    "assets/modularwarfare/textures/items/metro_ventil.png",
+    "assets/modularwarfare/textures/items/metro_vsv.png",
+    "assets/modularwarfare/textures/items/metro_vyhlop.png",
+    "guns/metro_ubludok.json",
+    "guns/metro_velopal.json",
+    "guns/render/metro_ubludok.render.json",
+    "guns/render/metro_velopal.render.json"
+  ],
+  "addedFiles": [
+    "assets/modularwarfare/models/item/metro_mod_ubludok_radiator.json",
+    "assets/modularwarfare/skins/attachments/metro_mod_ubludok_radiator.png",
+    "assets/modularwarfare/skins/guns/metro_velopal.png",
+    "assets/modularwarfare/textures/items/metro_mod_ubludok_radiator.png",
+    "attachments/metro_mod_ubludok_radiator.json",
+    "attachments/render/metro_mod_ubludok_radiator.render.json",
+    "obj/attachments/metro_mod_ubludok_radiator.obj"
+  ],
+  "jarSha256": "240cf48fd2265104648de7ec0e3f56865aa4c1aa2ada7547dee0c63c5a50e3ab",
+  "packSha256": "5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f"
+}
