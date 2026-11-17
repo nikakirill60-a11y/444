@@ -1,0 +1,262 @@
+{
+  "source": "Metro2033Models.jar",
+  "source_sha256": "e768edb709880a8d81e512534af22b2a3e306dbace709bc27ded6cc4e6d1e4f8",
+  "matched": 35,
+  "expected": 35,
+  "missing": [],
+  "files": [
+    {
+      "reference": "decor_metro/trub.m2033model",
+      "path": "assets/metro2033server/models/obj/decor_metro/trub.m2033model",
+      "bytes": 72928,
+      "sha256": "1538f91c733d6ba64df533094ba0da589b4a2edd4b53acab085ea5055bdfe979",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "decor_metro/trub90.m2033model",
+      "path": "assets/metro2033server/models/obj/decor_metro/trub90.m2033model",
+      "bytes": 81168,
+      "sha256": "f910f9fe63c323caa5266c9759aa06168ba46775b466f34c119ac3ff521e4438",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "decor_metro/web1.m2033model",
+      "path": "assets/metro2033server/models/obj/decor_metro/web1.m2033model",
+      "bytes": 59520,
+      "sha256": "4394a3b31e667a45152ab966b3150a509a4d9581d3b02a54f6b65886fd496358",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "decor_metro/web2.m2033model",
+      "path": "assets/metro2033server/models/obj/decor_metro/web2.m2033model",
+      "bytes": 61008,
+      "sha256": "8111e0af3c9aaa1f33777000d782960f6c939978a8f8d18039062782c4713e69",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "decor_metro/web3.m2033model",
+      "path": "assets/metro2033server/models/obj/decor_metro/web3.m2033model",
+      "bytes": 60992,
+      "sha256": "49ad18c615f777ce7ae65172157e1905e6a2fb8f168513693c9c85809af0e4c6",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "drezina/regina.m2033model",
+      "path": "assets/metro2033server/models/obj/drezina/regina.m2033model",
+      "bytes": 2623648,
+      "sha256": "59993e339076ce9e50a14733143d961aa1f2e85a72ff37e2dbb8685de28b5eb9",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "drezina/regina_well.m2033model",
+      "path": "assets/metro2033server/models/obj/drezina/regina_well.m2033model",
+      "bytes": 121536,
+      "sha256": "402006bfa1cc0ad94ac2186556c4d6fa756ee5e6a4798aacd2f7852f6dbe7cfa",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/germo_left.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/germo_left.m2033model",
+      "bytes": 916416,
+      "sha256": "16cb2cceb9c373f3a523d9500238d0f697898e39610db8fd612af88824a74510",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/germo_right.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/germo_right.m2033model",
+      "bytes": 913776,
+      "sha256": "239d16b9ed77f74218b4a6ec61194876c664da3abedcd88548e30d5277c1bba0",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part1.m2033model",
+      "bytes": 728432,
+      "sha256": "a3d9d8d43ea52827e9aacb266c604b5d33157e42a5c69e5b839424a504012319",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part2.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part2.m2033model",
+      "bytes": 108736,
+      "sha256": "bcf3ac9f68f2a7c94ab3d7d5832e2e0ac0845eb9d1fbfbcfabf0659453451b00",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part3.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part3.m2033model",
+      "bytes": 87376,
+      "sha256": "f65d1b9935d80d3086f4b76ddaa41218f110c706f38a3dff3dff2132b8730448",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part3_1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part3_1.m2033model",
+      "bytes": 704,
+      "sha256": "90796433ad5162dfaeafa80503e7a2e5ffecd7aeb64c0ba44d20d8b94e19ec92",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part4.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part4.m2033model",
+      "bytes": 47856,
+      "sha256": "df76c5209b73228fbe67d3ee623500fbd83756563a35905d7ac7b150b810151d",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part5.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part5.m2033model",
+      "bytes": 6576,
+      "sha256": "af0243477261d9db594c0e9c87636f5040b60bde2b1b3af29db9082782a8cac1",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part5_1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part5_1.m2033model",
+      "bytes": 15280,
+      "sha256": "c2da74e58e204151a13b28dd46b9cee71e5a5f89b27ed6656e791bac789c5742",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part6.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part6.m2033model",
+      "bytes": 35200,
+      "sha256": "b8832aad12e4f0654b916acfaee44dc2f7e0c04567c5b0f3df7c79a164e8ce0f",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part6_1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part6_1.m2033model",
+      "bytes": 18752,
+      "sha256": "a13e4114e76e224ead814230c6d7fcaa1b0469dfed9e7549303712f2b9e0733e",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part7.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part7.m2033model",
+      "bytes": 16304,
+      "sha256": "5d459b6b32466cafad0d1a9a491e7488a4c8a66383709b26254857cc100810ae",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part7_1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part7_1.m2033model",
+      "bytes": 11600,
+      "sha256": "e5a0fee5470e30bf191960f118a01338325cb65dd60996aacf034065998052d5",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part8.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part8.m2033model",
+      "bytes": 6624,
+      "sha256": "bab917a44df7f8f02c66afd67f923a00fffe0d1296273db25ae16107edbee39f",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part8_1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part8_1.m2033model",
+      "bytes": 8864,
+      "sha256": "6fc94b05ace0f3d83d96e808a9096cd691a2dfe586ce1eff54b2e7abc826c1e3",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part8_2.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part8_2.m2033model",
+      "bytes": 8864,
+      "sha256": "f1c0bbc2d44a0c2754f0d254626435b184aa5598df27786754414fa7d16610a9",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part9.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part9.m2033model",
+      "bytes": 64976,
+      "sha256": "b7d6d5e3e670e57220b1878459a2fc525f2a79f6ef493c6f2493361eb0adbf9f",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/part9_1.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/part9_1.m2033model",
+      "bytes": 61296,
+      "sha256": "4d165fe4fa04526756c50f71b250a2ada6b18d7e2ca9ab706416edd6fa1238d4",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "menu/tun.m2033model",
+      "path": "assets/metro2033server/models/obj/menu/tun.m2033model",
+      "bytes": 1027440,
+      "sha256": "e45bb4085155679a9d8cc83eda8379659aadbb3412b00b5c9217b5b1a9690bbe",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "plant/root1.m2033model",
+      "path": "assets/metro2033server/models/obj/plant/root1.m2033model",
+      "bytes": 3088,
+      "sha256": "6ccecbee9639933781b36692738a624f9bc8cbf99fcf8b018988705bf84d4a92",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "plant/root2.m2033model",
+      "path": "assets/metro2033server/models/obj/plant/root2.m2033model",
+      "bytes": 56464,
+      "sha256": "376329fbd02b588afb41fdb6aa76eba9f85d08be5e218d1dbffea095d2654cc2",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/rails.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/rails.m2033model",
+      "bytes": 25760,
+      "sha256": "6a93a1e29a114b89838f8ab50510dd6a2fa3139878bc8e03425c0514953a57e1",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/tunnel1.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel1.m2033model",
+      "bytes": 2304992,
+      "sha256": "a40e02c65e67ad695eb9127e39134f1f498c21dcef6f9553cc365323e1733137",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/tunnel2.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel2.m2033model",
+      "bytes": 3716352,
+      "sha256": "c0de8896dd97e235d46f21a76de4525c5361968e6418fc014f5c098f7b671bb7",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/tunnel3.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel3.m2033model",
+      "bytes": 3150000,
+      "sha256": "26841ac41a9274d9bfbcb8e639cdc3ed2946bdbc7f3f0e7aea9f64c7d005ac66",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/tunnel4.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel4.m2033model",
+      "bytes": 2631408,
+      "sha256": "400a7ea4d4c46b10e2c8827b8555e616403b9231fecbc443689e8672d4ad8305",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/tunnel5.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel5.m2033model",
+      "bytes": 3540064,
+      "sha256": "a4641a7bca7bab57d8ee1fe980b6c3b3c25dfedee11f6b9aacc0d4f3cf56330f",
+      "part": "metro_menu_models_01.zip"
+    },
+    {
+      "reference": "tunnels/tunnel_betonnew_1.m2033model",
+      "path": "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.m2033model",
+      "bytes": 689776,
+      "sha256": "b21db77a42bdbfc384959182a42fe54952ca23a72db9b33e687e52888076568b",
+      "part": "metro_menu_models_01.zip"
+    }
+  ],
+  "parts": [
+    {
+      "name": "metro_menu_models_01.zip",
+      "bytes": 23290534,
+      "sha256": "06d7230ffe54a9f5b7943f268ce70060e1106fd3e0b1d9e3fe857d3095f6b123"
+    }
+  ],
+  "status": "original source models only; internal texture dependencies not yet audited"
+}

@@ -80,7 +80,7 @@ def audit(client):
         'original_server_literal': 'play.metro2033server.ru:25565',
         'requested_port_target': 'localhost:25565',
         'target_implemented': False,
-        'status': 'blocked: original scene model bytes not available; no substitute menu installed',
+        'status': 'static code inventory only; see separate geometry/audio verification reports; GUI not implemented',
         'limitations': [
             'Constant-pool references are not extracted model files or a completed menu port.',
             'Model-internal materials, textures, animations and recursive dependencies remain unaudited.',

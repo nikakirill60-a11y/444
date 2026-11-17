@@ -1,0 +1,1460 @@
+{
+  "source_zip": "metro_menu_models_01.zip",
+  "source_zip_bytes": 23290534,
+  "source_zip_sha256": "06d7230ffe54a9f5b7943f268ce70060e1106fd3e0b1d9e3fe857d3095f6b123",
+  "inventory_sha256": "67f25446b4639473e3c26f74a6c98207e30d28a3d2427db23d25a2424db8780d",
+  "original_models_jar_sha256": "e768edb709880a8d81e512534af22b2a3e306dbace709bc27ded6cc4e6d1e4f8",
+  "models": [
+    {
+      "reference": "decor_metro/trub.m2033model",
+      "source_path": "assets/metro2033server/models/obj/decor_metro/trub.m2033model",
+      "source_bytes": 72928,
+      "source_sha256": "1538f91c733d6ba64df533094ba0da589b4a2edd4b53acab085ea5055bdfe979",
+      "decoded_bytes": 72905,
+      "decoded_sha256": "bd93d706cf01acf8eb7cb3599114a59d4cf84b414089a9bd4a1f9c41a4a44f4f",
+      "decoded_path": "assets/metro2033server/models/obj/decor_metro/trub.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 484,
+        "vt": 476,
+        "vn": 1188,
+        "f": 396
+      },
+      "triangles": 396,
+      "polygon_sizes": {
+        "3": 396
+      },
+      "bounds": {
+        "min": [
+          -1.3865,
+          -0.7949,
+          -0.4863
+        ],
+        "max": [
+          1.3813,
+          0.5781,
+          0.0466
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/decor_metro/trub.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__29",
+        "Material__30"
+      ]
+    },
+    {
+      "reference": "decor_metro/trub90.m2033model",
+      "source_path": "assets/metro2033server/models/obj/decor_metro/trub90.m2033model",
+      "source_bytes": 81168,
+      "source_sha256": "f910f9fe63c323caa5266c9759aa06168ba46775b466f34c119ac3ff521e4438",
+      "decoded_bytes": 81139,
+      "decoded_sha256": "4e6ba4b782cebc8476a6cadd489d6d3dc817db75b9e40e5f4f8a189cf2626f43",
+      "decoded_path": "assets/metro2033server/models/obj/decor_metro/trub90.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 478,
+        "vt": 474,
+        "vn": 1416,
+        "f": 472
+      },
+      "triangles": 472,
+      "polygon_sizes": {
+        "3": 472
+      },
+      "bounds": {
+        "min": [
+          -0.9961,
+          -0.7949,
+          -0.4775
+        ],
+        "max": [
+          0.9688,
+          0.5781,
+          0.2214
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/decor_metro/trub90.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__31",
+        "Material__32"
+      ]
+    },
+    {
+      "reference": "decor_metro/web1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/decor_metro/web1.m2033model",
+      "source_bytes": 59520,
+      "source_sha256": "4394a3b31e667a45152ab966b3150a509a4d9581d3b02a54f6b65886fd496358",
+      "decoded_bytes": 59488,
+      "decoded_sha256": "8dacd4e06bc0673df2dd9a25b8872eca7a255c20a7dc7c36a6747a4dad94787b",
+      "decoded_path": "assets/metro2033server/models/obj/decor_metro/web1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 306,
+        "vt": 306,
+        "vn": 1092,
+        "f": 364
+      },
+      "triangles": 364,
+      "polygon_sizes": {
+        "3": 364
+      },
+      "bounds": {
+        "min": [
+          -5.3809,
+          -3.5752,
+          -2.5526
+        ],
+        "max": [
+          4.9666,
+          -0.0063,
+          2.7481
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/decor_metro/web1.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__49"
+      ]
+    },
+    {
+      "reference": "decor_metro/web2.m2033model",
+      "source_path": "assets/metro2033server/models/obj/decor_metro/web2.m2033model",
+      "source_bytes": 61008,
+      "source_sha256": "8111e0af3c9aaa1f33777000d782960f6c939978a8f8d18039062782c4713e69",
+      "decoded_bytes": 60988,
+      "decoded_sha256": "9471259e59e1a8127fb94cc3fd9e0ae88cad7d345a939d15bf014953d368812c",
+      "decoded_path": "assets/metro2033server/models/obj/decor_metro/web2.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 300,
+        "vt": 300,
+        "vn": 1152,
+        "f": 384
+      },
+      "triangles": 384,
+      "polygon_sizes": {
+        "3": 384
+      },
+      "bounds": {
+        "min": [
+          -1.989,
+          -4.8868,
+          -1.5221
+        ],
+        "max": [
+          1.9893,
+          0.0,
+          1.5217
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/decor_metro/web2.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__54"
+      ]
+    },
+    {
+      "reference": "decor_metro/web3.m2033model",
+      "source_path": "assets/metro2033server/models/obj/decor_metro/web3.m2033model",
+      "source_bytes": 60992,
+      "source_sha256": "49ad18c615f777ce7ae65172157e1905e6a2fb8f168513693c9c85809af0e4c6",
+      "decoded_bytes": 60970,
+      "decoded_sha256": "83982a09d880c269aa7f002bff97200ebb89040e31b632d9bf2441d47e6d1970",
+      "decoded_path": "assets/metro2033server/models/obj/decor_metro/web3.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 300,
+        "vt": 300,
+        "vn": 1152,
+        "f": 384
+      },
+      "triangles": 384,
+      "polygon_sizes": {
+        "3": 384
+      },
+      "bounds": {
+        "min": [
+          -1.989,
+          -4.8868,
+          -1.5221
+        ],
+        "max": [
+          1.9893,
+          0.0,
+          1.5217
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/decor_metro/web3.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__55"
+      ]
+    },
+    {
+      "reference": "drezina/regina.m2033model",
+      "source_path": "assets/metro2033server/models/obj/drezina/regina.m2033model",
+      "source_bytes": 2623648,
+      "source_sha256": "59993e339076ce9e50a14733143d961aa1f2e85a72ff37e2dbb8685de28b5eb9",
+      "decoded_bytes": 2623627,
+      "decoded_sha256": "41c5a6af0cab03c453a14a583fd37ca100555fc7849321fc7a78025fc2f07f54",
+      "decoded_path": "assets/metro2033server/models/obj/drezina/regina.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 14630,
+        "vt": 14595,
+        "vn": 42288,
+        "f": 14096
+      },
+      "triangles": 14096,
+      "polygon_sizes": {
+        "3": 14096
+      },
+      "bounds": {
+        "min": [
+          -1.4901,
+          0.2272,
+          -2.857
+        ],
+        "max": [
+          1.4904,
+          2.2989,
+          3.0221
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/drezina/regina.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__38",
+        "Material__39",
+        "Material__40",
+        "Material__41",
+        "Material__42",
+        "Material__43",
+        "Material__44"
+      ]
+    },
+    {
+      "reference": "drezina/regina_well.m2033model",
+      "source_path": "assets/metro2033server/models/obj/drezina/regina_well.m2033model",
+      "source_bytes": 121536,
+      "source_sha256": "402006bfa1cc0ad94ac2186556c4d6fa756ee5e6a4798aacd2f7852f6dbe7cfa",
+      "decoded_bytes": 121519,
+      "decoded_sha256": "1950410ab44a573b7d8a457159c8a303befcaf31b770b4983e8b64a9b1c075cc",
+      "decoded_path": "assets/metro2033server/models/obj/drezina/regina_well.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 699,
+        "vt": 699,
+        "vn": 2130,
+        "f": 710
+      },
+      "triangles": 710,
+      "polygon_sizes": {
+        "3": 710
+      },
+      "bounds": {
+        "min": [
+          0.8849,
+          -0.5559,
+          -0.5588
+        ],
+        "max": [
+          1.2937,
+          0.5691,
+          0.5622
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/drezina/regina_well.m2033gl4"
+      ],
+      "usemtl": [
+        "_reginaMaterial__26"
+      ]
+    },
+    {
+      "reference": "menu/germo_left.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/germo_left.m2033model",
+      "source_bytes": 916416,
+      "source_sha256": "16cb2cceb9c373f3a523d9500238d0f697898e39610db8fd612af88824a74510",
+      "decoded_bytes": 916387,
+      "decoded_sha256": "7a3fa7726c83e0d757db088aa5d8abc290c9d2a687cc90c1395884d1537f1208",
+      "decoded_path": "assets/metro2033server/models/obj/menu/germo_left.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 6414,
+        "vt": 6323,
+        "vn": 13647,
+        "f": 4549
+      },
+      "triangles": 4549,
+      "polygon_sizes": {
+        "3": 4549
+      },
+      "bounds": {
+        "min": [
+          -3.7143,
+          -0.0004,
+          -0.4721
+        ],
+        "max": [
+          0.0202,
+          5.8224,
+          0.1908
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/germo_left.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__26"
+      ]
+    },
+    {
+      "reference": "menu/germo_right.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/germo_right.m2033model",
+      "source_bytes": 913776,
+      "source_sha256": "239d16b9ed77f74218b4a6ec61194876c664da3abedcd88548e30d5277c1bba0",
+      "decoded_bytes": 913746,
+      "decoded_sha256": "26bc4560bf29550f559113532e382ace16521c5e994f77e79e97946a4d179864",
+      "decoded_path": "assets/metro2033server/models/obj/menu/germo_right.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 6450,
+        "vt": 6359,
+        "vn": 13695,
+        "f": 4565
+      },
+      "triangles": 4565,
+      "polygon_sizes": {
+        "3": 4565
+      },
+      "bounds": {
+        "min": [
+          -0.0199,
+          -0.0004,
+          -0.4721
+        ],
+        "max": [
+          3.7147,
+          5.8224,
+          0.1908
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/germo_right.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__25"
+      ]
+    },
+    {
+      "reference": "menu/part1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part1.m2033model",
+      "source_bytes": 728432,
+      "source_sha256": "a3d9d8d43ea52827e9aacb266c604b5d33157e42a5c69e5b839424a504012319",
+      "decoded_bytes": 728403,
+      "decoded_sha256": "f42ec199653094aa1b8c6922038ea5755a2033b21bef78c6d2bd53369e90088d",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 4310,
+        "vt": 4310,
+        "vn": 11913,
+        "f": 3971
+      },
+      "triangles": 3971,
+      "polygon_sizes": {
+        "3": 3971
+      },
+      "bounds": {
+        "min": [
+          -0.2276,
+          0.0518,
+          -0.0658
+        ],
+        "max": [
+          0.2537,
+          0.4346,
+          0.211
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part1.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__30",
+        "Material__31"
+      ]
+    },
+    {
+      "reference": "menu/part2.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part2.m2033model",
+      "source_bytes": 108736,
+      "source_sha256": "bcf3ac9f68f2a7c94ab3d7d5832e2e0ac0845eb9d1fbfbcfabf0659453451b00",
+      "decoded_bytes": 108707,
+      "decoded_sha256": "61bbd1799de46d9fd224932e417218c8d6b7483289721645ccb6615cc605bcd6",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part2.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 554,
+        "vt": 554,
+        "vn": 1965,
+        "f": 655
+      },
+      "triangles": 655,
+      "polygon_sizes": {
+        "3": 655
+      },
+      "bounds": {
+        "min": [
+          -0.0934,
+          -0.1342,
+          -0.0118
+        ],
+        "max": [
+          0.0956,
+          0.146,
+          0.0129
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part2.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__35",
+        "Material__36",
+        "Material__37"
+      ]
+    },
+    {
+      "reference": "menu/part3.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part3.m2033model",
+      "source_bytes": 87376,
+      "source_sha256": "f65d1b9935d80d3086f4b76ddaa41218f110c706f38a3dff3dff2132b8730448",
+      "decoded_bytes": 87355,
+      "decoded_sha256": "e61dc639c57790334c906fcf0cf6c7087c9239f3ac648abc81816cb59fd18ce0",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part3.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 494,
+        "vt": 491,
+        "vn": 1527,
+        "f": 509
+      },
+      "triangles": 509,
+      "polygon_sizes": {
+        "3": 509
+      },
+      "bounds": {
+        "min": [
+          -0.0772,
+          -0.0004,
+          -0.1103
+        ],
+        "max": [
+          0.0827,
+          0.2849,
+          0.0849
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part3.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__27",
+        "Material__29",
+        "Material__34"
+      ]
+    },
+    {
+      "reference": "menu/part3_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part3_1.m2033model",
+      "source_bytes": 704,
+      "source_sha256": "90796433ad5162dfaeafa80503e7a2e5ffecd7aeb64c0ba44d20d8b94e19ec92",
+      "decoded_bytes": 679,
+      "decoded_sha256": "fb6053343e83717f387415c146b00a85f4ac6d19a8d5a16ae562f2194b557215",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part3_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 4,
+        "vt": 4,
+        "vn": 6,
+        "f": 2
+      },
+      "triangles": 2,
+      "polygon_sizes": {
+        "3": 2
+      },
+      "bounds": {
+        "min": [
+          -0.004,
+          0.0006,
+          -0.1074
+        ],
+        "max": [
+          0.0049,
+          0.0436,
+          -0.1074
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part3_1.m2033gl4"
+      ],
+      "usemtl": [
+        "_part3Material__39"
+      ]
+    },
+    {
+      "reference": "menu/part4.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part4.m2033model",
+      "source_bytes": 47856,
+      "source_sha256": "df76c5209b73228fbe67d3ee623500fbd83756563a35905d7ac7b150b810151d",
+      "decoded_bytes": 47827,
+      "decoded_sha256": "5dad7c695fd0c162d5aeb2cd8c10c8f90f5a3b417de90f82ea6c930d4bb8d32c",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part4.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 352,
+        "vt": 352,
+        "vn": 744,
+        "f": 248
+      },
+      "triangles": 248,
+      "polygon_sizes": {
+        "3": 248
+      },
+      "bounds": {
+        "min": [
+          -0.403,
+          -0.0735,
+          -0.0625
+        ],
+        "max": [
+          0.3632,
+          0.0989,
+          0.0217
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part4.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__41"
+      ]
+    },
+    {
+      "reference": "menu/part5.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part5.m2033model",
+      "source_bytes": 6576,
+      "source_sha256": "af0243477261d9db594c0e9c87636f5040b60bde2b1b3af29db9082782a8cac1",
+      "decoded_bytes": 6545,
+      "decoded_sha256": "180cc9f573661dbd5bc8e3bd0584fe14fa7ae486d62d2c07fd1fdaac3d51e488",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part5.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 54,
+        "vt": 54,
+        "vn": 96,
+        "f": 32
+      },
+      "triangles": 32,
+      "polygon_sizes": {
+        "3": 32
+      },
+      "bounds": {
+        "min": [
+          -0.7452,
+          -0.0614,
+          0.0066
+        ],
+        "max": [
+          0.118,
+          0.0717,
+          0.0364
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part5.m2033gl4"
+      ],
+      "usemtl": [
+        "_part5Material__42"
+      ]
+    },
+    {
+      "reference": "menu/part5_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part5_1.m2033model",
+      "source_bytes": 15280,
+      "source_sha256": "c2da74e58e204151a13b28dd46b9cee71e5a5f89b27ed6656e791bac789c5742",
+      "decoded_bytes": 15258,
+      "decoded_sha256": "459ef78cbe011dd22bae7b84541bc8365db65516667599f2ea18d88ae7237bbb",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part5_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 93,
+        "vt": 93,
+        "vn": 270,
+        "f": 90
+      },
+      "triangles": 90,
+      "polygon_sizes": {
+        "3": 90
+      },
+      "bounds": {
+        "min": [
+          -0.0344,
+          -0.0341,
+          -0.0151
+        ],
+        "max": [
+          0.0348,
+          0.0339,
+          0.014
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part5_1.m2033gl4"
+      ],
+      "usemtl": [
+        "_part5Material__42"
+      ]
+    },
+    {
+      "reference": "menu/part6.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part6.m2033model",
+      "source_bytes": 35200,
+      "source_sha256": "b8832aad12e4f0654b916acfaee44dc2f7e0c04567c5b0f3df7c79a164e8ce0f",
+      "decoded_bytes": 35181,
+      "decoded_sha256": "5a441d0ff154c131421ce0a531924bfa6050e6f10a90a7c39acd396a1ec5f509",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part6.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 224,
+        "vt": 224,
+        "vn": 600,
+        "f": 200
+      },
+      "triangles": 200,
+      "polygon_sizes": {
+        "3": 200
+      },
+      "bounds": {
+        "min": [
+          -0.1007,
+          -0.0559,
+          -0.0066
+        ],
+        "max": [
+          0.1077,
+          0.0625,
+          0.0158
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part6.m2033gl4"
+      ],
+      "usemtl": [
+        "_part6Material__43"
+      ]
+    },
+    {
+      "reference": "menu/part6_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part6_1.m2033model",
+      "source_bytes": 18752,
+      "source_sha256": "a13e4114e76e224ead814230c6d7fcaa1b0469dfed9e7549303712f2b9e0733e",
+      "decoded_bytes": 18734,
+      "decoded_sha256": "16ba9e5dfde96c70752ed9de3329028c4d68ac3307bce79242214328b7a489d0",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part6_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 93,
+        "vt": 93,
+        "vn": 360,
+        "f": 120
+      },
+      "triangles": 120,
+      "polygon_sizes": {
+        "3": 120
+      },
+      "bounds": {
+        "min": [
+          -0.007,
+          -0.007,
+          -0.0259
+        ],
+        "max": [
+          0.007,
+          0.007,
+          0.0031
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part6_1.m2033gl4"
+      ],
+      "usemtl": [
+        "_part6Material__43"
+      ]
+    },
+    {
+      "reference": "menu/part7.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part7.m2033model",
+      "source_bytes": 16304,
+      "source_sha256": "5d459b6b32466cafad0d1a9a491e7488a4c8a66383709b26254857cc100810ae",
+      "decoded_bytes": 16279,
+      "decoded_sha256": "dcf14ca92facb276c1e0bbc70d6d21e601d0bf1133ed196c97317d4e5c34e1d8",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part7.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 94,
+        "vt": 94,
+        "vn": 294,
+        "f": 98
+      },
+      "triangles": 98,
+      "polygon_sizes": {
+        "3": 98
+      },
+      "bounds": {
+        "min": [
+          -0.0942,
+          -0.1015,
+          -0.0055
+        ],
+        "max": [
+          0.1135,
+          0.0732,
+          0.0136
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part7.m2033gl4"
+      ],
+      "usemtl": [
+        "_part7Material__44"
+      ]
+    },
+    {
+      "reference": "menu/part7_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part7_1.m2033model",
+      "source_bytes": 11600,
+      "source_sha256": "e5a0fee5470e30bf191960f118a01338325cb65dd60996aacf034065998052d5",
+      "decoded_bytes": 11576,
+      "decoded_sha256": "f40627ac46601438049bc880acb63eaf9ab2deb5c5afd1b0f53406aabecf4578",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part7_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 77,
+        "vt": 77,
+        "vn": 192,
+        "f": 64
+      },
+      "triangles": 64,
+      "polygon_sizes": {
+        "3": 64
+      },
+      "bounds": {
+        "min": [
+          -0.0341,
+          -0.0338,
+          -0.0279
+        ],
+        "max": [
+          0.0343,
+          0.0339,
+          -0.0055
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part7_1.m2033gl4"
+      ],
+      "usemtl": [
+        "_part7Material__44"
+      ]
+    },
+    {
+      "reference": "menu/part8.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part8.m2033model",
+      "source_bytes": 6624,
+      "source_sha256": "bab917a44df7f8f02c66afd67f923a00fffe0d1296273db25ae16107edbee39f",
+      "decoded_bytes": 6604,
+      "decoded_sha256": "64761cf2f3a70bf10ea11742a6d62cfc8b5b077b50d727b2761ef5c4cf6f27ab",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part8.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 54,
+        "vt": 54,
+        "vn": 96,
+        "f": 32
+      },
+      "triangles": 32,
+      "polygon_sizes": {
+        "3": 32
+      },
+      "bounds": {
+        "min": [
+          -0.0875,
+          -0.0555,
+          -0.0228
+        ],
+        "max": [
+          0.1059,
+          0.0588,
+          0.0136
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part8.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__25"
+      ]
+    },
+    {
+      "reference": "menu/part8_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part8_1.m2033model",
+      "source_bytes": 8864,
+      "source_sha256": "6fc94b05ace0f3d83d96e808a9096cd691a2dfe586ce1eff54b2e7abc826c1e3",
+      "decoded_bytes": 8844,
+      "decoded_sha256": "7714f93c079ddb526390b7ef87900ece7246270b57f1233bc5bd95cca30cb8dd",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part8_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 54,
+        "vt": 54,
+        "vn": 156,
+        "f": 52
+      },
+      "triangles": 52,
+      "polygon_sizes": {
+        "3": 52
+      },
+      "bounds": {
+        "min": [
+          0.0188,
+          0.0324,
+          -0.0313
+        ],
+        "max": [
+          0.0401,
+          0.0533,
+          -0.021
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part8_1.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__27"
+      ]
+    },
+    {
+      "reference": "menu/part8_2.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part8_2.m2033model",
+      "source_bytes": 8864,
+      "source_sha256": "f1c0bbc2d44a0c2754f0d254626435b184aa5598df27786754414fa7d16610a9",
+      "decoded_bytes": 8832,
+      "decoded_sha256": "ccf78ba81dc969e27fbb4f199a44920e594d0e60220473691766053d4da46a86",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part8_2.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 54,
+        "vt": 54,
+        "vn": 156,
+        "f": 52
+      },
+      "triangles": 52,
+      "polygon_sizes": {
+        "3": 52
+      },
+      "bounds": {
+        "min": [
+          0.0195,
+          0.0,
+          -0.0313
+        ],
+        "max": [
+          0.0408,
+          0.021,
+          -0.021
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part8_2.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__26"
+      ]
+    },
+    {
+      "reference": "menu/part9.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part9.m2033model",
+      "source_bytes": 64976,
+      "source_sha256": "b7d6d5e3e670e57220b1878459a2fc525f2a79f6ef493c6f2493361eb0adbf9f",
+      "decoded_bytes": 64956,
+      "decoded_sha256": "6c05ad524cd14c8653fa8790901079f31ee641930205838ad8ee1ed897a392e0",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part9.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 461,
+        "vt": 461,
+        "vn": 1032,
+        "f": 344
+      },
+      "triangles": 344,
+      "polygon_sizes": {
+        "3": 344
+      },
+      "bounds": {
+        "min": [
+          -0.4713,
+          -0.0798,
+          -0.0967
+        ],
+        "max": [
+          0.4647,
+          0.0853,
+          0.0121
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part9.m2033gl4"
+      ],
+      "usemtl": [
+        "_part9Material__46"
+      ]
+    },
+    {
+      "reference": "menu/part9_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/part9_1.m2033model",
+      "source_bytes": 61296,
+      "source_sha256": "4d165fe4fa04526756c50f71b250a2ada6b18d7e2ca9ab706416edd6fa1238d4",
+      "decoded_bytes": 61265,
+      "decoded_sha256": "91c1267d129cdd32115d9bd15376342bb6fcaed74e98dfea9ff67373edcc999e",
+      "decoded_path": "assets/metro2033server/models/obj/menu/part9_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 386,
+        "vt": 386,
+        "vn": 1050,
+        "f": 350
+      },
+      "triangles": 350,
+      "polygon_sizes": {
+        "3": 350
+      },
+      "bounds": {
+        "min": [
+          -0.1606,
+          -0.0184,
+          -0.1605
+        ],
+        "max": [
+          0.1608,
+          0.1066,
+          0.1609
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/part9_1.m2033gl4"
+      ],
+      "usemtl": [
+        "_part9Material__46"
+      ]
+    },
+    {
+      "reference": "menu/tun.m2033model",
+      "source_path": "assets/metro2033server/models/obj/menu/tun.m2033model",
+      "source_bytes": 1027440,
+      "source_sha256": "e45bb4085155679a9d8cc83eda8379659aadbb3412b00b5c9217b5b1a9690bbe",
+      "decoded_bytes": 1027420,
+      "decoded_sha256": "cf09e97b840e86385872a501f48e38244598ed2940b706aa0f0672f89e6b52c6",
+      "decoded_path": "assets/metro2033server/models/obj/menu/tun.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 6076,
+        "vt": 6076,
+        "vn": 16479,
+        "f": 5493
+      },
+      "triangles": 5493,
+      "polygon_sizes": {
+        "3": 5493
+      },
+      "bounds": {
+        "min": [
+          -10.6813,
+          -4.3831,
+          -9.0787
+        ],
+        "max": [
+          10.6801,
+          4.3827,
+          8.9912
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/menu/tun.m2033gl4"
+      ],
+      "usemtl": [
+        "_tunMaterial__25",
+        "_tun_tunMaterial__43",
+        "_tun_tunMaterial__48"
+      ]
+    },
+    {
+      "reference": "plant/root1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/plant/root1.m2033model",
+      "source_bytes": 3088,
+      "source_sha256": "6ccecbee9639933781b36692738a624f9bc8cbf99fcf8b018988705bf84d4a92",
+      "decoded_bytes": 3067,
+      "decoded_sha256": "c7f337542708373a15ebcc852af8440b52d7ff39f07179f60cd2b2b9922b880b",
+      "decoded_path": "assets/metro2033server/models/obj/plant/root1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 20,
+        "vt": 20,
+        "vn": 48,
+        "f": 16
+      },
+      "triangles": 16,
+      "polygon_sizes": {
+        "3": 16
+      },
+      "bounds": {
+        "min": [
+          -1.322,
+          -7.37,
+          -2.0922
+        ],
+        "max": [
+          0.3938,
+          -0.1041,
+          2.0442
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/plant/root1.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__56"
+      ]
+    },
+    {
+      "reference": "plant/root2.m2033model",
+      "source_path": "assets/metro2033server/models/obj/plant/root2.m2033model",
+      "source_bytes": 56464,
+      "source_sha256": "376329fbd02b588afb41fdb6aa76eba9f85d08be5e218d1dbffea095d2654cc2",
+      "decoded_bytes": 56440,
+      "decoded_sha256": "dc77c5ceaf8f09b994d174a615cb4de47e51367112c85ef0a66004231bbffb30",
+      "decoded_path": "assets/metro2033server/models/obj/plant/root2.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 338,
+        "vt": 338,
+        "vn": 990,
+        "f": 330
+      },
+      "triangles": 330,
+      "polygon_sizes": {
+        "3": 330
+      },
+      "bounds": {
+        "min": [
+          -0.5274,
+          -0.3916,
+          -0.3139
+        ],
+        "max": [
+          0.5335,
+          0.5147,
+          0.2541
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/plant/root2.m2033gl4"
+      ],
+      "usemtl": [
+        "_korni1Material__48"
+      ]
+    },
+    {
+      "reference": "tunnels/rails.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/rails.m2033model",
+      "source_bytes": 25760,
+      "source_sha256": "6a93a1e29a114b89838f8ab50510dd6a2fa3139878bc8e03425c0514953a57e1",
+      "decoded_bytes": 25737,
+      "decoded_sha256": "e7a4dceb072d99f6cd7bdd0f4fd6d6f17bc657a580358fb715e7d9a922bdc494",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/rails.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 136,
+        "vt": 88,
+        "vn": 504,
+        "f": 168
+      },
+      "triangles": 168,
+      "polygon_sizes": {
+        "3": 168
+      },
+      "bounds": {
+        "min": [
+          -1.5313,
+          -0.0904,
+          -0.8967
+        ],
+        "max": [
+          2.1926,
+          0.3217,
+          1.0761
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/rails.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__39",
+        "Material__40",
+        "Material__41"
+      ]
+    },
+    {
+      "reference": "tunnels/tunnel1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/tunnel1.m2033model",
+      "source_bytes": 2304992,
+      "source_sha256": "a40e02c65e67ad695eb9127e39134f1f498c21dcef6f9553cc365323e1733137",
+      "decoded_bytes": 2304974,
+      "decoded_sha256": "1ccdfdb3b50938591b7e8bf1032462c019039125c321bc8d785632dacba74086",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/tunnel1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 16037,
+        "vt": 16966,
+        "vn": 32682,
+        "f": 10894
+      },
+      "triangles": 10894,
+      "polygon_sizes": {
+        "3": 10894
+      },
+      "bounds": {
+        "min": [
+          -4.8765,
+          -0.0904,
+          -10.0499
+        ],
+        "max": [
+          4.8746,
+          8.4232,
+          10.0386
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/tunnel1.m2033gl4"
+      ],
+      "usemtl": [
+        "_tunnel1Material__25",
+        "_tunnel1Material__26",
+        "_tunnel1Material__27",
+        "_tunnel1Material__28",
+        "_tunnel1Material__29",
+        "_tunnel1Material__30",
+        "_tunnel1Material__31",
+        "_tunnel1Material__32",
+        "_tunnel1Material__33",
+        "_tunnel1Material__34",
+        "_tunnel1Material__35",
+        "_tunnel1Material__36"
+      ]
+    },
+    {
+      "reference": "tunnels/tunnel2.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/tunnel2.m2033model",
+      "source_bytes": 3716352,
+      "source_sha256": "c0de8896dd97e235d46f21a76de4525c5361968e6418fc014f5c098f7b671bb7",
+      "decoded_bytes": 3716326,
+      "decoded_sha256": "07f68c53ebc55a97f8293639611157972704d2555862baa5cad37744c0083e27",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/tunnel2.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 21021,
+        "vt": 44664,
+        "vn": 44664,
+        "f": 14888
+      },
+      "triangles": 14888,
+      "polygon_sizes": {
+        "3": 14888
+      },
+      "bounds": {
+        "min": [
+          -4.8776,
+          -0.0904,
+          -10.039
+        ],
+        "max": [
+          4.5717,
+          8.4232,
+          10.0396
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/tunnel2.m2033gl4"
+      ],
+      "usemtl": [
+        "_tunnel2Material__39",
+        "_tunnel2Material__41",
+        "_tunnel2Material__42",
+        "_tunnel2Material__43",
+        "_tunnel2Material__44",
+        "_tunnel2Material__45",
+        "_tunnel2Material__46",
+        "_tunnel2Material__47",
+        "_tunnel2Material__48",
+        "_tunnel2Material__49",
+        "_tunnel2Material__50"
+      ]
+    },
+    {
+      "reference": "tunnels/tunnel3.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/tunnel3.m2033model",
+      "source_bytes": 3150000,
+      "source_sha256": "26841ac41a9274d9bfbcb8e639cdc3ed2946bdbc7f3f0e7aea9f64c7d005ac66",
+      "decoded_bytes": 3149972,
+      "decoded_sha256": "a221e480e645c7c183870afe2b8017f730903d0971b080e000ea8b9e5483d34b",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/tunnel3.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 21255,
+        "vt": 22572,
+        "vn": 44988,
+        "f": 14996
+      },
+      "triangles": 14996,
+      "polygon_sizes": {
+        "3": 14996
+      },
+      "bounds": {
+        "min": [
+          -4.8776,
+          -0.0904,
+          -10.039
+        ],
+        "max": [
+          4.5717,
+          8.4232,
+          10.0396
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/tunnel3.m2033gl4"
+      ],
+      "usemtl": [
+        "_tunnel3Material__25",
+        "_tunnel3Material__26",
+        "_tunnel3Material__27",
+        "_tunnel3Material__28",
+        "_tunnel3Material__29",
+        "_tunnel3Material__30",
+        "_tunnel3Material__31",
+        "_tunnel3Material__32",
+        "_tunnel3Material__33",
+        "_tunnel3Material__34",
+        "_tunnel3Material__35"
+      ]
+    },
+    {
+      "reference": "tunnels/tunnel4.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/tunnel4.m2033model",
+      "source_bytes": 2631408,
+      "source_sha256": "400a7ea4d4c46b10e2c8827b8555e616403b9231fecbc443689e8672d4ad8305",
+      "decoded_bytes": 2631381,
+      "decoded_sha256": "4acbba4019a1de0c0bdd221027b5e1a12e36a0b565b6d4b4716149554f005302",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/tunnel4.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 18022,
+        "vt": 19502,
+        "vn": 37266,
+        "f": 12422
+      },
+      "triangles": 12422,
+      "polygon_sizes": {
+        "3": 12422
+      },
+      "bounds": {
+        "min": [
+          -4.8772,
+          -0.0904,
+          -10.039
+        ],
+        "max": [
+          4.5717,
+          8.4228,
+          10.0396
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/tunnel4.m2033gl4"
+      ],
+      "usemtl": [
+        "_tunnel4Material__42",
+        "_tunnel4_tunnel4Material__86",
+        "_tunnel4_tunnel4Material__87",
+        "_tunnel4_tunnel4Material__90",
+        "_tunnel4_tunnel4Material__91",
+        "_tunnel4_tunnel4Material__92",
+        "_tunnel4_tunnel4Material__93",
+        "_tunnel4_tunnel4Material__94",
+        "_tunnel4_tunnel4Material__95",
+        "_tunnel4_tunnel4Material__96",
+        "_tunnel4_tunnel4Material__97"
+      ]
+    },
+    {
+      "reference": "tunnels/tunnel5.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/tunnel5.m2033model",
+      "source_bytes": 3540064,
+      "source_sha256": "a4641a7bca7bab57d8ee1fe980b6c3b3c25dfedee11f6b9aacc0d4f3cf56330f",
+      "decoded_bytes": 3540035,
+      "decoded_sha256": "6f6a60a45a24514793016ef4e96c46e557d4bcc1a9eb970852a61fd71c350d45",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/tunnel5.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 20023,
+        "vt": 42624,
+        "vn": 42624,
+        "f": 14208
+      },
+      "triangles": 14208,
+      "polygon_sizes": {
+        "3": 14208
+      },
+      "bounds": {
+        "min": [
+          -4.8776,
+          -0.0904,
+          -9.9158
+        ],
+        "max": [
+          4.5717,
+          8.4232,
+          10.1628
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/tunnel5.m2033gl4"
+      ],
+      "usemtl": [
+        "_tunnel5Material__43",
+        "_tunnel5Material__44",
+        "_tunnel5Material__45",
+        "_tunnel5Material__46",
+        "_tunnel5Material__47",
+        "_tunnel5Material__48",
+        "_tunnel5Material__49",
+        "_tunnel5Material__50",
+        "_tunnel5Material__51",
+        "_tunnel5Material__52",
+        "_tunnel5Material__53"
+      ]
+    },
+    {
+      "reference": "tunnels/tunnel_betonnew_1.m2033model",
+      "source_path": "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.m2033model",
+      "source_bytes": 689776,
+      "source_sha256": "b21db77a42bdbfc384959182a42fe54952ca23a72db9b33e687e52888076568b",
+      "decoded_bytes": 689746,
+      "decoded_sha256": "9a4211939d4a110bc2b1fffb74173bea1d139dde45e1eb1b299ac8a6050d9997",
+      "decoded_path": "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.obj",
+      "encoding": "utf-8",
+      "counts": {
+        "v": 4392,
+        "vt": 4232,
+        "vn": 10911,
+        "f": 3637
+      },
+      "triangles": 3637,
+      "polygon_sizes": {
+        "3": 3637
+      },
+      "bounds": {
+        "min": [
+          -4.6989,
+          -0.1831,
+          -2.7331
+        ],
+        "max": [
+          4.8118,
+          8.5827,
+          2.6702
+        ]
+      },
+      "material_libraries": [
+        "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.m2033gl4"
+      ],
+      "usemtl": [
+        "Material__29"
+      ]
+    }
+  ],
+  "validated_models": 35,
+  "geometry_totals": {
+    "v": 144739,
+    "vt": 194269,
+    "vn": 329373,
+    "f": 109791,
+    "triangles": 109791
+  },
+  "material_paths": [
+    "assets/metro2033server/models/obj/decor_metro/trub.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/trub90.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/web1.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/web2.m2033gl4",
+    "assets/metro2033server/models/obj/decor_metro/web3.m2033gl4",
+    "assets/metro2033server/models/obj/drezina/regina.m2033gl4",
+    "assets/metro2033server/models/obj/drezina/regina_well.m2033gl4",
+    "assets/metro2033server/models/obj/menu/germo_left.m2033gl4",
+    "assets/metro2033server/models/obj/menu/germo_right.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part2.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part3.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part3_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part4.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part5.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part5_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part6.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part6_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part7.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part7_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part8.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part8_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part8_2.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part9.m2033gl4",
+    "assets/metro2033server/models/obj/menu/part9_1.m2033gl4",
+    "assets/metro2033server/models/obj/menu/tun.m2033gl4",
+    "assets/metro2033server/models/obj/plant/root1.m2033gl4",
+    "assets/metro2033server/models/obj/plant/root2.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/rails.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel1.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel2.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel3.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel4.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel5.m2033gl4",
+    "assets/metro2033server/models/obj/tunnels/tunnel_betonnew_1.m2033gl4"
+  ],
+  "original_collector_missing": [],
+  "material_files_in_this_zip": 0,
+  "texture_files_in_this_zip": 0,
+  "runtime_port_implemented": false,
+  "donor_java_executed": false,
+  "status": "All 35 direct menu meshes verified; material and texture closure not yet verified; GUI not implemented",
+  "scope": "35 direct scene models referenced by the original METRO_MOD 3D menu",
+  "direct_menu_reference_set_verified": true
+}
