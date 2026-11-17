@@ -47,6 +47,8 @@ def generate():
         body = []
         for start, end in sections:
             body.extend(lines[start-1:end])
+            if signature == 'regina()' and start == 1263:
+                body.append('        out.dashboard();')
         translated = []
         for line in body:
             line = re.sub(r'\((?:float|int|boolean)\)', '', line)
@@ -59,7 +61,7 @@ def generate():
             # Fixed-function lighting is managed by the caller, outside this mesh pass.
             if re.fullmatch(r'\s*GL11\.gl(?:Enable|Disable)\(2896\);', line):
                 continue
-            if not re.fullmatch(r'\s*(?:out\.(?:push|pop|translate|rotate|scale|color|mesh)\(.*\);|int n;|switch \(n\) \{|case \d+: \{|break;|\}|for \(.*\) \{)\s*', line):
+            if not re.fullmatch(r'\s*(?:out\.(?:push|pop|translate|rotate|scale|color|mesh|dashboard)\(.*\);|int n;|switch \(n\) \{|case \d+: \{|break;|\}|for \(.*\) \{)\s*', line):
                 raise ValueError('Unrecognised geometry statement: ' + line)
             if line.strip() == 'out.push();':
                 line += ' try {'
@@ -82,6 +84,10 @@ public final class OriginalMenuGeometry {
         void scale(float x, float y, float z);
         void color(float r, float g, float b);
         void mesh(String sourceReference);
+        default void cameraLights() {}
+        default void dashboard() {}
+        default void particles() {}
+        default void glows() {}
     }
     private final Sink out;
     private final OriginalMenuState s;

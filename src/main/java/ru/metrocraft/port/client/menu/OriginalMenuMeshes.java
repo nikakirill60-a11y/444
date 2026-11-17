@@ -18,7 +18,7 @@ import java.util.zip.GZIPInputStream;
  * shader/material parity is still pending. Never renders or modifies game hands.
  * Owner must close on GUI exit/reload, on the render thread.
  */
-public final class OriginalMenuMeshes implements OriginalMenuGeometry.Sink, AutoCloseable {
+public class OriginalMenuMeshes implements OriginalMenuGeometry.Sink, AutoCloseable {
     private final Map<String, Definition> definitions = new LinkedHashMap<>();
     private final Map<String, List<Group>> meshes = new LinkedHashMap<>();
     private static final class Definition {
@@ -75,6 +75,10 @@ public final class OriginalMenuMeshes implements OriginalMenuGeometry.Sink, Auto
             for (Group group : result) GLAllocation.deleteDisplayLists(group.list);
             throw e;
         }
+    }
+    /** Fail before starting the intro instead of discovering missing meshes mid-frame. */
+    public void preload() {
+        for (String name : definitions.keySet()) if (!meshes.containsKey(name)) meshes.put(name, load(name));
     }
     @Override public void mesh(String sourceReference) {
         List<Group> groups = meshes.get(sourceReference);

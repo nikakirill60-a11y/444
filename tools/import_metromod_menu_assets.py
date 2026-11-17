@@ -125,11 +125,11 @@ def prepare(models, materials):
                 'materials_zip_sha256': finish['source_zip_sha256'],
                 'model_count': len(meshes), 'texture_count': len(textures),
                 'models': meshes, 'assets': records,
-                'gui_implemented': False, 'in_game_verified': False,
+                'gui_implemented': True, 'in_game_verified': False,
                 'notes': ['Original OBJ bytes inside deterministic gzip, without UV or geometry edits.',
                           'All collected diffuse/normal/specular/emission textures retained as decoded PNG.',
                           'Material channel availability is not a claim of donor shader parity.',
-                          'No main-menu replacement or automatic audio/network activity enabled.']}
+                          'Runtime test GUI is wired separately; no automatic network activity.']}
     return assets, manifest
 
 
@@ -151,4 +151,4 @@ if __name__ == '__main__':
     parser.add_argument('models_zip'); parser.add_argument('materials_zip')
     args = parser.parse_args()
     result = install(args.models_zip, args.materials_zip)
-    print('Prepared', result['model_count'], 'original menu meshes and', result['texture_count'], 'textures. GUI not enabled.')
+    print('Prepared', result['model_count'], 'original menu meshes and', result['texture_count'], 'textures. GUI runtime is separate; in-game parity unverified.')

@@ -13,6 +13,10 @@ public final class OriginalMenuGeometry {
         void scale(float x, float y, float z);
         void color(float r, float g, float b);
         void mesh(String sourceReference);
+        default void cameraLights() {}
+        default void dashboard() {}
+        default void particles() {}
+        default void glows() {}
     }
     private final Sink out;
     private final OriginalMenuState s;
@@ -203,6 +207,7 @@ public final class OriginalMenuGeometry {
         out.color(1.0f, 1.0f, 1.0f);
         out.mesh("menu/part2.m2033model");
         } finally { out.pop(); }
+        out.dashboard();
         out.push(); try {
         out.translate(0.52f, -0.36f, -0.1f);
         out.rotate(45.0f, 0.0f, 1.0f, 0.0f);

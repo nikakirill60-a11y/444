@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.31", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
+@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.32", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -144,6 +144,13 @@ public final class MetroPort {
         net.minecraft.util.ResourceLocation gateSound = new net.minecraft.util.ResourceLocation(ID, "germo");
         SoundEvent gateEvent = new SoundEvent(gateSound).setRegistryName(gateSound);
         SOUNDS.put("germo", gateEvent); event.getRegistry().register(gateEvent);
+        for (String name : new String[]{"menu_carnoise", "menu_intro_loop", "menu_railnoise",
+                "menu_wheel_knock_noise", "regina_engine_idle", "switch2_light"}) {
+            String id = "metromod.menu." + name;
+            ResourceLocation location = new ResourceLocation(ID, id);
+            SoundEvent sound = new SoundEvent(location).setRegistryName(location);
+            SOUNDS.put(id, sound); event.getRegistry().register(sound);
+        }
         for (Definition d : definitions) {
             for (String id : new String[]{d.shootSound, d.reloadSound}) {
                 if (id == null || SOUNDS.containsKey(id)) continue;

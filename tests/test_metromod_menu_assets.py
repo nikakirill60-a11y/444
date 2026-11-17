@@ -28,7 +28,7 @@ class OriginalMenuAssetsTest(unittest.TestCase):
         self.assertEqual(132, len(self.manifest['assets']))
         self.assertEqual(self.geometry['source_zip_sha256'], self.manifest['models_zip_sha256'])
         self.assertEqual(self.finish['source_zip_sha256'], self.manifest['materials_zip_sha256'])
-        self.assertFalse(self.manifest['gui_implemented'])
+        self.assertTrue(self.manifest['gui_implemented'])
         self.assertFalse(self.manifest['in_game_verified'])
         self.assertFalse(self.finish['donor_java_executed'])
         inventory = (REPORTS / 'menu_finish_inventory.json').read_bytes()

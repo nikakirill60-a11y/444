@@ -19,6 +19,7 @@ public final class OriginalMenuScene {
             out.rotate(state.pitch - 90, 1, 0, 0);
             out.rotate(state.yaw, 0, 1, 0);
             out.rotate(state.roll, 0, 0, 1);
+            out.cameraLights();
             out.rotate(180, 0, 0, 1);
             out.translate(0, -2.6f, .2f);
             geometry.regina();
@@ -40,7 +41,9 @@ public final class OriginalMenuScene {
                 if (state.sceneZ > -31) geometry.intro();
                 for (float[] web : state.webs) geometry.webs(web[0], -web[1], Math.round(web[2]));
                 for (float[] root : state.roots) geometry.roots(root[0], -root[1], Math.round(root[2]));
+                out.particles();
             } finally { out.pop(); }
+            out.glows();
         } finally { out.pop(); }
     }
 }

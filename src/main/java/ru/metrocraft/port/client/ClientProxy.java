@@ -16,6 +16,6 @@ public final class ClientProxy extends CommonProxy {
         net.minecraft.client.Minecraft.getMinecraft().addScheduledTask(()->GunClient.shot(gun,pitch,yaw));
     }
     @Override public void survival(int dimension,int entity,float water,float energy,boolean lamp){BlackrazidSurvivalClient.receive(dimension,entity,water,energy,lamp);}
-    @Override public void init() { ClientEvents.initialize();BlackrazidSurvivalClient.initialize();NvgEffects.initialize();
+    @Override public void init() { ru.metrocraft.port.client.menu.OriginalMenuClient.initialize();ClientEvents.initialize();BlackrazidSurvivalClient.initialize();NvgEffects.initialize();
         ((net.minecraft.client.resources.IReloadableResourceManager)net.minecraft.client.Minecraft.getMinecraft().getResourceManager()).registerReloadListener(manager->{ru.metrocraft.port.client.gates.OriginalGateRenderer.reload();BlackrazidGadgetRenderer.reload();ru.metrocraft.port.client.blackrazid.mutants.MutantObjPart.reload();}); }
 }

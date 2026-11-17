@@ -68,7 +68,14 @@
     "tile.metroport.metromod_germo_4.name": "Гермоворота METRO_MOD 4",
     "tile.metroport.metromod_germo_5.name": "Гермоворота METRO_MOD 5",
     "tile.metroport.metromod_germo_6.name": "Гермоворота METRO_MOD 6",
-    "tile.metroport.metromod_germo_9.name": "Гермоворота METRO_MOD 9"
+    "tile.metroport.metromod_germo_9.name": "Гермоворота METRO_MOD 9",
+    "metroport.menu.enter": "В метро",
+    "metroport.menu.site": "Сайт проекта",
+    "metroport.menu.options": "Настройки",
+    "metroport.menu.quit": "Выход",
+    "metroport.menu.server": "Сервер:",
+    "metroport.menu.welcome": "Добро пожаловать",
+    "metroport.menu.site_unset": "Сайт не настроен"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -139,6 +146,13 @@
     "tile.metroport.metromod_germo_4.name": "METRO_MOD hermetic gate 4",
     "tile.metroport.metromod_germo_5.name": "METRO_MOD hermetic gate 5",
     "tile.metroport.metromod_germo_6.name": "METRO_MOD hermetic gate 6",
-    "tile.metroport.metromod_germo_9.name": "METRO_MOD hermetic gate 9"
+    "tile.metroport.metromod_germo_9.name": "METRO_MOD hermetic gate 9",
+    "metroport.menu.enter": "Enter Metro",
+    "metroport.menu.site": "Project website",
+    "metroport.menu.options": "Options",
+    "metroport.menu.quit": "Quit",
+    "metroport.menu.server": "Server:",
+    "metroport.menu.welcome": "Welcome",
+    "metroport.menu.site_unset": "No website configured"
   }
 }

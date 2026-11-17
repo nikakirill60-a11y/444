@@ -1876,12 +1876,12 @@
       "sha256": "3e9e57b5e3548251befd5b8d499bffb1b3f63b24fb18b7831657d841ef41ecff"
     }
   ],
-  "gui_implemented": false,
+  "gui_implemented": true,
   "in_game_verified": false,
   "notes": [
     "Original OBJ bytes inside deterministic gzip, without UV or geometry edits.",
     "All collected diffuse/normal/specular/emission textures retained as decoded PNG.",
     "Material channel availability is not a claim of donor shader parity.",
-    "No main-menu replacement or automatic audio/network activity enabled."
+    "Runtime test GUI is wired separately; no automatic network activity."
   ]
 }

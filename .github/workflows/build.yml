@@ -114,7 +114,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.31.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -133,32 +133,30 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.31.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar
           if-no-files-found: error
 
-      - name: Verify and publish selected systems test build on the same branch
-        if: github.ref == 'refs/heads/arena/dcab859f-444' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[publish metro-selected]')))
+      - name: Verify and publish original menu runtime test
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish menu-test]')
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          if [ "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" != "$GITHUB_SHA" ]; then
-            echo 'A newer commit exists; refusing to publish stale binaries.'
-            exit 1
-          fi
+          test "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" = "$GITHUB_SHA"
           mkdir -p downloads
-          cp build/libs/metrocraft-port-1.12.2-1.13.0-dev.31.jar downloads/
-          cp docs/METRO_SELECTED_INSTALL_RU.txt downloads/MetroPort_dev31_README_RU.txt
-          cp build/structures/MinETRO_ring_4stations_1.12.2.schematic downloads/
-          cp build/structures/network-counts.txt downloads/MinETRO_network_counts.txt
-          test -s downloads/MinETRO_ring_4stations_1.12.2.schematic
-          python tools/verify_metro_selected_build.py \
-            downloads/metrocraft-port-1.12.2-1.13.0-dev.31.jar \
-            build/test-results/test "$GITHUB_SHA" \
-            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
-            downloads/MetroPort_dev31_report.json
+          python -m tools.verify_metromod_menu_build \
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar build/test-results/test "$GITHUB_SHA" \
+            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" downloads/MetroPort_dev32_report.json
+          cp docs/METRO_MENU_DEV32_RU.txt downloads/MetroPort_dev32_README_RU.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- downloads/metrocraft-port-1.12.2-1.13.0-dev.31.jar downloads/MetroPort_dev31_README_RU.txt downloads/MetroPort_dev31_report.json downloads/MinETRO_ring_4stations_1.12.2.schematic downloads/MinETRO_network_counts.txt
+          git add downloads/MetroPort_dev32_report.json downloads/MetroPort_dev32_README_RU.txt
           git diff --cached --check
-          git commit -m 'Publish MinETRO donor Door collision stage dev.31 [skip ci]'
+          git commit -m 'Record verified original menu runtime test dev32 [skip ci]'
           git push origin arena/dcab859f-444
+          gh release create minetro-menu-dev32 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO dev32 — original 3D menu runtime TEST' \
+            --notes-file docs/METRO_MENU_DEV32_RU.txt \
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar \
+            downloads/MetroPort_dev32_report.json downloads/MetroPort_dev32_README_RU.txt

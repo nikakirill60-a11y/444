@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "content_sha256": "318cdcf0a48f076571300e4f8336651c702601cd9beafbc0a72cf028d29af9ab",
+  "files": [
+    {
+      "source": "assets/metro2033server/textures/512/ambient/tunnel_kapli.m2033texture",
+      "source_sha256": "b32d4349806cfd675f2b90dd48baa29e672549ec5f81354da9f93287e6ef1c04",
+      "decoded_sha256": "f33ef97c2785baab3328bc504fb636e837a2b1ff19b54a3f21871fac87cd0e4e",
+      "path": "textures/metromod/menu_effects/tunnel_kapli.png",
+      "sha256": "3ca6379f56a6cb5489fcbde99aba28d4ee2a6cdd54228d903ba50f4f810c839c",
+      "dimensions": [
+        64,
+        256
+      ]
+    },
+    {
+      "source": "assets/metro2033server/textures/512/fx/fx_glowlamp_small.m2033texture",
+      "source_sha256": "c7b0aa36c6d3e782a8a98a30b2190536fd8a68758baf951158bf1ddf65b49656",
+      "decoded_sha256": "1f1290a20cfa40302afdaee738e5829c622fa73c40c96804a7df180fcafbfa1b",
+      "path": "textures/metromod/menu_effects/fx_glowlamp_small.png",
+      "sha256": "2392683f2aa0e52628e3192730e68f18e699ad7ed3166235af765a2a6ffee8f5",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "source": "assets/metro2033server/models/obj/primitives/quad.obj",
+      "path": "models/metromod/menu_effects/quad.obj",
+      "sha256": "8ad101bfd1bbd8e232ef20142b35f57c70f8cd6c5e251d11ce769ff8072bc4ab"
+    }
+  ],
+  "donor_java_executed": false,
+  "in_game_verified": false
+}
