@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "name": "MinETRO · тестовая сборка",
+  "version": "test-01",
+  "minecraft": "1.12.2",
+  "forge": "14.23.5.2860",
+  "notice": "Архив полной сборки пока не подключён. Можно подготовить Prism и войти в Microsoft. Установщик не подменяет полный модпак одним JAR MinETRO.",
+  "archiveRoot": "",
+  "archive": null,
+  "requiredFiles": [],
+  "prismVersion": "11.1.1",
+  "prism": {
+    "url": "https://github.com/PrismLauncher/PrismLauncher/releases/download/11.1.1/PrismLauncher-Windows-MSVC-Portable-11.1.1.zip",
+    "sha256": "ab35a770fb06d89d2ccc098079db5db329fb4e68f42b72babd8b095efde3d2d7",
+    "bytes": 20396629
+  }
+}

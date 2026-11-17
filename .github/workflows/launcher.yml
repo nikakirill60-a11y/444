@@ -1,0 +1,56 @@
+name: Build Windows test launcher
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths: ['launcher/**', '.github/workflows/launcher.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  launcher:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Core installer tests
+        run: dotnet run --project launcher/MinETRO.Tests --configuration Release -- launcher/channel.test.json
+      - name: Windows self-contained build
+        run: dotnet publish launcher/MinETRO.Launcher -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o launcher/publish
+      - name: WinForms startup smoke test
+        shell: pwsh
+        run: |
+          $p = Start-Process -FilePath launcher/publish/MinETRO-Launcher-Test.exe -ArgumentList '--self-test' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "Launcher startup smoke failed: $($p.ExitCode)" }
+      - name: Package
+        shell: pwsh
+        run: |
+          Copy-Item launcher/README_RU.txt launcher/publish/README_RU.txt
+          Remove-Item launcher/publish/*.pdb -ErrorAction SilentlyContinue
+          New-Item downloads -ItemType Directory -Force | Out-Null
+          Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-Test-0.1-win-x64.zip -Force
+          $hash = (Get-FileHash downloads/MinETRO-Launcher-Test-0.1-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          "$hash  MinETRO-Launcher-Test-0.1-win-x64.zip" | Set-Content -Encoding ascii downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MinETRO-Launcher-Test-Windows
+          path: |
+            downloads/MinETRO-Launcher-Test-0.1-win-x64.zip
+            downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256
+      - name: Publish on current branch
+        if: github.ref == 'refs/heads/arena/dcab859f-444'
+        shell: pwsh
+        run: |
+          $remote = (git ls-remote origin refs/heads/arena/dcab859f-444).Split()[0]
+          if ($remote -ne $env:GITHUB_SHA) { throw 'Newer source exists; refusing stale publication' }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add downloads/MinETRO-Launcher-Test-0.1-win-x64.zip downloads/MinETRO-Launcher-Test-0.1-win-x64.sha256
+          git diff --cached --check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          git commit -m 'Publish Windows MinETRO test launcher 0.1 [skip ci]'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          git push origin arena/dcab859f-444
+          exit $LASTEXITCODE

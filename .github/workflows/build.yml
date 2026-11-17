@@ -8,6 +8,8 @@ permissions:
   contents: write
 jobs:
   build:
+    # Launcher-only commits have their own Windows workflow.
+    if: ${{ !contains(github.event.head_commit.message, '[launcher-test]') }}
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v5
