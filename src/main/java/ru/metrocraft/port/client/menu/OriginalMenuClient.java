@@ -26,6 +26,13 @@ public final class OriginalMenuClient {
         if(!bypass && !Boolean.getBoolean("metroport.disableOriginalMenu") && mc.world==null &&
            event.getGui()!=null && event.getGui().getClass()==GuiMainMenu.class)event.setGui(new OriginalMenuScreen());
     }
+    @SubscribeEvent public void music(net.minecraftforge.client.event.sound.PlaySoundEvent event) {
+        // 1.12.2 MusicTicker has no public stopMusic method. Filter ONLY its
+        // vanilla menu event while this screen is actually in front of the user.
+        if(Minecraft.getMinecraft().currentScreen instanceof OriginalMenuScreen && event.getSound()!=null &&
+           event.getSound().getCategory()==net.minecraft.util.SoundCategory.MUSIC &&
+           "minecraft:music.menu".equals(event.getSound().getSoundLocation().toString()))event.setResultSound(null);
+    }
     static void opened(OriginalMenuScreen screen) { active=screen; }
     static void closed(OriginalMenuScreen screen) { if(active==screen)active=null; }
     static void vanilla(Throwable failure) {

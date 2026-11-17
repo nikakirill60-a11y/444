@@ -46,6 +46,8 @@ public final class OriginalMenuScreen extends GuiScreen {
             };
             meshes.preload();scene=new OriginalMenuScene(meshes,state);
         } catch(IOException|RuntimeException e) { releaseResources();throw e; }
+        // Stop only an already-playing vanilla main-menu track, not other sounds.
+        mc.getSoundHandler().stop("minecraft:music.menu",net.minecraft.util.SoundCategory.MUSIC);
         audio=new OriginalMenuAudio(mc.getSoundHandler());previousFrame=0;
     }
     private void grab(boolean value) {
@@ -86,8 +88,7 @@ public final class OriginalMenuScreen extends GuiScreen {
     @Override public void updateScreen() {
         state.tick();if(activationDelay>0)activationDelay--;
         if(audio!=null && Display.isActive()) {
-            // stopMusic is still SRG-named in the pinned stable_39 1.12.2 mappings.
-            mc.getMusicTicker().func_181557_a();audio.tick(state.speed);
+            audio.tick(state.speed);
         } else if(audio!=null)audio.close();
     }
     @Override protected void mouseClicked(int x,int y,int button) throws IOException {
