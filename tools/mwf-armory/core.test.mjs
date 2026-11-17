@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {Quaternion,Euler,Vector3} from 'three';
+import {Matrix4} from 'three';
 import {defaults,validateEdits,loadPack,selectGun,fromBase64,bytesToBase64,cameraMatrix,applyPose,reloadWeight,actionAt,reloadSequence,exportPack} from './core.mjs';
 const input=new Uint8Array(readFileSync(new URL('../../downloads/Metro_Uboinik_MWF_fix1_v5.zip',import.meta.url)));
 const pack=loadPack(input),gun=selectGun(pack,'metro_uboinik');
@@ -27,8 +28,8 @@ test('new key buffers are embedded, tight packed FLOAT, and never alias original
 test('export does not mutate source model/config/edits',()=>{const original=JSON.stringify(gun),e=defaults(),originalEdits=JSON.stringify(e);e.left.idle.p[0]=.2;const expected=JSON.stringify(e);exported(e);assert.equal(JSON.stringify(gun),original);assert.equal(JSON.stringify(e),expected);});
 test('project JSON with original pack and edits can round-trip',()=>{const e=defaults();e.left.reload.r[1]=44;const json=JSON.stringify({format:'MWF-Pose-Studio',version:1,packBase64:bytesToBase64(pack.bytes),edits:e,config:gun.config});const p=JSON.parse(json);validateEdits(p.edits);assert.equal(selectGun(loadPack(fromBase64(p.packBase64))).type.internalName,gun.type.internalName);assert.equal(p.edits.left.reload.r[1],44);});
 test('camera reproduces independent Python/MWF matrix references, including identity reset',()=>{
-  close(cameraMatrix(gun.config,0).elements,[-.006979899340500153,.006980962574913405,-.3998781654038192,0,.00012183459618085327,.3999390780625565,.006979899340500194,0,.3999390780625565,0,-.006980962574913364,0,.08922300025559932,-.2795132666363522,-.187425742696667,1],1e-12);
-  close(cameraMatrix(gun.config,1).elements,[0,0,-.4,0,0,.4,0,0,.4,0,0,0,0,-.1508,-.13999997,1],1e-12);
+  close(cameraMatrix(gun.config,0,{idle:false}).elements,[-.006979899340500153,.006980962574913405,-.3998781654038192,0,.00012183459618085327,.3999390780625565,.006979899340500194,0,.3999390780625565,0,-.006980962574913364,0,.08922300025559932,-.2795132666363522,-.187425742696667,1],1e-12);
+  close(cameraMatrix(gun.config,1,{idle:false}).elements,[0,0,-.4,0,0,.4,0,0,.4,0,0,0,0,-.1508,-.13999997,1],1e-12);
 });
 test('shared sampler does not transfer an edited hand offset onto the opposite hand',()=>{
   const synthetic=structuredClone(gun),g=synthetic.gltf,a=g.animations[0],left=a.channels.find(c=>c.target.node===9&&c.target.path==='translation'),right=a.channels.find(c=>c.target.node===11&&c.target.path==='translation');right.sampler=left.sampler;
@@ -49,3 +50,20 @@ test('CUBICSPLINE hand export is rejected rather than silently corrupted',()=>{
 // Deterministic fixture for verification with the selected real MWF JAR/Python validator.
 const fixture=defaults();fixture.left.idle.p=[.02,-.05,.03];fixture.right.reload.r=[10,0,-5];
 const fixtureBytes=exportPack(pack,gun,fixture,gun.config);mkdirSync(new URL('../../artifacts/mwf-armory/',import.meta.url),{recursive:true});writeFileSync(new URL('../../artifacts/mwf-armory/export-test.zip',import.meta.url),fixtureBytes);
+
+test('pinned MWF stationary controller includes nonzero cos(0) idle transform',()=>{
+ const cfg={};
+ const prefix=cameraMatrix(cfg,0,{idle:false});
+ const expected=prefix.clone().multiply(new Matrix4().makeRotationX(.16*Math.PI/180)).multiply(new Matrix4().makeTranslation(.16,0,0));
+ close(cameraMatrix(cfg,0).elements,expected.elements,1e-12);
+ const still=cameraMatrix(cfg,0,{moveSpeedModifier:0});close(still.elements,prefix.elements,1e-12);
+ // MWF uses (.8 - ADS), including the negative endpoint at ADS=1.
+ const ads=prefix.clone().multiply(new Matrix4().makeRotationX(-.04*Math.PI/180)).multiply(new Matrix4().makeTranslation(-.04,0,0));
+ close(cameraMatrix(cfg,1).elements,ads.elements,1e-12);
+});
+test('sight offset is absent at hip and interpolated, not applied fully at partial ADS',()=>{
+ const cfg={},sight={sightAimPosOffset:{x:2,y:-3,z:4},sightAimRotOffset:{x:0,y:0,z:0}};
+ close(cameraMatrix(cfg,0,{sight}).elements,cameraMatrix(cfg,0).elements,1e-12);
+ const expected=cameraMatrix(cfg,.5).multiply(new Matrix4().makeTranslation(1,-1.5,2));
+ close(cameraMatrix(cfg,.5,{sight}).elements,expected.elements,1e-12);
+});

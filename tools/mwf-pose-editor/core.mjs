@@ -51,7 +51,7 @@ export function reloadWeight(frame,config){
     for(const name of names){const a=config.animations?.[name];if(a&&frame>=a.startTime-1e-5&&frame<=a.endTime+1e-5){const t=MathUtils.clamp((frame-a.startTime)/(a.endTime-a.startTime||1),0,1);return kind==='pre'?t:kind==='post'?1-t:1;}}
   }return 0;
 }
-export function cameraMatrix(config,ads=0){
+export function cameraMatrix(config,ads=0,state={}){
   const m=new Matrix4();const rotate=(axis,degrees)=>m.multiply(new Matrix4().makeRotationAxis(axis,rad(degrees)));
   const x=new Vector3(1,0,0),y=new Vector3(0,1,0),z=new Vector3(0,0,1);
   const vector=(v,fallback)=>new Vector3(...(v?['x','y','z'].map(k=>v[k]??fallback):[fallback,fallback,fallback]));
@@ -59,10 +59,24 @@ export function cameraMatrix(config,ads=0){
   rotate(y,90);m.scale(new Vector3(.0001,.0001,.0001));rotate(y,90);
   const g=config.global||{};translate(vector(g.globalTranslate,0));m.scale(vector(g.globalScale,1));rotate(y,-90);
   const r=vector(g.globalRotate,0).multiplyScalar(3.14/Math.PI);rotate(y,r.y);rotate(x,r.x);rotate(z,r.z);
+  // Pinned fix1-metro4 RenderGunEnhanced bytecode offsets 1508..1680.
+  // SPRINT_RANDOM settles to zero at rest, but cos(0) is ONE, not zero.
+  // Omitting this moves/tilts the entire gun+hands relative to Minecraft.
+  if(state.idle!==false){
+    const phase=2*Math.PI*(state.sprintPhase??0),speed=state.moveSpeedModifier??1;
+    const c=Math.cos(phase)*speed*(.8-ads),s=Math.sin(phase)*speed*(.8-ads);
+    rotate(x,.2*c);rotate(z,s);translate(new Vector3(.2*c,0,.2*s));
+  }
   const a=config.aim||{},hip=vector(a.rotateHipPosition,0),aim=vector(a.rotateAimPosition,0).multiplyScalar(ads);
   // Actual renderer combines hip/aim angles per axis before translating.
   hip.add(aim);rotate(x,hip.x);rotate(y,hip.y);rotate(z,hip.z);
   translate(vector(a.translateHipPosition,0).add(vector(a.translateAimPosition,0).multiplyScalar(ads)));
+  // Renderer offsets 2317..2460: ADS scales BOTH sight translation and angles.
+  if(state.sight){
+    translate(vector(state.sight.sightAimPosOffset,0).multiplyScalar(ads));
+    const r=vector(state.sight.sightAimRotOffset,0).multiplyScalar(ads*3.14/Math.PI);
+    rotate(y,r.y);rotate(x,r.x);rotate(z,r.z);
+  }
   return m;
 }
 export function reloadSequence(config,count=6){

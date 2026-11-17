@@ -59,7 +59,7 @@ function buildWeaponControls(){
   }
 }
 const scene=new THREE.Scene();scene.background=new THREE.Color('#829ab5');scene.fog=new THREE.Fog('#829ab5',10,35);
-const camera=new THREE.PerspectiveCamera(70,16/9,.01,100);camera.position.set(0,0,0);camera.lookAt(0,0,-1);
+const camera=new THREE.PerspectiveCamera(70,16/9,.00008,100);camera.position.set(0,0,0);camera.lookAt(0,0,-1);
 let renderer;
 try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});}
 catch(e){$('loading').textContent='WebGL2 недоступен. Открой файл в современном Chrome/Edge с аппаратным ускорением.';throw e;}
@@ -203,8 +203,8 @@ function render(now){requestAnimationFrame(render);if(!rig||!config){renderer.re
   const selected=attachmentRoots.filter(a=>a.visible).map(a=>a.userData);if(activeAmmo)selected.push({id:activeAmmo,slot:'ammo'});const hidden=Armory.previewHiddenParts(config,selected);
   if(basic()){if(attachmentRoots.some(a=>a.visible&&a.userData.slot==='sight'))hidden.add('defaultScopeModel');if(attachmentRoots.some(a=>a.visible&&a.userData.slot==='barrel'))hidden.add('defaultBarrelModel');}
   for(const r of rest)if(hidden.has(r.o.name))r.o.visible=false;
-  weaponGroup.matrix.copy(basic()?Basic.cameraMatrix(config,preview.ads):cameraMatrix(config,preview.ads));
-  const sight=attachmentRoots.find(a=>a.visible&&a.userData.slot==='sight');if(sight&&preview.ads&&!basic()){const t=config.attachment?.[sight.userData.id]||{},p=t.sightAimPosOffset||{},r=t.sightAimRotOffset||{};weaponGroup.matrix.multiply(new THREE.Matrix4().makeTranslation(p.x||0,p.y||0,p.z||0)).multiply(new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(...['x','y','z'].map(k=>THREE.MathUtils.degToRad((r[k]||0)*3.14/Math.PI)),'YXZ')));}
+  const sight=attachmentRoots.find(a=>a.visible&&a.userData.slot==='sight');
+  weaponGroup.matrix.copy(basic()?Basic.cameraMatrix(config,preview.ads):cameraMatrix(config,preview.ads,{moveSpeedModifier:gun.type.moveSpeedModifier??1,sight:config.attachment?.[sight?.userData.id]}));
   scene.updateMatrixWorld(true);
   if($('highlight').checked){const target=rig.getObjectByName(side+'Arm'+(preview.slim?'Slim':'')+'Model');if(target){handBox.setFromObject(target);handBox.visible=true;}}else handBox.visible=false;
   $('stateBadge').textContent=(preview.ads?'ADS / ПРИЦЕЛИВАНИЕ':'ОБЫЧНЫЙ ХВАТ')+(preview.action==='reload'?' · ЗАРЯДКА':'');

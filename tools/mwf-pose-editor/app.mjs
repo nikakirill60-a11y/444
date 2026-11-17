@@ -48,7 +48,7 @@ function buildWeaponControls(){
   }
 }
 const scene=new THREE.Scene();scene.background=new THREE.Color('#829ab5');scene.fog=new THREE.Fog('#829ab5',10,35);
-const camera=new THREE.PerspectiveCamera(70,16/9,.01,100);camera.position.set(0,0,0);camera.lookAt(0,0,-1);
+const camera=new THREE.PerspectiveCamera(70,16/9,.00008,100);camera.position.set(0,0,0);camera.lookAt(0,0,-1);
 let renderer;
 try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true});}
 catch(e){$('loading').textContent='WebGL2 недоступен. Открой файл в современном Chrome/Edge с аппаратным ускорением.';throw e;}
@@ -111,7 +111,7 @@ async function loadAttachments(){
       if(tex){tex.flipY=true;tex.needsUpdate=true;} // MWF's OBJ loader flips V.
       object.traverse(o=>{if(o.isMesh)o.material=new THREE.MeshLambertMaterial({map:tex,color:tex?'#ffffff':'#ce9b58',side:THREE.DoubleSide});});
       const t=gun.config.attachment?.[id]||{},binding=rig.getObjectByName(t.binding||'gunModel');if(!binding)continue;
-      const wrapper=new THREE.Group();wrapper.add(object);const trans=t.translate||{},rot=t.rotate||{},s=t.scale||{};wrapper.position.set(trans.x||0,trans.y||0,trans.z||0);wrapper.rotation.set(THREE.MathUtils.degToRad(rot.x||0),THREE.MathUtils.degToRad(rot.y||0),THREE.MathUtils.degToRad(rot.z||0),'YXZ');wrapper.scale.set(s.x??1,s.y??1,s.z??1);wrapper.visible=gun.type.defaultAttachments?.[slot]===id;wrapper.userData.slot=slot;binding.add(wrapper);attachmentRoots.push(wrapper);
+      const wrapper=new THREE.Group();wrapper.add(object);const trans=t.translate||{},rot=t.rotate||{},s=t.scale||{};wrapper.position.set(trans.x||0,trans.y||0,trans.z||0);wrapper.rotation.set(THREE.MathUtils.degToRad(rot.x||0),THREE.MathUtils.degToRad(rot.y||0),THREE.MathUtils.degToRad(rot.z||0),'YXZ');wrapper.scale.set(s.x??1,s.y??1,s.z??1);wrapper.visible=gun.type.defaultAttachments?.[slot]===id;wrapper.userData.slot=slot;wrapper.userData.id=id;binding.add(wrapper);attachmentRoots.push(wrapper);
       const label=document.createElement('label');label.className='switch';const text=document.createElement('span');text.textContent=type.displayName||id;const input=document.createElement('input');input.type='checkbox';input.checked=wrapper.visible;wrapper.userData.input=input;input.onchange=()=>{wrapper.visible=input.checked;if(input.checked)for(const other of attachmentRoots)if(other!==wrapper&&other.userData.slot===slot){other.visible=false;other.userData.input.checked=false;}};label.append(text,input);$('attachments').append(label);
     }catch(e){console.warn('Обвес не показан:',id,e.message);}
   }
@@ -131,7 +131,8 @@ function render(now){requestAnimationFrame(render);if(!rig||!config)return;
     o.position.fromArray(result.translation);o.quaternion.fromArray(result.rotation);o.scale.fromArray(result.scale);o.visible=name.includes('Slim')===preview.slim&&!name.includes('Layer');
   }
   rig.traverse(o=>{if(/^bulletModel_\d+$/.test(o.name))o.visible=Number(o.name.split('_').pop())<(preview.action==='reload'?sample.rounds:preview.rounds);if(o.name==='flashModel'||/^shellModel_\d+$/.test(o.name))o.visible=false;});
-  weaponGroup.matrix.copy(cameraMatrix(config,preview.ads));scene.updateMatrixWorld(true);
+  const sight=attachmentRoots.find(a=>a.visible&&a.userData.slot==='sight');
+  weaponGroup.matrix.copy(cameraMatrix(config,preview.ads,{moveSpeedModifier:gun.type.moveSpeedModifier??1,sight:config.attachment?.[sight?.userData.id]}));scene.updateMatrixWorld(true);
   if($('highlight').checked){const target=rig.getObjectByName(side+'Arm'+(preview.slim?'Slim':'')+'Model');if(target){handBox.setFromObject(target);handBox.visible=true;}}else handBox.visible=false;
   $('stateBadge').textContent=(preview.ads?'ADS / ПРИЦЕЛИВАНИЕ':'ОБЫЧНЫЙ ХВАТ')+(preview.action==='reload'?' · ЗАРЯДКА':'');
   if(view==='orbit')controls.update();renderer.render(scene,camera);

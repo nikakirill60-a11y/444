@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 from build_uboinik_pack import Gltf, animations, arm_mesh, icon, jsonwrite, TARGET_SHA, ROOT
-from uboinik_pose import source_pose, gun_transform, arm_transform, render_pose
+from uboinik_pose import source_pose, gun_transform, arm_transform, render_pose, euler_yxz
 LEGACY_REF='10a6aa2'
 SOURCE=ROOT/'tools/mwf-full-pack'
 BASELINE=ROOT/'downloads/Metro_Uboinik_Duplet_MWF_fix1_v2.zip'
@@ -352,11 +352,11 @@ def build(output,archive,cache):
         print('Assemble',name,flush=True)
         count=max((mags[mid]['capacity'] for mid in w.get('magazines',[])),default=w.get('looseCapacity',1))
         e={'MAG':bool(w.get('magazines')),'BIG':False,'rounds':count,'slots':['']*5}
-        default=scene(name,e);body=[d for d in default if d[1] not in ('magazine','shell')];shells=[d for d in default if d[1]=='shell']
+        default=scene(name,e);body=[d for d in default if d[1]!='shell' and (d[1]!='magazine' or not w.get('magazines'))];shells=[d for d in default if d[1]=='shell']
         variants={};body_keys={key(d) for d in body}
         for slot,choices in enumerate(fittings[name]):
             for mod in choices:
-                equipped=copy.deepcopy(e);equipped['slots'][slot]=mod;variant=scene(name,equipped);vbody=[d for d in variant if d[1] not in ('magazine','shell')];vkeys={key(d) for d in vbody}
+                equipped=copy.deepcopy(e);equipped['slots'][slot]=mod;variant=scene(name,equipped);vbody=[d for d in variant if d[1]!='shell' and (d[1]!='magazine' or not w.get('magazines'))];vkeys={key(d) for d in vbody}
                 added=[d for d in vbody if key(d) not in body_keys];removed=[key(d) for d in body if key(d) not in vkeys]
                 if name=='Ventil' and mod=='VentilGlushak':
                     # Present only in the original first-person branch, at the unchanged model origin.
@@ -406,7 +406,10 @@ def build(output,archive,cache):
             mag_shells.setdefault(mid,[d for d in scene(name,me) if d[1]=='shell'])
             # Shared mags use original raw coordinates; each gun's scene gives the local placement.
             placement=draws[0][2]
-            attachment[idmap[mid]]={'translate':xyz(placement[:3,3])}
+            # Keep the entire native draw transform: AK2012 has S(.1,.1,.107).
+            scale=np.linalg.norm(placement[:3,:3],axis=0)
+            rotate=euler_yxz(placement[:3,:3]/scale)
+            attachment[idmap[mid]]={'translate':xyz(placement[:3,3]),'scale':xyz(scale),'rotate':xyz(rotate)}
         ranges=animations(g,pose)
         seconds=max(1.25,w.get('loadingTicks',40)/20)
         reload_speed=(20+(2*count-1)*14)/(24*seconds) if not w.get('magazines') else 48/(24*seconds)
