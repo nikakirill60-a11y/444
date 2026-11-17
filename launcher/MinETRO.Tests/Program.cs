@@ -105,6 +105,8 @@ await Test("confirmed channel survives restart; failed save retains previous sna
     await Reject(() => store.Save(m with { Version="test-02" },cancel.Token));
     CheckTrue(store.Load(m).Version==m.Version);
 });
+await AccountsTests.Run();
+
 if (args.Contains("--verify-prism")) await Test("official pinned Prism download / SHA256 / archive layout", async () => {
     var m=PackManifest.Parse(File.ReadAllText(args[0])); using var http=Transfer.CreateClient();
     using var timeout=new CancellationTokenSource(TimeSpan.FromMinutes(5));

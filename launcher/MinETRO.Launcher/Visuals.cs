@@ -60,7 +60,7 @@ internal sealed class Sidebar : Panel
         Ui.TextAt(g, "БИБЛИОТЕКА", 10, 25, 119, 150, 20, Ui.Muted, true);
         g.DrawLine(line, 24, h - 56, 192, h - 56);
         using var dot = new SolidBrush(Ui.Amber); g.FillEllipse(dot, 26, h - 32, 5, 5);
-        Ui.TextAt(g, "TEST 0.2", 10, 39, h - 39, 110, 19, Ui.Muted, true);
+        Ui.TextAt(g, "TEST 0.3", 10, 39, h - 39, 110, 19, Ui.Muted, true);
         Ui.TextAt(g, "x64", 10, 157, h - 39, 34, 19, Ui.Muted, align: StringAlignment.Far);
     }
 }

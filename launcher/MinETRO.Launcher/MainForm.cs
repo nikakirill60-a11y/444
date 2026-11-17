@@ -17,6 +17,8 @@ public sealed class MainForm : Form
     private readonly HomeCanvas home = new();
     private readonly Panel settingsPage = new() { AutoScroll = true, BackColor = Ui.Bg };
     private readonly Panel infoPage = new() { AutoScroll = true, BackColor = Ui.Bg };
+    private readonly AccountPage accountPage = new();
+    private readonly LauncherButton profileNav = new() { Text = "Мой профиль", Glyph = "info", Nav = true, Quiet = true };
     private readonly Sidebar sidebar = new();
     private readonly Panel titleBar = new() { BackColor = Ui.Bg };
     private readonly LauncherButton mainAction = new() { Accent = true, Text = "Подключить сборку" };
@@ -37,14 +39,14 @@ public sealed class MainForm : Form
     [DllImport("user32.dll")] private static extern nint SendMessage(nint hWnd, int msg, nint wParam, nint lParam);
     public MainForm(PackManifest initial)
     {
-        manifest = initial; Text = "MinETRO Launcher · TEST 0.2";
+        manifest = initial; Text = "MinETRO Launcher · TEST 0.3";
         FormBorderStyle = FormBorderStyle.None; AutoScaleMode = AutoScaleMode.Dpi; AutoScaleDimensions = new SizeF(96, 96);
         Font = new Font("Segoe UI", 10); BackColor = Ui.Bg; ForeColor = Ui.Text; DoubleBuffered = true;
         ClientSize = new Size(1120, 740); MinimumSize = new Size(980, 690); StartPosition = FormStartPosition.CenterScreen;
         var area = Screen.PrimaryScreen?.WorkingArea ?? new Rectangle(0, 0, 1160, 800);
         ClientSize = new Size(Math.Min(1120, Math.Max(980, area.Width - 32)), Math.Min(740, Math.Max(690, area.Height - 32)));
-        Controls.AddRange([sidebar, titleBar, home, settingsPage, infoPage, state, bar, cancel]);
-        sidebar.Controls.AddRange([homeNav, settingsNav, infoNav, account, open]);
+        Controls.AddRange([sidebar, titleBar, home, settingsPage, infoPage, accountPage, state, bar, cancel]);
+        sidebar.Controls.AddRange([homeNav, settingsNav, infoNav, profileNav, account, open]);
         var minimize = new LauncherButton { Glyph = "min", Quiet = true, AccessibleName = "Свернуть" };
         var close = new LauncherButton { Glyph = "close", Quiet = true, AccessibleName = "Закрыть" };
         titleBar.Controls.AddRange([pageTitle, minimize, close]);
@@ -53,6 +55,8 @@ public sealed class MainForm : Form
         titleBar.Resize += (_, _) => { float s = DeviceDpi / 96f; minimize.SetBounds(titleBar.Width - (int)(96 * s), 0, (int)(42 * s), titleBar.Height); close.SetBounds(titleBar.Width - (int)(50 * s), 0, (int)(42 * s), titleBar.Height); };
         home.Controls.Add(mainAction);
         homeNav.Click += (_, _) => ShowPage("home"); settingsNav.Click += (_, _) => ShowPage("settings"); infoNav.Click += (_, _) => ShowPage("info");
+        profileNav.Click += (_, _) => ShowPage("profile");
+        accountPage.ProfileChanged += nick => { profileNav.Text = nick ?? "Мой профиль"; profileNav.Invalidate(); };
         BuildSettings(); BuildInfo();
         mainAction.Click += async (_, _) => {
             if (manifest.Archive == null) { ShowPage("settings"); source.Focus(); }
@@ -115,16 +119,16 @@ public sealed class MainForm : Form
         stack.Controls.Add(Label("Каждая версия хранится в отдельном экземпляре Prism. Обновление не стирает старые миры и настроенные руки. Миры не переносятся автоматически: перед переносом сделай резервную копию.", 10, Ui.Muted));
         stack.Controls.Add(Label("Вход без лишних посредников", 14, Ui.Text, true));
         stack.Controls.Add(Label("Пароли и токены вводятся только в Prism / Microsoft. Эта оболочка не читает accounts.json и не обходит проверку лицензии Minecraft Java. Prism — независимый open-source проект.", 10, Ui.Muted));
-        stack.Controls.Add(Label("Launcher TEST 0.2  ·  Windows x64  ·  неподписанная тестовая версия\nПроверки интерфейса и установщика не равны запуску полного модпака.", 9, Ui.Muted));
+        stack.Controls.Add(Label("Launcher TEST 0.3  ·  Windows x64  ·  неподписанная тестовая версия\nПроверки интерфейса и установщика не равны запуску полного модпака.", 9, Ui.Muted));
     }
     protected override void OnResize(EventArgs e) { base.OnResize(e); if (initialized) Arrange(); }
     private void Arrange()
     {
         float s = DeviceDpi / 96f; int P(float n) => (int)Math.Round(n * s); float w = ClientSize.Width / s, h = ClientSize.Height / s;
         sidebar.SetBounds(0, 0, P(216), ClientSize.Height); titleBar.SetBounds(P(216), 0, P(w - 216), P(60)); pageTitle.SetBounds(P(32), P(23), P(500), P(22));
-        homeNav.SetBounds(P(16), P(155), P(184), P(46)); settingsNav.SetBounds(P(16), P(209), P(184), P(46)); infoNav.SetBounds(P(16), P(263), P(184), P(46));
+        homeNav.SetBounds(P(16), P(155), P(184), P(46)); settingsNav.SetBounds(P(16), P(209), P(184), P(46)); infoNav.SetBounds(P(16), P(263), P(184), P(46)); profileNav.SetBounds(P(16), P(317), P(184), P(46));
         open.SetBounds(P(16), P(h - 173), P(184), P(42)); account.SetBounds(P(16), P(h - 118), P(184), P(44));
-        foreach (var page in new Control[] { home, settingsPage, infoPage }) page.SetBounds(P(248), P(78), P(w - 280), P(h - 156));
+        foreach (var page in new Control[] { home, settingsPage, infoPage, accountPage }) page.SetBounds(P(248), P(78), P(w - 280), P(h - 156));
         float fit = home.Fit; mainAction.SetBounds(home.Width - P(252 * fit), P(383 * fit), P(228 * fit), P(48 * fit));
         state.SetBounds(P(252), P(h - 61), P(w - (cancel.Visible ? 418 : 292)), P(32)); state.AutoSize = false; state.AutoEllipsis = true;
         bar.SetBounds(P(248), P(h - 20), P(w - 280), P(3)); cancel.SetBounds(P(w - 145), P(h - 63), P(112), P(34));
@@ -132,10 +136,10 @@ public sealed class MainForm : Form
     }
     private void ShowPage(string page)
     {
-        currentPage = page; home.Visible = page == "home"; settingsPage.Visible = page == "settings"; infoPage.Visible = page == "info";
-        homeNav.Selected = page == "home"; settingsNav.Selected = page == "settings"; infoNav.Selected = page == "info";
-        pageTitle.Text = page switch { "settings" => "ЛАУНЧЕР   /   НАСТРОЙКИ", "info" => "ЛАУНЧЕР   /   О СБОРКЕ", _ => "ЛАУНЧЕР   /   ГЛАВНАЯ" };
-        homeNav.Invalidate(); settingsNav.Invalidate(); infoNav.Invalidate();
+        currentPage = page; home.Visible = page == "home"; settingsPage.Visible = page == "settings"; infoPage.Visible = page == "info"; accountPage.Visible = page == "profile";
+        homeNav.Selected = page == "home"; settingsNav.Selected = page == "settings"; infoNav.Selected = page == "info"; profileNav.Selected = page == "profile";
+        pageTitle.Text = page switch { "profile" => "ЛАУНЧЕР   /   МОЙ ПРОФИЛЬ", "settings" => "ЛАУНЧЕР   /   НАСТРОЙКИ", "info" => "ЛАУНЧЕР   /   О СБОРКЕ", _ => "ЛАУНЧЕР   /   ГЛАВНАЯ" };
+        homeNav.Invalidate(); settingsNav.Invalidate(); infoNav.Invalidate(); profileNav.Invalidate();
     }
     private void ChooseFolder()
     {
@@ -197,6 +201,10 @@ public sealed class MainForm : Form
             using (var bitmap = new Bitmap(Width, Height)) { DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height)); bitmap.Save(screenshot, System.Drawing.Imaging.ImageFormat.Png); }
             ShowPage("settings"); Application.DoEvents(); Refresh();
             using (var bitmap = new Bitmap(Width, Height)) { DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height)); bitmap.Save(Path.ChangeExtension(screenshot, ".settings.png"), System.Drawing.Imaging.ImageFormat.Png); }
+            ShowPage("profile"); Application.DoEvents(); accountPage.SmokeTest(); accountPage.ShowRegistration(); Application.DoEvents(); Refresh();
+            using (var bitmap = new Bitmap(Width, Height)) { DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height)); bitmap.Save(Path.ChangeExtension(screenshot, ".profile.png"), System.Drawing.Imaging.ImageFormat.Png); }
+            accountPage.ShowSkin(); Application.DoEvents(); Refresh();
+            using (var bitmap = new Bitmap(Width, Height)) { DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height)); bitmap.Save(Path.ChangeExtension(screenshot, ".skin.png"), System.Drawing.Imaging.ImageFormat.Png); }
             Hide();
         }
     }
