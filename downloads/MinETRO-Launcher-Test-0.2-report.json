@@ -1,0 +1,16 @@
+{
+  "pack_archive_connected": false,
+  "full_modpack_launch_verified": false,
+  "version": "0.2-test",
+  "source_commit": "8b7ca5b55950e5df90e87b2f72e5f31463867bfb",
+  "platform": "Windows 10/11 x64",
+  "official_prism_payload_sha256_verified": true,
+  "limitation": "Waiting for the user-provided complete modpack archive; this is not a full modpack distribution",
+  "winforms_startup_smoke": "PASS",
+  "zip_bytes": 66792669,
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/44056958049",
+  "channel_authoring_tests_passed": 4,
+  "core_scenarios_passed": 15,
+  "self_contained": true,
+  "zip_sha256": "62a36d2bc4d0f9b2fa5d7da5593cb4ef5b8167eceb0fa5e3d9dc99e82bfa7f17"
+}
