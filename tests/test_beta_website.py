@@ -43,7 +43,8 @@ class BetaWebsiteTest(unittest.TestCase):
         text = (SITE / 'index.html').read_text()
         page = Page(text)
         downloads = [link for link in page.links if link.endswith(('.zip', '.jar'))]
-        self.assertEqual(2, len(downloads))
+        self.assertEqual(1, len(downloads))
+        self.assertTrue(downloads[0].endswith('MinETRO-Launcher-0.4-win-x64.zip'))
         for link in downloads:
             self.assertEqual('github.com', urlparse(link).netloc)
         for required in ('не кадр из игры', 'Полный архив пока не опубликован',
@@ -62,6 +63,30 @@ class BetaWebsiteTest(unittest.TestCase):
         self.assertNotIn('unsafe-inline', headers['Content-Security-Policy'])
         self.assertEqual('nosniff', headers['X-Content-Type-Options'])
         script = (SITE / 'app.js').read_text()
-        self.assertIn('clipboard.writeText', script)
+        self.assertNotIn('clipboard', script)
+        self.assertNotIn('#copy-server', script)
         self.assertIn("aria-expanded", script)
         self.assertNotIn('fetch(', script)
+
+    def test_requested_project_text_and_empty_third_card(self):
+        text = (SITE / 'index.html').read_text()
+        normalized = re.sub('<[^>]+>', ' ', text)
+        normalized = ' '.join(normalized.split())
+        for required in ('В метро не живут там выживают',
+                         'Вылазь наружу лутай здания и возвращайся в метро и разбогатей на этом',
+                         'Воюй за станции с другими', '02 — КАК НАЧАТЬ ИГРАТЬ?',
+                         'Скачай лаунчер', 'Запусти и зарегистрируйся или войди',
+                         'Нажми кнопку «Играть»'):
+            self.assertIn(required, normalized)
+        empty = re.search(r'<article class="feature feature-empty".*?</article>', text).group()
+        self.assertNotIn('<h3', empty)
+        self.assertNotIn('<p', empty)
+        self.assertIn('/ 03', empty)
+
+    def test_removed_sections_and_links_do_not_remain(self):
+        text = (SITE / 'index.html').read_text()
+        for removed in ('Не просто сборка', 'Своя подземка', 'ДНЕВНИК РАЗРАБОТКИ',
+                        'Это бета. Здесь виден реальный прогресс', 'Все версии на GitHub',
+                        'Мод с 3D-меню', '.jar"', 'ПЕРЕД ПОЕЗДКОЙ', 'id="guide"',
+                        'id="copy-server"', 'href="#guide"', 'href="#development"'):
+            self.assertNotIn(removed, text)

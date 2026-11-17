@@ -41,22 +41,11 @@ const { chromium } = require('playwright');
         await page.keyboard.press('Escape');
         assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
       }
-      // Exercise both clipboard outcomes deterministically, including denied access.
-      for (const success of [true, false]) {
-        await page.evaluate(success => {
-          window.copiedAddress = null;
-          Object.defineProperty(navigator, 'clipboard', { configurable: true, value: {
-            writeText: async text => {
-              if (!success) throw new Error('Permission denied');
-              window.copiedAddress = text;
-            }
-          }});
-        }, success);
-        await page.locator('#copy-server').click();
-        await page.waitForFunction(success => document.querySelector('#copy-status').textContent === (success ? 'Адрес скопирован' : 'Скопируй вручную: localhost:25565'), success);
-        assert.equal(await page.evaluate(() => window.copiedAddress), success ? 'localhost:25565' : null);
-      }
-      console.log('PASS viewport ' + width + ': assets, reflow, FAQ, navigation, clipboard branches');
+      assert.equal(await page.locator('#start .timeline li').count(), 3);
+      assert.equal(await page.locator('.download-card').count(), 1);
+      assert.equal(await page.locator('a[href$=".jar"]').count(), 0);
+      assert.equal(await page.locator('#guide, #copy-server').count(), 0);
+      console.log('PASS viewport ' + width + ': assets, reflow, FAQ, navigation, launcher-only downloads');
       await context.close();
     }
     assert.deepEqual(errors, []);

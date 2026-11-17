@@ -20,13 +20,3 @@ document.addEventListener('keydown', event => {
     toggle.focus();
   }
 });
-document.querySelector('#copy-server').addEventListener('click', async event => {
-  const address = event.currentTarget.dataset.copy;
-  const status = document.querySelector('#copy-status');
-  try {
-    await navigator.clipboard.writeText(address);
-    status.textContent = 'Адрес скопирован';
-  } catch (_) {
-    status.textContent = 'Скопируй вручную: ' + address;
-  }
-});
