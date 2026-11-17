@@ -1,0 +1,19 @@
+{
+  "core_scenarios_passed": 15,
+  "live_supabase_verified": false,
+  "ingame_skin_verified": false,
+  "full_modpack_launch_verified": false,
+  "version": "0.3-test",
+  "channel_authoring_tests_passed": 4,
+  "account_protocol_scenarios_passed": 12,
+  "limitation": "Waiting for the user-provided complete modpack archive; this is not a full modpack distribution",
+  "official_prism_payload_sha256_verified": true,
+  "self_contained": true,
+  "pack_archive_connected": false,
+  "zip_sha256": "dba97c2acbc2c155e211028e57bcba40d5a29dd327588d650698f7ae5b9c5fe4",
+  "winforms_startup_smoke": "PASS",
+  "zip_bytes": 66837120,
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/44061677202",
+  "platform": "Windows 10/11 x64",
+  "source_commit": "3d8b39ab3598f73cc46d59706469012bcb98b1df"
+}
