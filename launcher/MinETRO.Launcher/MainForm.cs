@@ -188,7 +188,12 @@ public sealed class MainForm : Form
         ShowPage("info"); if (infoPage.Visible && !infoNav.Selected) throw new InvalidOperationException("About navigation failed."); ShowPage("home");
         if (screenshot != null)
         {
-            ClientSize = new Size((int)(1120 * DeviceDpi / 96f), (int)(740 * DeviceDpi / 96f)); Show(); Application.DoEvents(); Arrange(); Refresh();
+            // Keep the real, screen-constrained window size. Forcing a wider ClientSize
+            // than the CI desktop can leave WinForms' cached client width out of sync
+            // with its native bounds and crop both the UI and DrawToBitmap output.
+            Show(); Application.DoEvents(); Arrange(); Refresh();
+            if (!home.ClientRectangle.Contains(mainAction.Bounds) || home.Right > ClientSize.Width || titleBar.Right > ClientSize.Width)
+                throw new InvalidOperationException("Home controls must fit inside the visible window.");
             using (var bitmap = new Bitmap(Width, Height)) { DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height)); bitmap.Save(screenshot, System.Drawing.Imaging.ImageFormat.Png); }
             ShowPage("settings"); Application.DoEvents(); Refresh();
             using (var bitmap = new Bitmap(Width, Height)) { DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height)); bitmap.Save(Path.ChangeExtension(screenshot, ".settings.png"), System.Drawing.Imaging.ImageFormat.Png); }
