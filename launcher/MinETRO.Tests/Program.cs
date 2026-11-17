@@ -97,6 +97,13 @@ await Test("missing archive cannot install and cannot claim ready", async () => 
     var m=PackManifest.Parse(File.ReadAllText(args[0])); using var http=new HttpClient(new Fake(_ => throw new Exception("No network expected"))); var service=new Installer(Path.Combine(scratch,"empty"),new Transfer(http));
     await Reject(() => service.Install(m,4096,null,default)); await Reject(() => service.Verify(m,default));
 });
+if (args.Contains("--verify-prism")) await Test("official pinned Prism download / SHA256 / archive layout", async () => {
+    var m=PackManifest.Parse(File.ReadAllText(args[0])); using var http=Transfer.CreateClient();
+    using var timeout=new CancellationTokenSource(TimeSpan.FromMinutes(5));
+    var service=new Installer(Path.Combine(scratch,"official-engine"),new Transfer(http));
+    await service.PrepareEngine(m,null,timeout.Token); CheckTrue(File.Exists(service.EngineExe));
+    CheckTrue(service.StartInfo(m,false).ArgumentList.SequenceEqual(new[]{"--dir",service.Data}));
+});
 Console.WriteLine($"PASS: {passed} launcher core scenarios; real Minecraft/Microsoft login NOT run");
 } finally { Directory.Delete(scratch,true); }
 sealed class Fake(Func<HttpRequestMessage,HttpResponseMessage> make) : HttpMessageHandler

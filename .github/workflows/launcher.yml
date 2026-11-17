@@ -16,18 +16,19 @@ jobs:
         with:
           dotnet-version: '8.0.x'
       - name: Core installer tests
-        run: dotnet run --project launcher/MinETRO.Tests --configuration Release -- launcher/channel.test.json
+        run: dotnet run --project launcher/MinETRO.Tests --configuration Release -- launcher/channel.test.json --verify-prism
       - name: Windows self-contained build
         run: dotnet publish launcher/MinETRO.Launcher -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o launcher/publish
       - name: WinForms startup smoke test
         shell: pwsh
         run: |
-          $p = Start-Process -FilePath launcher/publish/MinETRO-Launcher-Test.exe -ArgumentList '--self-test' -Wait -PassThru
+          $p = Start-Process -FilePath launcher/publish/MinETRO-Launcher-Test.exe -ArgumentList @('--self-test', 'launcher/ui-smoke.png') -Wait -PassThru
           if ($p.ExitCode -ne 0) { throw "Launcher startup smoke failed: $($p.ExitCode)" }
       - name: Package
         shell: pwsh
         run: |
           Copy-Item launcher/README_RU.txt launcher/publish/README_RU.txt
+          Copy-Item launcher/ui-smoke.png launcher/publish/PREVIEW.png
           Remove-Item launcher/publish/*.pdb -ErrorAction SilentlyContinue
           New-Item downloads -ItemType Directory -Force | Out-Null
           Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-Test-0.1-win-x64.zip -Force

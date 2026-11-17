@@ -22,7 +22,7 @@ public sealed class MainForm : Form
     public MainForm(PackManifest initial)
     {
         manifest = initial; Text = "MinETRO Launcher · TEST 0.1";
-        Size = new Size(800, 650); MinimumSize = new Size(780, 640); StartPosition = FormStartPosition.CenterScreen;
+        Size = new Size(820, 760); MinimumSize = new Size(780, 640); StartPosition = FormStartPosition.CenterScreen;
         AutoScaleMode = AutoScaleMode.Dpi; Font = new Font("Segoe UI", 10); BackColor = Color.FromArgb(20, 25, 28); ForeColor = Color.FromArgb(230, 235, 236);
         var layout = new TableLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(28), ColumnCount = 1, RowCount = 13, AutoScroll = true };
         Controls.Add(layout);
@@ -71,6 +71,11 @@ public sealed class MainForm : Form
         for (var i = 0; i < buttons.Length; i++) { row.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize)); row.Controls.Add(buttons[i], i + 1, 0); }
         return row;
     }
+    private void ChooseFolder()
+    {
+        using var dialog = new FolderBrowserDialog { Description = "Отдельная папка MinETRO (миры в других папках не меняются)", UseDescriptionForTitle = true, SelectedPath = folder.Text };
+        if (dialog.ShowDialog(this) == DialogResult.OK) folder.Text = dialog.SelectedPath;
+    }
     private Installer Service()
     {
         if (string.IsNullOrWhiteSpace(folder.Text) || !Path.IsPathFullyQualified(folder.Text)) throw new IOException("Выбери полный путь к отдельной папке.");
@@ -104,6 +109,15 @@ public sealed class MainForm : Form
         catch (Exception ex) { Status("Ошибка: " + ex.Message); MessageBox.Show(ex.Message, "MinETRO · операция не завершена", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         finally { cancellation?.Dispose(); cancellation = null; busy = false; cancel.Enabled = false; bar.Style = ProgressBarStyle.Continuous; foreach (var c in busyControls) c.Enabled = true; RefreshButtons(); }
     }
-    public void SmokeTest() { CreateControl(); if (manifest.Archive == null && (install.Enabled || play.Enabled)) throw new InvalidOperationException("Unconfigured pack must never be launchable."); }
+    public void SmokeTest(string? screenshot = null)
+    {
+        CreateControl();
+        if (manifest.Archive == null && (install.Enabled || play.Enabled)) throw new InvalidOperationException("Unconfigured pack must never be launchable.");
+        if (screenshot != null) {
+            Show(); Application.DoEvents(); PerformLayout(); Refresh();
+            using var bitmap = new Bitmap(Width, Height); DrawToBitmap(bitmap, new Rectangle(0, 0, Width, Height));
+            bitmap.Save(screenshot, System.Drawing.Imaging.ImageFormat.Png); Hide();
+        }
+    }
     protected override void Dispose(bool disposing) { if (disposing) { http.Dispose(); cancellation?.Dispose(); } base.Dispose(disposing); }
 }
