@@ -48,6 +48,16 @@ jobs:
             src/test/resources/metromod_germo_callbacks.tsv
           java -cp .cache/germo-check ru.metrocraft.port.metromod.decor.DonorGermoMotionCheck \
             src/test/resources/metromod_germo_callbacks.tsv
+      - name: Verify original menu scene transforms without Forge or OpenGL
+        shell: bash
+        run: |
+          mkdir -p .cache/menu-scene-check
+          javac -source 8 -target 8 -d .cache/menu-scene-check \
+            src/main/java/ru/metrocraft/port/client/menu/OriginalMenuState.java \
+            src/main/java/ru/metrocraft/port/client/menu/OriginalMenuGeometry.java \
+            src/main/java/ru/metrocraft/port/client/menu/OriginalMenuScene.java \
+            src/test/java/ru/metrocraft/port/client/menu/OriginalMenuSceneCheck.java
+          java -cp .cache/menu-scene-check ru.metrocraft.port.client.menu.OriginalMenuSceneCheck
       - uses: actions/cache/restore@v4
         id: forge-cache
         with:
