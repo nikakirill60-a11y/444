@@ -1,3 +1,4 @@
+import {motionFrame,rotorControls} from '../mwf-motion/preview.mjs';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -5,6 +6,7 @@ import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 import {strFromU8} from 'fflate';
 import {defaults,validateEdits,loadPack,selectGun,bytesToBase64,fromBase64,cameraMatrix,applyPose,reloadWeight,actionAt,exportPack,HAND_NAMES} from './core.mjs';
 const $=id=>document.getElementById(id);
+const rotorUI=rotorControls(document);
 let pack,gun,rig,edits=defaults(),config,side='left',editMode='idle',view='fp',playing=false,time=0,dirty=false,skinTexture,attachmentRoots=[],rest=[],tracks=[],token=0;
 let undo=[],redo=[],lastSaved='',pending=false;
 const preview={fov:70,aspect:16/9,ads:0,slim:false,rounds:6,action:'default'};
@@ -98,7 +100,7 @@ async function openGun(id){
   for(const clip of loaded.animations)for(const track of clip.tracks){const split=track.name.lastIndexOf('.'),name=track.name.slice(0,split),property=track.name.slice(split+1);const o=rig.getObjectByName(name)||rig.getObjectByProperty('uuid',name);if(o&&['position','quaternion','scale'].includes(property))tracks.push({o,property,interpolant:track.createInterpolant()});}
   $('gunTitle').textContent=gun.type.displayName||gun.type.internalName;$('gunSelect').value=gun.type.internalName;
   $('rounds').max=gun.type.internalAmmoStorage||6;preview.rounds=Number($('rounds').max);$('rounds').value=preview.rounds;
-  $('action').value='default';preview.action='default';buildHandControls();buildWeaponControls();await loadAttachments();resetHistory();$('loading').hidden=true;resize();
+  rotorUI.reset();$('action').value='default';preview.action='default';buildHandControls();buildWeaponControls();await loadAttachments();resetHistory();$('loading').hidden=true;resize();
   if(gun.present.length<4)message('В модели найдены не все варианты рук. Изменятся только существующие узлы.');
 }
 async function loadAttachments(){
@@ -131,6 +133,8 @@ function render(now){requestAnimationFrame(render);if(!rig||!config)return;
     o.position.fromArray(result.translation);o.quaternion.fromArray(result.rotation);o.scale.fromArray(result.scale);o.visible=name.includes('Slim')===preview.slim&&!name.includes('Layer');
   }
   rig.traverse(o=>{if(/^bulletModel_\d+$/.test(o.name))o.visible=Number(o.name.split('_').pop())<(preview.action==='reload'?sample.rounds:preview.rounds);if(o.name==='flashModel'||/^shellModel_\d+$/.test(o.name))o.visible=false;});
+  const motionSelected=attachmentRoots.filter(a=>a.visible).map(a=>a.userData);
+  rotorUI.update(gun.type.internalName,motionFrame(rig,motionSelected,dt,rotorUI.pressed&&preview.rounds>0&&preview.action!=='reload'));
   const sight=attachmentRoots.find(a=>a.visible&&a.userData.slot==='sight');
   weaponGroup.matrix.copy(cameraMatrix(config,preview.ads,{moveSpeedModifier:gun.type.moveSpeedModifier??1,sight:config.attachment?.[sight?.userData.id]}));scene.updateMatrixWorld(true);
   if($('highlight').checked){const target=rig.getObjectByName(side+'Arm'+(preview.slim?'Slim':'')+'Model');if(target){handBox.setFromObject(target);handBox.visible=true;}}else handBox.visible=false;
@@ -141,7 +145,7 @@ requestAnimationFrame(render);
 for(const button of $('handTabs').children)button.onclick=()=>{side=button.dataset.side;for(const b of $('handTabs').children)b.classList.toggle('selected',b===button);buildHandControls();};
 for(const button of $('viewTabs').children)button.onclick=()=>setView(button.dataset.view);
 $('resetView').onclick=()=>setView(view);
-$('editMode').onchange=()=>{editMode=$('editMode').value;if(editMode==='reload'){$('action').value='reload';preview.action='reload';time=actionAt(config,'reload',0,preview.rounds).duration*.35;}else{$('action').value='default';preview.action='default';time=0;}playing=false;$('play').textContent='▶';buildHandControls();};
+$('editMode').onchange=()=>{editMode=$('editMode').value;if(editMode==='reload'){$('action').value='reload';preview.action='reload';time=actionAt(config,'reload',0,preview.rounds).duration*.35;}else{rotorUI.reset();$('action').value='default';preview.action='default';time=0;}playing=false;$('play').textContent='▶';buildHandControls();};
 $('ads').onchange=()=>{preview.ads=$('ads').checked?1:0;};
 $('bodyType').onchange=()=>preview.slim=$('bodyType').value==='slim';
 $('aspect').onchange=()=>{preview.aspect=$('aspect').value==='auto'?'auto':Number($('aspect').value);resize();};
@@ -167,5 +171,5 @@ $('exportPack').onclick=safe(async()=>{
 });
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 // Expose a read-only test bridge, not an external API or network service.
-window.mwfEditor={get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},exportBytes:()=>exportPack(pack,gun,edits,config)};
+window.mwfEditor={get motion(){const nodes={};rig?.traverse(o=>{if(o.userData?.metroMotion||/^(left|right)Arm(Slim)?Model$/.test(o.name))nodes[o.name]=o.matrixWorld.toArray();});return {rotor:structuredClone(rig?.userData.metroRotor||null),nodes};},get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},exportBytes:()=>exportPack(pack,gun,edits,config)};
 safe(async()=>{await openPackBytes(fromBase64(__DEFAULT_PACK_B64__),__DEFAULT_GUN__);setView('fp');message('Готово. Встроенный пак: '+pack.guns.map(g=>g.type.displayName).join(', ')+'. Исходный ZIP не изменяется.');})();

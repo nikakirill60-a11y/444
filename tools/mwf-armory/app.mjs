@@ -1,3 +1,4 @@
+import {motionFrame,rotorControls} from '../mwf-motion/preview.mjs';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -6,6 +7,7 @@ import {strFromU8,zipSync} from 'fflate';
 import * as Armory from './armory.mjs';
 import {defaults,validateEdits,bytesToBase64,fromBase64,cameraMatrix,applyPose,reloadWeight,actionAt,exportPack,HAND_NAMES} from './core.mjs';
 const $=id=>document.getElementById(id);
+const rotorUI=rotorControls(document);
 const loadPack=Armory.loadPack,selectGun=Armory.selectGun,Basic=Armory.Basic;
 let activeAmmo='',magazineRoot,magazineToken=0;
 const basic=()=>!!gun?.basic;
@@ -110,7 +112,7 @@ async function openGun(id){
   for(const clip of loaded.animations)for(const track of clip.tracks){const split=track.name.lastIndexOf('.'),name=track.name.slice(0,split),property=track.name.slice(split+1);const o=rig.getObjectByName(name)||rig.getObjectByProperty('uuid',name);if(o&&['position','quaternion','scale'].includes(property))tracks.push({o,property,interpolant:track.createInterpolant()});}
   $('gunTitle').textContent=gun.type.displayName||gun.type.internalName;$('gunSelect').value=gun.type.internalName;
   activeAmmo=gun.type.defaultAmmo&&gun.type.acceptedAmmo?.includes(gun.type.defaultAmmo)?gun.type.defaultAmmo:gun.type.acceptedAmmo?.[0]||'';preview.rounds=Armory.capacity(pack,gun.type,activeAmmo);updateRounds();$('objLength').value=basic()?'16':'.64';$('keepAds').disabled=basic();
-  $('action').value='default';preview.action='default';buildHandControls();buildWeaponControls();await loadAttachments();await loadMagazine();buildStudio();resetHistory();$('loading').hidden=true;setWorkspaceEnabled(true);$('keepAds').disabled=basic();resize();setView(view);
+  rotorUI.reset();$('action').value='default';preview.action='default';buildHandControls();buildWeaponControls();await loadAttachments();await loadMagazine();buildStudio();resetHistory();$('loading').hidden=true;setWorkspaceEnabled(true);$('keepAds').disabled=basic();resize();setView(view);
   if(basic())message('BASIC: родные OBJ и настройки рук сохраняются без преобразования в Enhanced. Перезарядка в просмотре схематична: Java-механика не эмулируется.');
   else if(gun.present.length<4)message('В модели найдены не все варианты рук. Изменятся только существующие узлы.');
 }
@@ -203,6 +205,8 @@ function render(now){requestAnimationFrame(render);if(!rig||!config){renderer.re
   const selected=attachmentRoots.filter(a=>a.visible).map(a=>a.userData);if(activeAmmo)selected.push({id:activeAmmo,slot:'ammo'});const hidden=Armory.previewHiddenParts(config,selected);
   if(basic()){if(attachmentRoots.some(a=>a.visible&&a.userData.slot==='sight'))hidden.add('defaultScopeModel');if(attachmentRoots.some(a=>a.visible&&a.userData.slot==='barrel'))hidden.add('defaultBarrelModel');}
   for(const r of rest)if(hidden.has(r.o.name))r.o.visible=false;
+  const motionSelected=attachmentRoots.filter(a=>a.visible).map(a=>a.userData);
+  rotorUI.update(gun.type.internalName,motionFrame(rig,motionSelected,dt,rotorUI.pressed&&preview.rounds>0&&preview.action!=='reload'));
   const sight=attachmentRoots.find(a=>a.visible&&a.userData.slot==='sight');
   weaponGroup.matrix.copy(basic()?Basic.cameraMatrix(config,preview.ads):cameraMatrix(config,preview.ads,{moveSpeedModifier:gun.type.moveSpeedModifier??1,sight:config.attachment?.[sight?.userData.id]}));
   scene.updateMatrixWorld(true);
@@ -214,7 +218,7 @@ requestAnimationFrame(render);
 for(const button of $('handTabs').children)button.onclick=()=>{side=button.dataset.side;for(const b of $('handTabs').children)b.classList.toggle('selected',b===button);buildHandControls();};
 for(const button of $('viewTabs').children)button.onclick=()=>setView(button.dataset.view);
 $('resetView').onclick=()=>setView(view);
-$('editMode').onchange=()=>{editMode=$('editMode').value;if(editMode==='reload'){$('action').value='reload';preview.action='reload';time=sampleAction('reload',0,preview.rounds).duration*.35;}else{$('action').value='default';preview.action='default';time=0;}playing=false;$('play').textContent='▶';buildHandControls();};
+$('editMode').onchange=()=>{editMode=$('editMode').value;if(editMode==='reload'){$('action').value='reload';preview.action='reload';time=sampleAction('reload',0,preview.rounds).duration*.35;}else{rotorUI.reset();$('action').value='default';preview.action='default';time=0;}playing=false;$('play').textContent='▶';buildHandControls();};
 $('ads').onchange=()=>{preview.ads=$('ads').checked?1:0;};
 $('bodyType').onchange=()=>preview.slim=$('bodyType').value==='slim';
 $('aspect').onchange=()=>{preview.aspect=$('aspect').value==='auto'?'auto':Number($('aspect').value);resize();};
@@ -240,7 +244,7 @@ $('exportPack').onclick=safe(async()=>{
 });
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 // Expose a read-only test bridge, not an external API or network service.
-window.mwfEditor={get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},get type(){return structuredClone(gun?.type);},get model(){return structuredClone(modelEdit);},get guns(){return (pack?.guns||[]).map(g=>g.type.internalName);},get empty(){return !gun&&!rig;},exportBytes:()=>buildExport(),project:()=>projectObject()};
+window.mwfEditor={get motion(){const nodes={};rig?.traverse(o=>{if(o.userData?.metroMotion||/^(left|right)Arm(Slim)?Model$/.test(o.name))nodes[o.name]=o.matrixWorld.toArray();});return {rotor:structuredClone(rig?.userData.metroRotor||null),nodes};},get ready(){return !!rig&&$('loading').hidden;},get gun(){return gun?.type.internalName;},get edits(){return structuredClone(edits);},get config(){return structuredClone(config);},get type(){return structuredClone(gun?.type);},get model(){return structuredClone(modelEdit);},get guns(){return (pack?.guns||[]).map(g=>g.type.internalName);},get empty(){return !gun&&!rig;},exportBytes:()=>buildExport(),project:()=>projectObject()};
 // Boot after authoring UI handlers below have been installed.
 function panel(name){for(const b of document.querySelectorAll('[data-panel]'))b.classList.toggle('selected',b.dataset.panel===name);for(const el of document.querySelectorAll('.tool-panel'))el.hidden=el.id!=='panel-'+name;}
 for(const b of document.querySelectorAll('[data-panel]'))b.onclick=()=>{panel(b.dataset.panel);if(b.dataset.panel==='assets')refreshJSON();};

@@ -1,0 +1,136 @@
+{
+  "basePackSha256": "e6b1aa6c10bbb3059db061167d12e12df2f76b3deb378defe6757da9f2a294f5",
+  "baseJarSha256": "dc78d8251b98d82006489432d09fb98486df888b779aaf675a62987bc5160823",
+  "requiresJarSha256": "5c413c6c28ce80f93715ccbb11f156d825ea0a846e81bc2c8134aa6a9416bf9b",
+  "minecraftTested": false,
+  "profiles": {
+    "metroMotionRotor": {
+      "gun": "metro_gatling",
+      "rotor": true
+    },
+    "metroMotionPodonokLeft": {
+      "gun": "metro_podonok",
+      "attachment": "metro_mod_podonok_butt",
+      "matrix": [
+        0.9698463103929541,
+        -0.17364817766693033,
+        0.17101007166283433,
+        0.0,
+        0.17101007166283433,
+        0.984807753012208,
+        0.030153689607045803,
+        0.0,
+        -0.17364817766693033,
+        0.0,
+        0.984807753012208,
+        0.0,
+        0.10917266836406692,
+        0.09214307460941358,
+        -0.11634057011327482,
+        1.0
+      ]
+    },
+    "metroMotionPodonokRight": {
+      "gun": "metro_podonok",
+      "attachment": "metro_mod_podonok_butt",
+      "matrix": [
+        0.9975640502598242,
+        0.0697564737441253,
+        0.0,
+        0.0,
+        -0.0697564737441253,
+        0.9975640502598242,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.02624632418183159,
+        -0.003871321358129856,
+        0.0,
+        1.0
+      ]
+    },
+    "metroMotionRevolverLeft": {
+      "gun": "metro_revolver",
+      "attachment": "metro_mod_butt",
+      "matrix": [
+        0.9608528749675305,
+        -0.13917310096006544,
+        0.23956752834178277,
+        0.0,
+        0.13503906507412927,
+        0.9902680687415704,
+        0.03366902040074297,
+        0.0,
+        -0.24192189559966773,
+        0.0,
+        0.9702957262759965,
+        0.0,
+        0.10282884670478476,
+        0.07348502855812955,
+        -0.1607335049265285,
+        1.0
+      ]
+    },
+    "metroMotionRevolverRight": {
+      "gun": "metro_revolver",
+      "attachment": "metro_mod_butt",
+      "matrix": [
+        0.9986295347545738,
+        0.052335956242943835,
+        0.0,
+        0.0,
+        -0.052335956242943835,
+        0.9986295347545738,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.019692368756025445,
+        -0.004194333246112361,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "rules": {
+    "spinupTicks": 20,
+    "motorSpinupTicks": 10,
+    "spindownTicks": 30,
+    "minimumFiringSpeed": 0.25,
+    "clientMinimumSpeed": 0.3,
+    "normalRpm": 400,
+    "fiveBarrelRpm": 600,
+    "fullSpeedDegreesPerSecond": 1200,
+    "triggerHeartbeatTicks": 4,
+    "triggerExpiryTicks": 10
+  },
+  "poseBasis": "Authored stock deltas in preserved v8 MWF frame. No-stock poses/old animation buffers unchanged.",
+  "limitations": [
+    "No live Minecraft/Forge/GL verification. Not a claim of exact Metro timing or balance.",
+    "Donor mechanical Air reservoir/hand-cranking/recharge sound is not newly implemented.",
+    "Stock hand offsets are applied to existing animation samples; there is no new reload sequence."
+  ],
+  "rotorPivot": {
+    "translation": [
+      0.13525120759379922,
+      0.14193341383958658,
+      0.1687368709278814
+    ],
+    "meshShift": [
+      -0.09029281809331235,
+      -0.11424174342844305,
+      0.07159439826256273
+    ],
+    "axis": "X",
+    "source": "Render_Gatling.java: glRotatef(stvolrot,0,0,1) after native frame; stvol/stvol5 only"
+  },
+  "patchLog": "Verified hooks: {allowLegacy=1, beforeHit=1, beforeShot=1, classes=7, clientCanFire=5, cooldownRpm=1, install=1, localNodePose=1, reloadTask=1, renderContext=2}\nSHA-256: 5c413c6c28ce80f93715ccbb11f156d825ea0a846e81bc2c8134aa6a9416bf9b\n",
+  "testLog": "MECHANICS_TESTS_OK 385 isolated assertions; NOT a Minecraft runtime test\nWARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.joml.MemUtil$MemUtilUnsafe (file:/home/user/444/.cache/metro_work/current/downloads/modularwarfare-shining-2024.2.4.6f-fix1-metro5.jar)\nWARNING: Please consider reporting this to the maintainers of class org.joml.MemUtil$MemUtilUnsafe\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release\nMOTION_TESTS_OK 1055 isolated assertions; NOT a live Minecraft test\n",
+  "jarSha256": "5c413c6c28ce80f93715ccbb11f156d825ea0a846e81bc2c8134aa6a9416bf9b",
+  "packSha256": "3eeb9871c846b6c6769affa0dbdf2cdf94ffbaed7417b40b1a1f38bd497aebb5"
+}
