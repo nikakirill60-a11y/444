@@ -16,7 +16,18 @@ jobs:
         with:
           python-version: '3.12'
       - name: Channel authoring tests
-        run: python -m unittest discover -s launcher -p 'test_*.py'
+        env:
+          PYTHONUTF8: '1'
+        shell: pwsh
+        run: |
+          @'
+          import sys, unittest
+          result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.discover('launcher', pattern='test_*.py'))
+          for case, trace in result.failures + result.errors:
+              message = trace.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+              print('::error title=' + case.id() + '::' + message)
+          sys.exit(0 if result.wasSuccessful() else 1)
+          '@ | python -
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'

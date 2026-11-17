@@ -20,5 +20,5 @@ class ChannelAuthorTests(unittest.TestCase):
         for url,ver,root in [('http://example.test/a','test-01',''),('https://u:p@example.test/a','test-01',''),('https://example.test/a','../bad',''),('https://example.test/a','test-01','../root')]:
             with self.assertRaises(ValueError):create(Path('unused'),url,ver,root)
     def test_default_channel_has_no_fabricated_pack(self):
-        m=json.loads((Path(__file__).parent/'channel.test.json').read_text());self.assertIsNone(m['archive']);self.assertEqual([],m['requiredFiles'])
+        m=json.loads((Path(__file__).parent/'channel.test.json').read_text(encoding='utf-8'));self.assertIsNone(m['archive']);self.assertEqual([],m['requiredFiles'])
 if __name__=='__main__':unittest.main()

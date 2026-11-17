@@ -12,7 +12,7 @@ def create(archive,url,version,root=''):
     root=root.strip('/')
     if root and (any(p in ('','..','.') for p in root.split('/')) or '\\' in root or ':' in root):raise ValueError('Unsafe archive root')
     prefix=root+'/' if root else ''
-    m=json.loads((BASE/'channel.test.json').read_text());required=[];seen=set();has_minetro=False
+    m=json.loads((BASE/'channel.test.json').read_text(encoding='utf-8'));required=[];seen=set();has_minetro=False
     with zipfile.ZipFile(archive) as z:
         for f in z.infolist():
             if not f.filename.startswith(prefix) or f.is_dir():continue
