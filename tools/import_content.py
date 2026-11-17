@@ -136,6 +136,19 @@ def main():
     for path in sorted((ASSETS/'sounds').glob('metromod_*.ogg')):
         sounds[path.stem]={'sounds':['metroport:'+path.stem]}
     sounds['germo'] = {'sounds': ['metroport:germo']}
+    # Prepared donor menu audio has weighted variation groups, unlike the flat
+    # one-file gameplay events above. Keep it when regenerating the catalogue.
+    menu_audio = ROOT / 'reports/METRO_MOD/menu_audio_verified.json'
+    if menu_audio.exists():
+        for event, definition in json.loads(menu_audio.read_text(encoding='utf-8'))['events'].items():
+            if not event.startswith('metromod.menu.') or event in sounds:
+                raise ValueError('Invalid/conflicting menu event: ' + event)
+            for sample in definition['sounds']:
+                if not sample.startswith('metroport:metromod/menu/') or '..' in sample or '\\' in sample:
+                    raise ValueError('Invalid menu sample: ' + sample)
+                if not (ASSETS / ('sounds/' + sample.split(':', 1)[1] + '.ogg')).is_file():
+                    raise ValueError('Missing prepared menu sample: ' + sample)
+            sounds[event] = definition
     write_json(ASSETS / 'sounds.json', dict(sorted(sounds.items())))
     translations = {
         'ru_ru': ['itemGroup.metroport.weapons=Оружие', 'itemGroup.metroport.armor=Броня',

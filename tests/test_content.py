@@ -49,6 +49,15 @@ class ContentTests(unittest.TestCase):
         extra += json.loads((ASSETS/'mcmod_firearms.json').read_text())
         used = {e[f] for e in ENTRIES+extra for f in ('shootSound','reloadSound') if f in e}
         self.assertTrue(used.issubset(sounds))
+        menu = json.loads((ROOT/'reports/METRO_MOD/menu_audio_verified.json').read_text())['events']
+        self.assertEqual(menu, {k: sounds[k] for k in menu})
+        # Every nested sample must be referenced; menu variation events are not
+        # one-file aliases. The legacy gameplay invariant remains unchanged.
+        referenced = {s.removeprefix('metroport:') + '.ogg'
+                      for event in sounds.values() for s in event['sounds']}
+        self.assertEqual(referenced, {p.relative_to(ASSETS/'sounds').as_posix()
+                                     for p in (ASSETS/'sounds').rglob('*.ogg')})
+        sounds = {k: v for k, v in sounds.items() if k not in menu}
         self.assertEqual(set(sounds), {p.stem for p in (ASSETS/'sounds').glob('*.ogg')})
         for key, sound in sounds.items():
             self.assertRegex(key, r'^[a-z0-9_]+$')

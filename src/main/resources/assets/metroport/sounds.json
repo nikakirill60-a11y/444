@@ -609,6 +609,51 @@
       "metroport:mcmod_wpn_shootgun_shoot"
     ]
   },
+  "metromod.menu.menu_carnoise": {
+    "sounds": [
+      "metroport:metromod/menu/menu_carnoise1"
+    ]
+  },
+  "metromod.menu.menu_intro_loop": {
+    "sounds": [
+      "metroport:metromod/menu/menu_intro_loop"
+    ]
+  },
+  "metromod.menu.menu_railnoise": {
+    "sounds": [
+      "metroport:metromod/menu/menu_railnoise1",
+      "metroport:metromod/menu/menu_railnoise2",
+      "metroport:metromod/menu/menu_railnoise3",
+      "metroport:metromod/menu/menu_railnoise4",
+      "metroport:metromod/menu/menu_railnoise5"
+    ]
+  },
+  "metromod.menu.menu_wheel_knock_noise": {
+    "sounds": [
+      "metroport:metromod/menu/menu_wheel_knock_noise1",
+      "metroport:metromod/menu/menu_wheel_knock_noise2",
+      "metroport:metromod/menu/menu_wheel_knock_noise3",
+      "metroport:metromod/menu/menu_wheel_knock_noise4",
+      "metroport:metromod/menu/menu_wheel_knock_noise5",
+      "metroport:metromod/menu/menu_wheel_knock_noise6",
+      "metroport:metromod/menu/menu_wheel_knock_noise7",
+      "metroport:metromod/menu/menu_wheel_knock_noise8"
+    ]
+  },
+  "metromod.menu.regina_engine_idle": {
+    "sounds": [
+      "metroport:metromod/menu/regina_engine_idle"
+    ]
+  },
+  "metromod.menu.switch2_light": {
+    "sounds": [
+      "metroport:metromod/menu/switch2_light1",
+      "metroport:metromod/menu/switch2_light2",
+      "metroport:metromod/menu/switch2_light3",
+      "metroport:metromod/menu/switch2_light4",
+      "metroport:metromod/menu/switch2_light5"
+    ]
+  },
   "metromod_filter": {
     "sounds": [
       "metroport:metromod_filter"

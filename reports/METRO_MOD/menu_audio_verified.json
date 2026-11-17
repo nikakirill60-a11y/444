@@ -1,0 +1,302 @@
+{
+  "source": "Metro2033Content.jar",
+  "source_sha256": "318cdcf0a48f076571300e4f8336651c702601cd9beafbc0a72cf028d29af9ab",
+  "source_bytes": 48426426,
+  "events": {
+    "metromod.menu.menu_carnoise": {
+      "sounds": [
+        "metroport:metromod/menu/menu_carnoise1"
+      ]
+    },
+    "metromod.menu.menu_intro_loop": {
+      "sounds": [
+        "metroport:metromod/menu/menu_intro_loop"
+      ]
+    },
+    "metromod.menu.menu_railnoise": {
+      "sounds": [
+        "metroport:metromod/menu/menu_railnoise1",
+        "metroport:metromod/menu/menu_railnoise2",
+        "metroport:metromod/menu/menu_railnoise3",
+        "metroport:metromod/menu/menu_railnoise4",
+        "metroport:metromod/menu/menu_railnoise5"
+      ]
+    },
+    "metromod.menu.menu_wheel_knock_noise": {
+      "sounds": [
+        "metroport:metromod/menu/menu_wheel_knock_noise1",
+        "metroport:metromod/menu/menu_wheel_knock_noise2",
+        "metroport:metromod/menu/menu_wheel_knock_noise3",
+        "metroport:metromod/menu/menu_wheel_knock_noise4",
+        "metroport:metromod/menu/menu_wheel_knock_noise5",
+        "metroport:metromod/menu/menu_wheel_knock_noise6",
+        "metroport:metromod/menu/menu_wheel_knock_noise7",
+        "metroport:metromod/menu/menu_wheel_knock_noise8"
+      ]
+    },
+    "metromod.menu.regina_engine_idle": {
+      "sounds": [
+        "metroport:metromod/menu/regina_engine_idle"
+      ]
+    },
+    "metromod.menu.switch2_light": {
+      "sounds": [
+        "metroport:metromod/menu/switch2_light1",
+        "metroport:metromod/menu/switch2_light2",
+        "metroport:metromod/menu/switch2_light3",
+        "metroport:metromod/menu/switch2_light4",
+        "metroport:metromod/menu/switch2_light5"
+      ]
+    }
+  },
+  "donor_categories": {
+    "metromod.menu.menu_carnoise": "ambient",
+    "metromod.menu.menu_intro_loop": "music",
+    "metromod.menu.menu_railnoise": "ambient",
+    "metromod.menu.menu_wheel_knock_noise": "ambient",
+    "metromod.menu.regina_engine_idle": "ambient",
+    "metromod.menu.switch2_light": "master"
+  },
+  "files": [
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_carnoise1.m2033sound",
+      "source_sha256": "e582359cf0f0bda3afc8e51dc71c8dbea308335a7a027a1eb44087c52a12ccd5",
+      "target_path": "sounds/metromod/menu/menu_carnoise1.ogg",
+      "bytes": 569590,
+      "sha256": "6e8da98e786eb4d75a71db32b137e0e75f0a7acb5c2deec8bcb44971ab9b988c",
+      "format": "OGG/VORBIS",
+      "frames": 2101196,
+      "samplerate": 44100,
+      "channels": 1
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_intro_loop.m2033sound",
+      "source_sha256": "da1fd65d14286a9181f7e0b0450d71a323809317f643bb970a115a87719a5656",
+      "target_path": "sounds/metromod/menu/menu_intro_loop.ogg",
+      "bytes": 648141,
+      "sha256": "41d0751f627e3b0ce6541a2517ccfa41401d5f48a22fbd71524fc6ba10ca7b77",
+      "format": "OGG/VORBIS",
+      "frames": 1934872,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_railnoise1.m2033sound",
+      "source_sha256": "9dd4fdfe8434fd32b9128a0dcd629ec8a4b6abc41d6fb9b830f714599e5c65be",
+      "target_path": "sounds/metromod/menu/menu_railnoise1.ogg",
+      "bytes": 74945,
+      "sha256": "5250a41e58bf060723b93d04a3386b15aede5f97dc4610e3eb1bb5a90491b486",
+      "format": "OGG/VORBIS",
+      "frames": 230154,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_railnoise2.m2033sound",
+      "source_sha256": "a0e4b12114bb38c79a1eca6077288f06a23416806bee9a8404ce8d48f4655d1b",
+      "target_path": "sounds/metromod/menu/menu_railnoise2.ogg",
+      "bytes": 160864,
+      "sha256": "9195813eed1881fd0d5fa8f36dc55deafbf9c8203680068f10bb34f40cc6bd23",
+      "format": "OGG/VORBIS",
+      "frames": 483997,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_railnoise3.m2033sound",
+      "source_sha256": "5af5caa042cb3fd364b878212dfa4b778a58797642fb998a336cf98bfc42c2c5",
+      "target_path": "sounds/metromod/menu/menu_railnoise3.ogg",
+      "bytes": 113583,
+      "sha256": "e959faa75fd03140ffdc8b0e791a52e7c9ddb19244e173496186a20cf71be714",
+      "format": "OGG/VORBIS",
+      "frames": 343285,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_railnoise4.m2033sound",
+      "source_sha256": "e6ec01de7c85b2d3903c82786094baee83941e0d0b8e8155c2e65e35a74653d7",
+      "target_path": "sounds/metromod/menu/menu_railnoise4.ogg",
+      "bytes": 90414,
+      "sha256": "e5b92ffd469dce6ebf77831b54cacfe3bea183b24e51287d9ac4fd5927d3b282",
+      "format": "OGG/VORBIS",
+      "frames": 274177,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_railnoise5.m2033sound",
+      "source_sha256": "3ca72a0d48c0509e4e71a5f3b68abc4e2f4e15f931ef00f348b57ee7312fd2e9",
+      "target_path": "sounds/metromod/menu/menu_railnoise5.ogg",
+      "bytes": 158792,
+      "sha256": "4c3e711205b2e9b5ba155905e8c9a89e07c4c26a21fc2e3508b2a0d72c444f9d",
+      "format": "OGG/VORBIS",
+      "frames": 486504,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise1.m2033sound",
+      "source_sha256": "7ea67fd603af7156a77ffccdf4efa2aaeed1c4f79150d59d8edb37eaaa3f62ba",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise1.ogg",
+      "bytes": 21504,
+      "sha256": "c54db07f5e60fec93b92848d100b78d2283b9ebff0ed3d2ec1fd6355c9d83e2d",
+      "format": "OGG/VORBIS",
+      "frames": 71819,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise2.m2033sound",
+      "source_sha256": "7c89779f1da6b89e4d09ba48ad1c2df8e3c6747fb5871830fddfe687f97d3ff0",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise2.ogg",
+      "bytes": 18468,
+      "sha256": "96a1cb5c8e9b0e7505a7dd2e20eae82da94b3d4592978f3d943803519d6a3dbc",
+      "format": "OGG/VORBIS",
+      "frames": 64644,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise3.m2033sound",
+      "source_sha256": "1665180e1d83544493f7fac56149bdcdbae6c6a3cbd2dbfbf2a1fa8171f523ff",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise3.ogg",
+      "bytes": 21945,
+      "sha256": "cb9f9da1d206f5966035033f16a126966e66ee5b15c3b5bcb4b6aeb2b2dc34e4",
+      "format": "OGG/VORBIS",
+      "frames": 78854,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise4.m2033sound",
+      "source_sha256": "71c23a898989cdcdd59746de6b7f7d92af3d1c45b0604aae555eda65b8b1051a",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise4.ogg",
+      "bytes": 19764,
+      "sha256": "dba7e2d94337cdd2e6612d0e991d085bbd344e531f7220f767f01868e52016fb",
+      "format": "OGG/VORBIS",
+      "frames": 63111,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise5.m2033sound",
+      "source_sha256": "cc7d3c6de9947ec24be4f4b87a54e981efd396a349bab6bdb7c79dcde6e707bc",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise5.ogg",
+      "bytes": 20192,
+      "sha256": "13e734d05ca3d1e6576df5aa92d6a35fa96b45fd022246c879769867b43d2a76",
+      "format": "OGG/VORBIS",
+      "frames": 72585,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise6.m2033sound",
+      "source_sha256": "9e76470e678ade896312e744d755796e9105a17a4a967db259e2ede101b311dc",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise6.ogg",
+      "bytes": 18003,
+      "sha256": "1c014002a901ba4494b41165df355909e4468b2d2732b9edc3dbb21eddd371f0",
+      "format": "OGG/VORBIS",
+      "frames": 60743,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise7.m2033sound",
+      "source_sha256": "f9cfbb92e8e6d537ce8d304325dcd702485e0580f3420a5b616abf3c63368598",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise7.ogg",
+      "bytes": 18427,
+      "sha256": "7bb2c3fbba4112d23f97b758029700efda1e7c8cdb3f072912bf5cb9f63fa794",
+      "format": "OGG/VORBIS",
+      "frames": 63529,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/menu_wheel_knock_noise8.m2033sound",
+      "source_sha256": "e338509f87de96ed37e90dde5079ecb1a76b6e7c2332623a444c8a52024af516",
+      "target_path": "sounds/metromod/menu/menu_wheel_knock_noise8.ogg",
+      "bytes": 19056,
+      "sha256": "fedc0185752abca88bb617e622231f88d0115ff5fb3ad071dbdda5259fe41261",
+      "format": "OGG/VORBIS",
+      "frames": 60395,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/regina_engine_idle.m2033sound",
+      "source_sha256": "552c9da0749abc6ed1649508d1fa31ef2813895273f24c0f5d022eb571ba4d0a",
+      "target_path": "sounds/metromod/menu/regina_engine_idle.ogg",
+      "bytes": 95606,
+      "sha256": "912e4cdba092fce29389b6b588a57efcf405c3bbd2cb7b9b683622437fe49581",
+      "format": "OGG/VORBIS",
+      "frames": 287467,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/switch2_light1.m2033sound",
+      "source_sha256": "ee5a74e0d3484bb294e5ec9a851db2d09e6944c185d8ef7c9e569939f5f6900d",
+      "target_path": "sounds/metromod/menu/switch2_light1.ogg",
+      "bytes": 8543,
+      "sha256": "bf00257ea74ab8af12eb3da351770ae10910406cd96519a24ab9494123c67473",
+      "format": "OGG/VORBIS",
+      "frames": 20601,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/switch2_light2.m2033sound",
+      "source_sha256": "c13a4a2517a99ab1841ac57c1befb06159e1c3691b3dab28b5a7704ad82a6313",
+      "target_path": "sounds/metromod/menu/switch2_light2.ogg",
+      "bytes": 8818,
+      "sha256": "f2bff1b2f2aac8fe5f1b67b76b95dcfb1049967a60bee4aa32190877fd0b68cc",
+      "format": "OGG/VORBIS",
+      "frames": 21733,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/switch2_light3.m2033sound",
+      "source_sha256": "f621dc6b4e734275921e4ac8a68d88ba357c2665cee90c5acf917167174f7c35",
+      "target_path": "sounds/metromod/menu/switch2_light3.ogg",
+      "bytes": 8380,
+      "sha256": "60423f1c277f077e2a3712be449b21a2736e386a5be2578f7ebffd0075b04b48",
+      "format": "OGG/VORBIS",
+      "frames": 19914,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/switch2_light4.m2033sound",
+      "source_sha256": "a4e41b5bf8b098bbf76a215aa2fdb975075240987f6572e82d2b189fd2dd0081",
+      "target_path": "sounds/metromod/menu/switch2_light4.ogg",
+      "bytes": 8585,
+      "sha256": "e199b8ab29d0263294bf798dfb39af10dde7f2fb043e5b4fbdd32968f5163bf9",
+      "format": "OGG/VORBIS",
+      "frames": 21150,
+      "samplerate": 48000,
+      "channels": 2
+    },
+    {
+      "source_path": "assets/metro2033server/sounds/menu/switch2_light5.m2033sound",
+      "source_sha256": "2751171f6ca601d1e2d8883b3f5219a82409ce130008d47ac7af32d77c8b6354",
+      "target_path": "sounds/metromod/menu/switch2_light5.ogg",
+      "bytes": 8281,
+      "sha256": "0ae8c57899f6a1427eafb0b813c1f53ec6d21af743ab3a16baf015d26a5ed668",
+      "format": "OGG/VORBIS",
+      "frames": 19591,
+      "samplerate": 48000,
+      "channels": 2
+    }
+  ],
+  "audio_prepared": true,
+  "menu_implemented": false,
+  "in_game_playback_verified": false,
+  "notes": [
+    "OGG bytes are the exact decrypted donor payloads, without re-encoding.",
+    "Vorbis streams decoded completely offline; this is not in-game playback.",
+    "No GUI hook, automatic sound playback, Java event registration or network request added.",
+    "Camera, scene, buttons, animation and sound lifetimes still require the original GUI port."
+  ]
+}
