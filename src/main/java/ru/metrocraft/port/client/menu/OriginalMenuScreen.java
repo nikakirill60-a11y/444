@@ -86,7 +86,8 @@ public final class OriginalMenuScreen extends GuiScreen {
     @Override public void updateScreen() {
         state.tick();if(activationDelay>0)activationDelay--;
         if(audio!=null && Display.isActive()) {
-            mc.getMusicTicker().stopMusic();audio.tick(state.speed);
+            // stopMusic is still SRG-named in the pinned stable_39 1.12.2 mappings.
+            mc.getMusicTicker().func_181557_a();audio.tick(state.speed);
         } else if(audio!=null)audio.close();
     }
     @Override protected void mouseClicked(int x,int y,int button) throws IOException {
