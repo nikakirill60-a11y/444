@@ -30,10 +30,11 @@ internal static class AccountsTests
             await Reject(()=>api.SignUp("p@example.test","short","Player",default));Assert(handler.Calls.Count==0);
         });
         await Test("signup has metadata and cannot silently log in",async()=> {
-            using var handler=new Stub(Session());using var api=new Accounts(Config,handler);
+            using var handler=new Stub(Session(),"{}");using var api=new Accounts(Config,handler);
             await api.SignUp(" p@example.test ",new string('x',12),"Player_1",default);
             var call=handler.Calls.Single();Assert(call.Path=="/auth/v1/signup" && call.Bearer==null && call.Key==Config.PublicKey);
             using var body=JsonDocument.Parse(call.Body);Assert(body.RootElement.GetProperty("data").GetProperty("nickname").GetString()=="Player_1");Assert(!api.SignedIn);
+            await api.ResendConfirmation("p@example.test",default);Assert(handler.Calls[1].Path=="/auth/v1/resend" && handler.Calls[1].Body.Contains("signup"));
         });
         await Test("login and own profile use scoped JWT",async()=> {
             using var handler=new Stub(Session(),JsonSerializer.Serialize(new[]{new{id=Id,nickname="Player",skin_path=(string?)null,skin_model="alex"}}));using var api=new Accounts(Config,handler);
@@ -52,7 +53,7 @@ internal static class AccountsTests
             await Reject(()=>api.SetRecoveredPassword(new string('x',12),default));
             await api.SendRecovery("p@example.test",default);await api.VerifyCode("p@example.test","123456",true,default);
             Assert(api.RecoverySession);await api.SetRecoveredPassword(new string('y',12),default);Assert(!api.SignedIn);
-            Assert(handler.Calls[1].Body.Contains("recovery") && handler.Calls[2].Method=="PUT" && handler.Calls[3].Path.EndsWith("scope=local"));
+            Assert(handler.Calls[1].Body.Contains("recovery") && handler.Calls[2].Method=="PUT" && handler.Calls[3].Path.EndsWith("scope=global"));
         });
         await Test("errors sanitized, redirects not followed",async()=> {
             using var handler=new Stub();handler.Status=HttpStatusCode.Redirect;using var api=new Accounts(Config,handler);

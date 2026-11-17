@@ -82,6 +82,10 @@ public sealed class Accounts : IDisposable
         using var result = await Send(HttpMethod.Post, "auth/v1/token?grant_type=password", new { email = ValidateEmail(email), password }, false, ct);
         AcceptSession(result.RootElement, false);
     }
+    public async Task ResendConfirmation(string email, CancellationToken ct)
+    {
+        using var result = await Send(HttpMethod.Post, "auth/v1/resend", new { email = ValidateEmail(email), type = "signup" }, false, ct);
+    }
     public async Task SendRecovery(string email, CancellationToken ct)
     {
         using var result = await Send(HttpMethod.Post, "auth/v1/recover", new { email = ValidateEmail(email) }, false, ct);
@@ -98,7 +102,7 @@ public sealed class Accounts : IDisposable
         if (!RecoverySession) throw new AccountException("Сначала подтверди код восстановления из письма.");
         ValidatePassword(password);
         using var result = await Send(HttpMethod.Put, "auth/v1/user", new { password }, true, ct);
-        await SignOut(ct);
+        await SignOut(ct, true);
     }
     public async Task<PlayerProfile> Profile(CancellationToken ct)
     {
@@ -143,9 +147,9 @@ public sealed class Accounts : IDisposable
         using var response = await Request(HttpMethod.Get, "storage/v1/object/authenticated/skins/" + profile.SkinPath, null, true, ct);
         return await ReadLimited(response, 256 * 1024, ct);
     }
-    public async Task SignOut(CancellationToken ct)
+    public async Task SignOut(CancellationToken ct, bool allSessions = false)
     {
-        try { if (SignedIn) { using var result = await Send(HttpMethod.Post, "auth/v1/logout?scope=local", null, true, ct); } }
+        try { if (SignedIn) { using var result = await Send(HttpMethod.Post, "auth/v1/logout?scope=" + (allSessions ? "global" : "local"), null, true, ct); } }
         finally { Clear(); }
     }
     private void RequireUser() { if (!SignedIn) throw new AccountException("Сначала войди в аккаунт MinETRO."); }
@@ -166,9 +170,13 @@ public sealed class Accounts : IDisposable
     {
         RequireUser(); if (expires > DateTimeOffset.UtcNow.AddSeconds(60)) return;
         var id = UserId; var recovery = RecoverySession;
-        using var result = await Send(HttpMethod.Post, "auth/v1/token?grant_type=refresh_token", new { refresh_token = refreshToken }, false, ct);
-        AcceptSession(result.RootElement, recovery);
-        if (id != UserId) { Clear(); throw new AccountException("Пользователь сеанса изменился. Войди заново."); }
+        try
+        {
+            using var result = await Send(HttpMethod.Post, "auth/v1/token?grant_type=refresh_token", new { refresh_token = refreshToken }, false, ct);
+            AcceptSession(result.RootElement, recovery);
+            if (id != UserId) { Clear(); throw new AccountException("Пользователь сеанса изменился. Войди заново."); }
+        }
+        catch (AccountException) { Clear(); throw; }
     }
     private async Task<JsonDocument> Send(HttpMethod method, string path, object? body, bool auth, CancellationToken ct, bool upsert = false)
     {
