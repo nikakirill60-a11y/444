@@ -1,0 +1,36 @@
+{
+  "version": "1.13.0-dev.33",
+  "stage": "original menu runtime TEST; visual parity NOT verified",
+  "source_commit": "2c0826fd0c876febf8d5c33a296977f1c3d1adc9",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/44110528312",
+  "bytes": 122350072,
+  "sha256": "05a5d4ea20d389b396c8f2c2172613abdfae20965dab2cc23056ff46dbd32474",
+  "junit": {
+    "tests": 579,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "original_meshes": 35,
+  "original_mesh_textures": 97,
+  "original_audio_events": 6,
+  "original_audio_files": 21,
+  "effect_textures": 2,
+  "network_target": "localhost:25565",
+  "connect_only_on_activation": true,
+  "singleplayer_test_button": true,
+  "singleplayer_screen": "GuiWorldSelection",
+  "singleplayer_shortcut": "F6",
+  "project_website": "https://minetro-beta.vercel.app/",
+  "website_only_on_activation": true,
+  "menu_enabled": true,
+  "minecraft_client_launched": false,
+  "visual_parity_verified": false,
+  "known_differences": [
+    "Minecraft 1.12.2 font, donor font parity not verified",
+    "Target-version GuiOptions instead of donor custom options board",
+    "Donor player-body rendering and camera shake not yet ported",
+    "Normal/specular/emission material behavior not yet validated",
+    "Donor website/auth/skin/status endpoints absent; beta site uses vanilla HTTPS-link action"
+  ]
+}
