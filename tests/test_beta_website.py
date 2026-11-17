@@ -90,3 +90,15 @@ class BetaWebsiteTest(unittest.TestCase):
                         'Мод с 3D-меню', '.jar"', 'ПЕРЕД ПОЕЗДКОЙ', 'id="guide"',
                         'id="copy-server"', 'href="#guide"', 'href="#development"'):
             self.assertNotIn(removed, text)
+
+    def test_account_page_assets_forms_and_security_headers(self):
+        html = (SITE / 'account.html').read_text()
+        for asset in Page(html).assets:
+            self.assertTrue((SITE / asset.lstrip('/')).is_file(), asset)
+        self.assertIn('method="post"', html)
+        self.assertIn('type="password"', html)
+        self.assertIn('minlength="12"', html)
+        config = json.loads((SITE / 'vercel.json').read_text())
+        csp = next(h['value'] for h in config['headers'][0]['headers'] if h['key']=='Content-Security-Policy')
+        self.assertIn("connect-src 'self' https://xmhxucddhkitxqtweifu.supabase.co", csp)
+        self.assertIn("form-action 'none'", csp)
