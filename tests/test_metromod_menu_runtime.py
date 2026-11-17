@@ -46,6 +46,11 @@ class OriginalMenuRuntimeTest(unittest.TestCase):
         self.assertIn('if(!Display.isActive()) { grab(false)',screen)
         self.assertIn('active.releaseResources()', (JAVA/'OriginalMenuClient.java').read_text())
         self.assertNotIn('.stopSounds()',audio);self.assertIn('handler.stopSound(sound)',audio)
+        self.assertNotIn('getMusicTicker()',screen)
+        client=(JAVA/'OriginalMenuClient.java').read_text()
+        self.assertIn('currentScreen instanceof OriginalMenuScreen',client)
+        self.assertIn('"minecraft:music.menu".equals',client)
+        self.assertIn('event.setResultSound(null)',client)
         self.assertIn('KEY_F8',screen)
 
     def test_gl_scope_restores_matrices_cached_flags_textures_and_shader(self):

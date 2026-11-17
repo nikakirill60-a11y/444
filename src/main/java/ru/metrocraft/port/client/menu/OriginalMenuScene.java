@@ -2,7 +2,8 @@ package ru.metrocraft.port.client.menu;
 
 /** Mesh scene composition recovered from donor render order.
  * Caller owns projection (70 degrees, .1..100), lights, GL state and lifecycle.
- * Does not draw donor player body, text, particles or light flares yet.
+ * Runtime callbacks supply lighting, lettering, particles and light flares.
+ * Donor player-body rendering is not supplied yet.
  */
 public final class OriginalMenuScene {
     private final OriginalMenuGeometry.Sink out;
