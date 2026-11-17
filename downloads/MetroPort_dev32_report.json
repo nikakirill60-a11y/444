@@ -1,0 +1,31 @@
+{
+  "version": "1.13.0-dev.32",
+  "stage": "original menu runtime TEST; visual parity NOT verified",
+  "source_commit": "2e280bdfd51991dc8de532553b6e995f44532b79",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/44101709088",
+  "bytes": 122348944,
+  "sha256": "9187fb4ad3509a2aa628dc6e1763b0148a76ab2d5a4d1aa2ee157b95ae0786a9",
+  "junit": {
+    "tests": 579,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "original_meshes": 35,
+  "original_mesh_textures": 97,
+  "original_audio_events": 6,
+  "original_audio_files": 21,
+  "effect_textures": 2,
+  "network_target": "localhost:25565",
+  "connect_only_on_activation": true,
+  "menu_enabled": true,
+  "minecraft_client_launched": false,
+  "visual_parity_verified": false,
+  "known_differences": [
+    "Minecraft 1.12.2 font, donor font parity not verified",
+    "Target-version GuiOptions instead of donor custom options board",
+    "Donor player-body rendering and camera shake not yet ported",
+    "Normal/specular/emission material behavior not yet validated",
+    "Original website/auth/skin/status endpoints intentionally absent"
+  ]
+}
