@@ -43,6 +43,21 @@ internal sealed class SkinPreview : Control
             using var preview = new SkinPreview(); preview.SetSkin(bytes);
             foreach(var model in new[]{"steve","alex"}) {preview.Model=model; using var bitmap=new Bitmap(250,238);preview.DrawToBitmap(bitmap,new Rectangle(0,0,250,238));}
         }
+        // Asymmetric fixture catches swapped left/right UVs in the back view.
+        using (var atlas=new Bitmap(64,64,PixelFormat.Format32bppArgb))
+        {
+            using(var g=Graphics.FromImage(atlas))
+            {
+                g.FillRectangle(Brushes.Red,4,20,4,12);g.FillRectangle(Brushes.Blue,20,52,4,12);
+                g.FillRectangle(Brushes.Yellow,28,52,4,12);g.FillRectangle(Brushes.Green,12,20,4,12);
+            }
+            using var stream=new MemoryStream();atlas.Save(stream,ImageFormat.Png);
+            using var preview=new SkinPreview();preview.SetSkin(stream.ToArray());
+            using var output=new Bitmap(250,238);preview.DrawToBitmap(output,new Rectangle(0,0,250,238));
+            if(output.GetPixel(52,120).ToArgb()!=Color.Red.ToArgb() || output.GetPixel(72,120).ToArgb()!=Color.Blue.ToArgb() ||
+               output.GetPixel(170,120).ToArgb()!=Color.Yellow.ToArgb() || output.GetPixel(190,120).ToArgb()!=Color.Green.ToArgb())
+                throw new InvalidOperationException("Skin front/back limb UVs must preserve anatomical sides.");
+        }
         try { Normalize(new byte[33]); } catch(AccountException) {return;}
         throw new InvalidOperationException("Malformed skin must be rejected.");
     }
@@ -62,19 +77,34 @@ internal sealed class SkinPreview : Control
         for(int view=0;view<2;view++)
         {
             float cx=w*(view==0?.27f:.73f), x=cx-8*zoom, y=12;
-            void Part(int sx,int sy,int sw,int sh,float dx,float dy) => g.DrawImage(skin,new RectangleF(x+dx*zoom,y+dy*zoom,sw*zoom,sh*zoom),new RectangleF(sx,sy,sw,sh),GraphicsUnit.Pixel);
+            void Part(int sx,int sy,int sw,int sh,float dx,float dy,bool mirror=false)
+            {
+                var dest=new RectangleF(x+dx*zoom,y+dy*zoom,sw*zoom,sh*zoom);
+                var src=new RectangleF(sx,sy,sw,sh);
+                if(!mirror) g.DrawImage(skin,dest,src,GraphicsUnit.Pixel);
+                else {var saved=g.Save();g.TranslateTransform(dest.Right,dest.Top);g.ScaleTransform(-1,1);g.DrawImage(skin,new RectangleF(0,0,dest.Width,dest.Height),src,GraphicsUnit.Pixel);g.Restore(saved);}
+            }
             bool back=view==1;
             Part(back?24:8,8,8,8,4,0); Part(back?32:20,20,8,12,4,8);
-            Part(back?48+arm:44,20,arm,12,4-arm,8);
-            Part(back?12:4,20,4,12,4,20);
-            if(skin.Height==64) { Part(back?40+arm:36,52,arm,12,12,8); Part(back?28:20,52,4,12,8,20); }
-            else { Part(back?48+arm:44,20,arm,12,12,8); Part(back?12:4,20,4,12,8,20); }
-            Part(back?56:40,8,8,8,4,0);
             if(skin.Height==64)
             {
-                Part(back?32:20,36,8,12,4,8); Part(back?48+arm:44,36,arm,12,4-arm,8);
-                Part(back?56+arm:52,52,arm,12,12,8); Part(back?12:4,36,4,12,4,20); Part(back?12:4,52,4,12,8,20);
+                // From behind, the anatomical left limb is on the left of the image.
+                Part(back?40+arm:44,back?52:20,arm,12,4-arm,8);
+                Part(back?48+arm:36,back?20:52,arm,12,12,8);
+                Part(back?28:4,back?52:20,4,12,4,20);
+                Part(back?12:20,back?20:52,4,12,8,20);
+                Part(back?32:20,36,8,12,4,8);
+                Part(back?56+arm:44,back?52:36,arm,12,4-arm,8);
+                Part(back?48+arm:52,back?36:52,arm,12,12,8);
+                Part(back?12:4,back?52:36,4,12,4,20);
+                Part(back?12:4,back?36:52,4,12,8,20);
             }
+            else
+            {
+                Part(back?52:44,20,4,12,0,8,back);Part(back?52:44,20,4,12,12,8,!back);
+                Part(back?12:4,20,4,12,4,20,back);Part(back?12:4,20,4,12,8,20,!back);
+            }
+            Part(back?56:40,8,8,8,4,0);
             Ui.TextAt(g,back?"СЗАДИ":"СПЕРЕДИ",9,cx-45,h-24,90,18,Ui.Muted,align:StringAlignment.Center);
         }
     }
