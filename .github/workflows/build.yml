@@ -114,7 +114,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -133,7 +133,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar
           if-no-files-found: error
 
       - name: Verify and publish original menu runtime test
@@ -146,17 +146,17 @@ jobs:
           test "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" = "$GITHUB_SHA"
           mkdir -p downloads
           python -m tools.verify_metromod_menu_build \
-            build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar build/test-results/test "$GITHUB_SHA" \
-            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" downloads/MetroPort_dev32_report.json
-          cp docs/METRO_MENU_DEV32_RU.txt downloads/MetroPort_dev32_README_RU.txt
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar build/test-results/test "$GITHUB_SHA" \
+            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" downloads/MetroPort_dev33_report.json
+          cp docs/METRO_MENU_DEV32_RU.txt downloads/MetroPort_dev33_README_RU.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add downloads/MetroPort_dev32_report.json downloads/MetroPort_dev32_README_RU.txt
+          git add downloads/MetroPort_dev33_report.json downloads/MetroPort_dev33_README_RU.txt
           git diff --cached --check
-          git commit -m 'Record verified original menu runtime test dev32 [skip ci]'
+          git commit -m 'Record verified original menu runtime test dev33 [skip ci]'
           git push origin arena/dcab859f-444
-          gh release create minetro-menu-dev32 --target "$GITHUB_SHA" --prerelease \
-            --title 'MinETRO dev32 — original 3D menu runtime TEST' \
+          gh release create minetro-menu-dev33 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO dev33 — original 3D menu runtime TEST' \
             --notes-file docs/METRO_MENU_DEV32_RU.txt \
-            build/libs/metrocraft-port-1.12.2-1.13.0-dev.32.jar \
-            downloads/MetroPort_dev32_report.json downloads/MetroPort_dev32_README_RU.txt
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar \
+            downloads/MetroPort_dev33_report.json downloads/MetroPort_dev33_README_RU.txt

@@ -84,3 +84,36 @@ class OriginalMenuRuntimeTest(unittest.TestCase):
         workflow=(ROOT/'.github/workflows/build.yml').read_text()
         self.assertIn('python -m tools.verify_metromod_menu_build',workflow)
         self.assertIn('--prerelease',workflow)
+
+    def test_dev33_welcome_is_generated_and_names_minetro(self):
+        shared=json.loads((ROOT/'tools/mcmod-localization.json').read_text())
+        for locale,text in [('ru_ru','Добро пожаловать на MinETRO'),('en_us','Welcome to MinETRO')]:
+            self.assertEqual(text,shared[locale]['metroport.menu.welcome'])
+            lang=(RES/('lang/'+locale+'.lang')).read_text()
+            for key in ('welcome','singleplayer','test_hint'):
+                self.assertIn('metroport.menu.'+key+'='+shared[locale]['metroport.menu.'+key],lang)
+
+    def test_singleplayer_is_separate_from_donor_hotspots_and_requires_user_action(self):
+        screen=(JAVA/'OriginalMenuScreen.java').read_text()
+        self.assertIn('singleplayerButton=new GuiButton(100,',screen)
+        self.assertIn('buttonList.clear()',screen)
+        self.assertIn('singleplayerButton.drawButton(',screen)
+        self.assertIn('singleplayerButton.mousePressed(mc,x,y)',screen)
+        self.assertIn('new GuiWorldSelection(this)',screen)
+        self.assertIn('KEY_F6',screen)
+        self.assertLess(screen.index('KEY_F6'),screen.index('if(state.lightR<=.1f)return;'))
+        mouse=screen[screen.index('protected void mouseClicked'):screen.index('public void handleMouseInput')]
+        self.assertLess(mouse.index('if(releasedByUser)'),mouse.index('singleplayerButton.mousePressed'))
+        self.assertIn('activationDelay=2;return;',mouse)
+        self.assertEqual(2,screen.count('openSingleplayer();'))
+        overlay=(JAVA/'OriginalMenuOverlay.java').read_text()
+        self.assertNotIn('singleplayer',overlay)  # no invented fifth donor switch
+        self.assertNotIn('launchIntegratedServer',screen)
+
+    def test_website_is_fixed_https_and_uses_vanilla_explicit_link_handling(self):
+        screen=(JAVA/'OriginalMenuScreen.java').read_text()
+        self.assertEqual(1,screen.count('handleComponentClick('))
+        self.assertIn('handleComponentClick(',screen[screen.index('case 2:'):screen.index('case 3:')])
+        self.assertIn('ClickEvent.Action.OPEN_URL',screen)
+        self.assertIn('WEBSITE="https://minetro-beta.vercel.app/"',(JAVA/'OriginalMenuClient.java').read_text())
+        self.assertNotIn('site_unset',screen)

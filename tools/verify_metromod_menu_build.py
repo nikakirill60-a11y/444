@@ -1,4 +1,4 @@
-"""Verify dev32 runtime-test JAR and clean JUnit results before release.
+"""Verify dev33 runtime-test JAR and clean JUnit results before release.
 This is packaging/CPU verification, never evidence of an actual Minecraft run.
 """
 import hashlib
@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 from tools.verify_reduced_jar import verify as verify_reduced
 
-VERSION='1.13.0-dev.32'
+VERSION='1.13.0-dev.33'
 PREFIX='assets/metroport/'
 REQUIRED_CLASSES=['OriginalMenuClient','OriginalMenuScreen','OriginalMenuState','OriginalMenuControls',
                   'OriginalMenuScene','OriginalMenuGeometry','OriginalMenuMeshes','OriginalMenuAudio',
@@ -47,12 +47,14 @@ def verify(jar,results,source,run_url):
             'sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),'junit':totals,
             'original_meshes':35,'original_mesh_textures':97,'original_audio_events':6,'original_audio_files':21,
             'effect_textures':2,'network_target':'localhost:25565','connect_only_on_activation':True,
+            'singleplayer_test_button':True,'singleplayer_screen':'GuiWorldSelection','singleplayer_shortcut':'F6',
+            'project_website':'https://minetro-beta.vercel.app/','website_only_on_activation':True,
             'menu_enabled':True,'minecraft_client_launched':False,'visual_parity_verified':False,
             'known_differences':['Minecraft 1.12.2 font, donor font parity not verified',
                                  'Target-version GuiOptions instead of donor custom options board',
                                  'Donor player-body rendering and camera shake not yet ported',
                                  'Normal/specular/emission material behavior not yet validated',
-                                 'Original website/auth/skin/status endpoints intentionally absent']}
+                                 'Donor website/auth/skin/status endpoints absent; beta site uses vanilla HTTPS-link action']}
 
 if __name__=='__main__':
     if len(sys.argv)!=6:raise SystemExit('Usage: python -m tools.verify_metromod_menu_build JAR JUNIT_DIR SOURCE RUN_URL REPORT')

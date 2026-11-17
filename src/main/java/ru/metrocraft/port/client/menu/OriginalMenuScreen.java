@@ -29,9 +29,16 @@ public final class OriginalMenuScreen extends GuiScreen {
     private boolean grabbed,closed,releasedByUser;
     private int previousSelection;
     private int activationDelay=10;
+    private GuiButton singleplayerButton;
 
     @Override public void initGui() {
         closed=false;releasedByUser=false;previousFrame=0;activationDelay=10;
+        // Separate testing control: keep all four donor hotspots/3D transforms intact.
+        buttonList.clear();
+        String label=I18n.format("metroport.menu.singleplayer");
+        int buttonWidth=Math.min(Math.max(180,fontRenderer.getStringWidth(label)+20),Math.max(1,width-16));
+        singleplayerButton=new GuiButton(100,width-buttonWidth-8,8,buttonWidth,20,label);
+        buttonList.add(singleplayerButton);
         OriginalMenuClient.opened(this);
     }
     private void load() throws IOException {
@@ -77,6 +84,11 @@ public final class OriginalMenuScreen extends GuiScreen {
                 GL11.glMatrixMode(GL11.GL_MODELVIEW);GL11.glLoadIdentity();
                 lights.setup();scene.draw();
             }
+            // MenuGlScope has restored the normal orthographic GUI matrices here.
+            // While captured, suppress a misleading hover over the hidden cursor.
+            singleplayerButton.drawButton(mc,releasedByUser?mouseX:-1,releasedByUser?mouseY:-1,partialTicks);
+            drawCenteredString(fontRenderer,I18n.format("metroport.menu.test_hint"),width/2,height-14,0xffd1b584);
+            GlStateManager.color(1,1,1,1);
             state.recycle();
             if(audio!=null && previousSelection!=state.selected && state.selected!=0)audio.selected();
             if(previousSelection!=state.selected)overlay.notice="";
@@ -93,7 +105,13 @@ public final class OriginalMenuScreen extends GuiScreen {
     }
     @Override protected void mouseClicked(int x,int y,int button) throws IOException {
         if(!Display.isActive())return;
-        if(releasedByUser) {releasedByUser=false;grab(true);activationDelay=2;return;}
+        if(releasedByUser) {
+            if(button==0 && singleplayerButton!=null && singleplayerButton.mousePressed(mc,x,y)) {
+                singleplayerButton.playPressSound(mc.getSoundHandler());
+                openSingleplayer();return;
+            }
+            releasedByUser=false;grab(true);activationDelay=2;return;
+        }
         if(button==0)activate();
     }
     @Override public void handleMouseInput() throws IOException {
@@ -103,6 +121,7 @@ public final class OriginalMenuScreen extends GuiScreen {
     }
     @Override protected void keyTyped(char typedChar,int keyCode) throws IOException {
         if(keyCode==Keyboard.KEY_F8) { OriginalMenuClient.vanilla(null);return; }
+        if(keyCode==Keyboard.KEY_F6) { if(Display.isActive())openSingleplayer();return; }
         if(keyCode==Keyboard.KEY_ESCAPE) { releasedByUser=true;grab(false);return; }
         if(state.lightR<=.1f)return;
         if(keyCode==Keyboard.KEY_W || keyCode==Keyboard.KEY_A || keyCode==Keyboard.KEY_UP || keyCode==Keyboard.KEY_LEFT)
@@ -110,6 +129,11 @@ public final class OriginalMenuScreen extends GuiScreen {
         else if(keyCode==Keyboard.KEY_S || keyCode==Keyboard.KEY_D || keyCode==Keyboard.KEY_DOWN || keyCode==Keyboard.KEY_RIGHT || keyCode==Keyboard.KEY_TAB)
             controls.cycle(state,1);
         else if(keyCode==Keyboard.KEY_RETURN || keyCode==Keyboard.KEY_NUMPADENTER || keyCode==Keyboard.KEY_SPACE)activate();
+    }
+    private void openSingleplayer() {
+        // Vanilla world selection: existing worlds or Create New World, no auto-launch.
+        // displayGuiScreen calls onGuiClosed, releasing menu audio/GL lists/cursor.
+        mc.displayGuiScreen(new GuiWorldSelection(this));
     }
     private void activate() {
         if(activationDelay>0 || state.lightR<=.1f || meshes==null)return;
@@ -120,7 +144,11 @@ public final class OriginalMenuScreen extends GuiScreen {
                 mc.displayGuiScreen(new GuiConnecting(this,mc,new ServerData("MinETRO",OriginalMenuClient.SERVER,false)));
                 break;
             case 2:
-                overlay.notice=I18n.format("metroport.menu.site_unset");
+                // Vanilla HTTPS-link handling respects the player's link/prompt settings.
+                // Never contacts the donor's old site or probes this address in the background.
+                handleComponentClick(new net.minecraft.util.text.TextComponentString(OriginalMenuClient.WEBSITE)
+                    .setStyle(new net.minecraft.util.text.Style().setClickEvent(new net.minecraft.util.text.event.ClickEvent(
+                        net.minecraft.util.text.event.ClickEvent.Action.OPEN_URL,OriginalMenuClient.WEBSITE))));
                 if(audio!=null)audio.selected();
                 break;
             case 3:

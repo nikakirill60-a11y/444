@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 /** Registered exclusively from ClientProxy. Never loaded by dedicated servers. */
 public final class OriginalMenuClient {
     public static final String SERVER="localhost:25565";
+    public static final String WEBSITE="https://minetro-beta.vercel.app/";
     private static boolean bypass;
     private static OriginalMenuScreen active;
     private static boolean initialized;

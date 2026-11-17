@@ -74,8 +74,10 @@
     "metroport.menu.options": "Настройки",
     "metroport.menu.quit": "Выход",
     "metroport.menu.server": "Сервер:",
-    "metroport.menu.welcome": "Добро пожаловать",
-    "metroport.menu.site_unset": "Сайт не настроен"
+    "metroport.menu.welcome": "Добро пожаловать на MinETRO",
+    "metroport.menu.site_unset": "Сайт не настроен",
+    "metroport.menu.singleplayer": "Одиночная игра (тест) [F6]",
+    "metroport.menu.test_hint": "Esc — курсор | F6 — одиночная игра | F8 — обычное меню"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -152,7 +154,9 @@
     "metroport.menu.options": "Options",
     "metroport.menu.quit": "Quit",
     "metroport.menu.server": "Server:",
-    "metroport.menu.welcome": "Welcome",
-    "metroport.menu.site_unset": "No website configured"
+    "metroport.menu.welcome": "Welcome to MinETRO",
+    "metroport.menu.site_unset": "No website configured",
+    "metroport.menu.singleplayer": "Singleplayer (test) [F6]",
+    "metroport.menu.test_hint": "Esc: cursor | F6: singleplayer | F8: vanilla menu"
   }
 }
