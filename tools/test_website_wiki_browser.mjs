@@ -15,14 +15,14 @@ try{
   await page.locator('#navigation').getByRole('link',{name:'Вики',exact:true}).click();
   await page.waitForURL('**/wiki.html');await page.getByRole('tab',{name:'Оружие',exact:true}).waitFor();
   assert.equal(await page.getByRole('tab').count(),4);
-  const check=async name=>{await page.getByRole('tab',{name,exact:true}).click();assert.equal(await page.getByRole('tab',{selected:true}).textContent().then(s=>s.replace(/0[1-4]|↗/g,'').trim()),name);assert.equal(await page.getByRole('tabpanel').count(),1);await page.getByRole('tabpanel').getByRole('heading',{name,exact:true}).waitFor();};
+  const check=async name=>{await page.getByRole('tab',{name,exact:true}).click();assert.equal(await page.getByRole('tab',{selected:true}).getAttribute('aria-controls'),({'Оружие':'weapons','Броня':'armor','Мутанты':'mutants','Предметы':'items'})[name]);assert.equal(await page.getByRole('tabpanel').count(),1);await page.getByRole('tabpanel').getByRole('heading',{name,exact:true}).waitFor();};
   for(const name of ['Броня','Мутанты','Предметы','Оружие'])await check(name);
   const active=()=>page.getByRole('tab',{selected:true});
   await active().focus();await page.keyboard.press('End');assert.equal(await active().getAttribute('aria-controls'),'items');
   await page.keyboard.press('ArrowRight');assert.equal(await active().getAttribute('aria-controls'),'weapons');
   await page.keyboard.press('ArrowLeft');assert.equal(await active().getAttribute('aria-controls'),'items');
   await page.keyboard.press('Home');assert.equal(await active().getAttribute('aria-controls'),'weapons');
-  await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement.getAttribute('role')),'tabpanel');
+  await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement.id),'wiki-search');
   await check('Броня');await check('Мутанты');await page.goBack();assert.equal(await active().getAttribute('aria-controls'),'armor');await page.goForward();assert.equal(await active().getAttribute('aria-controls'),'mutants');
   await page.goto(base+'/wiki.html#items');await page.getByRole('tab',{name:'Предметы',selected:true}).waitFor();
   await page.reload();await page.getByRole('tab',{name:'Предметы',selected:true}).waitFor();

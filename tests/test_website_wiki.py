@@ -55,8 +55,9 @@ class WebsiteWiki(unittest.TestCase):
         panels = [a for tag, a in self.nodes if tag == 'section' and a.get('class') == 'wiki-panel']
         self.assertEqual(len(panels), 4)
         self.assertTrue(all('hidden' not in a for a in panels))
-        self.assertEqual(self.text.count('МАТЕРИАЛЫ ГОТОВЯТСЯ'), 4)
-        self.assertIn('Карточки и характеристики пока не добавлены.', self.text)
+        self.assertNotIn('МАТЕРИАЛЫ ГОТОВЯТСЯ', self.text)
+        self.assertEqual(sum(tag == 'article' and 'data-entry' in a for tag, a in self.nodes), 427)
+        self.assertIn('MetroPort dev.33 + MWF v10', self.text)
         self.assertNotIn('<form', self.text)
 
     def test_script_has_keyboard_history_and_aria_without_network_or_storage(self):
