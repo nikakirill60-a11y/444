@@ -7,3 +7,13 @@
 
 /* One launcher download; no empty second column on wide screens. */
 .download-grid.launcher-only{grid-template-columns:minmax(0,680px);justify-content:center}.timeline h3 a:hover{color:var(--amber)}
+
+/* The extra wiki link uses the compact header before navigation gets cramped. */
+.header nav a[aria-current="page"]{color:var(--amber)}
+@media(min-width:761px) and (max-width:1050px){
+  .header-inner{height:72px;gap:20px}
+  .menu-toggle{display:flex;align-items:center;gap:8px;background:none;border:0;color:#b7bfaa;font-size:11px;padding:8px 0;order:3}
+  .header nav{display:none;position:absolute;top:72px;left:0;right:0;background:#171b14;padding:22px;border-bottom:1px solid var(--line);flex-direction:column;gap:18px}
+  .header nav.open{display:flex}
+  .header-cta{margin-left:auto}
+}
