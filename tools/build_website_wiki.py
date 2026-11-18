@@ -236,7 +236,7 @@ def main():
     html = (SITE/'wiki.html').read_text()
     html = re.sub(r'<!-- CATALOG BEGIN -->.*?<!-- CATALOG END -->', lambda _: '<!-- CATALOG BEGIN -->\n'+render(entries)+'\n<!-- CATALOG END -->', html, flags=re.S)
     for cat, count in counts.items():
-        html = re.sub(r'(<span data-count="'+cat+r'">).*?(</span>)', lambda m: m[1]+str(count)+m[2], html)
+        html = re.sub(r'(<span\b[^>]*data-count="'+cat+r'"[^>]*>).*?(</span>)', lambda m: m[1]+str(count)+m[2], html)
     (SITE/'wiki.html').write_text(html)
     manifest = {'sources': BASE, 'packSha256': PACK_SHA, 'counts': counts, 'icons': {k: hashlib.sha256(v).hexdigest() for k, v in sorted(icons.items())}}
     (SITE/'wiki-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n')

@@ -20,6 +20,8 @@ class WikiCatalogTest(unittest.TestCase):
 
     def test_counts_and_unique_full_ids(self):
         self.assertEqual(self.data['counts'], {'weapons': 28, 'items': 271, 'armor': 110, 'mutants': 18})
+        for category, count in self.data['counts'].items():
+            self.assertIn(f'data-count="{category}">{count}</span>', self.html)
         self.assertEqual(len(self.entries), 427)
         self.assertEqual(len(self.byid), len(self.entries))
         self.assertEqual(sum(e['id'].startswith('modularwarfare:') for e in self.entries), 84)
