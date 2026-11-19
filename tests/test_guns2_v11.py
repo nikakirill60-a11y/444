@@ -26,10 +26,23 @@ class Guns2(unittest.TestCase):
   BALANCE=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='BALANCE' for t in n.targets))
   self.assertEqual(25,len(BALANCE))
   self.assertLess(BALANCE['ubludok'][0],BALANCE['ak'][0]);self.assertGreater(BALANCE['rpk'][1],BALANCE['ak'][1])
-  p=R/'.cache/output-v11/Metro_Full_Arsenal_MWF_fix1_v11_guns2.zip'
+  p=R/'.cache/output-v11/Metro_Full_Arsenal_MWF_fix1_v11_1_army_texture.zip'
   if not p.exists():return # Output-level checks also run unconditionally in the builder CI step.
   with zipfile.ZipFile(p) as z:
    m=json.loads(z.read('GUNS2_V11_MANIFEST.json'));self.assertEqual(29,m['verifiedGunCount']);self.assertTrue(m['allOriginalGeometryByteIdentical'])
    for id,delta in m['rebalance'].items():
     g=json.loads(z.read('guns/'+id+'.json'));self.assertEqual(delta['pelletsUnchanged'],g['numBullets'])
     self.assertGreaterEqual(delta['reloadTicksAfter'],delta['reloadTicksBefore'])
+
+ def test_army_ak_uses_own_supplied_texture_without_replacing_kalash(self):
+  p=R/'.cache/output-v11/Metro_Full_Arsenal_MWF_fix1_v11_1_army_texture.zip'
+  if not p.exists():self.skipTest('Build output unavailable; run builder first')
+  with zipfile.ZipFile(p) as z, zipfile.ZipFile(R/'tools/metro-guns2/sources.zip') as source:
+   g=json.loads(z.read('guns/metro_army_ak.json'));base=json.loads(z.read('guns/metro_ak.json'))
+   self.assertEqual('metro_army_ak',g['modelSkins'][0]['skinAsset'])
+   self.assertNotEqual(g['modelSkins'],base['modelSkins'])
+   self.assertEqual(source.read('Metro guns 2/Army Kalash/wpn_aka.1024.png'),z.read('assets/modularwarfare/skins/guns/metro_army_ak.png'))
+   self.assertEqual(g['acceptedAttachments'],base['acceptedAttachments'])
+   report=json.loads(z.read('GUNS2_V11_MANIFEST.json'))
+   self.assertEqual(hashlib.sha256(z.read('assets/modularwarfare/skins/guns/metro_army_ak.png')).hexdigest(),report['newGuns']['metro_army_ak']['textureSha256'])
+   self.assertEqual(29,report['verifiedGunCount'])

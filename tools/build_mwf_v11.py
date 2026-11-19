@@ -12,7 +12,7 @@ from update_mwf_v10 import readzip, writezip, js, triangles, world
 ROOT=Path(__file__).resolve().parents[1]
 P='assets/modularwarfare/'
 BASE_SHA='5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f'
-PACK='Metro_Full_Arsenal_MWF_fix1_v11_guns2.zip'
+PACK='Metro_Full_Arsenal_MWF_fix1_v11_1_army_texture.zip'
 JAR='modularwarfare-shining-2024.2.4.6f-fix1-metro7.jar'
 # Damage per projectile, reload in server ticks. Existing pellet counts and ammo types remain untouched.
 BALANCE={
@@ -92,7 +92,7 @@ def prepare(files,source):
    'New OBJ guns inherit existing hand/root-motion timelines; source archive contains no skeletal animation.',
    'Stallion is the base semi-auto seven-round version; no invented full-auto/extended-mag upgrade variants.',
    'Stallion uses seven-round internal ammunition storage with existing Magnum rounds; no detachable Stallion magazine item.',
-   'Army AK uses the Kalash model and original UV-correct Kalash skin: supplied wpn_aka is an incompatible AKSU/RPK unwrap; source retained, not applied blindly.']}
+   'Army AK uses the supplied wpn_aka.1024.png exactly as requested, on the unchanged Kalash model; UV appearance needs an in-game check.']}
  for short,(damage,reload) in BALANCE.items():
   id='metro_'+short;g=gun(files,id);r=render(files,id);old=g['reloadTime']
   report['rebalance'][id]={'name':g['displayName'],'damageBefore':g['gunDamage'],'damageAfter':damage,
@@ -102,12 +102,14 @@ def prepare(files,source):
   for name,a in r.get('animations',{}).items():
    if any(word in name.lower() for word in ('reload','load','unload')):a['speed']=a.get('speed',1)*old/reload
   put(files,'guns/render/'+id+'.render.json',r)
- # Kalash model/sockets/skins intentionally identical: the supplied different unwrap must not corrupt UVs.
- id='metro_army_ak';g,r=clone(files,'metro_ak',id,NEW[id][0]);g['modelSkins']=copy.deepcopy(gun(files,'metro_ak')['modelSkins'])
+ # Independent supplied Army texture; preserve the original Kalash and all shared module assets.
+ id='metro_army_ak';g,r=clone(files,'metro_ak',id,NEW[id][0])
+ files[P+'skins/guns/'+id+'.png']=source['Metro guns 2/Army Kalash/wpn_aka.1024.png']
  g.update(gunDamage=4.8,bulletSpread=.55,recoilPitch=1.5,recoilYaw=.5)
  put(files,'guns/'+id+'.json',g)
  report['newGuns'][id]={'rarity':'legendary','model':'identical Kalash mesh/UV, all existing attachments and magazines',
-    'unusedAlternateTexture':'Army Kalash/wpn_aka.1024.png (different UV layout; retained in sources.zip)'}
+    'textureSource':'Metro guns 2/Army Kalash/wpn_aka.1024.png',
+    'textureSha256':sha(files[P+'skins/guns/'+id+'.png'])}
  # Independent item ID with the same updated Duplet config, model, modules, and mechanics.
  id='metro_duplet_2';g,r=clone(files,'metro_duplet',id,NEW[id][0])
  files[P+'skins/guns/'+id+'.png']=source['Metro guns 2/duplet_2_variant.png']
@@ -226,6 +228,9 @@ def verify(files,old,report):
   for a in d['accessors']:
    assert a['count']>0 and all(np.isfinite(a.get('min',[]))) and all(np.isfinite(a.get('max',[])))
  assert guns['metro_army_ak']['acceptedAttachments']==guns['metro_ak']['acceptedAttachments']
+ assert guns['metro_army_ak']['modelSkins']==skin('metro_army_ak')
+ assert sha(files[P+'skins/guns/metro_army_ak.png'])==report['newGuns']['metro_army_ak']['textureSha256']
+ assert files[P+'gltf/guns/metro_army_ak.gltf']==files[P+'gltf/guns/'+render(files,'metro_ak')['modelFileName']]
  assert guns['metro_ubludok_old']['acceptedAttachments']=={}
  assert set(guns['metro_ubludok_old']['acceptedAmmo']).isdisjoint(guns['metro_ubludok']['acceptedAmmo'])
  a=copy.deepcopy(guns['metro_duplet']);b=copy.deepcopy(guns['metro_duplet_2'])
