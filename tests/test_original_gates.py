@@ -17,7 +17,7 @@ class OriginalGatesTest(unittest.TestCase):
     def test_exact_six_new_ids_no_replacement_old_ids(self):
         self.assertEqual([1,2,4,5,6,9],[int(p['id'].rsplit('_',1)[1]) for p in PROFILES])
         self.assertEqual(12,sum(len(p['parts']) for p in PROFILES))
-        self.assertIn('Gates.initialize();',(JAVA/'MetroPort.java').read_text())
+        self.assertNotIn('ru.metrocraft.port.gates.Gates.initialize();',(JAVA/'MetroPort.java').read_text())
         self.assertIn('OriginalGates.initialize();',(JAVA/'MetroPort.java').read_text())
 
     def test_all_mesh_materials_textures_and_item_models_exist(self):
@@ -77,7 +77,7 @@ class OriginalGatesTest(unittest.TestCase):
         self.assertEqual([3,7,8],evidence['remaining_germo_models'])
         self.assertTrue(all('/germo/' in n or '/textures/obj/' in n for n in evidence['source_files']))
         scope=json.loads((RES/'reduced_scope.json').read_text())
-        self.assertTrue(all(p['id'] not in scope['removedIds'] for p in PROFILES))
+        self.assertTrue(all(p['id'] in scope['removedIds'] for p in PROFILES))
 
 
 if __name__=='__main__':unittest.main()
