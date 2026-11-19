@@ -18,6 +18,9 @@ public class GridProtocolTest {
         p=mock(EntityPlayerMP.class);p.world=mock(World.class);p.connection=mock(NetHandlerPlayServer.class);p.inventory=new InventoryPlayer(p);
         java.lang.reflect.Field caps=EntityPlayer.class.getField("capabilities");caps.setAccessible(true);caps.set(p,new PlayerCapabilities());
         when(p.getEntityData()).thenReturn(new NBTTagCompound());when(p.isEntityAlive()).thenReturn(true);
+        // New equipment migration reads the actual vanilla armor inventory.
+        when(p.getItemStackFromSlot(any(net.minecraft.inventory.EntityEquipmentSlot.class))).thenCallRealMethod();
+        doCallRealMethod().when(p).setItemStackToSlot(any(net.minecraft.inventory.EntityEquipmentSlot.class),any(ItemStack.class));
         c=new MetroContainer(p);c.windowId=17;p.openContainer=c;
         p.inventory.setItemStack(new ItemStack(Items.STICK,5));c.detectAndSendChanges();
     }

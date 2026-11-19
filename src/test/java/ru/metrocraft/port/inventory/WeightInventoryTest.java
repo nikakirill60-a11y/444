@@ -121,4 +121,13 @@ public class WeightInventoryTest {
         ItemStack patch=new ItemStack(new ru.metrocraft.port.patches.FactionPatchItem("sparta"),5);
         assertEquals(100,ItemMetrics.unitGrams(patch));assertEquals(500,ItemMetrics.grams(patch));
     }
+    @Test public void fullInventoryMigrationQueuesOneOriginalItemPersistently()throws Exception{
+        Player p=player();for(int i=9;i<36;i++)p.inventory.mainInventory.set(i,new ItemStack(Items.STICK,64));
+        ItemStack boots=new ItemStack(Items.IRON_BOOTS);boots.setItemDamage(11);boots.setStackDisplayName("old boots");
+        p.inventory.armorInventory.set(0,boots);EquipmentRules.retireLegSlots(p);EquipmentRules.retireLegSlots(p);
+        net.minecraft.nbt.NBTTagList pending=p.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getTagList("MetroNoDropPending",10);
+        assertEquals(1,pending.tagCount());ItemStack restored=new ItemStack(pending.getCompoundTagAt(0));
+        assertEquals(Items.IRON_BOOTS,restored.getItem());assertEquals(11,restored.getItemDamage());assertEquals("old boots",restored.getDisplayName());
+        assertTrue(p.inventory.armorInventory.get(0).isEmpty());
+    }
 }
