@@ -1,5 +1,6 @@
 package ru.metrocraft.mwf;
 import net.minecraft.item.*;
+import com.modularwarfare.common.guns.ItemGun;
 import net.minecraft.nbt.NBTTagCompound;
 /** Execute patched native ammo + existing anti-dupe regressions on isolated API facades. */
 public final class DupletVariantTest {
