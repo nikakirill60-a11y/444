@@ -107,7 +107,8 @@
     "metroport.inventory.grid_no_room": "Не хватает места в сетке. Предмет не перемещён.",
     "metroport.rarity.exclusive": "Эксклюзив",
     "metroport.inventory.scroll": "Колесо — вниз/вверх · Shift — вбок",
-    "metroport.inventory.condition": "Прочность"
+    "metroport.inventory.condition": "Прочность",
+    "metroport.inventory.card.ammo": "Патроны (в оружии / ёмкость / запас): %s"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -217,6 +218,7 @@
     "metroport.inventory.grid_no_room": "Not enough grid space. Item was not moved.",
     "metroport.rarity.exclusive": "Exclusive",
     "metroport.inventory.scroll": "Wheel: scroll · Shift: horizontal",
-    "metroport.inventory.condition": "Condition"
+    "metroport.inventory.condition": "Condition",
+    "metroport.inventory.card.ammo": "Ammo (loaded / capacity / reserve): %s"
   }
 }

@@ -23,11 +23,21 @@ public class ItemCardsTest {
         ItemStack armor=new ItemStack(Items.IRON_CHESTPLATE);armor.setItemDamage(12);
         assertEquals((armor.getMaxDamage()-12)+"/"+armor.getMaxDamage(),ItemCardData.of(armor,null).primary);
     }
-    @Test public void viewportMapsScrolledPixelsToOriginalServerCellsAndClamps(){
-        GridViewport v=new GridViewport(3,3,40);assertEquals(0,v.at(0,0));assertEquals(18,v.at(119,119));assertEquals(-1,v.at(120,0));
-        v.scroll(100,100);assertEquals(5,v.column);assertEquals(5,v.row);assertEquals(45,v.at(0,0));assertEquals(63,v.at(119,119));
-        assertEquals(0,v.x(45));assertEquals(80,v.y(63));v.scroll(-100,-100);assertEquals(0,v.at(0,0));
-        GridViewport full=new GridViewport(8,8,40);full.scroll(20,20);assertEquals(63,full.at(319,319));assertEquals(0,full.column);
+    @Test public void allSixtyFourCellsFitWithoutScrollingOrWindowGrowth(){
+        assertEquals(312,CompactInventoryLayout.WIDTH);assertEquals(230,CompactInventoryLayout.HEIGHT);assertEquals(16,CompactInventoryLayout.CELL);
+        for(int y=0;y<128;y++)for(int x=0;x<128;x++)assertEquals(x/16+y/16*8,CompactInventoryLayout.cellAt(x,y));
+        assertEquals(63,CompactInventoryLayout.cellAt(127,127));assertEquals(-1,CompactInventoryLayout.cellAt(128,0));assertEquals(-1,CompactInventoryLayout.cellAt(0,128));assertEquals(-1,CompactInventoryLayout.cellAt(-1,0));
+        assertTrue(CompactInventoryLayout.GRID_X+128<CompactInventoryLayout.WIDTH);
+        assertTrue(CompactInventoryLayout.GRID_Y+128<184); // Quick-access row remains below the entire grid.
+    }
+    @Test public void labelsNeverForceLargerRectanglesOrOverlapIcons(){
+        for(int width=16;width<=128;width+=16)for(int height=16;height<=128;height+=16){
+            CompactInventoryLayout.Card card=new CompactInventoryLayout.Card(width,height);
+            assertTrue(card.iconSize<=width-4);assertTrue(card.header+card.iconSize+card.footer<=height);
+        }
+        CompactInventoryLayout.Card tiny=new CompactInventoryLayout.Card(16,16);assertFalse(tiny.name);assertFalse(tiny.id);assertEquals(12,tiny.iconSize);
+        assertTrue(new CompactInventoryLayout.Card(32,32).name);assertFalse(new CompactInventoryLayout.Card(32,32).id);
+        assertTrue(new CompactInventoryLayout.Card(64,64).id);
     }
     @Test public void requestedSizesAndExclusiveZapalSurviveNewNamespace(){
         for(String id:new String[]{"rem","armorrem","remkomplekt"}){

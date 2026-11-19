@@ -18,6 +18,14 @@ public final class InventoryTooltips {
         e.getToolTip().add(rarity.format+I18n.format(rarity.key()));
         e.getToolTip().add("\u00a77"+I18n.format("metroport.inventory.weight",ItemMetrics.kg(ItemMetrics.grams(stack))));
         e.getToolTip().add("\u00a77"+I18n.format("metroport.inventory.size",ItemMetrics.width(stack),ItemMetrics.height(stack)));
+        String registryId=stack.getItem().getRegistryName()==null?"":stack.getItem().getRegistryName().toString();
+        if(!registryId.isEmpty() && e.getToolTip().stream().noneMatch(line->registryId.equals(net.minecraft.util.text.TextFormatting.getTextWithoutFormattingCodes(line))))
+            e.getToolTip().add("\u00a78"+registryId);
+        if(LoadoutRules.firearm(stack)){
+            ItemCardData data=ItemCardData.of(stack,e.getEntityPlayer());
+            e.getToolTip().add("\u00a77"+I18n.format("metroport.inventory.card.ammo",data.primary));
+            if(!data.secondary.isEmpty())e.getToolTip().add("\u00a77"+data.secondary);
+        }
         int bonus=ItemMetrics.capacityBonus(stack);
         if(bonus>0)e.getToolTip().add("\u00a76"+I18n.format("metroport.inventory.capacity",ItemMetrics.kg(bonus)));
     }

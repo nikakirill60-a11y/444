@@ -475,6 +475,7 @@ metroport.inventory.grid_no_room=Не хватает места в сетке. �
 metroport.rarity.exclusive=Эксклюзив
 metroport.inventory.scroll=Колесо — вниз/вверх · Shift — вбок
 metroport.inventory.condition=Прочность
+metroport.inventory.card.ammo=Патроны (в оружии / ёмкость / запас): %s
 tile.metroport.metromod_light_columnes_round_column_svetilnik.name=Колонна светильники (колонна) [METRO_MOD]
 tile.metroport.metromod_door_constr_metal_grate1_door.name=Дверь для стены (дверь) [METRO_MOD]
 tile.metroport.metromod_germo_3.name=Гермоворота (гермо) [METRO_MOD]

@@ -13,18 +13,12 @@ public final class MetroInventoryGui extends GuiContainer {
     private final EntityPlayer player;
     private net.minecraft.client.gui.GuiButton recovery,overflow;
     private boolean cursorRotated;
-    private GridViewport viewport=new GridViewport(3,3,CELL);
-    private int scrollDrag;
-    private static final int GRID_X=170,GRID_Y=40,CELL=40;
+    private static final int GRID_X=CompactInventoryLayout.GRID_X,GRID_Y=CompactInventoryLayout.GRID_Y,CELL=CompactInventoryLayout.CELL;
     private static final int ORANGE=0xffb58249,TEXT=0xc7bfb1;
-    public MetroInventoryGui(EntityPlayer player){super(new MetroContainer(player));this.player=player;xSize=312;ySize=230;}
+    public MetroInventoryGui(EntityPlayer player){super(new MetroContainer(player));this.player=player;xSize=CompactInventoryLayout.WIDTH;ySize=CompactInventoryLayout.HEIGHT;}
     @Override public void initGui(){
-        xSize=Math.min(520,Math.max(312,width-8));ySize=Math.min(440,Math.max(230,height-8));
-        int oldX=viewport.column,oldY=viewport.row;
-        viewport=new GridViewport((xSize-180)/CELL,(ySize-100)/CELL,CELL);viewport.scroll(oldX,oldY);
-        for(int i=36;i<42;i++)inventorySlots.getSlot(i).yPos=ySize-46;
-        super.initGui();recovery=new net.minecraft.client.gui.GuiButton(711,guiLeft+170,guiTop+ySize-26,132,18,I18n.format("metroport.inventory.recover"));buttonList.add(recovery);
-        overflow=new net.minecraft.client.gui.GuiButton(712,guiLeft+170,guiTop+ySize-26,132,18,"");buttonList.add(overflow);
+        super.initGui();recovery=new net.minecraft.client.gui.GuiButton(711,guiLeft+170,guiTop+204,132,18,I18n.format("metroport.inventory.recover"));buttonList.add(recovery);
+        overflow=new net.minecraft.client.gui.GuiButton(712,guiLeft+170,guiTop+204,132,18,"");buttonList.add(overflow);
     }
     @Override public void updateScreen(){
         super.updateScreen();
@@ -56,29 +50,13 @@ public final class MetroInventoryGui extends GuiContainer {
         return count;
     }
     private int gridCell(int mouseX,int mouseY){
-        return viewport.at(mouseX-guiLeft-GRID_X,mouseY-guiTop-GRID_Y);
-    }
-    @Override public void handleMouseInput()throws java.io.IOException{
-        super.handleMouseInput();int wheel=org.lwjgl.input.Mouse.getEventDWheel();
-        int x=org.lwjgl.input.Mouse.getEventX()*width/mc.displayWidth;
-        int y=height-org.lwjgl.input.Mouse.getEventY()*height/mc.displayHeight-1;
-        if(wheel!=0 && gridCell(x,y)>=0){int direction=wheel>0?-1:1;viewport.scroll(isShiftKeyDown()?direction:0,isShiftKeyDown()?0:direction);}
-    }
-    private boolean scrollbar(int x,int y){
-        int dx=x-guiLeft-GRID_X,dy=y-guiTop-GRID_Y;
-        if(dx>=0&&dx<viewport.columns*CELL&&dy>=viewport.rows*CELL+1&&dy<=viewport.rows*CELL+7){scrollDrag=1;dragScroll(x,y);return true;}
-        if(dy>=0&&dy<viewport.rows*CELL&&dx>=viewport.columns*CELL+1&&dx<=viewport.columns*CELL+7){scrollDrag=2;dragScroll(x,y);return true;}
-        return false;
-    }
-    private void dragScroll(int x,int y){
-        if(scrollDrag==1)viewport.scroll((int)Math.round((x-guiLeft-GRID_X)/(double)(viewport.columns*CELL)*(8-viewport.columns))-viewport.column,0);
-        if(scrollDrag==2)viewport.scroll(0,(int)Math.round((y-guiTop-GRID_Y)/(double)(viewport.rows*CELL)*(8-viewport.rows))-viewport.row);
+        int x=mouseX-guiLeft-GRID_X,y=mouseY-guiTop-GRID_Y;
+        return CompactInventoryLayout.cellAt(x,y);
     }
     private void sendGrid(int cell,int button,int action){
         ru.metrocraft.port.MetroPort.NETWORK.sendToServer(new GridClickPacket(inventorySlots.windowId,container().gridRevision,cell,button,cursorRotated,action));
     }
     @Override protected void mouseClicked(int x,int y,int button)throws java.io.IOException{
-        if(button==0 && scrollbar(x,y))return;
         int cell=gridCell(x,y);
         if(cell>=0){
             if(button==0||button==1){
@@ -93,8 +71,8 @@ public final class MetroInventoryGui extends GuiContainer {
         if(player.inventory.getItemStack().isEmpty())cursorRotated=false;
         super.mouseClicked(x,y,button);
     }
-    @Override protected void mouseReleased(int x,int y,int button){if(scrollDrag!=0){scrollDrag=0;return;}if(gridCell(x,y)<0)super.mouseReleased(x,y,button);}
-    @Override protected void mouseClickMove(int x,int y,int button,long elapsed){if(scrollDrag!=0){dragScroll(x,y);return;}if(gridCell(x,y)<0)super.mouseClickMove(x,y,button,elapsed);}
+    @Override protected void mouseReleased(int x,int y,int button){if(gridCell(x,y)<0)super.mouseReleased(x,y,button);}
+    @Override protected void mouseClickMove(int x,int y,int button,long elapsed){if(gridCell(x,y)<0)super.mouseClickMove(x,y,button,elapsed);}
     @Override protected void keyTyped(char typed,int code)throws java.io.IOException{
         if(code==org.lwjgl.input.Keyboard.KEY_R && !player.inventory.getItemStack().isEmpty()){cursorRotated=!cursorRotated;return;}
         super.keyTyped(typed,code);
@@ -110,13 +88,7 @@ public final class MetroInventoryGui extends GuiContainer {
             default:return null;
         }
     }
-    @Override protected void drawGuiContainerForegroundLayer(int x,int y){
-        for(Slot slot:inventorySlots.inventorySlots){
-            if(!slot.isEnabled()||!slot.getHasStack())continue;
-            if(slot.slotNumber==33||slot.slotNumber==34)ItemCards.draw(slot.getStack(),player,8,slot.slotNumber==33?132:169,148,32,true);
-            else ItemCards.draw(slot.getStack(),player,slot.xPos-2,slot.yPos-2,24,28,true);
-        }
-    }
+    @Override protected void drawGuiContainerForegroundLayer(int x,int y){}
     private void panel(int x,int y,int w,int h,int border,int fill){
         drawRect(guiLeft+x,guiTop+y,guiLeft+x+w,guiTop+y+h,border);
         drawRect(guiLeft+x+1,guiTop+y+1,guiLeft+x+w-1,guiTop+y+h-1,fill);
@@ -129,18 +101,19 @@ public final class MetroInventoryGui extends GuiContainer {
     private void weaponCard(int id,int top){
         Slot slot=inventorySlots.getSlot(id);ItemStack stack=slot.getStack();int color=stack.isEmpty()?ORANGE:0xff000000|ItemRarity.of(stack).color;
         panel(8,top,148,32,color,0xff242321);
-        small(stack.isEmpty()?I18n.format(label(id)):fontRenderer.trimStringToWidth(stack.getDisplayName(),157),36,top+4,TEXT,.75f);
-        if(!stack.isEmpty()){
-            small(ItemMetrics.kg(ItemMetrics.grams(stack))+" "+I18n.format("metroport.inventory.kg"),36,top+20,0xa8a096,.7f);
-            if(stack.isItemStackDamageable())small(Math.max(0,100-stack.getItemDamage()*100/Math.max(1,stack.getMaxDamage()))+"%",124,top+20,0xa8a096,.7f);
-        }
+        if(stack.isEmpty()){small(I18n.format(label(id)),36,top+4,TEXT,.75f);return;}
+        ItemCardData data=ItemCardData.of(stack,player);
+        small(fontRenderer.trimStringToWidth(data.name,157),36,top+3,TEXT,.7f);
+        small(fontRenderer.trimStringToWidth(data.id,230),36,top+12,0x8b8b85,.5f);
+        small(data.weight+" "+I18n.format("metroport.inventory.kg"),36,top+23,0xa8a096,.55f);
+        small(fontRenderer.trimStringToWidth(data.primary,90),100,top+23,0xc7bfb1,.55f);
     }
     @Override protected void drawGuiContainerBackgroundLayer(float partial,int mouseX,int mouseY){
         GlStateManager.color(1,1,1,1);
         panel(0,0,xSize,ySize,ORANGE,0xf5292724);
-        panel(5,5,155,20,0xff39342d,0xff1a1918);panel(165,5,xSize-170,20,0xff39342d,0xff1a1918);
+        panel(5,5,155,20,0xff39342d,0xff1a1918);panel(165,5,142,20,0xff39342d,0xff1a1918);
         text(I18n.format("metroport.inventory.equipment"),10,11,TEXT);text(I18n.format("metroport.inventory.storage"),170,11,TEXT);
-        drawRect(guiLeft+162,guiTop+29,guiLeft+163,guiTop+ySize-8,ORANGE);
+        drawRect(guiLeft+162,guiTop+29,guiLeft+163,guiTop+222,ORANGE);
         small(player.getName(),170,32,TEXT,.8f);
 
         GuiInventory.drawEntityOnScreen(guiLeft+77,guiTop+121,31,guiLeft+77-mouseX,guiTop+60-mouseY,player);
@@ -163,37 +136,28 @@ public final class MetroInventoryGui extends GuiContainer {
         drawRect(guiLeft+9,guiTop+222,guiLeft+9+fill,guiTop+223,over?0xffdf5546:ORANGE);
         if((recovery==null || !recovery.visible) && (overflow==null || !overflow.visible)){
             int x=170;for(ItemRarity rarity:ItemRarity.values()){
-                drawRect(guiLeft+x,guiTop+ySize-19,guiLeft+x+15,guiTop+ySize-16,0xff000000|rarity.color);x+=18;
+                drawRect(guiLeft+x,guiTop+211,guiLeft+x+15,guiTop+214,0xff000000|rarity.color);x+=18;
             }
         }
     }
     private void drawGrid(int mouseX,int mouseY){
-        for(int y=0;y<viewport.rows;y++)for(int x=0;x<viewport.columns;x++)panel(GRID_X+x*CELL,GRID_Y+y*CELL,CELL,CELL,0xff514b42,0xff1c1d1b);
+        for(int y=0;y<8;y++)for(int x=0;x<8;x++)panel(GRID_X+x*CELL,GRID_Y+y*CELL,CELL,CELL,0xff514b42,0xff1c1d1b);
         PackingGrid grid=container().grid();
-        int factor=new net.minecraft.client.gui.ScaledResolution(mc).getScaleFactor();
-        org.lwjgl.opengl.GL11.glEnable(org.lwjgl.opengl.GL11.GL_SCISSOR_TEST);
-        org.lwjgl.opengl.GL11.glScissor((guiLeft+GRID_X)*factor,mc.displayHeight-(guiTop+GRID_Y+viewport.rows*CELL)*factor,viewport.columns*CELL*factor,viewport.rows*CELL*factor);
-        try{
-            for(int i=0;i<27;i++){
-                int position=grid.position(i);ItemStack stack=player.inventory.getStackInSlot(i+9);
-                if(position<0||stack.isEmpty())continue;
-                int cell=PackingGrid.cell(position),x=GRID_X+viewport.x(cell),y=GRID_Y+viewport.y(cell);
-                ItemCards.draw(stack,player,guiLeft+x,guiTop+y,grid.width(i)*CELL,grid.height(i)*CELL,true);
-            }
-            ItemStack cursor=player.inventory.getItemStack();int cell=gridCell(mouseX,mouseY);
-            if(!cursor.isEmpty() && cell>=0){
-                int record=grid.recordAt(cell),anchor=record>=0?PackingGrid.cell(grid.position(record)):cell;
-                int w=cursorRotated?ItemMetrics.height(cursor):ItemMetrics.width(cursor),h=cursorRotated?ItemMetrics.width(cursor):ItemMetrics.height(cursor);
-                boolean fits=grid.canPlace(ItemMetrics.width(cursor),ItemMetrics.height(cursor),PackingGrid.encode(anchor,cursorRotated),record);
-                int x=GRID_X+viewport.x(anchor),y=GRID_Y+viewport.y(anchor);
-                drawRect(guiLeft+x,guiTop+y,guiLeft+x+w*CELL,guiTop+y+h*CELL,fits?0x3375b96a:0x33df5546);
-            }
-        }finally{org.lwjgl.opengl.GL11.glDisable(org.lwjgl.opengl.GL11.GL_SCISSOR_TEST);}
-        int w=viewport.columns*CELL,h=viewport.rows*CELL;
-        panel(GRID_X,GRID_Y+h+2,w,4,0xff39342d,0xff1a1918);
-        drawRect(guiLeft+GRID_X+viewport.column*w/8,guiTop+GRID_Y+h+2,guiLeft+GRID_X+(viewport.column+viewport.columns)*w/8,guiTop+GRID_Y+h+6,ORANGE);
-        panel(GRID_X+w+2,GRID_Y,4,h,0xff39342d,0xff1a1918);
-        drawRect(guiLeft+GRID_X+w+2,guiTop+GRID_Y+viewport.row*h/8,guiLeft+GRID_X+w+6,guiTop+GRID_Y+(viewport.row+viewport.rows)*h/8,ORANGE);
-        small(I18n.format("metroport.inventory.scroll"),170,GRID_Y+h+9,TEXT,.48f);
+        for(int i=0;i<27;i++){
+            int position=grid.position(i);ItemStack stack=player.inventory.getStackInSlot(i+9);
+            if(position<0||stack.isEmpty())continue;
+            int cell=PackingGrid.cell(position),x=GRID_X+cell%8*CELL,y=GRID_Y+cell/8*CELL;
+            ItemCards.draw(stack,player,guiLeft+x,guiTop+y,grid.width(i)*CELL,grid.height(i)*CELL,true);
+        }
+        ItemStack cursor=player.inventory.getItemStack();int cell=gridCell(mouseX,mouseY);
+        if(!cursor.isEmpty() && cell>=0){
+            int record=grid.recordAt(cell),anchor=record>=0?PackingGrid.cell(grid.position(record)):cell;
+            int w=cursorRotated?ItemMetrics.height(cursor):ItemMetrics.width(cursor),h=cursorRotated?ItemMetrics.width(cursor):ItemMetrics.height(cursor);
+            boolean fits=grid.canPlace(ItemMetrics.width(cursor),ItemMetrics.height(cursor),PackingGrid.encode(anchor,cursorRotated),record);
+            int x=GRID_X+anchor%8*CELL,y=GRID_Y+anchor/8*CELL;
+            drawRect(guiLeft+x,guiTop+y,guiLeft+Math.min(GRID_X+128,x+w*CELL),guiTop+Math.min(GRID_Y+128,y+h*CELL),fits?0x6675b96a:0x66df5546);
+        }
+        small(I18n.format("metroport.inventory.rotate"),170,172,TEXT,.65f);
     }
+
 }
