@@ -118,8 +118,15 @@ class DecorAssetBundle(unittest.TestCase):
         for path, record in self.manifest['files'].items():
             self.assertEqual(len(self.files[path]), record['bytes'])
             self.assertEqual(hashlib.sha256(self.files[path]).hexdigest(), record['sha256'])
+        self.assertEqual(self.manifest['source_commit'], 'fe2746746d1957ad12fad2103a3880a703f9f758')
         for path, expected in self.manifest['source_files_sha256'].items():
-            self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected)
+            # v1 is an immutable historical deliverable. Its reference Java is
+            # pinned inside the ZIP; dev37 legitimately changes runtime policy.
+            if path.startswith('src/main/java/'):
+                data = self.files['reference/java/' + path.removeprefix('src/main/java/')]
+            else:
+                data = (ROOT / path).read_bytes()
+            self.assertEqual(hashlib.sha256(data).hexdigest(), expected, path)
 
 
 if __name__ == '__main__':
