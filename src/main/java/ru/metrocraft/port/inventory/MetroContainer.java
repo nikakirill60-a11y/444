@@ -13,7 +13,7 @@ public final class MetroContainer extends Container {
         bag=Backpacks.inventory(player);nvg=NvgEquipment.inventory(player);watch=WatchEquipment.inventory(player);
         lamp=ExtraEquipment.inventory(player,ExtraEquipment.Kind.LAMP);nativeBag=ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK);
         addSlotToContainer(new Slot(bag,0,24,18) {
-            @Override public boolean isItemValid(ItemStack stack) { return false; // Take-only recovery slot for worlds with two equipped bags. }
+            @Override public boolean isItemValid(ItemStack stack) { return false; } // Take-only recovery slot for worlds with two equipped bags.
             @Override public int getSlotStackLimit() { return 1; }
         });
         EntityEquipmentSlot[] armor={EntityEquipmentSlot.HEAD,EntityEquipmentSlot.CHEST,EntityEquipmentSlot.LEGS,EntityEquipmentSlot.FEET};
