@@ -17,6 +17,7 @@ public final class InventoryTooltips {
         if(!e.getToolTip().isEmpty() && !ItemMetrics.currency(stack))e.getToolTip().set(0,rarity.format+net.minecraft.util.text.TextFormatting.getTextWithoutFormattingCodes(e.getToolTip().get(0)));
         e.getToolTip().add(rarity.format+I18n.format(rarity.key()));
         e.getToolTip().add("\u00a77"+I18n.format("metroport.inventory.weight",ItemMetrics.kg(ItemMetrics.grams(stack))));
+        e.getToolTip().add("\u00a77"+I18n.format("metroport.inventory.size",ItemMetrics.width(stack),ItemMetrics.height(stack)));
         int bonus=ItemMetrics.capacityBonus(stack);
         if(bonus>0)e.getToolTip().add("\u00a76"+I18n.format("metroport.inventory.capacity",ItemMetrics.kg(bonus)));
     }

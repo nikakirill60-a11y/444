@@ -58,7 +58,7 @@ public class WeightInventoryTest {
         ItemStack gun=new ItemStack(new com.modularwarfare.common.guns.ItemGun()),knife=new ItemStack(Items.IRON_SWORD),food=new ItemStack(Items.APPLE);
         assertTrue(c.getSlot(33).isItemValid(gun));assertTrue(c.getSlot(34).isItemValid(gun));assertFalse(c.getSlot(35).isItemValid(gun));
         assertTrue(c.getSlot(35).isItemValid(knife));assertFalse(c.getSlot(33).isItemValid(knife));assertFalse(c.getSlot(33).isItemValid(food));
-        assertFalse(c.getSlot(36).isItemValid(gun));assertTrue(c.getSlot(6).isItemValid(gun));
+        assertFalse(c.getSlot(36).isItemValid(gun));assertFalse(c.getSlot(6).isItemValid(gun));
         p.inventory.setItemStack(gun);c.slotClick(33,0,ClickType.PICKUP,p);assertTrue(p.inventory.mainInventory.get(0).getItem() instanceof com.modularwarfare.common.guns.ItemGun);
         assertEquals(46,c.inventorySlots.size());assertEquals(0,c.getSlot(33).getSlotIndex());assertEquals(2,c.getSlot(35).getSlotIndex());
         p.inventory.mainInventory.set(9,food);c.slotClick(6,0,ClickType.SWAP,p);assertTrue(p.inventory.mainInventory.get(0).getItem() instanceof com.modularwarfare.common.guns.ItemGun);assertSame(food,p.inventory.mainInventory.get(9));

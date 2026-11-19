@@ -100,7 +100,11 @@
     "metroport.rarity.epic": "Эпический",
     "metroport.rarity.legendary": "Легендарный",
     "metroport.rarity.mythic": "Мифический",
-    "metroport.inventory.overloaded": "Перегруз: скорость −50%, бег недоступен. Разгрузите вещи."
+    "metroport.inventory.overloaded": "Перегруз: скорость −50%, бег недоступен. Разгрузите вещи.",
+    "metroport.inventory.size": "Размер: %s×%s ячеек",
+    "metroport.inventory.rotate": "R — повернуть предмет · 4–9 — быстрый доступ",
+    "metroport.inventory.overflow": "Забрать вне сетки: %s",
+    "metroport.inventory.grid_no_room": "Не хватает места в сетке. Предмет не перемещён."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -203,6 +207,10 @@
     "metroport.rarity.epic": "Epic",
     "metroport.rarity.legendary": "Legendary",
     "metroport.rarity.mythic": "Mythic",
-    "metroport.inventory.overloaded": "Overloaded: speed -50%, sprint disabled. Unload some items."
+    "metroport.inventory.overloaded": "Overloaded: speed -50%, sprint disabled. Unload some items.",
+    "metroport.inventory.size": "Size: %s×%s cells",
+    "metroport.inventory.rotate": "R: rotate item · 4–9: quick access",
+    "metroport.inventory.overflow": "Recover overflow: %s",
+    "metroport.inventory.grid_no_room": "Not enough grid space. Item was not moved."
   }
 }

@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.34", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
+@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.35", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -87,6 +87,7 @@ public final class MetroPort {
         NETWORK.registerMessage(ru.metrocraft.port.mechanics.FilterStatusPacket.Handler.class,ru.metrocraft.port.mechanics.FilterStatusPacket.class,13,Side.CLIENT);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgTogglePacket.Handler.class,ru.metrocraft.port.inventory.NvgTogglePacket.class,14,Side.SERVER);
         NETWORK.registerMessage(ru.metrocraft.port.inventory.NvgStatePacket.Handler.class,ru.metrocraft.port.inventory.NvgStatePacket.class,15,Side.CLIENT);
+        NETWORK.registerMessage(ru.metrocraft.port.inventory.GridClickPacket.Handler.class,ru.metrocraft.port.inventory.GridClickPacket.class,17,Side.SERVER);
         // Packet ID 16 retired with MetroEdit; do not reuse.
         // IDs 0/3/8 belonged to retired firearms and are not reused.
         // IDs 5/6 belonged to the removed inventory comparator; never reuse them.

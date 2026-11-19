@@ -30,7 +30,7 @@ public final class BackpackContainer extends Container {
     }
     private void addPlayer(EntityPlayer player,int index,int x,int y){
         addSlotToContainer(new Slot(player.inventory,index,x,y){
-            @Override public boolean isItemValid(ItemStack stack){return index!=heldIndex && LoadoutRules.accepts(index,stack);}
+            @Override public boolean isItemValid(ItemStack stack){return index!=heldIndex && LoadoutRules.accepts(index,stack) && GridInventory.roomFor(player,index,stack);}
             @Override public boolean canTakeStack(EntityPlayer who){return index!=heldIndex;}
         });
     }

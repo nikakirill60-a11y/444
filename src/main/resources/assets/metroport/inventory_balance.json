@@ -3,219 +3,1145 @@
     "item": {
       "grams": 250,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 1
     },
     "firearm": {
       "grams": 4000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 4,
+      "height": 2
     },
     "melee": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 3
     },
     "armor": {
       "grams": 5000,
       "capacityGrams": 2000,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 3,
+      "height": 3
     },
     "helmet": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 2,
+      "height": 2
     },
     "backpack": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 3,
+      "height": 3
     },
     "nvg": {
       "grams": 500,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 2,
+      "height": 1
     },
     "watch": {
       "grams": 150,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 1,
+      "height": 1
     },
     "ammunition": {
       "grams": 15,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 1
     },
     "magazine": {
       "grams": 200,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 2
     },
     "attachment": {
       "grams": 300,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 1,
+      "height": 1
     },
     "food": {
       "grams": 300,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 1
     },
     "block": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 2,
+      "height": 2
     }
   },
   "items": {
     "modularwarfare:metro_abzac": {
       "grams": 6000,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_ak": {
       "grams": 3600,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_ak2012": {
       "grams": 3800,
       "capacityGrams": 0,
-      "rarity": "epic"
+      "rarity": "epic",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_akk": {
       "grams": 4000,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_aksu": {
       "grams": 2700,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 2
     },
     "modularwarfare:metro_ashot": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 3,
+      "height": 2
     },
     "modularwarfare:metro_duplet": {
       "grams": 3200,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_gatling": {
       "grams": 9000,
       "capacityGrams": 0,
-      "rarity": "legendary"
+      "rarity": "legendary",
+      "width": 5,
+      "height": 2
     },
     "modularwarfare:metro_helsing": {
       "grams": 3500,
       "capacityGrams": 0,
-      "rarity": "epic"
+      "rarity": "epic",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_medved": {
       "grams": 4500,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_ognemet": {
       "grams": 7500,
       "capacityGrams": 0,
-      "rarity": "epic"
+      "rarity": "epic",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_ognemet_mini": {
       "grams": 3500,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 3,
+      "height": 2
     },
     "modularwarfare:metro_podonok": {
       "grams": 1800,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 2
     },
     "modularwarfare:metro_preved": {
       "grams": 7000,
       "capacityGrams": 0,
-      "rarity": "legendary"
+      "rarity": "legendary",
+      "width": 5,
+      "height": 2
     },
     "modularwarfare:metro_railgun": {
       "grams": 6000,
       "capacityGrams": 0,
-      "rarity": "mythic"
+      "rarity": "mythic",
+      "width": 5,
+      "height": 2
     },
     "modularwarfare:metro_revolver": {
       "grams": 1200,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 3,
+      "height": 2
     },
     "modularwarfare:metro_rpk": {
       "grams": 4800,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_saiga": {
       "grams": 4000,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_tihar": {
       "grams": 3300,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_ubludok": {
       "grams": 3000,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_uboinik": {
       "grams": 4200,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_velopal": {
       "grams": 3800,
       "capacityGrams": 0,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_ventil": {
       "grams": 4200,
       "capacityGrams": 0,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 5,
+      "height": 2
     },
     "modularwarfare:metro_vsv": {
       "grams": 3500,
       "capacityGrams": 0,
-      "rarity": "epic"
+      "rarity": "epic",
+      "width": 4,
+      "height": 2
     },
     "modularwarfare:metro_vyhlop": {
       "grams": 6500,
       "capacityGrams": 0,
-      "rarity": "legendary"
+      "rarity": "legendary",
+      "width": 5,
+      "height": 2
     },
     "metroport:blackrazid_back_pack_small": {
       "grams": 500,
       "capacityGrams": 10000,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 2,
+      "height": 3
     },
     "metroport:blackrazid_back_pack_medium": {
       "grams": 1000,
       "capacityGrams": 20000,
-      "rarity": "uncommon"
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
     },
     "metroport:blackrazid_back_pack_large": {
       "grams": 1500,
       "capacityGrams": 30000,
-      "rarity": "rare"
+      "rarity": "rare",
+      "width": 3,
+      "height": 4
     },
     "metroport:mcmod_money5": {
       "grams": 75,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 1
     },
     "metroport:fivearmyrounds": {
       "grams": 75,
       "capacityGrams": 0,
-      "rarity": "common"
+      "rarity": "common",
+      "width": 1,
+      "height": 1
+    },
+    "metroport:armor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:bandit": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:bazaltarmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "legendary",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:bazalthelmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "legendary",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:custarmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:ganzaarmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:ganzahelm": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:ganzatyaj": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:ganza_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:gasmask": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:hardhelmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:heavy_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:himza": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:kontrabody": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:legionarmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:legionhelmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:m12": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:nvgdbody": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:nvgdhelmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:pnv": {
+      "grams": 500,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 1
+    },
+    "metroport:plasharmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:polis": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:redkaska": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:redarmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:reicharmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:reichhelmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:reichhelmet2": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:reichla": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:satanarmor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "mythic",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:standarthelmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:tajbandit": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:tyaj": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:vatnik": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:heavy": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "legendary",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:light_armor": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_btbkz_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_btbkz_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_scout_armor_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_scout_armor_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_bandit_armor_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_bandit_armor_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_banditkurtka": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_bkz_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_bkz_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_cherv_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_cherv_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_gasmask_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_ghillie": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_gorka_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_gorka_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_hanza_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_hanza_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_himza_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_himza_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_juggernaut_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "legendary",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_juggernaut_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "legendary",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:mcmod_kitel_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_kurtka": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_mgu_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_mgu_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_officer_ozk": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_olkhon_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_olkhon_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_ozk_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_ozk_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_plash": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_police_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_police_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_povstanec_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_povstanec_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_prorok_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_prorok_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_psh1b_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_psh1b_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_reih_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_reih_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_sniper_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_sniper_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_sniper_camo_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "uncommon",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_sniper_camo_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_standart_k_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "legendary",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_standart_k_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "legendary",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:mcmod_sverchok_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_sverchok_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_sverchok_mp6_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_sverchok_mp6_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_taiga_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_taiga_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_vatnik_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_voen_tactical_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_voen_tactical_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:mcmod_zapal_helmet": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "legendary",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_zapal_vest": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "legendary",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:blackrazid_himza": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_heavy": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "legendary",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:blackrazid_clean": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_c_clean": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "uncommon",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_normal": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_kozh": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_easy": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_heavy1": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_sparta": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "mythic",
+      "width": 4,
+      "height": 4
+    },
+    "metroport:blackrazid_heavy_hat": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:blackrazid_nazi_hat": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "rare",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:blackrazid_heavy1_hat": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:blackrazid_red": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "rare",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_nazi": {
+      "grams": 5000,
+      "capacityGrams": 2000,
+      "rarity": "epic",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:blackrazid_gas_mask": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:exodus_gasmask_pumpkin": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:smallrucksack": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 3
+    },
+    "metroport:mediumrucksack": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 3,
+      "height": 3
+    },
+    "metroport:bigrucksack": {
+      "grams": 1000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 3,
+      "height": 4
+    },
+    "metroport:blackrazid_flyashka": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 2
+    },
+    "metroport:blackrazid_lamp": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 2
+    },
+    "metroport:blackrazid_power": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:blackrazid_grenade": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 2
+    },
+    "metroport:blackrazid_grenade_big": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:medkit": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
+    },
+    "metroport:mcmod_aptech": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
     }
   }
 }

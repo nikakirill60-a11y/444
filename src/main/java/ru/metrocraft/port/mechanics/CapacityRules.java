@@ -22,12 +22,12 @@ public final class CapacityRules {
         int budget=CarryWeight.fitting(player,stack);
         // Restrict only incoming ground loot. Remainder stays on its original entity.
         for(int pass=0;pass<2;pass++)for(int i=0;i<end(player)&&budget>0&&!stack.isEmpty();i++){
-            if(!LoadoutRules.accepts(i,stack))continue;
+            if(!LoadoutRules.accepts(i,stack)||!GridInventory.roomFor(player,i,stack))continue;
             ItemStack target=player.inventory.getStackInSlot(i);
             if(pass==0 && !target.isEmpty() && ItemStack.areItemsEqual(stack,target) && ItemStack.areItemStackTagsEqual(stack,target)){
                 int n=Math.min(budget,Math.min(stack.getCount(),Math.max(0,LoadoutRules.limit(i,target)-target.getCount())));
                 target.grow(n);stack.shrink(n);budget-=n;
-            }else if(pass==1 && target.isEmpty()){
+            }else if(pass==1 && target.isEmpty() && GridInventory.roomFor(player,i,stack)){
                 int n=Math.min(budget,Math.min(stack.getCount(),LoadoutRules.limit(i,stack)));
                 player.inventory.setInventorySlotContents(i,stack.splitStack(n));budget-=n;
             }
@@ -54,7 +54,7 @@ public final class CapacityRules {
             Slot original=slots.get(i);int index=original.getSlotIndex();
             if(original.inventory!=player.inventory || original.getClass()!=Slot.class || index>=36)continue;
             Slot guarded=new Slot(player.inventory,index,original.xPos,original.yPos){
-                @Override public boolean isItemValid(ItemStack stack){return LoadoutRules.accepts(index,stack)&&original.isItemValid(stack);}
+                @Override public boolean isItemValid(ItemStack stack){return LoadoutRules.accepts(index,stack)&&GridInventory.roomFor(player,index,stack)&&original.isItemValid(stack);}
                 @Override public boolean canTakeStack(EntityPlayer who){return original.canTakeStack(who);}
                 @Override public int getSlotStackLimit(){return Math.min(original.getSlotStackLimit(),index<3?1:64);}
                 @Override public int getItemStackLimit(ItemStack stack){return Math.min(original.getItemStackLimit(stack),getSlotStackLimit());}

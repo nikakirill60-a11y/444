@@ -12,7 +12,7 @@ import ru.metrocraft.port.blackrazid.BlackrazidBackpackItem;
 /** Integer grams avoid rounding exploits in partial-stack pickup. Defaults are explicit balance values. */
 public final class ItemMetrics {
     public static final class Profile {
-        public int grams=250,capacityGrams=0;public String rarity="common";
+        public int grams=250,capacityGrams=0,width=1,height=1;public String rarity="common";
     }
     private static final class Table {Map<String,Profile> categories=new HashMap<>(),items=new HashMap<>();}
     private static final Table TABLE=load();
@@ -42,6 +42,8 @@ public final class ItemMetrics {
         }
         return TABLE.categories.get(category);
     }
+    public static int width(ItemStack stack){return Math.max(1,Math.min(PackingGrid.SIDE,profile(stack).width));}
+    public static int height(ItemStack stack){return Math.max(1,Math.min(PackingGrid.SIDE,profile(stack).height));}
     public static int unitGrams(ItemStack stack){return stack.isEmpty()?0:Math.max(1,profile(stack).grams);}
     public static long grams(ItemStack stack){return grams(stack,0);}
     private static long grams(ItemStack stack,int depth){

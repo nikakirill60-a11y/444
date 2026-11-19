@@ -114,7 +114,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.34.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.35.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -133,11 +133,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.34.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.35.jar
           if-no-files-found: error
 
-      - name: Publish verified weight-inventory test build
-        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish inventory-test]')
+      - name: Publish verified multi-cell inventory test build
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish grid-test]')
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -148,24 +148,24 @@ jobs:
           import hashlib, json, os, zipfile
           import xml.etree.ElementTree as ET
           from pathlib import Path
-          jar = Path('build/libs/metrocraft-port-1.12.2-1.13.0-dev.34.jar')
+          jar = Path('build/libs/metrocraft-port-1.12.2-1.13.0-dev.35.jar')
           suites = [ET.parse(p).getroot() for p in Path('build/test-results/test').glob('TEST-*.xml')]
           assert suites and all(int(s.get('failures', '0')) == 0 and int(s.get('errors', '0')) == 0 for s in suites)
           with zipfile.ZipFile(jar) as z:
-              assert {'ru/metrocraft/port/inventory/CarryWeight.class', 'ru/metrocraft/port/inventory/LoadoutRules.class', 'assets/metroport/inventory_balance.json'} <= set(z.namelist())
+              assert {'ru/metrocraft/port/inventory/PackingGrid.class', 'ru/metrocraft/port/inventory/GridClickPacket.class', 'ru/metrocraft/port/inventory/CarryWeight.class', 'assets/metroport/inventory_balance.json'} <= set(z.namelist())
               assert not any(n.startswith('com/modularwarfare/') for n in z.namelist()), 'Test fixtures must not ship'
-          report = dict(version='1.13.0-dev.34', sourceCommit=os.environ['GITHUB_SHA'],
+          report = dict(version='1.13.0-dev.35', sourceCommit=os.environ['GITHUB_SHA'],
               buildUrl='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],
               jar=jar.name, bytes=jar.stat().st_size, sha256=hashlib.sha256(jar.read_bytes()).hexdigest(),
               junitTests=sum(int(s.get('tests', '0')) for s in suites), junitFailures=0, junitErrors=0,
               minecraftLiveTested=False, mwfLiveTested=False)
-          Path('build/MinETRO_inventory_dev34_report.json').write_text(json.dumps(report, indent=2)+'\n')
+          Path('build/MinETRO_inventory_dev35_report.json').write_text(json.dumps(report, indent=2)+'\n')
           PYREPORT
-          gh release create minetro-inventory-dev34 --target "$GITHUB_SHA" --prerelease \
-            --title 'MinETRO dev34 — weight-based inventory TEST' \
-            --notes-file docs/INVENTORY_DEV34_RU.md \
-            build/libs/metrocraft-port-1.12.2-1.13.0-dev.34.jar \
-            build/MinETRO_inventory_dev34_report.json docs/INVENTORY_DEV34_RU.md
+          gh release create minetro-inventory-dev35 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO dev35 — multi-cell inventory and armor rarities TEST' \
+            --notes-file docs/INVENTORY_DEV35_RU.md \
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.35.jar \
+            build/MinETRO_inventory_dev35_report.json docs/INVENTORY_DEV35_RU.md docs/ARMOR_RARITIES_DEV35_RU.md
 
       - name: Verify and publish original menu runtime test
         if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish menu-test]')
