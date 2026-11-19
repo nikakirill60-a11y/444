@@ -5,6 +5,32 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 A=ROOT/'src/main/resources/assets/metroport'
 TIERS=['common','uncommon','rare','epic','legendary','mythic']
+# User-approved firearm tiers. AKK was not listed; retain its existing rare tier.
+WEAPON_RARITIES={'duplet': 'common',
+ 'revolver': 'common',
+ 'ubludok': 'common',
+ 'ashot': 'uncommon',
+ 'aksu': 'uncommon',
+ 'ak': 'rare',
+ 'podonok': 'rare',
+ 'uboinik': 'rare',
+ 'tihar': 'epic',
+ 'ventil': 'epic',
+ 'rpk': 'epic',
+ 'velopal': 'epic',
+ 'helsing': 'epic',
+ 'saiga': 'legendary',
+ 'vsv': 'legendary',
+ 'gatling': 'legendary',
+ 'preved': 'legendary',
+ 'medved': 'mythic',
+ 'ognemet': 'mythic',
+ 'ognemet_mini': 'mythic',
+ 'abzac': 'mythic',
+ 'ak2012': 'mythic',
+ 'vyhlop': 'mythic',
+ 'railgun': 'mythic',
+ 'akk': 'rare'}
 NATIVE={
  'armor':'uncommon','bandit':'uncommon','bazaltarmor':'legendary','bazalthelmet':'legendary',
  'custarmor':'common','ganzaarmor':'rare','ganzahelm':'rare','ganzatyaj':'epic','ganza_helmet':'epic',
@@ -35,6 +61,7 @@ def main():
         w,h=(1,1)
         if id.startswith('modularwarfare:metro_'):
             gun=id.split('metro_',1)[1];w,h=(4,2)
+            if gun in WEAPON_RARITIES:profile['rarity']=WEAPON_RARITIES[gun]
             if gun in ['ashot','revolver','podonok','aksu','ognemet_mini']:w,h=3,2
             if gun in ['gatling','preved','vyhlop','ventil','railgun']:w,h=5,2
         elif 'back_pack_' in id:

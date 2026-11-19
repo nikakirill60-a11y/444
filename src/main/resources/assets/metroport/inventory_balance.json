@@ -96,21 +96,21 @@
     "modularwarfare:metro_abzac": {
       "grams": 6000,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "mythic",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_ak": {
       "grams": 3600,
       "capacityGrams": 0,
-      "rarity": "uncommon",
+      "rarity": "rare",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_ak2012": {
       "grams": 3800,
       "capacityGrams": 0,
-      "rarity": "epic",
+      "rarity": "mythic",
       "width": 4,
       "height": 2
     },
@@ -131,7 +131,7 @@
     "modularwarfare:metro_ashot": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "common",
+      "rarity": "uncommon",
       "width": 3,
       "height": 2
     },
@@ -159,28 +159,28 @@
     "modularwarfare:metro_medved": {
       "grams": 4500,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "mythic",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_ognemet": {
       "grams": 7500,
       "capacityGrams": 0,
-      "rarity": "epic",
+      "rarity": "mythic",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_ognemet_mini": {
       "grams": 3500,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "mythic",
       "width": 3,
       "height": 2
     },
     "modularwarfare:metro_podonok": {
       "grams": 1800,
       "capacityGrams": 0,
-      "rarity": "uncommon",
+      "rarity": "rare",
       "width": 3,
       "height": 2
     },
@@ -208,21 +208,21 @@
     "modularwarfare:metro_rpk": {
       "grams": 4800,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "epic",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_saiga": {
       "grams": 4000,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "legendary",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_tihar": {
       "grams": 3300,
       "capacityGrams": 0,
-      "rarity": "uncommon",
+      "rarity": "epic",
       "width": 4,
       "height": 2
     },
@@ -236,35 +236,35 @@
     "modularwarfare:metro_uboinik": {
       "grams": 4200,
       "capacityGrams": 0,
-      "rarity": "uncommon",
+      "rarity": "rare",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_velopal": {
       "grams": 3800,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "epic",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_ventil": {
       "grams": 4200,
       "capacityGrams": 0,
-      "rarity": "uncommon",
+      "rarity": "epic",
       "width": 5,
       "height": 2
     },
     "modularwarfare:metro_vsv": {
       "grams": 3500,
       "capacityGrams": 0,
-      "rarity": "epic",
+      "rarity": "legendary",
       "width": 4,
       "height": 2
     },
     "modularwarfare:metro_vyhlop": {
       "grams": 6500,
       "capacityGrams": 0,
-      "rarity": "legendary",
+      "rarity": "mythic",
       "width": 5,
       "height": 2
     },
