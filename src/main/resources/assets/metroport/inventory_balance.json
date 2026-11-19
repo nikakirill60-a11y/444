@@ -957,14 +957,14 @@
     "metroport:mcmod_zapal_helmet": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "legendary",
+      "rarity": "exclusive",
       "width": 2,
       "height": 2
     },
     "metroport:mcmod_zapal_vest": {
       "grams": 5000,
       "capacityGrams": 2000,
-      "rarity": "legendary",
+      "rarity": "exclusive",
       "width": 4,
       "height": 4
     },
@@ -1154,22 +1154,22 @@
       "grams": 3000,
       "capacityGrams": 0,
       "rarity": "common",
-      "width": 1,
-      "height": 1
+      "width": 2,
+      "height": 2
     },
     "metroport:remkomplekt": {
       "grams": 3000,
       "capacityGrams": 0,
       "rarity": "common",
-      "width": 1,
-      "height": 1
+      "width": 2,
+      "height": 2
     },
     "metroport:kanistra": {
       "grams": 6000,
       "capacityGrams": 0,
       "rarity": "common",
-      "width": 1,
-      "height": 1
+      "width": 3,
+      "height": 3
     },
     "metroport:mcmod_watch": {
       "grams": 150,
@@ -1177,6 +1177,13 @@
       "rarity": "epic",
       "width": 1,
       "height": 1
+    },
+    "metroport:rem": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 2,
+      "height": 2
     }
   }
 }

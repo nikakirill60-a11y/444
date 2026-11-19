@@ -14,7 +14,7 @@ public final class BlackrazidEnvironment {
     public static final FactionTeleportBlock TELEPORT=new FactionTeleportBlock();
     public static final TunnelKitItem KIT=new TunnelKitItem();
     public static final TransientLightBlock[] LIGHTS={new TransientLightBlock(.7F),new TransientLightBlock(.6F),new TransientLightBlock(.5F),new TransientLightBlock(.3F)};
-    public static void initialize(){GameRegistry.registerTileEntity(TransientLightTile.class,new ResourceLocation(MetroPort.ID,"blackrazid_transient_light"));}
+    public static void initialize(){GameRegistry.registerTileEntity(TransientLightTile.class,new ResourceLocation(MetroPort.LEGACY_ID,"blackrazid_transient_light"));}
     @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> e){
         for(int i=0;i<LIGHTS.length;i++){LIGHTS[i].setRegistryName(MetroPort.ID,"blackrazid_transient_light_"+i);e.getRegistry().register(LIGHTS[i]);}
     }

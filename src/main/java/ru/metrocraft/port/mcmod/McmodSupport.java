@@ -26,7 +26,7 @@ public final class McmodSupport {
         }catch(Exception e){throw new IllegalStateException("Cannot load MCMOD support items",e);}
     }
     @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> event){
-        net.minecraftforge.fml.common.registry.GameRegistry.registerTileEntity(ZoneTile.class,new ResourceLocation(MetroPort.ID,"radiation_zone"));
+        net.minecraftforge.fml.common.registry.GameRegistry.registerTileEntity(ZoneTile.class,new ResourceLocation(MetroPort.LEGACY_ID,"radiation_zone"));
         for(Definition d:definitions()){
             Block block;
             switch(d.kind){

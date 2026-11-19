@@ -104,7 +104,10 @@
     "metroport.inventory.size": "Размер: %s×%s ячеек",
     "metroport.inventory.rotate": "R — поворот · 4–9 — доступ",
     "metroport.inventory.overflow": "Забрать вне сетки: %s",
-    "metroport.inventory.grid_no_room": "Не хватает места в сетке. Предмет не перемещён."
+    "metroport.inventory.grid_no_room": "Не хватает места в сетке. Предмет не перемещён.",
+    "metroport.rarity.exclusive": "Эксклюзив",
+    "metroport.inventory.scroll": "Колесо — вниз/вверх · Shift — вбок",
+    "metroport.inventory.condition": "Прочность"
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -211,6 +214,9 @@
     "metroport.inventory.size": "Size: %s×%s cells",
     "metroport.inventory.rotate": "R: rotate · 4–9: quick use",
     "metroport.inventory.overflow": "Recover overflow: %s",
-    "metroport.inventory.grid_no_room": "Not enough grid space. Item was not moved."
+    "metroport.inventory.grid_no_room": "Not enough grid space. Item was not moved.",
+    "metroport.rarity.exclusive": "Exclusive",
+    "metroport.inventory.scroll": "Wheel: scroll · Shift: horizontal",
+    "metroport.inventory.condition": "Condition"
   }
 }

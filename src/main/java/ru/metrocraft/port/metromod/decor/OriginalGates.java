@@ -20,8 +20,8 @@ public final class OriginalGates {
     public static final OriginalGatePartBlock PART=new OriginalGatePartBlock();
     private OriginalGates() {}
     public static void initialize() {
-        GameRegistry.registerTileEntity(OriginalGateTile.class,new ResourceLocation(MetroPort.ID,"metromod_gate"));
-        GameRegistry.registerTileEntity(OriginalGatePartTile.class,new ResourceLocation(MetroPort.ID,"metromod_gate_part"));
+        GameRegistry.registerTileEntity(OriginalGateTile.class,new ResourceLocation(MetroPort.LEGACY_ID,"metromod_gate"));
+        GameRegistry.registerTileEntity(OriginalGatePartTile.class,new ResourceLocation(MetroPort.LEGACY_ID,"metromod_gate_part"));
     }
     @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> event) {
         for(OriginalGateProfile profile:OriginalGateProfile.all()) {

@@ -1,4 +1,4 @@
-"""Display branding must not rename the saved-world registry namespace."""
+"""MinETRO display branding and user-requested lowercase technical namespace."""
 import json
 from pathlib import Path
 import re
@@ -13,8 +13,8 @@ class BrandingTest(unittest.TestCase):
         source = (ROOT/'src/main/java/ru/metrocraft/port/MetroPort.java').read_text()
         self.assertEqual('MinETRO', info['name'])
         self.assertRegex(source, r'@Mod\(modid = MetroPort.ID, name = "MinETRO"')
-        self.assertEqual('metroport', info['modid'])
-        self.assertIn('public static final String ID = "metroport";', source)
+        self.assertEqual('minetro', info['modid'])
+        self.assertIn('public static final String ID = "minetro";', source)
         self.assertIn('newSimpleChannel(ID)', source)
 
     def test_jar_manifest_and_resource_pack_branding(self):

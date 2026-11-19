@@ -8,7 +8,7 @@ class MultiCellInventory(unittest.TestCase):
         wiki=json.loads((ROOT/'website/wiki-data.json').read_text());balance=json.loads((A/'inventory_balance.json').read_text())
         armor={e['id'] for e in wiki['entries'] if e['category']=='armor'}
         self.assertEqual(110,len(armor));self.assertTrue(armor<=balance['items'].keys())
-        self.assertEqual({'common','uncommon','rare','epic','legendary','mythic'},{balance['items'][id]['rarity'] for id in armor})
+        self.assertEqual({'common','uncommon','rare','epic','legendary','mythic','exclusive'},{balance['items'][id]['rarity'] for id in armor})
         for profile in list(balance['items'].values())+list(balance['categories'].values()):
             self.assertTrue(1<=profile['width']<=8);self.assertTrue(1<=profile['height']<=8)
         for e in json.loads((A/'mcmod_armor.json').read_text()):

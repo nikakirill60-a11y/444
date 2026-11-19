@@ -23,7 +23,7 @@ public final class MetroOverlays {
     private static boolean masks=true,goggles=true,noise=true,tint=true;
     private static float maskOpacity=1F,noiseStrength=.035F;
     private MetroOverlays() {}
-    private static ResourceLocation texture(String id){return new ResourceLocation(MetroPort.ID,"textures/metromod/ui/"+id+".png");}
+    private static ResourceLocation texture(String id){return new ResourceLocation(MetroPort.LEGACY_ID,"textures/metromod/ui/"+id+".png");}
     public static void configure(Configuration config,boolean enabledTint){
         tint=enabledTint;
         maskOpacity=ru.metrocraft.port.metromod.VisualOptions.bounded(config.getFloat("maskOpacity","client",1,0,1,"Mask opacity, client visual only."),1,1);

@@ -21,7 +21,7 @@ public final class ItemMetrics {
             return new Gson().fromJson(r,Table.class);
         }catch(IOException e){throw new IllegalStateException("Missing inventory balance",e);}
     }
-    public static String id(ItemStack s){return s.isEmpty()||s.getItem().getRegistryName()==null?"":s.getItem().getRegistryName().toString();}
+    public static String id(ItemStack s){return s.isEmpty()||s.getItem().getRegistryName()==null?"":ru.metrocraft.port.NamespaceMigration.balanceId(s.getItem().getRegistryName()).toString();}
     public static boolean currency(ItemStack stack){return id(stack).equals("metroport:mcmod_money5") || id(stack).equals("metroport:fivearmyrounds");}
     public static Profile profile(ItemStack stack){
         Profile exact=TABLE.items.get(id(stack));if(exact!=null)return exact;

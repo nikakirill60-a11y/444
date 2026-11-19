@@ -14,6 +14,8 @@ def verify_decor(names,read):
     except ImportError:
         from decor_distribution import cut
     decor=cut()
+    aliases={p.replace('assets/metroport/','assets/minetro/',1) for p in decor['removedFiles'] if p.startswith('assets/metroport/')}
+    assert not (aliases & names), 'Retired door/lamp/gate aliases leaked'
     assert not (set(decor['removedFiles']) & names), 'Retired door/lamp/gate resources leaked'
     assert set(decor['requiredLeverFiles']) <= names, 'Missing lever mesh/shared texture'
     assert json.loads(read('assets/metroport/metromod_gates.json'))==[], 'Retired gate profiles leaked'
@@ -39,10 +41,17 @@ def verify(path):
         required += ['models/block/exodus/diamond_block.json','models/block/exodus/pumpkin.json']
         for relative in required:
             if 'assets/metroport/'+relative not in names:raise AssertionError('Missing retained dependency: '+relative)
+        metadata=json.loads(jar.read('mcmod.info'))
+        assert metadata[0]['modid']=='minetro'
+        for name in names:
+            if name.startswith(('assets/metroport/models/','assets/metroport/blockstates/')) and name.endswith('.json'):
+                assert name.replace('assets/metroport/','assets/minetro/',1) in names, 'Missing registry asset alias: '+name
+        assert 'assets/minetro/sounds.json' in names
+        assert 'item.minetro.mcmod_watch.name=' in jar.read('assets/minetro/lang/ru_ru.lang').decode('utf-8')
         # Validate parent/texture references of every surviving Metro item/block model.
         missing=set()
         for name in sorted(names):
-            if not name.startswith('assets/metroport/models/') or not name.endswith('.json'):continue
+            if not name.startswith(('assets/metroport/models/','assets/minetro/models/')) or not name.endswith('.json'):continue
             model=json.loads(jar.read(name))
             refs=[]
             parent=model.get('parent','')

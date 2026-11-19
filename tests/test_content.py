@@ -98,7 +98,7 @@ class ContentTests(unittest.TestCase):
 
     def test_json_metadata(self):
         info = json.loads((ROOT / 'src/main/resources/mcmod.info').read_text())
-        self.assertEqual(info[0]['modid'], 'metroport')
+        self.assertEqual(info[0]['modid'], 'minetro')
         self.assertEqual(info[0]['mcversion'], '1.12.2')
         self.assertEqual(json.loads((ROOT / 'src/main/resources/pack.mcmeta').read_text())['pack']['pack_format'], 3)
 

@@ -132,8 +132,6 @@
 | Броня «Джаггернаут» | 4×4 | `metroport:mcmod_juggernaut_vest` |
 | Шлем «Стандарт К» | 2×2 | `metroport:mcmod_standart_k_helmet` |
 | Броня «Стандарт К» | 4×4 | `metroport:mcmod_standart_k_vest` |
-| Шлем «Запал» | 2×2 | `metroport:mcmod_zapal_helmet` |
-| Броня «Запал» | 4×4 | `metroport:mcmod_zapal_vest` |
 | Тяжёлая усиленная броня | 4×4 | `metroport:blackrazid_heavy` |
 | Защитный противогаз | 2×2 | `metroport:blackrazid_heavy_hat` |
 
@@ -143,4 +141,11 @@
 |---|---|---|
 | Броня клана "Сатанисты" | 4×4 | `metroport:satanarmor` |
 | Броня спарты | 4×4 | `metroport:blackrazid_sparta` |
+
+## Эксклюзив — розовый
+
+| Предмет | Размер в сетке | ID |
+|---|---|---|
+| Шлем «Запал» | 2×2 | `metroport:mcmod_zapal_helmet` |
+| Броня «Запал» | 4×4 | `metroport:mcmod_zapal_vest` |
 

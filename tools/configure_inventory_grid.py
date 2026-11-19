@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 A=ROOT/'src/main/resources/assets/metroport'
-TIERS=['common','uncommon','rare','epic','legendary','mythic']
+TIERS=['common','uncommon','rare','epic','legendary','mythic','exclusive']
 # User-approved firearm tiers. AKK was not listed; retain its existing rare tier.
 WEAPON_RARITIES={'duplet': 'common',
  'revolver': 'common',
@@ -46,7 +46,7 @@ MCMOD={
  'mgu':'rare','officer_ozk':'rare','olkhon':'epic','ozk':'uncommon','plash':'common','police':'uncommon',
  'povstanec':'rare','prorok':'rare','psh1b':'rare','reih':'rare','sniper':'rare','sniper_camo':'uncommon',
  'standart_k':'legendary','sverchok':'epic','sverchok_mp6':'epic','taiga':'rare','vatnik':'common',
- 'voen_tactical':'epic','zapal':'legendary'}
+ 'voen_tactical':'epic','zapal':'exclusive'}
 BLACKRAZID={
  'himza':'rare','heavy':'legendary','clean':'epic','c_clean':'uncommon','normal':'epic',
  'kozh':'common','easy':'rare','heavy1':'epic','sparta':'mythic','heavy_hat':'legendary',
@@ -70,7 +70,7 @@ def main():
     armor=[]
     def add(entry,tier,role):
         profile=dict(balance['categories'][role]);profile['rarity']=tier
-        if role=='armor' and tier in ['legendary','mythic']:profile.update(width=4,height=4)
+        if role=='armor' and tier in ['legendary','mythic','exclusive']:profile.update(width=4,height=4)
         balance['items']['metroport:'+entry['id']]=profile
         armor.append(('metroport:'+entry['id'],tier,profile['width'],profile['height']))
     for e in json.loads((A/'content.json').read_text()):
@@ -89,10 +89,13 @@ def main():
     balance['categories']['patch']=dict(balance['categories']['item'],grams=100)
     for id,grams in {'armorrem':3000,'remkomplekt':3000,'kanistra':6000}.items():
         balance['items']['metroport:'+id]=dict(balance['categories']['item'],grams=grams)
+    for id in ['rem','armorrem','remkomplekt']:
+        balance['items'].setdefault('metroport:'+id,dict(balance['categories']['item'])).update(width=2,height=2)
+    balance['items']['metroport:kanistra'].update(width=3,height=3)
     balance['items']['metroport:mcmod_watch']=dict(balance['categories']['watch'],rarity='epic')
     p.write_text(json.dumps(balance,indent=2)+'\n')
     wiki=json.loads((ROOT/'website/wiki-data.json').read_text());names={e['id']:e['name'] for e in wiki['entries']}
-    labels=['Обычный — серый','Необычный — зелёный','Редкий — голубой','Эпический — фиолетовый','Легендарный — жёлтый','Мифический — красный']
+    labels=['Обычный — серый','Необычный — зелёный','Редкий — голубой','Эпический — фиолетовый','Легендарный — жёлтый','Мифический — красный','Эксклюзив — розовый']
     lines=['# Редкости и размеры брони — dev35','','Явные профили для всех 110 предметов раздела брони, включая ПНВ.','Защита, прочность и бонус грузоподъёмности не меняются.','Шлем и броня одного комплекта получают одинаковую редкость.','']
     for tier,label in zip(TIERS,labels):
         lines+=['## '+label,'','| Предмет | Размер в сетке | ID |','|---|---|---|']

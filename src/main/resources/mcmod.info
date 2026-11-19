@@ -1,6 +1,6 @@
 [
   {
-    "modid": "metroport",
+    "modid": "minetro",
     "name": "MinETRO",
     "description": "Expanded standalone MetroCraft port for Forge 1.12.2: original 3D geometry, weapons, armor, decorative blocks, entities, backpacks, animated hermetic gates and radiation. Full migration is still in progress.",
     "version": "${version}",

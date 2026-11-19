@@ -13,17 +13,17 @@ import ru.metrocraft.port.MetroPort;
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class RemovedDecorMappings {
     public static boolean retired(ResourceLocation key){
-        if(!MetroPort.ID.equals(key.getNamespace()))return false;
+        if(!ru.metrocraft.port.NamespaceMigration.ours(key.getNamespace()))return false;
         String id=key.getPath();
         return id.equals("germo") || id.startsWith("germo_") || id.equals("gate_part")
                 || id.startsWith("metromod_germo_") || id.startsWith("metromod_door_") || id.startsWith("metromod_light_");
     }
     @SubscribeEvent public static void blocks(RegistryEvent.MissingMappings<Block> event){
-        for(RegistryEvent.MissingMappings.Mapping<Block> mapping:event.getMappings())
+        for(RegistryEvent.MissingMappings.Mapping<Block> mapping:event.getAllMappings())
             if(retired(mapping.key))mapping.remap(Blocks.AIR);
     }
     @SubscribeEvent public static void items(RegistryEvent.MissingMappings<Item> event){
-        for(RegistryEvent.MissingMappings.Mapping<Item> mapping:event.getMappings())
+        for(RegistryEvent.MissingMappings.Mapping<Item> mapping:event.getAllMappings())
             if(retired(mapping.key))mapping.ignore();
     }
     private RemovedDecorMappings(){}

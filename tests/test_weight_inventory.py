@@ -13,7 +13,7 @@ class WeightInventory(unittest.TestCase):
         self.assertEqual({'common','uncommon','rare','epic','legendary','mythic'},tiers)
         for p in list(balance['items'].values())+list(balance['categories'].values()):
             self.assertGreater(p['grams'],0);self.assertGreaterEqual(p['capacityGrams'],0)
-            self.assertIn(p['rarity'],tiers)
+            self.assertIn(p['rarity'],tiers|{'exclusive'})
         self.assertEqual(2000,balance['categories']['armor']['capacityGrams'])
     def test_rarity_translations_survive_every_asset_regeneration(self):
         from tools.mcmod_languages import update

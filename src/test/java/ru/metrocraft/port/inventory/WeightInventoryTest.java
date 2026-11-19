@@ -63,8 +63,8 @@ public class WeightInventoryTest {
         assertEquals(46,c.inventorySlots.size());assertEquals(0,c.getSlot(33).getSlotIndex());assertEquals(2,c.getSlot(35).getSlotIndex());
         p.inventory.mainInventory.set(9,food);c.slotClick(6,0,ClickType.SWAP,p);assertTrue(p.inventory.mainInventory.get(0).getItem() instanceof com.modularwarfare.common.guns.ItemGun);assertSame(food,p.inventory.mainInventory.get(9));
     }
-    @Test public void allSixTiersHaveDistinctColorsAndNbtDoesNotReroll(){
-        Set<Integer> colors=new HashSet<>();for(ItemRarity rarity:ItemRarity.values())colors.add(rarity.color);assertEquals(6,colors.size());
+    @Test public void allSevenTiersHaveDistinctColorsAndNbtDoesNotReroll(){
+        Set<Integer> colors=new HashSet<>();for(ItemRarity rarity:ItemRarity.values())colors.add(rarity.color);assertEquals(7,colors.size());
         ItemStack s=new ItemStack(Items.STICK);assertEquals(ItemRarity.COMMON,ItemRarity.of(s));
         s.setTagCompound(new net.minecraft.nbt.NBTTagCompound());s.getTagCompound().setString("MetroRarity","mythic");
         assertEquals(ItemRarity.MYTHIC,ItemRarity.of(s.copy()));s.getTagCompound().setString("MetroRarity","not-a-tier");assertEquals(ItemRarity.COMMON,ItemRarity.of(s));
