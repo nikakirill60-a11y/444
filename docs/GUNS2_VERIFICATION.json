@@ -1,0 +1,85 @@
+{
+  "releases": [
+    {
+      "tag": "minetro-arsenal-v11",
+      "sourceCommit": "2714d0293fb08c42b4ad35bfd08a3b64e7058779",
+      "url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-arsenal-v11",
+      "files": [
+        {
+          "name": "GUNS2_DEV41_RU.md",
+          "bytes": 8887,
+          "sha256": "sha256:f2d69b6baf0bcda3a5caafea6789a066eba306f59826dc2ecb69c55cf20f69cf",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v11/GUNS2_DEV41_RU.md"
+        },
+        {
+          "name": "Metro_Full_Arsenal_MWF_fix1_v11_guns2.zip",
+          "bytes": 113823887,
+          "sha256": "sha256:3e3f8b0c83ab33b4dbef8185894d9a1dc1da88b8a2827595bfd14db8fb16fd37",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v11/Metro_Full_Arsenal_MWF_fix1_v11_guns2.zip"
+        },
+        {
+          "name": "modularwarfare-shining-2024.2.4.6f-fix1-metro7.jar",
+          "bytes": 22611251,
+          "sha256": "sha256:08dd2089f00cac9d1d4948d8db074f2f03bbb93095af6cc47cb366d9c96557d9",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v11/modularwarfare-shining-2024.2.4.6f-fix1-metro7.jar"
+        },
+        {
+          "name": "MWF_V11_report.json",
+          "bytes": 11783,
+          "sha256": "sha256:50795490cc7fe198244b1c1574dbe5b46eb4a761010f1c86c4266cf185633a90",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v11/MWF_V11_report.json"
+        }
+      ]
+    },
+    {
+      "tag": "minetro-inventory-dev41",
+      "sourceCommit": "2714d0293fb08c42b4ad35bfd08a3b64e7058779",
+      "url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-inventory-dev41",
+      "files": [
+        {
+          "name": "GUNS2_DEV41_RU.md",
+          "bytes": 8887,
+          "sha256": "sha256:f2d69b6baf0bcda3a5caafea6789a066eba306f59826dc2ecb69c55cf20f69cf",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev41/GUNS2_DEV41_RU.md"
+        },
+        {
+          "name": "metrocraft-port-1.12.2-1.13.0-dev.41.jar",
+          "bytes": 85790790,
+          "sha256": "sha256:0b9e01e8ae1b7dd459e6749161c0a75f07fa2cd26d30ece18b38ccb70394bf17",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev41/metrocraft-port-1.12.2-1.13.0-dev.41.jar"
+        },
+        {
+          "name": "MinETRO_inventory_dev41_report.json",
+          "bytes": 485,
+          "sha256": "sha256:5177c264b038975979de3fbc7cc803b1e5dcbe815973c7c0146158fad8753213",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev41/MinETRO_inventory_dev41_report.json"
+        },
+        {
+          "name": "WEAPON_RARITIES_DEV36_RU.md",
+          "bytes": 2063,
+          "sha256": "sha256:81d2f5e672935b1453920985fcb7afbadf8927548a25d9c714e231b9d9bc3768",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev41/WEAPON_RARITIES_DEV36_RU.md"
+        }
+      ]
+    }
+  ],
+  "forgeBuild": "https://github.com/nikakirill60-a11y/444/actions/runs/44599952374",
+  "junit": {
+    "tests": 628,
+    "failures": 0,
+    "errors": 0
+  },
+  "python": {
+    "tests": 435,
+    "failures": 0,
+    "errors": 0
+  },
+  "extendedRuntimeRegression": "https://github.com/nikakirill60-a11y/444/actions/runs/44601029820",
+  "nativeSuites": [
+    "MechanicsTest",
+    "DupletVariantTest",
+    "MotionTest",
+    "AshotPoseTest"
+  ],
+  "minecraftLiveTested": false
+}
