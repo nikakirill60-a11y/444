@@ -91,6 +91,11 @@ class BetaWebsiteTest(unittest.TestCase):
         self.assertNotIn('<p', empty)
         self.assertIn('/ 03', empty)
 
+    def test_repository_link_is_not_in_footer(self):
+        text = (SITE / 'index.html').read_text()
+        self.assertNotIn('GitHub ↗', text)
+        self.assertNotIn('href="https://github.com/nikakirill60-a11y/444"', text)
+
     def test_removed_sections_and_links_do_not_remain(self):
         text = (SITE / 'index.html').read_text()
         for removed in ('Не просто сборка', 'Своя подземка', 'ДНЕВНИК РАЗРАБОТКИ',
