@@ -116,7 +116,7 @@ def build(pack):
             add(id, 'items', group, names[id], desc, stats, f'MWF v10: {folder}/{id}.json', list(map(ref, links)), True)
     # Active definitions mirror ContentPolicy.definition, not the retired donor catalogue.
     for d in load('content'):
-        if d['kind'] in ['gun', 'ammo', 'attachment'] or d.get('repairGun'): continue
+        if d['kind'] in ['gun', 'ammo', 'attachment'] or (d.get('repairGun') and d['id']!='remkomplekt'): continue
         id = d['id']; stats = []
         if d['kind'] == 'armor':
             group = 'ПНВ' if d.get('nightVision') else 'Шлемы и маски' if d['slot'] == 'head' else 'Бронежилеты и костюмы'
@@ -129,6 +129,7 @@ def build(pack):
         else:
             group = 'Медицина и ремонт' if d['kind'] == 'tool' else 'Валюта и материалы'
             desc = 'Предмет основного набора MetroPort.'
+            if id == 'remkomplekt': desc = 'Ремкомплект оружия, масса 3 кг. Используется основной рукой на повреждённом оружии во второй руке. Чинит стандартную прочность предмета; не меняет патроны, обвесы или особые параметры MWF.'
             if id == 'armorrem': desc = 'Ремонт брони: держи повреждённую броню во второй руке и используй ремкомплект основной рукой.'
             if d.get('heal'): desc = 'Лечебный инструмент основного набора. Лечение и количество применений указаны в конфигурации.'; stats.append(('Лечение, HP', d['heal']))
             if d['kind'] == 'tool': stats.append(('Применений', d.get('uses', 1)))

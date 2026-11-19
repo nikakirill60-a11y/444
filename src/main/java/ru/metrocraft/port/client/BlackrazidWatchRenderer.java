@@ -37,7 +37,7 @@ public final class BlackrazidWatchRenderer extends TileEntityItemStackRenderer {
         }
     }
     public static void onArm(boolean slim,long time){
-        GlStateManager.pushMatrix();try{GlStateManager.translate((slim?.5:1)/16,.40,-.14);draw(time);}finally{GlStateManager.popMatrix();}
+        GlStateManager.pushMatrix();try{GlStateManager.translate((slim?.5:1)/16,.40,-.205);draw(time);}finally{GlStateManager.popMatrix();}
     }
     @Override public void renderByItem(ItemStack stack,float partial){
         GlStateManager.pushMatrix();try{GlStateManager.translate(.5,.5,.5);GlStateManager.rotate(180,0,1,0);GlStateManager.scale(2,2,2);draw(Minecraft.getMinecraft().world==null?0:Minecraft.getMinecraft().world.getWorldTime());}finally{GlStateManager.popMatrix();}

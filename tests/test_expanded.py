@@ -70,7 +70,7 @@ class ExpandedTests(unittest.TestCase):
         self.assertIn('setCreativeTab(MetroPort.DECOR).setRegistryName(MetroPort.ID, "block" + i)', expanded)
         self.assertIn('item instanceof ItemBlock && !id.equals("radiation")', expanded)
         self.assertIn('? MetroPort.DECOR : MetroPort.THINGS', expanded)
-        self.assertIn('setCreativeTab(MetroPort.DECOR)', gate)
+        self.assertIn('setCreativeTab(null)', gate) # Retired gates are readable, not offered in creative.
         self.assertIn('setTranslationKey("metroport.radiation").setCreativeTab(MetroPort.THINGS)', expanded)
 
     def test_attachment_whitelists_and_modifiers(self):

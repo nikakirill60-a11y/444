@@ -26,6 +26,7 @@ public final class EquipmentRules {
         return sealedId(armor instanceof McmodArmorItem?((McmodArmorItem)armor).entry.id:armor.getDefinition().id);
     }
     public static boolean allowed(ItemStack chest,ItemStack head,EntityEquipmentSlot slot,ItemStack candidate) {
+        if(slot==EntityEquipmentSlot.LEGS || slot==EntityEquipmentSlot.FEET)return false;
         if(NvgEquipment.accepts(candidate))return false; // PNV has exactly one equipment destination now.
         if(slot==EntityEquipmentSlot.HEAD)return !sealed(chest);
         return slot!=EntityEquipmentSlot.CHEST || !sealed(candidate) || head.isEmpty();
@@ -56,7 +57,8 @@ public final class EquipmentRules {
             Slot slot=container.inventorySlots.get(i);
             if(slot instanceof Guard || slot.inventory!=player.inventory)continue;
             int index=slot.getSlotIndex();
-            if(index==39 || index==38)container.inventorySlots.set(i,new Guard(slot,player,index==39?EntityEquipmentSlot.HEAD:EntityEquipmentSlot.CHEST));
+            if(index>=36 && index<=39)container.inventorySlots.set(i,new Guard(slot,player,
+                    index==39?EntityEquipmentSlot.HEAD:index==38?EntityEquipmentSlot.CHEST:index==37?EntityEquipmentSlot.LEGS:EntityEquipmentSlot.FEET));
         }
     }
     @SubscribeEvent(priority=net.minecraftforge.fml.common.eventhandler.EventPriority.HIGHEST)
@@ -64,17 +66,32 @@ public final class EquipmentRules {
         ItemStack held=event.getItemStack();
         if(NvgEquipment.accepts(held))return; // Its right click equips the NEW slot, not HEAD.
         EntityEquipmentSlot slot=net.minecraft.entity.EntityLiving.getSlotForItemStack(held);
-        if((slot==EntityEquipmentSlot.HEAD || slot==EntityEquipmentSlot.CHEST)
+        if((slot==EntityEquipmentSlot.HEAD || slot==EntityEquipmentSlot.CHEST || slot==EntityEquipmentSlot.LEGS || slot==EntityEquipmentSlot.FEET)
                 && !allowed(event.getEntityPlayer(),slot,held)) {
             event.setCanceled(true);event.setCancellationResult(net.minecraft.util.EnumActionResult.FAIL);
         }
     }
     @SubscribeEvent public static void opened(PlayerContainerEvent.Open event) { guard(event.getEntityPlayer(),event.getContainer()); }
+    /** Recover real old items once. Never destroy them when removing their equipment destinations. */
+    public static void retireLegSlots(EntityPlayer player){
+        for(EntityEquipmentSlot type:new EntityEquipmentSlot[]{EntityEquipmentSlot.LEGS,EntityEquipmentSlot.FEET}){
+            ItemStack old=player.getItemStackFromSlot(type);
+            if(old.isEmpty())continue;
+            player.setItemStackToSlot(type,ItemStack.EMPTY);
+            boolean moved=false;
+            for(int i=9;i<36;i++)if(player.inventory.getStackInSlot(i).isEmpty()){
+                player.inventory.setInventorySlotContents(i,old);moved=true;break;
+            }
+            if(!moved)NoDrop.retain(player,old); // Existing persistent queue; no ground drop or new copy.
+            player.inventory.markDirty();
+        }
+    }
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
         if(event.phase!=TickEvent.Phase.END)return;
         EntityPlayer player=event.player;
         guard(player,player.inventoryContainer);guard(player,player.openContainer);
         if(player.world.isRemote)return;
+        retireLegSlots(player);
         ItemStack head=player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
         if(NvgEquipment.accepts(head)) {
             ItemStack moved=head.copy();moved.setCount(1);

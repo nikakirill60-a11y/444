@@ -37,14 +37,32 @@ public final class CarryWeight {
         ItemStack unit=stack.copy();unit.setCount(1);
         return fitting(carried(p),capacity(p),ItemMetrics.grams(unit),stack.getCount());
     }
+    public static double movementPenalty(long carried,long capacity){
+        if(carried<=capacity)return 0;
+        return carried-capacity>=10000?-1.0:-0.5;
+    }
+    public static boolean immobilized(EntityPlayer player){
+        return !player.capabilities.isCreativeMode && !player.isSpectator()
+                && movementPenalty(carried(player),capacity(player))==-1.0;
+    }
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent e){
-        EntityPlayer p=e.player;if(e.phase!=TickEvent.Phase.END || p.world.isRemote || p.ticksExisted%10!=0)return;
+        EntityPlayer p=e.player;if(e.phase!=TickEvent.Phase.END || p.world.isRemote)return;
+        double penalty=p.capabilities.isCreativeMode||p.isSpectator()?0:movementPenalty(carried(p),capacity(p));
+        applyMovement(p,penalty);
+    }
+    public static void applyMovement(EntityPlayer p,double penalty){
         IAttributeInstance speed=p.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
-        boolean overloaded=!p.capabilities.isCreativeMode && !p.isSpectator() && carried(p)>capacity(p);
-        if(overloaded){
-            if(speed.getModifier(OVERLOAD)==null)speed.applyModifier(new AttributeModifier(OVERLOAD,"MinETRO overload",-0.5,2).setSaved(false));
-            p.setSprinting(false);
-        }else if(speed.getModifier(OVERLOAD)!=null)speed.removeModifier(OVERLOAD);
+        AttributeModifier existing=speed.getModifier(OVERLOAD);
+        if(existing!=null && existing.getAmount()!=penalty){speed.removeModifier(OVERLOAD);existing=null;}
+        if(penalty!=0 && existing==null)speed.applyModifier(new AttributeModifier(OVERLOAD,"MinETRO overload",penalty,2).setSaved(false));
+        if(penalty!=0)p.setSprinting(false);
+        if(penalty==-1.0){
+            p.motionX=0;p.motionZ=0;p.moveForward=0;p.moveStrafing=0;
+            if(p.motionY>0)p.motionY=0; // Gravity/falling is not frozen in mid-air.
+        }
+    }
+    @SubscribeEvent public static void jump(net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent e){
+        if(e.getEntityLiving() instanceof EntityPlayer && immobilized((EntityPlayer)e.getEntityLiving()))e.getEntityLiving().motionY=0;
     }
     private CarryWeight(){}
 }

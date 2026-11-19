@@ -28,7 +28,8 @@ public final class ItemMetrics {
         String category="item";
         if(!stack.isEmpty()){
             Item item=stack.getItem();String name=item.getClass().getSimpleName().toLowerCase(Locale.ROOT),id=id(stack);
-            if(item instanceof BackpackItem)category="backpack";
+            if(item instanceof ru.metrocraft.port.patches.FactionPatchItem)category="patch";
+            else if(item instanceof BackpackItem)category="backpack";
             else if(LoadoutRules.firearm(stack))category="firearm";
             else if(LoadoutRules.melee(stack))category="melee";
             else if(NvgEquipment.accepts(stack))category="nvg";
@@ -54,6 +55,7 @@ public final class ItemMetrics {
             NBTTagList list=stack.getTagCompound().getTagList("ItemInventory",10);
             for(int i=0;i<list.tagCount();i++)total+=grams(new ItemStack(list.getCompoundTagAt(i)),depth+1);
         }
+        if(depth<8)total+=grams(ru.metrocraft.port.patches.FactionPatches.get(stack),depth+1);
         return total;
     }
     public static int capacityBonus(ItemStack stack){

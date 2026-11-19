@@ -34,11 +34,18 @@ public final class NvgLayer implements LayerRenderer<AbstractClientPlayer> {
         try {
             if(player.isSneaking())GlStateManager.translate(0,.2,0);
             renderer.getMainModel().bipedHead.postRender(1/16F);
-            GlStateManager.scale(info.scale,info.scale,info.scale);
+            // The original PNV was itself a helmet. Give the separate layer clearance
+            // around a helmet/mask instead of burying its straps in the head mesh.
+            float clearance=player.getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot.HEAD).isEmpty()
+                    && player.getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST).isEmpty()?1.025f:1.18f;
+            GlStateManager.scale(info.scale*clearance,info.scale*clearance,info.scale*clearance);
             Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(info.texture));
             GlStateManager.color(1,1,1,1);
             for(ru.metrocraft.port.client.tmt.ModelRendererTurbo part:parts) {
-                part.setRotationPoint(0,0,0);part.rotateAngleX=part.rotateAngleY=part.rotateAngleZ=0;part.render(1/16F);
+                float x=part.rotationPointX,y=part.rotationPointY,z=part.rotationPointZ;
+                float rx=part.rotateAngleX,ry=part.rotateAngleY,rz=part.rotateAngleZ;
+                try{part.setRotationPoint(0,0,0);part.rotateAngleX=part.rotateAngleY=part.rotateAngleZ=0;part.render(1/16F);}
+                finally{part.setRotationPoint(x,y,z);part.rotateAngleX=rx;part.rotateAngleY=ry;part.rotateAngleZ=rz;}
             }
         } finally {GlStateManager.popMatrix();}
     }

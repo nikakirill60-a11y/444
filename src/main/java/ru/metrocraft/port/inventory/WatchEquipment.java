@@ -79,7 +79,7 @@ public final class WatchEquipment {
     @SubscribeEvent public static void tick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player=event.player;
         if(event.phase!=TickEvent.Phase.END || player.world.isRemote || !player.isEntityAlive())return;
-        if(player.ticksExisted==1 || player.ticksExisted==20)set(player,get(player));
+        if(player.ticksExisted==1 || player.ticksExisted%40==0)set(player,get(player));
         if(player.ticksExisted%10!=0)return;
         int level=ru.metrocraft.port.radiation.RadiationSystem.level(player);
         if(level!=reading(player)){

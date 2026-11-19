@@ -42,6 +42,7 @@ public final class OriginalGateRenderer extends TileEntitySpecialRenderer<Origin
         GlStateManager.pushMatrix();
         try {
             GlStateManager.translate(profile.offset[0],profile.ground+profile.offset[1],profile.offset[2]);
+            if(profile.flipped())GlStateManager.rotate(180,0,1,0);
             for(OriginalGateProfile.Part part:profile.parts) {
                 GlStateManager.pushMatrix();
                 try {

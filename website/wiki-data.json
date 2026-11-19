@@ -4,7 +4,7 @@
   "packSha256": "5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f",
   "counts": {
     "weapons": 28,
-    "items": 104,
+    "items": 105,
     "armor": 110,
     "mutants": 18
   },
@@ -3908,6 +3908,23 @@
       ],
       "source": "src/main/resources/assets/metroport/content.json",
       "image": "/assets/wiki/medkit.png",
+      "links": []
+    },
+    {
+      "id": "metroport:remkomplekt",
+      "category": "items",
+      "group": "Медицина и ремонт",
+      "family": "MetroCraft",
+      "name": "Ремкомплект для оружия",
+      "description": "Ремкомплект оружия, масса 3 кг. Используется основной рукой на повреждённом оружии во второй руке. Чинит стандартную прочность предмета; не меняет патроны, обвесы или особые параметры MWF.",
+      "stats": [
+        [
+          "Применений",
+          "1"
+        ]
+      ],
+      "source": "src/main/resources/assets/metroport/content.json",
+      "image": "/assets/wiki/remkomplekt.png",
       "links": []
     },
     {

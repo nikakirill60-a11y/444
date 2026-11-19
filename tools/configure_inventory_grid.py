@@ -86,6 +86,10 @@ def main():
     for id,size in {'medkit':(2,2),'mcmod_aptech':(2,2),'blackrazid_flyashka':(1,2),'blackrazid_lamp':(1,2),'blackrazid_power':(2,2),
                     'blackrazid_grenade':(1,2),'blackrazid_grenade_big':(2,2)}.items():
         profile=dict(balance['categories']['item']);profile.update(width=size[0],height=size[1]);balance['items']['metroport:'+id]=profile
+    balance['categories']['patch']=dict(balance['categories']['item'],grams=100)
+    for id,grams in {'armorrem':3000,'remkomplekt':3000,'kanistra':6000}.items():
+        balance['items']['metroport:'+id]=dict(balance['categories']['item'],grams=grams)
+    balance['items']['metroport:mcmod_watch']=dict(balance['categories']['watch'],rarity='epic')
     p.write_text(json.dumps(balance,indent=2)+'\n')
     wiki=json.loads((ROOT/'website/wiki-data.json').read_text());names={e['id']:e['name'] for e in wiki['entries']}
     labels=['Обычный — серый','Необычный — зелёный','Редкий — голубой','Эпический — фиолетовый','Легендарный — жёлтый','Мифический — красный']

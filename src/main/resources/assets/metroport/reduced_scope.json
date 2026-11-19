@@ -1,5 +1,5 @@
 {
-  "decision": "Own firearms/ammo/magazines/modules removed; retain machete/grenades, cube blocks/gates, both watches and independent lamp/native-backpack slots.",
+  "decision": "Own firearms/ammo/magazines/modules removed; retain machete/grenades, cube blocks, lever-only decor catalogue, weapon repair kit, both watches and independent lamp/native-backpack slots.",
   "removedIds": [
     "12x7",
     "12x70",
@@ -207,7 +207,6 @@
     "podonok",
     "preved",
     "pso",
-    "remkomplekt",
     "revolver",
     "rpk",
     "saiga",
@@ -429,7 +428,6 @@
     "assets/metroport/blockstates/podonok.json",
     "assets/metroport/blockstates/preved.json",
     "assets/metroport/blockstates/pso.json",
-    "assets/metroport/blockstates/remkomplekt.json",
     "assets/metroport/blockstates/revolver.json",
     "assets/metroport/blockstates/rpk.json",
     "assets/metroport/blockstates/saiga.json",
@@ -679,7 +677,6 @@
     "assets/metroport/models/item/podonok.json",
     "assets/metroport/models/item/preved.json",
     "assets/metroport/models/item/pso.json",
-    "assets/metroport/models/item/remkomplekt.json",
     "assets/metroport/models/item/revolver.json",
     "assets/metroport/models/item/rpk.json",
     "assets/metroport/models/item/saiga.json",

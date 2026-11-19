@@ -22,7 +22,7 @@ public class OriginalGateBlock extends Block {
     public OriginalGateBlock(OriginalGateProfile profile) {
         super(Material.IRON); this.profile = profile;
         setRegistryName(MetroPort.ID, profile.id); setTranslationKey(MetroPort.ID + "." + profile.id);
-        setLightOpacity(0); setCreativeTab(MetroPort.DECOR); setHardness(5); setResistance(20); setSoundType(SoundType.METAL);
+        setLightOpacity(0); setCreativeTab(DecorAvailability.published(profile)?MetroPort.DECOR:null); setHardness(5); setResistance(20); setSoundType(SoundType.METAL);
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.SOUTH));
     }
     public static EnumFacing horizontal(int index) {

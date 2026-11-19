@@ -55,7 +55,7 @@ public final class WatchRenderer extends TileEntityItemStackRenderer {
     }
     public static void onArm(boolean slim,long time,int radiation){
         GlStateManager.pushMatrix();
-        try{GlStateManager.translate((slim?.5:1)/16,.39,-.137);GlStateManager.rotate(180,0,1,0);draw(time,radiation);}
+        try{GlStateManager.translate((slim?.5:1)/16,.39,-.205);GlStateManager.rotate(180,0,1,0);draw(time,radiation);}
         finally{GlStateManager.popMatrix();}
     }
     @Override public void renderByItem(ItemStack stack,float partial){

@@ -38,10 +38,9 @@ public final class ClientEvents {
     public static void initialize() {
         ClientRegistry.registerKeyBinding(INVENTORY);
         for (net.minecraft.client.renderer.entity.RenderPlayer playerRenderer : Minecraft.getMinecraft().getRenderManager().getSkinMap().values()) {
+            ru.metrocraft.port.client.EquipmentLayers.install(playerRenderer);
             playerRenderer.addLayer(new ru.metrocraft.port.client.BackpackClient(playerRenderer));
             playerRenderer.addLayer(new ru.metrocraft.port.client.FactionPatchLayer(playerRenderer));
-            playerRenderer.addLayer(new ru.metrocraft.port.client.NvgLayer(playerRenderer));
-            playerRenderer.addLayer(new ru.metrocraft.port.client.WatchClient(playerRenderer));
         }
     }
 
@@ -166,6 +165,10 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void inventory(net.minecraftforge.client.event.GuiOpenEvent event) {
         Minecraft mc=Minecraft.getMinecraft();
+        if(event.getGui()!=null && event.getGui().getClass()==net.minecraft.client.gui.inventory.GuiChest.class
+                && ru.metrocraft.port.client.MetroChestGui.supports((net.minecraft.client.gui.inventory.GuiChest)event.getGui())){
+            event.setGui(new ru.metrocraft.port.client.MetroChestGui((net.minecraft.client.gui.inventory.GuiChest)event.getGui()));
+        }
         if(event.getGui() instanceof net.minecraft.client.gui.inventory.GuiInventory && mc.player!=null && !mc.player.capabilities.isCreativeMode) {
             event.setCanceled(true);
             MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.inventory.OpenInventoryPacket());

@@ -11,14 +11,14 @@ import static org.junit.Assert.*;
 
 public class ContentPolicyTest {
     @BeforeClass public static void boot(){Bootstrap.register();}
-    @Test public void actualLegacyCatalogueRejectsEveryFirearmAmmoAttachmentAndGunRepairKit()throws Exception{
+    @Test public void actualLegacyCatalogueRejectsFirearmsButRetainsRequestedWeaponRepairKit()throws Exception{
         try(Reader r=new InputStreamReader(getClass().getResourceAsStream("/assets/metroport/content.json"),StandardCharsets.UTF_8)){
             Definition[] rows=new Gson().fromJson(r,Definition[].class);int kept=0,removed=0;
             for(Definition d:rows){
-                boolean weapon="gun".equals(d.kind)||"ammo".equals(d.kind)||"attachment".equals(d.kind)||d.repairGun;
+                boolean weapon="gun".equals(d.kind)||"ammo".equals(d.kind)||"attachment".equals(d.kind)||(d.repairGun && !"remkomplekt".equals(d.id));
                 assertEquals(d.id,!weapon,ContentPolicy.definition(d));if(ContentPolicy.definition(d))kept++;else removed++;
             }
-            assertEquals(71,rows.length);assertEquals(28,removed);assertEquals(43,kept);
+            assertEquals(71,rows.length);assertEquals(27,removed);assertEquals(44,kept);
         }
     }
     @Test public void mcmodRegistrationIsDisabledBeforeItEvenTouchesRegistryOrCreatesAGun(){

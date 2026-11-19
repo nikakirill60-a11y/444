@@ -95,4 +95,27 @@ public class OriginalLayoutTest {
         for(EnumFacing face:new EnumFacing[]{EnumFacing.UP,EnumFacing.DOWN,EnumFacing.NORTH})
             assertEquals(EnumActionResult.FAIL,item.onItemUse(player,grid.world,new BlockPos(20,64,20),EnumHand.MAIN_HAND,face,0,0,0));
     }
+    @Test public void onlySixLeversArePublishedAndOnlyThreeNon01LeversAreFlipped(){
+        int published=0,flipped=0;
+        for(OriginalGateProfile p:OriginalGateProfile.all()){
+            assertEquals(p.is("Lever"),DecorAvailability.published(p));
+            assertEquals(p.is("Lever")&&!p.source.endsWith("_01"),p.flipped());
+            if(DecorAvailability.published(p))published++;
+            if(p.flipped())flipped++;
+            OriginalGateBlock block=new OriginalGateBlock(p);
+            assertEquals(p.is("Lever")?ru.metrocraft.port.MetroPort.DECOR:null,block.getCreativeTab());
+            assertEquals(!p.is("Lever"),DecorAvailability.blocked(new ItemStack(new OriginalGateItem(block))));
+        }
+        assertEquals(6,published);assertEquals(3,flipped);
+    }
+    @Test public void flippedLeverVerticesUseSameYawAndWallAnchorAsRenderer(){
+        for(OriginalGateProfile p:OriginalGateProfile.all())if(p.flipped()){
+            OriginalGateProfile.Part part=p.parts[0];double[] authored=part.boxes[0];
+            // At zero progress these switch frames are identity. Box order is preserved.
+            AxisAlignedBB actual=p.boxes(BlockPos.ORIGIN,EnumFacing.SOUTH,0,false).get(0);
+            assertEquals(.5-authored[3]+p.offset[0],actual.minX,1e-5);
+            assertEquals(.5-authored[0]+p.offset[0],actual.maxX,1e-5);
+            assertTrue(actual.minZ>=.002-1e-6);
+        }
+    }
 }

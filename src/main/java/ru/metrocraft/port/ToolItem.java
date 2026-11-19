@@ -32,7 +32,7 @@ public final class ToolItem extends ContentItem {
             used = true;
         } else if (hand == EnumHand.MAIN_HAND) {
             ItemStack target = player.getHeldItemOffhand();
-            boolean valid = definition.repairGun && target.getItem() instanceof GunItem
+            boolean valid = definition.repairGun && ru.metrocraft.port.inventory.LoadoutRules.firearm(target)
                     || definition.repairArmor && target.getItem() instanceof MetroArmor;
             if (valid && target.isItemDamaged()) {
                 target.setItemDamage(0);

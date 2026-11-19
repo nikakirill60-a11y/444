@@ -10,7 +10,7 @@ def report():
  removed=set(['testpickaxe','blackrazid_wide_rails','blackrazid_wide_rail','blackrazid_rail_proxy','blackrazid_tunnels','blackrazid_tunnel','blackrazid_tunnel_proxy','blackrazid_faction_teleport'])
  geometry=set()
  for e in read('content.json'):
-  if e['kind'] in ['gun','ammo','attachment'] or e.get('repairGun'):
+  if e['kind'] in ['gun','ammo','attachment'] or (e.get('repairGun') and e['id']!='remkomplekt'):
    removed.add(e['id'])
    if e.get('model'):geometry.add('assets/metroport/geometry/'+e['model']+'.json')
  for name in ['mcmod_guns.json','mcmod_firearms.json','blackrazid_weapons.json','blackrazid_modules.json','mcmod_decor.json']:
@@ -25,7 +25,7 @@ def report():
   if e['id'] in removed:exclude.add('assets/metroport/models/'+e['model']+'.json')
  for p in ['models/blackrazid/weapons','textures/blackrazid/weapons','models/mcmod/guns','textures/mcmod/guns','models/mcmod/decor','models/block/mcmod_decor','textures/mcmod/decor','models/blackrazid/rails','textures/blackrazid/rails','models/blackrazid/tunnels','textures/blackrazid/tunnels','textures/mcmod/mods_gui','textures/scopes']:
   exclude.add('assets/metroport/'+p+'/**')
- return dict(decision='Own firearms/ammo/magazines/modules removed; retain machete/grenades, cube blocks/gates, both watches and independent lamp/native-backpack slots.',removedIds=sorted(removed),jarExcludes=sorted(exclude),retainedSpecialItems=['mcmod_machete','blackrazid_grenade','blackrazid_grenade_big','mcmod_watch','blackrazid_watch','blackrazid_lamp','blackrazid_power','blackrazid_flyashka'],decorCubeIds=['block'+str(i) for i in range(58)])
+ return dict(decision='Own firearms/ammo/magazines/modules removed; retain machete/grenades, cube blocks, lever-only decor catalogue, weapon repair kit, both watches and independent lamp/native-backpack slots.',removedIds=sorted(removed),jarExcludes=sorted(exclude),retainedSpecialItems=['mcmod_machete','blackrazid_grenade','blackrazid_grenade_big','mcmod_watch','blackrazid_watch','blackrazid_lamp','blackrazid_power','blackrazid_flyashka'],decorCubeIds=['block'+str(i) for i in range(58)])
 def main():
  data=report();(A/'reduced_scope.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n');print(len(data['removedIds']),'retired IDs;',len(data['jarExcludes']),'JAR exclusions')
 if __name__=='__main__':main()

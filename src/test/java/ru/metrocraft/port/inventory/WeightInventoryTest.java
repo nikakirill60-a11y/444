@@ -77,4 +77,48 @@ public class WeightInventoryTest {
         c.slotClick(0,0,ClickType.PICKUP,p);assertTrue(c.storage.isEmpty());assertEquals(2,p.inventory.getItemStack().getCount());
         assertTrue(new BackpackStorage(bag,null).isEmpty());
     }
+    @Test public void exactOverloadThresholdIsRelativeToCapacityNotTotalWeight(){
+        for(long capacity:new long[]{10000,12000,40000}){
+            assertEquals(0,CarryWeight.movementPenalty(capacity-1,capacity),0);
+            assertEquals(0,CarryWeight.movementPenalty(capacity,capacity),0);
+            assertEquals(-.5,CarryWeight.movementPenalty(capacity+1,capacity),0);
+            assertEquals(-.5,CarryWeight.movementPenalty(capacity+9999,capacity),0);
+            assertEquals(-1,CarryWeight.movementPenalty(capacity+10000,capacity),0);
+            assertEquals(-1,CarryWeight.movementPenalty(capacity+10001,capacity),0);
+        }
+    }
+    @Test public void overloadModifierChangesWithoutStackingAndIsRemovedOnUnloading(){
+        EntityPlayer p=mock(EntityPlayer.class);
+        net.minecraft.entity.ai.attributes.IAttributeInstance speed=new net.minecraft.entity.ai.attributes.AttributeMap()
+                .registerAttribute(net.minecraft.entity.SharedMonsterAttributes.MOVEMENT_SPEED);
+        speed.setBaseValue(.1);
+        when(p.getEntityAttribute(net.minecraft.entity.SharedMonsterAttributes.MOVEMENT_SPEED)).thenReturn(speed);
+        CarryWeight.applyMovement(p,-.5);assertEquals(.05,speed.getAttributeValue(),1e-9);
+        CarryWeight.applyMovement(p,-.5);assertEquals(1,speed.getModifiers().size());
+        p.motionX=.4;p.motionZ=.3;p.motionY=.42;
+        CarryWeight.applyMovement(p,-1);assertEquals(0,speed.getAttributeValue(),0);
+        assertEquals(0,p.motionX,0);assertEquals(0,p.motionZ,0);assertEquals(0,p.motionY,0);
+        p.motionY=-.2;CarryWeight.applyMovement(p,-1);assertEquals(-.2,p.motionY,0);
+        CarryWeight.applyMovement(p,0);assertEquals(.1,speed.getAttributeValue(),1e-9);assertTrue(speed.getModifiers().isEmpty());
+    }
+    @Test public void retiredLegAndBootDestinationsRejectItemsButKeepOtherNetworkIds()throws Exception{
+        Player p=player();MetroContainer c=new MetroContainer(p);
+        assertFalse(c.getSlot(3).isEnabled());assertFalse(c.getSlot(4).isEnabled());
+        assertFalse(c.getSlot(3).isItemValid(new ItemStack(Items.IRON_LEGGINGS)));
+        assertFalse(c.getSlot(4).isItemValid(new ItemStack(Items.IRON_BOOTS)));
+        assertTrue(c.getSlot(1).isItemValid(new ItemStack(Items.IRON_HELMET)));
+        assertTrue(c.getSlot(2).isItemValid(new ItemStack(Items.IRON_CHESTPLATE)));
+        assertEquals(46,c.inventorySlots.size());assertEquals(0,c.getSlot(33).getSlotIndex());
+    }
+    @Test public void oldLegItemsMoveExactlyOnceWithoutChangingTheirNbt()throws Exception{
+        Player p=player();ItemStack legs=new ItemStack(Items.IRON_LEGGINGS),boots=new ItemStack(Items.IRON_BOOTS);
+        legs.setStackDisplayName("saved equipment");p.inventory.armorInventory.set(1,legs);p.inventory.armorInventory.set(0,boots);
+        EquipmentRules.retireLegSlots(p);assertTrue(p.inventory.armorInventory.get(0).isEmpty());assertTrue(p.inventory.armorInventory.get(1).isEmpty());
+        assertSame(legs,p.inventory.mainInventory.get(9));assertSame(boots,p.inventory.mainInventory.get(10));
+        EquipmentRules.retireLegSlots(p);assertTrue(p.inventory.mainInventory.get(11).isEmpty());assertEquals("saved equipment",legs.getDisplayName());
+    }
+    @Test public void loosePatchWeightScalesWithStackSize(){
+        ItemStack patch=new ItemStack(new ru.metrocraft.port.patches.FactionPatchItem("sparta"),5);
+        assertEquals(100,ItemMetrics.unitGrams(patch));assertEquals(500,ItemMetrics.grams(patch));
+    }
 }

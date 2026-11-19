@@ -90,6 +90,13 @@
       "rarity": "common",
       "width": 2,
       "height": 2
+    },
+    "patch": {
+      "grams": 100,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 1
     }
   },
   "items": {
@@ -1142,6 +1149,34 @@
       "rarity": "common",
       "width": 2,
       "height": 2
+    },
+    "metroport:armorrem": {
+      "grams": 3000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 1
+    },
+    "metroport:remkomplekt": {
+      "grams": 3000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 1
+    },
+    "metroport:kanistra": {
+      "grams": 6000,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 1
+    },
+    "metroport:mcmod_watch": {
+      "grams": 150,
+      "capacityGrams": 0,
+      "rarity": "epic",
+      "width": 1,
+      "height": 1
     }
   }
 }

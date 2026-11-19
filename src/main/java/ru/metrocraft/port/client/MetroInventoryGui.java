@@ -81,7 +81,6 @@ public final class MetroInventoryGui extends GuiContainer {
         switch(slot){
             case 0:return "metroport.inventory.legacy_bag";
             case 1:return "metroport.inventory.helmet";case 2:return "metroport.inventory.armor";
-            case 3:return "metroport.inventory.legs";case 4:return "metroport.inventory.feet";
             case 5:return "metroport.inventory.offhand";case 33:return "metroport.inventory.weapon1";
             case 34:return "metroport.inventory.weapon2";case 35:return "metroport.inventory.melee";
             case 42:return "metroport.nvg.slot";case 43:return "metroport.watch.slot";

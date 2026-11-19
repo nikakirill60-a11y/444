@@ -3,7 +3,7 @@
   "packSha256": "5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f",
   "counts": {
     "weapons": 28,
-    "items": 104,
+    "items": 105,
     "armor": 110,
     "mutants": 18
   },
@@ -242,6 +242,7 @@
     "/assets/wiki/reichhelmet2.png": "478f3d6621f997e4a90f21f88d5cf7b07fee2733e60b03fc15c7f630b6195d0b",
     "/assets/wiki/reichla.png": "627878e653fe57302321a884ffa290bf5329a958ce837dfa1cf8814ca5615221",
     "/assets/wiki/rem.png": "c89efe0f87529b6863e9a924c86d66530c6e037041c477b2a90af003f289f259",
+    "/assets/wiki/remkomplekt.png": "e1080770d56ccf9057ba989ddfac873d75cae891b92f6670604be7e057c78e98",
     "/assets/wiki/satanarmor.png": "6090c09c2b351b594a7fc6889f0bea5e679f11539a09292ca79c7451cc19d151",
     "/assets/wiki/smallrucksack.png": "9afca14b2f5e5260283cbf6b211fe2e2acd2d444c2eeb40cd630c71bfe52be2c",
     "/assets/wiki/standarthelmet.png": "e5a1ed78981765012af690b77fd5e35c78a493b337b6de3e02c61dba57cc8438",

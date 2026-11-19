@@ -46,7 +46,7 @@ class EquipmentAndDecorTests(unittest.TestCase):
         self.assertIn('new Slot(nvg,0,140,18)',container);self.assertIn('NvgEquipment.accepts(stack)',container)
         self.assertLess(container.index('for(int i=0;i<9;i++)'),container.index('new Slot(nvg,0,140,18)'))
         main=(JAVA/'MetroPort.java').read_text();self.assertIn('NvgSyncPacket.class,4,Side.CLIENT',main)
-        client=(JAVA/'ClientEvents.java').read_text();self.assertIn('Keyboard.KEY_I',client);self.assertIn('new ru.metrocraft.port.client.NvgLayer',client)
+        client=(JAVA/'ClientEvents.java').read_text();self.assertIn('Keyboard.KEY_I',client);self.assertIn('EquipmentLayers.install(playerRenderer)',client);self.assertIn('new NvgLayer(renderer)',(JAVA/'client/EquipmentLayers.java').read_text())
 
     def test_suit_guards_cover_direct_use_containers_and_server_bypasses(self):
         rules=(JAVA/'inventory/EquipmentRules.java').read_text()

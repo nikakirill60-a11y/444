@@ -14,6 +14,7 @@ public final class OriginalGateProfile {
     public String id, source, name_ru;
     public String kind="Germo";
     public boolean is(String value) { return value.equals(kind); }
+    public boolean flipped(){return DecorAvailability.flipped(this);}
     public float step;
     public double ground;
     private double legacyGround;
@@ -65,6 +66,11 @@ public final class OriginalGateProfile {
                 if(layout.has(p.id)) {
                     JsonObject fix=layout.getAsJsonObject(p.id);
                     if(fix.has("offset"))p.offset=new Gson().fromJson(fix.get("offset"),double[].class);
+                    if(p.flipped()){
+                        p.offset[0]=-p.offset[0];
+                        // After 180-degree yaw the old maximum is the new wall-facing body plane.
+                        p.offset[2]=-.498+fix.getAsJsonArray("body_bounds").get(5).getAsDouble();
+                    }
                     if(p.offset.length!=3)throw new IOException("Invalid layout offset");
                     for(double v:p.offset)if(!Double.isFinite(v) || Math.abs(v)>8)throw new IOException("Invalid layout offset");
                     if(fix.has("solid_parts"))for(Map.Entry<String,JsonElement> entry:fix.getAsJsonObject("solid_parts").entrySet())
@@ -120,8 +126,10 @@ public final class OriginalGateProfile {
                 double[] box={Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY,
                         Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY};
                 for(int mask=0;mask<8;mask++)for(int axis=0;axis<3;axis++) {
-                    double value=m[axis*4+3]+offset[axis]+(axis==1?ground:0);
+                    double value=m[axis*4+3];
                     for(int k=0;k<3;k++)value+=m[axis*4+k]*b[k+((mask&(1<<k))!=0?3:0)];
+                    if(flipped() && axis!=1)value=-value;
+                    value+=offset[axis]+(axis==1?ground:0);
                     box[axis]=Math.min(box[axis],value);box[axis+3]=Math.max(box[axis+3],value);
                 }
                 // The authored wall-facing body plane, not the quarter-voxel

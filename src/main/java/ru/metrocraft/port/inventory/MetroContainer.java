@@ -14,6 +14,7 @@ public final class MetroContainer extends Container {
     private final ItemStack[] observed=new ItemStack[PackingGrid.RECORDS+1];
     public MetroContainer(EntityPlayer player) {
         owner=player;java.util.Arrays.fill(gridPositions,-1);java.util.Arrays.fill(observed,ItemStack.EMPTY);
+        if(!player.world.isRemote)EquipmentRules.retireLegSlots(player);
         ExtraEquipment.migrateLegacyBackpack(player);
         bag=Backpacks.inventory(player);nvg=NvgEquipment.inventory(player);watch=WatchEquipment.inventory(player);
         lamp=ExtraEquipment.inventory(player,ExtraEquipment.Kind.LAMP);nativeBag=ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK);
@@ -27,7 +28,8 @@ public final class MetroContainer extends Container {
             addSlotToContainer(new Slot(player.inventory,39-i,44,7+i*18) {
                 @Override public int getSlotStackLimit(){return 1;}
                 @Override public boolean isItemValid(ItemStack stack){return EquipmentRules.allowed(player,type,stack)&&stack.getItem().isValidArmor(stack,type,player);}
-                @Override public boolean canTakeStack(EntityPlayer actor){return actor.capabilities.isCreativeMode || !net.minecraft.enchantment.EnchantmentHelper.hasBindingCurse(getStack());}
+                @Override public boolean isEnabled(){return type!=EntityEquipmentSlot.LEGS && type!=EntityEquipmentSlot.FEET;}
+                @Override public boolean canTakeStack(EntityPlayer actor){return isEnabled() && (actor.capabilities.isCreativeMode || !net.minecraft.enchantment.EnchantmentHelper.hasBindingCurse(getStack()));}
             });
         }
         addSlotToContainer(new Slot(player.inventory,40,120,61));
@@ -61,7 +63,7 @@ public final class MetroContainer extends Container {
         addSlotToContainer(extraSlot(nativeBag,ExtraEquipment.Kind.BLACKRAZID_BACKPACK,184,54));
         // Preserve all 46 network slot IDs; grid cells use separately validated coordinate actions.
         position(0,104,104);
-        position(1,8,42);position(2,8,73);position(3,8,104);position(4,38,104);position(5,134,104);
+        position(1,8,42);position(2,8,73);position(3,-10000,-10000);position(4,-10000,-10000);position(5,134,104);
 
         position(33,14,141);position(34,14,178);position(35,134,42);
         for(int i=3;i<9;i++)position(33+i,170+(i-3)*22,184);

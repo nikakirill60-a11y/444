@@ -102,7 +102,7 @@ public final class NvgEquipment {
         EntityPlayer player=event.player;
         if(event.phase!=TickEvent.Phase.END || player.world.isRemote)return;
         finishPendingEquip(player);
-        if(player.ticksExisted==1 || player.ticksExisted==20)set(player,get(player));
+        if(player.ticksExisted==1 || player.ticksExisted%40==0)set(player,get(player));
         if(!player.isEntityAlive())return;
         PotionEffect current=player.getActivePotionEffect(MobEffects.NIGHT_VISION);
         boolean owned=player.getEntityData().getBoolean(VISION);

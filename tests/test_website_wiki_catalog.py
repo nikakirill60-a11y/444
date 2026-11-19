@@ -19,10 +19,10 @@ class WikiCatalogTest(unittest.TestCase):
         cls.html = (SITE/'wiki.html').read_text()
 
     def test_counts_and_unique_full_ids(self):
-        self.assertEqual(self.data['counts'], {'weapons': 28, 'items': 104, 'armor': 110, 'mutants': 18})
+        self.assertEqual(self.data['counts'], {'weapons': 28, 'items': 105, 'armor': 110, 'mutants': 18})
         for category, count in self.data['counts'].items():
             self.assertIn(f'data-count="{category}">{count}</span>', self.html)
-        self.assertEqual(len(self.entries), 260)
+        self.assertEqual(len(self.entries), 261)
         self.assertEqual(len(self.byid), len(self.entries))
         self.assertEqual(sum(e['id'].startswith('modularwarfare:') for e in self.entries), 84)
         self.assertEqual(sum(e['category']=='weapons' and e['id'].startswith('modularwarfare:') for e in self.entries), 25)
@@ -32,7 +32,7 @@ class WikiCatalogTest(unittest.TestCase):
                          'blackrazid_mutants', 'metromod_consumables', 'metromod_medical_materials'):
             for row in load(filename): self.assertIn('metroport:'+row['id'], self.byid, filename)
         for d in load('content'):
-            active = d['kind'] not in ('gun','ammo','attachment') and not d.get('repairGun')
+            active = d['kind'] not in ('gun','ammo','attachment') and not (d.get('repairGun') and d['id']!='remkomplekt')
             self.assertEqual('metroport:'+d['id'] in self.byid, active, d['id'])
         self.assertEqual(len([e for e in self.entries if e['group']=='Рюкзаки']), 6)
         self.assertEqual(len([e for e in self.entries if e['group']=='Нашивки']), 11)
@@ -98,7 +98,7 @@ class WikiCatalogTest(unittest.TestCase):
                 file = SITE/e['image'].lstrip('/')
                 self.assertTrue(file.is_file())
                 self.assertEqual(hashlib.sha256(file.read_bytes()).hexdigest(), manifest['icons'][e['image']])
-        self.assertEqual(len(manifest['icons']), 241)
+        self.assertEqual(len(manifest['icons']), 242)
         self.assertNotIn('МАТЕРИАЛЫ ГОТОВЯТСЯ', self.html)
         self.assertIn('Без иллюстрации', self.html)
 

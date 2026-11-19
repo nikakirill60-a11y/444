@@ -24,9 +24,9 @@ class WeaponRarities(unittest.TestCase):
             with self.subTest(gun=gun):self.assertEqual(tier,items['modularwarfare:metro_'+gun]['rarity'])
     def test_unlisted_akk_keeps_rare(self):
         self.assertEqual('rare',json.loads(BALANCE.read_text())['items']['modularwarfare:metro_akk']['rarity'])
-    def test_only_firearm_rarity_changes_not_armor_weight_dimensions_or_capacity(self):
+    def test_approved_dev37_balance_and_unchanged_armor_dimensions_capacity(self):
         data=json.loads(BALANCE.read_text())
         for id,profile in data['items'].items():
             if id.startswith('modularwarfare:metro_'):profile.pop('rarity',None)
         actual=hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':')).encode()).hexdigest()
-        self.assertEqual('22ac898f44243ed102a60b9a52d14957d4031ab75c45cb721b24b5cc5534cad6',actual)
+        self.assertEqual('dc7bfaa048eba70cae7918f78af54ab8f40ff186414af3d6951caf04ddf1feee',actual)
