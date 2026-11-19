@@ -77,8 +77,7 @@ public final class ExtraEquipment {
         if(player.world.isRemote || player.openContainer instanceof ru.metrocraft.port.blackrazid.BackpackContainer)return;
         ItemStack old=Backpacks.get(player);if(!Backpacks.accepts(old) || !get(player,Kind.BLACKRAZID_BACKPACK).isEmpty())return;
         Backpacks.set(player,ItemStack.EMPTY); // Remove original BEFORE delivering its single copy.
-        if(get(player,Kind.BLACKRAZID_BACKPACK).isEmpty())set(player,Kind.BLACKRAZID_BACKPACK,old);
-        else {player.inventory.addItemStackToInventory(old);if(!old.isEmpty())player.dropItem(old,false);}
+        set(player,Kind.BLACKRAZID_BACKPACK,old);
     }
     private static void sync(EntityPlayer p){for(Kind kind:Kind.values())set(p,kind,get(p,kind));}
     @SubscribeEvent public static void login(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent e){migrateLegacyBackpack(e.player);sync(e.player);}

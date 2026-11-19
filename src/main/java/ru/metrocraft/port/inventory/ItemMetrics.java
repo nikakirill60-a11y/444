@@ -22,6 +22,7 @@ public final class ItemMetrics {
         }catch(IOException e){throw new IllegalStateException("Missing inventory balance",e);}
     }
     public static String id(ItemStack s){return s.isEmpty()||s.getItem().getRegistryName()==null?"":s.getItem().getRegistryName().toString();}
+    public static boolean currency(ItemStack stack){return id(stack).equals("metroport:mcmod_money5") || id(stack).equals("metroport:fivearmyrounds");}
     public static Profile profile(ItemStack stack){
         Profile exact=TABLE.items.get(id(stack));if(exact!=null)return exact;
         String category="item";
@@ -33,8 +34,8 @@ public final class ItemMetrics {
             else if(NvgEquipment.accepts(stack))category="nvg";
             else if(item instanceof ItemArmor)category=((ItemArmor)item).armorType==EntityEquipmentSlot.CHEST?"armor":"helmet";
             else if(WatchEquipment.accepts(stack))category="watch";
-            else if(name.contains("bullet")||id.contains("ammo")||id.contains("round"))category="ammunition";
             else if(name.contains("ammotype")||name.contains("ammoitem")||name.equals("itemammo")||name.contains("magazine"))category="magazine";
+            else if(name.contains("bullet")||id.contains("ammo")||id.contains("round"))category="ammunition";
             else if(name.contains("attachment"))category="attachment";
             else if(item instanceof ItemFood)category="food";
             else if(item instanceof ItemBlock)category="block";

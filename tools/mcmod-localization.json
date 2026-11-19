@@ -99,7 +99,8 @@
     "metroport.rarity.rare": "Редкий",
     "metroport.rarity.epic": "Эпический",
     "metroport.rarity.legendary": "Легендарный",
-    "metroport.rarity.mythic": "Мифический"
+    "metroport.rarity.mythic": "Мифический",
+    "metroport.inventory.overloaded": "Перегруз: скорость −50%, бег недоступен. Разгрузите вещи."
   },
   "en_us": {
     "metroport.mcmod.armor.whole": "Full suit — chest slot",
@@ -201,6 +202,7 @@
     "metroport.rarity.rare": "Rare",
     "metroport.rarity.epic": "Epic",
     "metroport.rarity.legendary": "Legendary",
-    "metroport.rarity.mythic": "Mythic"
+    "metroport.rarity.mythic": "Mythic",
+    "metroport.inventory.overloaded": "Overloaded: speed -50%, sprint disabled. Unload some items."
   }
 }

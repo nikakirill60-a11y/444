@@ -467,6 +467,7 @@ metroport.rarity.rare=Rare
 metroport.rarity.epic=Epic
 metroport.rarity.legendary=Legendary
 metroport.rarity.mythic=Mythic
+metroport.inventory.overloaded=Overloaded: speed -50%, sprint disabled. Unload some items.
 tile.metroport.metromod_light_columnes_round_column_svetilnik.name=columnes/round column svetilnik [METRO_MOD]
 tile.metroport.metromod_door_constr_metal_grate1_door.name=constr metal/grate1 door [METRO_MOD]
 tile.metroport.metromod_germo_3.name=germo/germo3 [METRO_MOD]

@@ -40,6 +40,8 @@ public final class BackpackContainer extends Container {
     @Override public ItemStack slotClick(int index,int drag,ClickType type,EntityPlayer player){
         if(!canInteractWith(player))return ItemStack.EMPTY;
         if(type==ClickType.SWAP && drag==heldIndex)return ItemStack.EMPTY;
+        if(type==ClickType.SWAP && drag>=0 && drag<9 && index>=0 && index<inventorySlots.size()
+                && !LoadoutRules.accepts(drag,inventorySlots.get(index).getStack()))return ItemStack.EMPTY;
         if(index>=0&&index<inventorySlots.size()){
             Slot slot=inventorySlots.get(index);if(slot.inventory==owner.inventory&&slot.getSlotIndex()==heldIndex)return ItemStack.EMPTY;
         }

@@ -467,6 +467,7 @@ metroport.rarity.rare=Редкий
 metroport.rarity.epic=Эпический
 metroport.rarity.legendary=Легендарный
 metroport.rarity.mythic=Мифический
+metroport.inventory.overloaded=Перегруз: скорость −50%, бег недоступен. Разгрузите вещи.
 tile.metroport.metromod_light_columnes_round_column_svetilnik.name=Колонна светильники (колонна) [METRO_MOD]
 tile.metroport.metromod_door_constr_metal_grate1_door.name=Дверь для стены (дверь) [METRO_MOD]
 tile.metroport.metromod_germo_3.name=Гермоворота (гермо) [METRO_MOD]

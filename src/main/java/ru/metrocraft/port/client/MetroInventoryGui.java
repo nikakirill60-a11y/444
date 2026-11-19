@@ -25,6 +25,8 @@ public final class MetroInventoryGui extends GuiContainer {
     }
     @Override public void drawScreen(int x,int y,float tick){
         drawDefaultBackground();super.drawScreen(x,y,tick);renderHoveredToolTip(x,y);
+        if(CarryWeight.carried(player)>CarryWeight.capacity(player) && isPointInRegion(8,205,148,20,x,y))
+            drawHoveringText(java.util.Collections.singletonList(I18n.format("metroport.inventory.overloaded")),x,y);
         for(Slot slot:inventorySlots.inventorySlots)if(!slot.getHasStack() && isPointInRegion(slot.xPos,slot.yPos,16,16,x,y)){
             String key=label(slot.slotNumber);if(key!=null)drawHoveringText(java.util.Collections.singletonList(I18n.format(key)),x,y);
         }
