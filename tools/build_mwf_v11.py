@@ -168,7 +168,14 @@ def patch_runtime(args):
  stubs=work/'stubs';helpers=work/'helpers';tests=work/'tests'
  for p in [stubs,helpers,tests]:p.mkdir(exist_ok=True)
  def run(*cmd):subprocess.run(list(map(str,cmd)),check=True)
- facades=support.materialize(work/'stub-sources');run('javac','--release','8','-proc:none','-d',stubs,*facades)
+ facades=support.materialize(work/'stub-sources')
+ # Motion packet regression requires a sequential byte/int buffer, not the single-byte pump fixture.
+ (work/'stub-sources/io/netty/buffer/ByteBuf.java').write_text('''package io.netty.buffer; public class ByteBuf {
+ private final java.nio.ByteBuffer b=java.nio.ByteBuffer.allocate(1024); private int read;
+ public ByteBuf writeByte(int n){b.put((byte)n);return this;}public byte readByte(){return b.get(read++);}
+ public short readUnsignedByte(){return(short)(readByte()&255);}public ByteBuf writeInt(int n){b.putInt(n);return this;}
+ public int readInt(){int v=b.getInt(read);read+=4;return v;}}''')
+ run('javac','--release','8','-proc:none','-d',stubs,*facades)
  cp=os.pathsep.join(map(str,[stubs,args.jar]));src=ROOT/'tools/mwf-mechanics/src/ru/metrocraft/mwf'
  run('javac','--release','8','-proc:none','-cp',cp,'-d',helpers,*[src/(n+'.java') for n in ['MechanicsRules','MechanicsHooks','AttachmentTransactions']])
  jarfiles=readzip(args.jar);assert sha(args.jar.read_bytes())=='240cf48fd2265104648de7ec0e3f56865aa4c1aa2ada7547dee0c63c5a50e3ab'
@@ -181,7 +188,7 @@ def patch_runtime(args):
  out=args.output/JAR;writezip(out,jarfiles)
  backend=support.materialize(work/'backend',True);cp=os.pathsep.join(map(str,[tests,stubs,out]))
  test=ROOT/'tools/metro-guns2/DupletVariantTest.java'
- run('javac','--release','8','-proc:none','-cp',cp,'-d',tests,*backend,ROOT/'tools/mwf-mechanics/tests/MechanicsTest.java',test)
+ run('javac','--release','8','-proc:none','-cp',cp,'-d',tests,*backend,ROOT/'tools/mwf-mechanics/tests/MechanicsTest.java',ROOT/'tools/mwf-motion/tests/MotionTest.java',ROOT/'tools/mwf-v10/AshotPoseTest.java',test)
  # Native ammo methods are injected for isolated tests; never ship these test classes.
  # Use JDK17's bundled ASM only for test fixtures; helper bytecode remains Java8.
  tool=work/'tool';tool.mkdir(exist_ok=True)
@@ -190,9 +197,17 @@ def patch_runtime(args):
  exports=['--add-exports=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED','--add-exports=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED']
  run('javac',*exports,'-d',tool,native)
  run('java',*exports,'-cp',tool,'NativeTestMethods',out,tests)
- run('java','-Xverify:all','-cp',cp,'ru.metrocraft.mwf.DupletVariantTest')
+ logs=[]
+ profiles=json.loads(jarfiles[P+'metro_motion.json'])
+ for name in ('DupletVariantTest','MotionTest','AshotPoseTest'):
+  params=[] if name!='AshotPoseTest' else [str(v) for side in ('Left','Right') for v in profiles['metroMotionAshot'+side]['matrix']]
+  result=subprocess.run(['java','-Xverify:all','-cp',cp,'ru.metrocraft.mwf.'+name,*params],check=True,text=True,capture_output=True)
+  print(result.stdout,flush=True);logs.append(result.stdout)
+ (args.output/'MWF_V11_native_tests.txt').write_text(''.join(logs)+'Tests use isolated API facades, NOT a live game.\n')
  original=readzip(args.jar)
  assert set(jarfiles)==set(original),'No compile facade or test classes may ship'
+ assert {n for n in original if jarfiles[n]!=original[n]}<=set(replaced)|{version},'Unrelated runtime bytecode/resources must remain unchanged'
+ for n in replaced:assert jarfiles[n][:8]==bytes.fromhex('cafebabe00000034'),'Java8 helper target'
  return out,replaced
 
 def verify(files,old,report):
