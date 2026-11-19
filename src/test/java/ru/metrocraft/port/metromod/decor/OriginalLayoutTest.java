@@ -103,7 +103,7 @@ public class OriginalLayoutTest {
             if(DecorAvailability.published(p))published++;
             if(p.flipped())flipped++;
             OriginalGateBlock block=new OriginalGateBlock(p);
-            assertEquals(p.is("Lever")?ru.metrocraft.port.MetroPort.DECOR:null,block.getCreativeTab());
+            assertEquals(p.is("Lever")?ru.metrocraft.port.MetroPort.DECOR:null,new OriginalGateItem(block).getCreativeTab());
             assertEquals(!p.is("Lever"),DecorAvailability.blocked(new ItemStack(new OriginalGateItem(block))));
         }
         assertEquals(6,published);assertEquals(3,flipped);

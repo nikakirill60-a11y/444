@@ -51,4 +51,10 @@ public class FactionPatchesTest {
         NBTTagCompound bogus=new ItemStack(Items.DIAMOND).writeToNBT(new NBTTagCompound());
         loaded.getTagCompound().setTag("MetroFactionPatch",bogus);assertTrue(FactionPatches.get(loaded).isEmpty());
     }
+    @Test public void attachedPatchStillAddsOneHundredGramsToArmor(){
+        ItemStack armor=armor();long base=ru.metrocraft.port.inventory.ItemMetrics.grams(armor);
+        FactionPatches.attach(armor,new ItemStack(satan,12));
+        assertEquals(base+100,ru.metrocraft.port.inventory.ItemMetrics.grams(armor));
+        FactionPatches.detach(armor);assertEquals(base,ru.metrocraft.port.inventory.ItemMetrics.grams(armor));
+    }
 }
