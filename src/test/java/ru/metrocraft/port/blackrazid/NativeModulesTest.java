@@ -74,13 +74,18 @@ public class NativeModulesTest {
         for(int i=1;i<36;i++)p.inventory.setInventorySlotContents(i,new ItemStack(net.minecraft.init.Items.STICK));
         assertFalse(BlackrazidModules.change(p,s,3,0));assertTrue(BlackrazidModules.has(s,3,"Butt"));verify(p,never()).dropItem(any(ItemStack.class),anyBoolean());
     }
-    @Test public void noMissingInaccessibleWrongSocketStackedOrOutOfBoundsInstall()throws Exception{
+    @Test public void noMissingArmorOnlyWrongSocketStackedOrOutOfBoundsInstall()throws Exception{
         EntityPlayer p=player(false);ItemStack s=held(p,"revolver");open(p);assertFalse(BlackrazidModules.change(p,s,3,choice("Butt")));
-        p.inventory.setInventorySlotContents(35,part("Butt"));assertFalse(BlackrazidModules.change(p,s,3,choice("Butt")));
+        p.inventory.setInventorySlotContents(39,part("Butt"));assertFalse(BlackrazidModules.change(p,s,3,choice("Butt")));
         p.inventory.setInventorySlotContents(1,part("Butt"));assertFalse(BlackrazidModules.change(p,s,2,choice("Butt")));
         p.inventory.getStackInSlot(1).setCount(2);assertFalse(BlackrazidModules.change(p,s,3,choice("Butt")));
         for(int n:new int[]{-1,5,255})assertFalse(BlackrazidModules.change(p,s,n,choice("Butt")));
         for(int n:new int[]{-1,29,255})assertFalse(BlackrazidModules.change(p,s,3,n));assertFalse(s.hasTagCompound());
+    }
+    @Test public void lastStorageCellIsAccessibleWithoutAnyBackpack()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=held(p,"revolver");open(p);
+        p.inventory.setInventorySlotContents(35,part("Butt"));assertTrue(BlackrazidModules.change(p,s,3,choice("Butt")));
+        assertTrue(p.inventory.getStackInSlot(35).isEmpty());assertTrue(BlackrazidModules.has(s,3,"Butt"));
     }
     @Test public void tamperedNBTWrongItemCountSocketAndNonGunProduceNoEffects(){
         ItemStack s=new ItemStack(item("revolver"));NBTTagCompound root=new NBTTagCompound(),mods=new NBTTagCompound();

@@ -71,11 +71,17 @@ public class NativeWeaponsTest {
         }
         EntityPlayer p=player(false);ItemStack s=magazine("ak_ammo",3);hold(p,s);p.inventory.setInventorySlotContents(1,new ItemStack(item("bullet5x45"),9));assertFalse(mag("ak_ammo").fillOne(s.copy(),p));
     }
-    @Test public void lockedInventoryAndArmorNotUsedForRounds()throws Exception{
+    @Test public void allStorageRowsCanSupplyRoundsWithoutABackpack()throws Exception{
         EntityPlayer p=player(false);ItemStack s=magazine("ak_ammo",0);hold(p,s);
-        p.inventory.setInventorySlotContents(9,new ItemStack(item("bullet5x45")));p.inventory.setInventorySlotContents(39,new ItemStack(item("bullet5x45")));
+        p.inventory.setInventorySlotContents(35,new ItemStack(item("bullet5x45")));
+        assertTrue(mag("ak_ammo").fillOne(s,p));assertEquals(1,mag("ak_ammo").rounds(s));assertTrue(p.inventory.getStackInSlot(35).isEmpty());
+    }
+    @Test public void armorCannotSupplyRoundsButOffhandStillCan()throws Exception{
+        EntityPlayer p=player(false);ItemStack s=magazine("ak_ammo",0);hold(p,s);
+        p.inventory.setInventorySlotContents(39,new ItemStack(item("bullet5x45")));
         assertFalse(mag("ak_ammo").fillOne(s,p));assertEquals(0,mag("ak_ammo").rounds(s));
         p.inventory.setInventorySlotContents(40,new ItemStack(item("bullet5x45")));assertTrue(mag("ak_ammo").fillOne(s,p));assertEquals(1,mag("ak_ammo").rounds(s));assertTrue(p.inventory.getStackInSlot(40).isEmpty());
+        assertEquals(1,p.inventory.getStackInSlot(39).getCount());
     }
     @Test public void fuelCannotBeRefilledUsingConstructorRoundDependency()throws Exception{
         EntityPlayer p=player(false);ItemStack s=magazine("ognemet_ammo",23);hold(p,s);p.inventory.setInventorySlotContents(1,new ItemStack(item("bullet12_7x55"),10));assertFalse(mag("ognemet_ammo").fillOne(s,p));assertEquals(23,mag("ognemet_ammo").rounds(s));assertEquals(10,p.inventory.getStackInSlot(1).getCount());
@@ -111,7 +117,7 @@ public class NativeWeaponsTest {
     }
     @Test public void fullInventoryRetainsMagazineWithoutAnyTossOrNoDropCallback()throws Exception{
         EntityPlayer p=player(false);ItemStack s=new ItemStack(item("ak"));hold(p,s);ItemStack retained=magazine("ak_ammo",14);retained.getTagCompound().setBoolean("NoDrop",true);p.inventory.setInventorySlotContents(1,retained);gun("ak").insertMagazine(s,p);
-        for(int i=1;i<9;i++)p.inventory.setInventorySlotContents(i,new ItemStack(Items.STICK));assertFalse(gun("ak").ejectMagazine(s,p));assertEquals(14,gun("ak").ammo(s));assertTrue(p.inventory.getStackInSlot(9).isEmpty());
+        for(int i=1;i<36;i++)p.inventory.setInventorySlotContents(i,new ItemStack(Items.STICK));assertFalse(gun("ak").ejectMagazine(s,p));assertEquals(14,gun("ak").ammo(s));assertFalse(p.inventory.getStackInSlot(9).isEmpty());
         assertFalse(gun("ak").ejectMagazine(s,p));verify(p,never()).dropItem(any(ItemStack.class),anyBoolean());
         assertEquals(14,gun("ak").ammo(s));p.inventory.setInventorySlotContents(1,ItemStack.EMPTY);assertTrue(gun("ak").ejectMagazine(s,p));assertEquals(14,mag("ak_ammo").rounds(p.inventory.getStackInSlot(1)));assertFalse(gun("ak").ejectMagazine(s,p));
     }
