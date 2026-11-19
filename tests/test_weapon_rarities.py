@@ -26,6 +26,9 @@ class WeaponRarities(unittest.TestCase):
         self.assertEqual('rare',json.loads(BALANCE.read_text())['items']['modularwarfare:metro_akk']['rarity'])
     def test_approved_dev39_balance_and_unchanged_armor_dimensions_capacity(self):
         data=json.loads(BALANCE.read_text())
+        # New requested IDs are tested separately; preserve every pre-existing entry exactly.
+        for id in ['metro_army_ak','metro_ubludok_old','metro_stallion','metro_duplet_2','metro_ubludok_old_ammo']:
+            data['items'].pop('modularwarfare:'+id,None)
         for id,profile in data['items'].items():
             if id.startswith('modularwarfare:metro_'):profile.pop('rarity',None)
         actual=hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':')).encode()).hexdigest()

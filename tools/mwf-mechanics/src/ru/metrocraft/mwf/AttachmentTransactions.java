@@ -32,7 +32,7 @@ public final class AttachmentTransactions {
         catch(Refusal x){tell(e.player,x.getMessage());}
         catch(Exception x){LOG.warning("Attachment operation refused: "+x);tell(e.player,"Дуплет: снятие обвеса отменено. Смотри лог сервера.");}
     }
-    static boolean ours(Object stack){try{String id=id(stack);return BASE.equals(id);}catch(Exception x){return false;}}
+    static boolean ours(Object stack){try{String id=id(stack);return BASE.equals(id)||"modularwarfare:metro_duplet_2".equals(id);}catch(Exception x){return false;}}
     static final class Refusal extends Exception {private static final long serialVersionUID=1L;Refusal(String message){super(message);}}
 
     static void transact(Object player,Object gun,Object incoming,String slot,boolean all) throws Exception {
@@ -77,7 +77,7 @@ public final class AttachmentTransactions {
             }
         }
         // Capacity is read dynamically from this stack; never swap item IDs or mutate GunType.
-        if(!BASE.equals(id(updated))||count(updated)!=1)throw new Refusal("Некорректный Дуплет.");
+        if(!id(gun).equals(id(updated))||!ours(updated)||count(updated)!=1)throw new Refusal("Некорректный Дуплет.");
         int capacity=MechanicsHooks.capacity(field(call(updated,"getItem|func_77973_b"),"type"),updated).intValue();
         int excess=Math.max(0,loaded-capacity);
         Object extraRounds=null;

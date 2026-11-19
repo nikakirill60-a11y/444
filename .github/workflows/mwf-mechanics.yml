@@ -11,7 +11,7 @@ permissions:
   contents: write
 jobs:
   build-integrated-mwf:
-    if: github.ref == 'refs/heads/arena/dcab859f-444'
+    if: github.ref == 'refs/heads/arena/dcab859f-444' && !contains(github.event.head_commit.message, '[publish guns2]')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

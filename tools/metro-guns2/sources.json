@@ -1,0 +1,10 @@
+{
+  "source": "User-supplied Metro guns 2.zip",
+  "driveFileId": "1mIrU162mIzyutr0Xe6znodj3kXzMAwOq",
+  "bytes": 28762984,
+  "sha256": "263d3e8c8ae8f44b511d00a1db4d3a65c7409340f0b6a6a361b1e5ab20305945",
+  "basePackSha256": "5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f",
+  "baseJarSha256": "240cf48fd2265104648de7ec0e3f56865aa4c1aa2ada7547dee0c63c5a50e3ab",
+  "stallionSource": "https://metrovideogame.fandom.com/wiki/Stallion",
+  "sourceStats": "Base semi-automatic, .44 Magnum, 7-round magazine; MWF gameplay values are adaptations, not real-world ballistic data."
+}

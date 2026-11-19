@@ -30,7 +30,9 @@ WEAPON_RARITIES={'duplet': 'common',
  'ak2012': 'mythic',
  'vyhlop': 'mythic',
  'railgun': 'mythic',
- 'akk': 'rare'}
+ 'akk': 'rare', 'army_ak':'legendary', 'ubludok_old':'epic', 'stallion':'exclusive', 'duplet_2':'common'}
+NEW_GUNS2_PROFILES={'modularwarfare:metro_army_ak': {'grams': 3800, 'capacityGrams': 0, 'rarity': 'legendary', 'width': 4, 'height': 2}, 'modularwarfare:metro_ubludok_old': {'grams': 3500, 'capacityGrams': 0, 'rarity': 'epic', 'width': 4, 'height': 2}, 'modularwarfare:metro_stallion': {'grams': 1200, 'capacityGrams': 0, 'rarity': 'exclusive', 'width': 3, 'height': 2}, 'modularwarfare:metro_duplet_2': {'grams': 3200, 'capacityGrams': 0, 'rarity': 'common', 'width': 4, 'height': 2}, 'modularwarfare:metro_ubludok_old_ammo': {'grams': 400, 'capacityGrams': 0, 'rarity': 'common', 'width': 1, 'height': 2}}
+
 NATIVE={
  'armor':'uncommon','bandit':'uncommon','bazaltarmor':'legendary','bazalthelmet':'legendary',
  'custarmor':'common','ganzaarmor':'rare','ganzahelm':'rare','ganzatyaj':'epic','ganza_helmet':'epic',
@@ -67,6 +69,7 @@ def main():
         elif 'back_pack_' in id:
             w,h={'small':(2,3),'medium':(3,3),'large':(3,4)}[id.rsplit('_',1)[1]]
         profile.update(width=w,height=h)
+    balance['items'].update({k:dict(v) for k,v in NEW_GUNS2_PROFILES.items()})
     armor=[]
     def add(entry,tier,role):
         profile=dict(balance['categories'][role]);profile['rarity']=tier

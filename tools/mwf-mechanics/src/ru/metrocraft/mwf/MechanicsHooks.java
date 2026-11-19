@@ -51,7 +51,7 @@ public final class MechanicsHooks {
         String id=String.valueOf(call(call(stack,"getItem|func_77973_b"),"getRegistryName"));
         return id.startsWith("modularwarfare:")?id.substring("modularwarfare:".length()):"";
     }
-    static boolean scoped(String id) { return MechanicsRules.energyGun(id)||"metro_duplet".equals(id); }
+    static boolean scoped(String id) { return MechanicsRules.energyGun(id)||MechanicsRules.duplet(id); }
     static Object held(Object player) throws Exception { return call(player,"getHeldItemMainhand|func_184614_ca"); }
     static Object tag(Object stack) throws Exception { return call(stack,"getTagCompound|func_77978_p"); }
     static long now(Object player) throws Exception { return ((Number)call(field(player,"world","field_70170_p"),"getTotalWorldTime|func_82737_E")).longValue(); }
@@ -98,19 +98,19 @@ public final class MechanicsHooks {
     public static Integer capacity(Object gunType,Object stack) {
         try {
             Integer base=(Integer)field(gunType,"internalAmmoStorage");
-            if (!"metro_duplet".equals(String.valueOf(field(gunType,"internalName"))))return base;
+            if (!MechanicsRules.duplet(String.valueOf(field(gunType,"internalName"))))return base;
             return Integer.valueOf(MechanicsRules.capacity("metro_duplet",attachment(stack,"metro_duplet_extra_barrels"),2));
         } catch(Exception e) { throw new IllegalStateException("Cannot resolve per-stack ammunition capacity",e); }
     }
     /** A Duplet uses loose rounds even if an old ItemStack still carries an "ammo" magazine tag. */
     public static boolean isDuplet(Object stack) {
-        try {return "metro_duplet".equals(id(stack));}
+        try {return MechanicsRules.duplet(id(stack));}
         catch(Exception e) {throw new IllegalStateException("Cannot identify Duplet ammunition storage",e);}
     }
     /** Called only at the native first-NBT/defaultBullet autofill site, not at reload/capacity reads. */
     public static Integer initialAmmoCount(Object gunType,Object stack) {
         try {
-            if("metro_duplet".equals(String.valueOf(field(gunType,"internalName"))))return Integer.valueOf(0);
+            if(MechanicsRules.duplet(String.valueOf(field(gunType,"internalName"))))return Integer.valueOf(0);
             return capacity(gunType,stack);
         } catch(Exception e) {throw new IllegalStateException("Cannot initialize gun ammunition",e);}
     }

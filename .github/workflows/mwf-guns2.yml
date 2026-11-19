@@ -1,0 +1,56 @@
+name: Metro guns 2 arsenal v11
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths: ['tools/build_mwf_v11.py', 'tools/metro-guns2/**', '.github/workflows/mwf-guns2.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  guns2:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools
+            tests
+            docs
+            src/main/resources/assets/metroport
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.2.6 Pillow==11.3.0
+      - name: Fetch exact released v10 and metro6 blobs
+        run: |
+          mkdir -p .cache/input
+          git show "$GITHUB_SHA:downloads/Metro_Full_Arsenal_MWF_fix1_v10_icons.zip" > .cache/input/v10.zip
+          git show "$GITHUB_SHA:downloads/modularwarfare-shining-2024.2.4.6f-fix1-metro6.jar" > .cache/input/metro6.jar
+      - name: Build, schema/geometry checks and real native ammo on isolated facades
+        run: |
+          python tools/build_mwf_v11.py --pack .cache/input/v10.zip --jar .cache/input/metro6.jar
+          python -m unittest discover -s tests -p test_guns2_v11.py -v
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Metro-guns2-v11
+          path: .cache/output-v11/*
+          if-no-files-found: error
+      - name: Publish verified arsenal and runtime
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[publish guns2]')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" = "$GITHUB_SHA"
+          gh release create minetro-arsenal-v11 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO arsenal v11 — Metro guns 2 and rebalance TEST' \
+            --notes-file docs/GUNS2_DEV41_RU.md \
+            .cache/output-v11/Metro_Full_Arsenal_MWF_fix1_v11_guns2.zip \
+            .cache/output-v11/modularwarfare-shining-2024.2.4.6f-fix1-metro7.jar \
+            .cache/output-v11/MWF_V11_report.json docs/GUNS2_DEV41_RU.md

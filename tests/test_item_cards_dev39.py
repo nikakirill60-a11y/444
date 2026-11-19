@@ -5,7 +5,7 @@ A=R/'src/main/resources/assets/metroport'
 class ItemCards39(unittest.TestCase):
     def test_exclusive_only_for_requested_pair_with_old_dimensions(self):
         items=json.loads((A/'inventory_balance.json').read_text())['items']
-        self.assertEqual({'metroport:mcmod_zapal_helmet','metroport:mcmod_zapal_vest'},{k for k,v in items.items() if v['rarity']=='exclusive'})
+        self.assertEqual({'metroport:mcmod_zapal_helmet','metroport:mcmod_zapal_vest'},{k for k,v in items.items() if v['rarity']=='exclusive' and k.startswith('metroport:')})
         self.assertEqual((4,4),tuple(items['metroport:mcmod_zapal_vest'][k] for k in ['width','height']))
         self.assertEqual((2,2),tuple(items['metroport:mcmod_zapal_helmet'][k] for k in ['width','height']))
     def test_requested_rectangles_and_preserved_masses(self):

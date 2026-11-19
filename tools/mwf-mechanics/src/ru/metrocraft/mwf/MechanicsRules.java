@@ -21,8 +21,9 @@ public final class MechanicsRules {
     public static int leak(int energy, long elapsedTicks) {
         return energy > 100 ? Math.max(100, energy - (int)Math.min(energy - 100, Math.max(0, elapsedTicks) / 20)) : energy;
     }
+    public static boolean duplet(String id) { return "metro_duplet".equals(id) || "metro_duplet_2".equals(id); }
     public static int capacity(String id, boolean extraBarrels, int baseline) {
-        return "metro_duplet".equals(id) ? (extraBarrels ? 4 : 2) : baseline;
+        return duplet(id) ? (extraBarrels ? 4 : 2) : baseline;
     }
     public static int fireInterval(int roundsPerMinute) { return Math.max(1, (int)Math.ceil(1200.0 / Math.max(1, roundsPerMinute))); }
 }
