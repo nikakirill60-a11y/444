@@ -59,7 +59,7 @@ public final class MetroContainer extends Container {
         });
         addSlotToContainer(extraSlot(lamp,ExtraEquipment.Kind.LAMP,184,18));
         addSlotToContainer(extraSlot(nativeBag,ExtraEquipment.Kind.BLACKRAZID_BACKPACK,184,54));
-        // Visual layout changes only: retain all 46 network slot IDs and real vanilla equipment.
+        // Preserve all 46 network slot IDs; grid cells use separately validated coordinate actions.
         position(0,104,104);
         position(1,8,42);position(2,8,73);position(3,8,104);position(4,38,104);position(5,134,104);
 

@@ -25,10 +25,9 @@ public final class MetroInventoryGui extends GuiContainer {
         int count=overflowCount();boolean legacy=ru.metrocraft.port.blackrazid.BackpackContainer.valid(player,2);
         if(overflow!=null){overflow.visible=count>0;overflow.displayString=I18n.format("metroport.inventory.overflow",count);}
         if(recovery!=null)recovery.visible=legacy && count==0;
-        if(player.inventory.getItemStack().isEmpty())cursorRotated=false;
     }
     @Override protected void actionPerformed(net.minecraft.client.gui.GuiButton button)throws java.io.IOException{
-        if(button==overflow)sendGrid(0,0,1);
+        if(button==overflow){cursorRotated=false;sendGrid(0,0,1);}
         else if(button==recovery)ru.metrocraft.port.MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.blackrazid.OpenBackpackPacket());else super.actionPerformed(button);
     }
     @Override public void drawScreen(int x,int y,float tick){
@@ -59,7 +58,17 @@ public final class MetroInventoryGui extends GuiContainer {
     }
     @Override protected void mouseClicked(int x,int y,int button)throws java.io.IOException{
         int cell=gridCell(x,y);
-        if(cell>=0){if(button==0||button==1)sendGrid(cell,button,0);return;}
+        if(cell>=0){
+            if(button==0||button==1){
+                if(player.inventory.getItemStack().isEmpty()){
+                    PackingGrid grid=container().grid();int record=grid.recordAt(cell);
+                    cursorRotated=record>=0 && PackingGrid.rotated(grid.position(record));
+                }
+                sendGrid(cell,button,0);
+            }
+            return;
+        }
+        if(player.inventory.getItemStack().isEmpty())cursorRotated=false;
         super.mouseClicked(x,y,button);
     }
     @Override protected void mouseReleased(int x,int y,int button){if(gridCell(x,y)<0)super.mouseReleased(x,y,button);}

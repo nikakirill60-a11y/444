@@ -376,14 +376,14 @@
     "metroport:hardhelmet": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "epic",
+      "rarity": "legendary",
       "width": 2,
       "height": 2
     },
     "metroport:heavy_helmet": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "epic",
+      "rarity": "legendary",
       "width": 2,
       "height": 2
     },
@@ -1027,14 +1027,14 @@
     "metroport:blackrazid_heavy_hat": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "epic",
+      "rarity": "legendary",
       "width": 2,
       "height": 2
     },
     "metroport:blackrazid_nazi_hat": {
       "grams": 1000,
       "capacityGrams": 0,
-      "rarity": "rare",
+      "rarity": "epic",
       "width": 2,
       "height": 2
     },

@@ -15,6 +15,8 @@ class MultiCellInventory(unittest.TestCase):
             if e['id'].endswith('_helmet'):
                 vest=e['id'].removesuffix('_helmet')+'_vest'
                 if 'metroport:'+vest in armor:self.assertEqual(balance['items']['metroport:'+e['id']]['rarity'],balance['items']['metroport:'+vest]['rarity'])
+        for helmet,body in [('bazalthelmet','bazaltarmor'),('hardhelmet','heavy'),('heavy_helmet','heavy'),('blackrazid_nazi_hat','blackrazid_nazi'),('blackrazid_heavy_hat','blackrazid_heavy'),('blackrazid_heavy1_hat','blackrazid_heavy1')]:
+            self.assertEqual(balance['items']['metroport:'+helmet]['rarity'],balance['items']['metroport:'+body]['rarity'])
         self.assertEqual((4,4),tuple(balance['items']['metroport:blackrazid_sparta'][k] for k in ['width','height']))
         self.assertEqual((3,2),tuple(balance['items']['modularwarfare:metro_revolver'][k] for k in ['width','height']))
     def test_balance_and_full_armor_report_regenerate_without_changes(self):

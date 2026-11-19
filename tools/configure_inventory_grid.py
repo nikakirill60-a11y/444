@@ -8,7 +8,7 @@ TIERS=['common','uncommon','rare','epic','legendary','mythic']
 NATIVE={
  'armor':'uncommon','bandit':'uncommon','bazaltarmor':'legendary','bazalthelmet':'legendary',
  'custarmor':'common','ganzaarmor':'rare','ganzahelm':'rare','ganzatyaj':'epic','ganza_helmet':'epic',
- 'gasmask':'common','hardhelmet':'epic','heavy_helmet':'epic','helmet':'uncommon','himza':'rare',
+ 'gasmask':'common','hardhelmet':'legendary','heavy_helmet':'legendary','helmet':'uncommon','himza':'rare',
  'kontrabody':'epic','legionarmor':'epic','legionhelmet':'epic','m12':'uncommon','nvgdbody':'epic','nvgdhelmet':'epic',
  'pnv':'rare','plasharmor':'uncommon','polis':'rare','redkaska':'rare','redarmor':'rare',
  'reicharmor':'epic','reichhelmet':'epic','reichhelmet2':'rare','reichla':'rare','satanarmor':'mythic',
@@ -23,8 +23,8 @@ MCMOD={
  'voen_tactical':'epic','zapal':'legendary'}
 BLACKRAZID={
  'himza':'rare','heavy':'legendary','clean':'epic','c_clean':'uncommon','normal':'epic',
- 'kozh':'common','easy':'rare','heavy1':'epic','sparta':'mythic','heavy_hat':'epic',
- 'nazi_hat':'rare','heavy1_hat':'epic','red':'rare','nazi':'epic','gas_mask':'common'}
+ 'kozh':'common','easy':'rare','heavy1':'epic','sparta':'mythic','heavy_hat':'legendary',
+ 'nazi_hat':'epic','heavy1_hat':'epic','red':'rare','nazi':'epic','gas_mask':'common'}
 SIZES={'item':(1,1),'firearm':(4,2),'melee':(1,3),'armor':(3,3),'helmet':(2,2),
        'backpack':(3,3),'nvg':(2,1),'watch':(1,1),'ammunition':(1,1),'magazine':(1,2),
        'attachment':(1,1),'food':(1,1),'block':(2,2)}

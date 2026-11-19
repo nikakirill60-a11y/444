@@ -87,7 +87,6 @@
 | Броня «Тайга» | 3×3 | `metroport:mcmod_taiga_vest` |
 | Хим. защита | 3×3 | `metroport:blackrazid_himza` |
 | Лёгкая броня | 3×3 | `metroport:blackrazid_easy` |
-| Защитный противогаз 4-ого Рейха | 2×2 | `metroport:blackrazid_nazi_hat` |
 | Броня Красной линии | 3×3 | `metroport:blackrazid_red` |
 
 ## Эпический — фиолетовый
@@ -96,8 +95,6 @@
 |---|---|---|
 | Укрепленная броня красных | 3×3 | `metroport:ganzatyaj` |
 | Шлем Ганзы | 2×2 | `metroport:ganza_helmet` |
-| Кустарный шлем | 2×2 | `metroport:hardhelmet` |
-| Шлем тяжелой брони | 2×2 | `metroport:heavy_helmet` |
 | Броня клана "Контрабандисты" | 3×3 | `metroport:kontrabody` |
 | Броня клана "Легион" | 3×3 | `metroport:legionarmor` |
 | Шлем клана "Легион" | 2×2 | `metroport:legionhelmet` |
@@ -118,7 +115,7 @@
 | Чистый ветер | 3×3 | `metroport:blackrazid_clean` |
 | Тяжёлая броня | 3×3 | `metroport:blackrazid_normal` |
 | Тяжёлая штурмовая броня | 3×3 | `metroport:blackrazid_heavy1` |
-| Защитный противогаз | 2×2 | `metroport:blackrazid_heavy_hat` |
+| Защитный противогаз 4-ого Рейха | 2×2 | `metroport:blackrazid_nazi_hat` |
 | Защитный шлем | 2×2 | `metroport:blackrazid_heavy1_hat` |
 | Броня 4-ого Рейха | 3×3 | `metroport:blackrazid_nazi` |
 
@@ -128,6 +125,8 @@
 |---|---|---|
 | Броня прототип "Базальт" | 4×4 | `metroport:bazaltarmor` |
 | Шлем прототип "Базальт" | 2×2 | `metroport:bazalthelmet` |
+| Кустарный шлем | 2×2 | `metroport:hardhelmet` |
+| Шлем тяжелой брони | 2×2 | `metroport:heavy_helmet` |
 | Тяжелая броня | 4×4 | `metroport:heavy` |
 | Шлем «Джаггернаут» | 2×2 | `metroport:mcmod_juggernaut_helmet` |
 | Броня «Джаггернаут» | 4×4 | `metroport:mcmod_juggernaut_vest` |
@@ -136,6 +135,7 @@
 | Шлем «Запал» | 2×2 | `metroport:mcmod_zapal_helmet` |
 | Броня «Запал» | 4×4 | `metroport:mcmod_zapal_vest` |
 | Тяжёлая усиленная броня | 4×4 | `metroport:blackrazid_heavy` |
+| Защитный противогаз | 2×2 | `metroport:blackrazid_heavy_hat` |
 
 ## Мифический — красный
 
