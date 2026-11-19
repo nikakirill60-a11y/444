@@ -36,10 +36,10 @@ public class ExtraEquipmentTest {
         int n=0;for(ItemStack s:p.inventory.mainInventory)if(s.getItem()==item)n+=s.getCount();
         for(ItemStack s:new ItemStack[]{p.inventory.getItemStack(),c.lamp.getStackInSlot(0),c.nativeBag.getStackInSlot(0)})if(s.getItem()==item)n+=s.getCount();return n;
     }
-    @Test public void independentSlotsRejectChargersFlasksAndLegacyRowUnlockingBags(){
+    @Test public void independentSlotsRejectChargersButAcceptBothBackpackFamilies(){
         assertTrue(ExtraEquipment.accepts(ExtraEquipment.Kind.LAMP,new ItemStack(LAMP)));
         assertFalse(ExtraEquipment.accepts(ExtraEquipment.Kind.LAMP,new ItemStack(POWER)));
-        assertFalse(ExtraEquipment.accepts(ExtraEquipment.Kind.BLACKRAZID_BACKPACK,new ItemStack(new BackpackItem(3))));
+        assertTrue(ExtraEquipment.accepts(ExtraEquipment.Kind.BLACKRAZID_BACKPACK,new ItemStack(new BackpackItem(3))));
         assertTrue(ExtraEquipment.accepts(ExtraEquipment.Kind.BLACKRAZID_BACKPACK,new ItemStack(bag())));
         assertFalse(ExtraEquipment.accepts(ExtraEquipment.Kind.LAMP,new ItemStack(bag())));
         assertTrue(WatchEquipment.accepts(new ItemStack(new BlackrazidWatchItem())));
@@ -85,7 +85,7 @@ public class ExtraEquipmentTest {
         Backpacks.inventory(p).setInventorySlotContents(0,old);ExtraEquipment.migrateLegacyBackpack(p);
         assertTrue(Backpacks.get(p).isEmpty());assertEquals(3,new BackpackStorage(ExtraEquipment.get(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK),null).getStackInSlot(4).getCount());
         ExtraEquipment.migrateLegacyBackpack(p);assertEquals(1,ExtraEquipment.get(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK).getCount());
-        assertEquals(0,InventoryCapacity.rows(p));
+        assertEquals(3,InventoryCapacity.rows(p));
         Backpacks.inventory(p).setInventorySlotContents(0,new ItemStack(new BackpackItem(3)));assertEquals(3,InventoryCapacity.rows(p));
         assertEquals(3,new BackpackStorage(ExtraEquipment.get(p,ExtraEquipment.Kind.BLACKRAZID_BACKPACK),null).getStackInSlot(4).getCount());
     }

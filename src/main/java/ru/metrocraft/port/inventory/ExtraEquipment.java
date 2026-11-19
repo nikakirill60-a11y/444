@@ -40,7 +40,7 @@ public final class ExtraEquipment {
     private static String key(Kind kind){return "MetroExtraEquipment_"+kind.name();}
     public static boolean accepts(Kind kind,ItemStack stack){
         if(stack.isEmpty())return false;
-        return kind==Kind.LAMP?stack.getItem() instanceof SurvivalItem && ((SurvivalItem)stack.getItem()).type==SurvivalItem.Type.LAMP:stack.getItem() instanceof BlackrazidBackpackItem;
+        return kind==Kind.LAMP?stack.getItem() instanceof SurvivalItem && ((SurvivalItem)stack.getItem()).type==SurvivalItem.Type.LAMP:stack.getItem() instanceof BackpackItem;
     }
     public static ItemStack get(EntityPlayer player,Kind kind){
         EnumMap<Kind,EquipmentInventory> map=LIVE.get(player);EquipmentInventory live=map==null?null:map.get(kind);
@@ -75,7 +75,7 @@ public final class ExtraEquipment {
     /** Upgrade the old shared backpack slot without losing or cloning the bag's stored contents. */
     public static void migrateLegacyBackpack(EntityPlayer player){
         if(player.world.isRemote || player.openContainer instanceof ru.metrocraft.port.blackrazid.BackpackContainer)return;
-        ItemStack old=Backpacks.get(player);if(!(old.getItem() instanceof BlackrazidBackpackItem))return;
+        ItemStack old=Backpacks.get(player);if(!Backpacks.accepts(old) || !get(player,Kind.BLACKRAZID_BACKPACK).isEmpty())return;
         Backpacks.set(player,ItemStack.EMPTY); // Remove original BEFORE delivering its single copy.
         if(get(player,Kind.BLACKRAZID_BACKPACK).isEmpty())set(player,Kind.BLACKRAZID_BACKPACK,old);
         else {player.inventory.addItemStackToInventory(old);if(!old.isEmpty())player.dropItem(old,false);}

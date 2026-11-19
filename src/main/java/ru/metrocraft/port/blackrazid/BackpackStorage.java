@@ -22,7 +22,7 @@ public final class BackpackStorage extends InventoryBasic {
     public static int size(ItemStack bag){
         return bag.getItem() instanceof BlackrazidBackpackItem?((BlackrazidBackpackItem)bag.getItem()).entry.storageSlots:0;
     }
-    @Override public boolean isItemValidForSlot(int index,ItemStack stack){return !(stack.getItem() instanceof BackpackItem);}
+    @Override public boolean isItemValidForSlot(int index,ItemStack stack){return false; // Recovery only: new bags provide carry weight, never additional slots.}
     @Override public void markDirty(){
         super.markDirty();if(loading)return;
         NBTTagList list=new NBTTagList();

@@ -15,10 +15,8 @@ public class BackpackItem extends Item {
         ItemStack held=player.getHeldItem(hand);
         if(player.isSpectator()) return new ActionResult<>(EnumActionResult.FAIL,held);
         if(!world.isRemote) {
-            if(Backpacks.get(player).isEmpty()) {
-                Backpacks.set(player,held.copy());
-                held.shrink(1); // Equipped bags are real items, including in creative mode.
-            }
+            if(ExtraEquipment.get(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK).isEmpty())
+                ExtraEquipment.equipAfterUse(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK,hand,held);
             player.openGui(MetroPort.INSTANCE,0,world,0,0,0);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS,held);

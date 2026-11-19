@@ -1,55 +1,94 @@
 package ru.metrocraft.port.client;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.gui.inventory.*;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import ru.metrocraft.port.inventory.Backpacks;
-import ru.metrocraft.port.inventory.MetroContainer;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import ru.metrocraft.port.inventory.*;
 
+/** Texture-independent Metro panel. 312x230 fits Minecraft's minimum 320x240 scaled viewport. */
 public final class MetroInventoryGui extends GuiContainer {
     private final EntityPlayer player;
-    public MetroInventoryGui(EntityPlayer player) { super(new MetroContainer(player)); this.player=player; xSize=220; ySize=166; }
-    private net.minecraft.client.gui.GuiButton bagButton;
-    @Override public void initGui(){super.initGui();bagButton=new net.minecraft.client.gui.GuiButton(711,guiLeft+175,guiTop+78,40,18,net.minecraft.client.resources.I18n.format("metroport.blackrazid.open"));buttonList.add(bagButton);}
-    @Override public void updateScreen(){super.updateScreen();if(bagButton!=null)bagButton.visible=!ru.metrocraft.port.inventory.ExtraEquipment.get(player,ru.metrocraft.port.inventory.ExtraEquipment.Kind.BLACKRAZID_BACKPACK).isEmpty();}
-    @Override protected void actionPerformed(net.minecraft.client.gui.GuiButton button) throws java.io.IOException {
-        if(button==bagButton)ru.metrocraft.port.MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.blackrazid.OpenBackpackPacket());else super.actionPerformed(button);
+    private net.minecraft.client.gui.GuiButton recovery;
+    private static final int ORANGE=0xffb58249,TEXT=0xc7bfb1;
+    public MetroInventoryGui(EntityPlayer player){super(new MetroContainer(player));this.player=player;xSize=312;ySize=230;}
+    @Override public void initGui(){
+        super.initGui();recovery=new net.minecraft.client.gui.GuiButton(711,guiLeft+170,guiTop+204,132,18,I18n.format("metroport.inventory.recover"));buttonList.add(recovery);
+    }
+    @Override public void updateScreen(){
+        super.updateScreen();if(recovery!=null)recovery.visible=ru.metrocraft.port.blackrazid.BackpackContainer.valid(player,2);
+    }
+    @Override protected void actionPerformed(net.minecraft.client.gui.GuiButton button)throws java.io.IOException{
+        if(button==recovery)ru.metrocraft.port.MetroPort.NETWORK.sendToServer(new ru.metrocraft.port.blackrazid.OpenBackpackPacket());else super.actionPerformed(button);
     }
     @Override public void drawScreen(int x,int y,float tick){
         drawDefaultBackground();super.drawScreen(x,y,tick);renderHoveredToolTip(x,y);
-        if(ru.metrocraft.port.inventory.EquipmentRules.sealed(player.getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST))
-                && x>=guiLeft+43 && x<guiLeft+62 && y>=guiTop+6 && y<guiTop+25)
-            drawHoveringText(java.util.Collections.singletonList(net.minecraft.client.resources.I18n.format("metroport.armor.builtin_head")),x,y);
-    }
-    @Override protected void drawGuiContainerForegroundLayer(int x,int y) { }
-    private void extraSlot(int x,int y,String label){
-        drawRect(guiLeft+x-1,guiTop+y-1,guiLeft+x+17,guiTop+y+17,0xFF353535);
-        drawRect(guiLeft+x,guiTop+y,guiLeft+x+16,guiTop+y+16,0xFF777777);
-        fontRenderer.drawString(net.minecraft.client.resources.I18n.format(label),guiLeft+176,guiTop+y-12,0x404040);
-    }
-    @Override protected void drawGuiContainerBackgroundLayer(float partial,int mouseX,int mouseY) {
-        GlStateManager.color(1,1,1,1);
-        mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/gui/inventory.png"));
-        drawTexturedModalRect(guiLeft,guiTop,0,0,176,ySize);
-        drawRect(guiLeft+174,guiTop,guiLeft+220,guiTop+ySize,0xFFC6C6C6);
-        extraSlot(184,18,"metroport.blackrazid.lamp_slot");extraSlot(184,54,"metroport.blackrazid.bag_slot");
-        drawRect(guiLeft+139,guiTop+17,guiLeft+157,guiTop+35,0xFF353535);
-        drawRect(guiLeft+140,guiTop+18,guiLeft+156,guiTop+34,0xFF777777);
-        fontRenderer.drawString(net.minecraft.client.resources.I18n.format("metroport.nvg.slot"),guiLeft+135,guiTop+6,0x404040);
-        drawRect(guiLeft+139,guiTop+53,guiLeft+157,guiTop+71,0xFF353535);
-        drawRect(guiLeft+140,guiTop+54,guiLeft+156,guiTop+70,0xFF777777);
-        fontRenderer.drawString(net.minecraft.client.resources.I18n.format("metroport.watch.slot"),guiLeft+135,guiTop+42,0x404040);
-        if(ru.metrocraft.port.inventory.EquipmentRules.sealed(player.getItemStackFromSlot(net.minecraft.inventory.EntityEquipmentSlot.CHEST))) {
-            drawRect(guiLeft+43,guiTop+6,guiLeft+62,guiTop+25,0x88552222);
-            fontRenderer.drawString("×",guiLeft+48,guiTop+11,0xFF5555);
+        for(Slot slot:inventorySlots.inventorySlots)if(!slot.getHasStack() && isPointInRegion(slot.xPos,slot.yPos,16,16,x,y)){
+            String key=label(slot.slotNumber);if(key!=null)drawHoveringText(java.util.Collections.singletonList(I18n.format(key)),x,y);
         }
-        GuiInventory.drawEntityOnScreen(guiLeft+88,guiTop+75,30,guiLeft+88-mouseX,guiTop+25-mouseY,player);
-        int rows=ru.metrocraft.port.inventory.InventoryCapacity.rows(player);
-        mc.getTextureManager().bindTexture(new ResourceLocation("metroport:textures/gui/slots.png"));
+    }
+    private static String label(int slot){
+        switch(slot){
+            case 0:return "metroport.inventory.legacy_bag";
+            case 1:return "metroport.inventory.helmet";case 2:return "metroport.inventory.armor";
+            case 3:return "metroport.inventory.legs";case 4:return "metroport.inventory.feet";
+            case 5:return "metroport.inventory.offhand";case 33:return "metroport.inventory.weapon1";
+            case 34:return "metroport.inventory.weapon2";case 35:return "metroport.inventory.melee";
+            case 42:return "metroport.nvg.slot";case 43:return "metroport.watch.slot";
+            case 44:return "metroport.blackrazid.lamp_slot";case 45:return "metroport.blackrazid.bag_slot";
+            default:return null;
+        }
+    }
+    @Override protected void drawGuiContainerForegroundLayer(int x,int y){}
+    private void panel(int x,int y,int w,int h,int border,int fill){
+        drawRect(guiLeft+x,guiTop+y,guiLeft+x+w,guiTop+y+h,border);
+        drawRect(guiLeft+x+1,guiTop+y+1,guiLeft+x+w-1,guiTop+y+h-1,fill);
+    }
+    private void text(String text,int x,int y,int color){fontRenderer.drawString(text,guiLeft+x,guiTop+y,color);}
+    private void small(String text,int x,int y,int color,float scale){
+        GlStateManager.pushMatrix();GlStateManager.translate(guiLeft+x,guiTop+y,0);GlStateManager.scale(scale,scale,1);
+        fontRenderer.drawString(text,0,0,color);GlStateManager.popMatrix();
+    }
+    private void weaponCard(int id,int top){
+        Slot slot=inventorySlots.getSlot(id);ItemStack stack=slot.getStack();int color=stack.isEmpty()?ORANGE:0xff000000|ItemRarity.of(stack).color;
+        panel(8,top,148,32,color,0xff242321);
+        small(stack.isEmpty()?I18n.format(label(id)):fontRenderer.trimStringToWidth(stack.getDisplayName(),157),36,top+4,TEXT,.75f);
+        if(!stack.isEmpty()){
+            small(ItemMetrics.kg(ItemMetrics.grams(stack))+" "+I18n.format("metroport.inventory.kg"),36,top+20,0xa8a096,.7f);
+            if(stack.isItemStackDamageable())small(Math.max(0,100-stack.getItemDamage()*100/Math.max(1,stack.getMaxDamage()))+"%",124,top+20,0xa8a096,.7f);
+        }
+    }
+    @Override protected void drawGuiContainerBackgroundLayer(float partial,int mouseX,int mouseY){
         GlStateManager.color(1,1,1,1);
-        drawTexturedModalRect(guiLeft+7,guiTop+83,0,0,162,rows*18);
-        for(int row=rows;row<3;row++) drawRect(guiLeft+7,guiTop+83+row*18,guiLeft+169,guiTop+101+row*18,0xAA303030);
+        panel(0,0,xSize,ySize,ORANGE,0xf5292724);
+        panel(5,5,155,20,0xff39342d,0xff1a1918);panel(165,5,142,20,0xff39342d,0xff1a1918);
+        text(I18n.format("metroport.inventory.equipment"),10,11,TEXT);text(I18n.format("metroport.inventory.storage"),170,11,TEXT);
+        drawRect(guiLeft+162,guiTop+29,guiLeft+163,guiTop+222,ORANGE);
+        small(player.getName(),170,32,TEXT,.8f);
+        small(I18n.format("metroport.inventory.quick"),170,170,TEXT,.75f);
+        GuiInventory.drawEntityOnScreen(guiLeft+77,guiTop+121,31,guiLeft+77-mouseX,guiTop+60-mouseY,player);
+        weaponCard(33,132);weaponCard(34,169);
+        for(Slot slot:inventorySlots.inventorySlots){
+            if(slot.slotNumber==33||slot.slotNumber==34)continue;
+            if(slot.slotNumber==0&&!slot.getHasStack())continue;
+            int color=slot.getHasStack()?0xff000000|ItemRarity.of(slot.getStack()).color:0xff665b4b;
+            panel(slot.xPos-2,slot.yPos-2,20,20,color,0xff1e1e1b);
+            if(!slot.getHasStack() && label(slot.slotNumber)!=null){
+                String name=I18n.format(label(slot.slotNumber));
+                small(fontRenderer.trimStringToWidth(name,29),slot.xPos+1,slot.yPos+6,0x958065,.48f);
+            }
+        }
+        long weight=CarryWeight.carried(player),capacity=CarryWeight.capacity(player);boolean over=weight>capacity;
+        text(ItemMetrics.kg(weight)+" / "+ItemMetrics.kg(capacity)+" "+I18n.format("metroport.inventory.kg"),9,208,over?0xed6b56:TEXT);
+        panel(8,221,148,3,0xff151514,0xff151514);
+        int fill=(int)Math.min(146,146.0*weight/Math.max(1,capacity));
+        drawRect(guiLeft+9,guiTop+222,guiLeft+9+fill,guiTop+223,over?0xffdf5546:ORANGE);
+        if(recovery==null || !recovery.visible){
+            int x=170;for(ItemRarity rarity:ItemRarity.values()){
+                drawRect(guiLeft+x,guiTop+211,guiLeft+x+18,guiTop+214,0xff000000|rarity.color);x+=23;
+            }
+        }
     }
 }

@@ -2,10 +2,9 @@ package ru.metrocraft.port.inventory;
 import org.junit.Test;
 import static org.junit.Assert.*;
 public class InventoryCapacityTest {
-    @Test public void creativeCatalogueHasFullStorageButSurvivalAlwaysUsesMetroBackpackCapacity(){
-        for(int rows=0;rows<=3;rows++){
-            assertEquals(3,InventoryCapacity.rows(true,rows));assertEquals(rows,InventoryCapacity.rows(false,rows));
+    @Test public void backpacksNeverGateInventoryRows(){
+        for(int tier:new int[]{-10,0,1,2,3,100}){
+            assertEquals(3,InventoryCapacity.rows(true,tier));assertEquals(3,InventoryCapacity.rows(false,tier));
         }
-        assertEquals(0,InventoryCapacity.rows(false,-10));assertEquals(3,InventoryCapacity.rows(false,100));
     }
 }

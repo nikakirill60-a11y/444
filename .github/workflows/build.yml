@@ -114,7 +114,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.34.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -133,7 +133,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.33.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.34.jar
           if-no-files-found: error
 
       - name: Verify and publish original menu runtime test

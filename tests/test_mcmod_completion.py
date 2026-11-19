@@ -22,7 +22,7 @@ class CompletionTests(unittest.TestCase):
         equipment=(JAVA/'inventory/OpenInventoryPacket.java').read_text()
         self.assertIn('InventoryCapacity.emptyForOpen(player)',equipment)
         self.assertIn('player.openContainer==player.inventoryContainer',equipment)
-        for f in ['mechanics/CapacityRules.java','inventory/Backpacks.java','inventory/MetroContainer.java','client/MetroInventoryGui.java']:
+        for f in ['mechanics/CapacityRules.java','inventory/Backpacks.java','inventory/MetroContainer.java']:
             self.assertIn('InventoryCapacity.rows(player)',(JAVA/f).read_text())
         capacity=(JAVA/'inventory/InventoryCapacity.java').read_text()
         self.assertNotIn('getBoolean',capacity)

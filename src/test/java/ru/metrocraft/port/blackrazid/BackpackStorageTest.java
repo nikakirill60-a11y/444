@@ -33,11 +33,11 @@ public class BackpackStorageTest {
         storage.setInventorySlotContents(4,new ItemStack(Items.STICK,5));assertEquals(2,storage.decrStackSize(4,2).getCount());
         assertEquals(3,new BackpackStorage(bag,null).getStackInSlot(4).getCount());
     }
-    @Test public void nestedBagsRejectedIncludingOldMetroBags(){
+    @Test public void recoveryRejectsEveryIncomingItemIncludingOrdinaryItems(){
         BackpackStorage storage=new BackpackStorage(new ItemStack(item(5)),null);
         assertFalse(storage.isItemValidForSlot(0,new ItemStack(item(10))));
         assertFalse(storage.isItemValidForSlot(0,new ItemStack(new ru.metrocraft.port.inventory.BackpackItem(3))));
-        assertTrue(storage.isItemValidForSlot(0,new ItemStack(Items.STICK)));
+        assertFalse(storage.isItemValidForSlot(0,new ItemStack(Items.STICK)));
     }
     @Test public void loadingDoesNotWriteOrFireChangeCallbacks(){
         ItemStack bag=new ItemStack(item(5));final int[] changes={0};BackpackStorage storage=new BackpackStorage(bag,()->changes[0]++);

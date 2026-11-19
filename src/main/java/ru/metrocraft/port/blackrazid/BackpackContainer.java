@@ -12,7 +12,13 @@ public final class BackpackContainer extends Container {
     public static ItemStack source(EntityPlayer player,int source){
         return source==0?player.getHeldItemMainhand():source==1?player.getHeldItemOffhand():source==2?ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK).getStackInSlot(0):ItemStack.EMPTY;
     }
-    public static boolean valid(EntityPlayer player,int source){return !player.isSpectator() && BackpackStorage.size(source(player,source))>0;}
+    public static boolean valid(EntityPlayer player,int source){return !player.isSpectator() && BackpackStorage.size(source(player,source))>0 && hasContents(source(player,source));}
+    private static boolean hasContents(ItemStack bag){
+        if(!bag.hasTagCompound())return false;
+        net.minecraft.nbt.NBTTagList list=bag.getTagCompound().getTagList("ItemInventory",10);
+        for(int i=0;i<list.tagCount();i++)if(!new ItemStack(list.getCompoundTagAt(i)).isEmpty())return true;
+        return false;
+    }
     public BackpackContainer(EntityPlayer player,int source){
         owner=player;this.source=source;heldIndex=source==0?player.inventory.currentItem:source==1?40:-1;bag=source(player,source);
         storage=new BackpackStorage(bag,()->{if(!player.world.isRemote){if(source==2)ExtraEquipment.inventory(player,ExtraEquipment.Kind.BLACKRAZID_BACKPACK).markDirty();else player.inventory.markDirty();}});
@@ -24,7 +30,7 @@ public final class BackpackContainer extends Container {
     }
     private void addPlayer(EntityPlayer player,int index,int x,int y){
         addSlotToContainer(new Slot(player.inventory,index,x,y){
-            @Override public boolean isItemValid(ItemStack stack){return index!=heldIndex && index<ru.metrocraft.port.mechanics.CapacityRules.end(player);}
+            @Override public boolean isItemValid(ItemStack stack){return index!=heldIndex && LoadoutRules.accepts(index,stack);}
             @Override public boolean canTakeStack(EntityPlayer who){return index!=heldIndex;}
         });
     }
