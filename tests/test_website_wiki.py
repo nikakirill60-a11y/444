@@ -56,7 +56,7 @@ class WebsiteWiki(unittest.TestCase):
         self.assertEqual(len(panels), 4)
         self.assertTrue(all('hidden' not in a for a in panels))
         self.assertNotIn('МАТЕРИАЛЫ ГОТОВЯТСЯ', self.text)
-        self.assertEqual(sum(tag == 'article' and 'data-entry' in a for tag, a in self.nodes), 427)
+        self.assertEqual(sum(tag == 'article' and 'data-entry' in a for tag, a in self.nodes), 260)
         self.assertIn('MetroPort dev.33 + MWF v10', self.text)
         self.assertNotIn('<form', self.text)
 

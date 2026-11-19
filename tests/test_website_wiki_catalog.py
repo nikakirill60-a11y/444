@@ -19,23 +19,21 @@ class WikiCatalogTest(unittest.TestCase):
         cls.html = (SITE/'wiki.html').read_text()
 
     def test_counts_and_unique_full_ids(self):
-        self.assertEqual(self.data['counts'], {'weapons': 28, 'items': 271, 'armor': 110, 'mutants': 18})
+        self.assertEqual(self.data['counts'], {'weapons': 28, 'items': 104, 'armor': 110, 'mutants': 18})
         for category, count in self.data['counts'].items():
             self.assertIn(f'data-count="{category}">{count}</span>', self.html)
-        self.assertEqual(len(self.entries), 427)
+        self.assertEqual(len(self.entries), 260)
         self.assertEqual(len(self.byid), len(self.entries))
         self.assertEqual(sum(e['id'].startswith('modularwarfare:') for e in self.entries), 84)
         self.assertEqual(sum(e['category']=='weapons' and e['id'].startswith('modularwarfare:') for e in self.entries), 25)
 
     def test_all_active_json_registries_are_included(self):
         for filename in ('mcmod_armor', 'blackrazid_equipment', 'mcmod_items', 'blackrazid_survival',
-                         'blackrazid_mutants', 'blackrazid_spawners', 'metromod_gates',
-                         'metromod_interactive', 'metromod_consumables', 'metromod_medical_materials'):
+                         'blackrazid_mutants', 'metromod_consumables', 'metromod_medical_materials'):
             for row in load(filename): self.assertIn('metroport:'+row['id'], self.byid, filename)
         for d in load('content'):
             active = d['kind'] not in ('gun','ammo','attachment') and not d.get('repairGun')
             self.assertEqual('metroport:'+d['id'] in self.byid, active, d['id'])
-        for i in range(58): self.assertIn('metroport:block'+str(i), self.byid)
         self.assertEqual(len([e for e in self.entries if e['group']=='Рюкзаки']), 6)
         self.assertEqual(len([e for e in self.entries if e['group']=='Нашивки']), 11)
 
@@ -45,6 +43,21 @@ class WikiCatalogTest(unittest.TestCase):
         for id in ('exodus_gasmask_gold', 'exodus_gasmask_diamond', 'metropickaxe'):
             self.assertNotIn('metroport:'+id, self.byid)
         self.assertFalse(any(e['id'].startswith('metroport:mcmod_decor_') for e in self.entries))
+
+    def test_items_exclude_all_blocks_models_and_map_entities(self):
+        for filename in ('metromod_gates', 'metromod_interactive', 'blackrazid_spawners'):
+            for d in load(filename): self.assertNotIn('metroport:'+d['id'], self.byid)
+        for id in [*(f'block{i}' for i in range(58)), 'germo', 'germo_open', 'germo_right',
+                   'germo_left', 'germo_left45', 'germo_half_open', 'trup1', 'trup2', 'trup3',
+                   'trup4', 'komp', 'grib', 'radiation', 'mcmod_air', 'mcmod_radiation',
+                   'mcmod_collision', 'mcmod_respawn']:
+            self.assertNotIn('metroport:'+id, self.byid)
+        groups = {e['group'] for e in self.entries if e['category']=='items'}
+        self.assertEqual(groups, {'Боеприпасы','Магазины и баллоны','Обвесы','Медицина и ремонт',
+                                'Валюта и материалы','Выживание','Рюкзаки','Нашивки','Еда и вода'})
+        published = {'/assets/wiki/'+p.name for p in (SITE/'assets/wiki').glob('*.png')}
+        used = {e['image'] for e in self.entries if e['image']}
+        self.assertEqual(published, used, 'No stale block/model icons remain')
 
     def test_weapon_corrections_and_cross_category_compatibility(self):
         for id in ('metro_medved','metro_velopal'):
@@ -85,7 +98,7 @@ class WikiCatalogTest(unittest.TestCase):
                 file = SITE/e['image'].lstrip('/')
                 self.assertTrue(file.is_file())
                 self.assertEqual(hashlib.sha256(file.read_bytes()).hexdigest(), manifest['icons'][e['image']])
-        self.assertEqual(len(manifest['icons']), 301)
+        self.assertEqual(len(manifest['icons']), 241)
         self.assertNotIn('МАТЕРИАЛЫ ГОТОВЯТСЯ', self.html)
         self.assertIn('Без иллюстрации', self.html)
 

@@ -178,26 +178,7 @@ def build(pack):
         add(id, 'mutants', 'MetroCraft', title(id, entity=True), 'Существо исходного набора MetroCraft с ближней атакой. Не заменяется одноимённым мутантом другого набора.', [('Здоровье, HP', attr('MAX_HEALTH')), ('Урон', attr('ATTACK_DAMAGE')), ('Радиус цели, блоки', attr('FOLLOW_RANGE'))], str(file.relative_to(ROOT)))
     for id in ['exodus_shrimp', 'exodus_guard']:
         add(id, 'mutants', 'Exodus', title(id, entity=True), 'Модель Exodus с обычным ИИ ближнего боя. В ресурс-паке не было боевых параметров: здесь указаны стандартные значения адаптации, не характеристики оригинальной игры.', [('Здоровье, HP', 20), ('Урон', 2), ('Скорость, атрибут', .25), ('Радиус цели, блоки', 16)], 'src/main/java/ru/metrocraft/port/exodus/ExodusMutant.java')
-    # Obtainable world objects, not dormant furniture/tunnels/vehicles or collision proxy blocks.
-    for i in range(58):
-        id = 'block'+str(i)
-        add(id, 'items', 'Строительные блоки', title(id), 'Кубический декоративный блок MetroCraft. Название описывает внешний вид; работа транспорта или генератора не подразумевается.', [('Твёрдость', 2)], 'src/main/java/ru/metrocraft/port/ExpandedContent.java')
-    for id in ['germo', 'germo_open', 'germo_right', 'germo_left', 'germo_left45', 'germo_half_open']:
-        add(id, 'items', 'Двери и гермоворота', title(id), 'Гермоворота основного набора. Отдельный вариант с собственным ID, не замена существующих ворот в мире.', [], 'src/main/java/ru/metrocraft/port/gates/GateType.java')
-    for filename in ['metromod_gates', 'metromod_interactive']:
-        for d in load(filename):
-            kind = d.get('kind', 'Germo')
-            group = {'Germo': 'Двери и гермоворота', 'Door': 'Двери и гермоворота', 'Lever': 'Рычаги', 'Light': 'Светильники'}[kind]
-            add(d['id'], 'items', group, d['name_ru'], 'Объект METRO_MOD: '+{'Germo': 'гермоворота', 'Door': 'дверь', 'Lever': 'рычаг', 'Light': 'светильник'}[kind]+'. Геометрия и поведение заданы собственным профилем.', [('Частей модели', len(d['parts']))], source(filename))
-    for d in load('blackrazid_spawners'):
-        target = 'metroport:blackrazid_'+d['id'].removeprefix('blackrazid_spawner_')
-        add(d['id'], 'items', 'Спавнеры', d['nameRu'], 'Стационарный узел появления мутантов для карты. Период считается в загруженных серверных тактах, не в реальном времени.', [('Период, такты', d['period']), ('Существ в волне', d['batch'])], source('blackrazid_spawners'), [target])
-    for id in ['trup1', 'trup2', 'trup3', 'trup4', 'komp', 'grib']:
-        add(id, 'items', 'Объекты окружения', title(id, entity=True), 'Декоративная сущность исходного набора. Доступна через яйцо призыва; не является мутантом для боя.', [], 'src/main/java/ru/metrocraft/port/entity/LegacyEntities.java')
-    for d in load('mcmod_support'):
-        if d['kind'] in ['ammo', 'watch']: continue
-        add(d['id'], 'items', 'Служебные блоки', d['nameRu'], 'Служебный объект для настройки карты, не обычный расходник игрока.', [], source('mcmod_support'))
-    add('radiation', 'items', 'Служебные блоки', title('radiation'), 'Служебный блок радиации для карты.', [], 'src/main/java/ru/metrocraft/port/ExpandedContent.java')
+    # Wiki scope: gameplay items only; no blocks, map props, models or spawners.
     byid = {e['id']: e for e in entries}
     for e in entries:
         assert all(id in byid for id in e['links']), e['id']
@@ -231,6 +212,12 @@ def main():
     counts = dict(Counter(e['category'] for e in entries))
     doc = {'version': 'MetroPort 1.13.0-dev.33 + MWF v10 / metro6', 'sourceCommit': BASE, 'packSha256': PACK_SHA, 'counts': counts, 'entries': entries}
     (SITE/'wiki-data.json').write_text(json.dumps(doc, ensure_ascii=False, indent=2)+'\n')
+    # Remove only obsolete icons owned by the previous generated manifest.
+    old_manifest = SITE/'wiki-manifest.json'
+    if old_manifest.exists():
+        for dest in json.loads(old_manifest.read_text()).get('icons', {}):
+            if dest not in icons and re.fullmatch(r'/assets/wiki/[a-z0-9_]+\.png', dest):
+                (SITE/dest.lstrip('/')).unlink(missing_ok=True)
     for dest, data in sorted(icons.items()):
         path = SITE/dest.lstrip('/'); path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(data)
     html = (SITE/'wiki.html').read_text()

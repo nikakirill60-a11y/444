@@ -59,8 +59,8 @@ try {
   }
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}}),page=await context.newPage();
   await page.goto(base+'/wiki.html#entry-modularwarfare-metro_velopal');
-  assert.equal(await page.locator('.catalog-card:visible').count(),427);
+  assert.equal(await page.locator('.catalog-card:visible').count(),260);
   await page.locator('#entry-modularwarfare-metro_velopal summary').click();
   assert.ok((await page.locator('#entry-modularwarfare-metro_velopal').textContent()).includes('Внутренняя ёмкость6'));
-  await context.close(); console.log('PASS without JavaScript: all 427 articles, native disclosure, anchors');
+  await context.close(); console.log('PASS without JavaScript: all 260 articles, native disclosure, anchors');
 } finally { await browser.close(); }
