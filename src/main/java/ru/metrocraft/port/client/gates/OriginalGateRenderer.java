@@ -39,6 +39,7 @@ public final class OriginalGateRenderer extends TileEntitySpecialRenderer<Origin
         });
     }
     public static void draw(OriginalGateProfile profile,float progress) {
+        if(!ru.metrocraft.port.metromod.decor.DecorAvailability.published(profile))return;
         GlStateManager.pushMatrix();
         try {
             GlStateManager.translate(profile.offset[0],profile.ground+profile.offset[1],profile.offset[2]);

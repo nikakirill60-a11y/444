@@ -114,7 +114,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.37.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.38.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -133,11 +133,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.37.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.38.jar
           if-no-files-found: error
 
-      - name: Publish verified equipment test build
-        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish equipment]')
+      - name: Publish verified lever-only decor test build
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish decor-removal]')
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -148,7 +148,7 @@ jobs:
           import hashlib, json, os, zipfile
           import xml.etree.ElementTree as ET
           from pathlib import Path
-          jar = Path('build/libs/metrocraft-port-1.12.2-1.13.0-dev.37.jar')
+          jar = Path('build/libs/metrocraft-port-1.12.2-1.13.0-dev.38.jar')
           suites = [ET.parse(p).getroot() for p in Path('build/test-results/test').glob('TEST-*.xml')]
           assert suites and all(int(s.get('failures', '0')) == 0 and int(s.get('errors', '0')) == 0 for s in suites)
           with zipfile.ZipFile(jar) as z:
@@ -162,19 +162,19 @@ jobs:
               assert {'ru/metrocraft/port/client/MetroChestGui.class','ru/metrocraft/port/client/EquipmentLayers.class','ru/metrocraft/port/client/OverloadInput.class'} <= set(z.namelist())
               assert 'assets/metroport/models/item/remkomplekt.json' in z.namelist()
               assert not any(n.startswith('com/modularwarfare/') for n in z.namelist()), 'Test fixtures must not ship'
-          report = dict(version='1.13.0-dev.37', sourceCommit=os.environ['GITHUB_SHA'],
+          report = dict(version='1.13.0-dev.38', sourceCommit=os.environ['GITHUB_SHA'],
               buildUrl='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],
               jar=jar.name, bytes=jar.stat().st_size, sha256=hashlib.sha256(jar.read_bytes()).hexdigest(),
               junitTests=sum(int(s.get('tests', '0')) for s in suites), junitFailures=0, junitErrors=0,
               weaponRaritiesVerified=len(WEAPON_RARITIES),
               minecraftLiveTested=False, mwfLiveTested=False)
-          Path('build/MinETRO_inventory_dev37_report.json').write_text(json.dumps(report, indent=2)+'\n')
+          Path('build/MinETRO_inventory_dev38_report.json').write_text(json.dumps(report, indent=2)+'\n')
           PYREPORT
-          gh release create minetro-inventory-dev37 --target "$GITHUB_SHA" --prerelease \
-            --title 'MinETRO dev37 — equipment, overload and chests TEST' \
-            --notes-file docs/EQUIPMENT_DEV37_RU.md \
-            build/libs/metrocraft-port-1.12.2-1.13.0-dev.37.jar \
-            build/MinETRO_inventory_dev37_report.json docs/EQUIPMENT_DEV37_RU.md docs/WEAPON_RARITIES_DEV36_RU.md
+          gh release create minetro-inventory-dev38 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO dev38 — door and lamp models removed TEST' \
+            --notes-file docs/DECOR_REMOVAL_DEV38_RU.md \
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.38.jar \
+            build/MinETRO_inventory_dev38_report.json docs/DECOR_REMOVAL_DEV38_RU.md docs/WEAPON_RARITIES_DEV36_RU.md
 
       - name: Verify and publish original menu runtime test
         if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish menu-test]')

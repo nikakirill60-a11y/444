@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.37", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
+@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.38", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "metroport";
@@ -94,7 +94,6 @@ public final class MetroPort {
         NETWORK.registerMessage(ru.metrocraft.port.inventory.WatchSyncPacket.Handler.class,ru.metrocraft.port.inventory.WatchSyncPacket.class,7,Side.CLIENT);
         NetworkRegistry.INSTANCE.registerGuiHandler(this,new ru.metrocraft.port.inventory.InventoryGuiHandler());
         ru.metrocraft.port.entity.LegacyEntities.register();
-        ru.metrocraft.port.gates.Gates.initialize();
         ru.metrocraft.port.metromod.decor.OriginalGates.initialize();
         ru.metrocraft.port.exodus.ExodusContent.load();
         ru.metrocraft.port.exodus.ExodusContent.registerEntities();

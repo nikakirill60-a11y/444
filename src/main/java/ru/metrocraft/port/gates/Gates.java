@@ -17,7 +17,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-@Mod.EventBusSubscriber(modid = MetroPort.ID)
+// Retired registry: source remains for provenance and migration tests, not subscribed.
 public final class Gates {
     public static final Map<GateType, GateBlock> BLOCKS = new EnumMap<>(GateType.class);
     public static final GatePartBlock PART = new GatePartBlock();

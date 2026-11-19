@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import ru.metrocraft.port.MetroPort;
 
-/** Old block/tile IDs remain readable in saved worlds; only the six switches are offered now. */
+/** Only the six switches remain registered; retired models are physically absent from the JAR. */
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class DecorAvailability {
     public static boolean published(OriginalGateProfile profile){return profile.is("Lever");}

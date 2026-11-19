@@ -7,9 +7,29 @@ import zipfile
 from pathlib import Path
 
 
+def verify_decor(names,read):
+    # Derive the forbidden files independently of the manifest packed into the JAR.
+    try:
+        from .decor_distribution import cut
+    except ImportError:
+        from decor_distribution import cut
+    decor=cut()
+    assert not (set(decor['removedFiles']) & names), 'Retired door/lamp/gate resources leaked'
+    assert set(decor['requiredLeverFiles']) <= names, 'Missing lever mesh/shared texture'
+    assert json.loads(read('assets/metroport/metromod_gates.json'))==[], 'Retired gate profiles leaked'
+    levers=json.loads(read('assets/metroport/metromod_interactive.json'))
+    assert len(levers)==6 and {p['id'] for p in levers}==set(decor['leverIds'])
+    assert all(p['kind']=='Lever' for p in levers)
+    for id in decor['leverIds']:
+        assert 'assets/metroport/models/item/'+id+'.json' in names
+        assert 'assets/metroport/blockstates/'+id+'.json' in names
+    print('Decor verified: 75 imported door/gate/lamp models and 6 legacy gate variants absent; 6 levers intact')
+
+
 def verify(path):
     with zipfile.ZipFile(path) as jar:
         names=set(jar.namelist())
+        verify_decor(names,jar.read)
         scope=json.loads(jar.read('assets/metroport/reduced_scope.json'))
         leaked=sorted(n for n in names if any(fnmatch.fnmatchcase(n,p) for p in scope['jarExcludes']))
         if leaked:raise AssertionError('Retired distribution resources: '+repr(leaked[:20]))

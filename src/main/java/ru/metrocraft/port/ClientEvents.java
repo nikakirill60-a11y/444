@@ -129,20 +129,6 @@ public final class ClientEvents {
     }
 
     @SubscribeEvent
-    public static void gateModels(net.minecraftforge.client.event.ModelBakeEvent event) {
-        for (ru.metrocraft.port.gates.GateBlock block : ru.metrocraft.port.gates.Gates.BLOCKS.values()) {
-            Item item = Item.getItemFromBlock(block);
-            ModelResourceLocation location = new ModelResourceLocation(item.getRegistryName(), "inventory");
-            net.minecraft.client.renderer.block.model.IBakedModel icon = event.getModelRegistry().getObject(location);
-            if (icon != null) {
-                item.setTileEntityItemStackRenderer(ru.metrocraft.port.client.gates.GateItemRenderer.INSTANCE);
-                event.getModelRegistry().putObject(location,
-                        new ru.metrocraft.port.client.LegacyItemModel(block.type.id, false, icon, false));
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void originalGateModels(net.minecraftforge.client.event.ModelBakeEvent event) {
         for (ru.metrocraft.port.metromod.decor.OriginalGateBlock block : ru.metrocraft.port.metromod.decor.OriginalGates.BLOCKS.values()) {
             Item item = Item.getItemFromBlock(block);

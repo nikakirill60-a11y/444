@@ -57,7 +57,7 @@ public final class OriginalGateProfile {
             try(InputStream fix=OriginalGateProfile.class.getResourceAsStream("/assets/metroport/metromod_ground.json")) {
                 if(fix==null)throw new IOException("Missing grounded door layout");
                 groundFix=new Gson().fromJson(new InputStreamReader(fix,StandardCharsets.UTF_8),new com.google.gson.reflect.TypeToken<Map<String,Double>>(){}.getType());
-                if(groundFix.size()!=44)throw new IOException("Incomplete grounded door layout");
+                if(groundFix==null)throw new IOException("Missing grounded door layout");
             }
             Map<String,OriginalGateProfile> result=new LinkedHashMap<>();
             for(OriginalGateProfile p:profiles) {
@@ -82,8 +82,8 @@ public final class OriginalGateProfile {
                     if(fixed==null || !Double.isFinite(fixed) || Math.abs(fixed)>32)throw new IOException("Invalid grounded door layout");
                     p.ground=fixed;
                 }
-                p.donorDoor=DonorDoorCollision.get(p.id);
-                p.donorGermo=DonorGermoCollision.get(p.id);
+                p.donorDoor=p.is("Door")?DonorDoorCollision.get(p.id):null;
+                p.donorGermo=p.is("Germo")?DonorGermoCollision.get(p.id):null;
                 if(p.is("Germo") != (p.donorGermo!=null))throw new IOException("Missing/unexpected donor Germo rule");
                 if(p.is("Door") != (p.donorDoor!=null))throw new IOException("Missing/unexpected donor Door collision rule");
                 for(Part part:p.parts) {

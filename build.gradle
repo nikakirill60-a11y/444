@@ -13,7 +13,7 @@ buildscript {
 repositories { mavenCentral() }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.13.0-dev.37'
+version = '1.13.0-dev.38'
 group = 'ru.metrocraft'
 archivesBaseName = 'metrocraft-port-1.12.2'
 sourceCompatibility = targetCompatibility = '1.8'
@@ -64,4 +64,33 @@ jar {
 jar {
     def reduced = new groovy.json.JsonSlurper().parse(file('src/main/resources/assets/metroport/reduced_scope.json'))
     reduced.jarExcludes.each { pattern -> exclude pattern }
+}
+
+// Tests retain the historical donor fixtures. Only the six lever profiles ship.
+def leverResourceDir = file("$buildDir/lever-resources")
+def decorReplacements = ['metromod_gates.json', 'metromod_interactive.json', 'metromod_layout.json', 'metromod_ground.json']
+task prepareLeverResources {
+    inputs.files decorReplacements.collect { file('src/main/resources/assets/metroport/' + it) }
+    outputs.dir leverResourceDir
+    doLast {
+        def source = file('src/main/resources/assets/metroport')
+        def json = new groovy.json.JsonSlurper()
+        def levers = json.parse(new File(source, 'metromod_interactive.json')).findAll { it.kind == 'Lever' }
+        def ids = levers.collect { it.id } as Set
+        def layout = json.parse(new File(source, 'metromod_layout.json')).findAll { key, value -> ids.contains(key) }
+        def output = new File(leverResourceDir, 'assets/metroport'); output.mkdirs()
+        ['metromod_gates.json': [], 'metromod_interactive.json': levers,
+         'metromod_layout.json': layout, 'metromod_ground.json': [:]].each { name, value ->
+            new File(output, name).setText(groovy.json.JsonOutput.toJson(value) + '\n', 'UTF-8')
+        }
+    }
+}
+jar {
+    dependsOn prepareLeverResources
+    // A path-only exclude would also exclude the replacement. Check the input file.
+    exclude { details ->
+        decorReplacements.any { details.path == 'assets/metroport/' + it } &&
+            !details.file.toPath().startsWith(leverResourceDir.toPath())
+    }
+    from leverResourceDir
 }

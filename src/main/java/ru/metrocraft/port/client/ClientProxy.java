@@ -9,8 +9,6 @@ public final class ClientProxy extends CommonProxy {
         ExodusClient.registerEntities();
         ru.metrocraft.port.client.blackrazid.mutants.MutantRenderers.register();
         net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(
-                ru.metrocraft.port.gates.GateTile.class, new ru.metrocraft.port.client.gates.GateRenderer());
-        net.minecraftforge.fml.client.registry.ClientRegistry.bindTileEntitySpecialRenderer(
                 ru.metrocraft.port.metromod.decor.OriginalGateTile.class,new ru.metrocraft.port.client.gates.OriginalGateRenderer()); }
     @Override public void shotFeedback(String gun,float pitch,float yaw) {
         net.minecraft.client.Minecraft.getMinecraft().addScheduledTask(()->GunClient.shot(gun,pitch,yaw));

@@ -25,6 +25,7 @@ public final class OriginalGates {
     }
     @SubscribeEvent public static void blocks(RegistryEvent.Register<Block> event) {
         for(OriginalGateProfile profile:OriginalGateProfile.all()) {
+            if(!DecorAvailability.published(profile))continue;
             OriginalGateBlock block=new OriginalGateBlock(profile);BLOCKS.put(profile.id,block);event.getRegistry().register(block);
         }
         event.getRegistry().register(PART);
