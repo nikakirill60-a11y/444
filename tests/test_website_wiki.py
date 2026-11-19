@@ -23,7 +23,7 @@ class WebsiteWiki(unittest.TestCase):
     def test_main_navigation_links_to_wiki_and_marks_active_page(self):
         self.assertIn('href="/wiki.html">Вики</a>', (SITE/'index.html').read_text())
         self.assertIn('href="/wiki.html" aria-current="page">Вики</a>', self.text)
-        for target in ('/#project', '/#start', '/#faq', '/account.html', '/#downloads'):
+        for target in ('/#project', '/#start', '/account.html'):
             self.assertIn('href="'+target+'"', self.text)
 
     def test_exact_four_categories_with_real_section_targets(self):

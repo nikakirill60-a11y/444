@@ -4,7 +4,6 @@ import re
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'website'
@@ -39,20 +38,29 @@ class BetaWebsiteTest(unittest.TestCase):
         for asset in re.findall(r"url\(['\"]?(/[^)'\"]+)", (SITE / 'styles.css').read_text()):
             self.assertTrue((SITE / asset.lstrip('/')).is_file(), asset)
 
-    def test_downloads_are_github_not_fake_modpack_or_server(self):
+    def test_launcher_downloads_are_disabled_on_every_page(self):
+        for name in ('index.html', 'wiki.html', 'account.html'):
+            text = (SITE / name).read_text()
+            page = Page(text)
+            self.assertFalse([link for link in page.links if 'launcher' in link.lower()])
+            if name != 'wiki.html':
+                self.assertFalse([link for link in page.links if link.endswith(('.zip', '.jar', '.exe'))])
+            self.assertNotIn('MinETRO-Launcher-0.4-win-x64.zip', text)
+            self.assertRegex(text, r'<button[^>]+disabled[^>]*>')
         text = (SITE / 'index.html').read_text()
-        page = Page(text)
-        downloads = [link for link in page.links if link.endswith(('.zip', '.jar'))]
-        self.assertEqual(1, len(downloads))
-        self.assertTrue(downloads[0].endswith('MinETRO-Launcher-0.4-win-x64.zip'))
-        for link in downloads:
-            self.assertEqual('github.com', urlparse(link).netloc)
-        for required in ('не кадр из игры', 'Полный архив пока не опубликован',
-                         'не общий онлайн-сервер', 'не является игровым скриншотом',
-                         'Добро пожаловать на MinETRO', 'F8'):
-            self.assertIn(required, text)
+        self.assertIn('Скачивание MinETRO Launcher временно недоступно.', text)
+        self.assertIn('disabled aria-describedby="launcher-unavailable"', text)
+        self.assertIn('id="launcher-unavailable"', text)
         self.assertNotIn('<form', text)
-        self.assertNotIn('http://localhost', text)
+
+    def test_removed_copy_and_entire_faq_are_absent(self):
+        for name in ('index.html', 'wiki.html', 'account.html'):
+            text = (SITE / name).read_text()
+            for removed in ('Собираем подземный мир', 'Открытый сервер ещё не запущен',
+                            'от тяжёлых гермоворот', 'Без обещаний того, чего пока нет',
+                            'СПРАВОЧНОЕ БЮРО', 'id="faq"', '#faq', 'faq-list',
+                            'До отправления', 'Уже можно играть на сервере?'):
+                self.assertNotIn(removed, text)
 
     def test_vercel_is_static_and_csp_disallows_third_party_scripts(self):
         config = json.loads((SITE / 'vercel.json').read_text())
