@@ -196,4 +196,7 @@ def main():
         m=json.loads(files[name]);m[key]=required;files[name]=js(m)
     files['CORRECTIVE_V12_MANIFEST.json']=js(report);writezip(a.output/PACK,files);report.update(pack=PACK,packSha256=v11.sha((a.output/PACK).read_bytes()))
     (a.output/'MWF_V12_report.json').write_bytes(js(report));print(json.dumps({'pack':PACK,'sha256':report['packSha256'],'guns':29,'minecraftLiveTested':False}))
-if __name__=='__main__':main()
+if __name__=='__main__':
+    try:main()
+    except subprocess.CalledProcessError as error:
+        print(error.stdout or '',error.stderr or '',flush=True);raise

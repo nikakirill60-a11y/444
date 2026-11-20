@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           filter: blob:none
+          fetch-depth: 0
           sparse-checkout: |
             tools
             tests
@@ -35,7 +36,16 @@ jobs:
           git show "$GITHUB_SHA:downloads/modularwarfare-shining-2024.2.4.6f-fix1-metro6.jar" > .cache/input/metro6.jar
       - name: Build full corrective pack; native regression and real fire-mode enum tests
         run: |
-          python tools/build_mwf_v12.py --pack .cache/input/v10.zip --jar .cache/input/metro6.jar
+          if ! python tools/build_mwf_v12.py --pack .cache/input/v10.zip --jar .cache/input/metro6.jar > .cache/v12-ci.log 2>&1; then
+            cat .cache/v12-ci.log
+            python - <<'PYERROR'
+          from pathlib import Path
+          s=Path('.cache/v12-ci.log').read_text()[-7500:]
+          print('::error title=v12 build::'+s.replace('%','%25').replace('\r','%0D').replace('\n','%0A'))
+          PYERROR
+            exit 1
+          fi
+          cat .cache/v12-ci.log
           python -m unittest discover -s tests -p test_mwf_v12.py -v
           python tools/build_website_wiki.py --pack .cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip
           git diff --exit-code -- website/wiki-data.json website/wiki-manifest.json website/wiki.html website/assets/wiki
