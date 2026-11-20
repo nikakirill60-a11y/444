@@ -8,9 +8,9 @@ class WeightInventory(unittest.TestCase):
         balance=json.loads((A/'inventory_balance.json').read_text())
         wiki=json.loads((ROOT/'website/wiki-data.json').read_text())
         guns={e['id'] for e in wiki['entries'] if e['category']=='weapons' and e['family']=='MWF'}
-        self.assertEqual(25,len(guns));self.assertTrue(guns<=set(balance['items']))
+        self.assertEqual(29,len(guns));self.assertTrue(guns<=set(balance['items']))
         tiers={balance['items'][id]['rarity'] for id in guns}
-        self.assertEqual({'common','uncommon','rare','epic','legendary','mythic'},tiers)
+        self.assertEqual({'common','uncommon','rare','epic','legendary','mythic','exclusive'},tiers)
         for p in list(balance['items'].values())+list(balance['categories'].values()):
             self.assertGreater(p['grams'],0);self.assertGreaterEqual(p['capacityGrams'],0)
             self.assertIn(p['rarity'],tiers|{'exclusive'})

@@ -1,0 +1,60 @@
+name: Metro arsenal v12 corrections
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths: ['tools/build_mwf_v12.py', 'tools/mwf_local_textures.py', 'tools/metro-guns2/NativeEnumTest.java', 'tools/build_website_wiki.py', 'tests/test_mwf_v12.py', '.github/workflows/mwf-v12.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  corrections:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            tools
+            tests
+            docs
+            website
+            src
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.2.6 Pillow==11.3.0
+      - name: Fetch exact v10 and metro6 inputs
+        run: |
+          mkdir -p .cache/input
+          git show "$GITHUB_SHA:downloads/Metro_Full_Arsenal_MWF_fix1_v10_icons.zip" > .cache/input/v10.zip
+          git show "$GITHUB_SHA:downloads/modularwarfare-shining-2024.2.4.6f-fix1-metro6.jar" > .cache/input/metro6.jar
+      - name: Build full corrective pack; native regression and real fire-mode enum tests
+        run: |
+          python tools/build_mwf_v12.py --pack .cache/input/v10.zip --jar .cache/input/metro6.jar
+          python -m unittest discover -s tests -p test_mwf_v12.py -v
+          python tools/build_website_wiki.py --pack .cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip
+          git diff --exit-code -- website/wiki-data.json website/wiki-manifest.json website/wiki.html website/assets/wiki
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Metro-v12-corrections
+          path: .cache/output-v12/*
+          if-no-files-found: error
+      - name: Publish verified full pack (existing metro7 runtime unchanged)
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[publish arsenal-v12]')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" = "$GITHUB_SHA"
+          gh release create minetro-arsenal-v12 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO v12 — fire modes, separate textures, Kalash UV, magazine Stallion' \
+            --notes-file docs/ARSENAL_V12_RU.md \
+            .cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip \
+            .cache/output-v12/MWF_V12_report.json \
+            .cache/output-v12/MWF_V11_native_tests.txt \
+            .cache/output-v12/MWF_V12_enum_tests.txt

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Build the static wiki from the ACTIVE MetroPort registries and MWF v10.
+"""Build the static wiki from the ACTIVE MetroPort registries and MWF v12.
 No removed legacy firearms, dormant furniture, guessed drops or recipes.
-Usage: python tools/build_website_wiki.py [--pack path/to/v10.zip]
+Usage: python tools/build_website_wiki.py [--pack path/to/v12.zip]
 """
 import argparse
 from collections import Counter
@@ -16,8 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT/'src/main/resources/assets/metroport'
 JAVA = ROOT/'src/main/java/ru/metrocraft/port'
 SITE = ROOT/'website'
-BASE = 'f9ce878638eec2df390d877992b43f0515b4532c'
-PACK_SHA = '5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f'
+BASE = 'arena/dcab859f-444'
+PACK_SHA = None  # Calculated from the validated v12 build, never a stale v10 hash.
+RARITIES={'common':'Обычный','uncommon':'Необычный','rare':'Редкий','epic':'Эпический','legendary':'Легендарный','mythic':'Мифический','exclusive':'Эксклюзив'}
 CATEGORIES = {'weapons': ('Оружие', 'АРСЕНАЛ'), 'armor': ('Броня', 'ЗАЩИТА'), 'mutants': ('Мутанты', 'ОБИТАТЕЛИ'), 'items': ('Предметы', 'ПРИПАСЫ')}
 
 def load(name):
@@ -33,8 +34,11 @@ def source(name):
     return str((ASSETS/(name+'.json')).relative_to(ROOT))
 
 def build(pack):
-    assert hashlib.sha256(pack.read_bytes()).hexdigest() == PACK_SHA, 'Not the published MWF v10 pack'
     z = zipfile.ZipFile(pack)
+    manifest=json.loads(z.read('CORRECTIVE_V12_MANIFEST.json'))
+    assert manifest['verifiedGunCount']==29 and manifest['sharedArsenalAtlasRemoved']
+    balance=load('inventory_balance')
+
     lang = dict(line.split('=', 1) for line in (ASSETS/'lang/ru_ru.lang').read_text().splitlines() if '=' in line and not line.startswith('#'))
     entries = []
     icons = {}
@@ -84,7 +88,7 @@ def build(pack):
         if id in ['metro_tihar', 'metro_helsing', 'metro_railgun']: group = 'Особое оружие'
         if 'ognemet' in id: group = 'Особое оружие'
         if id in ['metro_gatling', 'metro_rpk']: group = 'Пулемёты'
-        desc = 'Оружие из арсенала MWF v10. Показаны базовые параметры конфигурации без модификаторов обвесов.'
+        desc = 'Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.'
         notes = {
             'metro_medved': 'Шестизарядный дробовик. Сохранена дробь: восемь дробин за выстрел.',
             'metro_velopal': 'Шестизарядный дробовик с внутренним заряжанием. Использует дробь 12 калибра, не магазин Хлопушки.',
@@ -94,15 +98,20 @@ def build(pack):
             'metro_ognemet': 'Отдельное оружие в адаптации MWF. Конфигурация использует систему выстрелов MWF; это не обещание непрерывной струи огня.',
             'metro_ognemet_mini': 'Самостоятельный мини-огнемёт, не скин большого огнемёта. Использует собственный баллон и систему выстрелов MWF.',
             'metro_akk': 'Отдельный Калашников AKK. Баланс адаптации предварительный, а не подтверждённая копия старого мода.'}
-        desc = notes.get(id, desc)
+        notes.update({
+            'metro_army_ak':'Легендарный Армейский калаш. Модель, магазины и обвесы Калаша; собственная камуфляжная текстура с переназначенными UV.',
+            'metro_ubludok_old':'Старый Ублюдок, эпический. Без обвесов, с собственным съёмным магазином на 30 патронов.',
+            'metro_stallion':'Эксклюзивный Сталлион: полуавтоматический пистолет .44 Magnum. Собственный съёмный семизарядный магазин; не заряжается по одному патрону как револьвер.',
+            'metro_duplet_2':'Самостоятельный вариант Дуплета с другой текстурой: те же параметры и обвесы, два патрона или до четырёх с дополнительными стволами.'})
+        desc = notes.get(id, desc).replace('metro6','metro7')
         stats = [('Урон / снаряд', d['gunDamage']), ('Темп, выстр./мин', d['roundsPerMin']), ('Снарядов / выстрел', d.get('numBullets', 1))]
         if 'internalAmmoStorage' in d: stats.append(('Внутренняя ёмкость', d['internalAmmoStorage']))
         else:
             caps = sorted({a['ammoCapacity'] for a in defs['ammo'] if a['internalName'] in d.get('acceptedAmmo', [])})
             stats.append(('Ёмкость магазинов', ' / '.join(map(str, caps))))
-        stats += [('Перезарядка, такты', d['reloadTime']), ('Режимы огня', ', '.join({'semi': 'одиночный', 'auto': 'автоматический', 'burst': 'очередь'}.get(m, m) for m in d['fireModes'])), ('Эфф. дальность, блоки', d['weaponEffectiveRange']), ('Макс. дальность, блоки', d['weaponMaxRange'])]
+        stats += [('Перезарядка, такты', d['reloadTime']), ('Режимы огня', ', '.join({'semi': 'одиночный', 'full': 'автоматический', 'burst': 'очередь'}.get(m, m) for m in d['fireModes'])), ('Эфф. дальность, блоки', d['weaponEffectiveRange']), ('Макс. дальность, блоки', d['weaponMaxRange'])]
         links = d.get('acceptedAmmo', []) + d.get('acceptedBullets', []) + [x for xs in d.get('acceptedAttachments', {}).values() for x in xs]
-        add(id, 'weapons', group, names[id], desc, stats, 'MWF v10: guns/'+id+'.json', list(map(ref, links)), True)
+        add(id, 'weapons', group, names[id], desc, stats, 'MWF v12: guns/'+id+'.json', list(map(ref, links)), True)
     for folder, group in [('bullets', 'Боеприпасы'), ('ammo', 'Магазины и баллоны'), ('attachments', 'Обвесы')]:
         for d in defs[folder]:
             id = d['internalName']; stats = [('Стак', d.get('maxStackSize', 1))]
@@ -113,7 +122,7 @@ def build(pack):
                 if id == 'metro_mod_ubludok_radiator': desc = 'Съёмный радиатор Ублюдка. Не установлен по умолчанию. Не даёт охлаждения или бонусов баланса; занимает слот barrel.'
             links = d.get('subAmmo', []) + [g['internalName'] for g in defs['guns'] if id in g.get('acceptedAmmo', [])+g.get('acceptedBullets', [])+[x for xs in g.get('acceptedAttachments', {}).values() for x in xs]]
             if folder == 'bullets': links += [a['internalName'] for a in defs['ammo'] if id in a.get('subAmmo', [])]
-            add(id, 'items', group, names[id], desc, stats, f'MWF v10: {folder}/{id}.json', list(map(ref, links)), True)
+            add(id, 'items', group, names[id], desc, stats, f'MWF v12: {folder}/{id}.json', list(map(ref, links)), True)
     # Active definitions mirror ContentPolicy.definition, not the retired donor catalogue.
     for d in load('content'):
         if d['kind'] in ['gun', 'ammo', 'attachment'] or (d.get('repairGun') and d['id']!='remkomplekt'): continue
@@ -182,6 +191,12 @@ def build(pack):
     # Wiki scope: gameplay items only; no blocks, map props, models or spawners.
     byid = {e['id']: e for e in entries}
     for e in entries:
+        if e['category']=='mutants':e['rarity']=None;continue
+        category={'Боеприпасы':'ammunition','Магазины и баллоны':'magazine','Обвесы':'attachment','Рюкзаки':'backpack','Нашивки':'patch','Еда и вода':'food'}.get(e['group'],'melee' if e['category']=='weapons' else 'item')
+        profile=balance['items'].get(e['id'],balance['categories'][category]);tier=profile['rarity'];e['rarity']=tier
+        e['stats'].insert(0,['Редкость',RARITIES[tier]])
+        e['stats'].append(['Масса, г',str(profile['grams'])])
+
         assert all(id in byid for id in e['links']), e['id']
     return entries, icons
 
@@ -199,19 +214,23 @@ def render(entries):
             img = f'<img src="{h(e["image"])}" alt="" loading="lazy" width="160" height="112">' if e['image'] else '<span class="catalog-no-image" aria-hidden="true">'+{'weapons': '↗', 'armor': '◇', 'mutants': '◎', 'items': '▥'}[cat]+'</span><span class="catalog-no-image-label">Без иллюстрации</span>'
             stats = ''.join(f'<div><dt>{h(k)}</dt><dd>{h(v)}</dd></div>' for k, v in e['stats'])
             links = ''.join(f'<li><a href="#{anchor(target)}">{h(byid[target]["name"])}</a></li>' for target in e['links'])
-            src = e['source']; path = 'downloads/Metro_Full_Arsenal_MWF_fix1_v10_icons.zip' if src.startswith('MWF') else src
-            cards.append(f'''<article class="catalog-card" id="{id}" data-group="{h(e['group'])}" data-entry="{h(e['id'])}">
-<details><summary><span class="catalog-image">{img}</span><span class="catalog-type">{h(e['group'])} · {h(e['family'])}</span><h3>{h(e['name'])}</h3><span class="catalog-open">Параметры и описание <span aria-hidden="true">+</span></span></summary>
-<div class="catalog-body"><p>{h(e['description'])}</p><dl>{stats}</dl>{'<h4>Совместимость</h4><ul class="catalog-links">'+links+'</ul>' if links else ''}<p class="catalog-id">{h(e['id'])}</p><a class="catalog-permalink" href="#{id}">Ссылка на карточку ↗</a><p class="catalog-source">Источник: <a href="https://github.com/nikakirill60-a11y/444/blob/{BASE}/{h(path)}" target="_blank" rel="noopener noreferrer">{h(src)}</a></p></div></details></article>''')
+            src = e['source']; path = src
+            source_url='https://github.com/nikakirill60-a11y/444/releases/tag/minetro-arsenal-v12' if src.startswith('MWF') else f'https://github.com/nikakirill60-a11y/444/blob/{BASE}/{path}'
+            tier=e.get('rarity');badge=f'<span class="catalog-rarity rarity-{tier}">{RARITIES[tier]}</span>' if tier else ''
+            cards.append(f'''<article class="catalog-card" id="{id}" data-group="{h(e['group'])}" data-entry="{h(e['id'])}" data-rarity="{h(tier or '')}">
+<details><summary><span class="catalog-image">{img}</span><span class="catalog-type">{h(e['group'])} · {h(e['family'])}</span>{badge}<h3>{h(e['name'])}</h3><span class="catalog-open">Параметры и описание <span aria-hidden="true">+</span></span></summary>
+<div class="catalog-body"><p>{h(e['description'])}</p><dl>{stats}</dl>{'<h4>Совместимость</h4><ul class="catalog-links">'+links+'</ul>' if links else ''}<p class="catalog-id">{h(e['id'])}</p><a class="catalog-permalink" href="#{id}">Ссылка на карточку ↗</a><p class="catalog-source">Источник: <a href="{h(source_url)}" target="_blank" rel="noopener noreferrer">{h(src)}</a></p></div></details></article>''')
         sections.append(f'''<section id="{cat}" class="wiki-panel" aria-labelledby="{cat}-title"><div class="wiki-panel-heading"><div><span class="section-tag">0{index} / {tag}</span><h2 id="{cat}-title">{name}</h2></div><p>{len(rows)} записей · открой карточку, чтобы увидеть параметры и совместимость.</p></div><div class="catalog-grid">{''.join(cards)}</div></section>''')
     return '\n'.join(sections)
 
 
 def main():
-    parser = argparse.ArgumentParser(); parser.add_argument('--pack', type=Path, default=ROOT/'downloads/Metro_Full_Arsenal_MWF_fix1_v10_icons.zip'); args = parser.parse_args()
+    parser = argparse.ArgumentParser(); parser.add_argument('--pack', type=Path, default=ROOT/'.cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip'); args = parser.parse_args()
+    global PACK_SHA
+    PACK_SHA=hashlib.sha256(args.pack.read_bytes()).hexdigest()
     entries, icons = build(args.pack)
     counts = dict(Counter(e['category'] for e in entries))
-    doc = {'version': 'MetroPort 1.13.0-dev.33 + MWF v10 / metro6', 'sourceCommit': BASE, 'packSha256': PACK_SHA, 'counts': counts, 'entries': entries}
+    doc = {'version': 'MinETRO 1.13.0-dev.42 + MWF v12 / metro7', 'sourceCommit': BASE, 'packSha256': PACK_SHA, 'counts': counts, 'entries': entries}
     (SITE/'wiki-data.json').write_text(json.dumps(doc, ensure_ascii=False, indent=2)+'\n')
     # Remove only obsolete icons owned by the previous generated manifest.
     old_manifest = SITE/'wiki-manifest.json'

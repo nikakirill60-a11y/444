@@ -1219,6 +1219,13 @@
       "rarity": "common",
       "width": 1,
       "height": 2
+    },
+    "modularwarfare:metro_stallion_ammo": {
+      "grams": 250,
+      "capacityGrams": 0,
+      "rarity": "common",
+      "width": 1,
+      "height": 2
     }
   }
 }

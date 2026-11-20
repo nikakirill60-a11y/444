@@ -91,3 +91,8 @@
 @media(max-width:760px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.catalog-tools{grid-template-columns:minmax(0,1fr) auto}.catalog-search{grid-column:1/-1}.catalog-notice{font-size:10px;padding:13px 15px}.catalog-card summary{padding:13px}.catalog-image{height:110px;margin-bottom:16px}.catalog-image img{height:104px;width:132px}.catalog-type{font-size:7px;min-height:26px}.catalog-card h3{font-size:22px;min-height:58px}.catalog-open{font-size:8px;align-items:flex-start}.catalog-body{padding:13px;font-size:11px}.catalog-body dl>div{flex-direction:column;gap:3px}.catalog-body dd{text-align:left}.catalog-links{gap:6px}.catalog-links a{font-size:10px}.wiki-tab-count{font-size:10px}.wiki-tabs a{gap:10px}}
 @media(max-width:360px){.catalog-grid{grid-template-columns:1fr}.catalog-card h3{min-height:0}.catalog-type{min-height:16px}.catalog-image{height:130px}.catalog-image img{height:120px;width:160px}}
 @media(prefers-reduced-motion:reduce){.catalog-card,.catalog-open>span,.wiki-tabs a{transition:none}}
+
+/* Server inventory rarity names/colors, not invented wiki-only tiers. */
+.catalog-rarity{display:inline-block;font:10px var(--body);line-height:1.4;padding:3px 7px;border:1px solid currentColor;border-radius:2px;margin:8px 0 0}
+.rarity-common{color:#aaa}.rarity-uncommon{color:#55cc55}.rarity-rare{color:#55aaff}.rarity-epic{color:#bb77ee}.rarity-legendary{color:#ffdd55}.rarity-mythic{color:#ff5555}.rarity-exclusive{color:#ff55ff}
+@media(min-width:761px){.catalog-tools{grid-template-columns:minmax(180px,1.4fr) minmax(130px,1fr) minmax(130px,.8fr) auto}}

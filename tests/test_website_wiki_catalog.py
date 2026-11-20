@@ -19,13 +19,13 @@ class WikiCatalogTest(unittest.TestCase):
         cls.html = (SITE/'wiki.html').read_text()
 
     def test_counts_and_unique_full_ids(self):
-        self.assertEqual(self.data['counts'], {'weapons': 28, 'items': 105, 'armor': 110, 'mutants': 18})
+        self.assertEqual(self.data['counts'], {'weapons': 32, 'items': 107, 'armor': 110, 'mutants': 18})
         for category, count in self.data['counts'].items():
             self.assertIn(f'data-count="{category}">{count}</span>', self.html)
-        self.assertEqual(len(self.entries), 261)
+        self.assertEqual(len(self.entries), 267)
         self.assertEqual(len(self.byid), len(self.entries))
-        self.assertEqual(sum(e['id'].startswith('modularwarfare:') for e in self.entries), 84)
-        self.assertEqual(sum(e['category']=='weapons' and e['id'].startswith('modularwarfare:') for e in self.entries), 25)
+        self.assertEqual(sum(e['id'].startswith('modularwarfare:') for e in self.entries), 90)
+        self.assertEqual(sum(e['category']=='weapons' and e['id'].startswith('modularwarfare:') for e in self.entries), 29)
 
     def test_all_active_json_registries_are_included(self):
         for filename in ('mcmod_armor', 'blackrazid_equipment', 'mcmod_items', 'blackrazid_survival',
@@ -93,12 +93,12 @@ class WikiCatalogTest(unittest.TestCase):
         for e in self.entries:
             self.assertIn('id="entry-'+e['id'].replace(':','-')+'"', self.html)
             self.assertTrue(e['source'])
-            if not e['source'].startswith('MWF v10:'): self.assertTrue((ROOT/e['source']).is_file(), e['source'])
+            if not e['source'].startswith('MWF v12:'): self.assertTrue((ROOT/e['source']).is_file(), e['source'])
             if e['image']:
                 file = SITE/e['image'].lstrip('/')
                 self.assertTrue(file.is_file())
                 self.assertEqual(hashlib.sha256(file.read_bytes()).hexdigest(), manifest['icons'][e['image']])
-        self.assertEqual(len(manifest['icons']), 242)
+        self.assertEqual(len(manifest['icons']), 248)
         self.assertNotIn('МАТЕРИАЛЫ ГОТОВЯТСЯ', self.html)
         self.assertIn('Без иллюстрации', self.html)
 

@@ -8,6 +8,7 @@ const cards = Array.from(document.querySelectorAll('[data-entry]'));
 const byId = new Map(cards.map(card => ['#' + card.id, card]));
 const search = document.querySelector('#wiki-search');
 const group = document.querySelector('#wiki-group');
+const rarity = document.querySelector('#wiki-rarity');
 const status = document.querySelector('#wiki-results');
 const more = document.querySelector('.catalog-more');
 const empty = document.querySelector('.catalog-no-results');
@@ -37,7 +38,7 @@ function updateGroups() {
 
 function filter() {
   const query = normalize(search.value);
-  matched = Array.from(panels[selected].querySelectorAll('[data-entry]')).filter(card => (!group.value || card.dataset.group === group.value) && searchable.get(card).includes(query));
+  matched = Array.from(panels[selected].querySelectorAll('[data-entry]')).filter(card => (!group.value || card.dataset.group === group.value) && (!rarity.value || card.dataset.rarity === rarity.value) && searchable.get(card).includes(query));
   const showing = new Set(matched.slice(0, limit));
   cards.forEach(card => { card.hidden = !showing.has(card); });
   const count = Math.min(limit, matched.length);
@@ -66,7 +67,7 @@ function restoreSection() {
   if (card) {
     search.value = '';
     activate(panels.indexOf(card.closest('.wiki-panel')));
-    group.value = '';
+    group.value = ''; rarity.value = '';
     const sectionCards = Array.from(panels[selected].querySelectorAll('[data-entry]'));
     limit = Math.max(pageSize, sectionCards.indexOf(card) + 1);
     filter();
@@ -95,8 +96,9 @@ tabs.forEach((tab, index) => {
 });
 search.addEventListener('input', () => { limit = pageSize; filter(); });
 group.addEventListener('change', () => { limit = pageSize; filter(); });
+rarity.addEventListener('change', () => { limit = pageSize; filter(); });
 reset.addEventListener('click', () => {
-  search.value = ''; group.value = ''; limit = pageSize; filter(); search.focus();
+  search.value = ''; group.value = ''; rarity.value = ''; limit = pageSize; filter(); search.focus();
 });
 more.addEventListener('click', () => {
   const firstNew = matched[limit];

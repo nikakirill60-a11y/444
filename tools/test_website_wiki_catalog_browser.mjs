@@ -13,10 +13,14 @@ try {
     const search = page.getByLabel('Поиск в выбранном разделе');
     const result = page.getByRole('status');
     const visible = page.locator('.catalog-card:visible');
-    await result.filter({hasText:'Найдено: 28'}).waitFor();
+    await result.filter({hasText:'Найдено: 32'}).waitFor();
     assert.equal(await visible.count(),24);
-    await page.getByRole('button',{name:'Показать ещё 4',exact:true}).click();
-    assert.equal(await visible.count(),28);
+    await page.getByRole('button',{name:'Показать ещё 8',exact:true}).click();
+    assert.equal(await visible.count(),32);
+    await page.getByLabel('Редкость',{exact:true}).selectOption('exclusive');
+    assert.equal(await visible.count(),1);assert.ok(await visible.getAttribute('data-entry')==='modularwarfare:metro_stallion');
+    await page.getByLabel('Редкость',{exact:true}).selectOption('legendary');assert.equal(await visible.count(),5);
+    await page.getByRole('button',{name:'Сбросить',exact:true}).click();
     await search.fill('Велопал'); assert.equal(await visible.count(),1);
     const velopal = page.locator('#entry-modularwarfare-metro_velopal');
     await velopal.locator('summary').click();
@@ -59,8 +63,8 @@ try {
   }
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:900}}),page=await context.newPage();
   await page.goto(base+'/wiki.html#entry-modularwarfare-metro_velopal');
-  assert.equal(await page.locator('.catalog-card:visible').count(),260);
+  assert.equal(await page.locator('.catalog-card:visible').count(),267);
   await page.locator('#entry-modularwarfare-metro_velopal summary').click();
   assert.ok((await page.locator('#entry-modularwarfare-metro_velopal').textContent()).includes('Внутренняя ёмкость6'));
-  await context.close(); console.log('PASS without JavaScript: all 260 articles, native disclosure, anchors');
+  await context.close(); console.log('PASS without JavaScript: all 267 articles, native disclosure, anchors');
 } finally { await browser.close(); }

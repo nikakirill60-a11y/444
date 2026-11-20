@@ -33,6 +33,8 @@ WEAPON_RARITIES={'duplet': 'common',
  'akk': 'rare', 'army_ak':'legendary', 'ubludok_old':'epic', 'stallion':'exclusive', 'duplet_2':'common'}
 NEW_GUNS2_PROFILES={'modularwarfare:metro_army_ak': {'grams': 3800, 'capacityGrams': 0, 'rarity': 'legendary', 'width': 4, 'height': 2}, 'modularwarfare:metro_ubludok_old': {'grams': 3500, 'capacityGrams': 0, 'rarity': 'epic', 'width': 4, 'height': 2}, 'modularwarfare:metro_stallion': {'grams': 1200, 'capacityGrams': 0, 'rarity': 'exclusive', 'width': 3, 'height': 2}, 'modularwarfare:metro_duplet_2': {'grams': 3200, 'capacityGrams': 0, 'rarity': 'common', 'width': 4, 'height': 2}, 'modularwarfare:metro_ubludok_old_ammo': {'grams': 400, 'capacityGrams': 0, 'rarity': 'common', 'width': 1, 'height': 2}}
 
+NEW_GUNS2_PROFILES['modularwarfare:metro_stallion_ammo']={'grams':250,'capacityGrams':0,'rarity':'common','width':1,'height':2}
+
 NATIVE={
  'armor':'uncommon','bandit':'uncommon','bazaltarmor':'legendary','bazalthelmet':'legendary',
  'custarmor':'common','ganzaarmor':'rare','ganzahelm':'rare','ganzatyaj':'epic','ganza_helmet':'epic',
