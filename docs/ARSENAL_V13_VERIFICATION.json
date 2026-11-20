@@ -1,0 +1,111 @@
+{
+  "sourceCommit": "57973a01c3ab0a2f9a49966ef7e60f482cbaffb2",
+  "runs": [
+    {
+      "id": 44724324239,
+      "conclusion": "success"
+    },
+    {
+      "id": 44724324279,
+      "conclusion": "success"
+    }
+  ],
+  "tests": [
+    {
+      "title": "JUnit results",
+      "message": "632 tests, 0 failures, 0 errors, 0 skipped"
+    },
+    {
+      "title": "Python results",
+      "message": "444 tests; 0 failures; 0 errors"
+    }
+  ],
+  "releases": {
+    "minetro-arsenal-v13": {
+      "url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-arsenal-v13",
+      "sourceCommit": "57973a01c3ab0a2f9a49966ef7e60f482cbaffb2",
+      "assets": [
+        {
+          "name": "Metro_Full_Arsenal_MWF_fix1_v13_weapon_update.zip",
+          "size": 144889605,
+          "digest": "sha256:a1c277e080d2181f96d1b46b78df26794e56bd83d1b4da035d919e864f830f17",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v13/Metro_Full_Arsenal_MWF_fix1_v13_weapon_update.zip"
+        },
+        {
+          "name": "MWF_V11_native_tests.txt",
+          "size": 322,
+          "digest": "sha256:3ebd3715f87c75d8490d2fe056b764ff8076baa7a099e09aceb673cdd3585c86",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v13/MWF_V11_native_tests.txt"
+        },
+        {
+          "name": "MWF_V12_enum_tests.txt",
+          "size": 98,
+          "digest": "sha256:347835705171b42c251b1d83591dc53248671663f5e1d2fd449508f52acc13aa",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v13/MWF_V12_enum_tests.txt"
+        },
+        {
+          "name": "MWF_V13_report.json",
+          "size": 2126,
+          "digest": "sha256:628175f0dfde83890a10d95a089abf363a6b3303ceec453516d50950171ef218",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v13/MWF_V13_report.json"
+        }
+      ]
+    },
+    "minetro-inventory-dev43": {
+      "url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-inventory-dev43",
+      "sourceCommit": "57973a01c3ab0a2f9a49966ef7e60f482cbaffb2",
+      "assets": [
+        {
+          "name": "ARSENAL_V13_RU.md",
+          "size": 4121,
+          "digest": "sha256:fe0f8ff271b124785f8a3ccc4a943c51b950440f651e82a87a1ee5d9eafa2d0c",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev43/ARSENAL_V13_RU.md"
+        },
+        {
+          "name": "metrocraft-port-1.12.2-1.13.0-dev.43.jar",
+          "size": 87261198,
+          "digest": "sha256:a6c269c77ee8b7b4b0f61af15aa817ab621d1dbc521e5c83259accf70c61126a",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev43/metrocraft-port-1.12.2-1.13.0-dev.43.jar"
+        },
+        {
+          "name": "MinETRO_inventory_dev43_report.json",
+          "size": 485,
+          "digest": "sha256:37e3899640b8eb40ba200c7fbc8b3b76433b8cab6ea1724d118718faca9cd76c",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev43/MinETRO_inventory_dev43_report.json"
+        },
+        {
+          "name": "WEAPON_RARITIES_DEV36_RU.md",
+          "size": 2063,
+          "digest": "sha256:81d2f5e672935b1453920985fcb7afbadf8927548a25d9c714e231b9d9bc3768",
+          "state": "uploaded",
+          "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev43/WEAPON_RARITIES_DEV36_RU.md"
+        }
+      ]
+    }
+  },
+  "wiki": {
+    "url": "https://minetro-beta.vercel.app/wiki.html",
+    "deploymentId": "dpl_CvBy9JiWHLjzicp1zSGrtoY4Q9uL",
+    "readyState": "READY",
+    "readySubstate": "PROMOTED",
+    "sourceCommit": "57973a01c3ab0a2f9a49966ef7e60f482cbaffb2",
+    "browserWidths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "noJavascriptTested": true,
+    "entries": 268,
+    "icons": 249
+  },
+  "minecraftLiveTested": false
+}
