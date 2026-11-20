@@ -56,8 +56,8 @@ class WebsiteWiki(unittest.TestCase):
         self.assertEqual(len(panels), 4)
         self.assertTrue(all('hidden' not in a for a in panels))
         self.assertNotIn('МАТЕРИАЛЫ ГОТОВЯТСЯ', self.text)
-        self.assertEqual(sum(tag == 'article' and 'data-entry' in a for tag, a in self.nodes), 267)
-        self.assertIn('MinETRO dev.42 + MWF v12', self.text)
+        self.assertEqual(sum(tag == 'article' and 'data-entry' in a for tag, a in self.nodes), 268)
+        self.assertIn('MinETRO dev.43 + MWF v13', self.text)
         self.assertNotIn('<form', self.text)
 
     def test_script_has_keyboard_history_and_aria_without_network_or_storage(self):

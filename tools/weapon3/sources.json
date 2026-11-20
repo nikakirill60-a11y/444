@@ -1,0 +1,8 @@
+{
+  "name": "weapon.zip",
+  "googleDriveFileId": "1YaCjxfkXtddhvnHOg3l0GVNAnlPsbLmf",
+  "bytes": 7095677,
+  "sha256": "72ff0e0aa6907d5eff3826903ef3a574ec0a675afdecd8f77855a7d39f4bb0ee",
+  "purpose": "User-supplied replacement mini-flamethrower and three separate melee weapons",
+  "meleeRarities": {"hammer": "rare", "crowbar": "epic", "axe": "legendary"}
+}

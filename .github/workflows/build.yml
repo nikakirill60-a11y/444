@@ -114,7 +114,7 @@ jobs:
             .cache/forge-maven
           key: minetro-forge1122-${{ runner.os }}-${{ github.run_id }}
       - name: Verify reduced distribution and retained model dependencies
-        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.42.jar
+        run: python tools/verify_reduced_jar.py build/libs/metrocraft-port-1.12.2-1.13.0-dev.43.jar
       - name: Report JUnit results
         if: always()
         run: |
@@ -133,11 +133,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: metrocraft-port-1.12.2
-          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.42.jar
+          path: build/libs/metrocraft-port-1.12.2-1.13.0-dev.43.jar
           if-no-files-found: error
 
-      - name: Publish verified v12 magazine inventory support build
-        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish arsenal-v12]')
+      - name: Publish verified v13 melee inventory support build
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish arsenal-v13]')
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -148,7 +148,7 @@ jobs:
           import hashlib, json, os, zipfile
           import xml.etree.ElementTree as ET
           from pathlib import Path
-          jar = Path('build/libs/metrocraft-port-1.12.2-1.13.0-dev.42.jar')
+          jar = Path('build/libs/metrocraft-port-1.12.2-1.13.0-dev.43.jar')
           suites = [ET.parse(p).getroot() for p in Path('build/test-results/test').glob('TEST-*.xml')]
           assert suites and all(int(s.get('failures', '0')) == 0 and int(s.get('errors', '0')) == 0 for s in suites)
           with zipfile.ZipFile(jar) as z:
@@ -156,25 +156,31 @@ jobs:
               from tools.configure_inventory_grid import WEAPON_RARITIES
               balance = json.loads(z.read('assets/metroport/inventory_balance.json'))
               assert all(balance['items']['modularwarfare:metro_'+gun]['rarity'] == tier for gun, tier in WEAPON_RARITIES.items())
+              assert 'modularwarfare:metro_akk' not in balance['items']
+              for id,tier in {'hammer':'rare','crowbar':'epic','axe':'legendary'}.items():
+                  assert balance['items']['metroport:'+id]['rarity']==tier
+                  for path in ['models/item/','models/legacy/mcmod_tools/','textures/mcmod/tools/']:
+                      ext='.obj' if 'legacy' in path else '.png' if 'textures' in path else '.json'
+                      assert 'assets/metroport/'+path+id+ext in z.namelist()
               assert balance['categories']['patch']['grams']==100
               assert balance['items']['metroport:mcmod_watch']['rarity']=='epic'
               assert all(balance['items']['metroport:'+id]['grams']==grams for id,grams in {'armorrem':3000,'remkomplekt':3000,'kanistra':6000}.items())
               assert {'ru/metrocraft/port/client/MetroChestGui.class','ru/metrocraft/port/client/EquipmentLayers.class','ru/metrocraft/port/client/OverloadInput.class'} <= set(z.namelist())
               assert 'assets/metroport/models/item/remkomplekt.json' in z.namelist()
               assert not any(n.startswith('com/modularwarfare/') for n in z.namelist()), 'Test fixtures must not ship'
-          report = dict(version='1.13.0-dev.42', sourceCommit=os.environ['GITHUB_SHA'],
+          report = dict(version='1.13.0-dev.43', sourceCommit=os.environ['GITHUB_SHA'],
               buildUrl='https://github.com/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],
               jar=jar.name, bytes=jar.stat().st_size, sha256=hashlib.sha256(jar.read_bytes()).hexdigest(),
               junitTests=sum(int(s.get('tests', '0')) for s in suites), junitFailures=0, junitErrors=0,
               weaponRaritiesVerified=len(WEAPON_RARITIES),
               minecraftLiveTested=False, mwfLiveTested=False)
-          Path('build/MinETRO_inventory_dev42_report.json').write_text(json.dumps(report, indent=2)+'\n')
+          Path('build/MinETRO_inventory_dev43_report.json').write_text(json.dumps(report, indent=2)+'\n')
           PYREPORT
-          gh release create minetro-inventory-dev42 --target "$GITHUB_SHA" --prerelease \
-            --title 'MinETRO dev42 — new arsenal inventory support TEST' \
-            --notes-file docs/ARSENAL_V12_RU.md \
-            build/libs/metrocraft-port-1.12.2-1.13.0-dev.42.jar \
-            build/MinETRO_inventory_dev42_report.json docs/ARSENAL_V12_RU.md docs/WEAPON_RARITIES_DEV36_RU.md
+          gh release create minetro-inventory-dev43 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO dev43 — new arsenal inventory support TEST' \
+            --notes-file docs/ARSENAL_V13_RU.md \
+            build/libs/metrocraft-port-1.12.2-1.13.0-dev.43.jar \
+            build/MinETRO_inventory_dev43_report.json docs/ARSENAL_V13_RU.md docs/WEAPON_RARITIES_DEV36_RU.md
 
       - name: Verify and publish original menu runtime test
         if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish menu-test]')

@@ -1,8 +1,8 @@
-name: Metro arsenal v12 corrections
+name: Metro arsenal v13 weapon update
 on:
   push:
     branches: ['arena/dcab859f-444']
-    paths: ['tools/build_mwf_v12.py', 'tools/mwf_local_textures.py', 'tools/metro-guns2/NativeEnumTest.java', 'tools/build_website_wiki.py', 'tests/test_mwf_v12.py', '.github/workflows/mwf-v12.yml']
+    paths: ['tools/build_mwf_v12.py', 'tools/build_mwf_v13.py', 'tools/weapon3/sources.zip', 'tests/test_mwf_v13.py', 'tools/mwf_local_textures.py', 'tools/metro-guns2/NativeEnumTest.java', 'tools/build_website_wiki.py', 'tests/test_mwf_v12.py', '.github/workflows/mwf-v12.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -47,24 +47,26 @@ jobs:
           fi
           cat .cache/v12-ci.log
           python -m unittest discover -s tests -p test_mwf_v12.py -v
-          python tools/build_website_wiki.py --pack .cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip
+          python tools/build_mwf_v13.py --pack .cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip
+          python -m unittest discover -s tests -p test_mwf_v13.py -v
+          python tools/build_website_wiki.py --pack .cache/output-v13/Metro_Full_Arsenal_MWF_fix1_v13_weapon_update.zip
           git diff --exit-code -- website/wiki-data.json website/wiki-manifest.json website/wiki.html website/assets/wiki
       - uses: actions/upload-artifact@v4
         with:
-          name: Metro-v12-corrections
-          path: .cache/output-v12/*
+          name: Metro-v13-update
+          path: .cache/output-v13/*
           if-no-files-found: error
       - name: Publish verified full pack (existing metro7 runtime unchanged)
-        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[publish arsenal-v12]')
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[publish arsenal-v13]')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           test "$(git ls-remote origin refs/heads/arena/dcab859f-444 | cut -f1)" = "$GITHUB_SHA"
-          gh release create minetro-arsenal-v12 --target "$GITHUB_SHA" --prerelease \
-            --title 'MinETRO v12 — fire modes, separate textures, Kalash UV, magazine Stallion' \
-            --notes-file docs/ARSENAL_V12_RU.md \
-            .cache/output-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip \
-            .cache/output-v12/MWF_V12_report.json \
+          gh release create minetro-arsenal-v13 --target "$GITHUB_SHA" --prerelease \
+            --title 'MinETRO v13 — new mini flamethrower, remove АКК, three melee weapons' \
+            --notes-file docs/ARSENAL_V13_RU.md \
+            .cache/output-v13/Metro_Full_Arsenal_MWF_fix1_v13_weapon_update.zip \
+            .cache/output-v13/MWF_V13_report.json \
             .cache/output-v12/MWF_V11_native_tests.txt \
             .cache/output-v12/MWF_V12_enum_tests.txt

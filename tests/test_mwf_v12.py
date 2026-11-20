@@ -65,7 +65,7 @@ class V12SmallUnits(unittest.TestCase):
   keys=[d['materials'][p['material']]['name'] for p in d['meshes'][0]['primitives']];self.assertEqual(2,len(set(keys)))
  def test_inventory_magazine_profile_and_wiki_tiers_match(self):
   b=json.loads((ROOT/'src/main/resources/assets/metroport/inventory_balance.json').read_text())['items'];w=json.loads((ROOT/'website/wiki-data.json').read_text());byid={e['id']:e for e in w['entries']}
-  self.assertEqual(29,sum(e['category']=='weapons' and e['family']=='MWF' for e in w['entries']))
+  self.assertEqual(28,sum(e['category']=='weapons' and e['family']=='MWF' for e in w['entries']))
   for id in ('metro_army_ak','metro_stallion','metro_ubludok_old','metro_duplet_2'):
    full='modularwarfare:'+id;self.assertEqual(b[full]['rarity'],byid[full]['rarity'])
   self.assertEqual('7',dict(byid['modularwarfare:metro_stallion_ammo']['stats'])['Ёмкость'])

@@ -1,10 +1,10 @@
 {
-  "version": "MinETRO 1.13.0-dev.42 + MWF v12 / metro7",
+  "version": "MinETRO 1.13.0-dev.43 + MWF v13 / metro7",
   "sourceCommit": "arena/dcab859f-444",
-  "packSha256": "5017abbfef1e88f3d9a0767c5dec5723729d3f72840e81503df8eb68e429667d",
+  "packSha256": "a1c277e080d2181f96d1b46b78df26794e56bd83d1b4da035d919e864f830f17",
   "counts": {
-    "weapons": 32,
-    "items": 107,
+    "weapons": 34,
+    "items": 106,
     "armor": 110,
     "mutants": 18
   },
@@ -15,7 +15,7 @@
       "group": "Дробовики",
       "family": "MWF",
       "name": "Абзац",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -58,7 +58,7 @@
           "6000"
         ]
       ],
-      "source": "MWF v12: guns/metro_abzac.json",
+      "source": "MWF v13: guns/metro_abzac.json",
       "image": "/assets/wiki/metro_abzac.png",
       "links": [
         "modularwarfare:metro_abzac_ammo_big",
@@ -75,7 +75,7 @@
       "group": "Автоматы",
       "family": "MWF",
       "name": "Калаш",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -118,7 +118,7 @@
           "3600"
         ]
       ],
-      "source": "MWF v12: guns/metro_ak.json",
+      "source": "MWF v13: guns/metro_ak.json",
       "image": "/assets/wiki/metro_ak.png",
       "links": [
         "modularwarfare:metro_rpk_ammo",
@@ -137,7 +137,7 @@
       "group": "Автоматы",
       "family": "MWF",
       "name": "Калаш 2012",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -180,7 +180,7 @@
           "3800"
         ]
       ],
-      "source": "MWF v12: guns/metro_ak2012.json",
+      "source": "MWF v13: guns/metro_ak2012.json",
       "image": "/assets/wiki/metro_ak2012.png",
       "links": [
         "modularwarfare:metro_ak2012_ammo",
@@ -193,73 +193,12 @@
       "rarity": "mythic"
     },
     {
-      "id": "modularwarfare:metro_akk",
-      "category": "weapons",
-      "group": "Автоматы",
-      "family": "MWF",
-      "name": "Калашников (AKK)",
-      "description": "Отдельный Калашников AKK. Баланс адаптации предварительный, а не подтверждённая копия старого мода.",
-      "stats": [
-        [
-          "Редкость",
-          "Редкий"
-        ],
-        [
-          "Урон / снаряд",
-          "4.5"
-        ],
-        [
-          "Темп, выстр./мин",
-          "400"
-        ],
-        [
-          "Снарядов / выстрел",
-          "1"
-        ],
-        [
-          "Ёмкость магазинов",
-          "30"
-        ],
-        [
-          "Перезарядка, такты",
-          "56"
-        ],
-        [
-          "Режимы огня",
-          "одиночный, автоматический"
-        ],
-        [
-          "Эфф. дальность, блоки",
-          "90"
-        ],
-        [
-          "Макс. дальность, блоки",
-          "240"
-        ],
-        [
-          "Масса, г",
-          "4000"
-        ]
-      ],
-      "source": "MWF v12: guns/metro_akk.json",
-      "image": "/assets/wiki/metro_akk.png",
-      "links": [
-        "modularwarfare:metro_akk_ammo",
-        "modularwarfare:metro_mod_optica",
-        "modularwarfare:metro_mod_optica_small",
-        "modularwarfare:metro_mod_kolimator",
-        "modularwarfare:metro_mod_laser",
-        "modularwarfare:metro_mod_glushak"
-      ],
-      "rarity": "rare"
-    },
-    {
       "id": "modularwarfare:metro_aksu",
       "category": "weapons",
       "group": "Автоматы",
       "family": "MWF",
       "name": "АКС-У",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -302,7 +241,7 @@
           "2700"
         ]
       ],
-      "source": "MWF v12: guns/metro_aksu.json",
+      "source": "MWF v13: guns/metro_aksu.json",
       "image": "/assets/wiki/metro_aksu.png",
       "links": [
         "modularwarfare:metro_rpk_ammo",
@@ -364,7 +303,7 @@
           "3800"
         ]
       ],
-      "source": "MWF v12: guns/metro_army_ak.json",
+      "source": "MWF v13: guns/metro_army_ak.json",
       "image": "/assets/wiki/metro_army_ak.png",
       "links": [
         "modularwarfare:metro_rpk_ammo",
@@ -426,7 +365,7 @@
           "1000"
         ]
       ],
-      "source": "MWF v12: guns/metro_ashot.json",
+      "source": "MWF v13: guns/metro_ashot.json",
       "image": "/assets/wiki/metro_ashot.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -488,7 +427,7 @@
           "3200"
         ]
       ],
-      "source": "MWF v12: guns/metro_duplet.json",
+      "source": "MWF v13: guns/metro_duplet.json",
       "image": "/assets/wiki/metro_duplet.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -550,7 +489,7 @@
           "3200"
         ]
       ],
-      "source": "MWF v12: guns/metro_duplet_2.json",
+      "source": "MWF v13: guns/metro_duplet_2.json",
       "image": "/assets/wiki/metro_duplet_2.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -569,7 +508,7 @@
       "group": "Пулемёты",
       "family": "MWF",
       "name": "Ручной пулемёт",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -612,7 +551,7 @@
           "9000"
         ]
       ],
-      "source": "MWF v12: guns/metro_gatling.json",
+      "source": "MWF v13: guns/metro_gatling.json",
       "image": "/assets/wiki/metro_gatling.png",
       "links": [
         "modularwarfare:metro_gatling_ammo",
@@ -629,7 +568,7 @@
       "group": "Особое оружие",
       "family": "MWF",
       "name": "Хельсинг",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -672,7 +611,7 @@
           "3500"
         ]
       ],
-      "source": "MWF v12: guns/metro_helsing.json",
+      "source": "MWF v13: guns/metro_helsing.json",
       "image": "/assets/wiki/metro_helsing.png",
       "links": [
         "modularwarfare:metro_helsing_ammo",
@@ -732,7 +671,7 @@
           "4500"
         ]
       ],
-      "source": "MWF v12: guns/metro_medved.json",
+      "source": "MWF v13: guns/metro_medved.json",
       "image": "/assets/wiki/metro_medved.png",
       "links": [
         "modularwarfare:metro_12g_buckshot"
@@ -788,7 +727,7 @@
           "7500"
         ]
       ],
-      "source": "MWF v12: guns/metro_ognemet.json",
+      "source": "MWF v13: guns/metro_ognemet.json",
       "image": "/assets/wiki/metro_ognemet.png",
       "links": [
         "modularwarfare:metro_ognemet_ammo"
@@ -844,7 +783,7 @@
           "3500"
         ]
       ],
-      "source": "MWF v12: guns/metro_ognemet_mini.json",
+      "source": "MWF v13: guns/metro_ognemet_mini.json",
       "image": "/assets/wiki/metro_ognemet_mini.png",
       "links": [
         "modularwarfare:metro_ognemet_mini_ammo"
@@ -857,7 +796,7 @@
       "group": "Автоматы",
       "family": "MWF",
       "name": "Подонок",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -900,7 +839,7 @@
           "1800"
         ]
       ],
-      "source": "MWF v12: guns/metro_podonok.json",
+      "source": "MWF v13: guns/metro_podonok.json",
       "image": "/assets/wiki/metro_podonok.png",
       "links": [
         "modularwarfare:metro_podonok_ammo_big",
@@ -922,7 +861,7 @@
       "group": "Винтовки",
       "family": "MWF",
       "name": "Превед",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -965,7 +904,7 @@
           "7000"
         ]
       ],
-      "source": "MWF v12: guns/metro_preved.json",
+      "source": "MWF v13: guns/metro_preved.json",
       "image": "/assets/wiki/metro_preved.png",
       "links": [
         "modularwarfare:metro_preved_ammo",
@@ -981,7 +920,7 @@
       "group": "Особое оружие",
       "family": "MWF",
       "name": "Рельса",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1024,7 +963,7 @@
           "6000"
         ]
       ],
-      "source": "MWF v12: guns/metro_railgun.json",
+      "source": "MWF v13: guns/metro_railgun.json",
       "image": "/assets/wiki/metro_railgun.png",
       "links": [
         "modularwarfare:metro_tihar_ammo",
@@ -1043,7 +982,7 @@
       "group": "Пистолеты",
       "family": "MWF",
       "name": "Револьвер",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1086,7 +1025,7 @@
           "1200"
         ]
       ],
-      "source": "MWF v12: guns/metro_revolver.json",
+      "source": "MWF v13: guns/metro_revolver.json",
       "image": "/assets/wiki/metro_revolver.png",
       "links": [
         "modularwarfare:metro_bullet_magnum",
@@ -1106,7 +1045,7 @@
       "group": "Пулемёты",
       "family": "MWF",
       "name": "РПК",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1149,7 +1088,7 @@
           "4800"
         ]
       ],
-      "source": "MWF v12: guns/metro_rpk.json",
+      "source": "MWF v13: guns/metro_rpk.json",
       "image": "/assets/wiki/metro_rpk.png",
       "links": [
         "modularwarfare:metro_rpk_ammo_big",
@@ -1167,7 +1106,7 @@
       "group": "Дробовики",
       "family": "MWF",
       "name": "Сайга",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1210,7 +1149,7 @@
           "4000"
         ]
       ],
-      "source": "MWF v12: guns/metro_saiga.json",
+      "source": "MWF v13: guns/metro_saiga.json",
       "image": "/assets/wiki/metro_saiga.png",
       "links": [
         "modularwarfare:metro_saiga_ammo_big",
@@ -1271,7 +1210,7 @@
           "1200"
         ]
       ],
-      "source": "MWF v12: guns/metro_stallion.json",
+      "source": "MWF v13: guns/metro_stallion.json",
       "image": "/assets/wiki/metro_stallion.png",
       "links": [
         "modularwarfare:metro_stallion_ammo"
@@ -1284,7 +1223,7 @@
       "group": "Особое оружие",
       "family": "MWF",
       "name": "Тихарь",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1327,7 +1266,7 @@
           "3300"
         ]
       ],
-      "source": "MWF v12: guns/metro_tihar.json",
+      "source": "MWF v13: guns/metro_tihar.json",
       "image": "/assets/wiki/metro_tihar.png",
       "links": [
         "modularwarfare:metro_tihar_ammo",
@@ -1387,7 +1326,7 @@
           "3000"
         ]
       ],
-      "source": "MWF v12: guns/metro_ubludok.json",
+      "source": "MWF v13: guns/metro_ubludok.json",
       "image": "/assets/wiki/metro_ubludok.png",
       "links": [
         "modularwarfare:metro_ubludok_ammo",
@@ -1450,7 +1389,7 @@
           "3500"
         ]
       ],
-      "source": "MWF v12: guns/metro_ubludok_old.json",
+      "source": "MWF v13: guns/metro_ubludok_old.json",
       "image": "/assets/wiki/metro_ubludok_old.png",
       "links": [
         "modularwarfare:metro_ubludok_old_ammo"
@@ -1463,7 +1402,7 @@
       "group": "Дробовики",
       "family": "MWF",
       "name": "Убойник",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1506,7 +1445,7 @@
           "4200"
         ]
       ],
-      "source": "MWF v12: guns/metro_uboinik.json",
+      "source": "MWF v13: guns/metro_uboinik.json",
       "image": "/assets/wiki/metro_uboinik.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -1567,7 +1506,7 @@
           "3800"
         ]
       ],
-      "source": "MWF v12: guns/metro_velopal.json",
+      "source": "MWF v13: guns/metro_velopal.json",
       "image": "/assets/wiki/metro_velopal.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -1581,7 +1520,7 @@
       "group": "Винтовки",
       "family": "MWF",
       "name": "Вентиль",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1624,7 +1563,7 @@
           "4200"
         ]
       ],
-      "source": "MWF v12: guns/metro_ventil.json",
+      "source": "MWF v13: guns/metro_ventil.json",
       "image": "/assets/wiki/metro_ventil.png",
       "links": [
         "modularwarfare:metro_ventil_ammo_big",
@@ -1643,7 +1582,7 @@
       "group": "Автоматы",
       "family": "MWF",
       "name": "ВСВ",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1686,7 +1625,7 @@
           "3500"
         ]
       ],
-      "source": "MWF v12: guns/metro_vsv.json",
+      "source": "MWF v13: guns/metro_vsv.json",
       "image": "/assets/wiki/metro_vsv.png",
       "links": [
         "modularwarfare:metro_vsv_ammo",
@@ -1704,7 +1643,7 @@
       "group": "Винтовки",
       "family": "MWF",
       "name": "Хлопушка",
-      "description": "Оружие из арсенала MWF v12. Показаны базовые параметры конфигурации без модификаторов обвесов.",
+      "description": "Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.",
       "stats": [
         [
           "Редкость",
@@ -1747,7 +1686,7 @@
           "6500"
         ]
       ],
-      "source": "MWF v12: guns/metro_vyhlop.json",
+      "source": "MWF v13: guns/metro_vyhlop.json",
       "image": "/assets/wiki/metro_vyhlop.png",
       "links": [
         "modularwarfare:metro_vyhlop_ammo",
@@ -1780,7 +1719,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_12g_buckshot.json",
+      "source": "MWF v13: bullets/metro_12g_buckshot.json",
       "image": "/assets/wiki/metro_12g_buckshot.png",
       "links": [
         "modularwarfare:metro_ashot",
@@ -1817,7 +1756,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet12_7x108.json",
+      "source": "MWF v13: bullets/metro_bullet12_7x108.json",
       "image": "/assets/wiki/metro_bullet12_7x108.png",
       "links": [
         "modularwarfare:metro_preved_ammo"
@@ -1845,7 +1784,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet12_7x55.json",
+      "source": "MWF v13: bullets/metro_bullet12_7x55.json",
       "image": "/assets/wiki/metro_bullet12_7x55.png",
       "links": [
         "modularwarfare:metro_ognemet_ammo",
@@ -1875,7 +1814,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet12x7.json",
+      "source": "MWF v13: bullets/metro_bullet12x7.json",
       "image": "/assets/wiki/metro_bullet12x7.png",
       "links": [
         "modularwarfare:metro_gatling_ammo"
@@ -1903,7 +1842,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet15mm.json",
+      "source": "MWF v13: bullets/metro_bullet15mm.json",
       "image": "/assets/wiki/metro_bullet15mm.png",
       "links": [
         "modularwarfare:metro_tihar_ammo"
@@ -1931,12 +1870,11 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet5x45.json",
+      "source": "MWF v13: bullets/metro_bullet5x45.json",
       "image": "/assets/wiki/metro_bullet5x45.png",
       "links": [
         "modularwarfare:metro_ak2012_ammo",
         "modularwarfare:metro_ak_ammo",
-        "modularwarfare:metro_akk_ammo",
         "modularwarfare:metro_rpk_ammo",
         "modularwarfare:metro_rpk_ammo_big",
         "modularwarfare:metro_ubludok_ammo",
@@ -1966,7 +1904,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet7_62x54.json",
+      "source": "MWF v13: bullets/metro_bullet7_62x54.json",
       "image": "/assets/wiki/metro_bullet7_62x54.png",
       "links": [
         "modularwarfare:metro_ventil_ammo",
@@ -1995,7 +1933,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet_bolt.json",
+      "source": "MWF v13: bullets/metro_bullet_bolt.json",
       "image": "/assets/wiki/metro_bullet_bolt.png",
       "links": [
         "modularwarfare:metro_helsing_ammo"
@@ -2023,7 +1961,7 @@
           "15"
         ]
       ],
-      "source": "MWF v12: bullets/metro_bullet_magnum.json",
+      "source": "MWF v13: bullets/metro_bullet_magnum.json",
       "image": "/assets/wiki/metro_bullet_magnum.png",
       "links": [
         "modularwarfare:metro_revolver",
@@ -2058,7 +1996,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_abzac_ammo.json",
+      "source": "MWF v13: ammo/metro_abzac_ammo.json",
       "image": "/assets/wiki/metro_abzac_ammo.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -2091,7 +2029,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_abzac_ammo_big.json",
+      "source": "MWF v13: ammo/metro_abzac_ammo_big.json",
       "image": "/assets/wiki/metro_abzac_ammo_big.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -2124,7 +2062,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ak2012_ammo.json",
+      "source": "MWF v13: ammo/metro_ak2012_ammo.json",
       "image": "/assets/wiki/metro_ak2012_ammo.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
@@ -2157,46 +2095,13 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ak_ammo.json",
+      "source": "MWF v13: ammo/metro_ak_ammo.json",
       "image": "/assets/wiki/metro_ak_ammo.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
         "modularwarfare:metro_ak",
         "modularwarfare:metro_aksu",
         "modularwarfare:metro_army_ak"
-      ],
-      "rarity": "common"
-    },
-    {
-      "id": "modularwarfare:metro_akk_ammo",
-      "category": "items",
-      "group": "Магазины и баллоны",
-      "family": "MWF",
-      "name": "Магазин Калашникова (AKK)",
-      "description": "Магазин или баллон MWF. Ёмкость и боеприпасы взяты из конфигурации.",
-      "stats": [
-        [
-          "Редкость",
-          "Обычный"
-        ],
-        [
-          "Ёмкость",
-          "30"
-        ],
-        [
-          "Стак",
-          "1"
-        ],
-        [
-          "Масса, г",
-          "200"
-        ]
-      ],
-      "source": "MWF v12: ammo/metro_akk_ammo.json",
-      "image": "/assets/wiki/metro_akk_ammo.png",
-      "links": [
-        "modularwarfare:metro_bullet5x45",
-        "modularwarfare:metro_akk"
       ],
       "rarity": "common"
     },
@@ -2225,7 +2130,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_gatling_ammo.json",
+      "source": "MWF v13: ammo/metro_gatling_ammo.json",
       "image": "/assets/wiki/metro_gatling_ammo.png",
       "links": [
         "modularwarfare:metro_bullet12x7",
@@ -2258,7 +2163,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_helsing_ammo.json",
+      "source": "MWF v13: ammo/metro_helsing_ammo.json",
       "image": "/assets/wiki/metro_helsing_ammo.png",
       "links": [
         "modularwarfare:metro_bullet_bolt",
@@ -2291,7 +2196,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ognemet_ammo.json",
+      "source": "MWF v13: ammo/metro_ognemet_ammo.json",
       "image": "/assets/wiki/metro_ognemet_ammo.png",
       "links": [
         "modularwarfare:metro_bullet12_7x55",
@@ -2324,7 +2229,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ognemet_mini_ammo.json",
+      "source": "MWF v13: ammo/metro_ognemet_mini_ammo.json",
       "image": "/assets/wiki/metro_ognemet_mini_ammo.png",
       "links": [
         "modularwarfare:metro_bullet12_7x55",
@@ -2357,7 +2262,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_podonok_ammo.json",
+      "source": "MWF v13: ammo/metro_podonok_ammo.json",
       "image": "/assets/wiki/metro_podonok_ammo.png",
       "links": [
         "modularwarfare:metro_bullet_magnum",
@@ -2390,7 +2295,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_podonok_ammo_big.json",
+      "source": "MWF v13: ammo/metro_podonok_ammo_big.json",
       "image": "/assets/wiki/metro_podonok_ammo_big.png",
       "links": [
         "modularwarfare:metro_bullet_magnum",
@@ -2423,7 +2328,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_preved_ammo.json",
+      "source": "MWF v13: ammo/metro_preved_ammo.json",
       "image": "/assets/wiki/metro_preved_ammo.png",
       "links": [
         "modularwarfare:metro_bullet12_7x108",
@@ -2456,7 +2361,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_rpk_ammo.json",
+      "source": "MWF v13: ammo/metro_rpk_ammo.json",
       "image": "/assets/wiki/metro_rpk_ammo.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
@@ -2492,7 +2397,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_rpk_ammo_big.json",
+      "source": "MWF v13: ammo/metro_rpk_ammo_big.json",
       "image": "/assets/wiki/metro_rpk_ammo_big.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
@@ -2525,7 +2430,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_saiga_ammo.json",
+      "source": "MWF v13: ammo/metro_saiga_ammo.json",
       "image": "/assets/wiki/metro_saiga_ammo.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -2558,7 +2463,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_saiga_ammo_big.json",
+      "source": "MWF v13: ammo/metro_saiga_ammo_big.json",
       "image": "/assets/wiki/metro_saiga_ammo_big.png",
       "links": [
         "modularwarfare:metro_12g_buckshot",
@@ -2591,7 +2496,7 @@
           "250"
         ]
       ],
-      "source": "MWF v12: ammo/metro_stallion_ammo.json",
+      "source": "MWF v13: ammo/metro_stallion_ammo.json",
       "image": "/assets/wiki/metro_stallion_ammo.png",
       "links": [
         "modularwarfare:metro_bullet_magnum",
@@ -2624,7 +2529,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_tihar_ammo.json",
+      "source": "MWF v13: ammo/metro_tihar_ammo.json",
       "image": "/assets/wiki/metro_tihar_ammo.png",
       "links": [
         "modularwarfare:metro_bullet15mm",
@@ -2658,7 +2563,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ubludok_ammo.json",
+      "source": "MWF v13: ammo/metro_ubludok_ammo.json",
       "image": "/assets/wiki/metro_ubludok_ammo.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
@@ -2691,7 +2596,7 @@
           "400"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ubludok_old_ammo.json",
+      "source": "MWF v13: ammo/metro_ubludok_old_ammo.json",
       "image": "/assets/wiki/metro_ubludok_old_ammo.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
@@ -2724,7 +2629,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ventil_ammo.json",
+      "source": "MWF v13: ammo/metro_ventil_ammo.json",
       "image": "/assets/wiki/metro_ventil_ammo.png",
       "links": [
         "modularwarfare:metro_bullet7_62x54",
@@ -2757,7 +2662,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_ventil_ammo_big.json",
+      "source": "MWF v13: ammo/metro_ventil_ammo_big.json",
       "image": "/assets/wiki/metro_ventil_ammo_big.png",
       "links": [
         "modularwarfare:metro_bullet7_62x54",
@@ -2790,7 +2695,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_vsv_ammo.json",
+      "source": "MWF v13: ammo/metro_vsv_ammo.json",
       "image": "/assets/wiki/metro_vsv_ammo.png",
       "links": [
         "modularwarfare:metro_bullet5x45",
@@ -2823,7 +2728,7 @@
           "200"
         ]
       ],
-      "source": "MWF v12: ammo/metro_vyhlop_ammo.json",
+      "source": "MWF v13: ammo/metro_vyhlop_ammo.json",
       "image": "/assets/wiki/metro_vyhlop_ammo.png",
       "links": [
         "modularwarfare:metro_bullet12_7x55",
@@ -2856,7 +2761,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_duplet_extra_barrels.json",
+      "source": "MWF v13: attachments/metro_duplet_extra_barrels.json",
       "image": "/assets/wiki/metro_duplet_extra_barrels.png",
       "links": [
         "modularwarfare:metro_duplet",
@@ -2889,7 +2794,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_duplet_grip.json",
+      "source": "MWF v13: attachments/metro_duplet_grip.json",
       "image": "/assets/wiki/metro_duplet_grip.png",
       "links": [
         "modularwarfare:metro_duplet",
@@ -2922,7 +2827,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_duplet_long_barrel.json",
+      "source": "MWF v13: attachments/metro_duplet_long_barrel.json",
       "image": "/assets/wiki/metro_duplet_long_barrel.png",
       "links": [
         "modularwarfare:metro_duplet",
@@ -2955,7 +2860,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_duplet_stock.json",
+      "source": "MWF v13: attachments/metro_duplet_stock.json",
       "image": "/assets/wiki/metro_duplet_stock.png",
       "links": [
         "modularwarfare:metro_duplet",
@@ -2988,7 +2893,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_duplet_suppressor.json",
+      "source": "MWF v13: attachments/metro_duplet_suppressor.json",
       "image": "/assets/wiki/metro_duplet_suppressor.png",
       "links": [
         "modularwarfare:metro_duplet",
@@ -3021,7 +2926,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_abzac_glushak.json",
+      "source": "MWF v13: attachments/metro_mod_abzac_glushak.json",
       "image": "/assets/wiki/metro_mod_abzac_glushak.png",
       "links": [
         "modularwarfare:metro_abzac"
@@ -3053,7 +2958,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_ashot_butt.json",
+      "source": "MWF v13: attachments/metro_mod_ashot_butt.json",
       "image": "/assets/wiki/metro_mod_ashot_butt.png",
       "links": [
         "modularwarfare:metro_ashot"
@@ -3085,7 +2990,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_auto_fire.json",
+      "source": "MWF v13: attachments/metro_mod_auto_fire.json",
       "image": "/assets/wiki/metro_mod_auto_fire.png",
       "links": [
         "modularwarfare:metro_abzac"
@@ -3117,7 +3022,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_barrel.json",
+      "source": "MWF v13: attachments/metro_mod_barrel.json",
       "image": "/assets/wiki/metro_mod_barrel.png",
       "links": [
         "modularwarfare:metro_ashot",
@@ -3152,7 +3057,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_butt.json",
+      "source": "MWF v13: attachments/metro_mod_butt.json",
       "image": "/assets/wiki/metro_mod_butt.png",
       "links": [
         "modularwarfare:metro_revolver"
@@ -3184,7 +3089,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_gatling_barrel.json",
+      "source": "MWF v13: attachments/metro_mod_gatling_barrel.json",
       "image": "/assets/wiki/metro_mod_gatling_barrel.png",
       "links": [
         "modularwarfare:metro_gatling"
@@ -3216,7 +3121,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_gatling_butt.json",
+      "source": "MWF v13: attachments/metro_mod_gatling_butt.json",
       "image": "/assets/wiki/metro_mod_gatling_butt.png",
       "links": [
         "modularwarfare:metro_gatling"
@@ -3248,7 +3153,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_gatling_giro.json",
+      "source": "MWF v13: attachments/metro_mod_gatling_giro.json",
       "image": "/assets/wiki/metro_mod_gatling_giro.png",
       "links": [
         "modularwarfare:metro_gatling"
@@ -3280,7 +3185,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_gatling_motor.json",
+      "source": "MWF v13: attachments/metro_mod_gatling_motor.json",
       "image": "/assets/wiki/metro_mod_gatling_motor.png",
       "links": [
         "modularwarfare:metro_gatling"
@@ -3312,12 +3217,11 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_glushak.json",
+      "source": "MWF v13: attachments/metro_mod_glushak.json",
       "image": "/assets/wiki/metro_mod_glushak.png",
       "links": [
         "modularwarfare:metro_ak",
         "modularwarfare:metro_ak2012",
-        "modularwarfare:metro_akk",
         "modularwarfare:metro_aksu",
         "modularwarfare:metro_army_ak",
         "modularwarfare:metro_ashot",
@@ -3354,12 +3258,11 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_kolimator.json",
+      "source": "MWF v13: attachments/metro_mod_kolimator.json",
       "image": "/assets/wiki/metro_mod_kolimator.png",
       "links": [
         "modularwarfare:metro_ak",
         "modularwarfare:metro_ak2012",
-        "modularwarfare:metro_akk",
         "modularwarfare:metro_aksu",
         "modularwarfare:metro_army_ak",
         "modularwarfare:metro_ashot",
@@ -3403,13 +3306,12 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_laser.json",
+      "source": "MWF v13: attachments/metro_mod_laser.json",
       "image": "/assets/wiki/metro_mod_laser.png",
       "links": [
         "modularwarfare:metro_abzac",
         "modularwarfare:metro_ak",
         "modularwarfare:metro_ak2012",
-        "modularwarfare:metro_akk",
         "modularwarfare:metro_aksu",
         "modularwarfare:metro_army_ak",
         "modularwarfare:metro_ashot",
@@ -3457,12 +3359,11 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_optica.json",
+      "source": "MWF v13: attachments/metro_mod_optica.json",
       "image": "/assets/wiki/metro_mod_optica.png",
       "links": [
         "modularwarfare:metro_ak",
         "modularwarfare:metro_ak2012",
-        "modularwarfare:metro_akk",
         "modularwarfare:metro_aksu",
         "modularwarfare:metro_army_ak",
         "modularwarfare:metro_helsing",
@@ -3503,12 +3404,11 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_optica_small.json",
+      "source": "MWF v13: attachments/metro_mod_optica_small.json",
       "image": "/assets/wiki/metro_mod_optica_small.png",
       "links": [
         "modularwarfare:metro_ak",
         "modularwarfare:metro_ak2012",
-        "modularwarfare:metro_akk",
         "modularwarfare:metro_aksu",
         "modularwarfare:metro_army_ak",
         "modularwarfare:metro_ashot",
@@ -3552,7 +3452,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_podonok_butt.json",
+      "source": "MWF v13: attachments/metro_mod_podonok_butt.json",
       "image": "/assets/wiki/metro_mod_podonok_butt.png",
       "links": [
         "modularwarfare:metro_podonok"
@@ -3584,7 +3484,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_podonok_gas.json",
+      "source": "MWF v13: attachments/metro_mod_podonok_gas.json",
       "image": "/assets/wiki/metro_mod_podonok_gas.png",
       "links": [
         "modularwarfare:metro_podonok"
@@ -3616,7 +3516,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_railgun_akk.json",
+      "source": "MWF v13: attachments/metro_mod_railgun_akk.json",
       "image": "/assets/wiki/metro_mod_railgun_akk.png",
       "links": [
         "modularwarfare:metro_railgun"
@@ -3648,7 +3548,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_railgun_kon.json",
+      "source": "MWF v13: attachments/metro_mod_railgun_kon.json",
       "image": "/assets/wiki/metro_mod_railgun_kon.png",
       "links": [
         "modularwarfare:metro_railgun"
@@ -3680,7 +3580,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_tihar_optica.json",
+      "source": "MWF v13: attachments/metro_mod_tihar_optica.json",
       "image": "/assets/wiki/metro_mod_tihar_optica.png",
       "links": [
         "modularwarfare:metro_tihar",
@@ -3713,7 +3613,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_ubludok_butt.json",
+      "source": "MWF v13: attachments/metro_mod_ubludok_butt.json",
       "image": "/assets/wiki/metro_mod_ubludok_butt.png",
       "links": [
         "modularwarfare:metro_ubludok"
@@ -3745,7 +3645,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_ubludok_radiator.json",
+      "source": "MWF v13: attachments/metro_mod_ubludok_radiator.json",
       "image": "/assets/wiki/metro_mod_ubludok_radiator.png",
       "links": [
         "modularwarfare:metro_ubludok"
@@ -3777,7 +3677,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_ventil_glushak.json",
+      "source": "MWF v13: attachments/metro_mod_ventil_glushak.json",
       "image": "/assets/wiki/metro_mod_ventil_glushak.png",
       "links": [
         "modularwarfare:metro_preved",
@@ -3810,7 +3710,7 @@
           "300"
         ]
       ],
-      "source": "MWF v12: attachments/metro_mod_vsv_glushak.json",
+      "source": "MWF v13: attachments/metro_mod_vsv_glushak.json",
       "image": "/assets/wiki/metro_mod_vsv_glushak.png",
       "links": [
         "modularwarfare:metro_vsv"
@@ -8520,6 +8420,120 @@
       "image": "/assets/wiki/mcmod_machete.png",
       "links": [],
       "rarity": "common"
+    },
+    {
+      "id": "metroport:hammer",
+      "category": "weapons",
+      "group": "Ближний бой",
+      "family": "MetroCraft",
+      "name": "Молоток",
+      "description": "Отдельное холодное оружие из предоставленного weapon.zip. Обычный удар ближнего боя с перезарядкой атаки; без стрельбы и без функций добычи блоков.",
+      "stats": [
+        [
+          "Редкость",
+          "Редкий"
+        ],
+        [
+          "Урон, HP",
+          "5"
+        ],
+        [
+          "Скорость атак",
+          "1.4"
+        ],
+        [
+          "Прочность",
+          "350"
+        ],
+        [
+          "Размер в сетке",
+          "2×3"
+        ],
+        [
+          "Масса, г",
+          "1200"
+        ]
+      ],
+      "source": "src/main/resources/assets/metroport/melee_weapons.json",
+      "image": "/assets/wiki/hammer.png",
+      "links": [],
+      "rarity": "rare"
+    },
+    {
+      "id": "metroport:crowbar",
+      "category": "weapons",
+      "group": "Ближний бой",
+      "family": "MetroCraft",
+      "name": "Монтировка",
+      "description": "Отдельное холодное оружие из предоставленного weapon.zip. Обычный удар ближнего боя с перезарядкой атаки; без стрельбы и без функций добычи блоков.",
+      "stats": [
+        [
+          "Редкость",
+          "Эпический"
+        ],
+        [
+          "Урон, HP",
+          "6"
+        ],
+        [
+          "Скорость атак",
+          "1.6"
+        ],
+        [
+          "Прочность",
+          "500"
+        ],
+        [
+          "Размер в сетке",
+          "1×4"
+        ],
+        [
+          "Масса, г",
+          "1600"
+        ]
+      ],
+      "source": "src/main/resources/assets/metroport/melee_weapons.json",
+      "image": "/assets/wiki/crowbar.png",
+      "links": [],
+      "rarity": "epic"
+    },
+    {
+      "id": "metroport:axe",
+      "category": "weapons",
+      "group": "Ближний бой",
+      "family": "MetroCraft",
+      "name": "Топор",
+      "description": "Отдельное холодное оружие из предоставленного weapon.zip. Обычный удар ближнего боя с перезарядкой атаки; без стрельбы и без функций добычи блоков.",
+      "stats": [
+        [
+          "Редкость",
+          "Легендарный"
+        ],
+        [
+          "Урон, HP",
+          "8"
+        ],
+        [
+          "Скорость атак",
+          "1"
+        ],
+        [
+          "Прочность",
+          "650"
+        ],
+        [
+          "Размер в сетке",
+          "2×4"
+        ],
+        [
+          "Масса, г",
+          "2200"
+        ]
+      ],
+      "source": "src/main/resources/assets/metroport/melee_weapons.json",
+      "image": "/assets/wiki/axe.png",
+      "links": [],
+      "rarity": "legendary"
     },
     {
       "id": "metroport:blackrazid_flyashka",

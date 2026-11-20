@@ -740,3 +740,6 @@ metroport.blackrazid.watch.help=World time only. Equip in the watch slot.
 item.metroport.blackrazid_watch.name=Watch [BlackRazid]
 metroport.blackrazid.bag_slot=Bag
 metroport.blackrazid.lamp_slot=Lamp
+item.metroport.hammer.name=Hammer
+item.metroport.crowbar.name=Crowbar
+item.metroport.axe.name=Axe

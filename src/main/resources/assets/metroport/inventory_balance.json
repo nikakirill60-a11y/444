@@ -121,13 +121,6 @@
       "width": 4,
       "height": 2
     },
-    "modularwarfare:metro_akk": {
-      "grams": 4000,
-      "capacityGrams": 0,
-      "rarity": "rare",
-      "width": 4,
-      "height": 2
-    },
     "modularwarfare:metro_aksu": {
       "grams": 2700,
       "capacityGrams": 0,
@@ -1226,6 +1219,27 @@
       "rarity": "common",
       "width": 1,
       "height": 2
+    },
+    "metroport:hammer": {
+      "grams": 1200,
+      "width": 2,
+      "height": 3,
+      "rarity": "rare",
+      "capacityGrams": 0
+    },
+    "metroport:crowbar": {
+      "grams": 1600,
+      "width": 1,
+      "height": 4,
+      "rarity": "epic",
+      "capacityGrams": 0
+    },
+    "metroport:axe": {
+      "grams": 2200,
+      "width": 2,
+      "height": 4,
+      "rarity": "legendary",
+      "capacityGrams": 0
     }
   }
 }

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "hammer",
+    "nameRu": "Молоток",
+    "nameEn": "Hammer",
+    "rarity": "rare",
+    "grams": 1200,
+    "width": 2,
+    "height": 3,
+    "damage": 5,
+    "attackSpeed": -2.6,
+    "durability": 350,
+    "gripOffset": 0.12,
+    "triangles": 342,
+    "source": "hammer/props_hammer.obj",
+    "objSha256": "c0ee8cc5db244cd0de1ec840aaa5dfdd454858266fc078916aa2157051baaef1",
+    "textureSha256": "6a3d72e01353fa7b956ba9658256593e4a08bb12de7940897546ade7a77c5188"
+  },
+  {
+    "id": "crowbar",
+    "nameRu": "Монтировка",
+    "nameEn": "Crowbar",
+    "rarity": "epic",
+    "grams": 1600,
+    "width": 1,
+    "height": 4,
+    "damage": 6,
+    "attackSpeed": -2.4,
+    "durability": 500,
+    "gripOffset": 0.18,
+    "triangles": 240,
+    "source": "Crowbar/props_crow-bar.obj",
+    "objSha256": "73c1572addce522292eb06025663e031b368b1fdf92d91f3701b8e31bcbc9a51",
+    "textureSha256": "6a3d72e01353fa7b956ba9658256593e4a08bb12de7940897546ade7a77c5188"
+  },
+  {
+    "id": "axe",
+    "nameRu": "Топор",
+    "nameEn": "Axe",
+    "rarity": "legendary",
+    "grams": 2200,
+    "width": 2,
+    "height": 4,
+    "damage": 8,
+    "attackSpeed": -3,
+    "durability": 650,
+    "gripOffset": 0.18,
+    "triangles": 260,
+    "source": "Axe/props_axe.obj",
+    "objSha256": "aee0d2dbbc657f487e281fc26b0f14b4ee7c8535f42278372a1c4d84610aa969",
+    "textureSha256": "6a3d72e01353fa7b956ba9658256593e4a08bb12de7940897546ade7a77c5188"
+  }
+]

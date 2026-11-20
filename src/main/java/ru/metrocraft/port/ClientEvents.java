@@ -104,7 +104,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void toolModels(net.minecraftforge.client.event.ModelBakeEvent event) {
-        for (String id : new String[]{"mcmod_machete", "mcmod_aptech"}) {
+        for (String id : new String[]{"mcmod_machete", "mcmod_aptech", "hammer", "crowbar", "axe"}) {
             Item item=MetroPort.ITEMS.get(id);
             if(item==null)continue;
             ModelResourceLocation location=new ModelResourceLocation(item.getRegistryName(),"inventory");

@@ -6,7 +6,7 @@ import javax.vecmath.Vector3f;
 /** Pure shared animation math; no GL, world, damage, packets or use-state mutation. */
 public final class ToolActionPose {
     private ToolActionPose() {}
-    public static boolean animated(String id) { return "mcmod_machete".equals(id) || "mcmod_aptech".equals(id); }
+    public static boolean animated(String id) { return "mcmod_machete".equals(id) || "mcmod_aptech".equals(id) || "hammer".equals(id) || "crowbar".equals(id) || "axe".equals(id); }
     public static float unit(float p) { return Float.isFinite(p)?Math.max(0,Math.min(1,p)):0; }
     private static float smooth(float p) { p=unit(p); return p*p*(3-2*p); }
     public static float slash(float swing) { return (float)Math.sin(Math.PI*unit(swing)); }

@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.42", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
+@Mod(modid = MetroPort.ID, name = "MinETRO", version = "1.13.0-dev.43", acceptedMinecraftVersions = "[1.12.2]", guiFactory = "ru.metrocraft.port.client.MetroGuiFactory")
 @Mod.EventBusSubscriber(modid = MetroPort.ID)
 public final class MetroPort {
     public static final String ID = "minetro";

@@ -83,7 +83,9 @@ public final class McmodToolRenderer extends TileEntityItemStackRenderer {
     }
     private static void renderTool(ItemStack stack,float progress) {
         boolean medical=stack.getItem() instanceof McmodMedkitItem;
-        String id=medical?"aptech":"machete";
+        String itemId=stack.getItem().getRegistryName().getPath();
+        ru.metrocraft.port.mcmod.MeleeWeapons.Entry melee=ru.metrocraft.port.mcmod.MeleeWeapons.find(itemId);
+        String id=melee!=null?itemId:medical?"aptech":"machete";
         Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("metroport:textures/mcmod/tools/"+id+".png"));
         GlStateManager.color(1,1,1,1);
         McmodObjMesh mesh=MESHES.computeIfAbsent(id,key->{
@@ -92,6 +94,15 @@ public final class McmodToolRenderer extends TileEntityItemStackRenderer {
                 return McmodObjMesh.read(in);
             } catch(Exception ex) { throw new IllegalStateException("Cannot read tool mesh "+path,ex); }
         });
+        if(melee!=null) {
+            GlStateManager.pushMatrix();
+            try {
+                GlStateManager.rotate(-90,1,0,0);
+                GlStateManager.translate(0,0,melee.gripOffset);
+                for(List<float[]> vertices:mesh.groups.values())draw(vertices);
+            } finally { GlStateManager.popMatrix(); }
+            return;
+        }
         group(mesh,"body",medical,0,0,0);
         if(medical) {
             int count=McmodMedkitItem.remaining(stack);
@@ -113,13 +124,15 @@ public final class McmodToolRenderer extends TileEntityItemStackRenderer {
             GlStateManager.scale(scale,scale,scale);
             GlStateManager.translate(0,medical?180:420,medical?-400:-450);
             List<float[]> vertices=mesh.groups.get(group);
-            if(vertices!=null && !vertices.isEmpty()) {
-                BufferBuilder b=Tessellator.getInstance().getBuffer();
-                b.begin(GL11.GL_TRIANGLES,DefaultVertexFormats.POSITION_TEX_NORMAL);
-                for(float[] v:vertices)b.pos(v[0],v[1],v[2]).tex(v[3],v[4]).normal(v[5],v[6],v[7]).endVertex();
-                Tessellator.getInstance().draw();
-            }
+            draw(vertices);
         } finally { GlStateManager.popMatrix(); }
+    }
+    private static void draw(List<float[]> vertices) {
+        if(vertices==null || vertices.isEmpty())return;
+        BufferBuilder b=Tessellator.getInstance().getBuffer();
+        b.begin(GL11.GL_TRIANGLES,DefaultVertexFormats.POSITION_TEX_NORMAL);
+        for(float[] v:vertices)b.pos(v[0],v[1],v[2]).tex(v[3],v[4]).normal(v[5],v[6],v[7]).endVertex();
+        Tessellator.getInstance().draw();
     }
     private static void skinArm(AbstractClientPlayer player,boolean left,boolean support,float[] contact) {
         boolean alex="slim".equals(player.getSkinType());

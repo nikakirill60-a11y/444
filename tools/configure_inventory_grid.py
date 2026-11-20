@@ -30,7 +30,7 @@ WEAPON_RARITIES={'duplet': 'common',
  'ak2012': 'mythic',
  'vyhlop': 'mythic',
  'railgun': 'mythic',
- 'akk': 'rare', 'army_ak':'legendary', 'ubludok_old':'epic', 'stallion':'exclusive', 'duplet_2':'common'}
+ 'army_ak':'legendary', 'ubludok_old':'epic', 'stallion':'exclusive', 'duplet_2':'common'}
 NEW_GUNS2_PROFILES={'modularwarfare:metro_army_ak': {'grams': 3800, 'capacityGrams': 0, 'rarity': 'legendary', 'width': 4, 'height': 2}, 'modularwarfare:metro_ubludok_old': {'grams': 3500, 'capacityGrams': 0, 'rarity': 'epic', 'width': 4, 'height': 2}, 'modularwarfare:metro_stallion': {'grams': 1200, 'capacityGrams': 0, 'rarity': 'exclusive', 'width': 3, 'height': 2}, 'modularwarfare:metro_duplet_2': {'grams': 3200, 'capacityGrams': 0, 'rarity': 'common', 'width': 4, 'height': 2}, 'modularwarfare:metro_ubludok_old_ammo': {'grams': 400, 'capacityGrams': 0, 'rarity': 'common', 'width': 1, 'height': 2}}
 
 NEW_GUNS2_PROFILES['modularwarfare:metro_stallion_ammo']={'grams':250,'capacityGrams':0,'rarity':'common','width':1,'height':2}
@@ -98,6 +98,10 @@ def main():
         balance['items'].setdefault('metroport:'+id,dict(balance['categories']['item'])).update(width=2,height=2)
     balance['items']['metroport:kanistra'].update(width=3,height=3)
     balance['items']['metroport:mcmod_watch']=dict(balance['categories']['watch'],rarity='epic')
+    for id in ('metro_akk','metro_akk_ammo'):
+        balance['items'].pop('modularwarfare:'+id,None)
+    for e in json.loads((A/'melee_weapons.json').read_text()):
+        balance['items']['metroport:'+e['id']]={k:e[k] for k in ('grams','width','height','rarity')} | {'capacityGrams':0}
     p.write_text(json.dumps(balance,indent=2)+'\n')
     wiki=json.loads((ROOT/'website/wiki-data.json').read_text());names={e['id']:e['name'] for e in wiki['entries']}
     labels=['Обычный — серый','Необычный — зелёный','Редкий — голубой','Эпический — фиолетовый','Легендарный — жёлтый','Мифический — красный','Эксклюзив — розовый']

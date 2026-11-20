@@ -740,3 +740,6 @@ metroport.blackrazid.watch.help=Только игровое время. Наде
 item.metroport.blackrazid_watch.name=Часы [BlackRazid]
 metroport.blackrazid.bag_slot=Сумка
 metroport.blackrazid.lamp_slot=Фонарь
+item.metroport.hammer.name=Молоток
+item.metroport.crowbar.name=Монтировка
+item.metroport.axe.name=Топор
