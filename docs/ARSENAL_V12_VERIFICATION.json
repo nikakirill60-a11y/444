@@ -1,0 +1,106 @@
+{
+  "releases": [
+    {
+      "tag": "minetro-arsenal-v12",
+      "sourceCommit": "a75c79c579a39aa8ea31e47beefaaf09eaea354e",
+      "url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-arsenal-v12",
+      "assets": [
+        {
+          "name": "Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip",
+          "bytes": 140920604,
+          "sha256": "sha256:5017abbfef1e88f3d9a0767c5dec5723729d3f72840e81503df8eb68e429667d",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v12/Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip"
+        },
+        {
+          "name": "MWF_V11_native_tests.txt",
+          "bytes": 322,
+          "sha256": "sha256:3ebd3715f87c75d8490d2fe056b764ff8076baa7a099e09aceb673cdd3585c86",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v12/MWF_V11_native_tests.txt"
+        },
+        {
+          "name": "MWF_V12_enum_tests.txt",
+          "bytes": 98,
+          "sha256": "sha256:347835705171b42c251b1d83591dc53248671663f5e1d2fd449508f52acc13aa",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v12/MWF_V12_enum_tests.txt"
+        },
+        {
+          "name": "MWF_V12_report.json",
+          "bytes": 48323,
+          "sha256": "sha256:cf5e1ed1078b73b2687884520b24e5396079e7c28942afbe126e25827df581c1",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-arsenal-v12/MWF_V12_report.json"
+        }
+      ]
+    },
+    {
+      "tag": "minetro-inventory-dev42",
+      "sourceCommit": "a75c79c579a39aa8ea31e47beefaaf09eaea354e",
+      "url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-inventory-dev42",
+      "assets": [
+        {
+          "name": "ARSENAL_V12_RU.md",
+          "bytes": 6752,
+          "sha256": "sha256:0f3ddbac5ec95359a8439022671354004c8721e0c94c4dcb52d97f9a8738a733",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev42/ARSENAL_V12_RU.md"
+        },
+        {
+          "name": "metrocraft-port-1.12.2-1.13.0-dev.42.jar",
+          "bytes": 85790796,
+          "sha256": "sha256:2e63e10a5a6467fb5d50f93aed7724c4494ebd996893e2dd540bb4f7c504144e",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev42/metrocraft-port-1.12.2-1.13.0-dev.42.jar"
+        },
+        {
+          "name": "MinETRO_inventory_dev42_report.json",
+          "bytes": 485,
+          "sha256": "sha256:ae287857e05515ab2ea0d7384132421b013a60ba021152a9d01e8eb9eb19ec63",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev42/MinETRO_inventory_dev42_report.json"
+        },
+        {
+          "name": "WEAPON_RARITIES_DEV36_RU.md",
+          "bytes": 2063,
+          "sha256": "sha256:81d2f5e672935b1453920985fcb7afbadf8927548a25d9c714e231b9d9bc3768",
+          "url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev42/WEAPON_RARITIES_DEV36_RU.md"
+        }
+      ]
+    }
+  ],
+  "arsenalChecks": "https://github.com/nikakirill60-a11y/444/actions/runs/44715991669",
+  "forgeChecks": "https://github.com/nikakirill60-a11y/444/actions/runs/44715991660",
+  "junit": {
+    "tests": 628,
+    "failures": 0,
+    "errors": 0
+  },
+  "python": {
+    "tests": 439,
+    "failures": 0,
+    "errors": 0
+  },
+  "dedicatedV12Tests": 8,
+  "realNativeEnumTest": true,
+  "nativeSuites": [
+    "MechanicsTest",
+    "DupletVariantTest",
+    "MotionTest",
+    "AshotPoseTest"
+  ],
+  "wikiBrowserTests": {
+    "viewports": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "withoutJavaScript": true,
+    "rarityFiltersAndCrossLinks": true,
+    "consoleErrors": 0
+  },
+  "productionWebsite": {
+    "deploymentId": "dpl_6zU2dwT5ApdHvnPY1oqarjuGU7NS",
+    "sourceCommit": "a0000dc6a140f153e69eb32af0bb4740b07f7eca",
+    "state": "READY",
+    "substate": "PROMOTED",
+    "url": "https://minetro-beta.vercel.app/wiki.html"
+  },
+  "minecraftLiveTested": false
+}

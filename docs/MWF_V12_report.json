@@ -1,0 +1,2539 @@
+{
+  "minecraftLiveTested": false,
+  "basePackSha256": "5f07771f1498dd57e9a5ca909ee8571ae20de61d3ddc40b5c01ab31f53d2801f",
+  "sourceZipSha256": "263d3e8c8ae8f44b511d00a1db4d3a65c7409340f0b6a6a361b1e5ab20305945",
+  "rebalance": {
+    "metro_abzac": {
+      "name": "Абзац",
+      "damageBefore": 4,
+      "damageAfter": 2.7,
+      "pelletsUnchanged": 10,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 80
+    },
+    "metro_ak": {
+      "name": "Калаш",
+      "damageBefore": 5,
+      "damageAfter": 4.5,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 56
+    },
+    "metro_ak2012": {
+      "name": "Калаш 2012",
+      "damageBefore": 5,
+      "damageAfter": 4.2,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 25,
+      "reloadTicksAfter": 52
+    },
+    "metro_akk": {
+      "name": "Калашников (AKK)",
+      "damageBefore": 5,
+      "damageAfter": 4.5,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 56
+    },
+    "metro_aksu": {
+      "name": "АКС-У",
+      "damageBefore": 5,
+      "damageAfter": 3.8,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 54
+    },
+    "metro_ashot": {
+      "name": "Ашот",
+      "damageBefore": 2,
+      "damageAfter": 1.8,
+      "pelletsUnchanged": 8,
+      "reloadTicksBefore": 25,
+      "reloadTicksAfter": 36
+    },
+    "metro_duplet": {
+      "name": "Дуплет",
+      "damageBefore": 3,
+      "damageAfter": 2.5,
+      "pelletsUnchanged": 8,
+      "reloadTicksBefore": 60,
+      "reloadTicksAfter": 72
+    },
+    "metro_gatling": {
+      "name": "Ручной пулемёт",
+      "damageBefore": 6,
+      "damageAfter": 4.2,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 120
+    },
+    "metro_helsing": {
+      "name": "Хельсинг",
+      "damageBefore": 6,
+      "damageAfter": 6,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 25,
+      "reloadTicksAfter": 45
+    },
+    "metro_medved": {
+      "name": "Медведь",
+      "damageBefore": 3,
+      "damageAfter": 2.8,
+      "pelletsUnchanged": 8,
+      "reloadTicksBefore": 160,
+      "reloadTicksAfter": 180
+    },
+    "metro_ognemet": {
+      "name": "Огнемёт (адаптация MWF)",
+      "damageBefore": 4,
+      "damageAfter": 3,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 90
+    },
+    "metro_ognemet_mini": {
+      "name": "Мини-огнемёт (адаптация MWF)",
+      "damageBefore": 4,
+      "damageAfter": 2.6,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 65
+    },
+    "metro_podonok": {
+      "name": "Подонок",
+      "damageBefore": 4,
+      "damageAfter": 3.8,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 35,
+      "reloadTicksAfter": 50
+    },
+    "metro_preved": {
+      "name": "Превед",
+      "damageBefore": 15,
+      "damageAfter": 13,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 35,
+      "reloadTicksAfter": 90
+    },
+    "metro_railgun": {
+      "name": "Рельса",
+      "damageBefore": 5,
+      "damageAfter": 5,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 30,
+      "reloadTicksAfter": 60
+    },
+    "metro_revolver": {
+      "name": "Револьвер",
+      "damageBefore": 4,
+      "damageAfter": 4,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 30,
+      "reloadTicksAfter": 42
+    },
+    "metro_rpk": {
+      "name": "РПК",
+      "damageBefore": 5,
+      "damageAfter": 4.6,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 30,
+      "reloadTicksAfter": 80
+    },
+    "metro_saiga": {
+      "name": "Сайга",
+      "damageBefore": 3,
+      "damageAfter": 2.6,
+      "pelletsUnchanged": 10,
+      "reloadTicksBefore": 30,
+      "reloadTicksAfter": 60
+    },
+    "metro_tihar": {
+      "name": "Тихарь",
+      "damageBefore": 6,
+      "damageAfter": 5.5,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 25,
+      "reloadTicksAfter": 50
+    },
+    "metro_ubludok": {
+      "name": "Ублюдок",
+      "damageBefore": 5,
+      "damageAfter": 3.2,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 64
+    },
+    "metro_uboinik": {
+      "name": "Убойник",
+      "damageBefore": 3,
+      "damageAfter": 2.5,
+      "pelletsUnchanged": 8,
+      "reloadTicksBefore": 160,
+      "reloadTicksAfter": 180
+    },
+    "metro_velopal": {
+      "name": "Велопал",
+      "damageBefore": 4,
+      "damageAfter": 2.8,
+      "pelletsUnchanged": 10,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 90
+    },
+    "metro_ventil": {
+      "name": "Вентиль",
+      "damageBefore": 10,
+      "damageAfter": 9.5,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 60
+    },
+    "metro_vsv": {
+      "name": "ВСВ",
+      "damageBefore": 5,
+      "damageAfter": 4.4,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 56
+    },
+    "metro_vyhlop": {
+      "name": "Хлопушка",
+      "damageBefore": 12,
+      "damageAfter": 10.5,
+      "pelletsUnchanged": 1,
+      "reloadTicksBefore": 40,
+      "reloadTicksAfter": 80
+    }
+  },
+  "separateItemTextures": {
+    "metro_abzac": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "abzac/wpn_dshk.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "abzac/wpn_shotgun.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_ak": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "rpk/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "ak/wpn34_ak.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_ak2012": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "2012/wpn_rifle2012.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_akk": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "preserved_tile_3_5",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "preserved_tile_3_7",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "preserved_tile_4_5",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "preserved_tile_5_5",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "ak/wpn34_ak.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "preserved_tile_7_5",
+          "size": [
+            508,
+            508
+          ]
+        }
+      ]
+    },
+    "metro_aksu": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "aksu/wpn_aka.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "rpk/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "ak/wpn34_ak.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_army_ak": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "rpk/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "Army Kalash/wpn_aka.1024.png",
+          "size": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_ashot": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "ashot/wpn34_ammo_12x70.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_ashot.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kallimator.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kollimator.2050.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_gatling": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn34_preved.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/veh34_regina.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/wpn34_gatling.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_helsing": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "helsing/wpn_helsing.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_ognemet": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ognemet/wpn34_ognemet_01.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_podonok": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "podonok/wpn34_padonocheg.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "podonok/wpn34_padonocheg_addon.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kallimator.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kollimator.2050.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_preved": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn34_preved.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_flachhider.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_railgun": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "tihar/wpn_tihar.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/veh_zuzik.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kallimator.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "railgun/wpn_railgun.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kollimator.2050.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_revolver": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kallimator.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn_revolver.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ashot/wpn34_kollimator.2050.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "revolver/wpn_revolver_new.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_rpk": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "rpk/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "rpk/wpn_aka.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_saiga": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "rpk/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "saiga/wpn34_saiga.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_tihar": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "tihar/wpn_tihar.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "tihar/wpn34_gun_pricel.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "tihar/wpn_pricel_electronika.512.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_ubludok": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_ak.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn_obves.1024c.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn_ubludok.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "preserved_tile_5_7",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_ventil": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "ventil/wpn34_gun_01.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn34_flachhider.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_vsv": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "vsv/wpn_zelenka.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_vyhlop": {
+      "size": [
+        2048,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "preserved_tile_0_4",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "vyhlop/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "vyhlop/wpn34_vihlop.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "vyhlop/wpn_rifle2012.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "preserved_tile_6_3",
+          "size": [
+            508,
+            508
+          ]
+        },
+        {
+          "source": "akk/akka1.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/Laser2.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_abzac_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "abzac/wpn34_ammo_12x70.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "abzac/wpn_dshk.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_abzac_ammo_big": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "abzac/wpn34_ammo_12x70.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "abzac/wpn_dshk.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_ak2012_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn_patron_762.512.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "2012/wpn_rifle2012.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_ak_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ak/wpn_patron_762.512.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "ak/wpn34_ak.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_akk_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "preserved_tile_5_5",
+          "size": [
+            508,
+            508
+          ]
+        }
+      ]
+    },
+    "metro_gatling_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn_dshk.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_helsing_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "helsing/wpn_helsing.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_ognemet_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ognemet/wpn34_ognemet_01.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_ognemet_mini_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ognemet/wpn34_ognemet_01.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_podonok_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "podonok/wpn34_padonocheg.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_podonok_ammo_big": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "podonok/wpn34_padonocheg.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_preved_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn34_preved.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_rpk_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ak/wpn_patron_762.512.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "rpk/wpn34_ak.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_rpk_ammo_big": {
+      "size": [
+        512,
+        512
+      ],
+      "materials": [
+        {
+          "source": "ak/wpn_patron_762.512.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "rpk/wpn34_75.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_saiga_ammo": {
+      "size": [
+        512,
+        512
+      ],
+      "materials": [
+        {
+          "source": "saiga/wpn34_ammo_12x70.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "saiga/wpn34_saiga_ammo_cart.512c.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_saiga_ammo_big": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "saiga/wpn34_ammo_12x70.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "saiga/wpn34_saiga.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_tihar_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "tihar/wpn_tihar.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_ubludok_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "textures/wpn_ubludok.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "ubludok/wpn_patron_762.512.png",
+          "size": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    "metro_ventil_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ventil/wpn34_gun_01.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_ventil_ammo_big": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ventil/wpn34_gun_01.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_vsv_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn_patron_762.512.png",
+          "size": [
+            128,
+            128
+          ]
+        },
+        {
+          "source": "vsv/wpn_zelenka.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_vyhlop_ammo": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "vyhlop/wpn34_vihlop.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_abzac_glushak": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "abzac/wpn_dshk.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "abzac/wpn_shotgun.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_ashot_butt": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "ashot/wpn34_ashot.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_auto_fire": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "abzac/wpn_dshk.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "abzac/wpn_shotgun.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_barrel": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "podonok/wpn34_padonocheg.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_butt": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "textures/wpn_revolver.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_gatling_barrel": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn34_gatling.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_gatling_butt": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn34_preved.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/wpn34_gatling.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_gatling_giro": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "gatling/veh34_regina.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "gatling/wpn34_gatling.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_gatling_motor": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "gatling/wpn34_gatling.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_glushak": {
+      "size": [
+        512,
+        512
+      ],
+      "materials": [
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_mod_optica": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn34_kollimator.2050.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "revolver/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_mod_optica_small": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "2012/wpn_obves.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn34_infrared_scope.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn34_gun_pricel.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_podonok_butt": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "podonok/wpn34_padonocheg.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_podonok_gas": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "podonok/wpn34_padonocheg_addon.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_railgun_akk": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "railgun/veh_zuzik.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn_railgun.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_railgun_kon": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "railgun/veh_zuzik.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "railgun/wpn_railgun.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_tihar_optica": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "tihar/wpn_tihar.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "tihar/wpn34_gun_pricel.2048.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "tihar/wpn_pricel_electronika.512.png",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    "metro_mod_ubludok_butt": {
+      "size": [
+        1024,
+        2048
+      ],
+      "materials": [
+        {
+          "source": "textures/wpn34_ak.1024c.png",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "source": "textures/wpn_obves.1024c.png",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "source": "textures/wpn_ubludok.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    },
+    "metro_mod_ventil_glushak": {
+      "size": [
+        256,
+        256
+      ],
+      "materials": [
+        {
+          "source": "textures/wpn34_flachhider.512c.png",
+          "size": [
+            128,
+            128
+          ]
+        }
+      ]
+    },
+    "metro_mod_vsv_glushak": {
+      "size": [
+        1024,
+        1024
+      ],
+      "materials": [
+        {
+          "source": "vsv/wpn_zelenka.2048.png",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ]
+    }
+  },
+  "stallion": {
+    "sourceTriangles": 30648,
+    "bodyTriangles": 27534,
+    "slideTriangles": 3046,
+    "originalMagazineBaseplateTriangles": 68,
+    "addedInteriorMagazineShellTriangles": 12,
+    "magazineCapacity": 7,
+    "nativeStorage": "acceptedAmmo",
+    "independentMagazineTimelineFrames": [
+      300,
+      358
+    ]
+  },
+  "verifiedGunCount": 29,
+  "originalPositionsNormalsIndicesAndTimelinesPreserved": true,
+  "sharedArsenalAtlasRemoved": true,
+  "primitiveMaterialKeysUnique": true,
+  "requiresJarSha256": "08dd2089f00cac9d1d4948d8db074f2f03bbb93095af6cc47cb366d9c96557d9",
+  "pack": "Metro_Full_Arsenal_MWF_fix1_v12_separate_textures.zip",
+  "packSha256": "5017abbfef1e88f3d9a0767c5dec5723729d3f72840e81503df8eb68e429667d"
+}
