@@ -17,6 +17,13 @@ try {
     assert.equal(await visible.count(),24);
     await page.getByRole('button',{name:'Показать ещё 10',exact:true}).click();
     assert.equal(await visible.count(),34);
+    const tiers = ['common','uncommon','rare','epic','legendary','mythic','exclusive'];
+    const ranks = (await visible.evaluateAll(cards => cards.map(card => card.dataset.rarity))).map(tier => tiers.indexOf(tier));
+    assert.deepEqual(ranks, [...ranks].sort((a,b) => a-b));
+    assert.equal(await visible.last().getAttribute('data-rarity'),'exclusive');
+    await page.getByLabel('Подкатегория').selectOption('Пистолеты');
+    assert.ok(await page.locator('#entry-modularwarfare-metro_podonok').isVisible());
+    await page.getByLabel('Подкатегория').selectOption('');
     await page.getByLabel('Редкость',{exact:true}).selectOption('exclusive');
     assert.equal(await visible.count(),1);assert.ok(await visible.getAttribute('data-entry')==='modularwarfare:metro_stallion');
     await page.getByLabel('Редкость',{exact:true}).selectOption('legendary');assert.equal(await visible.count(),6);

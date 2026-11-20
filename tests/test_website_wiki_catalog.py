@@ -27,6 +27,23 @@ class WikiCatalogTest(unittest.TestCase):
         self.assertEqual(sum(e['id'].startswith('modularwarfare:') for e in self.entries), 88)
         self.assertEqual(sum(e['category']=='weapons' and e['id'].startswith('modularwarfare:') for e in self.entries), 28)
 
+    def test_podonok_is_a_pistol_not_an_assault_rifle(self):
+        entry = self.byid['modularwarfare:metro_podonok']
+        self.assertEqual('Пистолеты', entry['group'])
+        self.assertIn('Пистолет Подонок', entry['description'])
+
+    def test_rarity_order_is_ascending_in_data_and_static_html(self):
+        tiers = ['common','uncommon','rare','epic','legendary','mythic','exclusive']
+        for category in ['weapons','armor','items']:
+            entries = [e for e in self.entries if e['category'] == category]
+            ranks = [tiers.index(e['rarity']) for e in entries]
+            self.assertEqual(sorted(ranks), ranks, category)
+            positions = [self.html.index('id="entry-'+e['id'].replace(':','-')+'"') for e in entries]
+            self.assertEqual(sorted(positions), positions, category)
+        weapons = [e for e in self.entries if e['category'] == 'weapons']
+        self.assertEqual('common', weapons[0]['rarity'])
+        self.assertEqual('exclusive', weapons[-1]['rarity'])
+
     def test_all_active_json_registries_are_included(self):
         for filename in ('mcmod_armor', 'blackrazid_equipment', 'mcmod_items', 'blackrazid_survival',
                          'blackrazid_mutants', 'metromod_consumables', 'metromod_medical_materials'):

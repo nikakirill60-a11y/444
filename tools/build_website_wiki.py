@@ -88,8 +88,10 @@ def build(pack):
         if id in ['metro_tihar', 'metro_helsing', 'metro_railgun']: group = 'Особое оружие'
         if 'ognemet' in id: group = 'Особое оружие'
         if id in ['metro_gatling', 'metro_rpk']: group = 'Пулемёты'
+        if id == 'metro_podonok': group = 'Пистолеты'
         desc = 'Оружие из арсенала MWF v13. Показаны базовые параметры конфигурации без модификаторов обвесов.'
         notes = {
+            'metro_podonok': 'Пистолет Подонок. Показаны базовые параметры конфигурации без модификаторов обвесов.',
             'metro_medved': 'Шестизарядный дробовик. Сохранена дробь: восемь дробин за выстрел.',
             'metro_velopal': 'Шестизарядный дробовик с внутренним заряжанием. Использует дробь 12 калибра, не магазин Хлопушки.',
             'metro_ashot': 'Однозарядный дробовик. Установка приклада меняет хват; без приклада сохраняется исходная поза.',
@@ -202,6 +204,10 @@ def build(pack):
         e['stats'].append(['Масса, г',str(profile['grams'])])
 
         assert all(id in byid for id in e['links']), e['id']
+    # Stable ordering applies to static HTML too, before client-side filtering/pagination.
+    # Keep the existing order among items of the same tier; mutants have no rarity.
+    rank = {tier: index for index, tier in enumerate(RARITIES)}
+    entries.sort(key=lambda e: rank.get(e.get('rarity'), len(rank)))
     return entries, icons
 
 
