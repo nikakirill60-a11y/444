@@ -8,7 +8,7 @@ public sealed class Transfer(HttpClient client, Func<Uri, CancellationToken, Tas
     public static HttpClient CreateClient()
     {
         var result = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = Timeout.InfiniteTimeSpan };
-        result.DefaultRequestHeaders.UserAgent.ParseAdd("MinETRO-Launcher/0.6"); return result;
+        result.DefaultRequestHeaders.UserAgent.ParseAdd("MinETRO-Launcher/0.7"); return result;
     }
     public static async Task<string> Hash(string file, CancellationToken ct)
     {

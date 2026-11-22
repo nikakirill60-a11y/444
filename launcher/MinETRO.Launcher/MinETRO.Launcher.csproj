@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AssemblyName>MinETRO-Launcher</AssemblyName><Version>0.6.0</Version><ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>MinETRO-Launcher</AssemblyName><Version>0.7.0</Version><ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Assets/minetro.ico</ApplicationIcon><Product>MinETRO Launcher</Product><Description>MinETRO Launcher</Description>
   </PropertyGroup>
   <ItemGroup>

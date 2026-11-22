@@ -20,7 +20,7 @@ class FakeStorage:
 
     def request(self, method, path):
         assert method == 'GET'
-        return io.BytesIO(json.dumps([] if self.active is None else [{'manifest': {'version': self.active}}]).encode())
+        return io.BytesIO(json.dumps([] if self.active is None else [{'version': self.active}]).encode())
 
     def exists(self, sha, size):
         return sha in self.objects and len(self.objects[sha]) == size
@@ -126,6 +126,13 @@ class FileReleaseTests(unittest.TestCase):
         bad = copy.deepcopy(m); bad['files'][0]['chunks'][0]['bytes'] += 1
         with self.assertRaises(ValueError):
             validate(bad)
+
+    def test_large_manifest_over_old_file_and_json_limits(self):
+        m = prepare(self.source, self.out, 'large-6000')
+        template = m['files'][1]
+        m['files'].extend({**template, 'path': 'resourcepacks/assets/t_' + str(i) + '.png', 'mode': 'managed'} for i in range(6000))
+        self.assertGreater(len(json.dumps(m).encode()), 512 * 1024)
+        self.assertEqual(6003, len(validate(m)['files']))
 
     def test_symlinks_and_nested_output_refused(self):
         with self.assertRaises(ValueError):

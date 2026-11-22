@@ -178,10 +178,10 @@ public sealed partial class Accounts : IDisposable
         }
         catch (AccountException) { Clear(); throw; }
     }
-    private async Task<JsonDocument> Send(HttpMethod method, string path, object? body, bool auth, CancellationToken ct, bool upsert = false)
+    private async Task<JsonDocument> Send(HttpMethod method, string path, object? body, bool auth, CancellationToken ct, bool upsert = false, int responseLimit = 512 * 1024)
     {
         using var response = await Request(method, path, body, auth, ct, upsert);
-        var bytes = await ReadLimited(response, 512 * 1024, ct);
+        var bytes = await ReadLimited(response, responseLimit, ct);
         try { return JsonDocument.Parse(bytes.Length == 0 ? "{}"u8.ToArray() : bytes); }
         catch (JsonException) { throw new AccountException("Неверный ответ сервиса аккаунтов."); }
     }

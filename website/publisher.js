@@ -66,7 +66,7 @@ export function mountPublisher(accounts,{run,busy}) {
     if(!prepared||!uploaded||!$('publisher-accept').checked||accounts.requireSession().id!==owner)throw Error('Нужно явное подтверждение проверенной версии.');
     await accounts.rpc('publish_own_dev_files',{new_manifest:prepared.manifest,expected_version:expected,approval:'Я подтверждаю публикацию '+prepared.manifest.version});
     const version=prepared.manifest.version;clearPrepared();await load();
-    message('Версия '+version+' включена в раздачу. В лаунчере 0.6 нажми «Обновить статус». Скачать её смогут только одобренные аккаунты.');
+    message('Версия '+version+' включена в раздачу. В лаунчере 0.7 нажми «Обновить статус». Скачать её смогут только одобренные аккаунты.');
   });
   return {render,reset,load};
 }

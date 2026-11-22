@@ -69,3 +69,14 @@ test('publisher decisions expose only safe actionable errors',async()=>{
   await assert.rejects(a.rpc('publish_own_dev_files',{}),e=>e.message.includes(expected)&&!e.message.includes('private'));
  }
 });
+test('realistic pack over 5000 files and 512 KiB metadata prepares without transfer',async()=>{
+ const files=[...basic(),...Array.from({length:6000},(_,i)=>file('resourcepacks/pack/assets/textures/t_'+i+'.png','asset'))];
+ const p=await prepareFiles(files,'large-6000');assert.equal(p.manifest.files.length,6003);
+ assert.ok(Buffer.byteLength(JSON.stringify(p.manifest))>512*1024);assert.equal(p.chunks.size,4);
+});
+test('file count and volume bounds give separate measured diagnostics',()=>{
+ const many=[...basic(),...Array.from({length:100000},(_,i)=>({webkitRelativePath:'game/resourcepacks/a'+i,size:1}))];
+ assert.throws(()=>selectGameFiles(many),/100.*003.*100.*000/);
+ const large=[...basic(),...Array.from({length:17},(_,i)=>({webkitRelativePath:'game/resourcepacks/a'+i,size:8*1024**3}))];
+ assert.throws(()=>selectGameFiles(large),/136\.0 ГиБ.*128 ГиБ/);
+});

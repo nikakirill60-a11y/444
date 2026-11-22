@@ -1,6 +1,8 @@
 import {sha256} from './vendor/sha256.js';
 export const CHUNK_BYTES = 8 * 1024 * 1024;
-export const MAX_MANIFEST_BYTES = 400 * 1024; // Leave room for JSONB/RPC envelope.
+export const MAX_FILES = 100000;
+export const MAX_PACK_BYTES = 128 * 1024 ** 3;
+export const MAX_MANIFEST_BYTES = 48 * 1024 * 1024; // Server/launcher allow 64 MiB including JSONB expansion.
 const hash = bytes => Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
 export const digest = bytes => hash(sha256(bytes));
 export function safePath(path) {
@@ -37,13 +39,15 @@ export function selectGameFiles(files) {
   for(const path of seen){const parts=path.split('/');for(let i=1;i<parts.length;i++)if(seen.has(parts.slice(0,i).join('/')))throw Error('Конфликт файла и папки.');}
   const mods=selected.filter(p=>p.path.startsWith('mods/')&&p.path.endsWith('.jar'));
   if(mods.length<2||!mods.some(p=>p.path.startsWith('mods/metrocraft-port-')))throw Error('Выбери папку данных полной сборки: нужны mods/metrocraft-port-*.jar и остальные моды. Родительскую папку или ZIP выбирать не нужно.');
-  if(selected.length>5000||selected.reduce((n,p)=>n+p.file.size,0)>32*1024**3)throw Error('Сборка превышает лимит файлового протокола. Ничего не отправлено.');
+  if(selected.length>MAX_FILES)throw Error('В папке '+selected.length.toLocaleString('ru-RU')+' файлов сборки; поддерживается до '+MAX_FILES.toLocaleString('ru-RU')+'. Ничего не отправлено.');
+  const bytes=selected.reduce((n,p)=>n+p.file.size,0);
+  if(bytes>MAX_PACK_BYTES)throw Error('Объём файлов сборки '+(bytes/1024**3).toFixed(1)+' ГиБ; поддерживается до 128 ГиБ. Ничего не отправлено.');
   return selected.sort((a,b)=>a.path<b.path?-1:a.path>b.path?1:0);
 }
 export async function prepareFiles(files,version,{signal,onProgress=()=>{}}={}) {
   if(!/^[A-Za-z0-9][A-Za-z0-9._-]{0,39}$/.test(version))throw Error('Версия: до 40 латинских букв, цифр, точек, дефисов или _.');
   const selected=selectGameFiles(files), manifest={schema:2,version,files:[]},chunks=new Map();
-  const total=selected.reduce((n,f)=>n+f.file.size,0);let read=0;
+  const total=selected.reduce((n,f)=>n+f.file.size,0);let read=0,lastYield=0;
   for(const item of selected) {
     signal?.throwIfAborted();const hasher=sha256.create(), parts=[];
     for(let offset=0;offset<item.file.size;offset+=CHUNK_BYTES) {
@@ -52,11 +56,11 @@ export async function prepareFiles(files,version,{signal,onProgress=()=>{}}={}) 
       if(!chunks.has(sha))chunks.set(sha,{...chunk,file:item.file,offset});
       read+=bytes.length;onProgress({phase:'hash',done:read,total,file:item.path});
       // Yield to input/cancel between chunks rather than hashing GBs in one task.
-      await new Promise(resolve=>setTimeout(resolve,0));
+      if(Date.now()-lastYield>=16){await new Promise(resolve=>setTimeout(resolve,0));lastYield=Date.now();}
     }
     manifest.files.push({path:item.path,mode:item.mode,bytes:item.file.size,sha256:hash(hasher.digest()),chunks:parts});
   }
-  if(new TextEncoder().encode(JSON.stringify(manifest)).length>MAX_MANIFEST_BYTES)throw Error('Список файлов слишком большой. Ничего не отправлено.');
+  if(new TextEncoder().encode(JSON.stringify(manifest)).length>MAX_MANIFEST_BYTES)throw Error('Описание файлов превышает 48 МиБ. Ничего не отправлено.');
   return {manifest,chunks,total};
 }
 export async function inventory(accounts,chunks,signal) {

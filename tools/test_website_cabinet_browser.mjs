@@ -1,7 +1,7 @@
 // All Auth/Storage traffic is mocked. Never signs into or changes a real account.
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
-import {readFile, mkdir,writeFile} from 'node:fs/promises';
+import {readFile, mkdir,writeFile,rm} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {resolve, extname} from 'node:path';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright-core');
@@ -99,4 +99,19 @@ try {
   await p.locator('#sign-out').click();await p.locator('#guest').waitFor();assert.equal(await p.locator('#owner-publisher').isVisible(),false);
   assert.deepEqual(owner.errors,[]);await p.close();await writeFile(folder+'/mods/mwf.jar','mwf');console.log('PASS owner publisher '+width+'px · select folder, SHA256, explicit upload/activation, changed-file transfer, logout');
  }
+ const largeFolder=resolve('.cache/large-publisher-fixture');
+ await mkdir(largeFolder+'/mods',{recursive:true});await mkdir(largeFolder+'/resourcepacks/assets/textures',{recursive:true});
+ await writeFile(largeFolder+'/mods/metrocraft-port-test.jar','minetro');await writeFile(largeFolder+'/mods/mwf.jar','mwf');
+ for(let start=0;start<6000;start+=200)await Promise.all(Array.from({length:200},(_,i)=>writeFile(largeFolder+'/resourcepacks/assets/textures/t_'+(start+i)+'.png','asset')));
+ try {
+  const largeOwner=await setup(1440,true,true),p=largeOwner.page;
+  await p.locator('#publisher-version').fill('large-browser-6000');await p.locator('#publisher-folder').setInputFiles(largeFolder);
+  await p.locator('#publisher-prepare').click();await p.locator('#publisher-status').filter({hasText:'Проверено 6002 файлов'}).waitFor({timeout:120000});
+  assert.equal(largeOwner.getSentBytes(),0);
+  await p.locator('#publisher-upload').click();await p.locator('#publisher-status').filter({hasText:'Файлы приняты'}).waitFor();
+  assert.equal(largeOwner.getSentBytes(),15);assert.equal(largeOwner.getActivations(),0);
+  await p.locator('#publisher-accept').check();await p.locator('#publisher-activate').click();await p.locator('#publisher-status').filter({hasText:'включена в раздачу'}).waitFor();
+  assert.equal(largeOwner.getActivations(),1);assert.deepEqual(largeOwner.errors,[]);await p.close();
+  console.log('PASS large browser pack · 6002 files, >512 KiB metadata, deduplicated upload and explicit activation');
+ } finally {await rm(largeFolder,{recursive:true,force:true});}
 } finally { await browser.close(); await new Promise(r=>server.close(r)); }

@@ -65,7 +65,7 @@ public sealed partial class Accounts
     public async Task<DevDistribution?> Distribution(CancellationToken ct)
     {
         RequireDevSession();
-        using var result = await Send(HttpMethod.Post, "rest/v1/rpc/get_dev_release", new { }, true, ct);
+        using var result = await Send(HttpMethod.Post, "rest/v1/rpc/get_dev_release", new { }, true, ct, responseLimit: 96 * 1024 * 1024);
         if (result.RootElement.ValueKind == JsonValueKind.Null) return null;
         try {
             var manifest = result.RootElement.GetProperty("manifest");

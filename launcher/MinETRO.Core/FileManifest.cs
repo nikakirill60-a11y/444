@@ -14,8 +14,8 @@ public sealed record FileManifest
     public int Schema { get; init; } = 2;
     public string Version { get; init; } = "";
     public List<ManagedFile> Files { get; init; } = [];
-    public static readonly JsonSerializerOptions Json = new(PackManifest.Json) { WriteIndented = false };
-    public const int MaxJsonBytes = 512 * 1024;
+    public static readonly JsonSerializerOptions Json = new(PackManifest.Json) { WriteIndented = false, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
+    public const int MaxJsonBytes = 64 * 1024 * 1024;
     public const int ChunkBytes = 8 * 1024 * 1024;
     public const string InstanceId = "MinETRO-dev-files";
     [JsonIgnore] public PackManifest EngineProfile => PackManifest.ReleaseDefault with { Name = "MinETRO dev", Version = Version };
@@ -38,7 +38,7 @@ public sealed record FileManifest
     }
     public void Validate()
     {
-        if (Schema != 2 || !Regex.IsMatch(Version ?? "", "^[A-Za-z0-9][A-Za-z0-9._-]{0,39}$") || Files == null || Files.Count is < 2 or > 5000)
+        if (Schema != 2 || !Regex.IsMatch(Version ?? "", "^[A-Za-z0-9][A-Za-z0-9._-]{0,39}$") || Files == null || Files.Count is < 2 or > 100000)
             throw new InvalidDataException("Неверный файловый релиз dev.");
         var paths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var sizes = new Dictionary<string, long>(); long total = 0; int mods = 0; bool minetro = false;
@@ -61,6 +61,6 @@ public sealed record FileManifest
         foreach (var path in paths)
             for (var dir = path.LastIndexOf('/'); dir > 0; dir = path.LastIndexOf('/', dir - 1))
                 if (paths.Contains(path[..dir])) throw new InvalidDataException("Файл конфликтует с папкой.");
-        if (mods < 2 || !minetro || total > 32L * 1024 * 1024 * 1024) throw new InvalidDataException("Нужна полная сборка MinETRO с модами.");
+        if (mods < 2 || !minetro || total > 128L * 1024 * 1024 * 1024) throw new InvalidDataException("Нужна полная сборка MinETRO с модами.");
     }
 }

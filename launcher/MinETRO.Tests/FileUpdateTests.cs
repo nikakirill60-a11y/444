@@ -10,6 +10,12 @@ internal static class FileUpdateTests
     private static void Assert(bool value) { if (!value) throw new Exception("File update assertion failed"); }
     private static async Task Reject(Func<Task> action)
     { try { await action(); } catch (Exception ex) when (ex is IOException or InvalidDataException or OperationCanceledException) { return; } throw new Exception("Expected file update rejection"); }
+    private static FileManifest LargeManifest()
+    {
+        var sha=Sha(Encoding.UTF8.GetBytes("test"));
+        ManagedFile File(string path)=>new(path,"managed",4,sha,[new(sha,4)]);
+        return new(){Version="large-6000",Files=[File("mods/metrocraft-port-test.jar"),File("mods/mwf.jar"),..Enumerable.Range(0,6000).Select(i=>File("resourcepacks/pack/assets/текстуры/t_"+i+".png"))]};
+    }
     public static async Task Run()
     {
         int passed = 0;
@@ -22,6 +28,8 @@ internal static class FileUpdateTests
         await Test("strict paths, seed policy, complete pack and chunks", async _ => {
             using var pack = new Fixture("unused"); var m = pack.Manifest("v1");
             Assert(FileManifest.Parse(JsonSerializer.Serialize(m, FileManifest.Json)).Fingerprint == m.Fingerprint);
+            var large=LargeManifest();var text=JsonSerializer.Serialize(large,FileManifest.Json);
+            Assert(Encoding.UTF8.GetByteCount(text)>512*1024);Assert(FileManifest.Parse(text).Files.Count==6002);
             foreach (var p in new[] { "saves/world/level.dat", "options.txt", "config/../saves/a", "ModularWarfare/packv4.json", "ModularWarfare/mod_config.json", "mods/CON.jar" })
                 await Reject(() => { (m with { Files = [..m.Files, new(p, "managed", 0, Sha([]), [])] }).Validate(); return Task.CompletedTask; });
             await Reject(() => { (m with { Files = [m.Files[0]] }).Validate(); return Task.CompletedTask; });
@@ -97,6 +105,10 @@ internal static class FileUpdateTests
                 await Reject(() => api.OpenDevDownload(new Uri(spec.Url.Replace("test-project.supabase.co", "external.test")), default)); Assert(handler.Count == 1);
                 await Reject(() => api.OpenDevDownload(new Uri(spec.Url), default)); Assert(handler.Count == 2);
             }
+            using var largeHandler=new ManifestHandler(JsonSerializer.Serialize(new {manifest=LargeManifest(),objectKey="files/large-6000"},FileManifest.Json));
+            using var largeApi=new Accounts(config,largeHandler);
+            await largeApi.SignIn("test@example.test","test-password",default);
+            var distribution=await largeApi.Distribution(default);Assert(distribution?.Files?.Files.Count==6002);
         });
         Assert(passed == 12); Console.WriteLine("PASS: 12 file update scenarios; no live full pack/game test");
     }
@@ -130,6 +142,15 @@ internal static class FileUpdateTests
             ct.ThrowIfCancellationRequested(); var bytes = Objects[request.RequestUri!.Segments.Last()]; Bytes += bytes.Length;
             var data = bytes.ToArray(); if (Corrupt && data.Length > 0) data[0] ^= 0xff;
             return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new ByteArrayContent(data) });
+        }
+    }
+    private sealed class ManifestHandler(string manifest):HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,CancellationToken ct)
+        {
+            string body=request.RequestUri!.AbsolutePath=="/auth/v1/token"?
+                "{\"access_token\":\"mock\",\"refresh_token\":\"refresh\",\"expires_in\":3600,\"user\":{\"id\":\"11111111-1111-4111-8111-111111111111\"}}":manifest;
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK){Content=new StringContent(body,Encoding.UTF8,"application/json")});
         }
     }
     private sealed class AuthHandler(HttpStatusCode status) : HttpMessageHandler

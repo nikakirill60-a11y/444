@@ -12,7 +12,7 @@ from urllib.parse import urlsplit
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 
 CHUNK = 8 * 1024 * 1024
-MAX_JSON = 512 * 1024
+MAX_JSON = 48 * 1024 * 1024
 MANAGED = {'mods', 'ModularWarfare', 'resourcepacks', 'scripts'}
 SHA = re.compile(r'^[a-f0-9]{64}$')
 
@@ -46,7 +46,7 @@ def validate(manifest):
     if manifest.get('schema') != 2 or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,39}', manifest.get('version', '')):
         raise ValueError('Invalid release version/schema')
     files = manifest.get('files', [])
-    if not 2 <= len(files) <= 5000 or len(encode(manifest)) > MAX_JSON:
+    if not 2 <= len(files) <= 100000 or len(encode(manifest)) > MAX_JSON:
         raise ValueError('Invalid manifest size')
     paths, sizes, total = set(), {}, 0
     for f in files:
@@ -67,7 +67,7 @@ def validate(manifest):
         if any('/'.join(parts[:i]) in paths for i in range(1, len(parts))):
             raise ValueError('File/directory collision')
     mods = [f for f in files if f['path'].startswith('mods/') and f['path'].endswith('.jar')]
-    if len(mods) < 2 or not any(f['path'].startswith('mods/metrocraft-port-') for f in mods) or total > 32 * 1024**3:
+    if len(mods) < 2 or not any(f['path'].startswith('mods/metrocraft-port-') for f in mods) or total > 128 * 1024**3:
         raise ValueError('Need the complete MinETRO pack, not a single JAR')
     return manifest
 
@@ -177,9 +177,9 @@ def upload(prepared, storage, apply=False, activate=False, approval=None):
     if storage.rpc('file_distribution_protocol', {}) != 2:
         raise ValueError('Deploy the schema-2 migration first')
     # Optimistic lock: activation fails if another release changed while uploading.
-    with storage.request('GET', '/rest/v1/launcher_dev_release?singleton=eq.true&select=manifest') as response:
+    with storage.request('GET', '/rest/v1/launcher_dev_release?singleton=eq.true&select=version:manifest->>version') as response:
         current = json.loads(response.read(MAX_JSON + 1))
-    expected = current[0]['manifest']['version'] if current else None
+    expected = current[0]['version'] if current else None
     chunks = {c['sha256']: c['bytes'] for f in manifest['files'] for c in f['chunks']}
     uploaded, skipped, pending = 0, 0, 0
     for sha, size in sorted(chunks.items()):
