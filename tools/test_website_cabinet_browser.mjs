@@ -18,8 +18,9 @@ await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.
 const id='11111111-1111-4111-8111-111111111111', second='22222222-2222-4222-8222-222222222222';
 async function setup(width,admin=false) {
  const page=await browser.newPage({viewport:{width,height:1000}}), errors=[];
- let profile={id,nickname:'TestBuilder',skin_path:null,skin_model:'steve'},state='none',uploaded=null;
+ let profile={id,nickname:'TestBuilder',skin_path:null,skin_model:'steve'},state=admin?'pending':'none',uploaded=null;
  const inbox=[{user_id:second,nickname:'Builder_A',status:'pending',requested_at:'2026-10-30T12:00:00Z'},{user_id:'33333333-3333-4333-8333-333333333333',nickname:'Builder_B',status:'pending',requested_at:'2026-10-30T12:00:00Z'}];
+ if(admin)inbox.unshift({user_id:id,nickname:'TestBuilder',status:'pending',requested_at:'2026-10-30T12:00:00Z'});
  page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://xmhxucddhkitxqtweifu.supabase.co/**',async route=>{
   const req=route.request(),url=req.url();let data={};
@@ -34,7 +35,7 @@ async function setup(width,admin=false) {
   else if(url.endsWith('/is_launcher_admin'))data=admin;
   else if(url.endsWith('/request_dev_access')){state='pending';data='pending';}
   else if(url.endsWith('/dev_access_inbox'))data=inbox;
-  else if(url.endsWith('/review_dev_access')){const body=req.postDataJSON();inbox.find(r=>r.user_id===body.target).status=body.approve?'approved':'rejected';}
+  else if(url.endsWith('/review_dev_access')){const body=req.postDataJSON();inbox.find(r=>r.user_id===body.target).status=body.approve?'approved':'rejected';if(body.target===id)state=body.approve?'approved':'rejected';}
   else if(!url.includes('/logout?')&&!url.includes('/recover?'))throw Error('Unexpected API '+url);
   await route.fulfill({contentType:'application/json',body:JSON.stringify(data),headers:{'access-control-allow-origin':'*'}});
  });
@@ -65,8 +66,9 @@ try {
   assert.deepEqual(errors,[]);await page.close();console.log('PASS cabinet '+width+'px · profile, dev request, private skin upload/reload, recovery, logout');
  }
  const {page,errors}=await setup(1440,true);
+ await page.getByRole('button',{name:'Подтвердить',exact:true}).first().click();await page.locator('#dev-status').filter({hasText:'подтверждён администратором'}).waitFor();
  await page.getByRole('button',{name:'Подтвердить',exact:true}).first().click();await page.getByRole('status').filter({hasText:'Доступ подтверждён.'}).waitFor();
  await page.getByRole('button',{name:'Отклонить',exact:true}).click();await page.getByRole('status').filter({hasText:'Заявка отклонена.'}).waitFor();
  assert.equal(await page.getByRole('button',{name:'Подтвердить',exact:true}).count(),0);assert.deepEqual(errors,[]);
- await page.screenshot({path:'artifacts/website-cabinet/admin.png',fullPage:true});await page.close();console.log('PASS admin inbox · confirm and reject');
+ await page.screenshot({path:'artifacts/website-cabinet/admin.png',fullPage:true});await page.close();console.log('PASS admin inbox · self approval, own status refresh, confirm and reject other requests');
 } finally { await browser.close(); await new Promise(r=>server.close(r)); }

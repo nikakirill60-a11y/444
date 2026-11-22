@@ -192,11 +192,11 @@ test('cabinet UI shows immutable nickname, email, dev status and hides admin inb
  const html=readFileSync(new URL('../website/account.html',import.meta.url),'utf8');
  assert.ok(!html.includes('id="profile-nickname" name='));assert.ok(html.includes('Ник доступен только для просмотра'));
 });
-test('admin UI receives request with exactly Confirm and Reject and sends server decision',async()=>{
- const target='22222222-2222-4222-8222-222222222222';let decision=null;
+test('administrator can review own request and refresh own dev status',async()=>{
+ const target=id;let decision=null;
  const {elements:e}=await page('',async(url,options)=>{
   if(url.includes('/token?'))return loginResponse();if(url.includes('/profiles?'))return response([ownProfile]);
-  if(url.includes('/dev_access_requests?'))return response([]);
+  if(url.includes('/dev_access_requests?'))return response([{status:decision===null?'pending':'approved'}]);
   if(url.endsWith('/is_launcher_admin'))return response(true);
   if(url.endsWith('/dev_access_inbox'))return response([{user_id:target,nickname:'Builder',status:decision===null?'pending':'approved',requested_at:'2026-10-30T12:00:00Z'}]);
   if(url.endsWith('/review_dev_access')){decision=JSON.parse(options.body);return response(null,204);}
@@ -205,5 +205,12 @@ test('admin UI receives request with exactly Confirm and Reject and sends server
  e['mode-signin'].onclick();e.email.value='x@example.org';e.password.value=pass;e['account-form'].events.submit({preventDefault(){}});await new Promise(resolve=>setImmediate(resolve));
  assert.equal(e['admin-inbox'].hidden,false);assert.equal(e['request-count'].textContent,'(1)');
  const buttons=e.requests.querySelectorAll('button');assert.deepEqual(buttons.map(b=>b.textContent),['Подтвердить','Отклонить']);
- buttons[0].onclick();await new Promise(resolve=>setImmediate(resolve));assert.deepEqual(decision,{target,approve:true});assert.equal(e.requests.querySelectorAll('button').length,0);
+ buttons[0].onclick();await new Promise(resolve=>setImmediate(resolve));assert.deepEqual(decision,{target,approve:true});assert.equal(e.requests.querySelectorAll('button').length,0);assert.match(e['dev-status'].textContent,/подтверждён/);
+});
+test('review permission and stale-request failures show safe actionable messages',async()=>{
+ for(const [code,pattern] of [['42501',/только администратор/],['P0002',/уже рассмотрена/]]){
+  const a=new Accounts(async()=>response({code,message:'PRIVATE_SQL_DIAGNOSTIC'},code==='42501'?403:404));
+  a.session={id,token:'test-only',expires:Date.now()+30000};
+  await assert.rejects(a.review(id,true),error=>pattern.test(error.message)&&!error.message.includes('PRIVATE_SQL'));
+ }
 });

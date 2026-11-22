@@ -25,8 +25,10 @@ export class Accounts {
     if (!response.ok) {
       if (response.status === 401 && token) this.clear();
       // Never render raw responses, tokens, emails or SQL diagnostics in the page.
-      let code = ''; try { code = (await response.json()).error_code || ''; } catch (_) {}
+      let code = ''; try { const error = await response.json(); code = error.error_code || error.code || ''; } catch (_) {}
       if (response.status === 429) throw Error('Слишком много попыток. Подожди перед повтором.');
+      if (path === 'rest/v1/rpc/review_dev_access' && code === '42501') throw Error('Подтверждать и отклонять заявки может только администратор. Обнови кабинет или войди заново.');
+      if (path === 'rest/v1/rpc/review_dev_access' && code === 'P0002') throw Error('Заявка уже рассмотрена или больше не ожидает решения. Обнови список заявок.');
       if (code === 'email_not_confirmed') throw Error('Сначала подтверди почту по ссылке из письма.');
       if (code === 'invalid_credentials') throw Error('Неверная почта или пароль.');
       if (response.status === 422 || response.status === 400 || response.status === 409) throw Error('Проверь данные, подтверждение почты и доступность ника.');

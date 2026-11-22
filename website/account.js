@@ -123,7 +123,7 @@ async function loadInbox() {
         button.className = approve ? 'button primary' : 'button outline';
         button.textContent = approve ? 'Подтвердить' : 'Отклонить';
         button.onclick = () => run(async () => {
-          await accounts.review(row.user_id, approve); await loadInbox();
+          await accounts.review(row.user_id, approve); await loadDev(); await loadInbox();
           status(approve ? 'Доступ подтверждён.' : 'Заявка отклонена.');
         });
         buttons.append(button);
@@ -201,7 +201,7 @@ $('upload-skin').onclick = () => run(async () => {
   $('skin-state').textContent = 'Скин сохранён в профиле сайта и лаунчера.'; status('Скин сохранён.');
 });
 $('request-dev').onclick = () => run(async () => {
-  await accounts.devRequest(); await loadDev(); status('Заявка отправлена в кабинет администратора.');
+  await accounts.devRequest(); await loadDev(); if (admin) await loadInbox(); status('Заявка отправлена в кабинет администратора.');
 });
 $('refresh-inbox').onclick = () => run(async () => { await loadInbox(); status('Входящие заявки обновлены.'); });
 // Read only recovery credentials, erase the URL before making any request, and
