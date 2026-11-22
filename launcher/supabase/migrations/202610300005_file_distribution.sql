@@ -23,6 +23,18 @@ begin
  if approval is null or length(trim(approval))=0 or new_manifest->>'schema' is distinct from '2'
  or new_manifest->>'version' is null or jsonb_typeof(new_manifest->'files') is distinct from 'array'
  or pg_catalog.octet_length(new_manifest::text)>524288 then raise exception 'Invalid file release/owner approval'; end if;
+ if jsonb_array_length(new_manifest->'files') not between 2 and 5000
+ or (select count(*) from jsonb_array_elements(new_manifest->'files') f where f->>'path' like 'mods/%.jar')<2
+ or not exists(select 1 from jsonb_array_elements(new_manifest->'files') f where f->>'path' like 'mods/metrocraft-port-%.jar')
+ then raise exception 'Incomplete pack manifest'; end if;
+ if exists(select 1 from jsonb_array_elements(new_manifest->'files') f
+ where (f->>'mode'='seed' and f->>'path' like 'config/%') is not true
+ and (f->>'mode'='managed' and f->>'path' ~ '^(mods|ModularWarfare|resourcepacks|scripts)/') is not true)
+ or exists(select 1 from jsonb_array_elements(new_manifest->'files') f
+ where jsonb_typeof(f->'chunks') is distinct from 'array'
+ or (f->>'sha256' ~ '^[a-f0-9]{64}$') is not true
+ or lower(f->>'path') ~ '(^|/)packv4\.json$|^modularwarfare/mod_config\.json$|(^|/)\.\.(/|$)')
+ then raise exception 'Invalid/protected file entries'; end if;
  if exists(select 1 from jsonb_array_elements(new_manifest->'files') f,
    jsonb_array_elements(f->'chunks') c where not exists(select 1 from storage.objects o
     where o.bucket_id='dev-packs' and o.name='chunks/'||(c->>'sha256')

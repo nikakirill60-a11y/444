@@ -53,7 +53,7 @@ internal static class FileUpdateTests
             Assert(Directory.GetDirectories(Path.GetDirectoryName(pack.Service.Instance)!, ".files-backup-*").Any(d => File.Exists(Path.Combine(d, ".minecraft", "scripts", "obsolete.zs"))));
         });
         await Test("shared chunks deduplicate and empty files work", async root => {
-            using var pack = new Fixture(root); pack.Data["scripts/copy.zs"] = pack.Data["mods/mwf.jar"]; pack.Data["scripts/empty.zs"] = "";
+            using var pack = new Fixture(root); pack.Data["scripts/copy.zs"] = pack.Data["mods/mwf.jar"]; pack.Data["scripts/empty.zs"] = ""; pack.Data["scripts/large.zs"] = new string('x', FileManifest.ChunkBytes) + "tail";
             var m = pack.Manifest("v1"); await pack.Install(m); Assert(new FileInfo(pack.Game("scripts/empty.zs")).Length == 0);
             Assert(pack.Network.Bytes == m.Files.Sum(f => f.Bytes) - Encoding.UTF8.GetByteCount(pack.Data["mods/mwf.jar"]));
         });
@@ -114,8 +114,9 @@ internal static class FileUpdateTests
             var files = new List<ManagedFile>();
             foreach (var pair in Data.OrderBy(p => p.Key, StringComparer.Ordinal))
             {
-                var bytes = Encoding.UTF8.GetBytes(pair.Value); var sha = Sha(bytes); Network.Objects[sha] = bytes;
-                files.Add(new(pair.Key, pair.Key.StartsWith("config/") ? "seed" : "managed", bytes.Length, sha, bytes.Length == 0 ? [] : [new(sha, bytes.Length)]));
+                var bytes = Encoding.UTF8.GetBytes(pair.Value); var sha = Sha(bytes); var chunks = new List<FileChunk>();
+                for(int offset=0;offset<bytes.Length;offset+=FileManifest.ChunkBytes){var chunk=bytes.AsSpan(offset,Math.Min(FileManifest.ChunkBytes,bytes.Length-offset)).ToArray();var key=Sha(chunk);Network.Objects[key]=chunk;chunks.Add(new(key,chunk.Length));}
+                files.Add(new(pair.Key, pair.Key.StartsWith("config/") ? "seed" : "managed", bytes.Length, sha, chunks));
             }
             return new() { Version = version, Files = files };
         }

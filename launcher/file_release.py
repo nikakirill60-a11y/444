@@ -206,11 +206,11 @@ def upload(prepared, storage, apply=False, activate=False, approval=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
-    p = sub.add_parser('prepare'); p.add_argument('source', type=Path); p.add_argument('--out', type=Path, required=True); p.add_argument('--version', required=True)
+    p = sub.add_parser('prepare'); p.add_argument('source', type=Path); p.add_argument('--out', type=Path, required=True); p.add_argument('--version')
     p = sub.add_parser('upload'); p.add_argument('prepared', type=Path); p.add_argument('--apply', action='store_true'); p.add_argument('--activate', action='store_true'); p.add_argument('--approval')
     args = parser.parse_args()
     if args.command == 'prepare':
-        result = prepare(args.source, args.out, args.version)
+        result = prepare(args.source, args.out, args.version or input("Версия dev (латиница, цифры, точка, дефис): ").strip())
         print(json.dumps({'files': len(result['files']), 'bytes': sum(f['bytes'] for f in result['files']), 'activated': False}))
     else:
         storage = Storage(os.environ.get('MINETRO_STORAGE_URL', ''), os.environ.get('MINETRO_PUBLISHER_KEY', ''))

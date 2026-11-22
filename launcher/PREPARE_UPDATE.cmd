@@ -6,8 +6,7 @@ if "%~1"=="" (
   pause
   exit /b 1
 )
-set /p "VERSION=Версия dev (латиница, цифры, точка, дефис): "
-py -3 "%~dp0file_release.py" prepare "%~1" --out "%~dp0prepared" --version "%VERSION%"
+py -3 "%~dp0file_release.py" prepare "%~1" --out "%~dp0prepared"
 if errorlevel 1 (
   echo Подготовка не завершена. Ничего не опубликовано.
 ) else (
