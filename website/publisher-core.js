@@ -1,4 +1,5 @@
 import {sha256} from './vendor/sha256.js';
+export const PUBLISHER_BUILD = 'UP-08';
 export const CHUNK_BYTES = 8 * 1024 * 1024;
 export const MAX_FILES = 100000;
 export const MAX_PACK_BYTES = 128 * 1024 ** 3;

@@ -102,3 +102,13 @@ test('abort during local read remains cancellation rather than permission advice
  f.slice=()=>({arrayBuffer:async()=>{controller.abort();throw new DOMException('locked','NotReadableError');}});
  await assert.rejects(prepareFiles([...basic(),f],'dev-read',{signal:controller.signal}),e=>e.name==='AbortError');
 });
+test('cabinet version pins the complete mutable uploader import chain and disables caching',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=async name=>readFile(new URL('../website/'+name,import.meta.url),'utf8');
+ assert.match(await source('account.html'),/src="\/account\.js\?v=up08"/);
+ const account=await source('account.js');assert.ok(account.includes("'./publisher.js?v=up08'"));assert.ok(account.includes("'./accounts.js?v=up08'"));
+ assert.ok((await source('publisher.js')).includes("'./publisher-core.js?v=up08'"));
+ const config=JSON.parse(await source('vercel.json'));
+ for(const name of ['account','accounts','publisher','publisher-core'])assert.ok(config.headers.some(rule=>rule.source==='/'+name+'.js'&&rule.headers.some(h=>h.key==='Cache-Control'&&h.value==='no-store')));
+ assert.ok((await source('publisher-core.js')).includes("PUBLISHER_BUILD = 'UP-08'"));
+});

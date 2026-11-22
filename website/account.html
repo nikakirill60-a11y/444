@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111310"><meta name="referrer" content="no-referrer"><meta name="description" content="Регистрация и вход в единый аккаунт MinETRO для сайта и лаунчера."><title>Личный кабинет — MinETRO</title><link rel="icon" href="/assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/account.css"><script type="module" src="/account.js"></script></head>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111310"><meta name="referrer" content="no-referrer"><meta name="description" content="Регистрация и вход в единый аккаунт MinETRO для сайта и лаунчера."><title>Личный кабинет — MinETRO</title><link rel="icon" href="/assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/account.css"><script type="module" src="/account.js?v=up08"></script></head>
 <body><a class="skip" href="#main">К содержимому</a>
 <header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="MinETRO — главная"><img src="/assets/mark.svg" alt="" width="38" height="38"><span>MinETRO</span><sup>BETA</sup></a><a class="header-cta account-back" href="/">На главную <span aria-hidden="true">↗</span></a></div></header>
 <main id="main" class="wrap account-layout"><section id="account-intro" class="account-intro"><div class="section-tag">ТВОЙ ПРОПУСК В МЕТРО</div><h1>Один аккаунт.<br><em>Своя история.</em></h1><p>Зарегистрируйся здесь, затем войди с той же почтой и паролем в MinETRO Launcher.</p><ul><li>Единый аккаунт сайта и лаунчера</li><li>Свой ник в профиле</li><li>Скин и заявка на dev — в личном кабинете</li></ul><p class="account-note">Это аккаунт MinETRO. Он не заменяет аккаунт Microsoft и лицензию Minecraft.</p></section>
@@ -17,6 +17,7 @@
 <section id="owner-publisher" class="cabinet-card admin-card" aria-labelledby="publisher-title" hidden>
 <div class="card-index">ВЛАДЕЛЕЦ / ПУБЛИКАЦИЯ СБОРКИ</div><h3 id="publisher-title">Загрузить MinETRO dev</h3>
 <p id="publisher-current" class="dev-status"></p><p class="muted">Выбери распакованную папку с mods внутри — не ZIP. Файлы идут с твоего компьютера прямо в закрытое хранилище. Python и секретные ключи не нужны.</p>
+<p id="publisher-build" class="account-note"></p>
 <p id="publisher-capacity" class="account-note"></p>
 <label for="publisher-version">Уникальное имя версии<input id="publisher-version" maxlength="40" pattern="[A-Za-z0-9][A-Za-z0-9._-]{0,39}" autocomplete="off"></label>
 <label for="publisher-folder">Папка данных сборки (.minecraft)<input id="publisher-folder" type="file" webkitdirectory multiple></label>

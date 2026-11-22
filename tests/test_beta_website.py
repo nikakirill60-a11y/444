@@ -4,6 +4,7 @@ import re
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'website'
@@ -34,9 +35,9 @@ class BetaWebsiteTest(unittest.TestCase):
                 self.assertIn(link[1:], page.ids)
         for asset in page.assets:
             self.assertTrue(asset.startswith('/'), asset)
-            self.assertTrue((SITE / asset.lstrip('/')).is_file(), asset)
+            self.assertTrue((SITE / urlsplit(asset).path.lstrip('/')).is_file(), asset)
         for asset in re.findall(r"url\(['\"]?(/[^)'\"]+)", (SITE / 'styles.css').read_text()):
-            self.assertTrue((SITE / asset.lstrip('/')).is_file(), asset)
+            self.assertTrue((SITE / urlsplit(asset).path.lstrip('/')).is_file(), asset)
 
     def test_launcher_downloads_are_disabled_on_every_page(self):
         for name in ('index.html', 'wiki.html', 'account.html'):
@@ -107,7 +108,7 @@ class BetaWebsiteTest(unittest.TestCase):
     def test_account_page_assets_forms_and_security_headers(self):
         html = (SITE / 'account.html').read_text()
         for asset in Page(html).assets:
-            self.assertTrue((SITE / asset.lstrip('/')).is_file(), asset)
+            self.assertTrue((SITE / urlsplit(asset).path.lstrip('/')).is_file(), asset)
         self.assertIn('method="post"', html)
         self.assertIn('type="password"', html)
         self.assertIn('minlength="12"', html)

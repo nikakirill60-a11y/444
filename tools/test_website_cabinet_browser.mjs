@@ -24,6 +24,10 @@ async function setup(width,admin=false,publisher=false) {
  const inbox=[{user_id:second,nickname:'Builder_A',status:'pending',requested_at:'2026-10-30T12:00:00Z'},{user_id:'33333333-3333-4333-8333-333333333333',nickname:'Builder_B',status:'pending',requested_at:'2026-10-30T12:00:00Z'}];
  if(admin)inbox.unshift({user_id:id,nickname:'TestBuilder',status:'pending',requested_at:'2026-10-30T12:00:00Z'});
  page.on('pageerror',e=>errors.push(e.message));
+ page.on('request',request=>{
+  const url=new URL(request.url());
+  if(['/account.js','/accounts.js','/publisher.js','/publisher-core.js'].includes(url.pathname)&&url.origin===base&&url.searchParams.get('v')!=='up08')errors.push('Unversioned cabinet module: '+url.pathname);
+ });
  await page.route('https://xmhxucddhkitxqtweifu.supabase.co/**',async route=>{
   const req=route.request(),url=req.url();let data={};
   if(req.method()==='OPTIONS'){await route.fulfill({status:204,headers:{'access-control-allow-origin':'*','access-control-allow-methods':'GET,POST,PATCH,PUT','access-control-allow-headers':'*'}});return;}
@@ -105,6 +109,7 @@ try {
  for(let start=0;start<6000;start+=200)await Promise.all(Array.from({length:200},(_,i)=>writeFile(largeFolder+'/resourcepacks/assets/textures/t_'+(start+i)+'.png','asset')));
  try {
   const largeOwner=await setup(1440,true,true),p=largeOwner.page;
+  assert.match(await p.locator('#publisher-build').textContent(),/UP-08.*100 000/);
   await p.locator('#publisher-version').fill('large-browser-6000');await p.locator('#publisher-folder').setInputFiles(largeFolder);
   await p.locator('#publisher-prepare').click();await p.locator('#publisher-status').filter({hasText:'Проверено 6002 файлов'}).waitFor({timeout:120000});
   assert.equal(largeOwner.getSentBytes(),0);

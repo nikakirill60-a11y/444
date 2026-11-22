@@ -1,4 +1,4 @@
-import {prepareFiles,inventory,uploadPrepared,CHUNK_BYTES} from './publisher-core.js';
+import {prepareFiles,inventory,uploadPrepared,CHUNK_BYTES,PUBLISHER_BUILD} from './publisher-core.js?v=up08';
 const $=id=>document.getElementById(id);
 const volume=n=>(n/1024**2).toFixed(1)+' МиБ';
 export function mountPublisher(accounts,{run,busy}) {
@@ -20,6 +20,7 @@ export function mountPublisher(accounts,{run,busy}) {
     if(accounts.session!==session)throw Error('Войди снова.');
     allowed=info?.publisher===true;
     if(allowed) {
+      $('publisher-build').textContent='Загрузчик '+PUBLISHER_BUILD+' · до 100 000 файлов · до 128 ГиБ. Версия лаунчера для скачивания: 0.7.';
       $('publisher-current').textContent=info.version?'Сейчас в раздаче: '+info.version:'В раздаче пока нет сборки.';
       $('publisher-capacity').textContent='Занято блоками: '+volume(Number(info.usedBytes)||0)+'. Квота тарифа провайдера не раскрывается этим API — вместимость всей сборки заранее не подтверждена. Тариф и платные опции автоматически не меняются.';
       if(!$('publisher-version').value)$('publisher-version').value='dev-'+new Date().toISOString().replace(/[-:]/g,'').slice(0,15);

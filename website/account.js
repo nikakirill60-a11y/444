@@ -1,5 +1,5 @@
-import {Accounts, validateSkin} from './accounts.js';
-import {mountPublisher} from './publisher.js';
+import {Accounts, validateSkin} from './accounts.js?v=up08';
+import {mountPublisher} from './publisher.js?v=up08';
 const $ = id => document.getElementById(id);
 const accounts = new Accounts();
 let mode = 'signup', busy = false, expiry, inboxTimer, selectedSkin = null, selectedModel = 'steve', admin = false;
