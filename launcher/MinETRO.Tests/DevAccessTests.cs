@@ -10,7 +10,7 @@ internal static class DevAccessTests
     private const string Session = "{\"access_token\":\"dev-test-token\",\"refresh_token\":\"dev-test-refresh\",\"expires_in\":3600,\"user\":{\"id\":\""+Id+"\"}}";
     private static HttpResponseMessage Json(string json,HttpStatusCode status=HttpStatusCode.OK)=>new(status){Content=new StringContent(json,Encoding.UTF8,"application/json")};
     private static void Assert(bool value){if(!value)throw new Exception("Dev access assertion failed");}
-    private static async Task Reject(Func<Task> run){try{await run();}catch(IOException){return;}throw new Exception("Expected dev rejection");}
+    private static async Task Reject(Func<Task> run){try{await run();}catch(Exception ex) when(ex is IOException or InvalidDataException){return;}throw new Exception("Expected dev rejection");}
     private static PackManifest Manifest => PackManifest.ReleaseDefault with { Version="dev-baseline-test",Name="MinETRO dev",Archive=new("https://untrusted.test/pack.zip",new string('a',64),1),RequiredFiles=[new("mods/test.jar",new string('b',64))] };
     private static string Release(string key="baseline/MinETRO.zip")=>JsonSerializer.Serialize(new {manifest=Manifest,objectKey=key},PackManifest.Json);
     public static async Task Run()
