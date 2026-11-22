@@ -8,10 +8,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import ru.metrocraft.port.MetroPort;
 
-/** Only the six switches remain registered; retired models are physically absent from the JAR. */
+/** Publish original Germo gates and six switches; ordinary doors/static lamps remain omitted. */
 @Mod.EventBusSubscriber(modid=MetroPort.ID)
 public final class DecorAvailability {
-    public static boolean published(OriginalGateProfile profile){return profile.is("Lever");}
+    public static boolean published(OriginalGateProfile profile){return profile.is("Lever") || profile.is("Germo");}
     public static boolean blocked(ItemStack stack){
         if(stack.isEmpty() || !(stack.getItem() instanceof ItemBlock))return false;
         Block block=Block.getBlockFromItem(stack.getItem());

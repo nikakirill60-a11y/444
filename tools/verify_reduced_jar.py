@@ -18,14 +18,21 @@ def verify_decor(names,read):
     assert not (aliases & names), 'Retired door/lamp/gate aliases leaked'
     assert not (set(decor['removedFiles']) & names), 'Retired door/lamp/gate resources leaked'
     assert set(decor['requiredLeverFiles']) <= names, 'Missing lever mesh/shared texture'
-    assert json.loads(read('assets/metroport/metromod_gates.json'))==[], 'Retired gate profiles leaked'
-    levers=json.loads(read('assets/metroport/metromod_interactive.json'))
-    assert len(levers)==6 and {p['id'] for p in levers}==set(decor['leverIds'])
-    assert all(p['kind']=='Lever' for p in levers)
-    for id in decor['leverIds']:
+    assert set(decor['requiredGermoFiles']) <= names, 'Missing Germo mesh/texture/collision metadata'
+    gates=json.loads(read('assets/metroport/metromod_gates.json'))
+    interactive=json.loads(read('assets/metroport/metromod_interactive.json'))
+    active=gates+interactive
+    assert len(active)==23 and {p['id'] for p in active}==set(decor['leverIds']+decor['germoIds'])
+    assert all(p.get('kind','Germo') in ('Lever','Germo') for p in active), 'Ordinary doors/static lamps leaked'
+    assert len([p for p in active if p.get('kind','Germo')=='Germo'])==17
+    for id in decor['leverIds']+decor['germoIds']:
         assert 'assets/metroport/models/item/'+id+'.json' in names
         assert 'assets/metroport/blockstates/'+id+'.json' in names
-    print('Decor verified: 75 imported door/gate/lamp models and 6 legacy gate variants absent; 6 levers intact')
+    ground=json.loads(read('assets/metroport/metromod_ground.json'))
+    assert set(decor['germoIds']) <= set(ground), 'Missing gate ground offsets'
+    layout=json.loads(read('assets/metroport/metromod_layout.json'))
+    assert set(layout) <= set(decor['leverIds']+decor['germoIds'])
+    print('Decor verified: 17 original Germo gates and 6 levers; ordinary doors/static lamps/legacy duplicates absent')
 
 
 def verify(path):

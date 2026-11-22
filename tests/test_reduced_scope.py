@@ -9,7 +9,7 @@ S=ROOT/'tools/blackrazid-reference/gadgets'
 class ReducedScopeTests(unittest.TestCase):
     def test_manifest_is_reproducible_and_keeps_explicit_exceptions(self):
         data=report();self.assertEqual(data,json.loads((A/'reduced_scope.json').read_text()))
-        removed=set(data['removedIds']);self.assertEqual(300,len(removed))
+        removed=set(data['removedIds']);self.assertEqual(283,len(removed))
         self.assertTrue({'exodus_gasmask_gold','exodus_gasmask_diamond','testpickaxe'}<=removed)
         self.assertFalse(set(data['retainedSpecialItems']) & removed)
         self.assertNotIn('exodus_gasmask_pumpkin',removed)

@@ -16,7 +16,7 @@ public final class RemovedDecorMappings {
         if(!ru.metrocraft.port.NamespaceMigration.ours(key.getNamespace()))return false;
         String id=key.getPath();
         return id.equals("germo") || id.startsWith("germo_") || id.equals("gate_part")
-                || id.startsWith("metromod_germo_") || id.startsWith("metromod_door_") || id.startsWith("metromod_light_");
+                || id.startsWith("metromod_door_") || id.startsWith("metromod_light_");
     }
     @SubscribeEvent public static void blocks(RegistryEvent.MissingMappings<Block> event){
         for(RegistryEvent.MissingMappings.Mapping<Block> mapping:event.getAllMappings())

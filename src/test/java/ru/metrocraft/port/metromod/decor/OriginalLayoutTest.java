@@ -95,18 +95,18 @@ public class OriginalLayoutTest {
         for(EnumFacing face:new EnumFacing[]{EnumFacing.UP,EnumFacing.DOWN,EnumFacing.NORTH})
             assertEquals(EnumActionResult.FAIL,item.onItemUse(player,grid.world,new BlockPos(20,64,20),EnumHand.MAIN_HAND,face,0,0,0));
     }
-    @Test public void onlySixLeversArePublishedAndOnlyThreeNon01LeversAreFlipped(){
+    @Test public void germoAndSixLeversArePublishedAndOnlyThreeNon01LeversAreFlipped(){
         int published=0,flipped=0;
         for(OriginalGateProfile p:OriginalGateProfile.all()){
-            assertEquals(p.is("Lever"),DecorAvailability.published(p));
+            assertEquals(p.is("Lever") || p.is("Germo"),DecorAvailability.published(p));
             assertEquals(p.is("Lever")&&!p.source.endsWith("_01"),p.flipped());
             if(DecorAvailability.published(p))published++;
             if(p.flipped())flipped++;
             OriginalGateBlock block=new OriginalGateBlock(p);
-            assertEquals(p.is("Lever")?ru.metrocraft.port.MetroPort.DECOR:null,new OriginalGateItem(block).getCreativeTab());
-            assertEquals(!p.is("Lever"),DecorAvailability.blocked(new ItemStack(new OriginalGateItem(block))));
+            assertEquals(DecorAvailability.published(p)?ru.metrocraft.port.MetroPort.DECOR:null,new OriginalGateItem(block).getCreativeTab());
+            assertEquals(!DecorAvailability.published(p),DecorAvailability.blocked(new ItemStack(new OriginalGateItem(block))));
         }
-        assertEquals(6,published);assertEquals(3,flipped);
+        assertEquals(23,published);assertEquals(3,flipped);
     }
     @Test public void flippedLeverVerticesUseSameYawAndWallAnchorAsRenderer(){
         for(OriginalGateProfile p:OriginalGateProfile.all())if(p.flipped()){
