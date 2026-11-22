@@ -171,6 +171,8 @@ internal sealed class AccountPage : Panel
     public async Task<DevAccessState> DevStatus(CancellationToken ct) { await RequireAccess(ct); return await service.DevStatus(ct); }
     public async Task<DevAccessState> RequestDev(CancellationToken ct) { await RequireAccess(ct); return await service.RequestDev(ct); }
     public async Task<PackManifest?> DevRelease(CancellationToken ct) { await RequireAccess(ct); return await service.DevRelease(ct); }
+    public async Task<DevDistribution?> Distribution(CancellationToken ct) { await RequireAccess(ct); return await service.Distribution(ct); }
+    public DownloadSpec DevChunk(FileChunk chunk) => service.DevChunk(chunk);
     public Task<HttpResponseMessage> OpenDevDownload(Uri uri, CancellationToken ct) => service.OpenDevDownload(uri, ct);
     public async Task SmokeSignIn()
     { await service.SignIn("ui-smoke@example.test","not-a-real-password",lifetime.Token); await LoadProfile(lifetime.Token);Render(); }

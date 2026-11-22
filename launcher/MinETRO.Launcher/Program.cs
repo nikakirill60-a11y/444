@@ -29,7 +29,13 @@ internal static class Program
     }
     private sealed class SmokeAccounts : HttpMessageHandler
     {
-        private bool requested; private int statusReads;
+        private bool requested; private int statusReads, releaseReads;
+        private static string MockFiles()
+        {
+            var sha=Convert.ToHexString(System.Security.Cryptography.SHA256.HashData("test"u8)).ToLowerInvariant();
+            var m=new FileManifest{Version="mock-files-06",Files=[new("mods/metrocraft-port-mock.jar","managed",4,sha,[new(sha,4)]),new("mods/mwf-mock.jar","managed",4,sha,[new(sha,4)])]};
+            return System.Text.Json.JsonSerializer.Serialize(new {manifest=m,objectKey="files/mock-files-06"},FileManifest.Json);
+        }
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,CancellationToken ct)
         {
             ct.ThrowIfCancellationRequested();
@@ -42,7 +48,7 @@ internal static class Program
                 "/auth/v1/logout"=>"{}",
                 "/rest/v1/dev_access_requests"=>!requested?"[]":statusReads==1?"[{\"status\":\"pending\"}]":"[{\"status\":\"approved\"}]",
                 "/rest/v1/rpc/request_dev_access"=>"\"pending\"",
-                "/rest/v1/rpc/get_dev_release"=>"null",
+                "/rest/v1/rpc/get_dev_release"=>++releaseReads==1?"null":MockFiles(),
                 _=>throw new InvalidOperationException("Unexpected smoke network request")
             };
             return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK){Content=new StringContent(data,Encoding.UTF8,"application/json")});

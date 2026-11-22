@@ -6,12 +6,13 @@ namespace MinETRO.Launcher;
 internal sealed class MainForm : Form
 {
     private PackManifest manifest;
+    private FileManifest? fileManifest;
     private DevAccessState devAccess = DevAccessState.Unknown;
     private readonly ComboBox channels = new() { DropDownStyle=ComboBoxStyle.DropDownList,BackColor=Ui.Card,ForeColor=Ui.Text,AccessibleName="Выбор сборки" };
     private readonly Label channelLabel = Label("ВЫБОР СБОРКИ",9,Ui.Muted,true);
     private readonly LauncherButton cabinet = new() {Text="Личный кабинет ↗",Quiet=true};
     private PackChannel Channel => channels.SelectedIndex == 1 ? PackChannel.Public : PackChannel.Dev;
-    private bool CanInstall => Channels.CanInstall(Channel,devAccess,manifest);
+    private bool CanInstall => Channel==PackChannel.Dev && devAccess==DevAccessState.Approved && (fileManifest!=null || manifest.Archive!=null);
     private readonly HttpClient http = Transfer.CreateClient();
     private readonly TextBox folder = new() { BackColor=Ui.Card, ForeColor=Ui.Text, BorderStyle=BorderStyle.FixedSingle, Dock=DockStyle.Fill };
     private readonly NumericUpDown memory = new() { Minimum=2048,Maximum=16384,Increment=1024,Value=4096,BackColor=Ui.Card,ForeColor=Ui.Text,Width=120 };
@@ -47,7 +48,7 @@ internal sealed class MainForm : Form
         Controls.AddRange([sidebar,authArt,titleBar,home,settingsPage,accountPage,state,bar,cancel]);
         sidebar.Controls.AddRange([homeNav,settingsNav,profileNav,open,channelLabel,channels,cabinet]);
         channels.Items.AddRange(["MinETRO dev", "MinETRO"]); channels.SelectedIndex=0;
-        channels.SelectedIndexChanged+=async(_,_)=>{manifest=PackManifest.ReleaseDefault;devAccess=DevAccessState.Unknown;UpdateManifest();if(HasAccess&&checkUpdates)await Run(CheckReleases);};
+        channels.SelectedIndexChanged+=async(_,_)=>{fileManifest=null;manifest=PackManifest.ReleaseDefault;devAccess=DevAccessState.Unknown;UpdateManifest();if(HasAccess&&checkUpdates)await Run(CheckReleases);};
         cabinet.Click+=(_,_)=>Process.Start(new ProcessStartInfo("https://minetro-beta.vercel.app/account.html"){UseShellExecute=true});
         var minimize=new LauncherButton{Glyph="min",Quiet=true,AccessibleName="Свернуть"};var close=new LauncherButton{Glyph="close",Quiet=true,AccessibleName="Закрыть"};
         titleBar.Controls.AddRange([pageTitle,minimize,close]);minimize.Click+=(_,_)=>WindowState=FormWindowState.Minimized;close.Click+=(_,_)=>Close();
@@ -58,7 +59,7 @@ internal sealed class MainForm : Form
         accountPage.ProfileChanged+=nick=>
         {
             var wasLocked=currentPage=="auth";profileNav.Text=nick??"Мой профиль";profileNav.Invalidate();
-            if(!HasAccess){cancellation?.Cancel();devAccess=DevAccessState.Unknown;manifest=PackManifest.ReleaseDefault;UpdateManifest();ShowPage("auth");}
+            if(!HasAccess){cancellation?.Cancel();fileManifest=null;devAccess=DevAccessState.Unknown;manifest=PackManifest.ReleaseDefault;UpdateManifest();ShowPage("auth");}
             else if(wasLocked){ShowPage("home");if(checkUpdates)BeginInvoke((Action)(async()=>await RefreshReleaseAfterLogin()));}
             RefreshButtons();
         };
@@ -88,7 +89,7 @@ internal sealed class MainForm : Form
         var choose=new LauncherButton{Text="Выбрать папку",Size=new Size(146,38)};choose.Click+=(_,_)=>{if(!HasAccess)return;using var d=new FolderBrowserDialog{Description="Отдельная папка MinETRO",UseDescriptionForTitle=true,SelectedPath=folder.Text};if(d.ShowDialog(this)==DialogResult.OK)folder.Text=d.SelectedPath;};
         var row=new TableLayoutPanel{AutoSize=true,Dock=DockStyle.Top,ColumnCount=2,Margin=new Padding(0,12,0,4)};row.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));row.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));row.Controls.Add(folder);row.Controls.Add(choose);data.Controls.Add(row);stack.Controls.Add(data);
         var updates=new TableLayoutPanel{AutoSize=true,Dock=DockStyle.Top,ColumnCount=1,Padding=new Padding(22),BackColor=Ui.Card,Margin=new Padding(0,0,0,14)};
-        updates.Controls.Add(Label("Обновления сборки",13,Ui.Text,true));updates.Controls.Add(Label("MinETRO dev — для строительства карты, после одобрения администратора.\nНовые версии подключаются только с разрешения владельца. MinETRO пока недоступно.",9,Ui.Muted));releaseState.Margin=new Padding(0,12,0,8);updates.Controls.Add(releaseState);refresh.Size=new Size(240,40);updates.Controls.Add(refresh);stack.Controls.Add(updates);
+        updates.Controls.Add(Label("Обновления сборки",13,Ui.Text,true));updates.Controls.Add(Label("MinETRO dev — для строительства карты, после одобрения администратора.\nСкачиваются только изменённые файлы. Публикация — с разрешения владельца. MinETRO пока недоступно.",9,Ui.Muted));releaseState.Margin=new Padding(0,12,0,8);updates.Controls.Add(releaseState);refresh.Size=new Size(240,40);updates.Controls.Add(refresh);stack.Controls.Add(updates);
         var ram=new FlowLayoutPanel{AutoSize=true,Dock=DockStyle.Top,BackColor=Ui.Card,Padding=new Padding(22),Margin=new Padding(0,0,0,18)};ram.Controls.Add(Label("Память новой установки, МБ   ",11,Ui.Text,true));ram.Controls.Add(memory);stack.Controls.Add(ram);
         install.Size=new Size(240,44);stack.Controls.Add(install);stack.Controls.Add(Label("Каждая версия устанавливается отдельно: миры и packv4 не перезаписываются.\nЛицензия Minecraft и Java 8 x64 настраиваются в окне игрового движка при первом запуске.",9,Ui.Muted));
         busyControls.AddRange([folder,memory,choose,refresh,channels]);
@@ -117,14 +118,32 @@ internal sealed class MainForm : Form
         foreach(var nav in new[]{homeNav,settingsNav,profileNav}){nav.Enabled=unlocked;nav.Invalidate();}Arrange();
     }
     private Installer Service(){if(string.IsNullOrWhiteSpace(folder.Text)||!Path.IsPathFullyQualified(folder.Text))throw new IOException("Выбери полный путь к отдельной папке.");return new Installer(folder.Text,new Transfer(http,accountPage.OpenDevDownload));}
-    private bool Installed()=>manifest.Archive!=null&&Path.IsPathFullyQualified(folder.Text)&&Directory.Exists(Path.Combine(folder.Text,"prism-data","instances",manifest.InstanceId));
-    private async Task Install(CancellationToken ct){await RequireDevManifest(ct);await Service().Install(manifest,(int)memory.Value,Progress(),ct);Status("Сборка установлена. Можно запускать.");}
-    private async Task Play(CancellationToken ct){await RequireDevManifest(ct);var service=Service();await service.Verify(manifest,ct);await service.PrepareEngine(manifest,Progress(),ct);await accountPage.RequireAccess(ct);ct.ThrowIfCancellationRequested();Process.Start(service.StartInfo(manifest,true));Status("Запуск передан игровому движку.");}
+    private FileInstaller FileService()=>new(Service().Root,new Transfer(http,accountPage.OpenDevDownload),accountPage.DevChunk);
+    private bool Installed()
+    {
+        if(fileManifest==null)return manifest.Archive!=null&&Path.IsPathFullyQualified(folder.Text)&&Directory.Exists(Path.Combine(folder.Text,"prism-data","instances",manifest.InstanceId));
+        try {var receipt=Path.Combine(FileService().Instance,"minetro-files.json");return File.Exists(receipt)&&new FileInfo(receipt).Length<=FileManifest.MaxJsonBytes&&FileManifest.Parse(File.ReadAllText(receipt)).Fingerprint==fileManifest.Fingerprint;}
+        catch(Exception ex) when(ex is IOException or InvalidDataException or System.Text.Json.JsonException or ArgumentException){return false;}
+    }
+    private async Task Install(CancellationToken ct)
+    {
+        await RequireDevManifest(ct);
+        if(fileManifest!=null){await FileService().Install(fileManifest,(int)memory.Value,Progress(),ct);await Service().PrepareEngine(manifest,Progress(),ct);}
+        else await Service().Install(manifest,(int)memory.Value,Progress(),ct);
+        Status("Сборка установлена. Можно запускать.");
+    }
+    private async Task Play(CancellationToken ct)
+    {
+        await RequireDevManifest(ct);var service=Service();
+        if(fileManifest!=null)await FileService().Verify(fileManifest,ct);else await service.Verify(manifest,ct);
+        await service.PrepareEngine(manifest,Progress(),ct);await accountPage.RequireAccess(ct);ct.ThrowIfCancellationRequested();
+        Process.Start(fileManifest!=null?FileService().StartInfo(service,fileManifest):service.StartInfo(manifest,true));Status("Запуск передан игровому движку.");
+    }
     private IProgress<TransferProgress> Progress()=>new Progress<TransferProgress>(p=>{Status(p.Message);bar.Percent=p.Percent;bar.Invalidate();});
     private void Status(string message)=>state.Text=message;
     private void UpdateManifest()
     {
-        home.HasArchive=CanInstall;home.VersionName=CanInstall?manifest.Version:Channel==PackChannel.Public?"недоступно":"тестовый канал";home.PackName=Channels.Name(Channel);
+        home.HasArchive=CanInstall;home.VersionName=CanInstall?manifest.Version+(fileManifest!=null?" · пофайлово":""):Channel==PackChannel.Public?"недоступно":"тестовый канал";home.PackName=Channels.Name(Channel);
         home.ChannelNotice=Channel==PackChannel.Public?"Публичная сборка пока недоступна":devAccess switch {
             DevAccessState.None=>"Нужна заявка администратору",DevAccessState.Pending=>"Заявка ожидает решения",DevAccessState.Rejected=>"Заявка отклонена",
             DevAccessState.Approved when !CanInstall=>"Доступ одобрен · архив не подключён",DevAccessState.Approved=>"Доступ одобрен",_=>"Проверь доступ к dev"};
@@ -141,20 +160,20 @@ internal sealed class MainForm : Form
     {
         // Never discover arbitrary/latest GitHub releases and never use a local
         // release cache as authorization. Server approval and owner-pinned metadata only.
-        devAccess=DevAccessState.Unknown;manifest=PackManifest.ReleaseDefault;UpdateManifest();
+        devAccess=DevAccessState.Unknown;fileManifest=null;manifest=PackManifest.ReleaseDefault;UpdateManifest();
         if(Channel!=PackChannel.Dev)return;
         Status("Проверяем одобрение администратора…");
         devAccess=await accountPage.DevStatus(ct);
-        if(devAccess==DevAccessState.Approved)manifest=await accountPage.DevRelease(ct)??PackManifest.ReleaseDefault;
+        if(devAccess==DevAccessState.Approved){var release=await accountPage.Distribution(ct);manifest=release?.Engine??PackManifest.ReleaseDefault;fileManifest=release?.Files;}
         UpdateManifest();
     }
     private async Task RequireDevManifest(CancellationToken ct)
     {
         if(Channel!=PackChannel.Dev)throw new AccountException("MinETRO пока недоступно.");
-        var previous=manifest;
+        var previous=manifest;var previousFiles=fileManifest;
         await CheckReleases(ct);
         if(!CanInstall)throw new AccountException(Channels.Message(Channel,devAccess,false));
-        if(previous.Archive!=null && previous.InstanceId!=manifest.InstanceId)throw new AccountException("Опубликованная версия изменилась. Проверь выбранную сборку и повтори действие.");
+        if((previousFiles!=null && previousFiles.Fingerprint!=fileManifest?.Fingerprint) || (previous.Archive!=null && previous.InstanceId!=manifest.InstanceId))throw new AccountException("Опубликованная версия изменилась. Проверь выбранную сборку и повтори действие.");
     }
     public async Task RefreshReleaseAfterLogin(){if(HasAccess)await Run(CheckReleases);}
     private async Task Run(Func<CancellationToken,Task> action)
@@ -177,7 +196,7 @@ internal sealed class MainForm : Form
         await Run(async ct=>{await accountPage.RequestDev(ct);await CheckReleases(ct);});if(devAccess!=DevAccessState.Pending||install.Enabled)throw new InvalidOperationException("Pending access must not install.");
         await Run(CheckReleases);if(devAccess!=DevAccessState.Approved||CanInstall||install.Enabled)throw new InvalidOperationException("Approved without archive must not install.");
         channels.SelectedIndex=1;Application.DoEvents();if(mainAction.Enabled||install.Enabled)throw new InvalidOperationException("Public channel must remain unavailable.");
-        SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".public.png"));channels.SelectedIndex=0;await Run(CheckReleases);Application.DoEvents();
+        SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".public.png"));channels.SelectedIndex=0;await Run(CheckReleases);Application.DoEvents();if(fileManifest==null||!CanInstall||!install.Enabled)throw new InvalidOperationException("Mock schema-2 release must enable explicit file installation.");
         RefreshButtons();SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".home.png"));
         ShowPage("settings");SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".settings.png"));
         ShowPage("profile");SaveScreenshot(screenshot==null?null:Path.ChangeExtension(screenshot,".profile.png"));

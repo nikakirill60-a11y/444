@@ -17,6 +17,7 @@ public static class Channels
             DevAccessState.Approved => "Доступ одобрен. Проверенный архив dev пока не подключён к загрузке.",
             _ => "Обнови статус доступа к MinETRO dev." };
 }
+public sealed record DevDistribution(PackManifest Engine, FileManifest? Files);
 public sealed partial class Accounts
 {
     public async Task<DevAccessState> DevStatus(CancellationToken ct)
@@ -47,18 +48,40 @@ public sealed partial class Accounts
         // Authorization is enforced inside the database RPC, not by the desktop UI.
         using var result = await Send(HttpMethod.Post, "rest/v1/rpc/get_dev_release", new { }, true, ct);
         if (result.RootElement.ValueKind == JsonValueKind.Null) return null;
+        return ReadArchiveRelease(result.RootElement);
+    }
+    private PackManifest ReadArchiveRelease(JsonElement root)
+    {
         try {
-            var root = result.RootElement;
             var key = Check.Relative(root.GetProperty("objectKey").GetString() ?? "");
             var m = PackManifest.Parse(root.GetProperty("manifest").GetRawText());
             if (m.Archive == null) throw new AccountException("В релизе не указан архив dev.");
-            // Never trust a release's arbitrary download URL. Only the fixed private
-            // bucket of this same authenticated project may serve the pack.
             return m with { Name = "MinETRO dev", Archive = m.Archive with { Url = DevObjectUrl(key) } };
         }
         catch (Exception ex) when (ex is KeyNotFoundException or InvalidOperationException or JsonException) {
             throw new AccountException("Неверный ответ канала MinETRO dev.");
         }
+    }
+    public async Task<DevDistribution?> Distribution(CancellationToken ct)
+    {
+        RequireDevSession();
+        using var result = await Send(HttpMethod.Post, "rest/v1/rpc/get_dev_release", new { }, true, ct);
+        if (result.RootElement.ValueKind == JsonValueKind.Null) return null;
+        try {
+            var manifest = result.RootElement.GetProperty("manifest");
+            if (manifest.GetProperty("schema").GetInt32() == 2) {
+                var files = FileManifest.Parse(manifest.GetRawText()); return new(files.EngineProfile, files);
+            }
+            return new(ReadArchiveRelease(result.RootElement), null);
+        }
+        catch (Exception ex) when (ex is KeyNotFoundException or InvalidOperationException or JsonException) {
+            throw new AccountException("Неверный файловый релиз dev.");
+        }
+    }
+    public DownloadSpec DevChunk(FileChunk chunk)
+    {
+        if (!FileManifest.HashValid(chunk.Sha256) || chunk.Bytes is < 1 or > FileManifest.ChunkBytes) throw new AccountException("Неверный блок dev.");
+        return new(DevObjectUrl("chunks/" + chunk.Sha256), chunk.Sha256, chunk.Bytes);
     }
     private string DevObjectUrl(string key) => config.Url.TrimEnd('/') + "/storage/v1/object/authenticated/dev-packs/" +
         string.Join('/', key.Split('/').Select(Uri.EscapeDataString));
@@ -67,6 +90,14 @@ public sealed partial class Accounts
         RequireDevSession();
         // Re-read the approved release immediately before downloading. No bearer
         // token is ever passed to Transfer, a manifest, disk, GitHub, or redirects.
+        // Only exact project-bound content-addressed paths. Storage RLS checks
+        // current approval AND membership in the currently accepted manifest.
+        const string prefix = "/storage/v1/object/authenticated/dev-packs/chunks/";
+        if (uri.AbsolutePath.StartsWith(prefix, StringComparison.Ordinal)) {
+            var sha = uri.AbsolutePath[prefix.Length..];
+            if (!FileManifest.HashValid(sha) || uri.AbsoluteUri != DevObjectUrl("chunks/" + sha)) throw new AccountException("Небезопасный адрес блока dev.");
+            return await Request(HttpMethod.Get, uri.PathAndQuery.TrimStart('/'), null, true, ct);
+        }
         var release = await DevRelease(ct);
         if (release?.Archive == null || uri.AbsoluteUri != release.Archive.Url) throw new AccountException("Архив недоступен или релиз изменился. Обнови статус.");
         return await Request(HttpMethod.Get, uri.PathAndQuery.TrimStart('/'), null, true, ct);

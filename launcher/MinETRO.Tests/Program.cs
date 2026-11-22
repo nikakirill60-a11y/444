@@ -107,6 +107,7 @@ await Test("confirmed channel survives restart; failed save retains previous sna
 });
 await AccountsTests.Run();
 await DevAccessTests.Run();
+await FileUpdateTests.Run();
 await ReleasesTests.Run();
 if(args.Contains("--verify-accounts"))await ReleasesTests.Live(Path.Combine(Path.GetDirectoryName(args[0])!,"accounts.public.json"));
 

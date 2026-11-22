@@ -64,6 +64,8 @@ jobs:
         shell: pwsh
         run: |
           Copy-Item launcher/README_RU.txt launcher/publish/README_RU.txt
+          New-Item launcher/publish/publisher -ItemType Directory -Force | Out-Null
+          Copy-Item launcher/file_release.py,launcher/PUBLISHER_RU.md,launcher/PREPARE_UPDATE.cmd launcher/publish/publisher/
           Copy-Item launcher/ui-smoke.png launcher/publish/PREVIEW.png
           Copy-Item launcher/ui-smoke.public.png launcher/publish/PUBLIC.png
           Copy-Item launcher/ui-smoke.home.png launcher/publish/HOME.png
@@ -72,28 +74,28 @@ jobs:
           Copy-Item launcher/ui-smoke.skin.png launcher/publish/SKIN.png
           Remove-Item launcher/publish/*.pdb -ErrorAction SilentlyContinue
           New-Item downloads -ItemType Directory -Force | Out-Null
-          Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-0.5-win-x64.zip -Force
-          $hash = (Get-FileHash downloads/MinETRO-Launcher-0.5-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
-          "$hash  MinETRO-Launcher-0.5-win-x64.zip" | Set-Content -Encoding ascii downloads/MinETRO-Launcher-0.5-win-x64.sha256
+          Compress-Archive -Path launcher/publish/* -DestinationPath downloads/MinETRO-Launcher-0.6-win-x64.zip -Force
+          $hash = (Get-FileHash downloads/MinETRO-Launcher-0.6-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          "$hash  MinETRO-Launcher-0.6-win-x64.zip" | Set-Content -Encoding ascii downloads/MinETRO-Launcher-0.6-win-x64.sha256
           @{
-            version = '0.5'; source_commit = $env:GITHUB_SHA;
+            version = '0.6'; source_commit = $env:GITHUB_SHA;
             ci_run_url = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID";
-            zip_sha256 = $hash; zip_bytes = (Get-Item downloads/MinETRO-Launcher-0.5-win-x64.zip).Length;
+            zip_sha256 = $hash; zip_bytes = (Get-Item downloads/MinETRO-Launcher-0.6-win-x64.zip).Length;
             platform = 'Windows 10/11 x64'; self_contained = $true;
-            core_scenarios_passed = 15; channel_authoring_tests_passed = 4; account_protocol_scenarios_passed = 12; dev_access_protocol_scenarios_passed = 8;
+            core_scenarios_passed = 15; channel_authoring_tests_passed = 14; file_update_scenarios_passed = 12; account_protocol_scenarios_passed = 12; dev_access_protocol_scenarios_passed = 8;
             live_supabase_public_api_verified = $true; live_supabase_email_login_verified = $false;
             release_protocol_scenarios_passed = 6; authentication_gate_smoke = $true; home_screenshot_uses_mock_account = $true; ingame_skin_verified = $false;
             official_prism_payload_sha256_verified = $true; winforms_startup_smoke = 'PASS';
             pack_archive_connected = $false; full_modpack_launch_verified = $false;
-            limitation = 'Drive MinETRO.zip located (3712211685 bytes); archive inspection and protected hosting are not completed; downloading remains disabled'
-          } | ConvertTo-Json | Set-Content -Encoding utf8 downloads/MinETRO-Launcher-0.5-report.json
+            limitation = 'File update protocol and offline publisher prepared; real baseline inspection/upload and owner acceptance not completed; no active private release'
+          } | ConvertTo-Json | Set-Content -Encoding utf8 downloads/MinETRO-Launcher-0.6-report.json
       - uses: actions/upload-artifact@v4
         with:
           name: MinETRO-Launcher-Windows
           path: |
-            downloads/MinETRO-Launcher-0.5-win-x64.zip
-            downloads/MinETRO-Launcher-0.5-win-x64.sha256
-            downloads/MinETRO-Launcher-0.5-report.json
+            downloads/MinETRO-Launcher-0.6-win-x64.zip
+            downloads/MinETRO-Launcher-0.6-win-x64.sha256
+            downloads/MinETRO-Launcher-0.6-report.json
       - name: Publish separately authorized test launcher on current branch
         if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'workflow_dispatch' && inputs.publish_test_launcher
         shell: pwsh
@@ -102,10 +104,10 @@ jobs:
           if ($remote -ne $env:GITHUB_SHA) { throw 'Newer source exists; refusing stale publication' }
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add downloads/MinETRO-Launcher-0.5-win-x64.zip downloads/MinETRO-Launcher-0.5-win-x64.sha256 downloads/MinETRO-Launcher-0.5-report.json
+          git add downloads/MinETRO-Launcher-0.6-win-x64.zip downloads/MinETRO-Launcher-0.6-win-x64.sha256 downloads/MinETRO-Launcher-0.6-report.json
           git diff --cached --check
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          git commit -m 'Publish Windows MinETRO launcher 0.5 [skip ci]'
+          git commit -m 'Publish Windows MinETRO launcher 0.6 [skip ci]'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           git push origin arena/dcab859f-444
           exit $LASTEXITCODE
@@ -113,7 +115,7 @@ jobs:
       # Owner requested a direct download in chat. This opt-in marker publishes
       # only the standalone launcher prerelease, never a modpack/update channel.
       - name: Publish explicitly requested standalone launcher download
-        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish-launcher-0.5-test]')
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish-launcher-0.6-test]')
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
@@ -121,11 +123,11 @@ jobs:
           $ErrorActionPreference = 'Stop'
           $remote = (git ls-remote origin refs/heads/arena/dcab859f-444).Split()[0]
           if ($LASTEXITCODE -ne 0 -or $remote -ne $env:GITHUB_SHA) { throw 'Refusing stale launcher publication' }
-          $report = Get-Content downloads/MinETRO-Launcher-0.5-report.json -Raw | ConvertFrom-Json
-          $hash = (Get-FileHash downloads/MinETRO-Launcher-0.5-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          $report = Get-Content downloads/MinETRO-Launcher-0.6-report.json -Raw | ConvertFrom-Json
+          $hash = (Get-FileHash downloads/MinETRO-Launcher-0.6-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
           if ($report.source_commit -ne $env:GITHUB_SHA -or $report.zip_sha256 -ne $hash) { throw 'Launcher report/hash mismatch' }
           if ($report.pack_archive_connected -or $report.full_modpack_launch_verified) { throw 'This standalone release must not claim a connected private pack' }
-          gh release create minetro-launcher-0.5-test --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title 'MinETRO Launcher 0.5 — standalone Windows test' --notes 'Separate Windows x64 test launcher. Extract the complete ZIP and run MinETRO-Launcher.exe. Dev approval requests and channel selector are included. The private 3.7 GB dev pack is NOT connected: installation remains disabled. No automatic updates. ZIP SHA256 and build report are attached. This release contains no private modpack files.' downloads/MinETRO-Launcher-0.5-win-x64.zip downloads/MinETRO-Launcher-0.5-win-x64.sha256 downloads/MinETRO-Launcher-0.5-report.json
+          gh release create minetro-launcher-0.6-test --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title 'MinETRO Launcher 0.6 — standalone Windows test' --notes 'Separate Windows x64 test launcher. Extract the complete ZIP and run MinETRO-Launcher.exe. Dev approval requests and channel selector are included. File-by-file schema-2 updates and an offline publisher are included. No real baseline has been inspected or activated; dev installation remains disabled until that happens. No automatic updates. ZIP SHA256 and build report are attached. This release contains no private modpack files.' downloads/MinETRO-Launcher-0.6-win-x64.zip downloads/MinETRO-Launcher-0.6-win-x64.sha256 downloads/MinETRO-Launcher-0.6-report.json
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          gh release view minetro-launcher-0.5-test --repo $env:GITHUB_REPOSITORY --json url,assets
+          gh release view minetro-launcher-0.6-test --repo $env:GITHUB_REPOSITORY --json url,assets
           exit $LASTEXITCODE
