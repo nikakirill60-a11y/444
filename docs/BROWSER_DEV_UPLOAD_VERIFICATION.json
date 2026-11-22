@@ -1,0 +1,35 @@
+{
+  "source_commit": "eea85f91ab171d8bea42946d636c2c3949a2df4c",
+  "ci_run": "https://github.com/nikakirill60-a11y/444/actions/runs/45010340092",
+  "ci_conclusion": "success",
+  "deployment_id": "dpl_pXMoiW1RDjAZoA8G4R58P8bnCLSq",
+  "deployment_state": "READY / PROMOTED",
+  "url": "https://minetro-beta.vercel.app/account.html",
+  "node_tests": 35,
+  "python_tests": 23,
+  "browser_cabinet_widths": [320, 390, 768, 1024, 1440],
+  "browser_owner_upload_widths": [390, 1440],
+  "browser_transport": "mocked Auth/Storage; no real source pack uploaded",
+  "live_sql_checks": {
+    "cotuna_is_publisher": true,
+    "publisher_grant_persisted": true,
+    "unsigned_is_publisher": false,
+    "unsigned_inventory_denied": true,
+    "unsigned_activation_denied": true,
+    "authenticated_direct_service_publisher_rpc_denied": true,
+    "explicit_acceptance_required": true,
+    "incomplete_pack_denied": true,
+    "test_transactions_rolled_back": true
+  },
+  "storage_verification_snapshot": {
+    "bucket_public": false,
+    "object_limit_bytes": 8388608,
+    "used_bytes": 0,
+    "provider_total_quota_bytes": null,
+    "full_pack_capacity_verified": false,
+    "billing_plan_changed": false
+  },
+  "real_initial_upload_verified": false,
+  "real_full_pack_install_or_game_launch_verified": false,
+  "automatic_pack_activation_performed": false
+}
