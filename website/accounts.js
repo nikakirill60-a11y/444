@@ -11,8 +11,8 @@ export function validate(email, password, nickname) {
   return email;
 }
 export class Accounts {
-  constructor(request = globalThis.fetch.bind(globalThis)) { this.request = request; this.session = null; }
-  clear() { this.session = null; }
+  constructor(request = globalThis.fetch.bind(globalThis)) { this.request = request; this.session = null; this.recovery = null; }
+  clear() { this.session = null; this.recovery = null; }
   async send(path, body, token, method = 'POST') {
     let response;
     try {
@@ -34,6 +34,30 @@ export class Accounts {
     }
     if (response.status === 204) return null;
     return response.json();
+  }
+  async requestRecovery(email) {
+    email = validate(email, 'temporary-password');
+    await this.send('auth/v1/recover?redirect_to=' + encodeURIComponent(CONFIRM_URL), { email });
+  }
+  async acceptRecovery(token) {
+    this.clear();
+    if (!token || token.length > 8192) throw Error('Ссылка восстановления недействительна.');
+    // Never trust a user/id/type supplied in the URL: verify the bearer with Auth.
+    const user = await this.send('auth/v1/user', undefined, token, 'GET');
+    if (!/^[0-9a-f-]{36}$/i.test(user?.id || '')) throw Error('Ссылка восстановления недействительна.');
+    this.recovery = token;
+  }
+  async resetPassword(password) {
+    validate('validation@example.org', password);
+    if (!this.recovery) throw Error('Открой действующую ссылку из письма.');
+    const token = this.recovery;
+    try {
+      await this.send('auth/v1/user', { password }, token, 'PUT');
+      // Invalidate all refresh sessions. Existing short-lived JWTs expire separately.
+      try { await this.send('auth/v1/logout?scope=global', {}, token); }
+      catch (_) { return false; }
+      return true;
+    } finally { this.clear(); }
   }
   async signUp(email, password, nickname) {
     email = validate(email, password, nickname);

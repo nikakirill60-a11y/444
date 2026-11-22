@@ -56,3 +56,80 @@ test('no persistent tokens, unsafe HTML, URL token adoption or password GET form
  assert.ok(ui.includes('history.replaceState'));assert.ok(ui.includes('pagehide'));
  const html=readFileSync(new URL('../website/account.html',import.meta.url),'utf8');assert.ok(html.includes('method="post"'));
 });
+test('recovery sends only email and pins return URL',async()=>{
+ const a=new Accounts(async(url,options)=>{
+  assert.equal(url,AUTH_URL+'/auth/v1/recover?redirect_to='+encodeURIComponent(CONFIRM_URL));
+  assert.deepEqual(JSON.parse(options.body),{email:'x@example.org'});
+  assert.equal(options.headers.Authorization,undefined);return response({});
+ });await a.requestRecovery(' x@example.org ');
+ await assert.rejects(a.requestRecovery('invalid'));
+ assert.equal(a.session,null);assert.equal(a.recovery,null);
+});
+test('recovery validates bearer with Auth, resets password, revokes sessions and clears memory',async()=>{
+ const calls=[];const a=new Accounts(async(url,options)=>{
+  calls.push(url);assert.equal(options.headers.Authorization,'Bearer recovery-only');
+  if(calls.length===1){assert.equal(options.method,'GET');assert.equal(url,AUTH_URL+'/auth/v1/user');return response({id});}
+  if(calls.length===2){assert.equal(options.method,'PUT');assert.deepEqual(JSON.parse(options.body),{password:pass});return response({id});}
+  assert.equal(url,AUTH_URL+'/auth/v1/logout?scope=global');return response(null,204);
+ });
+ await assert.rejects(a.resetPassword(pass));assert.equal(calls.length,0);
+ await a.acceptRecovery('recovery-only');assert.equal(a.session,null);
+ await assert.rejects(a.resetPassword('short'));assert.equal(calls.length,1);
+ assert.equal(await a.resetPassword(pass),true);assert.equal(calls.length,3);
+ assert.equal(a.recovery,null);assert.equal(a.session,null);
+});
+test('expired or malformed recovery never permits changing password',async()=>{
+ for(const r of [response({},401),response({id:'wrong'})]){
+  const a=new Accounts(async()=>r);await assert.rejects(a.acceptRecovery('expired'));
+  assert.equal(a.recovery,null);await assert.rejects(a.resetPassword(pass));
+ }
+});
+test('password change failure clears recovery and logout failure does not claim password change failed',async()=>{
+ for(const failsAt of [2,3]){
+  let n=0;const a=new Accounts(async()=>{n++;if(n===failsAt)return response({},500);return n===1?response({id}):response({});});
+  await a.acceptRecovery('verified');
+  if(failsAt===2)await assert.rejects(a.resetPassword(pass));else assert.equal(await a.resetPassword(pass),false);
+  assert.equal(a.recovery,null);
+ }
+});
+
+// Execute the actual UI module against a minimal DOM and mocked Auth transport.
+// No production account/password or mailbox is touched by these tests.
+async function page(fragment='',request=async()=>response({})) {
+ const {runInNewContext}=await import('node:vm');
+ const html=readFileSync(new URL('../website/account.html',import.meta.url),'utf8');
+ const elements=Object.fromEntries([...html.matchAll(/id="([^"]+)"/g)].map(m=>[m[1],{value:'',hidden:false,disabled:false,required:false,textContent:'',events:{},setAttribute(k,v){this[k]=v;},addEventListener(k,v){this.events[k]=v;}}]));
+ const location={hash:fragment,search:'',pathname:'/account.html'};
+ const api=new Accounts(request);let erased=false;
+ const script=readFileSync(new URL('../website/account.js',import.meta.url),'utf8').replace("import {Accounts} from './accounts.js';",'');
+ runInNewContext(script,{Accounts:class {constructor(){return api;}},document:{getElementById:id=>elements[id]},location,history:{replaceState(){erased=true;location.hash='';}},URLSearchParams,window:{addEventListener(){}},setTimeout,clearTimeout});
+ await new Promise(resolve=>setImmediate(resolve));
+ return {elements,api,erased};
+}
+test('forgot password UI needs only email, sends recovery, then can return to login',async()=>{
+ let calls=0;const {elements:e}=await page('',async(url)=>{calls++;assert.ok(url.includes('/recover?redirect_to='));return response({});});
+ e['forgot-password'].onclick();assert.equal(e['form-title'].textContent,'Восстановление пароля');
+ assert.equal(e.password.required,false);assert.equal(e.password.disabled,true);assert.equal(e['repeat-field'].hidden,true);
+ e.email.value='x@example.org';e['account-form'].events.submit({preventDefault(){}});
+ await new Promise(resolve=>setImmediate(resolve));assert.equal(calls,1);assert.match(e['account-status'].textContent,/письмо/);
+ e['mode-signin'].onclick();assert.equal(e.password.required,true);assert.equal(e.password.disabled,false);
+});
+test('recovery landing erases URL, validates token, checks confirmation and saves new password',async()=>{
+ let calls=0;const {elements:e,erased}=await page('#type=recovery&access_token=test-recovery',async(url,options)=>{
+  calls++;if(calls===1){assert.equal(options.method,'GET');return response({id});}
+  if(calls===2){assert.equal(options.method,'PUT');assert.deepEqual(JSON.parse(options.body),{password:pass});return response({id});}
+  return response(null,204);
+ });
+ assert.equal(erased,true);assert.equal(e['form-title'].textContent,'Новый пароль');assert.equal(e.email.disabled,true);
+ assert.equal(e['repeat-password'].required,true);assert.equal(e.password.disabled,false);
+ e.password.value=pass;e['repeat-password'].value='wrong';e['account-form'].events.submit({preventDefault(){}});assert.equal(calls,1);
+ e['repeat-password'].value=pass;e['account-form'].events.submit({preventDefault(){}});
+ await new Promise(resolve=>setImmediate(resolve));assert.equal(calls,3);assert.equal(e['form-title'].textContent,'Войти в аккаунт');
+ assert.equal(e.email.disabled,false);assert.equal(e.password.value,'');assert.match(e['account-status'].textContent,/Пароль изменён/);
+});
+test('confirmation and error landing never adopts a sign-in token',async()=>{
+ for(const fragment of ['#type=signup&access_token=ignore','#error=access_denied&error_description=PRIVATE']){
+  const {api,elements:e,erased}=await page(fragment,async()=>{throw Error('No network allowed');});
+  assert.equal(erased,true);assert.equal(api.session,null);assert.equal(api.recovery,null);assert.ok(!e['account-status'].textContent.includes('PRIVATE'));
+ }
+});
