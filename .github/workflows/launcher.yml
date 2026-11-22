@@ -109,3 +109,23 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           git push origin arena/dcab859f-444
           exit $LASTEXITCODE
+
+      # Owner requested a direct download in chat. This opt-in marker publishes
+      # only the standalone launcher prerelease, never a modpack/update channel.
+      - name: Publish explicitly requested standalone launcher download
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'push' && contains(github.event.head_commit.message, '[publish-launcher-0.5-test]')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $remote = (git ls-remote origin refs/heads/arena/dcab859f-444).Split()[0]
+          if ($LASTEXITCODE -ne 0 -or $remote -ne $env:GITHUB_SHA) { throw 'Refusing stale launcher publication' }
+          $report = Get-Content downloads/MinETRO-Launcher-0.5-report.json -Raw | ConvertFrom-Json
+          $hash = (Get-FileHash downloads/MinETRO-Launcher-0.5-win-x64.zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($report.source_commit -ne $env:GITHUB_SHA -or $report.zip_sha256 -ne $hash) { throw 'Launcher report/hash mismatch' }
+          if ($report.pack_archive_connected -or $report.full_modpack_launch_verified) { throw 'This standalone release must not claim a connected private pack' }
+          gh release create minetro-launcher-0.5-test --repo $env:GITHUB_REPOSITORY --target $env:GITHUB_SHA --prerelease --title 'MinETRO Launcher 0.5 — standalone Windows test' --notes 'Separate Windows x64 test launcher. Extract the complete ZIP and run MinETRO-Launcher.exe. Dev approval requests and channel selector are included. The private 3.7 GB dev pack is NOT connected: installation remains disabled. No automatic updates. ZIP SHA256 and build report are attached. This release contains no private modpack files.' downloads/MinETRO-Launcher-0.5-win-x64.zip downloads/MinETRO-Launcher-0.5-win-x64.sha256 downloads/MinETRO-Launcher-0.5-report.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          gh release view minetro-launcher-0.5-test --repo $env:GITHUB_REPOSITORY --json url,assets
+          exit $LASTEXITCODE
