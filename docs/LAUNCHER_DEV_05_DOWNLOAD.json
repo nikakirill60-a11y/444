@@ -1,0 +1,45 @@
+{
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-launcher-0.5-test/MinETRO-Launcher-0.5-report.json",
+      "digest": "sha256:26730b223eddc8d1dfade5c1458e1eafbe7701b9cc5edbf49fe4d6110c2a680c",
+      "id": 778538468,
+      "name": "MinETRO-Launcher-0.5-report.json",
+      "size": 1088,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-launcher-0.5-test/MinETRO-Launcher-0.5-win-x64.sha256",
+      "digest": "sha256:09b57f6e18ebc7819d32f3d50710aa4b5965089a85168efcf037bca897f85066",
+      "id": 778538461,
+      "name": "MinETRO-Launcher-0.5-win-x64.sha256",
+      "size": 100,
+      "state": "uploaded"
+    },
+    {
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-launcher-0.5-test/MinETRO-Launcher-0.5-win-x64.zip",
+      "digest": "sha256:54da5b33a320f9bba9285c5fffb8565ae011441ecaf083c79645b370707086c7",
+      "id": 778538469,
+      "name": "MinETRO-Launcher-0.5-win-x64.zip",
+      "size": 67738901,
+      "state": "uploaded"
+    }
+  ],
+  "html_url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-launcher-0.5-test",
+  "id": 454335897,
+  "prerelease": true,
+  "tag_name": "minetro-launcher-0.5-test",
+  "target_commitish": "967f16631dea0fa708c814bbb91481d795f2315d",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/45007727151",
+  "ci_conclusion": "success",
+  "standalone_test_only": true,
+  "auto_updates_enabled": false,
+  "dev_pack_connected": false,
+  "dev_pack_blocker": {
+    "drive_bytes": 3712211685,
+    "connector_download_limit_bytes": 104857600,
+    "dropbox_search": "No matching MinETRO files",
+    "privacy_unchanged": true
+  },
+  "verification_scope": "GitHub release API confirms all three assets uploaded and ZIP digest; Windows build/tests/UI smoke passed in CI. No independent local binary download or live Minecraft launch."
+}
