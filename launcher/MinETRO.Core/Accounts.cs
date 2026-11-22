@@ -40,7 +40,7 @@ public sealed record PlayerProfile(Guid Id, string Nickname, [property: JsonProp
 public sealed class AccountException(string message) : IOException(message);
 
 // Sessions intentionally live only in memory. No plaintext password, access or refresh token files.
-public sealed class Accounts : IDisposable
+public sealed partial class Accounts : IDisposable
 {
     public static readonly JsonSerializerOptions Json = new() { PropertyNameCaseInsensitive = true };
     private readonly HttpClient http;

@@ -92,6 +92,7 @@ internal sealed class HomeCanvas : Panel
 {
     private readonly Image art;
     public string PackName { get; set; } = "MinETRO";
+    public string ChannelNotice { get; set; } = "Проверь доступ к dev";
     public string VersionName { get; set; } = "ожидается релиз";
     public bool HasArchive { get; set; }
     public bool Installed { get; set; }
@@ -118,11 +119,11 @@ internal sealed class HomeCanvas : Panel
         Ui.TextAt(g, "MINECRAFT 1.12.2     /     MINETRO PROJECT", 10, 30, 267, 500, 20, Color.FromArgb(180, 192, 200), true);
         Ui.CardBox(g, new(0, 326, w, 132), Ui.Card, 12, Ui.Line);
         Ui.TextAt(g, "ВЫБРАННАЯ СБОРКА", 9, 22, 342, 290, 16, Ui.Muted, true);
-        Ui.TextAt(g, "MinETRO", 25, 21, 364, 145, 33, Ui.Text, true);
+        Ui.TextAt(g, PackName, 25, 21, 364, w - 290, 33, Ui.Text, true);
 
         Ui.TextAt(g, "Forge 1.12.2  ·  Java 8 x64  ·  " + VersionName, 11, 23, 404, w - 295, 19, Ui.Muted);
-        Ui.TextAt(g, HasArchive ? (Installed ? "Файлы установлены · готово к проверке и запуску" : "Релиз доступен · можно установить сборку") : "Ожидается полная сборка в GitHub Releases", 10, 23, 429, w - 295, 17, HasArchive ? Ui.Muted : Ui.Amber);
-        Ui.TextAt(g, HasArchive ? (Installed ? "ТВОЙ ЭКЗЕМПЛЯР" : "НОВАЯ УСТАНОВКА") : "GITHUB RELEASES", 9, w - 252, 347, 228, 18, Ui.Muted, true, align: StringAlignment.Center);
+        Ui.TextAt(g, HasArchive ? (Installed ? "Файлы установлены · готово к проверке и запуску" : "Релиз доступен · можно установить сборку") : ChannelNotice, 10, 23, 429, w - 295, 17, HasArchive ? Ui.Muted : Ui.Amber);
+        Ui.TextAt(g, HasArchive ? (Installed ? "ТВОЙ ЭКЗЕМПЛЯР" : "НОВАЯ УСТАНОВКА") : "ДОСТУП К СБОРКЕ", 9, w - 252, 347, 228, 18, Ui.Muted, true, align: StringAlignment.Center);
         float cw = (w - 28) / 3;
         Feature(g, 0, cw, "shield", "Проверенные файлы", "SHA256 перед установкой");
         Feature(g, cw + 14, cw, "folder", "Миры в сохранности", "Каждая версия отдельно");

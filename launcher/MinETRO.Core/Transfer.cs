@@ -3,12 +3,12 @@ using System.Security.Cryptography;
 
 namespace MinETRO.Core;
 public sealed record TransferProgress(string Message, int? Percent = null);
-public sealed class Transfer(HttpClient client)
+public sealed class Transfer(HttpClient client, Func<Uri, CancellationToken, Task<HttpResponseMessage>>? protectedOpen = null)
 {
     public static HttpClient CreateClient()
     {
         var result = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = Timeout.InfiniteTimeSpan };
-        result.DefaultRequestHeaders.UserAgent.ParseAdd("MinETRO-Launcher/0.4"); return result;
+        result.DefaultRequestHeaders.UserAgent.ParseAdd("MinETRO-Launcher/0.5"); return result;
     }
     public static async Task<string> Hash(string file, CancellationToken ct)
     {
@@ -64,7 +64,9 @@ public sealed class Transfer(HttpClient client)
             {
                 try
                 {
-                    using var response = await Open(Check.Https(spec.Url), ct);
+                    using var response = protectedOpen != null && spec != PackManifest.Engine
+                        ? await protectedOpen(Check.Https(spec.Url), ct)
+                        : await Open(Check.Https(spec.Url), ct);
                     if (response.Content.Headers.ContentLength is long length && length != spec.Bytes) throw new InvalidDataException("Размер загрузки не совпадает с манифестом.");
                     await using (var source = await response.Content.ReadAsStreamAsync(ct))
                     await using (var output = new FileStream(partial, FileMode.Create, FileAccess.Write, FileShare.None, 131072, true))

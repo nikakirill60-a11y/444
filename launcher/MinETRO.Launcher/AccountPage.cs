@@ -15,7 +15,7 @@ internal sealed class AccountPage : Panel
     private readonly Label result = TextLabel("", 10, Ui.Amber);
     private readonly TextBox email = Input(), password = Input(true), repeat = Input(true), nickname = Input(), code = Input(), profileNick = Input();
     private readonly LauncherButton loginTab = Button("Вход"), registerTab = Button("Регистрация"), recoveryTab = Button("Восстановление"), skinTab = Button("Скин");
-    private readonly LauncherButton submit = Button("Войти", true), confirmEmail = Button("У меня есть код"), sendCode = Button("Отправить код"), saveNick = Button("Сохранить ник"), chooseSkin = Button("Выбрать PNG"), uploadSkin = Button("Загрузить скин", true), logout = Button("Выйти"), reload = Button("Обновить профиль");
+    private readonly LauncherButton submit = Button("Войти", true), confirmEmail = Button("У меня есть код"), sendCode = Button("Отправить код"), chooseSkin = Button("Выбрать PNG"), uploadSkin = Button("Загрузить скин", true), logout = Button("Выйти"), reload = Button("Обновить профиль");
     private readonly Panel authBox = new() { AutoSize = true, Dock = DockStyle.Top, BackColor = Ui.Card };
     private readonly Panel profileBox = new() { AutoSize = true, Dock = DockStyle.Top, BackColor = Ui.Card };
     private readonly ComboBox model = new() { DropDownStyle = ComboBoxStyle.DropDownList, BackColor = Ui.Card, ForeColor = Ui.Text, Width = 170 };
@@ -52,14 +52,14 @@ internal sealed class AccountPage : Panel
         var actions = new FlowLayoutPanel { AutoSize = true, Dock = DockStyle.Top }; actions.Controls.AddRange([submit, sendCode, confirmEmail]); auth.Controls.Add(actions);
         var profile = Stack(Ui.Card, 20); profileBox.Controls.Add(profile);
         profileNickRow=Field("Твой ник", profileNick);profile.Controls.Add(profileNickRow);
-        var profileButtons = new FlowLayoutPanel { AutoSize=true, Dock=DockStyle.Top }; profileButtons.Controls.AddRange([saveNick,reload,logout]); profileActions=profileButtons;profile.Controls.Add(profileActions);
+        var profileButtons = new FlowLayoutPanel { AutoSize=true, Dock=DockStyle.Top }; profileButtons.Controls.AddRange([reload,logout]); profileActions=profileButtons;profile.Controls.Add(profileActions);
         var skin = new FlowLayoutPanel { AutoSize=true, Dock=DockStyle.Top, Margin=new Padding(0,16,0,0), WrapContents=true };
         skin.Controls.Add(preview);
         var skinActions = Stack(Ui.Card, 10); skinActions.Dock=DockStyle.None; skinActions.Width=250; skinActions.AutoSizeMode=AutoSizeMode.GrowAndShrink;
         skinActions.Controls.Add(TextLabel("Свой скин",16,Ui.Text,true)); skinActions.Controls.Add(TextLabel("PNG · 64×64 / 64×32 · до 256 КБ\n2D-предпросмотр спереди и сзади",9,Ui.Muted));
         model.Items.AddRange(["Steve · обычные руки", "Alex · тонкие руки"]); model.SelectedIndex=0;
         skinActions.Controls.Add(model); skinActions.Controls.Add(chooseSkin); skinActions.Controls.Add(uploadSkin); skinActions.Controls.Add(skinState); skin.Controls.Add(skinActions); profile.Controls.Add(skin);
-        operations.AddRange([email,password,repeat,nickname,code,profileNick,loginTab,registerTab,recoveryTab,skinTab,submit,confirmEmail,sendCode,saveNick,reload,logout,chooseSkin,uploadSkin,model]);
+        operations.AddRange([email,password,repeat,nickname,code,profileNick,loginTab,registerTab,recoveryTab,skinTab,submit,confirmEmail,sendCode,reload,logout,chooseSkin,uploadSkin,model]);
         loginTab.Click += (_,_) => SetMode("login"); registerTab.Click += (_,_) => SetMode("register"); recoveryTab.Click += (_,_) => SetMode("recovery");
         skinTab.Click += (_,_) => SetMode("skin");
         model.SelectedIndexChanged += (_,_) => { preview.Model = Model; preview.Invalidate(); };
@@ -70,7 +70,6 @@ internal sealed class AccountPage : Panel
             if(mode=="confirm") await service.ResendConfirmation(email.Text,ct); else await service.SendRecovery(email.Text, ct);
             result.Text="Если адрес подходит для операции, на него отправлен код. Проверь почту и спам.";
         });
-        saveNick.Click += async (_,_) => await Run(async ct => { await service.Rename(profileNick.Text.Trim(),ct); await LoadProfile(ct); result.Text="Ник сохранён."; });
         uploadSkin.Click += async (_,_) => await Run(async ct => { if(selectedSkin == null) throw new AccountException("Сначала выбери PNG-скин."); await service.UploadSkin(selectedSkin,Model,ct); await LoadProfile(ct); result.Text="Скин сохранён в профиле MinETRO. Показ в игре ещё не подключён."; });
         reload.Click += async (_,_) => await Run(LoadProfile);
         logout.Click += async (_,_) => await Run(async ct => { try { ClearProfile(); await service.SignOut(ct); } finally { ClearProfile(); SetMode("login"); } result.Text="Выполнен выход."; });
@@ -105,10 +104,10 @@ internal sealed class AccountPage : Panel
         confirmEmail.Text=config.EmailCodesEnabled?"У меня есть код":"Письмо с подтверждением";
         submit.Text=mode switch {"register"=>"Создать аккаунт","confirm"=>config.EmailCodesEnabled?"Подтвердить почту":"Я подтвердил почту","recovery"=>"Подтвердить код","reset"=>"Сохранить пароль",_=>"Войти"};
         foreach(var c in operations) c.Enabled=!busy;
-        foreach(var c in new Control[]{submit,sendCode,saveNick,reload,logout,uploadSkin}) c.Enabled=!busy && config.Enabled && (c==submit || c==sendCode || profile);
+        foreach(var c in new Control[]{submit,sendCode,reload,logout,uploadSkin}) c.Enabled=!busy && config.Enabled && (c==submit || c==sendCode || profile);
         chooseSkin.Enabled=!busy && profile; model.Enabled=!busy && profile;
         uploadSkin.Enabled=uploadSkin.Enabled && selectedSkin!=null;
-        profileNick.Enabled=!busy && profile;
+        profileNick.ReadOnly=true;profileNick.TabStop=false;
     }
     private async Task Submit(CancellationToken ct)
     {
@@ -169,6 +168,10 @@ internal sealed class AccountPage : Panel
         finally { if(!service.SignedIn) {ClearProfile();Render();} }
         if(!Authenticated) throw new AccountException("Войди заново, чтобы продолжить.");
     }
+    public async Task<DevAccessState> DevStatus(CancellationToken ct) { await RequireAccess(ct); return await service.DevStatus(ct); }
+    public async Task<DevAccessState> RequestDev(CancellationToken ct) { await RequireAccess(ct); return await service.RequestDev(ct); }
+    public async Task<PackManifest?> DevRelease(CancellationToken ct) { await RequireAccess(ct); return await service.DevRelease(ct); }
+    public Task<HttpResponseMessage> OpenDevDownload(Uri uri, CancellationToken ct) => service.OpenDevDownload(uri, ct);
     public async Task SmokeSignIn()
     { await service.SignIn("ui-smoke@example.test","not-a-real-password",lifetime.Token); await LoadProfile(lifetime.Token);Render(); }
     public async Task SmokeSignOut()
