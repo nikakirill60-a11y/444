@@ -54,5 +54,16 @@
     "launcher_ci_result": "success",
     "launcher_test_release": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-launcher-0.7-test",
     "user_reported_source_file_count": 8835
+  },
+  "local_read_diagnostics": {
+    "source_commit": "0c37d94f3ccfb55d1dc836f7f9adcd3140e07133",
+    "ci_run": "https://github.com/nikakirill60-a11y/444/actions/runs/45015251933",
+    "ci_conclusion": "success",
+    "node_tests": 41,
+    "local_browser_regressions": "PASS including 6002-file fixture; mocked Storage",
+    "deployment_id": "dpl_PwtPSiG2HG3sbSrU8MhC3qtURKBX",
+    "deployment_last_observed_state": "BUILDING",
+    "real_user_file_read_issue_resolved": false,
+    "change": "Exact local path + offset on read failures, current file during hash, short-read rejection, cancellation preserved"
   }
 }
