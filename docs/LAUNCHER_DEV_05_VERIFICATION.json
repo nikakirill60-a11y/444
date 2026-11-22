@@ -1,0 +1,94 @@
+{
+  "version": "0.5",
+  "source_commit": "afc12298e272bb6ca3be7174380f8b88751d3a54",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/45007290684",
+  "ci_conclusion": "success",
+  "artifact": {
+    "id": 14748725549,
+    "name": "MinETRO-Launcher-Windows",
+    "bytes": 67751442,
+    "sha256": "da786386dc9344311da2050048f3380e90cccee7eb399b6811735bf167454a5c",
+    "digest_scope": "GitHub artifact container, NOT the inner launcher ZIP",
+    "user_url": "https://github.com/nikakirill60-a11y/444/actions/runs/45007290684/artifacts/14748725549"
+  },
+  "windows_steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v6",
+      "conclusion": "success"
+    },
+    {
+      "name": "Channel authoring tests",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Core installer tests",
+      "conclusion": "success"
+    },
+    {
+      "name": "Windows self-contained build",
+      "conclusion": "success"
+    },
+    {
+      "name": "WinForms startup smoke test",
+      "conclusion": "success"
+    },
+    {
+      "name": "Package",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Publish separately authorized test launcher on current branch",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Post Run actions/setup-dotnet@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@v6",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v5",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "server_checks": {
+    "bucket_public": false,
+    "published_releases": 0,
+    "anon_can_get_release": false,
+    "client_can_publish": false,
+    "cotuna_status": "approved",
+    "approved_without_release_returns_null": true,
+    "unpublished_download_allowed": false,
+    "unapproved_release_rpc_denied": true,
+    "private_release_table_read_denied": true,
+    "storage_policy_audit": "only approved_dev_pack_read permits dev-packs reads; other policies scoped to skins"
+  },
+  "limitations": [
+    "GitHub artifact download and CI logs redirected to hosts blocked in this sandbox; ZIP checksum and screenshots not independently inspected locally.",
+    "Workflow dispatch publication rejected by GitHub integration with HTTP 403. No branch binary publication performed.",
+    "Private Drive pack not inspected or hosted; no full pack installation or Minecraft launch tested.",
+    "No automatic launcher updates enabled; separate test artifact only."
+  ]
+}
