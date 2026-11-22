@@ -77,7 +77,8 @@ class OriginalGatesTest(unittest.TestCase):
         self.assertEqual([3,7,8],evidence['remaining_germo_models'])
         self.assertTrue(all('/germo/' in n or '/textures/obj/' in n for n in evidence['source_files']))
         scope=json.loads((RES/'reduced_scope.json').read_text())
-        self.assertTrue(all(p['id'] in scope['removedIds'] for p in PROFILES))
+        self.assertTrue(all(p['id'] not in scope['removedIds'] for p in PROFILES))
+        self.assertTrue(all(p['id'] in scope['decorDistribution']['germoIds'] for p in PROFILES))
 
 
 if __name__=='__main__':unittest.main()
