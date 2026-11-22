@@ -1,0 +1,82 @@
+{
+  "version": "0.6",
+  "source_commit": "b991236d468f1b779ca13567ef1a1db65c9a865b",
+  "ci_run_url": "https://github.com/nikakirill60-a11y/444/actions/runs/45009051136",
+  "ci_conclusion": "success",
+  "release": {
+    "assets": [
+      {
+        "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-launcher-0.6-test/MinETRO-Launcher-0.6-report.json",
+        "digest": "sha256:939b994c25a526b820cf0d97337dfff48ae35a695954e1d6c57d9ed77250ee25",
+        "id": 778578163,
+        "name": "MinETRO-Launcher-0.6-report.json",
+        "size": 1140,
+        "state": "uploaded"
+      },
+      {
+        "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-launcher-0.6-test/MinETRO-Launcher-0.6-win-x64.sha256",
+        "digest": "sha256:482a52f530c2dc4665ee2a739e1a14b03858a9f82e46de048e4b47b9f2471eba",
+        "id": 778578164,
+        "name": "MinETRO-Launcher-0.6-win-x64.sha256",
+        "size": 100,
+        "state": "uploaded"
+      },
+      {
+        "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-launcher-0.6-test/MinETRO-Launcher-0.6-win-x64.zip",
+        "digest": "sha256:d5d3e42423a7353fc64141b96ebcd9aa8f79b164dab56460048d8db2e37fa6a9",
+        "id": 778578160,
+        "name": "MinETRO-Launcher-0.6-win-x64.zip",
+        "size": 67758394,
+        "state": "uploaded"
+      }
+    ],
+    "html_url": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-launcher-0.6-test",
+    "id": 454344459,
+    "prerelease": true,
+    "tag_name": "minetro-launcher-0.6-test",
+    "target_commitish": "b991236d468f1b779ca13567ef1a1db65c9a865b"
+  },
+  "checks": {
+    "python_tests": 14,
+    "new_file_update_scenarios": 12,
+    "existing_core_scenarios": 15,
+    "existing_account_scenarios": 12,
+    "existing_dev_access_scenarios": 8,
+    "existing_release_scenarios": 6,
+    "windows_self_contained_build": "PASS",
+    "windows_ui_smoke": "PASS (mock accounts and schema-2 manifest)",
+    "new_coverage": [
+      "identical update needs zero network after cache deletion",
+      "one changed mod transfers only new bytes",
+      "multi-chunk assembly and deduplication",
+      "world/options/screenshots/config/packv4 retained",
+      "removed managed files excluded from new stage but retained in backup",
+      "corrupt transfer/corrupt cache/cancel/parallel updater",
+      "directory-swap recovery",
+      "project-bound URL, forbidden response and redirect denial",
+      "owner upload dry-run and no implicit activation"
+    ]
+  },
+  "backend": {
+    "project_ref": "xmhxucddhkitxqtweifu",
+    "migration": "dev_file_distribution_protocol",
+    "schema_file": "launcher/supabase/migrations/202610300005_file_distribution.sql",
+    "applied": true,
+    "permission_tests": "PASS (transactions rolled back)",
+    "membership_tests": "approved exact chunk allowed; unlisted and traversal denied; metadata object not downloadable; fixture rolled back",
+    "publisher_guards": "stale expected version, missing owner approval and missing chunks rejected; transactions rolled back",
+    "active_releases": 0,
+    "published_file_versions": 0,
+    "uploaded_objects": 0,
+    "bucket_public": false
+  },
+  "limitations": [
+    "Source Drive baseline not inspected/transferred; real initial installation not tested.",
+    "Real publisher Storage upload and capacity/quota for >3.7 GB not verified.",
+    "Config is seed-only, arbitrary config migration and initial world distribution are not implemented.",
+    "Staging copies data locally and retains backups; sufficient disk space and closed Minecraft/Prism required.",
+    "Publisher is a Python CLI/drag-folder preparation helper, not a full GUI uploader.",
+    "Release API confirms uploaded assets and ZIP digest; binary/screenshots not independently downloaded to this restricted sandbox.",
+    "No actual Minecraft launch and no active pack automatic updates enabled."
+  ]
+}

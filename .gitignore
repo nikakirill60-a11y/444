@@ -18,3 +18,7 @@ build-output.log
 
 # Temporary connector downloads are moved to their verified source paths.
 google_drive/
+
+# Local content-addressed publisher output (private pack data, never source).
+/launcher/prepared/
+/launcher/publisher/prepared/
