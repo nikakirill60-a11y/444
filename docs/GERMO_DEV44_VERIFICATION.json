@@ -1,0 +1,52 @@
+{
+  "sourceCommit": "653012e7b6f2dd995bf729ebf85294c23ff8cc6a",
+  "buildRun": 44994101413,
+  "conclusion": "success",
+  "release": "https://github.com/nikakirill60-a11y/444/releases/tag/minetro-inventory-dev44",
+  "assets": [
+    {
+      "name": "GERMO_DEV44_RU.md",
+      "size": 3327,
+      "digest": "sha256:cacba5fcae3a56e7f761af583887e48a98a27572a2dd3f24a93e5dee05e98f27",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev44/GERMO_DEV44_RU.md"
+    },
+    {
+      "name": "metrocraft-port-1.12.2-1.13.0-dev.44.jar",
+      "size": 102798069,
+      "digest": "sha256:5646aa7b7fb51bea7d16a590f64e22ed3c5af607712331d08860f48e9f3707fa",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev44/metrocraft-port-1.12.2-1.13.0-dev.44.jar"
+    },
+    {
+      "name": "MinETRO_inventory_dev44_report.json",
+      "size": 486,
+      "digest": "sha256:cc8ca686b731886b5f66744de0088d380fbbc4443f4588c895e5471fa09033cb",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev44/MinETRO_inventory_dev44_report.json"
+    },
+    {
+      "name": "WEAPON_RARITIES_DEV36_RU.md",
+      "size": 2063,
+      "digest": "sha256:81d2f5e672935b1453920985fcb7afbadf8927548a25d9c714e231b9d9bc3768",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/nikakirill60-a11y/444/releases/download/minetro-inventory-dev44/WEAPON_RARITIES_DEV36_RU.md"
+    }
+  ],
+  "tests": [
+    {
+      "title": "JUnit results",
+      "message": "632 tests, 0 failures, 0 errors, 0 skipped"
+    },
+    {
+      "title": "Python results",
+      "message": "448 tests; 0 failures; 0 errors"
+    }
+  ],
+  "restoredGermoCount": 17,
+  "retainedLeverCount": 6,
+  "ordinaryDoorsRestored": false,
+  "staticLampsRestored": false,
+  "legacyDuplicateGatesRestored": false,
+  "minecraftLiveTested": false
+}
