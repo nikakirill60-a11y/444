@@ -44,6 +44,19 @@ export function selectGameFiles(files) {
   if(bytes>MAX_PACK_BYTES)throw Error('Объём файлов сборки '+(bytes/1024**3).toFixed(1)+' ГиБ; поддерживается до 128 ГиБ. Ничего не отправлено.');
   return selected.sort((a,b)=>a.path<b.path?-1:a.path>b.path?1:0);
 }
+async function readSource(file,path,offset,length,signal) {
+  signal?.throwIfAborted();
+  let bytes;
+  try { bytes=new Uint8Array(await file.slice(offset,offset+length).arrayBuffer()); }
+  catch(cause) {
+    signal?.throwIfAborted();
+    const error=new Error('Не удалось прочитать локальный файл «'+path+'» (позиция '+offset+' байт). Закрой Minecraft и лаунчер, дождись скачивания файла из облака, если он хранится там, и проверь доступ к нему. Затем заново выбери папку и нажми «Проверить папку». Не удаляй файл из сборки. Уже принятые блоки на сервере сохраняются.');
+    error.name='SourceReadError';throw error;
+  }
+  signal?.throwIfAborted();
+  if(bytes.length!==length)throw Error('Исходный файл «'+path+'» изменился или прочитан не полностью. Заново выбери папку и проверь её.');
+  return bytes;
+}
 export async function prepareFiles(files,version,{signal,onProgress=()=>{}}={}) {
   if(!/^[A-Za-z0-9][A-Za-z0-9._-]{0,39}$/.test(version))throw Error('Версия: до 40 латинских букв, цифр, точек, дефисов или _.');
   const selected=selectGameFiles(files), manifest={schema:2,version,files:[]},chunks=new Map();
@@ -51,9 +64,10 @@ export async function prepareFiles(files,version,{signal,onProgress=()=>{}}={}) 
   for(const item of selected) {
     signal?.throwIfAborted();const hasher=sha256.create(), parts=[];
     for(let offset=0;offset<item.file.size;offset+=CHUNK_BYTES) {
-      signal?.throwIfAborted();const bytes=new Uint8Array(await item.file.slice(offset,offset+CHUNK_BYTES).arrayBuffer());
+      signal?.throwIfAborted();onProgress({phase:'hash',done:read,total,file:item.path});
+      const bytes=await readSource(item.file,item.path,offset,Math.min(CHUNK_BYTES,item.file.size-offset),signal);
       signal?.throwIfAborted();hasher.update(bytes);const sha=digest(bytes),chunk={sha256:sha,bytes:bytes.length};parts.push(chunk);
-      if(!chunks.has(sha))chunks.set(sha,{...chunk,file:item.file,offset});
+      if(!chunks.has(sha))chunks.set(sha,{...chunk,file:item.file,path:item.path,offset});
       read+=bytes.length;onProgress({phase:'hash',done:read,total,file:item.path});
       // Yield to input/cancel between chunks rather than hashing GBs in one task.
       if(Date.now()-lastYield>=16){await new Promise(resolve=>setTimeout(resolve,0));lastYield=Date.now();}
@@ -78,7 +92,7 @@ export async function uploadPrepared(accounts,prepared,existing,{signal,onProgre
   for(const chunk of prepared.chunks.values()) {
     signal?.throwIfAborted();
     if(existing.has(chunk.sha256)){reused+=chunk.bytes;continue;}
-    const bytes=new Uint8Array(await chunk.file.slice(chunk.offset,chunk.offset+chunk.bytes).arrayBuffer());
+    const bytes=await readSource(chunk.file,chunk.path,chunk.offset,chunk.bytes,signal);
     signal?.throwIfAborted();
     if(bytes.length!==chunk.bytes||digest(bytes)!==chunk.sha256)throw Error('Исходный файл изменился во время загрузки. Выбери папку и проверь заново.');
     await accounts.uploadDevChunk(chunk.sha256,bytes,signal);sent+=bytes.length;

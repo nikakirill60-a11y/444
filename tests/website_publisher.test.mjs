@@ -80,3 +80,25 @@ test('file count and volume bounds give separate measured diagnostics',()=>{
  const large=[...basic(),...Array.from({length:17},(_,i)=>({webkitRelativePath:'game/resourcepacks/a'+i,size:8*1024**3}))];
  assert.throws(()=>selectGameFiles(large),/136\.0 ГиБ.*128 ГиБ/);
 });
+test('local read failure names the exact file instead of opaque browser exception',async()=>{
+ const broken=file('resourcepacks/problem.zip','asset');
+ broken.slice=()=>({arrayBuffer:async()=>{throw new DOMException('opaque browser detail','NotReadableError');}});
+ const progress=[];
+ await assert.rejects(prepareFiles([...basic(),broken],'dev-read',{onProgress:p=>progress.push(p)}),e=>e.name==='SourceReadError'&&e.message.includes('resourcepacks/problem.zip')&&!e.message.includes('opaque browser detail'));
+ assert.equal(progress.at(-1).file,'resourcepacks/problem.zip');
+});
+test('local upload read failure names source and never sends the unreadable chunk',async()=>{
+ const p=await prepareFiles(basic(),'dev-read'),t=transport(),c=p.chunks.values().next().value;
+ c.file={slice:()=>({arrayBuffer:async()=>{throw new DOMException('locked','NotReadableError');}})};
+ await assert.rejects(uploadPrepared(t.api,p,new Set()),e=>e.name==='SourceReadError'&&e.message.includes(c.path));
+ assert.equal(t.objects.size,0);
+});
+test('short local read fails preparation instead of accepting a truncated manifest',async()=>{
+ const short=file('resourcepacks/short.zip','asset');short.slice=()=>new Blob(['a']);
+ await assert.rejects(prepareFiles([...basic(),short],'dev-read'),/short.zip.*не полностью/);
+});
+test('abort during local read remains cancellation rather than permission advice',async()=>{
+ const controller=new AbortController(),f=file('resourcepacks/abort.zip','asset');
+ f.slice=()=>({arrayBuffer:async()=>{controller.abort();throw new DOMException('locked','NotReadableError');}});
+ await assert.rejects(prepareFiles([...basic(),f],'dev-read',{signal:controller.signal}),e=>e.name==='AbortError');
+});

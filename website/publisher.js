@@ -29,12 +29,15 @@ export function mountPublisher(accounts,{run,busy}) {
   async function operation(action) {
     controller=new AbortController();render();
     try {await action(controller.signal);}
-    catch(error){if(controller?.signal.aborted)throw Error('Операция остановлена. Принятые блоки сохранены.');throw error;}
+    catch(error){
+      if(controller?.signal.aborted){message('Операция остановлена. Принятые блоки сохранены.');throw Error('Операция остановлена. Принятые блоки сохранены.');}
+      message('Операция не завершена. '+error.message);throw error;
+    }
     finally {controller=null;render();}
   }
   function progress(p) {
     $('publisher-progress').value=p.total?100*p.done/p.total:0;
-    message(p.phase==='hash'?'Проверка файлов: '+volume(p.done)+' / '+volume(p.total)+'. Пока ничего не отправляется.':
+    message(p.phase==='hash'?'Проверка файлов: '+volume(p.done)+' / '+volume(p.total)+'. Пока ничего не отправляется. Файл: '+p.file:
       'Отправлено: '+volume(p.sent)+'. Уже есть на сервере: '+volume(p.reused)+'. Не закрывай вкладку.');
   }
   $('publisher-folder').onchange=()=>{clearPrepared();message('Выбрано файлов: '+$('publisher-folder').files.length+'. Нажми «Проверить папку».');};
