@@ -22,6 +22,11 @@ begin
  or (f->>'sha256' ~ '^[a-f0-9]{64}$') is not true
  or lower(f->>'path') ~ '(^|/)packv4\.json$|^modularwarfare/mod_config\.json$|(^|/)\.\.(/|$)')
  then raise exception 'Invalid/protected file entries'; end if;
+ -- Numeric bounds match browser/desktop; malformed casts abort publication atomically.
+ if exists(select 1 from jsonb_array_elements(new_manifest->'files') f
+ where jsonb_typeof(f->'bytes') is distinct from 'number' or (f->>'bytes')::numeric not between 0 and 8589934592)
+ or (select sum((f->>'bytes')::numeric) from jsonb_array_elements(new_manifest->'files') f)>137438953472
+ then raise exception 'File release volume exceeds protocol bounds'; end if;
  if exists(select 1 from jsonb_array_elements(new_manifest->'files') f,
    jsonb_array_elements(f->'chunks') c where not exists(select 1 from storage.objects o
     where o.bucket_id='dev-packs' and o.name='chunks/'||(c->>'sha256')
