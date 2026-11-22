@@ -48,7 +48,7 @@ internal static class DevAccessTests
         });
         await Test("release URLs are replaced by project-bound private storage URL",async()=>{
             using var stub=new Stub((_,index)=>Json(index==0?Session:Release()));using var api=new Accounts(Config,stub);await api.SignIn("test@example.test","test-password",default);
-            var m=await api.DevRelease(default);Assert(m?.Archive?.Url==Config.Url+"/storage/v1/object/authenticated/dev-packs/baseline/MinETRO.zip");Assert(m.Name=="MinETRO dev");
+            var m=await api.DevRelease(default);Assert(m?.Archive?.Url==Config.Url+"/storage/v1/object/authenticated/dev-packs/baseline/MinETRO.zip");Assert(m!.Name=="MinETRO dev");
         });
         await Test("traversal and external download destinations rejected without token leak",async()=>{
             using var stub=new Stub((_,index)=>Json(index==0?Session:Release()));using var api=new Accounts(Config,stub);await api.SignIn("test@example.test","test-password",default);
