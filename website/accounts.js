@@ -69,11 +69,79 @@ export class Accounts {
     const data = await this.send('auth/v1/token?grant_type=password', { email, password });
     if (!data.access_token || !/^[0-9a-f-]{36}$/i.test(data.user?.id || '') || !Number.isFinite(data.expires_in) || data.expires_in < 1) throw Error('Неверный ответ сервиса аккаунтов.');
     try {
-      const rows = await this.send('rest/v1/profiles?id=eq.' + data.user.id + '&select=id,nickname', undefined, data.access_token, 'GET');
+      const rows = await this.send('rest/v1/profiles?id=eq.' + data.user.id + '&select=id,nickname,skin_path,skin_model', undefined, data.access_token, 'GET');
       if (!Array.isArray(rows) || rows.length !== 1 || rows[0].id !== data.user.id || !/^[A-Za-z0-9_]{3,16}$/.test(rows[0].nickname)) throw Error('Профиль не найден. Попробуй позже.');
-      this.session = { token: data.access_token, id: data.user.id, nickname: rows[0].nickname, expires: Date.now() + data.expires_in * 1000 };
+      this.session = { token: data.access_token, id: data.user.id, nickname: rows[0].nickname, email: data.user.email || email, profile: rows[0], expires: Date.now() + data.expires_in * 1000 };
       return this.session;
     } catch (error) { this.clear(); throw error; }
+  }
+  requireSession() {
+    if (!this.session || this.session.expires <= Date.now()) { this.clear(); throw Error('Сессия истекла. Войди снова.'); }
+    return this.session;
+  }
+  async profile() {
+    const session = this.requireSession();
+    const rows = await this.send('rest/v1/profiles?id=eq.' + session.id + '&select=id,nickname,skin_path,skin_model', undefined, session.token, 'GET');
+    if (!Array.isArray(rows) || rows.length !== 1 || rows[0].id !== session.id || !/^[A-Za-z0-9_]{3,16}$/.test(rows[0].nickname)) throw Error('Не удалось загрузить профиль.');
+    this.requireSession();
+    session.profile = rows[0]; session.nickname = rows[0].nickname;
+    return rows[0];
+  }
+  async uploadSkin(png, model) {
+    const session = this.requireSession();
+    validateSkin(png, model);
+    const path = session.id + '/skin.png';
+    let response;
+    try {
+      response = await this.request(AUTH_URL + '/storage/v1/object/skins/' + path, {
+        method:'POST', credentials:'omit', cache:'no-store', redirect:'error',
+        headers:{apikey:PUBLIC_KEY, Authorization:'Bearer ' + session.token, 'Content-Type':'image/png', 'x-upsert':'true'},
+        body:png, signal:AbortSignal.timeout(30000)
+      });
+    } catch (_) { throw Error('Не удалось загрузить скин. Проверь соединение.'); }
+    if (response.status === 401) this.clear();
+    if (!response.ok) throw Error('Не удалось сохранить скин. Попробуй войти снова.');
+    this.requireSession();
+    await this.send('rest/v1/profiles?id=eq.' + session.id, {skin_path:path, skin_model:model}, session.token, 'PATCH');
+  }
+  async skin() {
+    const session = this.requireSession(), path = session.profile?.skin_path;
+    if (!path) return null;
+    if (path !== session.id + '/skin.png') throw Error('Недопустимый путь скина.');
+    let response;
+    try {
+      response = await this.request(AUTH_URL + '/storage/v1/object/authenticated/skins/' + path, {
+        method:'GET', credentials:'omit', cache:'no-store', redirect:'error',
+        headers:{apikey:PUBLIC_KEY, Authorization:'Bearer ' + session.token}, signal:AbortSignal.timeout(30000)
+      });
+    } catch (_) { throw Error('Не удалось загрузить сохранённый скин.'); }
+    if (response.status === 401) this.clear();
+    if (!response.ok) throw Error('Сохранённый скин недоступен. Попробуй обновить кабинет.');
+    // The bucket enforces 256 KiB; also cap streamed data before image decoding.
+    if (Number(response.headers.get('Content-Length')) > 262144) throw Error('Скин слишком большой.');
+    const reader = response.body.getReader(); let size=0; const chunks=[];
+    try {
+      while (true) { const {done,value}=await reader.read(); if(done)break;
+        size+=value.length; if(size>262144)throw Error('Скин слишком большой.'); chunks.push(value);
+      }
+    } finally { await reader.cancel(); }
+    const png = new Uint8Array(size); let offset=0;
+    for(const chunk of chunks){png.set(chunk,offset);offset+=chunk.length;}
+    validateSkin(png,session.profile.skin_model || 'steve');
+    return png;
+  }
+  async devStatus() {
+    const s=this.requireSession();
+    const rows=await this.send('rest/v1/dev_access_requests?select=status&user_id=eq.' + s.id,undefined,s.token,'GET');
+    return rows[0]?.status || 'none';
+  }
+  async rpc(name, body={}) { return this.send('rest/v1/rpc/' + name,body,this.requireSession().token); }
+  async devRequest() { return this.rpc('request_dev_access'); }
+  async isAdmin() { return (await this.rpc('is_launcher_admin')) === true; }
+  async inbox() { return this.rpc('dev_access_inbox'); }
+  async review(target, approve) {
+    if (!/^[0-9a-f-]{36}$/i.test(target) || typeof approve !== 'boolean') throw Error('Некорректное решение.');
+    return this.rpc('review_dev_access',{target,approve});
   }
   async resend(email) {
     email = validate(email, 'temporary-password');
@@ -83,4 +151,15 @@ export class Accounts {
     const token = this.session?.token; this.clear();
     if (token) await this.send('auth/v1/logout?scope=local', {}, token);
   }
+}
+
+// Validate the signature and dimensions before a browser image decoder runs.
+export function validateSkin(png, model='steve') {
+  if (!(png instanceof Uint8Array) || png.length < 33 || png.length > 262144 ||
+      ![137,80,78,71,13,10,26,10].every((v,i)=>png[i]===v) ||
+      ![73,72,68,82].every((v,i)=>png[12+i]===v)) throw Error('Нужен PNG-скин 64×64 или 64×32, до 256 КБ.');
+  const view = new DataView(png.buffer,png.byteOffset,png.byteLength), height=view.getUint32(20);
+  if(view.getUint32(16)!==64 || ![32,64].includes(height) || !['steve','alex'].includes(model) || (model==='alex' && height!==64))
+    throw Error('Steve: PNG 64×64 или 64×32. Alex: PNG 64×64.');
+  return height;
 }

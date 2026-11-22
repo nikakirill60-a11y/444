@@ -2,8 +2,13 @@ name: Build Windows test launcher
 on:
   push:
     branches: ['arena/dcab859f-444']
-    paths: ['launcher/**', '.github/workflows/launcher.yml']
+    paths: ['launcher/**', '!launcher/supabase/**', '.github/workflows/launcher.yml']
   workflow_dispatch:
+    inputs:
+      publish_test_launcher:
+        description: 'Publish a separate test launcher only with explicit owner permission'
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -88,8 +93,8 @@ jobs:
             downloads/MinETRO-Launcher-0.4-win-x64.zip
             downloads/MinETRO-Launcher-0.4-win-x64.sha256
             downloads/MinETRO-Launcher-0.4-report.json
-      - name: Publish on current branch
-        if: github.ref == 'refs/heads/arena/dcab859f-444'
+      - name: Publish separately authorized test launcher on current branch
+        if: github.ref == 'refs/heads/arena/dcab859f-444' && github.event_name == 'workflow_dispatch' && inputs.publish_test_launcher
         shell: pwsh
         run: |
           $remote = (git ls-remote origin refs/heads/arena/dcab859f-444).Split()[0]

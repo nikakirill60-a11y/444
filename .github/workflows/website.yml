@@ -1,0 +1,31 @@
+name: Website account and cabinet tests
+on:
+  push:
+    branches: ['arena/dcab859f-444']
+    paths: ['website/**', 'tests/website_accounts.test.mjs', 'tools/test_website_cabinet_browser.mjs', '.github/workflows/website.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: node --test tests/website_accounts.test.mjs
+      - run: python -m unittest discover -s tests -p 'test_beta_website.py'
+      - run: python -m unittest discover -s tests -p 'test_website_wiki*.py'
+      - run: npm install --no-save --no-package-lock playwright@1.65.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/test_website_cabinet_browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Website-cabinet-browser-checks
+          path: artifacts/website-cabinet/
