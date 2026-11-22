@@ -102,8 +102,8 @@ async function page(fragment='',request=async()=>response({})) {
  const elements=Object.fromEntries([...html.matchAll(/id="([^"]+)"/g)].map(m=>[m[1],element()]));
  const location={hash:fragment,search:'',pathname:'/account.html'};
  const api=new Accounts(request);let erased=false;
- const script=readFileSync(new URL('../website/account.js',import.meta.url),'utf8').replace("import {Accounts, validateSkin} from './accounts.js';",'');
- runInNewContext(script,{Accounts:class {constructor(){return api;}},document:{getElementById:id=>elements[id],createElement:element},location,history:{replaceState(){erased=true;location.hash='';}},URLSearchParams,Date,validateSkin,window:{addEventListener(){}},setTimeout:(fn,ms)=>setTimeout(fn,ms).unref(),clearTimeout,setInterval:()=>0,clearInterval(){}});
+ const script=readFileSync(new URL('../website/account.js',import.meta.url),'utf8').replace(/^import .*;$/gm,'');
+ runInNewContext(script,{mountPublisher:()=>({render(){},reset(){},async load(){}}),Accounts:class {constructor(){return api;}},document:{getElementById:id=>elements[id],createElement:element},location,history:{replaceState(){erased=true;location.hash='';}},URLSearchParams,Date,validateSkin,window:{addEventListener(){}},setTimeout:(fn,ms)=>setTimeout(fn,ms).unref(),clearTimeout,setInterval:()=>0,clearInterval(){}});
  await new Promise(resolve=>setImmediate(resolve));
  return {elements,api,erased};
 }

@@ -1,16 +1,18 @@
 import {Accounts, validateSkin} from './accounts.js';
+import {mountPublisher} from './publisher.js';
 const $ = id => document.getElementById(id);
 const accounts = new Accounts();
 let mode = 'signup', busy = false, expiry, inboxTimer, selectedSkin = null, selectedModel = 'steve', admin = false;
 const status = text => { $('account-status').textContent = text; };
 const actions = ['submit-account', 'resend-confirmation', 'forgot-password', 'mode-signup', 'mode-signin', 'sign-out', 'reload-profile', 'profile-recovery', 'skin-file', 'skin-model', 'upload-skin', 'request-dev', 'refresh-inbox'];
+const publisher=mountPublisher(accounts,{run,busy:()=>busy});
 function signedIn(value) {
   $('guest').hidden = value; $('signed-in').hidden = !value;
   $('account-intro').hidden = value; $('main').classList.toggle('cabinet-open', value);
   $('profile-nickname').textContent = value ? accounts.session.nickname : '';
   $('profile-email').textContent = value ? accounts.session.email : '';
   if (!value) {
-    clearInterval(inboxTimer); admin = false; selectedSkin = null;
+    publisher.reset(); clearInterval(inboxTimer); admin = false; selectedSkin = null;
     $('admin-inbox').hidden = true; $('requests').replaceChildren(); $('request-count').textContent = '';
     $('skin-preview').getContext('2d').clearRect(0,0,64,64); $('skin-file').value = '';
     $('skin-state').textContent = 'Скин пока не загружен.';
@@ -19,6 +21,7 @@ function signedIn(value) {
   }
 }
 function updateButtons() {
+  publisher.render();
   $('upload-skin').disabled = busy || !accounts.session || !selectedSkin;
   $('request-dev').disabled = busy || !accounts.session || $('request-dev').dataset.state !== 'none';
   for (const button of $('requests').querySelectorAll('button')) button.disabled = busy;
@@ -161,6 +164,7 @@ async function loadCabinet() {
     admin = await accounts.isAdmin(); $('admin-inbox').hidden = !admin;
     if (admin) await loadInbox();
   } catch (_) { admin = false; $('admin-inbox').hidden = true; ok = false; }
+  try { await publisher.load(); } catch (_) { publisher.reset(); ok = false; }
   clearInterval(inboxTimer);
   if (admin) inboxTimer = setInterval(() => {
     if (!busy && accounts.session && !document.hidden) run(async () => { await loadInbox(); status('Входящие заявки обновлены.'); });

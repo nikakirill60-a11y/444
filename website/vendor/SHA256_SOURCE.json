@@ -1,0 +1,11 @@
+{
+  "library": "@noble/hashes",
+  "version": "1.8.0",
+  "license": "MIT",
+  "npm_integrity": "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==",
+  "entry": "export { sha256 } from '@noble/hashes/sha256';",
+  "bundler": "esbuild 0.25.12",
+  "options": "--bundle --format=esm --platform=browser --minify --legal-comments=inline",
+  "bundle_sha256": "2776a07b4b95cf1778fadc940467a441a09bc819c8ab699fea54cb9f5fdf080a",
+  "test": "Known vectors and boundary sizes compared to node:crypto in tests/website_publisher.test.mjs"
+}

@@ -2,7 +2,7 @@ name: Website account and cabinet tests
 on:
   push:
     branches: ['arena/dcab859f-444']
-    paths: ['website/**', 'tests/website_accounts.test.mjs', 'tools/test_website_cabinet_browser.mjs', '.github/workflows/website.yml']
+    paths: ['website/**', 'tests/website_accounts.test.mjs', 'tests/website_publisher.test.mjs', 'tools/test_website_cabinet_browser.mjs', '.github/workflows/website.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - run: node --test tests/website_accounts.test.mjs
+      - run: node --test tests/website_accounts.test.mjs tests/website_publisher.test.mjs
       - run: python -m unittest discover -s tests -p 'test_beta_website.py'
       - run: python -m unittest discover -s tests -p 'test_website_wiki*.py'
       - run: npm install --no-save --no-package-lock playwright@1.65.1

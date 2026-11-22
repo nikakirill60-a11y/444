@@ -25,10 +25,18 @@ export class Accounts {
     if (!response.ok) {
       if (response.status === 401 && token) this.clear();
       // Never render raw responses, tokens, emails or SQL diagnostics in the page.
-      let code = ''; try { const error = await response.json(); code = error.error_code || error.code || ''; } catch (_) {}
+      let code = '', detail = ''; try { const error = await response.json(); code = error.error_code || error.code || ''; detail = error.message || ''; } catch (_) {}
       if (response.status === 429) throw Error('Слишком много попыток. Подожди перед повтором.');
       if (path === 'rest/v1/rpc/review_dev_access' && code === '42501') throw Error('Подтверждать и отклонять заявки может только администратор. Обнови кабинет или войди заново.');
       if (path === 'rest/v1/rpc/review_dev_access' && code === 'P0002') throw Error('Заявка уже рассмотрена или больше не ожидает решения. Обнови список заявок.');
+      if (path === 'rest/v1/rpc/publish_own_dev_files') {
+        if (code === '42501') throw Error('Нет отдельных прав владельца на публикацию сборки.');
+        if (code === '23505') throw Error('Такое имя версии уже опубликовано. Укажи новое имя и проверь папку заново.');
+        if (detail === 'Active release changed') throw Error('Активная версия уже изменилась. Обнови кабинет и проверь папку заново.');
+        if (detail === 'Release chunks not fully uploaded') throw Error('Часть блоков отсутствует. Проверь папку и повтори загрузку.');
+        if (detail === 'Explicit owner acceptance required') throw Error('Нужно явно подтвердить публикацию выбранной версии.');
+        throw Error('Сервер отклонил публикацию. Проверь имя версии, полноту сборки и загруженные блоки.');
+      }
       if (code === 'email_not_confirmed') throw Error('Сначала подтверди почту по ссылке из письма.');
       if (code === 'invalid_credentials') throw Error('Неверная почта или пароль.');
       if (response.status === 422 || response.status === 400 || response.status === 409) throw Error('Проверь данные, подтверждение почты и доступность ника.');
@@ -144,6 +152,26 @@ export class Accounts {
   async review(target, approve) {
     if (!/^[0-9a-f-]{36}$/i.test(target) || typeof approve !== 'boolean') throw Error('Некорректное решение.');
     return this.rpc('review_dev_access',{target,approve});
+  }
+  async uploadDevChunk(sha, bytes, signal) {
+    if (!/^[a-f0-9]{64}$/.test(sha) || !(bytes instanceof Uint8Array) || bytes.length<1 || bytes.length>8388608) throw Error('Неверный блок сборки.');
+    const s=this.requireSession(); let response;
+    try {
+      response=await this.request(AUTH_URL+'/storage/v1/object/dev-packs/chunks/'+sha,{
+        method:'POST',credentials:'omit',cache:'no-store',redirect:'error',
+        headers:{apikey:PUBLIC_KEY,Authorization:'Bearer '+s.token,'Content-Type':'application/octet-stream','x-upsert':'false'},
+        body:bytes,signal:signal?AbortSignal.any([signal,AbortSignal.timeout(120000)]):AbortSignal.timeout(120000)
+      });
+    } catch (_) { signal?.throwIfAborted();throw Error('Загрузка прервалась. Повтори её: уже принятые блоки не отправляются заново.'); }
+    if(response.status===401){this.clear();throw Error('Сессия истекла. Войди снова, выбери ту же папку и повтори: готовые блоки сохранятся.');}
+    if(response.status===409){
+      const found=await this.rpc('owner_chunk_inventory',{requested:[{sha256:sha,bytes:bytes.length}]});
+      if(Array.isArray(found)&&found.includes(sha))return;
+    }
+    if(response.status===413||response.status===507)throw Error('Хранилище отклонило объём загрузки. Проверь квоту проекта. Тариф автоматически не изменялся.');
+    if(response.status===403)throw Error('Сервер не разрешил загрузку. Нужны отдельные права владельца сборки.');
+    if(!response.ok)throw Error('Хранилище отклонило блок (HTTP '+response.status+'). Готовые блоки сохранены; проверь доступность и квоту хранилища.');
+    this.requireSession();
   }
   async resend(email) {
     email = validate(email, 'temporary-password');
