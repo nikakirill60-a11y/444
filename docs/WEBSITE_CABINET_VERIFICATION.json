@@ -1,0 +1,38 @@
+{
+  "source_commit": "ae20cd8627c5ff9726d61006c0c743df81d0e8f7",
+  "url": "https://minetro-beta.vercel.app/account.html",
+  "deployment_id": "dpl_311eHLuogzycZP3k6r4NCzVEB2Qz",
+  "github_website_ci": {
+    "run": 45005927915,
+    "conclusion": "success"
+  },
+  "checks": {
+    "node_protocol_and_ui": 21,
+    "python_site": 8,
+    "python_wiki": 15,
+    "chromium_widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "chromium_admin_confirm_reject": "pass",
+    "chromium_with_production_csp": "pass",
+    "live_backend_negative_permissions": "pass",
+    "admins_assigned": 0,
+    "private_skin_bucket": true,
+    "launcher_ci": 45005927846,
+    "launcher_ci_conclusion": "success",
+    "launcher_publication": "skipped"
+  },
+  "limitations": [
+    "No real user mailbox or real-account password change tested.",
+    "No real administrator assigned or positive production approval tested.",
+    "Dev archive delivery and launcher channel integration remain unconnected.",
+    "In-game skin rendering not connected."
+  ],
+  "deployment_state": "READY",
+  "deployment_substate": "PROMOTED",
+  "production_alias": "minetro-beta.vercel.app"
+}
